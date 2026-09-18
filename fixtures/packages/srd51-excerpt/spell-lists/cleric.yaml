@@ -1,0 +1,10 @@
+# Excerpt: only the cleric spells present in this fixture.
+id: srd51.spell-list.cleric
+name:
+  en: Cleric spells
+source: srd51
+spells:
+- srd51.spell.bless
+- srd51.spell.cure-wounds
+- srd51.spell.pass-without-trace
+- srd51.spell.silence

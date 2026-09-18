@@ -1,0 +1,18 @@
+id: srd51.condition.invisible
+name:
+  en: Invisible
+source: srd51
+text:
+  en: |-
+    * An invisible creature is impossible to see without the aid of magic or a special sense. For the purpose of hiding, the creature is heavily obscured. The creature’s location can be detected by any noise it makes or any tracks it leaves.
+    * Attack rolls against the creature have disadvantage, and the creature’s attack rolls have advantage.
+effects:
+- kind: roll-advantage
+  on:
+    type: attack
+- kind: add-text
+  section: conditions
+  text:
+    en: Attack rolls against you have disadvantage; you are heavily obscured for hiding.
+  note:
+    en: Rolls made against you are not modelled by the engine; shown as a reminder.

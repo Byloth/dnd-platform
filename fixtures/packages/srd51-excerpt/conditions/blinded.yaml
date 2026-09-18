@@ -1,0 +1,18 @@
+id: srd51.condition.blinded
+name:
+  en: Blinded
+source: srd51
+text:
+  en: |-
+    * A blinded creature can't see and automatically fails any ability check that requires sight.
+    * Attack rolls against the creature have advantage, and the creature’s attack rolls have disadvantage.
+effects:
+- kind: roll-disadvantage
+  on:
+    type: attack
+- kind: add-text
+  section: conditions
+  text:
+    en: Attack rolls against you have advantage; you automatically fail checks that require sight.
+  note:
+    en: Rolls made against you are not modelled by the engine; shown as a reminder.

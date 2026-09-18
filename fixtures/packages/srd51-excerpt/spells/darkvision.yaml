@@ -1,0 +1,30 @@
+id: srd51.spell.darkvision
+name:
+  en: Darkvision
+source: srd51
+level: 2
+school: transmutation
+castingTime:
+  activation: action
+range:
+  type: touch
+components:
+  v: true
+  s: true
+  m:
+    en: Either a pinch of dried carrot or an agate
+duration:
+  type: timed
+  hours: 8
+  concentration: false
+ritual: false
+text:
+  en: |-
+    You touch a willing creature to grant it the ability to see in the dark. For the duration, that creature has darkvision out to a range of 60 feet.
+tags:
+- senses
+effects:
+- kind: modify
+  target: sense.darkvision
+  op: max
+  value: 60

@@ -35,7 +35,8 @@ describe("repository rules (docs/phase-0/01-monorepo.md)", () =>
         const manifests = walk(ROOT)
             .filter((f) => f.endsWith("/package.yaml"))
             .map((f) => relative(ROOT, f))
-            .filter((f) => !f.startsWith("content-private/"));
+            .filter((f) => !f.startsWith("content-private/"))
+            .filter((f) => !f.startsWith("fixtures/packages/invalid/")); // deliberately broken packages
 
         const isPrivate = (f: string) => /^\s*redistributable:\s*false\s*$/m.test(readFileSync(join(ROOT, f), "utf8"));
         const offenders = manifests.filter(isPrivate);

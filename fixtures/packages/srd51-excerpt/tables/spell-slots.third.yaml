@@ -1,0 +1,30 @@
+# Third-caster progression from the SRD multiclassing rules (no SRD class uses it alone); rows are a step function.
+id: srd51.table.spell-slots.third
+name:
+  en: Spell slots (third caster)
+source: srd51
+by: classLevel
+rows:
+  3:
+  - 2
+  4:
+  - 3
+  7:
+  - 4
+  - 2
+  10:
+  - 4
+  - 3
+  13:
+  - 4
+  - 3
+  - 2
+  16:
+  - 4
+  - 3
+  - 3
+  19:
+  - 4
+  - 3
+  - 3
+  - 1

@@ -1,0 +1,13 @@
+id: srd51.condition.incapacitated
+name:
+  en: Incapacitated
+source: srd51
+text:
+  en: '* An incapacitated creature can’t take actions or reactions.'
+effects:
+- kind: add-text
+  section: conditions
+  text:
+    en: You can't take actions or reactions.
+  note:
+    en: Rolls made against you are not modelled by the engine; shown as a reminder.

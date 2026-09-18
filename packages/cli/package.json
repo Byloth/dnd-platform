@@ -8,13 +8,18 @@
   "bin": {
     "dnd": "./dist/index.js"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc --build"
   },
   "dependencies": {
     "@byloth/dnd-platform-engine": "workspace:*",
-    "@byloth/dnd-platform-schema": "workspace:*"
+    "@byloth/dnd-platform-schema": "workspace:*",
+    "ajv": "^8.20.0",
+    "ajv-formats": "^3.0.1",
+    "yaml": "^2.9.1"
   },
   "devDependencies": {
     "@types/node": "^24.13.2"

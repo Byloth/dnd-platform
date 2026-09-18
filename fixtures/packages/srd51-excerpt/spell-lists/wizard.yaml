@@ -1,0 +1,12 @@
+# Excerpt: only the wizard spells present in this fixture.
+id: srd51.spell-list.wizard
+name:
+  en: Wizard spells
+source: srd51
+spells:
+- srd51.spell.minor-illusion
+- srd51.spell.shield
+- srd51.spell.darkness
+- srd51.spell.darkvision
+- srd51.spell.fireball
+- srd51.spell.haste

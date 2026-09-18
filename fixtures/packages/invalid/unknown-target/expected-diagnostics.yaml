@@ -1,0 +1,2 @@
+diagnostics:
+  - { code: E_SCHEMA, file: features/lucky-charm.yaml }

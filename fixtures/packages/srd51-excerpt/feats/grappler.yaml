@@ -1,0 +1,53 @@
+id: srd51.feat.grappler
+name:
+  en: Grappler
+source: srd51
+text:
+  en: |-
+    You've developed the skills necessary to hold your own in close-quarters grappling. You gain the following benefits:
+
+    - You have advantage on attack rolls against a creature you are grappling.
+    - You can use your action to try to pin a creature grappled by you. The creature makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you and the creature are both restrained until the grapple ends.
+prerequisites:
+  ability:
+    ability: str
+    min: 13
+features:
+- id: srd51.feature.grappler.grappling-advantage
+  name:
+    en: Grappling advantage
+  source: srd51
+  text:
+    en: You have advantage on attack rolls against a creature you are grappling.
+  effects:
+  - kind: roll-advantage
+    on:
+      type: attack
+      against:
+      - a creature you are grappling
+- id: srd51.feature.grappler.pin
+  name:
+    en: Pin
+  source: srd51
+  text:
+    en: |-
+      You can use your action to try to pin a creature grappled by you. The creature makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you and the creature are both restrained until the grapple ends.
+  effects:
+  - kind: add-action
+    action: pin
+    name:
+      en: Pin
+    activation: action
+    text:
+      en: |-
+        Try to pin a creature grappled by you. It makes a Strength or Dexterity saving throw against your maneuver DC; on a failure, you and the creature are both restrained until the grapple ends.
+    onUse:
+    - kind: applyCondition
+      condition: srd51.condition.restrained
+      target: self
+    - kind: applyCondition
+      condition: srd51.condition.restrained
+      target: other
+    - kind: note
+      text:
+        en: The SRD text does not define the maneuver DC; ask the GM.

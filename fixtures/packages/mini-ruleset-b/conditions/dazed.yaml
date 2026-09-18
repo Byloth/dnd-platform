@@ -1,0 +1,6 @@
+id: minib.condition.dazed
+name: { en: Dazed }
+text: { en: "You have disadvantage on ability checks." }
+source: minib
+effects:
+  - { kind: roll-disadvantage, on: { type: check } }

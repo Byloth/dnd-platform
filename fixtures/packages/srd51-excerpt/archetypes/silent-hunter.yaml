@@ -1,0 +1,31 @@
+id: srd51.archetype.silent-hunter
+name:
+  en: Silent hunter
+source: srd51
+pitch:
+  en: A quick, quiet fighter who needs no armour and no weapons, watches first and strikes second.
+recommends:
+  species: srd51.species.dwarf
+  subspecies: srd51.species.dwarf.hill-dwarf
+  class: srd51.class.monk
+  background: srd51.background.acolyte
+  abilityPriority:
+  - dex
+  - wis
+  - con
+  answers:
+    srd51.class.monk#skills:
+    - stealth
+    - acrobatics
+why:
+  class:
+    en: |-
+      Monks fight with their hands and feet, move fast and never worry about armour: fewer things to learn on day one.
+  species:
+    en: |-
+      A hill dwarf is tough (extra hit points, poison resistance, darkvision), which forgives early mistakes.
+  abilityPriority:
+    en: |-
+      Dexterity drives your attacks and your armour class; Wisdom adds to your AC and your ki; Constitution keeps you standing.
+  background:
+    en: Acolyte gives Insight and Religion, two skills that help you read people and places.

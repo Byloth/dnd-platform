@@ -1,0 +1,348 @@
+# Excerpt: levels 1-3 only. Features from level 4 onwards are not authored in this fixture.
+id: srd51.class.monk
+name:
+  en: Monk
+source: srd51
+text:
+  en: |-
+    Monks are united in their ability to magically harness the energy that flows in their bodies. Whether channeled as a striking display of combat prowess or a subtler focus of defensive ability and speed, this energy infuses all that a monk does.
+hitDie: 8
+primaryAbilities:
+- dex
+- wis
+savingThrows:
+- str
+- dex
+proficiencies:
+  armor: []
+  weapons:
+  - simple
+  - shortsword
+  tools:
+    choose: 1
+    from:
+    - artisans-tools
+    - musical-instrument
+  skills:
+    choose: 2
+    from:
+    - acrobatics
+    - athletics
+    - history
+    - insight
+    - religion
+    - stealth
+startingEquipment:
+  fixed:
+  - item: srd51.item.dart
+    quantity: 10
+  choices:
+  - options:
+    - - item: srd51.item.shortsword
+        quantity: 1
+    - - filter:
+          weapon: simple
+        quantity: 1
+  - options:
+    - - item: srd51.item.dungeoneers-pack
+        quantity: 1
+    - - item: srd51.item.explorers-pack
+        quantity: 1
+multiclass:
+  prerequisites:
+    dex: 13
+    wis: 13
+  proficiencies:
+    weapons:
+    - simple
+    - shortsword
+subclassLevel: 3
+subclassChoice: monastic-tradition
+casterWeight: 0
+levels:
+  1:
+    features:
+    - id: srd51.feature.monk.unarmored-defense
+      name:
+        en: Unarmored Defense
+      text:
+        en: |-
+          Beginning at 1st level, while you are wearing no armor and not wielding a shield, your AC equals 10 + your Dexterity modifier + your Wisdom modifier.
+      source: srd51
+      effects:
+      - kind: modify
+        target: ac
+        op: set-formula
+        formula: 10 + mod(dex) + mod(wis)
+        when: &id001
+          armorCategory: none
+          shield: false
+    - id: srd51.feature.monk.martial-arts
+      name:
+        en: Martial Arts
+      text:
+        en: |-
+          At 1st level, your practice of martial arts gives you mastery of combat styles that use unarmed strikes and monk weapons, which are shortswords and any simple melee weapons that don't have the two- handed or heavy property.
+
+          You gain the following benefits while you are unarmed or wielding only monk weapons and you aren't wearing armor or wielding a shield:
+
+          * You can use Dexterity instead of Strength for the attack and damage rolls of your unarmed strikes and monk weapons.
+          * You can roll a d4 in place of the normal damage of your unarmed strike or monk weapon. This die changes as you gain monk levels, as shown in the Martial Arts column of the Monk table.
+          * When you use the Attack action with an unarmed strike or a monk weapon on your turn, you can make one unarmed strike as a bonus action. For example, if you take the Attack action and attack with a quarterstaff, you can also make an unarmed strike as a bonus action, assuming you haven't already taken a bonus action this turn.
+
+          Certain monasteries use specialized forms of the monk weapons. For example, you might use a club that is two lengths of wood connected by a short chain (called a nunchaku) or a sickle with a shorter, straighter blade (called a kama). Whatever name you use for a monk weapon, you can use the game statistics provided for the weapon.
+      source: srd51
+      tags:
+      - unarmed
+      - melee
+      effects:
+      - kind: modify-attacks
+        filter:
+          unarmed: true
+        set:
+          ability: dex
+          damageDie: table(monk.martial-arts)
+        when:
+          wieldingOnly:
+            monkWeapon: true
+          armorCategory: none
+          shield: false
+        note:
+          en: Dexterity may be used instead of Strength; the die replaces the normal damage of the attack.
+      - kind: modify-attacks
+        filter:
+          monkWeapon: true
+        set:
+          ability: dex
+          damageDie: table(monk.martial-arts)
+        when:
+          wieldingOnly:
+            monkWeapon: true
+          armorCategory: none
+          shield: false
+        note:
+          en: Dexterity may be used instead of Strength; the die replaces the normal damage of the attack.
+      - kind: add-action
+        action: martial-arts-strike
+        name:
+          en: Martial Arts unarmed strike
+        activation: bonus-action
+        requires:
+          afterAction: attack
+        when:
+          wieldingOnly:
+            monkWeapon: true
+          armorCategory: none
+          shield: false
+        rolls:
+        - type: attack
+          ability: dex
+          proficient: true
+        - type: damage
+          dice: table(monk.martial-arts)
+          ability: dex
+          damageType: bludgeoning
+        text:
+          en: |-
+            When you use the Attack action with an unarmed strike or a monk weapon on your turn, you can make one unarmed strike as a bonus action.
+  2:
+    features:
+    - id: srd51.feature.monk.ki
+      name:
+        en: Ki
+      text:
+        en: |-
+          Starting at 2nd level, your training allows you to harness the mystic energy of ki. Your access to this energy is represented by a number of ki points. Your monk level determines the number of points you have, as shown in the Ki Points column of the Monk table.
+
+          You can spend these points to fuel various ki features. You start knowing three such features: Flurry of Blows, Patient Defense, and Step of the Wind. You learn more ki features as you gain levels in this class.
+
+          When you spend a ki point, it is unavailable until you finish a short or long rest, at the end of which you draw all of your expended ki back into yourself. You must spend at least 30 minutes of the rest meditating to regain your ki points.
+
+          Some of your ki features require your target to make a saving throw to resist the feature's effects. The saving throw DC is calculated as follows:
+
+          *Ki save DC* = 8 + your proficiency bonus + your Wisdom modifier
+
+          ### Flurry of Blows
+
+          Immediately after you take the Attack action on your turn, you can spend 1 ki point to make two unarmed strikes as a bonus action.
+
+          ### Patient Defense
+
+          You can spend 1 ki point to take the Dodge action as a bonus action on your turn.
+
+          ### Step of the Wind
+
+          You can spend 1 ki point to take the Disengage or Dash action as a bonus action on your turn, and your jump distance is doubled for the turn.
+      source: srd51
+      tags:
+      - resource
+      effects:
+      - kind: declare-resource
+        resource: ki
+        name:
+          en: Ki points
+        max: table(monk.ki-points)
+        display: pips
+        recharge:
+        - on: short-rest
+          amount: full
+        - on: long-rest
+          amount: full
+        note:
+          en: |-
+            Ki save DC = 8 + your proficiency bonus + your Wisdom modifier; declared on the actions that call for a save.
+      - kind: add-action
+        action: flurry-of-blows
+        name:
+          en: Flurry of Blows
+        activation: bonus-action
+        cost:
+        - resource: ki
+          amount: 1
+        requires:
+          afterAction: attack
+        rolls:
+        - type: attack
+          ability: dex
+          proficient: true
+        - type: damage
+          dice: table(monk.martial-arts)
+          ability: dex
+          damageType: bludgeoning
+        text:
+          en: |-
+            Immediately after you take the Attack action on your turn, you can spend 1 ki point to make two unarmed strikes as a bonus action.
+        onUse:
+        - kind: note
+          text:
+            en: Make two unarmed strikes (roll the attack twice).
+      - kind: add-action
+        action: patient-defense
+        name:
+          en: Patient Defense
+        activation: bonus-action
+        cost:
+        - resource: ki
+          amount: 1
+        toggle:
+          state: patient-defense
+          expires:
+            turns: 1
+        text:
+          en: You can spend 1 ki point to take the Dodge action as a bonus action on your turn.
+        onUse:
+        - kind: note
+          text:
+            en: |-
+              Dodge: until the start of your next turn, attacks against you have disadvantage and you have advantage on Dexterity saving throws.
+      - kind: roll-advantage
+        on:
+          type: save
+          ability: dex
+        when:
+          toggled: patient-defense
+      - kind: add-action
+        action: step-of-the-wind
+        name:
+          en: Step of the Wind
+        activation: bonus-action
+        cost:
+        - resource: ki
+          amount: 1
+        toggle:
+          state: step-of-the-wind
+          expires:
+            turns: 1
+        text:
+          en: |-
+            You can spend 1 ki point to take the Disengage or Dash action as a bonus action on your turn, and your jump distance is doubled for the turn.
+        onUse:
+        - kind: note
+          text:
+            en: Choose Disengage or Dash.
+      - kind: modify
+        target: jump.long
+        op: mul
+        value: 2
+        when:
+          toggled: step-of-the-wind
+      - kind: modify
+        target: jump.high
+        op: mul
+        value: 2
+        when:
+          toggled: step-of-the-wind
+    - id: srd51.feature.monk.unarmored-movement
+      name:
+        en: Unarmored Movement
+      text:
+        en: |-
+          Starting at 2nd level, your speed increases by 10 feet while you are not wearing armor or wielding a shield. This bonus increases when you reach certain monk levels, as shown in the Monk table.
+
+          At 9th level, you gain the ability to move along vertical surfaces and across liquids on your turn without falling during the move.
+      source: srd51
+      effects:
+      - kind: modify
+        target: speed.walk
+        op: add
+        formula: table(monk.unarmored-movement)
+        when: *id001
+  3:
+    features:
+    - id: srd51.feature.monk.deflect-missiles
+      name:
+        en: Deflect Missiles
+      text:
+        en: |-
+          Starting at 3rd level, you can use your reaction to deflect or catch the missile when you are hit by a ranged weapon attack. When you do so, the damage you take from the attack is reduced by 1d10 + your Dexterity modifier + your monk level.
+
+          If you reduce the damage to 0, you can catch the missile if it is small enough for you to hold in one hand and you have at least one hand free. If you catch a missile in this way, you can spend 1 ki point to make a ranged attack with the weapon or piece of ammunition you just caught, as part of the same reaction. You make this attack with proficiency, regardless of your weapon proficiencies, and the missile counts as a monk weapon for the attack, which has a normal range of 20 feet and a long range of 60 feet.
+      source: srd51
+      effects:
+      - kind: add-action
+        action: deflect-missiles
+        name:
+          en: Deflect Missiles
+        activation: reaction
+        trigger:
+          en: when you are hit by a ranged weapon attack
+        text:
+          en: |-
+            Reduce the damage you take from the attack by 1d10 + your Dexterity modifier + your monk level. If you reduce it to 0 and can hold the missile, you may spend 1 ki point to throw it back as part of the same reaction.
+        onUse:
+        - kind: note
+          text:
+            en: |-
+              Damage reduction: 1d10 + mod(dex) + classLevel(monk). Throwing the missile back costs 1 ki and is a ranged attack with proficiency, range 20/60, using the Martial Arts die.
+    - id: srd51.feature.monk.monastic-tradition
+      name:
+        en: Monastic Tradition
+      text:
+        en: |-
+          When you reach 3rd level, you commit yourself to a monastic tradition such as the Way of the Open Hand. Your tradition grants you features at 3rd level and again at 6th, 11th, and 17th level.
+      source: srd51
+      effects: []
+    choices:
+    - id: monastic-tradition
+      of: subclass
+      count: 1
+tables:
+  martial-arts:
+    by: classLevel
+    rows:
+      1: 1d4
+      5: 1d6
+      11: 1d8
+      17: 1d10
+  unarmored-movement:
+    by: classLevel
+    rows:
+      2: 10
+      6: 15
+      10: 20
+      14: 25
+      18: 30
+  ki-points:
+    by: classLevel
+    rows:
+      2: classLevel

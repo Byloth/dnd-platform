@@ -1,0 +1,49 @@
+id: phb14.subclass.monk.way-of-shadow
+name: { en: Way of Shadow }
+text:
+  en: |
+    Placeholder: see the Player's Handbook, Way of Shadow.
+class: srd51.class.monk
+source: phb14
+tags: [stealth, darkness]
+levels:
+  3:
+    features:
+      - id: phb14.feature.monk.shadow-arts
+        name: { en: Shadow Arts }
+        text:
+          en: |
+            Placeholder: see the Player's Handbook, Way of Shadow, Shadow Arts.
+        effects:
+          - kind: grant-spells
+            spells:
+              - srd51.spell.darkness
+              - srd51.spell.darkvision
+              - srd51.spell.pass-without-trace
+              - srd51.spell.silence
+            as: always-prepared
+            ability: wis
+            cost: [{ resource: ki, amount: 2 }]
+          - kind: grant-spells
+            spells: [srd51.spell.minor-illusion]
+            as: always-prepared
+            ability: wis
+  6:
+    features:
+      - id: phb14.feature.monk.shadow-step
+        name: { en: Shadow Step }
+        text:
+          en: |
+            Placeholder: see the Player's Handbook, Way of Shadow, Shadow Step.
+        effects:
+          - kind: add-action
+            action: shadow-step
+            activation: bonus-action
+            range: { type: point, distance: 60 }
+            text:
+              en: |
+                Placeholder: teleport between areas of dim light or darkness,
+                then advantage on the first melee attack before the end of the
+                turn.
+            note:
+              en: "The dim-light requirement is a situation the engine cannot check; play mode shows it as a reminder."

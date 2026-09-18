@@ -1,0 +1,18 @@
+formatVersion: 0
+id: phb14
+name: { en: "Player's Handbook (2014) — fixture stub" }
+version: 0.1.0
+kind: extension
+defaultLanguage: en
+languages: [en]
+visibility: private
+redistributable: true
+dependencies:
+  - { id: srd51, version: "^0.1.0" }
+sources:
+  - id: phb14
+    title: "Player's Handbook (2014)"
+    publisher: "Wizards of the Coast"
+    edition: "2014"
+    license: all-rights-reserved
+    attribution: "Structure only; texts are placeholders. The real package lives in content-private/."

@@ -1,0 +1,17 @@
+formatVersion: 0
+id: minib
+name: { en: "Mini ruleset B" }
+version: 0.1.0
+kind: base
+defaultLanguage: en
+languages: [en]
+visibility: public
+redistributable: true
+dependencies: []
+sources:
+  - id: minib
+    title: "Mini ruleset B"
+    publisher: "dnd-platform test fixtures"
+    edition: "test"
+    license: CC0-1.0
+    attribution: "Fictional test ruleset"

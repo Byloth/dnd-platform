@@ -1,0 +1,6 @@
+id: broken.condition.chilled
+name: { en: Chilled }
+text: { en: "Your speed is reduced by 5 feet." }
+source: broken
+effects:
+  - { kind: modify, target: speed.walk, op: add, value: -5 }

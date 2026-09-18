@@ -1,0 +1,31 @@
+# Rows are [slots, slot level]; a step function over warlock level.
+id: srd51.table.spell-slots.pact
+name:
+  en: Pact Magic slots
+source: srd51
+by: classLevel
+rows:
+  1:
+  - 1
+  - 1
+  2:
+  - 2
+  - 1
+  3:
+  - 2
+  - 2
+  5:
+  - 2
+  - 3
+  7:
+  - 2
+  - 4
+  9:
+  - 2
+  - 5
+  11:
+  - 3
+  - 5
+  17:
+  - 4
+  - 5

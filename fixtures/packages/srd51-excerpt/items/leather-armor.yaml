@@ -1,0 +1,17 @@
+id: srd51.item.leather-armor
+name:
+  en: Leather Armor
+source: srd51
+text:
+  en: |-
+    The breastplate and shoulder protectors of this armor are made of leather that has been stiffened by being boiled in oil. The rest of the armor is made of softer and more flexible materials.
+cost:
+  amount: 10
+  currency: gp
+weight: 10.0
+type: armor
+category: light
+ac:
+  base: 11
+  addDex: true
+stealthDisadvantage: false

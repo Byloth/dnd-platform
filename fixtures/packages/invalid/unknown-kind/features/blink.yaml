@@ -1,0 +1,6 @@
+id: broken.feature.blink
+name: { en: Blink }
+text: { en: "Teleport 10 feet as a bonus action." }
+source: broken
+effects:
+  - { kind: teleport, distance: 10 }

@@ -1,0 +1,10 @@
+id: srd51.rule.action.hide
+name:
+  en: Hide
+source: srd51
+category: action
+summary:
+  en: Make a Dexterity (Stealth) check to hide.
+text:
+  en: |-
+    When you take the Hide action, you make a Dexterity (Stealth) check in an attempt to hide, following the rules for hiding. If you succeed, you gain certain benefits, as described in srd:unseen-attackers-and-targets.

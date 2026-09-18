@@ -1,0 +1,5 @@
+id: minib.table.proficiency-bonus
+name: { en: Proficiency bonus }
+source: minib
+by: level
+rows: { 1: 3, 5: 4, 9: 5, 13: 6, 17: 7 }

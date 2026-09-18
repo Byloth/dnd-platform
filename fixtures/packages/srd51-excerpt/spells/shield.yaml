@@ -1,0 +1,36 @@
+id: srd51.spell.shield
+name:
+  en: Shield
+source: srd51
+level: 1
+school: abjuration
+castingTime:
+  activation: reaction
+  trigger:
+    en: which you take when you are hit by an attack or targeted by the magic missile spell
+range:
+  type: self
+components:
+  v: true
+  s: true
+  m: false
+duration:
+  type: timed
+  rounds: 1
+  concentration: false
+ritual: false
+text:
+  en: |-
+    An invisible barrier of magical force appears and protects you. Until the start of your next turn, you have a +5 bonus to AC, including against the triggering attack, and you take no damage from magic missile.
+tags:
+- defense
+- reaction
+effects:
+- kind: modify
+  target: ac
+  op: add
+  value: 5
+- kind: add-text
+  section: features
+  text:
+    en: You take no damage from magic missile.

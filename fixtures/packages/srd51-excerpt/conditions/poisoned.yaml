@@ -1,0 +1,13 @@
+id: srd51.condition.poisoned
+name:
+  en: Poisoned
+source: srd51
+text:
+  en: A poisoned creature has disadvantage on attack rolls and ability checks.
+effects:
+- kind: roll-disadvantage
+  on:
+    type: attack
+- kind: roll-disadvantage
+  on:
+    type: check

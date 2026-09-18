@@ -159,5 +159,6 @@ Content authoring time depends on DEC-19 and is estimated in [05-srd-import-pipe
 
 | Milestone | Closed | Tag | Notes |
 |---|---|---|---|
+| M0.2 | 2026-09-19 | v0.0.2 | Part B: 23 JSON Schemas (draft 2020-12) with generated TypeScript types and a CI diff check, formula grammar checker, four valid example packages (`srd51-excerpt`, `homebrew-feline`, `phb14-stub`, `mini-ruleset-b`) and five invalid ones with expected diagnostics, `dnd validate` (schema conformance + structural checks), engine types taken from the schemas with exhaustive dispatch over effect kinds. |
 | M0.2 part A | 2026-09-18 | — | SRD 5.1 inventoried (391 features, 319 spells, 239 magic items) and classified by seven agents on a fixed vocabulary; ten catalogue decisions recorded in `inventory/README.md`. Part B (schemas) next. |
 | M0.1 | 2026-09-18 | v0.0.1 | Local repository only; the owner creates the remote and pushes. pnpm 12, Node 24, TypeScript 6, Vitest 4, ESLint 10 with `@byloth/eslint-config-typescript`. Engine import restriction and private-content rule tests verified by probe. |

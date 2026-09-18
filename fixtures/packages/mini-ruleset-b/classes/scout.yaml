@@ -1,0 +1,49 @@
+id: minib.class.scout
+name: { en: Scout }
+text:
+  en: |
+    A fictional class used to prove that the engine reads every rule from the
+    base package.
+source: minib
+tags: [test]
+hitDie: 8
+primaryAbilities: [dex, wis]
+savingThrows: [dex, wis]
+proficiencies:
+  armor: [light]
+  weapons: [simple]
+  tools: []
+  skills: { choose: 2, from: [perception, stealth, athletics, survival] }
+startingEquipment:
+  fixed: []
+  choices: []
+multiclass:
+  prerequisites: { dex: 13 }
+  proficiencies: { armor: [light] }
+subclassLevel: 3
+subclassChoice: scout-path
+casterWeight: 0
+levels:
+  1:
+    features:
+      - id: minib.feature.scout.keen-eye
+        name: { en: Keen Eye }
+        text: { en: "You add 2 to your Wisdom (Perception) checks." }
+        effects:
+          - { kind: modify, target: skill.perception, op: add, value: 2 }
+  2:
+    features:
+      - id: minib.feature.scout.quick-step
+        name: { en: Quick Step }
+        text: { en: "Your walking speed increases by 5 feet." }
+        effects:
+          - { kind: modify, target: speed.walk, op: add, value: 5 }
+  3:
+    choices: [{ id: scout-path, of: subclass, count: 1 }]
+  5:
+    features:
+      - id: minib.feature.scout.extra-attack
+        name: { en: Extra Attack }
+        text: { en: "You can attack twice, instead of once, whenever you take the Attack action on your turn." }
+        effects:
+          - { kind: modify, target: attacks.perAction, op: set, value: 2 }

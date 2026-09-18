@@ -12,7 +12,7 @@ rules engine) is described in [`docs/phase-0/`](docs/phase-0/00-README.md).
 
 ## Status
 
-Phase 0, milestone M0.1: repository scaffold. Nothing usable yet.
+Phase 0, milestone M0.2 done: content format v0 (JSON Schemas, generated types, example packages) and `dnd validate`. The rules engine (M0.3) is next. Nothing playable yet.
 
 ## Development
 
@@ -22,8 +22,13 @@ Requires Node 24 (see `.nvmrc`) and pnpm.
 pnpm install
 pnpm lint
 pnpm typecheck
+pnpm build
 pnpm test
+pnpm validate:content        # validate every content package directory against the schemas
+pnpm generate:types          # regenerate packages/schema/src/generated from the JSON Schemas
 ```
+
+Content format: `docs/phase-0/02-content-format.md`; schemas in `packages/schema/schemas/`; example packages in `fixtures/packages/`.
 
 ## Licence
 

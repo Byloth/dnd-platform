@@ -1,0 +1,14 @@
+id: srd51.item.shield
+name:
+  en: Shield
+source: srd51
+text:
+  en: |-
+    A shield is made from wood or metal and is carried in one hand. Wielding a shield increases your Armor Class by 2. You can benefit from only one shield at a time.
+cost:
+  amount: 10
+  currency: gp
+weight: 6.0
+type: shield
+ac:
+  bonus: 2

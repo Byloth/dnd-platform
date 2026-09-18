@@ -1,0 +1,96 @@
+id: srd51.ruleset
+abilities:
+- str
+- dex
+- con
+- int
+- wis
+- cha
+skills:
+- id: acrobatics
+  ability: dex
+- id: animal-handling
+  ability: wis
+- id: arcana
+  ability: int
+- id: athletics
+  ability: str
+- id: deception
+  ability: cha
+- id: history
+  ability: int
+- id: insight
+  ability: wis
+- id: intimidation
+  ability: cha
+- id: investigation
+  ability: int
+- id: medicine
+  ability: wis
+- id: nature
+  ability: int
+- id: perception
+  ability: wis
+- id: performance
+  ability: cha
+- id: persuasion
+  ability: cha
+- id: religion
+  ability: int
+- id: sleight-of-hand
+  ability: dex
+- id: stealth
+  ability: dex
+- id: survival
+  ability: wis
+proficiencyBonus:
+  table: srd51.table.proficiency-bonus
+abilityModifier: floor((score - 10) / 2)
+hitPoints:
+  firstLevel: hitDie + mod(con)
+  perLevel: average(hitDie) + mod(con)
+rests:
+  short:
+    hitDice: spend
+  long:
+    hitPoints: full
+    hitDiceRecovered: max(1, floor(level / 2))
+spellSlots:
+  full:
+    table: srd51.table.spell-slots.full
+  half:
+    table: srd51.table.spell-slots.half
+  third:
+    table: srd51.table.spell-slots.third
+  pact:
+    table: srd51.table.spell-slots.pact
+  multiclass:
+    table: srd51.table.spell-slots.multiclass
+    casterLevel: sum(classLevel * casterWeight)
+baseActions:
+- srd51.rule.action.attack
+- srd51.rule.action.dash
+- srd51.rule.action.disengage
+- srd51.rule.action.dodge
+- srd51.rule.action.help
+- srd51.rule.action.hide
+- srd51.rule.action.ready
+- srd51.rule.action.search
+- srd51.rule.action.use-object
+- srd51.rule.action.cast-a-spell
+conditions:
+- srd51.condition.blinded
+- srd51.condition.charmed
+- srd51.condition.deafened
+- srd51.condition.frightened
+- srd51.condition.grappled
+- srd51.condition.incapacitated
+- srd51.condition.invisible
+- srd51.condition.paralyzed
+- srd51.condition.petrified
+- srd51.condition.poisoned
+- srd51.condition.prone
+- srd51.condition.restrained
+- srd51.condition.stunned
+- srd51.condition.unconscious
+- srd51.condition.exhaustion

@@ -1,0 +1,13 @@
+id: srd51.condition.deafened
+name:
+  en: Deafened
+source: srd51
+text:
+  en: '* A deafened creature can’t hear and automatically fails any ability check that requires hearing.'
+effects:
+- kind: add-text
+  section: conditions
+  text:
+    en: You automatically fail any ability check that requires hearing.
+  note:
+    en: Rolls made against you are not modelled by the engine; shown as a reminder.

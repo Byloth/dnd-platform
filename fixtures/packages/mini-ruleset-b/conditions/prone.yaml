@@ -1,0 +1,6 @@
+id: minib.condition.prone
+name: { en: Prone }
+text: { en: "Your attack rolls have disadvantage until you stand up." }
+source: minib
+effects:
+  - { kind: roll-disadvantage, on: { type: attack } }

@@ -1,0 +1,2 @@
+diagnostics:
+  - { code: E_PRIVATE_PUBLIC, file: package.yaml }

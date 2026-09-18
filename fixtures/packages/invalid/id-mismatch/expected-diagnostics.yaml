@@ -1,0 +1,2 @@
+diagnostics:
+  - { code: E_ID_MISMATCH, file: classes/monk.yaml }

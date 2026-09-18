@@ -1,0 +1,3 @@
+diagnostics:
+  - { code: E_BASE_DEPENDENCIES, file: package.yaml }
+  - { code: E_MISSING_RULESET, file: package.yaml }

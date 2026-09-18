@@ -1,0 +1,6 @@
+id: minib.rule.action.attack
+name: { en: Attack }
+text: { en: "Make one melee or ranged attack." }
+source: minib
+category: action
+summary: { en: "Make one melee or ranged attack." }

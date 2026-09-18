@@ -1,0 +1,6 @@
+id: minib.condition.bleeding
+name: { en: Bleeding }
+text: { en: "You lose 1 hit point at the start of each of your turns." }
+source: minib
+effects:
+  - { kind: add-text, section: conditions, text: { en: "Lose 1 hit point at the start of each of your turns." } }

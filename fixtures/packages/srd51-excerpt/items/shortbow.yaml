@@ -1,0 +1,21 @@
+id: srd51.item.shortbow
+name:
+  en: Shortbow
+source: srd51
+text:
+  en: A shortbow
+cost:
+  amount: 25
+  currency: gp
+weight: 2.0
+type: weapon
+category: simple
+ranged: true
+damage: 1d6
+damageType: piercing
+properties:
+- ammunition
+- two-handed
+range:
+  normal: 80
+  long: 320

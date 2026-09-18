@@ -1,0 +1,17 @@
+formatVersion: 0
+id: broken
+name: { en: "Invalid fixture: broken" }
+version: 0.1.0
+kind: extension
+defaultLanguage: en
+languages: [en]
+visibility: public
+redistributable: false
+dependencies: [{ id: srd51, version: "^0.1.0" }]
+sources:
+  - id: broken
+    title: "Invalid fixture"
+    publisher: "dnd-platform test fixtures"
+    edition: "test"
+    license: CC0-1.0
+    attribution: "Deliberately broken test package"

@@ -1,0 +1,60 @@
+id: homebrew.byloth.species.feline
+name: { en: Feline }
+text:
+  en: |
+    Felines are agile hunters with keen senses, at home in the shadows and on
+    the high ground.
+source: homebrew.byloth
+tags: [feline, stealth, climbing]
+size: medium
+speed: { walk: 30, climb: 20 }
+languages: { fixed: [common], choose: 1 }
+features:
+  - id: homebrew.byloth.feature.feline.claws
+    name: { en: Claws }
+    text:
+      en: |
+        Your claws are natural weapons, which you can use to make unarmed
+        strikes. On a hit, they deal slashing damage equal to 1d4 + your
+        Strength modifier.
+    effects:
+      - kind: add-action
+        action: claws
+        activation: action
+        rolls:
+          - { type: attack, ability: str, proficient: true }
+          - { type: damage, dice: "1d4", ability: str, damageType: slashing }
+  - id: homebrew.byloth.feature.feline.darkvision
+    name: { en: Darkvision }
+    text:
+      en: |
+        You can see in dim light within 60 feet of you as if it were bright
+        light, and in darkness as if it were dim light. You can't discern
+        color in darkness, only shades of gray.
+    effects:
+      - { kind: modify, target: sense.darkvision, op: max, value: 60 }
+  - id: homebrew.byloth.feature.feline.cats-grace
+    name: { en: Cat's Grace }
+    text:
+      en: |
+        You have advantage on Dexterity (Stealth) checks made to move
+        silently.
+    effects:
+      - kind: roll-advantage
+        on: { type: check, skill: stealth }
+        note: { en: "to move silently" }
+subspecies:
+  - id: homebrew.byloth.species.feline.puma
+    name: { en: Puma }
+    text:
+      en: |
+        Pumas are the largest of the felines, built for the leap and the
+        ambush.
+    features:
+      - id: homebrew.byloth.feature.feline.puma.pounce
+        name: { en: Pounce }
+        text:
+          en: |
+            Your long jump is up to twice your Strength score in feet.
+        effects:
+          - { kind: modify, target: jump.long, op: set-formula, formula: "2 * score(str)" }

@@ -1,0 +1,24 @@
+id: other.class.monk
+name: { en: Monk }
+text: { en: "A class whose id does not belong to this package." }
+source: broken
+hitDie: 8
+primaryAbilities: [dex, wis]
+savingThrows: [str, dex]
+proficiencies:
+  armor: []
+  weapons: [simple]
+  tools: []
+  skills: { choose: 2, from: [acrobatics, stealth] }
+startingEquipment:
+  fixed: []
+  choices: []
+multiclass:
+  prerequisites: { dex: 13, wis: 13 }
+  proficiencies: { weapons: [simple] }
+subclassLevel: 3
+subclassChoice: monastic-tradition
+casterWeight: 0
+levels:
+  3:
+    choices: [{ id: monastic-tradition, of: subclass, count: 1 }]

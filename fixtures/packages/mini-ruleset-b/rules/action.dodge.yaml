@@ -1,0 +1,6 @@
+id: minib.rule.action.dodge
+name: { en: Dodge }
+text: { en: "Until the start of your next turn, attack rolls against you have disadvantage." }
+source: minib
+category: action
+summary: { en: "Until the start of your next turn, attack rolls against you have disadvantage." }

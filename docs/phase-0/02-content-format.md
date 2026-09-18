@@ -47,6 +47,7 @@ Everything below is edition-neutral: nothing in the format assumes 2014 or 2024 
 ### Manifest (`package.yaml`)
 
 ```yaml
+formatVersion: 0
 id: srd51
 name: { en: "System Reference Document 5.1" }
 version: 1.0.0
@@ -68,6 +69,7 @@ sources:
 An extension package:
 
 ```yaml
+formatVersion: 0
 id: phb14
 name: { en: "Player's Handbook (2014)" }
 version: 0.1.0
@@ -311,9 +313,9 @@ effects:
 
 **Spell list**: `{ id: srd51.spell-list.cleric, spells: [ids] }`. Extension packages add to it with an `extend-spell-list` effect or a patch.
 
-**Item**: `type` (weapon, armor, shield, tool, gear, consumable, wondrous), `cost`, `weight`; weapons: `category` (simple/martial), `damage`, `damageType`, `properties` (finesse, light, two-handed, versatile: "1d10", range: {normal, long}); armor: `category` (light/medium/heavy), `ac: { base: 12, dexMax: 2 }`, `strengthMin`, `stealthDisadvantage`; magic items: `features` with effects applied while equipped/attuned, `attunement: true` (or `{ by: "a dwarf" }`), `charges: { max, recharge }` as a resource declared on the item, `baseItem` as a reference for naming only: a magic variant declares its **own** full weapon or armour properties (Mithral Armor has no Stealth disadvantage, Sun Blade is finesse and radiant), so no "modify the item" mechanism exists.
+**Item**: `type` (weapon, armor, shield, tool, gear, consumable, wondrous), `cost`, `weight`; weapons: `category` (simple/martial), `damage`, `damageType`, `properties` (finesse, light, two-handed, versatile: "1d10", range: {normal, long}); armor: `category` (light/medium/heavy), `ac: { base: 12, addDex: true, dexMax: 2 }`, `strengthMin`, `stealthDisadvantage`; magic items: `features` with effects applied while equipped/attuned, `attunement: true` (or `{ by: "a dwarf" }`), `charges: { max, recharge }` as a resource declared on the item, `baseItem` as a reference for naming only: a magic variant declares its **own** full weapon or armour properties (Mithral Armor has no Stealth disadvantage, Sun Blade is finesse and radiant), so no "modify the item" mechanism exists.
 
-**Condition**: `text` plus `effects` active while applied, e.g. the custom one:
+**Condition**: `text` plus `effects` active while applied. A leveled condition (Exhaustion) declares `levels: { 1: { text, effects }, … }` and `cumulative: true` (all lower levels apply too). The custom one:
 
 ```yaml
 id: homebrew.byloth.condition.bruised-lung
@@ -358,7 +360,7 @@ A feature (not only an action) may also declare `toggle`, `onRest` and `onTurnSt
 
 ### Play effects
 
-Play effects describe what the play engine does when something happens. They live on actions (`onUse`, `onHit`), on features (`onRest`, `onTurnStart`) and on items and spells. The sheet renders them as text; the play engine executes the ones it implements and shows the note for the rest, so content never waits for the engine.
+Play effects describe what the play engine does when something happens. They live on actions (`onUse`, `onHit`), on features (`onRest`, `onTurnStart`), on items, and on spells (`onCast`: Cure Wounds heals when cast). The sheet renders them as text; the play engine executes the ones it implements and shows the note for the rest, so content never waits for the engine.
 
 | play effect | fields | example |
 |---|---|---|
@@ -406,7 +408,7 @@ Anything else is a validation error. New keys are added to the catalogue, with a
 Deterministic arithmetic over character facts, evaluated to a number or a dice expression.
 
 - Literals: integers, dice strings `"1d4"`.
-- Variables: `level`, `proficiencyBonus`, `hitDie`, `slotLevel` (in scaling), `score`, `hitDieCount`.
+- Variables: `level`, `proficiencyBonus`, `hitDie`, `hitDieCount`, `slotLevel` (in scaling), `score` (in the ability modifier formula of the ruleset), `classLevel` (bare: levels in the class that owns the table or feature, used in class tables), `casterWeight` (in the multiclass caster level formula of the ruleset).
 - Functions: `mod(ability)`, `score(ability)`, `classLevel(class-name)`, `table(name)` / `table(id, key)`, `max(...)`, `min(...)`, `floor(x)`, `ceil(x)`, `average(dice)`, `sum(...)`.
 - Operators: `+ - * /` and parentheses. Division is real; use `floor`/`ceil`.
 - No strings, no conditionals (use `when` on the effect), no recursion, no user-defined functions. A formula references derived values only through the functions above; the engine builds the dependency graph from those references.

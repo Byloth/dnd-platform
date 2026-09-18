@@ -1,0 +1,6 @@
+id: broken.feature.lucky-charm
+name: { en: Lucky Charm }
+text: { en: "You feel lucky." }
+source: broken
+effects:
+  - { kind: modify, target: luck.bonus, op: add, value: 1 }

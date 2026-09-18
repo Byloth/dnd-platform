@@ -1,0 +1,11 @@
+id: srd51.item.arrow
+name:
+  en: Arrow
+source: srd51
+text:
+  en: An arrow for a bow. Sold in bundles of 20 for 1 gp.
+type: ammunition
+cost:
+  amount: 0.05
+  currency: gp
+weight: 0.05

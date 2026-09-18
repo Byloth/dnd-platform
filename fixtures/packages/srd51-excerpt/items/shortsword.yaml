@@ -1,0 +1,19 @@
+# Damage type follows the SRD weapon table (piercing); the upstream dataset says slashing.
+id: srd51.item.shortsword
+name:
+  en: Shortsword
+source: srd51
+text:
+  en: A short sword.
+cost:
+  amount: 10
+  currency: gp
+weight: 2.0
+type: weapon
+category: martial
+damage: 1d6
+damageType: piercing
+properties:
+- finesse
+- light
+monkWeapon: true

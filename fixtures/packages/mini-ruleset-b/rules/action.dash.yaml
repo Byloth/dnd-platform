@@ -1,0 +1,6 @@
+id: minib.rule.action.dash
+name: { en: Dash }
+text: { en: "Gain extra movement equal to your speed for the current turn." }
+source: minib
+category: action
+summary: { en: "Gain extra movement equal to your speed for the current turn." }

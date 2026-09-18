@@ -1,0 +1,13 @@
+id: homebrew.byloth.condition.bruised-lung
+name: { en: Bruised lung }
+text:
+  en: |
+    Disadvantage on Constitution saving throws and on Constitution checks
+    against exhaustion, suffocation and forced marches.
+source: homebrew.byloth
+tags: [injury, temporary]
+effects:
+  - { kind: roll-disadvantage, on: { type: save, ability: con } }
+  - kind: roll-disadvantage
+    on: { type: check, ability: con }
+    note: { en: "exhaustion, suffocation, forced marches" }

@@ -1,0 +1,51 @@
+id: srd51.spell.haste
+name:
+  en: Haste
+source: srd51
+level: 3
+school: transmutation
+castingTime:
+  activation: action
+range:
+  type: creature
+  distance: 30
+components:
+  v: true
+  s: true
+  m:
+    en: A shaving of licorice root
+duration:
+  type: timed
+  minutes: 1
+  concentration: true
+ritual: false
+text:
+  en: |-
+    Choose a willing creature that you can see within range. Until the spell ends, the target's speed is doubled, it gains a +2 bonus to AC, it has advantage on dexterity saving throws, and it gains an additional action on each of its turns. That action can be used only to take the Attack (one weapon attack only), Dash, Disengage, Hide, or Use an Object action. When the spell ends, the target can't move or take actions until after its next turn, as a wave of lethargy sweeps over it.
+tags:
+- buff
+- mobility
+effects:
+- kind: modify
+  target: speed.walk
+  op: mul
+  value: 2
+- kind: modify
+  target: ac
+  op: add
+  value: 2
+- kind: roll-advantage
+  on:
+    type: save
+    ability: dex
+- kind: add-action
+  action: hasted-action
+  name:
+    en: Hasted action
+  activation: action
+  text:
+    en: 'One additional action: Attack (one weapon attack only), Dash, Disengage, Hide, or Use an Object.'
+- kind: add-text
+  section: features
+  text:
+    en: When the spell ends, you can't move or take actions until after your next turn.

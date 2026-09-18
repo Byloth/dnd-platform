@@ -1,0 +1,10 @@
+id: srd51.rule.action.disengage
+name:
+  en: Disengage
+source: srd51
+category: action
+summary:
+  en: Your movement doesn't provoke opportunity attacks this turn.
+text:
+  en: |-
+    If you take the Disengage action, your movement doesn't provoke opportunity attacks for the rest of the turn.

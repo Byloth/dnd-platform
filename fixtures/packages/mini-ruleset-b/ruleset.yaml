@@ -1,0 +1,22 @@
+id: minib.ruleset
+abilities: [str, dex, con, int, wis, cha]
+skills:
+  - { id: perception, ability: wis }
+  - { id: stealth, ability: dex }
+  - { id: athletics, ability: str }
+  - { id: arcana, ability: int }
+  - { id: medicine, ability: wis }
+  - { id: survival, ability: wis }
+proficiencyBonus: { table: minib.table.proficiency-bonus }
+abilityModifier: "floor((score - 10) / 2)"
+hitPoints:
+  firstLevel: "hitDie + mod(con) + 2"
+  perLevel: "average(hitDie) + mod(con)"
+rests:
+  short: { hitDice: spend }
+  long:
+    hitPoints: full
+    hitDiceRecovered: "level"
+spellSlots: {}
+baseActions: [minib.rule.action.attack, minib.rule.action.dash, minib.rule.action.dodge]
+conditions: [minib.condition.prone, minib.condition.dazed, minib.condition.bleeding]

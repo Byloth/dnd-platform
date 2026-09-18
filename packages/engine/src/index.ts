@@ -4,20 +4,48 @@
  * Every function here is pure: no I/O, no clock, no randomness. Callers
  * read files and roll dice; the engine only computes.
  *
- * M0.1 ships the signatures with placeholder types so that the contract is
- * fixed and the dependency rules are enforced; M0.2 replaces the placeholder
- * types with the ones generated from the schemas, and M0.3 fills the bodies.
+ * Content and character types come from the schema package (generated from
+ * the JSON Schemas); the engine's own output types are defined here. Bodies
+ * are filled in M0.3 (derive) and M0.7 (apply).
  */
 
-import type { EntityId, FORMAT_VERSION } from "@byloth/dnd-platform-schema";
+import type {
+    Character,
+    Effect,
+    PackageManifest,
+    PlayEffect,
+    Ruleset
+} from "@byloth/dnd-platform-schema";
 
-export type FormatVersion = typeof FORMAT_VERSION;
+export { assertNever, effectKind, playEffectKind } from "./effects.js";
+export type { Character, Effect, PackageManifest, PlayEffect, Ruleset };
 
-// ---- placeholder types (replaced in M0.2) --------------------------------
+export type EntityId = string;
+export type ValuePath = string;
 
-export interface PackageSource { readonly manifest: { readonly id: string, readonly version: string } }
-export interface LoadOptions { readonly pins?: Readonly<Record<string, string>>, readonly language?: string }
-export interface PackageSet { readonly order: readonly string[], readonly diagnostics: Diagnostics }
+// ---- packages ---------------------------------------------------------------
+
+export interface PackageSource
+{
+    readonly manifest: PackageManifest;
+    readonly ruleset?: Ruleset;
+    readonly entities: readonly Record<string, unknown>[];
+    readonly patches: readonly Record<string, unknown>[];
+    readonly translations: readonly Record<string, unknown>[];
+}
+export interface LoadOptions
+{
+    readonly pins?: Readonly<Record<string, string>>;
+    readonly language?: string;
+}
+export interface PackageSet
+{
+    readonly order: readonly PackageManifest[];
+    readonly ruleset: Ruleset;
+    readonly diagnostics: Diagnostics;
+}
+
+// ---- diagnostics --------------------------------------------------------------
 
 export interface Diagnostic
 {
@@ -28,23 +56,94 @@ export interface Diagnostic
     readonly entity?: EntityId;
     readonly path?: string;
 }
-export interface Diagnostics { readonly ok: boolean, readonly entries: readonly Diagnostic[] }
+export interface Diagnostics
+{
+    readonly ok: boolean;
+    readonly entries: readonly Diagnostic[];
+}
 
-export interface Character { readonly id: string, readonly name: string }
-export interface CharacterState { readonly hp: { readonly current: number, readonly temporary: number } }
-export interface DeriveOptions { readonly language?: string, readonly includeText?: boolean }
+// ---- computed sheet --------------------------------------------------------------
+
+export type CharacterState = Character["state"];
+
+export interface ContributionSource
+{
+    readonly package: string;
+    readonly entity?: EntityId;
+    readonly feature?: EntityId;
+    readonly effectIndex?: number;
+}
+export interface Contribution
+{
+    readonly kind: "base" | "add" | "set" | "set-formula" | "mul" | "min" | "max" | "patch";
+    readonly value: number | string;
+    readonly formula?: string;
+    readonly label: Readonly<Record<string, string>>;
+    readonly source: ContributionSource;
+    readonly applied: boolean;
+}
+export type Provenance = readonly Contribution[];
+export interface DerivedValue
+{
+    readonly value: number | string;
+    readonly provenance: Provenance;
+}
+export interface DeriveOptions
+{
+    readonly language?: string;
+    readonly includeText?: boolean;
+}
+export interface SheetMeta
+{
+    readonly characterId: string;
+    readonly ruleset: string;
+    readonly formatVersion: number;
+    readonly language: string;
+}
 export interface ComputedSheet
 {
-    readonly meta: { readonly characterId: string };
+    readonly meta: SheetMeta;
+    readonly level: number;
+    readonly values: Readonly<Record<ValuePath, DerivedValue>>;
+    readonly sections: readonly string[];
     readonly warnings: readonly Diagnostic[];
 }
 
-export type ValuePath = string;
-export type Provenance = readonly Contribution[];
-export interface Contribution { readonly kind: string, readonly value: number | string, readonly applied: boolean }
+// ---- play -----------------------------------------------------------------------
 
-export interface PlayEvent { readonly type: "note", readonly text: string }
-export interface LogEntry { readonly id: string, readonly event: PlayEvent }
+export interface HitDieRoll
+{
+    readonly die: number;
+    readonly rolls: readonly number[];
+}
+export type PlayEvent =
+    { readonly type: "damage", readonly amount: number, readonly damageType?: string } |
+    { readonly type: "heal", readonly amount: number } |
+    { readonly type: "temp-hp", readonly amount: number } |
+    { readonly type: "spend-resource", readonly resource: string, readonly amount: number } |
+    { readonly type: "restore-resource", readonly resource: string, readonly amount: number } |
+    { readonly type: "cast-spell", readonly spell: EntityId, readonly slotLevel?: number } |
+    { readonly type: "end-concentration" } |
+    { readonly type: "end-spell", readonly spell: EntityId } |
+    { readonly type: "toggle", readonly state: string, readonly on: boolean } |
+    { readonly type: "apply-condition", readonly condition: EntityId } |
+    { readonly type: "remove-condition", readonly condition: EntityId } |
+    { readonly type: "short-rest", readonly hitDice: readonly HitDieRoll[] } |
+    { readonly type: "long-rest" } |
+    { readonly type: "death-save", readonly roll: number } |
+    { readonly type: "stabilise" } |
+    { readonly type: "inspiration", readonly value: boolean } |
+    { readonly type: "use-action", readonly action: string } |
+    { readonly type: "end-turn" } |
+    { readonly type: "note", readonly text: string };
+
+export interface LogEntry
+{
+    readonly id: string;
+    readonly event: PlayEvent;
+    readonly before: Partial<CharacterState>;
+    readonly after: Partial<CharacterState>;
+}
 export interface ApplyResult
 {
     readonly state: CharacterState;
@@ -52,7 +151,7 @@ export interface ApplyResult
     readonly warnings: readonly Diagnostic[];
 }
 
-// ---- contract -------------------------------------------------------------
+// ---- contract -----------------------------------------------------------------------
 
 const NOT_IMPLEMENTED = "Not implemented yet: scheduled for a later Phase 0 milestone.";
 
