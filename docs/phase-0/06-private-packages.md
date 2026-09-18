@@ -1,0 +1,127 @@
+# Phase 0 — 06 Private packages
+
+## Purpose
+
+DEC-08 requires that copyrighted official content be integrated from the first day, in the same format as everything else, while never being committed to the public repository. This document fixes where private packages live, how the tooling finds and validates them, how the first one (`phb14`, the Player's Handbook 2014) extends the base package, and how the test suite behaves with and without them.
+
+## Decisions
+
+- **One directory, git-ignored: `content-private/`.** It sits at the repository root, next to `packages/`, and holds one sub-directory per private package, each with the exact layout of [02-content-format.md](02-content-format.md).
+- **Technically indistinguishable.** The loader, the validator, the engine and the fixtures treat a private package exactly like a public one. The only differences are the manifest flags and the directory it is read from.
+- **Two mechanical guards, enforced by tests.** A package with `redistributable: false` found outside `content-private/` fails `validate:content`; a file under `content-private/` tracked by git fails the same step.
+- **Transcription by hand, from the owned book, for the group's personal use.** No script in the repository produces private content; no upstream dataset is used for it, because none may contain it.
+- **Attribution is shown, text is never redistributed.** A sheet or PDF built with private content cites the book; the platform never exports the package itself.
+- **Deployment policy is not decided here.** Who may upload or see private packages in a running instance belongs to DEC-04, DEC-12 and DEC-14 in Phase 1 ([../14-accounts-sharing-and-campaigns.md](../14-accounts-sharing-and-campaigns.md)).
+
+## Design
+
+### Layout
+
+```
+content-private/                # git-ignored
+  phb14/
+    package.yaml
+    subclasses/monk/way-of-shadow.yaml
+    subclasses/fighter/battle-master.yaml
+    species/…
+    backgrounds/…
+    feats/…
+    spells/…
+    spell-lists/…               # only when the book adds a list the SRD lacks
+    items/…
+    patches/…
+  xge/                          # later: Xanathar's Guide to Everything
+  tce/                          # later: Tasha's Cauldron of Everything
+```
+
+`.gitignore` contains `content-private/` and nothing else about it. A `content-private/README.md` is *not* ignored: it is committed and explains the layout, the flags and the guards, so a new contributor knows what goes there without any private file existing.
+
+### Manifest
+
+```yaml
+id: phb14
+name: { en: "Player's Handbook (2014)" }
+version: 0.1.0
+kind: extension
+defaultLanguage: en
+languages: [en]
+visibility: private
+redistributable: false
+dependencies:
+  - { id: srd51, version: "^1.0.0" }
+sources:
+  - id: phb14
+    title: "Player's Handbook"
+    publisher: "Wizards of the Coast"
+    edition: "2014"
+    license: all-rights-reserved
+    attribution: "Player's Handbook © 2014 Wizards of the Coast LLC. Personal transcription, not for redistribution."
+```
+
+`validate` already enforces that `redistributable: false` implies `visibility: private` ([03-engine-contract.md](03-engine-contract.md)). The two directory guards are added on top in the CLI's `validate:content` command.
+
+### Package ids of official books
+
+Lowercase book abbreviation as used by the community, plus the two-digit year only when the same title exists in more than one edition: `phb14`, `phb24`, `dmg14`, `xge`, `tce`, `mpmm`, `scag`. Source ids match package ids. Entity ids follow the usual `<package>.<type>.<name>`.
+
+### Loader roots
+
+The CLI discovers packages from two roots and passes their parsed contents to `loadPackages` in one call:
+
+1. public root: `packages/content/*` (every directory with a `package.yaml`);
+2. private root: `content-private/*` (same rule; absent directory is not an error).
+
+Discovery order is irrelevant to the result: `loadPackages` orders the set topologically by dependencies and breaks ties by id, so a run with the private root present differs from a run without it only by the packages that exist. The CLI prints which roots were scanned and which packages were found, with their `visibility`, so a developer sees at a glance whether private content is loaded.
+
+### What `phb14` contains and how it extends `srd51`
+
+The SRD 5.1 ships one subclass per class; the book ships several. The book also has races, subraces, backgrounds, feats, spells and equipment the SRD lacks. `phb14` adds exactly the difference:
+
+- **Subclasses** for every class, as `subclasses/<class>/<name>.yaml` entities naming the base class (`class: srd51.class.monk`). Way of Shadow is transcribed first because the reference Monk fixture of [04-testing-strategy.md](04-testing-strategy.md) needs it. No patch to the class is required: the engine resolves subclasses by reference.
+- **Species and subspecies** absent from the SRD, as new `species/` entities; subraces of SRD species (for example additional dwarf or elf subraces) are added with a `patch` that appends to `subspecies` of the SRD entity, so the player sees one species with all its options.
+- **Backgrounds** as new entities.
+- **Feats** as new entities.
+- **Spells** absent from the SRD as new entities, attached to class lists through `extend-spell-list` effects declared on a `phb14.feature.spell-lists` feature, or through patches to `spell-lists/` entities.
+- **Equipment** differences as new items; SRD items are not duplicated.
+- **Patches** only where the book's text differs from the SRD in a way that matters to play (rare) and never to replace SRD text wholesale.
+
+Because everything is additive by reference, a character built on `srd51` alone computes identically whether or not `phb14` is loaded; provenance names `phb14` only for what comes from it ([../05-content-model-and-sources.md](../05-content-model-and-sources.md), rule 5).
+
+### Transcription rules
+
+- Copy from the physical or legally owned digital book; write the text in `text.en`, mechanics in `effects` under the same catalogue as the base package.
+- Record the page in a `page` field of the entity (accepted by the schema for any entity, ignored by the engine) to make review possible.
+- One entity per commit-sized unit of work in the private directory's own history if the group keeps one (a separate private repository is allowed and recommended for backup; it is never a submodule of the public one).
+- No private text in commit messages, issues, fixtures or test names of the public repository. Private fixtures live under `content-private/fixtures/` and are discovered by the same two-root rule.
+
+### Test behaviour with and without the directory
+
+| Situation | `validate:content` | Golden fixtures | Result |
+|---|---|---|---|
+| CI (no `content-private/`) | Public packages only | Public fixtures run; fixtures declaring `requires: [phb14]` are reported as **skipped** with the missing package id | Green |
+| Developer with `content-private/` | Public and private packages | All fixtures run, including the reference Monk (base + `phb14` + `homebrew.byloth`) | Green, or red on a real problem |
+| Private package outside its root | Fails on the redistributable guard | — | Red |
+| Private file tracked by git | Fails on the tracking guard | — | Red |
+
+A skipped private fixture is counted and printed, never silently omitted, so a developer who forgot to mount the directory notices.
+
+### Attribution in output
+
+Every sheet section, feature card and spell card carries its source; the print output adds a credits block listing each source's attribution string ([../12-print-and-export.md](../12-print-and-export.md)). For `phb14` that block cites the book and states that the content is a personal transcription. Export of a character that depends on a private package embeds the package *reference* (id and version), never the package.
+
+## Tasks
+
+1. Add `content-private/` to `.gitignore`, commit `content-private/README.md`, and document the two roots in the repository README — M0.1.
+2. Implement two-root discovery in the CLI with deterministic ordering and a printed summary of scanned roots and found packages — M0.3.
+3. Implement the redistributable guard and the git-tracking guard in `validate:content`, each with a test using a temporary directory — M0.3.
+4. Add `requires: [<package-id>]` to the fixture format and the skipped-with-reason behaviour to the fixture runner — M0.3.
+5. Create the `phb14` manifest and the Way of Shadow subclass as the private-package stub used by M0.2 (the stub is a fixture package under `fixtures/packages/phb14-stub/` with placeholder text and real mechanics; it is committed because it contains no book text) — M0.2.
+6. Obtain the owner's confirmation, then transcribe the real `phb14` starting with Way of Shadow, the Monk-relevant equipment and the reference Monk fixture; verify the fixture passes locally and is skipped in CI — M0.6.
+7. Continue `phb14` transcription class by class as needed by later fixtures; it is not required to be complete for Phase 0 — M0.6.
+8. Write the naming convention and the additive-only rule into `content-private/README.md` — M0.6.
+
+## Open points
+
+- Whether the committed `phb14-stub` fixture package (placeholder text, real mechanics) is acceptable from a copyright standpoint: mechanics and names of features are widely reproduced, verbatim text is not; keep placeholder text to a single sentence and no rules text.
+- Whether a developer should be able to point the CLI at an additional private root through an environment variable (for a shared network drive). Cheap to add; decide when a second developer joins.
+- Whether private fixtures should be allowed to assert against private text (feature descriptions) or only against numbers; numbers only keeps fixture files shareable in bug reports.
