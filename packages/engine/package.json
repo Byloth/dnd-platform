@@ -1,0 +1,22 @@
+{
+  "name": "@byloth/dnd-platform-engine",
+  "version": "0.0.0",
+  "description": "Pure, deterministic rules engine: packages + character → computed sheet with provenance.",
+  "private": true,
+  "license": "AGPL-3.0-only",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc --build"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@byloth/dnd-platform-schema": "workspace:*"
+  }
+}

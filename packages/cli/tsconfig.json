@@ -1,0 +1,11 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "types": ["node"],
+    "tsBuildInfoFile": "../../node_modules/.tmp/cli.tsbuildinfo"
+  },
+  "include": ["src/**/*"],
+  "references": [{ "path": "../schema" }, { "path": "../engine" }]
+}

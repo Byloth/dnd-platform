@@ -1,0 +1,7 @@
+{
+  "name": "@byloth/dnd-platform-content-srd51",
+  "version": "0.0.0",
+  "description": "Base content package: System Reference Document 5.1 (CC-BY-4.0) in the dnd-platform content format.",
+  "private": true,
+  "license": "CC-BY-4.0"
+}

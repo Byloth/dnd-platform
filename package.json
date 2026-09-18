@@ -1,0 +1,39 @@
+{
+  "name": "@byloth/dnd-platform",
+  "version": "0.0.0",
+  "description": "A character-first D&D 5e platform for newcomers: dynamic sheet, play mode, printable playbook, homebrew-first content.",
+  "private": true,
+  "license": "AGPL-3.0-only",
+  "author": {
+    "name": "Matteo Bilotta",
+    "email": "me@byloth.dev",
+    "url": "https://www.byloth.dev/"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "packageManager": "pnpm@12.3.4",
+  "scripts": {
+    "build": "tsc --build",
+    "typecheck": "tsc --build --force",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@byloth/dnd-platform-schema": "workspace:*",
+    "@byloth/eslint-config": "^4.0.2",
+    "@byloth/eslint-config-typescript": "^4.0.2",
+    "@eslint/compat": "^2.1.0",
+    "@types/node": "^24.13.2",
+    "@typescript-eslint/eslint-plugin": "^8.60.1",
+    "@typescript-eslint/parser": "^8.60.1",
+    "eslint": "^10.6.0",
+    "eslint-plugin-import": "^2.32.0",
+    "husky": "^9.1.7",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.10"
+  }
+}

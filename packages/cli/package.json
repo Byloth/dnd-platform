@@ -1,0 +1,22 @@
+{
+  "name": "@byloth/dnd-platform-cli",
+  "version": "0.0.0",
+  "description": "Command-line tools: validate and build content packages, derive sheets, run fixtures.",
+  "private": true,
+  "license": "AGPL-3.0-only",
+  "type": "module",
+  "bin": {
+    "dnd": "./dist/index.js"
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc --build"
+  },
+  "dependencies": {
+    "@byloth/dnd-platform-engine": "workspace:*",
+    "@byloth/dnd-platform-schema": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.2"
+  }
+}

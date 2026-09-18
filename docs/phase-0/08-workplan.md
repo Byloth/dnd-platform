@@ -146,3 +146,9 @@ Content authoring time depends on DEC-19 and is estimated in [05-srd-import-pipe
 - Whether M0.7 should be pulled before M0.4 to give the owner something "playable" from the CLI earlier; it is possible since it depends only on M0.3.
 - Whether the `phb14-stub` fixture (placeholder text, public) is acceptable, or whether even a stub with the subclass *structure* of a copyrighted book should stay private. Leaning: structure and feature names are facts, placeholder text is ours; acceptable.
 - Session estimates assume one developer plus agent assistance for repetitive content work; revise after M0.2.
+
+## Progress log
+
+| Milestone | Closed | Tag | Notes |
+|---|---|---|---|
+| M0.1 | 2026-09-18 | v0.0.1 | Local repository only; the owner creates the remote and pushes. pnpm 12, Node 24, TypeScript 6, Vitest 4, ESLint 10 with `@byloth/eslint-config-typescript`. Engine import restriction and private-content rule tests verified by probe. |

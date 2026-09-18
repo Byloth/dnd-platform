@@ -1,0 +1,23 @@
+dnd-platform
+Copyright (C) 2026 Matteo Bilotta
+
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU Affero General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your option) any
+later version. See LICENSE.
+
+----------------------------------------------------------------------------
+
+This work includes material taken from the System Reference Document 5.1
+("SRD 5.1") by Wizards of the Coast LLC and available at
+https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is
+licensed under the Creative Commons Attribution 4.0 International License
+available at https://creativecommons.org/licenses/by/4.0/legalcode.
+
+Official Dungeons & Dragons books other than the SRD are not part of this
+repository and are never distributed with it. The platform can load such
+content from a local, git-ignored directory in the same package format, for
+personal use by people who own the books.
+
+Dungeons & Dragons and D&D are trademarks of Wizards of the Coast LLC. This
+project is not affiliated with or endorsed by Wizards of the Coast.

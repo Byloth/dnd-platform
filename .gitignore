@@ -1,0 +1,46 @@
+# Files created by OS
+#
+.DS_Store
+Desktop.ini
+
+# Files created by IDE
+#
+/.idea/
+/.vscode/
+
+/*.code-workspace
+
+# Downloadable & installable modules & components
+#
+node_modules/
+
+# Generated & compiled files
+#
+dist/
+coverage/
+*.tsbuildinfo
+
+# Environmental files
+#
+.env
+.env.*
+
+# Log files
+#
+*.log
+
+# Copyrighted content: same package format, never committed
+#
+/content-private/
+
+# Downloaded upstream datasets of the SRD import pipeline
+#
+/tools/import/cache/
+
+# Stray documents at the repository root
+#
+/*.pdf
+
+# Not ignored
+#
+!.gitkeep
