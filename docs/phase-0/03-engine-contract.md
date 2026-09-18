@@ -120,6 +120,8 @@ interface CharacterState {
   inspiration: boolean;
   concentration: { spell: EntityId; since: string } | null;
   customEffects: CustomEffect[];
+  toggles: { state: string; since: string; expires?: Expiry }[];
+  activeSpells: { spell: EntityId; caster: string; slotLevel?: number; expires?: Expiry }[];
   turn: { used: ActivationType[]; actionsTaken: string[]; movementUsed: number };
 }
 type Expiry = { turns: number } | { rest: 'short-rest' | 'long-rest' } | { manual: true };
@@ -132,6 +134,8 @@ type PlayEvent =
   | { type: 'restore-resource'; resource: string; amount: number }
   | { type: 'cast-spell'; spell: EntityId; slotLevel?: number; cost?: { resource: string; amount: number } }
   | { type: 'end-concentration' }
+  | { type: 'toggle'; state: string; on: boolean }
+  | { type: 'end-spell'; spell: EntityId }
   | { type: 'apply-condition'; condition: EntityId; expires?: Expiry }
   | { type: 'remove-condition'; condition: EntityId }
   | { type: 'custom-effect'; op: 'add' | 'remove'; effect: CustomEffect }
@@ -168,6 +172,7 @@ Complexity is linear in the number of active effects plus the topological sort; 
 - Produces the new state and a `LogEntry` with the minimal `before`/`after` slices, so `undo` is a pure restore of `before`.
 - Rests read the sheet's resources: `short-rest` restores every `short-rest` resource to max, applies supplied Hit Dice rolls plus CON modifier; `long-rest` restores HP to max, `long-rest` and `short-rest` resources, Hit Dice per the ruleset formula, clears temporary HP and non-persistent conditions (those with `expires: long-rest`).
 - `damage` reduces temporary HP first, then HP; at 0 HP sets `deathSaves` tracking on; a damage event while concentrating adds a warning "concentration check DC N" (N computed from the ruleset rule), never auto-drops concentration.
+- `toggle` switches a declared state; effects gated by `toggled` are re-derived on the next `derive`. `cast-spell` on a spell with `effects` and a duration adds an `activeSpells` entry; `end-spell` and `end-concentration` remove it, and expiries are decremented by `end-turn` and by rests.
 - `end-turn` resets the turn tracker (action, bonus action, reaction, movement, free interaction) and decrements `expires: turns` counters.
 
 ### Validation rules (`validate`)
