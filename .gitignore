@@ -44,3 +44,7 @@ coverage/
 # Not ignored
 #
 !.gitkeep
+
+# Intermediate outputs of the import pipeline
+#
+/tools/import/work/

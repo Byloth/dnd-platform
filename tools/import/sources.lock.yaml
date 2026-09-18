@@ -1,0 +1,76 @@
+# Upstream datasets of the SRD import pipeline (docs/phase-0/05-srd-import-pipeline.md).
+# `commit` pins the exact revision; `files` is written by `node tools/import/src/fetch.ts`
+# and records the sha256 of every downloaded file so a fetch is reproducible.
+sources:
+  - id: open5e
+    repo: open5e/open5e-api
+    ref: main
+    commit: 4b314adb19b5
+    license: "data: CC-BY-4.0 (document srd-2014); code: modified MIT (not used)"
+    paths:
+      - data/v2/wizards-of-the-coast/srd-2014/
+    exclude:
+      - Creature
+    files:
+      data/v2/wizards-of-the-coast/srd-2014/AbilityDescription.json: 8ce63cbe6fbbbc8bb15178302265d335d5885a1c7b63d232853820857142bdec
+      data/v2/wizards-of-the-coast/srd-2014/AlignmentDescription.json: f2b45ef5d06d913350d7d2185b452c8661142cff78c44877662e6b56b73ed761
+      data/v2/wizards-of-the-coast/srd-2014/Armor.json: fa22cdf7bb0401e19b8c2c98558ddcb0eb0d1a9923db8b08d33823265f12a48b
+      data/v2/wizards-of-the-coast/srd-2014/Background.json: 15c36d528dc7150c6c6ca7b1677f9e5438cc3442eae8f6670a465c6298b8aeff
+      data/v2/wizards-of-the-coast/srd-2014/BackgroundBenefit.json: 243e46353ac5af30bd286db718692a104adf289073fd67a4a566a38c049be4bf
+      data/v2/wizards-of-the-coast/srd-2014/CharacterClass.json: 4cf09489eae72e64ade4e05f6747f0fa4d943bfa0dfe641c19e01f57867af21f
+      data/v2/wizards-of-the-coast/srd-2014/ClassFeature.json: 1ff4aee86522dec993fb1b7831694843c83fa703dfaa4cbdab71870e065cecd3
+      data/v2/wizards-of-the-coast/srd-2014/ClassFeatureItem.json: 595a2afc39e74e0c098cea5650784e818addc262134ae04b998f959cc16697b9
+      data/v2/wizards-of-the-coast/srd-2014/ConditionDescription.json: a1503f6b2f0b9ee53af2a772193186fec2e0a3853e46e913012c371997ed383f
+      data/v2/wizards-of-the-coast/srd-2014/CrossReference.json: 66494698224aa2826a06baf9b51cd942128dfd01dc0ad97520629c4112cc7cdd
+      data/v2/wizards-of-the-coast/srd-2014/DamageTypeDescription.json: ff55d9b6e07531e0fc73d0c14168539b1905100f32a75658aa3fdabdf076cc67
+      data/v2/wizards-of-the-coast/srd-2014/Document.json: be957baf92d43edfbe8a934d6c1114665d393950bd1a50aa1b62aff62f51d013
+      data/v2/wizards-of-the-coast/srd-2014/Environment.json: 6b0bc609d99f706541e2481bf709be038696c23f6a66b7e04f19eb083a13a4ef
+      data/v2/wizards-of-the-coast/srd-2014/Feat.json: 092309734ecb6540df275022e064efa341a6c11b636f53bc132217ef447894a2
+      data/v2/wizards-of-the-coast/srd-2014/FeatBenefit.json: f1aeffcc8f58c6997365cbc70e34fa6820c2129b1942015514d3a6f8c2562c73
+      data/v2/wizards-of-the-coast/srd-2014/Item.json: c58fbe3aa9099a759b9525a060e4e1428c6dd3df4c53b01ae54044aa10fedea3
+      data/v2/wizards-of-the-coast/srd-2014/ItemSet.json: 1445a493d598f519cc52ebf0190a009e518bab627c87c18b8b0a37fde317d7d2
+      data/v2/wizards-of-the-coast/srd-2014/MagicItem.json: fdaf38cae6a92f9357f1dbfe00864e1a277f9fd384add37bfd637bcf858ed2ba
+      data/v2/wizards-of-the-coast/srd-2014/Rule.json: f274b034d94cbe82e51e780a03953504c4ec20e3fd1d4a5a03479463938da81b
+      data/v2/wizards-of-the-coast/srd-2014/RuleSet.json: 59fa98f3c2b056baa174cfb5aa60971cb42eea107b10c46424c3055f27ff81eb
+      data/v2/wizards-of-the-coast/srd-2014/SkillDescription.json: 6eeef501921f393ad089fe040defb9012e2aff754d7ec555c011ca5b36c3ebae
+      data/v2/wizards-of-the-coast/srd-2014/Species.json: 0db9848a0d1318aaaa7d5ea4326788994d70f4f60d7445bf925a4f829ce398b0
+      data/v2/wizards-of-the-coast/srd-2014/SpeciesTrait.json: 37ede1fce23d9c5c094fb71c3ae1ff8112e50a9fd80143f41b4d20d6fcb3b3d8
+      data/v2/wizards-of-the-coast/srd-2014/Spell.json: a60b4fb514c925089b2fa2fda5f62335e28198b59121aa2e61b996b31def9fea
+      data/v2/wizards-of-the-coast/srd-2014/SpellCastingOption.json: fac025699b58324a93f9177f3702700a550fc72bfce8498c1f29959a79284719
+      data/v2/wizards-of-the-coast/srd-2014/Weapon.json: bc1667fa0d4a1370d83d51e1d9e04f83d6ce39bc2880eadb7f8178c2f8588ef2
+      data/v2/wizards-of-the-coast/srd-2014/WeaponProperty.json: 6a69e39990b214f657220fb978ca1b20996838f7fc9e261972984db210fb62bd
+      data/v2/wizards-of-the-coast/srd-2014/WeaponPropertyAssignment.json: 1ffeb094188c33bfbc624d330d1ae3fa37491782ae5b8088c1a3e4c43791e80f
+  - id: 5e-database
+    repo: 5e-bits/5e-database
+    ref: main
+    commit: 3b124d875509
+    license: "code: MIT; data: OGL 1.0a as stated upstream (SRD 5.1 itself is also CC-BY-4.0)"
+    paths:
+      - src/2014/en/
+    exclude: []
+    files:
+      src/2014/en/5e-SRD-Ability-Scores.json: 23f08ea89e30f3d4e1cab80b3f57b61188b7894fbcab3b583177b66e9711e090
+      src/2014/en/5e-SRD-Alignments.json: 97420c2d552a01a44927855b791fd80868529753789ed9c61b04a155d70f8767
+      src/2014/en/5e-SRD-Backgrounds.json: f98c556f1b842c2570058cd071b7c20743290358559a1f46140dbedf36f418aa
+      src/2014/en/5e-SRD-Classes.json: 2c2795733d45db10758f1c62cad28ffdb1e44159d49a0669bd2dcd606ab6fcfc
+      src/2014/en/5e-SRD-Conditions.json: e2c8d211a4f72722c3490217aea948e78c5235c2d51d3c08a4fd3e9d3cd4468f
+      src/2014/en/5e-SRD-Damage-Types.json: 0de4356c453c3e54b5935de528e2867f3ec7af50a03939184675caf33b6c55de
+      src/2014/en/5e-SRD-Equipment-Categories.json: 79ae72de3e73ac6a7639af9c01e1f9985ce1cbb2175b481c3ba04c19aff0bfaa
+      src/2014/en/5e-SRD-Equipment.json: aa5e99e4dad50143467568a3de653d53d1d39c2c2aa6ac74b172f457f6315ac1
+      src/2014/en/5e-SRD-Feats.json: 77ec1eeab03643714250c617ee54f558ff6600a12d25fc17ae709a1bc9513482
+      src/2014/en/5e-SRD-Features.json: fd20a2a5c27996eb66c023053b1629d93dac2d1d108e5d81dfc53ddf0d6ad93c
+      src/2014/en/5e-SRD-Languages.json: 44f30bf49b9692f529e8cf61f20e71fd415f1f42b5a1b80f5c8c665ddae1e8c1
+      src/2014/en/5e-SRD-Levels.json: ea6a58268f26f8536d049bd8cb45630280188cd07d2be8b46e0e4cbe5a44feeb
+      src/2014/en/5e-SRD-Magic-Items.json: 9a6f928cbf36b268b02e09dc116995efce8a74380df0450e197117886b64993d
+      src/2014/en/5e-SRD-Magic-Schools.json: 9901d0934c16941b871a360f1e866c7ad78679bad9126baf8a5bbd0dfee37daf
+      src/2014/en/5e-SRD-Monsters.json: cbf1b6d0a94f6e13afd1480d647d288c61ba0ddc3d3a7842d1501852dc954237
+      src/2014/en/5e-SRD-Proficiencies.json: 60127a2130a5dd0a0a9b4cc20adf9061be81e9ad95218273d3b434c49d229333
+      src/2014/en/5e-SRD-Races.json: 75e6e99c318162e229f825d79f1be0c06abe38f37d14eeea54ce32d94d051245
+      src/2014/en/5e-SRD-Rule-Sections.json: b4505c615573cb2b3e962e1f501dde239c58a08a3f23e5c735c6151eb26e3d78
+      src/2014/en/5e-SRD-Rules.json: 2c40dce45db2af7f06fdd2dfd1a527dce408ddbd6efb2756b53ddb6e662aff87
+      src/2014/en/5e-SRD-Skills.json: 09f42a2d3e3d952fc2654387bf1a56dee7f02a326a68a8bc167bd562b0f1e0d9
+      src/2014/en/5e-SRD-Spells.json: abebe7d860ec32985b804e087ecd3986145b1b772fa0c2e43cce9964b382f2ae
+      src/2014/en/5e-SRD-Subclasses.json: b3502390228ffd15c9043f6b5f25d365a9935e12056debccc2e2749e3d6c3ab1
+      src/2014/en/5e-SRD-Subraces.json: 13f6917a7f52a42ba48e7daf0464bcdf1c6ffb2efaf9a0ec8d8de523789dedb8
+      src/2014/en/5e-SRD-Traits.json: 76943cc30d9d08ad3720524f81f4a1ea715439c3e59191644c4a207d4ae5fcd5
+      src/2014/en/5e-SRD-Weapon-Properties.json: 31604f16560b217549c2b629eef1377cde7a8d91a987cbdd4ad19db790b0d765
