@@ -13,7 +13,7 @@ export default [
   ...eslintTs,
   {
     // Command-line scripts report through the console by design.
-    files: ["tools/**/*.ts", "packages/cli/src/**/*.ts"],
+    files: ["tools/**/*.ts", "packages/*/scripts/**/*.ts", "packages/cli/src/**/*.ts"],
     rules: {
       "no-console": "off",
       // Generators of Markdown and YAML are made of long template strings.

@@ -1,0 +1,236 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dnd-platform.byloth.dev/schema/v0/play-effect.schema.json",
+  "title": "PlayEffect",
+  "type": "object",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/heal"
+    },
+    {
+      "$ref": "#/$defs/tempHp"
+    },
+    {
+      "$ref": "#/$defs/extraDamage"
+    },
+    {
+      "$ref": "#/$defs/restoreResource"
+    },
+    {
+      "$ref": "#/$defs/applyCondition"
+    },
+    {
+      "$ref": "#/$defs/reroll"
+    },
+    {
+      "$ref": "#/$defs/note"
+    }
+  ],
+  "$defs": {
+    "heal": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "heal"
+        },
+        "amount": {
+          "$ref": "common.schema.json#/$defs/diceOrFormula"
+        },
+        "target": {
+          "type": "string",
+          "enum": [
+            "self",
+            "other"
+          ]
+        },
+        "note": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "amount"
+      ]
+    },
+    "tempHp": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "tempHp"
+        },
+        "amount": {
+          "$ref": "common.schema.json#/$defs/diceOrFormula"
+        },
+        "note": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "amount"
+      ]
+    },
+    "extraDamage": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "extraDamage"
+        },
+        "dice": {
+          "$ref": "common.schema.json#/$defs/dice"
+        },
+        "formula": {
+          "$ref": "common.schema.json#/$defs/formula"
+        },
+        "damageType": {
+          "$ref": "common.schema.json#/$defs/damageType"
+        },
+        "once": {
+          "type": "string",
+          "enum": [
+            "per-turn"
+          ]
+        },
+        "note": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "kind"
+      ]
+    },
+    "restoreResource": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "restoreResource"
+        },
+        "resource": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+            },
+            {
+              "const": "spell-slots"
+            }
+          ]
+        },
+        "amount": {
+          "anyOf": [
+            {
+              "const": "full"
+            },
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "$ref": "common.schema.json#/$defs/formula"
+            }
+          ]
+        },
+        "budget": {
+          "$ref": "common.schema.json#/$defs/formula"
+        },
+        "note": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "resource",
+        "amount"
+      ]
+    },
+    "applyCondition": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "applyCondition"
+        },
+        "condition": {
+          "$ref": "common.schema.json#/$defs/entityId"
+        },
+        "target": {
+          "type": "string",
+          "enum": [
+            "self",
+            "other"
+          ]
+        },
+        "expires": {
+          "$ref": "common.schema.json#/$defs/expiry"
+        },
+        "note": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "condition"
+      ]
+    },
+    "reroll": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "reroll"
+        },
+        "roll": {
+          "type": "string",
+          "enum": [
+            "attack",
+            "check",
+            "save",
+            "damage"
+          ]
+        },
+        "keep": {
+          "type": "string",
+          "enum": [
+            "higher",
+            "new"
+          ]
+        },
+        "note": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "roll",
+        "keep"
+      ]
+    },
+    "note": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "note"
+        },
+        "text": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        },
+        "note": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "text"
+      ]
+    }
+  },
+  "description": "Play effect",
+  "discriminator": {
+    "propertyName": "kind"
+  }
+}

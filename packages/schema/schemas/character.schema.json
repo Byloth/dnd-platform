@@ -1,0 +1,635 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dnd-platform.byloth.dev/schema/v0/character.schema.json",
+  "title": "Character",
+  "type": "object",
+  "properties": {
+    "formatVersion": {
+      "const": 0
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "ruleset": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "common.schema.json#/$defs/packageId"
+        },
+        "version": {
+          "$ref": "common.schema.json#/$defs/semver"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "version"
+      ]
+    },
+    "packages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/packageId"
+          },
+          "version": {
+            "$ref": "common.schema.json#/$defs/semver"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "version"
+        ]
+      },
+      "minItems": 1
+    },
+    "choices": {
+      "type": "object",
+      "properties": {
+        "species": {
+          "$ref": "common.schema.json#/$defs/entityId"
+        },
+        "subspecies": {
+          "$ref": "common.schema.json#/$defs/entityId"
+        },
+        "classes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "class": {
+                "$ref": "common.schema.json#/$defs/entityId"
+              },
+              "subclass": {
+                "$ref": "common.schema.json#/$defs/entityId"
+              },
+              "levels": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 20
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "class",
+              "levels"
+            ]
+          },
+          "minItems": 1
+        },
+        "background": {
+          "$ref": "common.schema.json#/$defs/entityId"
+        },
+        "abilityScores": {
+          "type": "object",
+          "properties": {
+            "method": {
+              "type": "string",
+              "enum": [
+                "standard-array",
+                "point-buy",
+                "roll",
+                "manual"
+              ]
+            },
+            "base": {
+              "type": "object",
+              "propertyNames": {
+                "enum": [
+                  "str",
+                  "dex",
+                  "con",
+                  "int",
+                  "wis",
+                  "cha"
+                ]
+              },
+              "additionalProperties": {
+                "type": "integer"
+              }
+            },
+            "bonuses": {
+              "type": "object",
+              "propertyNames": {
+                "enum": [
+                  "str",
+                  "dex",
+                  "con",
+                  "int",
+                  "wis",
+                  "cha"
+                ]
+              },
+              "additionalProperties": {
+                "type": "integer"
+              }
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "method",
+            "base"
+          ]
+        },
+        "answers": {
+          "type": "object",
+          "propertyNames": {
+            "pattern": "^.+#.+$"
+          },
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "equipment": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "item": {
+                "$ref": "common.schema.json#/$defs/entityId"
+              },
+              "quantity": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "equipped": {
+                "type": "boolean"
+              },
+              "attuned": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "item"
+            ]
+          }
+        },
+        "personality": {
+          "type": "object",
+          "properties": {
+            "traits": {
+              "$ref": "common.schema.json#/$defs/localizedString"
+            },
+            "ideals": {
+              "$ref": "common.schema.json#/$defs/localizedString"
+            },
+            "bonds": {
+              "$ref": "common.schema.json#/$defs/localizedString"
+            },
+            "flaws": {
+              "$ref": "common.schema.json#/$defs/localizedString"
+            }
+          },
+          "additionalProperties": false
+        },
+        "alignment": {
+          "type": "string",
+          "minLength": 1
+        },
+        "appearance": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        },
+        "notes": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        }
+      },
+      "additionalProperties": false
+    },
+    "state": {
+      "type": "object",
+      "properties": {
+        "hp": {
+          "type": "object",
+          "properties": {
+            "current": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "temporary": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "current",
+            "temporary"
+          ]
+        },
+        "hitDice": {
+          "type": "object",
+          "properties": {
+            "spent": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "spent"
+          ]
+        },
+        "resources": {
+          "type": "object",
+          "propertyNames": {
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "spellSlots": {
+          "type": "object",
+          "propertyNames": {
+            "pattern": "^[1-9]$"
+          },
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "condition": {
+                "$ref": "common.schema.json#/$defs/entityId"
+              },
+              "level": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "expires": {
+                "$ref": "common.schema.json#/$defs/expiry"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "condition"
+            ]
+          }
+        },
+        "deathSaves": {
+          "type": "object",
+          "properties": {
+            "successes": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 3
+            },
+            "failures": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 3
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "successes",
+            "failures"
+          ]
+        },
+        "inspiration": {
+          "type": "boolean"
+        },
+        "concentration": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "spell": {
+                  "$ref": "common.schema.json#/$defs/entityId"
+                },
+                "since": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "spell"
+              ]
+            }
+          ]
+        },
+        "customEffects": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "$ref": "common.schema.json#/$defs/localizedString"
+              },
+              "text": {
+                "$ref": "common.schema.json#/$defs/localizedString"
+              },
+              "effects": {
+                "type": "array",
+                "items": {
+                  "$ref": "effect.schema.json"
+                }
+              },
+              "expires": {
+                "$ref": "common.schema.json#/$defs/expiry"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "name"
+            ]
+          }
+        },
+        "toggles": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+              },
+              "since": {
+                "type": "string",
+                "minLength": 1
+              },
+              "expires": {
+                "$ref": "common.schema.json#/$defs/expiry"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "state"
+            ]
+          }
+        },
+        "activeSpells": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "spell": {
+                "$ref": "common.schema.json#/$defs/entityId"
+              },
+              "caster": {
+                "type": "string",
+                "minLength": 1
+              },
+              "slotLevel": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 9
+              },
+              "expires": {
+                "$ref": "common.schema.json#/$defs/expiry"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "spell"
+            ]
+          }
+        },
+        "turn": {
+          "type": "object",
+          "properties": {
+            "used": {
+              "type": "array",
+              "items": {
+                "$ref": "common.schema.json#/$defs/activation"
+              }
+            },
+            "actionsTaken": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+              }
+            },
+            "movementUsed": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "hp",
+        "hitDice",
+        "resources",
+        "conditions",
+        "deathSaves",
+        "inspiration"
+      ]
+    },
+    "snapshots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "at": {
+            "type": "string",
+            "minLength": 1
+          },
+          "level": {
+            "type": "integer"
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "choices": {
+            "type": "object",
+            "properties": {
+              "species": {
+                "$ref": "common.schema.json#/$defs/entityId"
+              },
+              "subspecies": {
+                "$ref": "common.schema.json#/$defs/entityId"
+              },
+              "classes": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "class": {
+                      "$ref": "common.schema.json#/$defs/entityId"
+                    },
+                    "subclass": {
+                      "$ref": "common.schema.json#/$defs/entityId"
+                    },
+                    "levels": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 20
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [
+                    "class",
+                    "levels"
+                  ]
+                },
+                "minItems": 1
+              },
+              "background": {
+                "$ref": "common.schema.json#/$defs/entityId"
+              },
+              "abilityScores": {
+                "type": "object",
+                "properties": {
+                  "method": {
+                    "type": "string",
+                    "enum": [
+                      "standard-array",
+                      "point-buy",
+                      "roll",
+                      "manual"
+                    ]
+                  },
+                  "base": {
+                    "type": "object",
+                    "propertyNames": {
+                      "enum": [
+                        "str",
+                        "dex",
+                        "con",
+                        "int",
+                        "wis",
+                        "cha"
+                      ]
+                    },
+                    "additionalProperties": {
+                      "type": "integer"
+                    }
+                  },
+                  "bonuses": {
+                    "type": "object",
+                    "propertyNames": {
+                      "enum": [
+                        "str",
+                        "dex",
+                        "con",
+                        "int",
+                        "wis",
+                        "cha"
+                      ]
+                    },
+                    "additionalProperties": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "method",
+                  "base"
+                ]
+              },
+              "answers": {
+                "type": "object",
+                "propertyNames": {
+                  "pattern": "^.+#.+$"
+                },
+                "additionalProperties": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              },
+              "equipment": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "item": {
+                      "$ref": "common.schema.json#/$defs/entityId"
+                    },
+                    "quantity": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "equipped": {
+                      "type": "boolean"
+                    },
+                    "attuned": {
+                      "type": "boolean"
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [
+                    "item"
+                  ]
+                }
+              },
+              "personality": {
+                "type": "object",
+                "properties": {
+                  "traits": {
+                    "$ref": "common.schema.json#/$defs/localizedString"
+                  },
+                  "ideals": {
+                    "$ref": "common.schema.json#/$defs/localizedString"
+                  },
+                  "bonds": {
+                    "$ref": "common.schema.json#/$defs/localizedString"
+                  },
+                  "flaws": {
+                    "$ref": "common.schema.json#/$defs/localizedString"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "alignment": {
+                "type": "string",
+                "minLength": 1
+              },
+              "appearance": {
+                "$ref": "common.schema.json#/$defs/localizedString"
+              },
+              "notes": {
+                "$ref": "common.schema.json#/$defs/localizedString"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "at",
+          "choices"
+        ]
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "ruleset",
+    "packages",
+    "choices",
+    "state"
+  ],
+  "description": "Character document"
+}

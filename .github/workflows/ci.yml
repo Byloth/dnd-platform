@@ -20,6 +20,8 @@ jobs:
       - run: pnpm lint
       - run: pnpm typecheck
       - run: pnpm build
+      - run: pnpm generate:types:check
       - run: pnpm test
+      - run: pnpm validate:content
       # Public content only: content-private/ never exists here.
       # Fixtures that require a private package are reported as skipped.

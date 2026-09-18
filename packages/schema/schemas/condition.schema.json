@@ -1,0 +1,201 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dnd-platform.byloth.dev/schema/v0/condition.schema.json",
+  "title": "Condition",
+  "type": "object",
+  "properties": {
+    "level": {
+      "type": "object",
+      "properties": {
+        "min": {
+          "type": "integer"
+        },
+        "max": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false,
+      "minProperties": 1
+    },
+    "classLevel": {
+      "type": "object",
+      "properties": {
+        "class": {
+          "$ref": "common.schema.json#/$defs/entityId"
+        },
+        "min": {
+          "type": "integer"
+        },
+        "max": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "class"
+      ]
+    },
+    "hasFeature": {
+      "$ref": "common.schema.json#/$defs/entityId"
+    },
+    "armorCategory": {
+      "type": "string",
+      "enum": [
+        "none",
+        "light",
+        "medium",
+        "heavy"
+      ]
+    },
+    "shield": {
+      "type": "boolean"
+    },
+    "wielding": {
+      "$ref": "common.schema.json#/$defs/weaponFilter"
+    },
+    "wieldingOnly": {
+      "type": "object",
+      "properties": {
+        "property": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "category": {
+          "type": "string",
+          "enum": [
+            "simple",
+            "martial"
+          ]
+        },
+        "twoHanded": {
+          "type": "boolean"
+        },
+        "unarmed": {
+          "type": "boolean"
+        },
+        "monkWeapon": {
+          "type": "boolean"
+        },
+        "ranged": {
+          "type": "boolean"
+        },
+        "melee": {
+          "type": "boolean"
+        },
+        "count": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    },
+    "armorStrengthUnmet": {
+      "type": "boolean"
+    },
+    "conditionActive": {
+      "$ref": "common.schema.json#/$defs/entityId"
+    },
+    "toggled": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "resourceAtLeast": {
+      "type": "object",
+      "properties": {
+        "resource": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "amount": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "resource",
+        "amount"
+      ]
+    },
+    "answer": {
+      "type": "object",
+      "properties": {
+        "choice": {
+          "type": "string",
+          "minLength": 1
+        },
+        "is": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "choice",
+        "is"
+      ]
+    },
+    "knowsSpell": {
+      "$ref": "common.schema.json#/$defs/entityId"
+    },
+    "ability": {
+      "type": "object",
+      "properties": {
+        "ability": {
+          "$ref": "common.schema.json#/$defs/ability"
+        },
+        "min": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "ability",
+        "min"
+      ]
+    },
+    "proficient": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "common.schema.json#/$defs/proficiencyType"
+        },
+        "item": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "item"
+      ]
+    },
+    "species": {
+      "$ref": "common.schema.json#/$defs/entityId"
+    },
+    "class": {
+      "$ref": "common.schema.json#/$defs/entityId"
+    },
+    "any": {
+      "type": "array",
+      "items": {
+        "$ref": "#"
+      },
+      "minItems": 1
+    },
+    "all": {
+      "type": "array",
+      "items": {
+        "$ref": "#"
+      },
+      "minItems": 1
+    },
+    "not": {
+      "$ref": "#"
+    }
+  },
+  "additionalProperties": false,
+  "minProperties": 1,
+  "description": "Condition language (`when`, `prerequisites`)"
+}

@@ -1,0 +1,143 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dnd-platform.byloth.dev/schema/v0/species.schema.json",
+  "title": "Species",
+  "type": "object",
+  "properties": {
+    "id": {
+      "$ref": "common.schema.json#/$defs/entityId"
+    },
+    "name": {
+      "$ref": "common.schema.json#/$defs/localizedString"
+    },
+    "text": {
+      "$ref": "common.schema.json#/$defs/localizedString"
+    },
+    "source": {
+      "$ref": "common.schema.json#/$defs/sourceRef"
+    },
+    "tags": {
+      "$ref": "common.schema.json#/$defs/tags"
+    },
+    "page": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "size": {
+      "$ref": "common.schema.json#/$defs/size"
+    },
+    "speed": {
+      "type": "object",
+      "properties": {
+        "walk": {
+          "type": "number"
+        },
+        "climb": {
+          "type": "number"
+        },
+        "fly": {
+          "type": "number"
+        },
+        "swim": {
+          "type": "number"
+        },
+        "burrow": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false,
+      "minProperties": 1
+    },
+    "languages": {
+      "$ref": "common.schema.json#/$defs/languageGrant"
+    },
+    "features": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "$ref": "common.schema.json#/$defs/entityId"
+          },
+          {
+            "$ref": "feature.schema.json"
+          }
+        ]
+      }
+    },
+    "subspecies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/entityId"
+          },
+          "name": {
+            "$ref": "common.schema.json#/$defs/localizedString"
+          },
+          "text": {
+            "$ref": "common.schema.json#/$defs/localizedString"
+          },
+          "source": {
+            "$ref": "common.schema.json#/$defs/sourceRef"
+          },
+          "tags": {
+            "$ref": "common.schema.json#/$defs/tags"
+          },
+          "page": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "common.schema.json#/$defs/entityId"
+                },
+                {
+                  "$ref": "feature.schema.json"
+                }
+              ]
+            }
+          },
+          "speed": {
+            "type": "object",
+            "properties": {
+              "walk": {
+                "type": "number"
+              },
+              "climb": {
+                "type": "number"
+              },
+              "fly": {
+                "type": "number"
+              },
+              "swim": {
+                "type": "number"
+              },
+              "burrow": {
+                "type": "number"
+              }
+            },
+            "additionalProperties": false,
+            "minProperties": 1
+          },
+          "size": {
+            "$ref": "common.schema.json#/$defs/size"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name"
+        ]
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name"
+  ]
+}

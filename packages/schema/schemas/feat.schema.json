@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dnd-platform.byloth.dev/schema/v0/feat.schema.json",
+  "title": "Feat",
+  "type": "object",
+  "properties": {
+    "id": {
+      "$ref": "common.schema.json#/$defs/entityId"
+    },
+    "name": {
+      "$ref": "common.schema.json#/$defs/localizedString"
+    },
+    "text": {
+      "$ref": "common.schema.json#/$defs/localizedString"
+    },
+    "source": {
+      "$ref": "common.schema.json#/$defs/sourceRef"
+    },
+    "tags": {
+      "$ref": "common.schema.json#/$defs/tags"
+    },
+    "page": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "prerequisites": {
+      "$ref": "condition.schema.json"
+    },
+    "features": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "$ref": "common.schema.json#/$defs/entityId"
+          },
+          {
+            "$ref": "feature.schema.json"
+          }
+        ]
+      }
+    },
+    "effects": {
+      "type": "array",
+      "items": {
+        "$ref": "effect.schema.json"
+      }
+    },
+    "choices": {
+      "type": "array",
+      "items": {
+        "$ref": "choice.schema.json"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name"
+  ]
+}

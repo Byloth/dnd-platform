@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dnd-platform.byloth.dev/schema/v0/patch.schema.json",
+  "title": "Patch",
+  "type": "object",
+  "properties": {
+    "id": {
+      "$ref": "common.schema.json#/$defs/entityId"
+    },
+    "target": {
+      "$ref": "common.schema.json#/$defs/entityId"
+    },
+    "source": {
+      "$ref": "common.schema.json#/$defs/sourceRef"
+    },
+    "set": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": true
+    },
+    "append": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "array"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "target"
+  ],
+  "anyOf": [
+    {
+      "required": [
+        "set"
+      ]
+    },
+    {
+      "required": [
+        "append"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dnd-platform.byloth.dev/schema/v0/translation.schema.json",
+  "title": "Translation",
+  "type": "object",
+  "minProperties": 1,
+  "propertyNames": {
+    "pattern": "^[A-Za-z0-9_.-]+$"
+  },
+  "additionalProperties": {
+    "type": "string",
+    "minLength": 1
+  },
+  "description": "Translation file (translations/<lang>/<entity-id>.yaml): field path → string"
+}

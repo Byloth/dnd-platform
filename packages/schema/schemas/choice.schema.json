@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dnd-platform.byloth.dev/schema/v0/choice.schema.json",
+  "title": "Choice",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "of": {
+      "$ref": "common.schema.json#/$defs/choiceOf"
+    },
+    "count": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "from": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "filter": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "common.schema.json#/$defs/entityType"
+        },
+        "list": {
+          "$ref": "common.schema.json#/$defs/entityId"
+        },
+        "maxLevel": {
+          "$ref": "common.schema.json#/$defs/formulaOrNumber"
+        },
+        "school": {
+          "$ref": "common.schema.json#/$defs/school"
+        },
+        "class": {
+          "$ref": "common.schema.json#/$defs/entityId"
+        },
+        "level": {
+          "type": "integer"
+        },
+        "ritual": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false,
+      "minProperties": 1
+    },
+    "options": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "name": {
+            "$ref": "common.schema.json#/$defs/localizedString"
+          },
+          "text": {
+            "$ref": "common.schema.json#/$defs/localizedString"
+          },
+          "effects": {
+            "type": "array",
+            "items": {
+              "$ref": "effect.schema.json"
+            }
+          },
+          "prerequisites": {
+            "$ref": "condition.schema.json"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name"
+        ]
+      },
+      "minItems": 1
+    },
+    "level": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 20
+    },
+    "prerequisites": {
+      "$ref": "condition.schema.json"
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "of"
+  ],
+  "description": "Choice (on class levels, features, backgrounds)"
+}

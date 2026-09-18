@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dnd-platform.byloth.dev/schema/v0/package.schema.json",
+  "title": "PackageManifest",
+  "type": "object",
+  "properties": {
+    "formatVersion": {
+      "const": 0
+    },
+    "id": {
+      "$ref": "common.schema.json#/$defs/packageId"
+    },
+    "name": {
+      "$ref": "common.schema.json#/$defs/localizedString"
+    },
+    "version": {
+      "$ref": "common.schema.json#/$defs/semver"
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "base",
+        "extension",
+        "translation"
+      ]
+    },
+    "defaultLanguage": {
+      "$ref": "common.schema.json#/$defs/languageTag"
+    },
+    "languages": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/languageTag"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "visibility": {
+      "type": "string",
+      "enum": [
+        "public",
+        "campaign",
+        "private"
+      ]
+    },
+    "redistributable": {
+      "type": "boolean"
+    },
+    "ruleset": {
+      "const": "any"
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/packageId"
+          },
+          "version": {
+            "$ref": "common.schema.json#/$defs/versionRange"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "version"
+        ]
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/packageId"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "publisher": {
+            "type": "string",
+            "minLength": 1
+          },
+          "author": {
+            "type": "string",
+            "minLength": 1
+          },
+          "edition": {
+            "type": "string",
+            "minLength": 1
+          },
+          "license": {
+            "type": "string",
+            "minLength": 1
+          },
+          "attribution": {
+            "type": "string",
+            "minLength": 1
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "title",
+          "license",
+          "attribution"
+        ]
+      },
+      "minItems": 1
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "formatVersion",
+    "id",
+    "name",
+    "version",
+    "kind",
+    "defaultLanguage",
+    "languages",
+    "visibility",
+    "redistributable",
+    "dependencies",
+    "sources"
+  ],
+  "description": "Package manifest"
+}

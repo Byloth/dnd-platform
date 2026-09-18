@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dnd-platform.byloth.dev/schema/v0/condition-entity.schema.json",
+  "title": "ConditionEntity",
+  "type": "object",
+  "properties": {
+    "id": {
+      "$ref": "common.schema.json#/$defs/entityId"
+    },
+    "name": {
+      "$ref": "common.schema.json#/$defs/localizedString"
+    },
+    "text": {
+      "$ref": "common.schema.json#/$defs/localizedString"
+    },
+    "source": {
+      "$ref": "common.schema.json#/$defs/sourceRef"
+    },
+    "tags": {
+      "$ref": "common.schema.json#/$defs/tags"
+    },
+    "page": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "effects": {
+      "type": "array",
+      "items": {
+        "$ref": "effect.schema.json"
+      }
+    },
+    "levels": {
+      "type": "object",
+      "description": "Leveled conditions (exhaustion): effects per level; all lower levels apply too when cumulative.",
+      "propertyNames": {
+        "pattern": "^[1-9][0-9]?$"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "$ref": "common.schema.json#/$defs/localizedString"
+          },
+          "effects": {
+            "type": "array",
+            "items": {
+              "$ref": "effect.schema.json"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
+      }
+    },
+    "cumulative": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "text"
+  ],
+  "description": "Condition (entity)"
+}

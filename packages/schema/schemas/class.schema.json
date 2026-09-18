@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dnd-platform.byloth.dev/schema/v0/class.schema.json",
+  "title": "Class",
+  "type": "object",
+  "properties": {
+    "id": {
+      "$ref": "common.schema.json#/$defs/entityId"
+    },
+    "name": {
+      "$ref": "common.schema.json#/$defs/localizedString"
+    },
+    "text": {
+      "$ref": "common.schema.json#/$defs/localizedString"
+    },
+    "source": {
+      "$ref": "common.schema.json#/$defs/sourceRef"
+    },
+    "tags": {
+      "$ref": "common.schema.json#/$defs/tags"
+    },
+    "page": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "hitDie": {
+      "type": "integer",
+      "enum": [
+        4,
+        6,
+        8,
+        10,
+        12
+      ]
+    },
+    "primaryAbilities": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/ability"
+      }
+    },
+    "savingThrows": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/ability"
+      },
+      "minItems": 1
+    },
+    "proficiencies": {
+      "$ref": "common.schema.json#/$defs/proficiencyGrants"
+    },
+    "startingEquipment": {
+      "$ref": "common.schema.json#/$defs/equipmentGrant"
+    },
+    "multiclass": {
+      "type": "object",
+      "properties": {
+        "prerequisites": {
+          "type": "object",
+          "propertyNames": {
+            "enum": [
+              "str",
+              "dex",
+              "con",
+              "int",
+              "wis",
+              "cha"
+            ]
+          },
+          "additionalProperties": {
+            "type": "integer"
+          }
+        },
+        "proficiencies": {
+          "$ref": "common.schema.json#/$defs/proficiencyGrants"
+        }
+      },
+      "additionalProperties": false
+    },
+    "subclassLevel": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 20
+    },
+    "subclassChoice": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "casterWeight": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "levels": {
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": {
+        "pattern": "^(?:[1-9]|1[0-9]|20)$"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "features": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "common.schema.json#/$defs/entityId"
+                },
+                {
+                  "$ref": "feature.schema.json"
+                }
+              ]
+            }
+          },
+          "choices": {
+            "type": "array",
+            "items": {
+              "$ref": "choice.schema.json"
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "tables": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+      },
+      "additionalProperties": {
+        "$ref": "common.schema.json#/$defs/tableDef"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "hitDie",
+    "savingThrows",
+    "levels"
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dnd-platform.byloth.dev/schema/v0/subclass.schema.json",
+  "title": "Subclass",
+  "type": "object",
+  "properties": {
+    "id": {
+      "$ref": "common.schema.json#/$defs/entityId"
+    },
+    "name": {
+      "$ref": "common.schema.json#/$defs/localizedString"
+    },
+    "text": {
+      "$ref": "common.schema.json#/$defs/localizedString"
+    },
+    "source": {
+      "$ref": "common.schema.json#/$defs/sourceRef"
+    },
+    "tags": {
+      "$ref": "common.schema.json#/$defs/tags"
+    },
+    "page": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "class": {
+      "$ref": "common.schema.json#/$defs/entityId"
+    },
+    "levels": {
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": {
+        "pattern": "^(?:[1-9]|1[0-9]|20)$"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "features": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "common.schema.json#/$defs/entityId"
+                },
+                {
+                  "$ref": "feature.schema.json"
+                }
+              ]
+            }
+          },
+          "choices": {
+            "type": "array",
+            "items": {
+              "$ref": "choice.schema.json"
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "tables": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+      },
+      "additionalProperties": {
+        "$ref": "common.schema.json#/$defs/tableDef"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "class",
+    "levels"
+  ]
+}

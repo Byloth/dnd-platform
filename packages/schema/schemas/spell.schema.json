@@ -1,0 +1,257 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dnd-platform.byloth.dev/schema/v0/spell.schema.json",
+  "title": "Spell",
+  "type": "object",
+  "properties": {
+    "id": {
+      "$ref": "common.schema.json#/$defs/entityId"
+    },
+    "name": {
+      "$ref": "common.schema.json#/$defs/localizedString"
+    },
+    "text": {
+      "$ref": "common.schema.json#/$defs/localizedString"
+    },
+    "source": {
+      "$ref": "common.schema.json#/$defs/sourceRef"
+    },
+    "tags": {
+      "$ref": "common.schema.json#/$defs/tags"
+    },
+    "page": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "level": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9
+    },
+    "school": {
+      "$ref": "common.schema.json#/$defs/school"
+    },
+    "castingTime": {
+      "type": "object",
+      "properties": {
+        "activation": {
+          "$ref": "common.schema.json#/$defs/activation"
+        },
+        "minutes": {
+          "type": "integer"
+        },
+        "hours": {
+          "type": "integer"
+        },
+        "trigger": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "activation"
+      ]
+    },
+    "range": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "self",
+            "touch",
+            "point",
+            "sight",
+            "unlimited",
+            "special",
+            "creature",
+            "object"
+          ]
+        },
+        "distance": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "type"
+      ]
+    },
+    "area": {
+      "type": "object",
+      "properties": {
+        "shape": {
+          "type": "string",
+          "enum": [
+            "sphere",
+            "cube",
+            "cone",
+            "line",
+            "cylinder"
+          ]
+        },
+        "radius": {
+          "type": "number"
+        },
+        "size": {
+          "type": "number"
+        },
+        "length": {
+          "type": "number"
+        },
+        "width": {
+          "type": "number"
+        },
+        "height": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "shape"
+      ]
+    },
+    "components": {
+      "type": "object",
+      "properties": {
+        "v": {
+          "type": "boolean"
+        },
+        "s": {
+          "type": "boolean"
+        },
+        "m": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "common.schema.json#/$defs/localizedString"
+            }
+          ]
+        },
+        "cost": {
+          "type": "number"
+        },
+        "consumed": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "v",
+        "s",
+        "m"
+      ]
+    },
+    "duration": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "instantaneous",
+            "timed",
+            "until-dispelled",
+            "special"
+          ]
+        },
+        "rounds": {
+          "type": "integer"
+        },
+        "minutes": {
+          "type": "integer"
+        },
+        "hours": {
+          "type": "integer"
+        },
+        "days": {
+          "type": "integer"
+        },
+        "concentration": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "type"
+      ]
+    },
+    "ritual": {
+      "type": "boolean"
+    },
+    "rolls": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/roll"
+      },
+      "minItems": 1
+    },
+    "scaling": {
+      "type": "object",
+      "properties": {
+        "by": {
+          "type": "string",
+          "enum": [
+            "slotLevel",
+            "level"
+          ]
+        },
+        "from": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "add": {
+          "type": "object",
+          "properties": {
+            "dice": {
+              "$ref": "common.schema.json#/$defs/dice"
+            },
+            "targets": {
+              "type": "integer"
+            },
+            "count": {
+              "type": "integer"
+            }
+          },
+          "additionalProperties": false,
+          "minProperties": 1
+        },
+        "table": {
+          "$ref": "common.schema.json#/$defs/tableRows"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "by"
+      ]
+    },
+    "effects": {
+      "type": "array",
+      "items": {
+        "$ref": "effect.schema.json"
+      }
+    },
+    "onCast": {
+      "type": "array",
+      "items": {
+        "$ref": "play-effect.schema.json"
+      },
+      "description": "Play effects executed when the spell is cast (healing, temporary hit points…)."
+    },
+    "higherLevel": {
+      "$ref": "common.schema.json#/$defs/localizedString"
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "text",
+    "level",
+    "school",
+    "castingTime",
+    "range",
+    "duration"
+  ]
+}

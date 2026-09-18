@@ -1,0 +1,201 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dnd-platform.byloth.dev/schema/v0/ruleset.schema.json",
+  "title": "Ruleset",
+  "type": "object",
+  "properties": {
+    "id": {
+      "$ref": "common.schema.json#/$defs/rulesetId"
+    },
+    "abilities": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/ability"
+      },
+      "minItems": 1
+    },
+    "skills": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/skill"
+          },
+          "ability": {
+            "$ref": "common.schema.json#/$defs/ability"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "ability"
+        ]
+      },
+      "minItems": 1
+    },
+    "proficiencyBonus": {
+      "type": "object",
+      "properties": {
+        "table": {
+          "$ref": "common.schema.json#/$defs/entityId"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "table"
+      ]
+    },
+    "abilityModifier": {
+      "$ref": "common.schema.json#/$defs/formula"
+    },
+    "hitPoints": {
+      "type": "object",
+      "properties": {
+        "firstLevel": {
+          "$ref": "common.schema.json#/$defs/formula"
+        },
+        "perLevel": {
+          "$ref": "common.schema.json#/$defs/formula"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "firstLevel",
+        "perLevel"
+      ]
+    },
+    "rests": {
+      "type": "object",
+      "properties": {
+        "short": {
+          "type": "object",
+          "properties": {
+            "hitDice": {
+              "type": "string",
+              "enum": [
+                "spend",
+                "none"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "long": {
+          "type": "object",
+          "properties": {
+            "hitPoints": {
+              "type": "string",
+              "enum": [
+                "full",
+                "none"
+              ]
+            },
+            "hitDiceRecovered": {
+              "$ref": "common.schema.json#/$defs/formula"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "short",
+        "long"
+      ]
+    },
+    "spellSlots": {
+      "type": "object",
+      "properties": {
+        "full": {
+          "type": "object",
+          "properties": {
+            "table": {
+              "$ref": "common.schema.json#/$defs/entityId"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "table"
+          ]
+        },
+        "half": {
+          "type": "object",
+          "properties": {
+            "table": {
+              "$ref": "common.schema.json#/$defs/entityId"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "table"
+          ]
+        },
+        "third": {
+          "type": "object",
+          "properties": {
+            "table": {
+              "$ref": "common.schema.json#/$defs/entityId"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "table"
+          ]
+        },
+        "pact": {
+          "type": "object",
+          "properties": {
+            "table": {
+              "$ref": "common.schema.json#/$defs/entityId"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "table"
+          ]
+        },
+        "multiclass": {
+          "type": "object",
+          "properties": {
+            "table": {
+              "$ref": "common.schema.json#/$defs/entityId"
+            },
+            "casterLevel": {
+              "$ref": "common.schema.json#/$defs/formula"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "table",
+            "casterLevel"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "baseActions": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/entityId"
+      }
+    },
+    "conditions": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/entityId"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "abilities",
+    "skills",
+    "proficiencyBonus",
+    "abilityModifier",
+    "hitPoints",
+    "rests"
+  ],
+  "description": "Ruleset (base packages)"
+}

@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dnd-platform.byloth.dev/schema/v0/archetype.schema.json",
+  "title": "Archetype",
+  "type": "object",
+  "properties": {
+    "id": {
+      "$ref": "common.schema.json#/$defs/entityId"
+    },
+    "name": {
+      "$ref": "common.schema.json#/$defs/localizedString"
+    },
+    "text": {
+      "$ref": "common.schema.json#/$defs/localizedString"
+    },
+    "source": {
+      "$ref": "common.schema.json#/$defs/sourceRef"
+    },
+    "tags": {
+      "$ref": "common.schema.json#/$defs/tags"
+    },
+    "page": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "pitch": {
+      "$ref": "common.schema.json#/$defs/localizedString"
+    },
+    "recommends": {
+      "type": "object",
+      "properties": {
+        "species": {
+          "$ref": "common.schema.json#/$defs/entityId"
+        },
+        "subspecies": {
+          "$ref": "common.schema.json#/$defs/entityId"
+        },
+        "class": {
+          "$ref": "common.schema.json#/$defs/entityId"
+        },
+        "subclass": {
+          "$ref": "common.schema.json#/$defs/entityId"
+        },
+        "background": {
+          "$ref": "common.schema.json#/$defs/entityId"
+        },
+        "abilityPriority": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/ability"
+          },
+          "minItems": 1
+        },
+        "answers": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "why": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "common.schema.json#/$defs/localizedString"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "pitch",
+    "recommends"
+  ]
+}

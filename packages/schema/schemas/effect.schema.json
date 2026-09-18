@@ -1,0 +1,1008 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dnd-platform.byloth.dev/schema/v0/effect.schema.json",
+  "title": "Effect",
+  "type": "object",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/modify"
+    },
+    {
+      "$ref": "#/$defs/modify-attacks"
+    },
+    {
+      "$ref": "#/$defs/grant-proficiency"
+    },
+    {
+      "$ref": "#/$defs/declare-resource"
+    },
+    {
+      "$ref": "#/$defs/add-action"
+    },
+    {
+      "$ref": "#/$defs/grant-spellcasting"
+    },
+    {
+      "$ref": "#/$defs/grant-spells"
+    },
+    {
+      "$ref": "#/$defs/extend-spell-list"
+    },
+    {
+      "$ref": "#/$defs/roll-advantage"
+    },
+    {
+      "$ref": "#/$defs/roll-disadvantage"
+    },
+    {
+      "$ref": "#/$defs/defense"
+    },
+    {
+      "$ref": "#/$defs/add-text"
+    },
+    {
+      "$ref": "#/$defs/add-section"
+    },
+    {
+      "$ref": "#/$defs/open-choice"
+    },
+    {
+      "$ref": "#/$defs/define-table"
+    }
+  ],
+  "$defs": {
+    "modify": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "modify"
+        },
+        "when": {
+          "$ref": "condition.schema.json"
+        },
+        "note": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        },
+        "target": {
+          "$ref": "common.schema.json#/$defs/modifyTarget"
+        },
+        "op": {
+          "type": "string",
+          "enum": [
+            "add",
+            "set",
+            "set-formula",
+            "min",
+            "max",
+            "mul"
+          ]
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "common.schema.json#/$defs/dice"
+            },
+            {
+              "const": "unlimited"
+            }
+          ]
+        },
+        "formula": {
+          "$ref": "common.schema.json#/$defs/formula"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "target",
+        "op"
+      ]
+    },
+    "modify-attacks": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "modify-attacks"
+        },
+        "when": {
+          "$ref": "condition.schema.json"
+        },
+        "note": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        },
+        "filter": {
+          "type": "object",
+          "properties": {
+            "unarmed": {
+              "type": "boolean"
+            },
+            "item": {
+              "$ref": "common.schema.json#/$defs/entityId"
+            },
+            "property": {
+              "type": "string",
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+            },
+            "category": {
+              "type": "string",
+              "enum": [
+                "simple",
+                "martial"
+              ]
+            },
+            "ranged": {
+              "type": "boolean"
+            },
+            "melee": {
+              "type": "boolean"
+            },
+            "monkWeapon": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false,
+          "minProperties": 1
+        },
+        "set": {
+          "type": "object",
+          "properties": {
+            "ability": {
+              "$ref": "common.schema.json#/$defs/ability"
+            },
+            "damageDie": {
+              "$ref": "common.schema.json#/$defs/diceOrFormula"
+            },
+            "damageType": {
+              "$ref": "common.schema.json#/$defs/damageType"
+            },
+            "magical": {
+              "type": "boolean"
+            },
+            "critRange": {
+              "type": "integer",
+              "minimum": 2,
+              "maximum": 20
+            },
+            "attackBonus": {
+              "$ref": "common.schema.json#/$defs/formulaOrNumber"
+            },
+            "damageBonus": {
+              "$ref": "common.schema.json#/$defs/formulaOrNumber"
+            },
+            "extraDamage": {
+              "type": "object",
+              "properties": {
+                "dice": {
+                  "$ref": "common.schema.json#/$defs/dice"
+                },
+                "formula": {
+                  "$ref": "common.schema.json#/$defs/formula"
+                },
+                "damageType": {
+                  "$ref": "common.schema.json#/$defs/damageType"
+                }
+              },
+              "additionalProperties": false,
+              "minProperties": 1
+            },
+            "addProperties": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+              },
+              "minItems": 1
+            }
+          },
+          "additionalProperties": false,
+          "minProperties": 1
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "set"
+      ]
+    },
+    "grant-proficiency": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "grant-proficiency"
+        },
+        "when": {
+          "$ref": "condition.schema.json"
+        },
+        "note": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        },
+        "type": {
+          "$ref": "common.schema.json#/$defs/proficiencyType"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "minItems": 1
+        },
+        "choose": {
+          "type": "object",
+          "properties": {
+            "count": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "from": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+              },
+              "minItems": 1
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "count",
+            "from"
+          ]
+        },
+        "expertise": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "type"
+      ]
+    },
+    "declare-resource": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "declare-resource"
+        },
+        "when": {
+          "$ref": "condition.schema.json"
+        },
+        "note": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        },
+        "resource": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "name": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        },
+        "max": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "$ref": "common.schema.json#/$defs/formula"
+            },
+            {
+              "const": "unlimited"
+            }
+          ]
+        },
+        "recharge": {
+          "$ref": "common.schema.json#/$defs/recharge"
+        },
+        "display": {
+          "type": "string",
+          "enum": [
+            "pips",
+            "counter"
+          ]
+        },
+        "section": {
+          "$ref": "common.schema.json#/$defs/section"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "resource",
+        "max",
+        "recharge"
+      ]
+    },
+    "add-action": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "add-action"
+        },
+        "when": {
+          "$ref": "condition.schema.json"
+        },
+        "note": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        },
+        "action": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "name": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        },
+        "activation": {
+          "$ref": "common.schema.json#/$defs/activation"
+        },
+        "cost": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/resourceCost"
+          }
+        },
+        "requires": {
+          "type": "object",
+          "properties": {
+            "afterAction": {
+              "type": "string",
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+            },
+            "condition": {
+              "$ref": "condition.schema.json"
+            }
+          },
+          "additionalProperties": false,
+          "minProperties": 1
+        },
+        "trigger": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        },
+        "rolls": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/roll"
+          },
+          "minItems": 1
+        },
+        "dc": {
+          "$ref": "common.schema.json#/$defs/formula"
+        },
+        "range": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "self",
+                "touch",
+                "point",
+                "sight",
+                "unlimited",
+                "special"
+              ]
+            },
+            "distance": {
+              "type": "number"
+            },
+            "long": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "type"
+          ]
+        },
+        "duration": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "instantaneous",
+                "timed",
+                "until-dispelled",
+                "special"
+              ]
+            },
+            "rounds": {
+              "type": "integer"
+            },
+            "minutes": {
+              "type": "integer"
+            },
+            "hours": {
+              "type": "integer"
+            },
+            "days": {
+              "type": "integer"
+            },
+            "concentration": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "type"
+          ]
+        },
+        "concentration": {
+          "type": "boolean"
+        },
+        "toggle": {
+          "$ref": "common.schema.json#/$defs/toggle"
+        },
+        "onUse": {
+          "type": "array",
+          "items": {
+            "$ref": "play-effect.schema.json"
+          },
+          "minItems": 1
+        },
+        "onHit": {
+          "type": "array",
+          "items": {
+            "$ref": "play-effect.schema.json"
+          },
+          "minItems": 1
+        },
+        "text": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "action",
+        "activation"
+      ]
+    },
+    "grant-spellcasting": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "grant-spellcasting"
+        },
+        "when": {
+          "$ref": "condition.schema.json"
+        },
+        "note": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        },
+        "ability": {
+          "$ref": "common.schema.json#/$defs/ability"
+        },
+        "list": {
+          "$ref": "common.schema.json#/$defs/entityId"
+        },
+        "preparation": {
+          "type": "string",
+          "enum": [
+            "known",
+            "prepared",
+            "spellbook"
+          ]
+        },
+        "slots": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "progression": {
+                  "type": "string",
+                  "enum": [
+                    "full",
+                    "half",
+                    "third",
+                    "pact"
+                  ]
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "progression"
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "table": {
+                  "$ref": "common.schema.json#/$defs/entityId"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "table"
+              ]
+            }
+          ]
+        },
+        "cantrips": {
+          "type": "object",
+          "properties": {
+            "table": {
+              "$ref": "common.schema.json#/$defs/entityId"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "table"
+          ]
+        },
+        "known": {
+          "type": "object",
+          "properties": {
+            "table": {
+              "$ref": "common.schema.json#/$defs/entityId"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "table"
+          ]
+        },
+        "ritual": {
+          "type": "boolean"
+        },
+        "focus": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "ability",
+        "list",
+        "preparation",
+        "slots"
+      ]
+    },
+    "grant-spells": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "grant-spells"
+        },
+        "when": {
+          "$ref": "condition.schema.json"
+        },
+        "note": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        },
+        "spells": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/entityId"
+          },
+          "minItems": 1
+        },
+        "as": {
+          "type": "string",
+          "enum": [
+            "known",
+            "prepared",
+            "always-prepared"
+          ]
+        },
+        "ability": {
+          "$ref": "common.schema.json#/$defs/ability"
+        },
+        "cost": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/resourceCost"
+          },
+          "minItems": 1
+        },
+        "uses": {
+          "type": "object",
+          "properties": {
+            "count": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "recharge": {
+              "$ref": "common.schema.json#/$defs/rechargeOn"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "count",
+            "recharge"
+          ]
+        },
+        "level": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "spells",
+        "as"
+      ]
+    },
+    "extend-spell-list": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "extend-spell-list"
+        },
+        "when": {
+          "$ref": "condition.schema.json"
+        },
+        "note": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        },
+        "list": {
+          "$ref": "common.schema.json#/$defs/entityId"
+        },
+        "spells": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/entityId"
+          },
+          "minItems": 1
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "list",
+        "spells"
+      ]
+    },
+    "roll-advantage": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "roll-advantage"
+        },
+        "when": {
+          "$ref": "condition.schema.json"
+        },
+        "note": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        },
+        "on": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "attack",
+                "check",
+                "save",
+                "initiative",
+                "death-save"
+              ]
+            },
+            "ability": {
+              "$ref": "common.schema.json#/$defs/ability"
+            },
+            "skill": {
+              "$ref": "common.schema.json#/$defs/skill"
+            },
+            "against": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 1
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "type"
+          ]
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "on"
+      ]
+    },
+    "roll-disadvantage": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "roll-disadvantage"
+        },
+        "when": {
+          "$ref": "condition.schema.json"
+        },
+        "note": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        },
+        "on": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "attack",
+                "check",
+                "save",
+                "initiative",
+                "death-save"
+              ]
+            },
+            "ability": {
+              "$ref": "common.schema.json#/$defs/ability"
+            },
+            "skill": {
+              "$ref": "common.schema.json#/$defs/skill"
+            },
+            "against": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 1
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "type"
+          ]
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "on"
+      ]
+    },
+    "defense": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "defense"
+        },
+        "when": {
+          "$ref": "condition.schema.json"
+        },
+        "note": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        },
+        "defense": {
+          "type": "string",
+          "enum": [
+            "resistance",
+            "immunity",
+            "vulnerability",
+            "condition-immunity"
+          ]
+        },
+        "to": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "defense",
+        "to"
+      ]
+    },
+    "add-text": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "add-text"
+        },
+        "when": {
+          "$ref": "condition.schema.json"
+        },
+        "note": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        },
+        "section": {
+          "$ref": "common.schema.json#/$defs/section"
+        },
+        "text": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "section",
+        "text"
+      ]
+    },
+    "add-section": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "add-section"
+        },
+        "when": {
+          "$ref": "condition.schema.json"
+        },
+        "note": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        },
+        "section": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "name": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        },
+        "layout": {
+          "type": "string",
+          "enum": [
+            "list",
+            "cards",
+            "table",
+            "text"
+          ]
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "section",
+        "name"
+      ]
+    },
+    "open-choice": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "open-choice"
+        },
+        "when": {
+          "$ref": "condition.schema.json"
+        },
+        "note": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        },
+        "choice": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "of": {
+          "$ref": "common.schema.json#/$defs/choiceOf"
+        },
+        "count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "from": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        },
+        "filter": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "$ref": "common.schema.json#/$defs/entityType"
+            },
+            "list": {
+              "$ref": "common.schema.json#/$defs/entityId"
+            },
+            "maxLevel": {
+              "$ref": "common.schema.json#/$defs/formulaOrNumber"
+            },
+            "school": {
+              "$ref": "common.schema.json#/$defs/school"
+            },
+            "class": {
+              "$ref": "common.schema.json#/$defs/entityId"
+            },
+            "level": {
+              "type": "integer"
+            },
+            "ritual": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false,
+          "minProperties": 1
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+              },
+              "name": {
+                "$ref": "common.schema.json#/$defs/localizedString"
+              },
+              "text": {
+                "$ref": "common.schema.json#/$defs/localizedString"
+              },
+              "effects": {
+                "type": "array",
+                "items": {
+                  "$ref": "effect.schema.json"
+                }
+              },
+              "prerequisites": {
+                "$ref": "condition.schema.json"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "name"
+            ]
+          },
+          "minItems": 1
+        },
+        "level": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 20
+        },
+        "prerequisites": {
+          "$ref": "condition.schema.json"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "choice",
+        "of"
+      ]
+    },
+    "define-table": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "define-table"
+        },
+        "when": {
+          "$ref": "condition.schema.json"
+        },
+        "note": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        },
+        "table": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "by": {
+          "$ref": "common.schema.json#/$defs/tableBy"
+        },
+        "rows": {
+          "$ref": "common.schema.json#/$defs/tableRows"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "table",
+        "by",
+        "rows"
+      ]
+    }
+  },
+  "discriminator": {
+    "propertyName": "kind"
+  }
+}

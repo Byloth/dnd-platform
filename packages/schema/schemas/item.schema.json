@@ -1,0 +1,218 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dnd-platform.byloth.dev/schema/v0/item.schema.json",
+  "title": "Item",
+  "type": "object",
+  "properties": {
+    "id": {
+      "$ref": "common.schema.json#/$defs/entityId"
+    },
+    "name": {
+      "$ref": "common.schema.json#/$defs/localizedString"
+    },
+    "text": {
+      "$ref": "common.schema.json#/$defs/localizedString"
+    },
+    "source": {
+      "$ref": "common.schema.json#/$defs/sourceRef"
+    },
+    "tags": {
+      "$ref": "common.schema.json#/$defs/tags"
+    },
+    "page": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "weapon",
+        "armor",
+        "shield",
+        "tool",
+        "gear",
+        "consumable",
+        "wondrous",
+        "ammunition"
+      ]
+    },
+    "cost": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "number"
+        },
+        "currency": {
+          "type": "string",
+          "enum": [
+            "cp",
+            "sp",
+            "ep",
+            "gp",
+            "pp"
+          ]
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "amount",
+        "currency"
+      ]
+    },
+    "weight": {
+      "type": "number"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "simple",
+        "martial",
+        "light",
+        "medium",
+        "heavy"
+      ]
+    },
+    "damage": {
+      "$ref": "common.schema.json#/$defs/dice"
+    },
+    "damageType": {
+      "$ref": "common.schema.json#/$defs/damageType"
+    },
+    "properties": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+      },
+      "uniqueItems": true
+    },
+    "versatile": {
+      "$ref": "common.schema.json#/$defs/dice"
+    },
+    "range": {
+      "type": "object",
+      "properties": {
+        "normal": {
+          "type": "number"
+        },
+        "long": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "normal",
+        "long"
+      ]
+    },
+    "monkWeapon": {
+      "type": "boolean"
+    },
+    "ac": {
+      "type": "object",
+      "properties": {
+        "base": {
+          "type": "integer"
+        },
+        "dexMax": {
+          "type": "integer"
+        },
+        "bonus": {
+          "type": "integer"
+        },
+        "addDex": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false,
+      "minProperties": 1
+    },
+    "strengthMin": {
+      "type": "integer"
+    },
+    "stealthDisadvantage": {
+      "type": "boolean"
+    },
+    "magical": {
+      "type": "boolean"
+    },
+    "rarity": {
+      "$ref": "common.schema.json#/$defs/rarity"
+    },
+    "attunement": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "by": {
+              "$ref": "common.schema.json#/$defs/localizedString"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "by"
+          ]
+        }
+      ]
+    },
+    "charges": {
+      "type": "object",
+      "properties": {
+        "max": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "common.schema.json#/$defs/formula"
+            }
+          ]
+        },
+        "recharge": {
+          "$ref": "common.schema.json#/$defs/recharge"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "max",
+        "recharge"
+      ]
+    },
+    "baseItem": {
+      "$ref": "common.schema.json#/$defs/entityId"
+    },
+    "features": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "$ref": "common.schema.json#/$defs/entityId"
+          },
+          {
+            "$ref": "feature.schema.json"
+          }
+        ]
+      }
+    },
+    "onUse": {
+      "type": "array",
+      "items": {
+        "$ref": "play-effect.schema.json"
+      },
+      "minItems": 1
+    },
+    "ranged": {
+      "type": "boolean",
+      "description": "True for weapons attacked with at ranged only (bows, crossbows); thrown weapons stay melee."
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "type"
+  ]
+}

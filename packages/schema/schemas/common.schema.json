@@ -1,0 +1,825 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dnd-platform.byloth.dev/schema/v0/common.schema.json",
+  "title": "Common",
+  "$defs": {
+    "packageId": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:[-.][a-z0-9]+)*$"
+    },
+    "entityId": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:[-.][a-z0-9]+)*\\.(?:class|subclass|species|background|feat|feature|spell|spell-list|item|condition|rule|table|archetype|patch)\\.[a-z0-9]+(?:[-.][a-z0-9]+)*$"
+    },
+    "rulesetId": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:[-.][a-z0-9]+)*\\.ruleset$"
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "semver": {
+      "type": "string",
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?(?:\\+[0-9A-Za-z.-]+)?$"
+    },
+    "versionRange": {
+      "type": "string",
+      "minLength": 1
+    },
+    "languageTag": {
+      "type": "string",
+      "pattern": "^[a-z]{2,3}(?:-[A-Za-z0-9]{2,8})*$"
+    },
+    "localizedString": {
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": {
+        "pattern": "^[a-z]{2,3}(?:-[A-Za-z0-9]{2,8})*$"
+      },
+      "additionalProperties": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "dice": {
+      "type": "string",
+      "pattern": "^\\d+d\\d+(?:\\+\\d+)?$"
+    },
+    "formula": {
+      "type": "string",
+      "minLength": 1,
+      "format": "formula"
+    },
+    "formulaOrNumber": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "$ref": "common.schema.json#/$defs/formula"
+        }
+      ]
+    },
+    "diceOrFormula": {
+      "anyOf": [
+        {
+          "$ref": "common.schema.json#/$defs/dice"
+        },
+        {
+          "$ref": "common.schema.json#/$defs/formula"
+        }
+      ]
+    },
+    "ability": {
+      "type": "string",
+      "enum": [
+        "str",
+        "dex",
+        "con",
+        "int",
+        "wis",
+        "cha"
+      ]
+    },
+    "skill": {
+      "type": "string",
+      "enum": [
+        "acrobatics",
+        "animal-handling",
+        "arcana",
+        "athletics",
+        "deception",
+        "history",
+        "insight",
+        "intimidation",
+        "investigation",
+        "medicine",
+        "nature",
+        "perception",
+        "performance",
+        "persuasion",
+        "religion",
+        "sleight-of-hand",
+        "stealth",
+        "survival"
+      ]
+    },
+    "damageType": {
+      "type": "string",
+      "enum": [
+        "acid",
+        "bludgeoning",
+        "cold",
+        "fire",
+        "force",
+        "lightning",
+        "necrotic",
+        "piercing",
+        "poison",
+        "psychic",
+        "radiant",
+        "slashing",
+        "thunder"
+      ]
+    },
+    "activation": {
+      "type": "string",
+      "enum": [
+        "action",
+        "bonus-action",
+        "reaction",
+        "free",
+        "special"
+      ]
+    },
+    "proficiencyType": {
+      "type": "string",
+      "enum": [
+        "skill",
+        "save",
+        "armor",
+        "weapon",
+        "tool",
+        "language"
+      ]
+    },
+    "size": {
+      "type": "string",
+      "enum": [
+        "tiny",
+        "small",
+        "medium",
+        "large",
+        "huge",
+        "gargantuan"
+      ]
+    },
+    "school": {
+      "type": "string",
+      "enum": [
+        "abjuration",
+        "conjuration",
+        "divination",
+        "enchantment",
+        "evocation",
+        "illusion",
+        "necromancy",
+        "transmutation"
+      ]
+    },
+    "rarity": {
+      "type": "string",
+      "enum": [
+        "common",
+        "uncommon",
+        "rare",
+        "very-rare",
+        "legendary",
+        "artifact"
+      ]
+    },
+    "section": {
+      "type": "string",
+      "enum": [
+        "identity",
+        "core",
+        "abilities",
+        "saves",
+        "skills",
+        "senses",
+        "combat",
+        "attacks",
+        "actions",
+        "resources",
+        "spellcasting",
+        "spells",
+        "features",
+        "equipment",
+        "personality",
+        "conditions",
+        "notes",
+        "credits"
+      ]
+    },
+    "entityType": {
+      "type": "string",
+      "enum": [
+        "class",
+        "subclass",
+        "species",
+        "background",
+        "feat",
+        "feature",
+        "spell",
+        "spell-list",
+        "item",
+        "condition",
+        "rule",
+        "table",
+        "archetype",
+        "patch"
+      ]
+    },
+    "effectKind": {
+      "type": "string",
+      "enum": [
+        "modify",
+        "modify-attacks",
+        "grant-proficiency",
+        "declare-resource",
+        "add-action",
+        "grant-spellcasting",
+        "grant-spells",
+        "extend-spell-list",
+        "roll-advantage",
+        "roll-disadvantage",
+        "defense",
+        "add-text",
+        "add-section",
+        "open-choice",
+        "define-table"
+      ]
+    },
+    "playEffectKind": {
+      "type": "string",
+      "enum": [
+        "heal",
+        "tempHp",
+        "extraDamage",
+        "restoreResource",
+        "applyCondition",
+        "reroll",
+        "note"
+      ]
+    },
+    "rechargeOn": {
+      "type": "string",
+      "enum": [
+        "short-rest",
+        "long-rest",
+        "dawn",
+        "manual"
+      ]
+    },
+    "choiceOf": {
+      "type": "string",
+      "enum": [
+        "subclass",
+        "skill",
+        "spell",
+        "feat",
+        "asi-or-feat",
+        "fighting-style",
+        "language",
+        "tool",
+        "ability",
+        "equipment",
+        "option"
+      ]
+    },
+    "modifyTarget": {
+      "type": "string",
+      "pattern": "^(?:ability\\.(?:str|dex|con|int|wis|cha)|ability\\.(?:str|dex|con|int|wis|cha)\\.max|save\\.(?:str|dex|con|int|wis|cha)|save\\.all|skill\\.(?:acrobatics|animal-handling|arcana|athletics|deception|history|insight|intimidation|investigation|medicine|nature|perception|performance|persuasion|religion|sleight-of-hand|stealth|survival)|check\\.(?:str|dex|con|int|wis|cha)|check\\.all|ac|hp\\.max|hp\\.perLevel|initiative|speed\\.(?:walk|climb|fly|swim|burrow)|sense\\.(?:darkvision|blindsight|tremorsense|truesight)|passive\\.(?:acrobatics|animal-handling|arcana|athletics|deception|history|insight|intimidation|investigation|medicine|nature|perception|performance|persuasion|religion|sleight-of-hand|stealth|survival)|proficiencyBonus|attack\\.(?:melee|ranged|spell)\\.bonus|damage\\.(?:melee|ranged|spell)\\.bonus|attacks\\.perAction|spell\\.dc|jump\\.(?:long|high)|carry\\.capacity|size|resource\\.[a-z0-9]+(?:-[a-z0-9]+)*\\.max|resource\\.[a-z0-9]+(?:-[a-z0-9]+)*\\.recharge)$"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+      },
+      "uniqueItems": true
+    },
+    "sourceRef": {
+      "$ref": "common.schema.json#/$defs/packageId"
+    },
+    "itemFilter": {
+      "type": "object",
+      "properties": {
+        "weapon": {
+          "type": "string",
+          "enum": [
+            "simple",
+            "martial",
+            "any"
+          ]
+        },
+        "armor": {
+          "type": "string",
+          "enum": [
+            "light",
+            "medium",
+            "heavy",
+            "any"
+          ]
+        },
+        "tool": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "category": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        }
+      },
+      "additionalProperties": false,
+      "minProperties": 1
+    },
+    "itemRef": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "item": {
+              "$ref": "common.schema.json#/$defs/entityId"
+            },
+            "quantity": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "item"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "filter": {
+              "$ref": "common.schema.json#/$defs/itemFilter"
+            },
+            "quantity": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "filter"
+          ]
+        }
+      ]
+    },
+    "equipmentGrant": {
+      "type": "object",
+      "properties": {
+        "fixed": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/itemRef"
+          }
+        },
+        "choices": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "options": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "common.schema.json#/$defs/itemRef"
+                  }
+                },
+                "minItems": 2
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "options"
+            ]
+          }
+        },
+        "text": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        },
+        "gold": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    },
+    "expiry": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "turns": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "turns"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "rounds": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "rounds"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "minutes": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "minutes"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "hours": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "hours"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "rest": {
+              "type": "string",
+              "enum": [
+                "short-rest",
+                "long-rest"
+              ]
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "rest"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "until": {
+              "type": "string",
+              "enum": [
+                "next-turn-start",
+                "next-turn-end",
+                "dawn"
+              ]
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "until"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "manual": {
+              "const": true
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "manual"
+          ]
+        }
+      ]
+    },
+    "toggle": {
+      "type": "object",
+      "properties": {
+        "state": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "expires": {
+          "$ref": "common.schema.json#/$defs/expiry"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "state"
+      ]
+    },
+    "weaponFilter": {
+      "type": "object",
+      "properties": {
+        "property": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "category": {
+          "type": "string",
+          "enum": [
+            "simple",
+            "martial"
+          ]
+        },
+        "twoHanded": {
+          "type": "boolean"
+        },
+        "unarmed": {
+          "type": "boolean"
+        },
+        "monkWeapon": {
+          "type": "boolean"
+        },
+        "ranged": {
+          "type": "boolean"
+        },
+        "melee": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "roll": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "attack",
+            "damage",
+            "save",
+            "healing"
+          ]
+        },
+        "ability": {
+          "$ref": "common.schema.json#/$defs/ability"
+        },
+        "proficient": {
+          "type": "boolean"
+        },
+        "dice": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/dice"
+            },
+            {
+              "$ref": "#/$defs/formula"
+            }
+          ]
+        },
+        "formula": {
+          "$ref": "common.schema.json#/$defs/formula"
+        },
+        "damageType": {
+          "$ref": "common.schema.json#/$defs/damageType"
+        },
+        "onSuccess": {
+          "type": "string",
+          "enum": [
+            "half",
+            "none"
+          ]
+        },
+        "bonus": {
+          "$ref": "common.schema.json#/$defs/formulaOrNumber"
+        },
+        "dc": {
+          "$ref": "common.schema.json#/$defs/formula"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "type"
+      ]
+    },
+    "resourceCost": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "resource": {
+              "type": "string",
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+            },
+            "amount": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "resource",
+            "amount"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "resource": {
+              "const": "spell-slot"
+            },
+            "level": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "resource",
+            "level"
+          ]
+        }
+      ]
+    },
+    "recharge": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "on": {
+            "$ref": "common.schema.json#/$defs/rechargeOn"
+          },
+          "amount": {
+            "anyOf": [
+              {
+                "const": "full"
+              },
+              {
+                "type": "integer",
+                "minimum": 0
+              },
+              {
+                "$ref": "common.schema.json#/$defs/formula"
+              }
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "on",
+          "amount"
+        ]
+      },
+      "minItems": 1
+    },
+    "tableBy": {
+      "type": "string",
+      "enum": [
+        "level",
+        "classLevel",
+        "casterLevel",
+        "slotLevel"
+      ]
+    },
+    "tableRows": {
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": {
+        "pattern": "^(?:[1-9]|1[0-9]|20)$"
+      },
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "$ref": "common.schema.json#/$defs/formula"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        ]
+      }
+    },
+    "tableDef": {
+      "type": "object",
+      "properties": {
+        "by": {
+          "$ref": "common.schema.json#/$defs/tableBy"
+        },
+        "rows": {
+          "$ref": "common.schema.json#/$defs/tableRows"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "by",
+        "rows"
+      ]
+    },
+    "commonEntityFields": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "common.schema.json#/$defs/entityId"
+        },
+        "name": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        },
+        "text": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        },
+        "source": {
+          "$ref": "common.schema.json#/$defs/sourceRef"
+        },
+        "tags": {
+          "$ref": "common.schema.json#/$defs/tags"
+        },
+        "page": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "languageGrant": {
+      "type": "object",
+      "properties": {
+        "fixed": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          }
+        },
+        "choose": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "proficiencyList": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "choose": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "from": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+              },
+              "minItems": 1
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "choose",
+            "from"
+          ]
+        }
+      ]
+    },
+    "proficiencyGrants": {
+      "type": "object",
+      "properties": {
+        "armor": {
+          "$ref": "common.schema.json#/$defs/proficiencyList"
+        },
+        "weapons": {
+          "$ref": "common.schema.json#/$defs/proficiencyList"
+        },
+        "tools": {
+          "$ref": "common.schema.json#/$defs/proficiencyList"
+        },
+        "skills": {
+          "$ref": "common.schema.json#/$defs/proficiencyList"
+        },
+        "savingThrows": {
+          "$ref": "common.schema.json#/$defs/proficiencyList"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "description": "Shared definitions of content format v0"
+}

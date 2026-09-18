@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dnd-platform.byloth.dev/schema/v0/background.schema.json",
+  "title": "Background",
+  "type": "object",
+  "properties": {
+    "id": {
+      "$ref": "common.schema.json#/$defs/entityId"
+    },
+    "name": {
+      "$ref": "common.schema.json#/$defs/localizedString"
+    },
+    "text": {
+      "$ref": "common.schema.json#/$defs/localizedString"
+    },
+    "source": {
+      "$ref": "common.schema.json#/$defs/sourceRef"
+    },
+    "tags": {
+      "$ref": "common.schema.json#/$defs/tags"
+    },
+    "page": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "proficiencies": {
+      "$ref": "common.schema.json#/$defs/proficiencyGrants"
+    },
+    "languages": {
+      "$ref": "common.schema.json#/$defs/languageGrant"
+    },
+    "equipment": {
+      "$ref": "common.schema.json#/$defs/equipmentGrant"
+    },
+    "features": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "$ref": "common.schema.json#/$defs/entityId"
+          },
+          {
+            "$ref": "feature.schema.json"
+          }
+        ]
+      }
+    },
+    "personality": {
+      "type": "object",
+      "properties": {
+        "traits": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/localizedString"
+          }
+        },
+        "ideals": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/localizedString"
+          }
+        },
+        "bonds": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/localizedString"
+          }
+        },
+        "flaws": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/localizedString"
+          }
+        },
+        "suggested": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name"
+  ]
+}

@@ -11,8 +11,18 @@
       "import": "./dist/index.js"
     }
   },
-  "files": ["dist", "schemas"],
+  "files": [
+    "dist",
+    "schemas"
+  ],
   "scripts": {
     "build": "tsc --build"
+  },
+  "devDependencies": {
+    "@types/json-schema": "^7.0.15",
+    "ajv": "^8.20.0",
+    "ajv-formats": "^3.0.1",
+    "json-schema-to-typescript": "^16.0.0",
+    "yaml": "^2.9.1"
   }
 }
