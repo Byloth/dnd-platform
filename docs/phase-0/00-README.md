@@ -37,7 +37,7 @@ Fixed requirement from the project owner: **everything is deterministic and test
 | Id | Milestone | Done when |
 |---|---|---|
 | M0.1 | Repository and monorepo scaffold | Public repository exists, workspaces build, lint, typecheck and run an empty test suite; `content-private/` is git-ignored and documented. |
-| M0.2 | Content format v0 | JSON Schemas published from the `schema` package; three hand-written example packages (a base excerpt with one class, one species, ten spells; a homebrew species; a private-package stub) validate. |
+| M0.2 | Inventory and content format v0 | **(A) Inventory:** the whole SRD 5.1 is inventoried in `docs/phase-0/inventory/` from the pinned upstream datasets; every class, subclass, species, background and feat feature, every spell and every magic item is classified against the effect catalogue; `inventory/README.md` records the catalogue revisions the evidence requires. **(B) Format:** JSON Schemas published from the `schema` package with the revised catalogue; three hand-written example packages (a base excerpt with one class, one species, ten spells; a homebrew species; a private-package stub) validate. |
 | M0.3 | Engine core | `derive` computes ability modifiers, proficiency, saves, skills, AC, HP, speed, senses with provenance for the example packages; golden fixtures pass. |
 | M0.4 | Effect catalogue complete for the SRD | Every SRD 5.1 class, subclass, species, background and feat feature is expressible; `validate` rejects anything outside the catalogue. |
 | M0.5 | Base package complete | The whole SRD 5.1 is in `content`, validated, with attribution; one golden fixture per class at levels 1, 5, 11 and 20 passes. |

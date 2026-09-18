@@ -38,17 +38,25 @@ Tasks (from [01-monorepo.md](01-monorepo.md)):
 Done: the criteria of M0.1 in the README. Release: `v0.0.1`.
 Risks: none technical; the only risk is drifting into building the app shell early. The rule is: no `packages/web` in Phase 0.
 
-### M0.2 — Content format v0 (≈ 4 sessions)
+### M0.2 — Inventory and content format v0 (≈ 3 sessions for the inventory, 4 for the format)
 
-Tasks (from [02-content-format.md](02-content-format.md), [03-engine-contract.md](03-engine-contract.md)):
-1. JSON Schemas for manifest, ruleset, every entity type, effect (all kinds), condition, character; the formula grammar documented and tested as a regular grammar.
-2. Type generation from schemas into `packages/schema`; enumerations for `modify` targets, sections, activation types, proficiency types, skills, damage types, conditions.
-3. Engine type definitions and function skeletons with exhaustive switches (compile-time completeness).
-4. The three example packages as real fixtures: `fixtures/packages/srd51-excerpt` (Monk 1–3, one species, ten spells, the proficiency and slot tables, the ruleset), `fixtures/packages/homebrew-feline`, `fixtures/packages/phb14-stub` (Way of Shadow at level 3 only, marked private and non-redistributable, but kept as a *fixture stub* with placeholder text so it can live in the public repository).
-5. `validate` for schema conformance only, wired into `validate:content`.
+Reordered on 2026-09-18 at the owner's request: the effect catalogue can only be closed against the complete list of what the SRD contains, so the inventory comes first and the schemas are written from evidence, not from a chosen example.
 
-Done: the criteria of M0.2. Release: `v0.0.2`.
-Risks: over-designing the catalogue before touching real content. Mitigation: only the kinds needed by the excerpt are implemented here; M0.4 completes the list against the full SRD.
+**Part A — inventory and classification** (from [05-srd-import-pipeline.md](05-srd-import-pipeline.md), pulled forward):
+1. `fetch` stage with pinned commits and a lock file (`tools/import/sources.lock.yaml`); Open5e as primary, 5e-database as cross-check.
+2. `inventory` stage: human-readable inventory in `docs/phase-0/inventory/` (summary counts, classes with level tables, subclasses, species, backgrounds, feats, spells, items, conditions, rules) plus classification skeletons for features, spells and magic items.
+3. Classification of every feature, trait and benefit against the catalogue vocabulary ([inventory/classification-vocabulary.md](inventory/classification-vocabulary.md)), of every spell and every magic item with reduced vocabularies; done by parallel agents on partitions, merged and validated by `merge-classification`.
+4. Human review of low-confidence records and of every `needs-new-kind` proposal; `inventory/README.md` states the catalogue revisions (kinds to add, rename or drop, condition keys and `modify` targets to add, features that stay text-only).
+
+**Part B — format v0** (from [02-content-format.md](02-content-format.md), [03-engine-contract.md](03-engine-contract.md)):
+5. Apply the revisions to the catalogue in 02, then JSON Schemas for manifest, ruleset, every entity type, effect (all kinds), condition, character; the formula grammar documented and tested as a regular grammar.
+6. Type generation from schemas into `packages/schema`; enumerations for `modify` targets, sections, activation types, proficiency types, skills, damage types, conditions.
+7. Engine type definitions and function skeletons with exhaustive switches (compile-time completeness).
+8. The three example packages as real fixtures: `fixtures/packages/srd51-excerpt` (Monk 1–3, one species, ten spells, the proficiency and slot tables, the ruleset), `fixtures/packages/homebrew-feline`, `fixtures/packages/phb14-stub` (Way of Shadow at level 3 only, marked private and non-redistributable, kept as a *fixture stub* with placeholder text so it can live in the public repository).
+9. `validate` for schema conformance only, wired into `validate:content`.
+
+Done: the criteria of M0.2 in [00-README.md](00-README.md). Release: `v0.0.2`.
+Risks: classification drift between agents (different agents, different readings). Mitigation: one fixed vocabulary, a merge step that rejects anything outside it, and a human pass on every proposal for a new kind.
 
 ### M0.3 — Engine core (≈ 6 sessions)
 
@@ -151,4 +159,5 @@ Content authoring time depends on DEC-19 and is estimated in [05-srd-import-pipe
 
 | Milestone | Closed | Tag | Notes |
 |---|---|---|---|
+| M0.2 part A | 2026-09-18 | — | SRD 5.1 inventoried (391 features, 319 spells, 239 magic items) and classified by seven agents on a fixed vocabulary; ten catalogue decisions recorded in `inventory/README.md`. Part B (schemas) next. |
 | M0.1 | 2026-09-18 | v0.0.1 | Local repository only; the owner creates the remote and pushes. pnpm 12, Node 24, TypeScript 6, Vitest 4, ESLint 10 with `@byloth/eslint-config-typescript`. Engine import restriction and private-content rule tests verified by probe. |

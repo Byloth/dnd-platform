@@ -2,6 +2,8 @@
 
 ## Purpose
 
+> Update 2026-09-18: the `fetch` stage and a read-only inventory pass were pulled forward into M0.2 (part A) so the effect catalogue is closed against the complete SRD before the schemas are written. See [08-workplan.md](08-workplan.md) and [inventory/README.md](inventory/README.md).
+
 The base package `srd51` must contain the whole System Reference Document 5.1 in the format of [02-content-format.md](02-content-format.md). Hundreds of entities exist in open, machine-readable form already; none of them carries the mechanical effects the engine needs. This document fixes where content is taken from, under which licences, through which scripted stages, and what remains to be authored. It also frames DEC-19, the open decision on how the authored part is produced.
 
 ## Decisions

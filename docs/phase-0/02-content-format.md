@@ -2,6 +2,8 @@
 
 ## Purpose
 
+> Status: the effect catalogue v0 below is being checked against the complete SRD 5.1 inventory ([inventory/README.md](inventory/README.md)). The revisions listed there are applied to this document at the start of M0.2 part B.
+
 This document specifies the first version of the content format: the files a package is made of, the entities they contain, the effect catalogue that gives content its mechanics, the small languages for conditions and formulas, and how text is localised. It is the reference for the `schema` package (JSON Schema is the source of truth; TypeScript types are derived from it) and for every author of content, official or homebrew.
 
 Everything below is edition-neutral: nothing in the format assumes 2014 or 2024 rules ([07-ruleset-switching.md](07-ruleset-switching.md)).
