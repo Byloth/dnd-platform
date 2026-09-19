@@ -1,0 +1,17 @@
+effects:
+  - kind: modify
+    target: ability.str.max
+    op: set
+    value: 24
+  - kind: modify
+    target: ability.con.max
+    op: set
+    value: 24
+  - kind: modify
+    target: ability.str
+    op: add
+    value: 4
+  - kind: modify
+    target: ability.con
+    op: add
+    value: 4

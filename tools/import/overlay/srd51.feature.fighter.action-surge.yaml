@@ -1,0 +1,26 @@
+effects:
+  - kind: declare-resource
+    resource: action-surge
+    name:
+      en: Action Surge
+    max: table(fighter.action-surges)
+    display: pips
+    recharge:
+      - on: short-rest
+        amount: full
+      - on: long-rest
+        amount: full
+  - kind: add-action
+    action: action-surge
+    name:
+      en: Action Surge
+    activation: free
+    cost:
+      - resource: action-surge
+        amount: 1
+    text:
+      en: On your turn, you can take one additional action on top of your regular action and a possible bonus action. Starting at 17th level, you can use it twice before a rest, but only once on the same turn.
+    onUse:
+      - kind: note
+        text:
+          en: Take one additional action this turn. Only one use per turn.

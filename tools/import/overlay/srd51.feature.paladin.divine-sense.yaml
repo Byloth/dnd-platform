@@ -1,0 +1,29 @@
+effects:
+  - kind: declare-resource
+    resource: divine-sense
+    name:
+      en: Divine Sense
+    max: 1 + mod(cha)
+    recharge:
+      - on: long-rest
+        amount: full
+    display: pips
+  - kind: add-action
+    action: divine-sense
+    name:
+      en: Divine Sense
+    activation: action
+    cost:
+      - resource: divine-sense
+        amount: 1
+    range:
+      type: self
+      distance: 60
+    duration:
+      type: special
+    text:
+      en: As an action, you open your awareness. Until the end of your next turn, you know the location of any celestial, fiend, or undead within 60 feet of you that is not behind total cover, and its type (celestial, fiend, or undead) but not its identity. Within the same radius, you also detect any place or object that has been consecrated or desecrated, as with the hallow spell.
+    onUse:
+      - kind: note
+        text:
+          en: Until the end of your next turn, sense celestials, fiends and undead within 60 feet (not behind total cover) and consecrated or desecrated places or objects.

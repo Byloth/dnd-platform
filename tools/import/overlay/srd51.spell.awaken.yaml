@@ -1,0 +1,8 @@
+onCast:
+  - kind: applyCondition
+    condition: srd51.condition.charmed
+    target: other
+    expires: { hours: 720 }
+    note: { en: "The awakened beast or plant is charmed by you for 30 days or until you or your companions do anything harmful to it; when the condition ends it chooses whether to remain friendly." }
+  - kind: note
+    text: { en: "The target (a Huge or smaller beast or plant with no Intelligence score or Intelligence 3 or less) gains an Intelligence of 10 and the ability to speak one language you know; an awakened plant can move its limbs and gains senses similar to a human's, with statistics chosen by the DM." }

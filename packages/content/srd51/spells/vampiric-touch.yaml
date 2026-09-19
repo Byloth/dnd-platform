@@ -32,3 +32,24 @@ scaling:
   from: 4
   add:
     dice: 1d6
+effects:
+  - kind: add-action
+    action: vampiric-touch
+    name:
+      en: Vampiric Touch (repeat)
+    activation: action
+    rolls:
+      - type: attack
+      - type: damage
+        dice: 3d6
+        damageType: necrotic
+    onHit:
+      - kind: note
+        text:
+          en: You regain hit points equal to half the necrotic damage dealt.
+    text:
+      en: Make the melee spell attack again against a creature within your reach; +1d6 per slot level above 3rd.
+onCast:
+  - kind: note
+    text:
+      en: On a hit, you regain hit points equal to half the necrotic damage dealt.

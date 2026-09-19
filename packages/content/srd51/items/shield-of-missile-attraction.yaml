@@ -18,3 +18,27 @@ attunement: true
 tags:
   - magic-item
   - armor
+baseItem: srd51.item.shield
+ac:
+  bonus: 2
+features:
+  - id: srd51.feature.item.shield-of-missile-attraction.resistance
+    name:
+      en: Missile Resistance
+    effects:
+      - kind: defense
+        defense: resistance
+        to:
+          - damage from ranged weapon attacks
+        note:
+          en: The resistance is keyed to an attack kind rather than a damage type; the play engine shows it as text.
+  - id: srd51.feature.item.shield-of-missile-attraction.curse
+    name:
+      en: Curse
+    effects:
+      - kind: add-text
+        section: features
+        text:
+          en: Attuning to the shield curses you until you are targeted by the remove curse spell or similar magic; removing the shield doesn't end the curse. Whenever a ranged weapon attack is made against a target within 10 feet of you, the curse causes you to become the target instead.
+        note:
+          en: Redirecting attacks is resolved at the table.

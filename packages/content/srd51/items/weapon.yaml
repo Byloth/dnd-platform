@@ -14,3 +14,17 @@ magical: true
 tags:
   - magic-item
   - weapon
+features:
+  - id: srd51.feature.item.weapon.bonus
+    name:
+      en: Magic Weapon
+    effects:
+      - kind: modify-attacks
+        filter:
+          item: srd51.item.weapon
+        set:
+          attackBonus: 1
+          damageBonus: 1
+          magical: true
+        note:
+          en: "The bonus is determined by the weapon's rarity: +1 (uncommon), +2 (rare) or +3 (very rare). This entity carries the +1 value and no base weapon properties of its own; the other variants need the value changed."

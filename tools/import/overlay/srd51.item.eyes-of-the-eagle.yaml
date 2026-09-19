@@ -1,0 +1,8 @@
+attunement: true
+features:
+  - id: srd51.feature.item.eyes-of-the-eagle.keen-sight
+    name: { en: "Keen sight" }
+    effects:
+      - kind: roll-advantage
+        on: { type: check, skill: perception }
+        note: { en: "Only on Wisdom (Perception) checks that rely on sight. In clear visibility you can make out details of extremely distant creatures and objects as small as 2 feet across." }

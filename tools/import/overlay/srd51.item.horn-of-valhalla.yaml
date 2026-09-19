@@ -1,0 +1,26 @@
+charges:
+  max: 1
+  recharge:
+    - on: manual
+      amount: full
+features:
+  - id: srd51.feature.item.horn-of-valhalla.summon-berserkers
+    name:
+      en: "Summon Berserkers"
+    text:
+      en: "You can use an action to blow this horn. In response, warrior spirits from the Valhalla appear within 60 feet of you. They use the statistics of a berserker. They return to Valhalla after 1 hour or when they drop to 0 hit points. Once you use the horn, it can't be used again until 7 days have passed. The horn's type determines how many berserkers answer its summons and the requirement for its use (silver 2d4 + 2, none; brass 3d4 + 3, proficiency with all simple weapons; bronze 4d4 + 4, proficiency with all medium armor; iron 5d4 + 5, proficiency with all martial weapons). If you blow the horn without meeting its requirement, the summoned berserkers attack you."
+    effects:
+      - kind: add-action
+        action: blow-the-horn
+        name:
+          en: "Blow the Horn"
+        activation: action
+        cost: [{ resource: charges, amount: 1 }]
+        range: { type: point, distance: 60 }
+        duration: { type: timed, hours: 1 }
+        onUse:
+          - kind: note
+            text:
+              en: "Berserkers (stat block) appear within 60 feet for 1 hour or until they drop to 0 hit points. Silver 2d4 + 2 (no requirement), brass 3d4 + 3 (proficiency with all simple weapons), bronze 4d4 + 4 (proficiency with all medium armor), iron 5d4 + 5 (proficiency with all martial weapons). Without the requirement they attack you. The horn can't be used again until 7 days have passed; restore its charge by hand."
+        text:
+          en: "Blow the horn to summon berserker spirits within 60 feet for 1 hour. Usable once every 7 days."

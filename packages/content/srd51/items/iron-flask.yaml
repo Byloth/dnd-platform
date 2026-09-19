@@ -63,3 +63,49 @@ rarity: legendary
 tags:
   - magic-item
   - wondrous-items
+features:
+  - id: srd51.feature.item.iron-flask.trap-a-creature
+    name:
+      en: Trap a Creature
+    text:
+      en: You can use an action to speak the flask's command word, targeting a creature that you can see within 60 feet of you. If the target is native to a plane of existence other than the one you're on, the target must succeed on a DC 17 Wisdom saving throw or be trapped in the flask. If the target has been trapped by the flask before, it has advantage on the saving throw. Once trapped, a creature remains in the flask until released. The flask can hold only one creature at a time.
+    effects:
+      - kind: add-action
+        action: trap-a-creature
+        name:
+          en: Trap a Creature
+        activation: action
+        dc: "17"
+        range:
+          type: point
+          distance: 60
+        rolls:
+          - type: save
+            ability: wis
+            dc: "17"
+        onUse:
+          - kind: note
+            text:
+              en: Only a creature native to another plane can be trapped. It has advantage on the save if the flask trapped it before. The flask holds one creature at a time.
+        text:
+          en: Target a creature you can see within 60 feet. If it is native to another plane, it must succeed on a DC 17 Wisdom saving throw or be trapped in the flask.
+  - id: srd51.feature.item.iron-flask.release
+    name:
+      en: Release
+    text:
+      en: You can use an action to remove the flask's stopper and release the creature the flask contains. The creature is friendly to you and your companions for 1 hour and obeys your commands for that duration.
+    effects:
+      - kind: add-action
+        action: release
+        name:
+          en: Release
+        activation: action
+        duration:
+          type: timed
+          hours: 1
+        onUse:
+          - kind: note
+            text:
+              en: The released creature is friendly to you and your companions for 1 hour and obeys your commands. Given no commands, or a command likely to result in its death, it defends itself but otherwise takes no actions.
+        text:
+          en: Remove the stopper to release the creature in the flask. It obeys you for 1 hour.

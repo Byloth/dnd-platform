@@ -1,0 +1,11 @@
+effects:
+  - kind: grant-proficiency
+    type: tool
+    items:
+      - tinkers-tools
+  - kind: add-text
+    section: features
+    text:
+      en: "Using tinker's tools, you can spend 1 hour and 10 gp worth of materials to construct a Tiny clockwork device (AC 5, 1 hp): a clockwork toy, a fire starter, or a music box. It ceases to function after 24 hours unless you spend 1 hour repairing it, or when you use your action to dismantle it and reclaim the materials. You can have up to three such devices active at a time."
+    note:
+      en: Crafting narrative; the three active devices are not tracked as a resource.

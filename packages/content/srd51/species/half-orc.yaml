@@ -76,15 +76,53 @@ features:
     source: srd51
     text:
       en: You gain proficiency in the Intimidation skill.
+    effects:
+      - kind: grant-proficiency
+        type: skill
+        items:
+          - intimidation
   - id: srd51.feature.half-orc.relentless-endurance
     name:
       en: Relentless Endurance
     source: srd51
     text:
       en: When you are reduced to 0 hit points but not killed outright, you can drop to 1 hit point instead. You can't use this feature again until you finish a long rest.
+    effects:
+      - kind: declare-resource
+        resource: relentless-endurance
+        name:
+          en: Relentless Endurance
+        max: 1
+        recharge:
+          - on: long-rest
+            amount: full
+        display: pips
+      - kind: add-action
+        action: relentless-endurance
+        name:
+          en: Relentless Endurance
+        activation: special
+        trigger:
+          en: when you are reduced to 0 hit points but not killed outright
+        cost:
+          - resource: relentless-endurance
+            amount: 1
+        text:
+          en: When you are reduced to 0 hit points but not killed outright, you can drop to 1 hit point instead. You can't use this feature again until you finish a long rest.
+        onUse:
+          - kind: note
+            text:
+              en: Drop to 1 hit point instead of 0.
   - id: srd51.feature.half-orc.savage-attacks
     name:
       en: Savage Attacks
     source: srd51
     text:
       en: When you score a critical hit with a melee weapon attack, you can roll one of the weapon's damage dice one additional time and add it to the extra damage of the critical hit.
+    effects:
+      - kind: add-text
+        section: features
+        text:
+          en: When you score a critical hit with a melee weapon attack, roll one of the weapon's damage dice one additional time and add it to the extra damage of the critical hit.
+        note:
+          en: Play-mode critical hit rule (same shape as Brutal Critical); no derived value models it in v0.

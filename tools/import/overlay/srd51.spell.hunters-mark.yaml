@@ -1,0 +1,17 @@
+effects:
+  - kind: modify-attacks
+    set:
+      extraDamage: { dice: "1d6" }
+    note: { en: "Weapon attacks against the marked creature only." }
+  - kind: roll-advantage
+    on: { type: check, skill: perception, against: ["finding the marked creature"] }
+  - kind: roll-advantage
+    on: { type: check, skill: survival, against: ["finding the marked creature"] }
+  - kind: add-action
+    action: hunters-mark-new-target
+    name: { en: "Hunter's Mark: mark a new creature" }
+    activation: bonus-action
+    text: { en: "If the marked target has dropped to 0 hit points, mark a new creature you can see." }
+  - kind: add-text
+    section: features
+    text: { en: "With a 3rd- or 4th-level slot, concentration can last up to 8 hours; with a 5th-level or higher slot, up to 24 hours." }

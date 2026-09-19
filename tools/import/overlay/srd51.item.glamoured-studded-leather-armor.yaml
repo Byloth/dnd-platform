@@ -1,0 +1,16 @@
+type: armor
+category: light
+ac: { base: 12, addDex: true }
+features:
+  - id: srd51.feature.item.glamoured-studded-leather-armor.bonus
+    name: { en: "+1 bonus" }
+    effects:
+      - kind: modify
+        target: ac
+        op: add
+        value: 1
+      - kind: add-action
+        action: glamour-armor
+        name: { en: "Change the armor's appearance" }
+        activation: bonus-action
+        text: { en: "Speak the armor's command word to make it assume the appearance of a normal set of clothing or some other kind of armor. You decide what it looks like, but the armor retains its normal bulk and weight. The illusory appearance lasts until you use this property again or remove the armor." }

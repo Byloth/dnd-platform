@@ -16,3 +16,25 @@ attunement: true
 tags:
   - magic-item
   - wondrous-items
+features:
+  - id: srd51.feature.item.amulet-of-the-planes.plane-shift
+    name:
+      en: Plane shift
+    effects:
+      - kind: add-action
+        action: amulet-of-the-planes
+        name:
+          en: Name a location on another plane
+        activation: action
+        text:
+          en: "Name a location that you are familiar with on another plane of existence, then make a DC 15 Intelligence check. On a success, you cast the plane shift spell. On a failure, you and each creature and object within 15 feet of you travel to a random destination: roll a d100; on a 1-60 a random location on the plane you named, on a 61-100 a randomly determined plane."
+        onUse:
+          - kind: note
+            text:
+              en: "Make a DC 15 Intelligence check. Success: cast plane shift. Failure: roll a d100 for a random destination (1-60 random location on the named plane, 61-100 random plane)."
+      - kind: grant-spells
+        spells:
+          - srd51.spell.plane-shift
+        as: always-prepared
+        note:
+          en: Cast only through the amulet's action, after a successful DC 15 Intelligence check.

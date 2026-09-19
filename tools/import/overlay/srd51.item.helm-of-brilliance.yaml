@@ -1,0 +1,129 @@
+attunement: true
+features:
+  - id: srd51.feature.item.helm-of-brilliance.gems
+    name:
+      en: "Gems"
+    text:
+      en: "This dazzling helm is set with 1d10 diamonds, 2d10 rubies, 3d10 fire opals, and 4d10 opals. Any gem pried from the helm crumbles to dust. When all the gems are removed or destroyed, the helm loses its magic."
+    effects:
+      - kind: declare-resource
+        resource: diamonds
+        name:
+          en: "Diamonds"
+        max: 1d10
+        recharge: [{ on: manual, amount: full }]
+        display: counter
+        note:
+          en: "The gems never regrow; a gem spent on a spell is destroyed."
+      - kind: declare-resource
+        resource: rubies
+        name:
+          en: "Rubies"
+        max: 2d10
+        recharge: [{ on: manual, amount: full }]
+        display: counter
+        note:
+          en: "The gems never regrow; a gem spent on a spell is destroyed."
+      - kind: declare-resource
+        resource: fire-opals
+        name:
+          en: "Fire opals"
+        max: 3d10
+        recharge: [{ on: manual, amount: full }]
+        display: counter
+        note:
+          en: "The gems never regrow; a gem spent on a spell is destroyed."
+      - kind: declare-resource
+        resource: opals
+        name:
+          en: "Opals"
+        max: 4d10
+        recharge: [{ on: manual, amount: full }]
+        display: counter
+        note:
+          en: "The gems never regrow; a gem spent on a spell is destroyed."
+  - id: srd51.feature.item.helm-of-brilliance.spells
+    name:
+      en: "Spells"
+    text:
+      en: "You can use an action to cast one of the following spells (save DC 18), using one of the helm's gems of the specified type as a component: daylight (opal), fireball (fire opal), prismatic spray (diamond), or wall of fire (ruby). The gem is destroyed when the spell is cast and disappears from the helm."
+    effects:
+      - kind: grant-spells
+        spells: [srd51.spell.daylight]
+        as: always-prepared
+        cost: [{ resource: opals, amount: 1 }]
+        note:
+          en: "Save DC 18."
+      - kind: grant-spells
+        spells: [srd51.spell.fireball]
+        as: always-prepared
+        cost: [{ resource: fire-opals, amount: 1 }]
+        note:
+          en: "Save DC 18."
+      - kind: grant-spells
+        spells: [srd51.spell.prismatic-spray]
+        as: always-prepared
+        cost: [{ resource: diamonds, amount: 1 }]
+        note:
+          en: "Save DC 18."
+      - kind: grant-spells
+        spells: [srd51.spell.wall-of-fire]
+        as: always-prepared
+        cost: [{ resource: rubies, amount: 1 }]
+        note:
+          en: "Save DC 18."
+  - id: srd51.feature.item.helm-of-brilliance.radiant-aura
+    name:
+      en: "Radiant Aura"
+    text:
+      en: "As long as it has at least one diamond, the helm emits dim light in a 30-foot radius when at least one undead is within that area. Any undead that starts its turn in that area takes 1d6 radiant damage."
+    effects:
+      - kind: add-text
+        section: features
+        text:
+          en: "As long as it has at least one diamond, the helm emits dim light in a 30-foot radius when at least one undead is within that area. Any undead that starts its turn in that area takes 1d6 radiant damage."
+        note:
+          en: "Damage to other creatures at the start of their turn is a play event no kind expresses."
+  - id: srd51.feature.item.helm-of-brilliance.fire-resistance
+    name:
+      en: "Fire Resistance"
+    text:
+      en: "As long as the helm has at least one ruby, you have resistance to fire damage."
+    effects:
+      - kind: defense
+        defense: resistance
+        to: [fire]
+        note:
+          en: "Only as long as the helm has at least one ruby."
+  - id: srd51.feature.item.helm-of-brilliance.blazing-weapon
+    name:
+      en: "Blazing Weapon"
+    text:
+      en: "As long as the helm has at least one fire opal, you can use an action and speak a command word to cause one weapon you are holding to burst into flames. The flames emit bright light in a 10-foot radius and dim light for an additional 10 feet. The flames are harmless to you and the weapon. When you hit with an attack using the blazing weapon, the target takes an extra 1d6 fire damage. The flames last until you use a bonus action to speak the command word again or until you drop or stow the weapon."
+    effects:
+      - kind: add-action
+        action: blazing-weapon
+        name:
+          en: "Blazing Weapon"
+        activation: action
+        requires: { condition: { resourceAtLeast: { resource: fire-opals, amount: 1 } } }
+        toggle: { state: helm-of-brilliance-blazing, expires: { manual: true } }
+        text:
+          en: "Speak a command word to cause one weapon you are holding to burst into flames. The flames last until you use a bonus action to speak the command word again or until you drop or stow the weapon."
+      - kind: modify-attacks
+        set: { extraDamage: { dice: 1d6, damageType: fire } }
+        when: { toggled: helm-of-brilliance-blazing }
+        note:
+          en: "Only with the one weapon you set ablaze."
+  - id: srd51.feature.item.helm-of-brilliance.beams-of-light
+    name:
+      en: "Beams of Light"
+    text:
+      en: "Roll a d20 if you are wearing the helm and take fire damage as a result of failing a saving throw against a spell. On a roll of 1, the helm emits beams of light from its remaining gems. Each creature within 60 feet of the helm other than you must succeed on a DC 17 Dexterity saving throw or be struck by a beam, taking radiant damage equal to the number of gems in the helm. The helm and its gems are then destroyed."
+    effects:
+      - kind: add-text
+        section: features
+        text:
+          en: "Roll a d20 if you are wearing the helm and take fire damage as a result of failing a saving throw against a spell. On a roll of 1, the helm emits beams of light from its remaining gems. Each creature within 60 feet of the helm other than you must succeed on a DC 17 Dexterity saving throw or be struck by a beam, taking radiant damage equal to the number of gems in the helm. The helm and its gems are then destroyed."
+        note:
+          en: "A triggered self-destruct on taking fire damage; no kind expresses it."

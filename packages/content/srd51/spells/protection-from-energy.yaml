@@ -20,3 +20,14 @@ duration:
   concentration: true
 text:
   en: "For the duration, the willing creature you touch has resistance to one damage type of your choice: acid, cold, fire, lightning, or thunder."
+effects:
+  - kind: defense
+    defense: resistance
+    to:
+      - acid
+      - cold
+      - fire
+      - lightning
+      - thunder
+    note:
+      en: Only one of these damage types, chosen when the spell is cast.

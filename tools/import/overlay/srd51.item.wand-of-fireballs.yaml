@@ -1,0 +1,14 @@
+attunement: { by: { en: "a spellcaster" } }
+charges:
+  max: 7
+  recharge: [{ on: dawn, amount: "1d6 + 1" }]
+features:
+  - id: srd51.feature.item.wand-of-fireballs.fireball
+    name: { en: "Fireball" }
+    effects:
+      - kind: grant-spells
+        spells: [srd51.spell.fireball]
+        as: always-prepared
+        level: 3
+        cost: [{ resource: charges, amount: 1 }]
+        note: { en: "Save DC 15. For 1 charge you cast the 3rd-level version; each additional charge expended increases the slot level by one. If you expend the last charge, roll a d20: on a 1 the wand crumbles into ashes and is destroyed." }

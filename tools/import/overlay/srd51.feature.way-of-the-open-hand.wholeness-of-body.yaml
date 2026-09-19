@@ -1,0 +1,24 @@
+effects:
+  - kind: declare-resource
+    resource: wholeness-of-body
+    name:
+      en: Wholeness of Body
+    max: 1
+    display: pips
+    recharge:
+      - on: long-rest
+        amount: full
+  - kind: add-action
+    action: wholeness-of-body
+    name:
+      en: Wholeness of Body
+    activation: action
+    cost:
+      - resource: wholeness-of-body
+        amount: 1
+    text:
+      en: As an action, you can regain hit points equal to three times your monk level.
+    onUse:
+      - kind: heal
+        amount: 3 * classLevel(monk)
+        target: self

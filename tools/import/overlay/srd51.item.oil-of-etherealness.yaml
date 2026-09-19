@@ -1,0 +1,4 @@
+onUse:
+  - kind: note
+    text:
+      en: "Applying the oil takes 10 minutes and covers a Medium or smaller creature with its equipment (one additional vial per size category above Medium). The affected creature gains the effect of the etherealness spell for 1 hour."

@@ -1,0 +1,14 @@
+attunement: true
+features:
+  - id: srd51.feature.item.gloves-of-swimming-and-climbing.climb-and-swim
+    name:
+      en: "Climb and Swim"
+    text:
+      en: "While wearing these gloves, climbing and swimming don't cost you extra movement, and you gain a +5 bonus to Strength (Athletics) checks made to climb or swim."
+    effects:
+      - kind: modify
+        target: skill.athletics
+        op: add
+        value: 5
+        note:
+          en: "Only on Strength (Athletics) checks made to climb or swim. Climbing and swimming cost no extra movement."

@@ -1,0 +1,138 @@
+effects:
+  - kind: open-choice
+    choice: fiendish-resilience
+    of: option
+    count: 1
+    note:
+      en: The damage type is chosen when you finish a short or long rest and can be changed at each rest; damage from magical weapons or silver weapons ignores this resistance.
+    options:
+      - id: acid
+        name:
+          en: Acid
+        effects:
+          - kind: defense
+            defense: resistance
+            to:
+              - acid
+            note:
+              en: Damage from magical weapons or silver weapons ignores this resistance.
+      - id: bludgeoning
+        name:
+          en: Bludgeoning
+        effects:
+          - kind: defense
+            defense: resistance
+            to:
+              - bludgeoning
+            note:
+              en: Damage from magical weapons or silver weapons ignores this resistance.
+      - id: cold
+        name:
+          en: Cold
+        effects:
+          - kind: defense
+            defense: resistance
+            to:
+              - cold
+            note:
+              en: Damage from magical weapons or silver weapons ignores this resistance.
+      - id: fire
+        name:
+          en: Fire
+        effects:
+          - kind: defense
+            defense: resistance
+            to:
+              - fire
+            note:
+              en: Damage from magical weapons or silver weapons ignores this resistance.
+      - id: force
+        name:
+          en: Force
+        effects:
+          - kind: defense
+            defense: resistance
+            to:
+              - force
+            note:
+              en: Damage from magical weapons or silver weapons ignores this resistance.
+      - id: lightning
+        name:
+          en: Lightning
+        effects:
+          - kind: defense
+            defense: resistance
+            to:
+              - lightning
+            note:
+              en: Damage from magical weapons or silver weapons ignores this resistance.
+      - id: necrotic
+        name:
+          en: Necrotic
+        effects:
+          - kind: defense
+            defense: resistance
+            to:
+              - necrotic
+            note:
+              en: Damage from magical weapons or silver weapons ignores this resistance.
+      - id: piercing
+        name:
+          en: Piercing
+        effects:
+          - kind: defense
+            defense: resistance
+            to:
+              - piercing
+            note:
+              en: Damage from magical weapons or silver weapons ignores this resistance.
+      - id: poison
+        name:
+          en: Poison
+        effects:
+          - kind: defense
+            defense: resistance
+            to:
+              - poison
+            note:
+              en: Damage from magical weapons or silver weapons ignores this resistance.
+      - id: psychic
+        name:
+          en: Psychic
+        effects:
+          - kind: defense
+            defense: resistance
+            to:
+              - psychic
+            note:
+              en: Damage from magical weapons or silver weapons ignores this resistance.
+      - id: radiant
+        name:
+          en: Radiant
+        effects:
+          - kind: defense
+            defense: resistance
+            to:
+              - radiant
+            note:
+              en: Damage from magical weapons or silver weapons ignores this resistance.
+      - id: slashing
+        name:
+          en: Slashing
+        effects:
+          - kind: defense
+            defense: resistance
+            to:
+              - slashing
+            note:
+              en: Damage from magical weapons or silver weapons ignores this resistance.
+      - id: thunder
+        name:
+          en: Thunder
+        effects:
+          - kind: defense
+            defense: resistance
+            to:
+              - thunder
+            note:
+              en: Damage from magical weapons or silver weapons ignores this resistance.

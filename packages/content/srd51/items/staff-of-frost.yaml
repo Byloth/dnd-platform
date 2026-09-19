@@ -16,7 +16,51 @@ text:
 type: wondrous
 magical: true
 rarity: very-rare
-attunement: true
+attunement:
+  by:
+    en: a druid, sorcerer, warlock, or wizard
 tags:
   - magic-item
   - staff
+charges:
+  max: 10
+  recharge:
+    - on: dawn
+      amount: 1d6 + 4
+features:
+  - id: srd51.feature.item.staff-of-frost.cold-resistance
+    name:
+      en: Cold Resistance
+    effects:
+      - kind: defense
+        defense: resistance
+        to:
+          - cold
+  - id: srd51.feature.item.staff-of-frost.spells
+    name:
+      en: Spells
+    effects:
+      - kind: grant-spells
+        spells:
+          - srd51.spell.fog-cloud
+        as: always-prepared
+        cost:
+          - resource: charges
+            amount: 1
+        note:
+          en: "Cast as an action using your spell save DC. If you expend the last charge, roll a d20: on a 1 the staff turns to water and is destroyed."
+      - kind: grant-spells
+        spells:
+          - srd51.spell.ice-storm
+          - srd51.spell.wall-of-ice
+        as: always-prepared
+        cost:
+          - resource: charges
+            amount: 4
+      - kind: grant-spells
+        spells:
+          - srd51.spell.cone-of-cold
+        as: always-prepared
+        cost:
+          - resource: charges
+            amount: 5

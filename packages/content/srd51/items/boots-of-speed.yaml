@@ -18,3 +18,38 @@ attunement: true
 tags:
   - magic-item
   - wondrous-items
+charges:
+  max: 10
+  recharge:
+    - on: long-rest
+      amount: full
+features:
+  - id: srd51.feature.item.boots-of-speed.speed
+    name:
+      en: Boots of Speed
+    effects:
+      - kind: add-action
+        action: click-heels
+        name:
+          en: Click the boots' heels
+        activation: bonus-action
+        toggle:
+          state: boots-of-speed
+          expires:
+            manual: true
+        text:
+          en: The boots double your walking speed, and any creature that makes an opportunity attack against you has disadvantage on the attack roll. Click your heels together again to end the effect. When the property has been used for a total of 10 minutes, the magic ceases to function until you finish a long rest.
+        note:
+          en: "The item's charges track the 10 minutes of use: spend 1 charge for each minute (or part of one) the boots stay active."
+      - kind: modify
+        target: speed.walk
+        op: mul
+        value: 2
+        when:
+          toggled: boots-of-speed
+      - kind: add-text
+        section: combat
+        text:
+          en: While the boots are active, any creature that makes an opportunity attack against you has disadvantage on the attack roll.
+        when:
+          toggled: boots-of-speed

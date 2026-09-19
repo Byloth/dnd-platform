@@ -1,0 +1,5 @@
+onCast:
+  - kind: heal
+    amount: "70"
+    target: other
+    note: { en: "Plus 10 for each slot level above 6th. Also ends blindness, deafness and any diseases affecting the target; no effect on constructs or undead." }

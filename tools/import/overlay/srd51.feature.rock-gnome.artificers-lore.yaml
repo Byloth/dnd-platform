@@ -1,0 +1,7 @@
+effects:
+  - kind: add-text
+    section: features
+    text:
+      en: Add twice your proficiency bonus, instead of any proficiency bonus you normally apply, to Intelligence (History) checks related to magic items, alchemical objects, or technological devices.
+    note:
+      en: "Situational: the player asserts the check is about such objects; not derived (same shape as Stonecunning)."

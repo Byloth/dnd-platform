@@ -16,3 +16,24 @@ attunement: true
 tags:
   - magic-item
   - wondrous-items
+charges:
+  max: 3
+  recharge:
+    - on: dawn
+      amount: 1d3
+features:
+  - id: srd51.feature.item.medallion-of-thoughts.detect-thoughts
+    name:
+      en: Detect Thoughts
+    text:
+      en: While wearing it, you can use an action and expend 1 charge to cast the detect thoughts spell (save DC 13) from it.
+    effects:
+      - kind: grant-spells
+        spells:
+          - srd51.spell.detect-thoughts
+        as: always-prepared
+        cost:
+          - resource: charges
+            amount: 1
+        note:
+          en: Save DC 13.

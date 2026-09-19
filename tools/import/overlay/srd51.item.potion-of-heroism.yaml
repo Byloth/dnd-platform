@@ -1,0 +1,8 @@
+onUse:
+  - kind: tempHp
+    amount: "10"
+    note:
+      en: "The temporary hit points last for 1 hour."
+  - kind: note
+    text:
+      en: "For 1 hour you are under the effect of the bless spell (no concentration required)."

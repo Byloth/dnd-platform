@@ -14,6 +14,17 @@ levels:
         source: srd51
         text:
           en: When you choose this circle at 2nd level, you learn one additional druid cantrip of your choice.
+        effects:
+          - kind: open-choice
+            choice: bonus-cantrip
+            of: spell
+            count: 1
+            filter:
+              type: spell
+              list: srd51.spell-list.druid
+              level: 0
+            note:
+              en: One additional druid cantrip, in addition to the Cantrips Known column of the Druid table.
       - id: srd51.feature.circle-of-the-land.natural-recovery
         name:
           en: Natural Recovery
@@ -23,6 +34,35 @@ levels:
             Starting at 2nd level, you can regain some of your magical energy by sitting in meditation and communing with nature. During a short rest, you choose expended spell slots to recover. The spell slots can have a combined level that is equal to or less than half your druid level (rounded up), and none of the slots can be 6th level or higher. You can't use this feature again until you finish a long rest.
 
             For example, when you are a 4th-level druid, you can recover up to two levels worth of spell slots. You can recover either a 2nd-level slot or two 1st-level slots.
+        effects:
+          - kind: declare-resource
+            resource: natural-recovery
+            name:
+              en: Natural Recovery
+            max: 1
+            display: pips
+            recharge:
+              - on: long-rest
+                amount: full
+          - kind: add-action
+            action: natural-recovery
+            name:
+              en: Natural Recovery
+            activation: special
+            cost:
+              - resource: natural-recovery
+                amount: 1
+            trigger:
+              en: during a short rest
+            text:
+              en: During a short rest, you choose expended spell slots to recover. The spell slots can have a combined level that is equal to or less than half your druid level (rounded up), and none of the slots can be 6th level or higher.
+            onUse:
+              - kind: restoreResource
+                resource: spell-slots
+                amount: ceil(classLevel(druid) / 2)
+                budget: ceil(classLevel(druid) / 2)
+                note:
+                  en: Combined slot level up to half your druid level (rounded up); no slot of 6th level or higher.
   "3":
     features:
       - id: srd51.feature.circle-of-the-land.circle-spells
@@ -96,6 +136,336 @@ levels:
             | 5th | water walk, stinking cloud | 
             | 7th | freedom of movement, locate creature | 
             | 9th | insect plague, scrying |
+        effects:
+          - kind: open-choice
+            choice: land
+            of: option
+            count: 1
+            note:
+              en: Choose the land where you became a druid. Once you gain access to a circle spell, you always have it prepared, and it doesn't count against the number of spells you can prepare each day. A circle spell not on the druid spell list is nonetheless a druid spell for you.
+            options:
+              - id: arctic
+                name:
+                  en: Arctic
+                text:
+                  en: "Circle spells of the arctic: 3rd level, hold person and spike growth; 5th level, sleet storm and slow; 7th level, freedom of movement and ice storm; 9th level, commune with nature and cone of cold."
+                effects:
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.hold-person
+                      - srd51.spell.spike-growth
+                    as: always-prepared
+                    ability: wis
+                    when:
+                      classLevel:
+                        class: srd51.class.druid
+                        min: 3
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.sleet-storm
+                      - srd51.spell.slow
+                    as: always-prepared
+                    ability: wis
+                    when:
+                      classLevel:
+                        class: srd51.class.druid
+                        min: 5
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.freedom-of-movement
+                      - srd51.spell.ice-storm
+                    as: always-prepared
+                    ability: wis
+                    when:
+                      classLevel:
+                        class: srd51.class.druid
+                        min: 7
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.commune-with-nature
+                      - srd51.spell.cone-of-cold
+                    as: always-prepared
+                    ability: wis
+                    when:
+                      classLevel:
+                        class: srd51.class.druid
+                        min: 9
+              - id: coast
+                name:
+                  en: Coast
+                text:
+                  en: "Circle spells of the coast: 3rd level, mirror image and misty step; 5th level, water breathing and water walk; 7th level, control water and freedom of movement; 9th level, conjure elemental and scrying."
+                effects:
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.mirror-image
+                      - srd51.spell.misty-step
+                    as: always-prepared
+                    ability: wis
+                    when:
+                      classLevel:
+                        class: srd51.class.druid
+                        min: 3
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.water-breathing
+                      - srd51.spell.water-walk
+                    as: always-prepared
+                    ability: wis
+                    when:
+                      classLevel:
+                        class: srd51.class.druid
+                        min: 5
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.control-water
+                      - srd51.spell.freedom-of-movement
+                    as: always-prepared
+                    ability: wis
+                    when:
+                      classLevel:
+                        class: srd51.class.druid
+                        min: 7
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.conjure-elemental
+                      - srd51.spell.scrying
+                    as: always-prepared
+                    ability: wis
+                    when:
+                      classLevel:
+                        class: srd51.class.druid
+                        min: 9
+              - id: desert
+                name:
+                  en: Desert
+                text:
+                  en: "Circle spells of the desert: 3rd level, blur and silence; 5th level, create food and water and protection from energy; 7th level, blight and hallucinatory terrain; 9th level, insect plague and wall of stone."
+                effects:
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.blur
+                      - srd51.spell.silence
+                    as: always-prepared
+                    ability: wis
+                    when:
+                      classLevel:
+                        class: srd51.class.druid
+                        min: 3
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.create-food-and-water
+                      - srd51.spell.protection-from-energy
+                    as: always-prepared
+                    ability: wis
+                    when:
+                      classLevel:
+                        class: srd51.class.druid
+                        min: 5
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.blight
+                      - srd51.spell.hallucinatory-terrain
+                    as: always-prepared
+                    ability: wis
+                    when:
+                      classLevel:
+                        class: srd51.class.druid
+                        min: 7
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.insect-plague
+                      - srd51.spell.wall-of-stone
+                    as: always-prepared
+                    ability: wis
+                    when:
+                      classLevel:
+                        class: srd51.class.druid
+                        min: 9
+              - id: forest
+                name:
+                  en: Forest
+                text:
+                  en: "Circle spells of the forest: 3rd level, barkskin and spider climb; 5th level, call lightning and plant growth; 7th level, divination and freedom of movement; 9th level, commune with nature and tree stride."
+                effects:
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.barkskin
+                      - srd51.spell.spider-climb
+                    as: always-prepared
+                    ability: wis
+                    when:
+                      classLevel:
+                        class: srd51.class.druid
+                        min: 3
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.call-lightning
+                      - srd51.spell.plant-growth
+                    as: always-prepared
+                    ability: wis
+                    when:
+                      classLevel:
+                        class: srd51.class.druid
+                        min: 5
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.divination
+                      - srd51.spell.freedom-of-movement
+                    as: always-prepared
+                    ability: wis
+                    when:
+                      classLevel:
+                        class: srd51.class.druid
+                        min: 7
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.commune-with-nature
+                      - srd51.spell.tree-stride
+                    as: always-prepared
+                    ability: wis
+                    when:
+                      classLevel:
+                        class: srd51.class.druid
+                        min: 9
+              - id: grassland
+                name:
+                  en: Grassland
+                text:
+                  en: "Circle spells of the grassland: 3rd level, invisibility and pass without trace; 5th level, daylight and haste; 7th level, divination and freedom of movement; 9th level, dream and insect plague."
+                effects:
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.invisibility
+                      - srd51.spell.pass-without-trace
+                    as: always-prepared
+                    ability: wis
+                    when:
+                      classLevel:
+                        class: srd51.class.druid
+                        min: 3
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.daylight
+                      - srd51.spell.haste
+                    as: always-prepared
+                    ability: wis
+                    when:
+                      classLevel:
+                        class: srd51.class.druid
+                        min: 5
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.divination
+                      - srd51.spell.freedom-of-movement
+                    as: always-prepared
+                    ability: wis
+                    when:
+                      classLevel:
+                        class: srd51.class.druid
+                        min: 7
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.dream
+                      - srd51.spell.insect-plague
+                    as: always-prepared
+                    ability: wis
+                    when:
+                      classLevel:
+                        class: srd51.class.druid
+                        min: 9
+              - id: mountain
+                name:
+                  en: Mountain
+                text:
+                  en: "Circle spells of the mountain: 3rd level, spider climb and spike growth; 5th level, lightning bolt and meld into stone; 7th level, stone shape and stoneskin; 9th level, passwall and wall of stone."
+                effects:
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.spider-climb
+                      - srd51.spell.spike-growth
+                    as: always-prepared
+                    ability: wis
+                    when:
+                      classLevel:
+                        class: srd51.class.druid
+                        min: 3
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.lightning-bolt
+                      - srd51.spell.meld-into-stone
+                    as: always-prepared
+                    ability: wis
+                    when:
+                      classLevel:
+                        class: srd51.class.druid
+                        min: 5
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.stone-shape
+                      - srd51.spell.stoneskin
+                    as: always-prepared
+                    ability: wis
+                    when:
+                      classLevel:
+                        class: srd51.class.druid
+                        min: 7
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.passwall
+                      - srd51.spell.wall-of-stone
+                    as: always-prepared
+                    ability: wis
+                    when:
+                      classLevel:
+                        class: srd51.class.druid
+                        min: 9
+              - id: swamp
+                name:
+                  en: Swamp
+                text:
+                  en: "Circle spells of the swamp: 3rd level, acid arrow and darkness; 5th level, water walk and stinking cloud; 7th level, freedom of movement and locate creature; 9th level, insect plague and scrying."
+                effects:
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.acid-arrow
+                      - srd51.spell.darkness
+                    as: always-prepared
+                    ability: wis
+                    when:
+                      classLevel:
+                        class: srd51.class.druid
+                        min: 3
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.water-walk
+                      - srd51.spell.stinking-cloud
+                    as: always-prepared
+                    ability: wis
+                    when:
+                      classLevel:
+                        class: srd51.class.druid
+                        min: 5
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.freedom-of-movement
+                      - srd51.spell.locate-creature
+                    as: always-prepared
+                    ability: wis
+                    when:
+                      classLevel:
+                        class: srd51.class.druid
+                        min: 7
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.insect-plague
+                      - srd51.spell.scrying
+                    as: always-prepared
+                    ability: wis
+                    when:
+                      classLevel:
+                        class: srd51.class.druid
+                        min: 9
   "6":
     features:
       - id: srd51.feature.circle-of-the-land.lands-stride
@@ -107,6 +477,18 @@ levels:
             Starting at 6th level, moving through nonmagical difficult terrain costs you no extra movement. You can also pass through nonmagical plants without being slowed by them and without taking damage from them if they have thorns, spines, or a similar hazard.
 
             In addition, you have advantage on saving throws against plants that are magically created or manipulated to impede movement, such those created by the entangle spell.
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: Moving through nonmagical difficult terrain costs you no extra movement. You can also pass through nonmagical plants without being slowed by them and without taking damage from them if they have thorns, spines, or a similar hazard.
+            note:
+              en: "Play mode: difficult terrain and plant hazards are situational and not tracked by the engine."
+          - kind: roll-advantage
+            on:
+              type: save
+              against:
+                - plants that are magically created or manipulated to impede movement
   "10":
     features:
       - id: srd51.feature.circle-of-the-land.natures-ward
@@ -115,6 +497,22 @@ levels:
         source: srd51
         text:
           en: When you reach 10th level, you can't be charmed or frightened by elementals or fey, and you are immune to poison and disease.
+        effects:
+          - kind: defense
+            defense: immunity
+            to:
+              - poison
+              - disease
+          - kind: defense
+            defense: condition-immunity
+            to:
+              - srd51.condition.poisoned
+          - kind: add-text
+            section: conditions
+            text:
+              en: You can't be charmed or frightened by elementals or fey.
+            note:
+              en: "Gap: a condition immunity limited to elementals and fey as the source; defense cannot scope by source, so it is shown as text."
   "14":
     features:
       - id: srd51.feature.circle-of-the-land.natures-sanctuary
@@ -126,3 +524,10 @@ levels:
             When you reach 14th level, creatures of the natural world sense your connection to nature and become hesitant to attack you. When a beast or plant creature attacks you, that creature must make a Wisdom saving throw against your druid spell save DC. On a failed save, the creature must choose a different target, or the attack automatically misses. On a successful save, the creature is immune to this effect for 24 hours.
 
             The creature is aware of this effect before it makes its attack against you.
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: When a beast or plant creature attacks you, that creature must make a Wisdom saving throw against your druid spell save DC. On a failed save, the creature must choose a different target, or the attack automatically misses. On a successful save, the creature is immune to this effect for 24 hours. The creature is aware of this effect before it makes its attack against you.
+            note:
+              en: "Play mode: a passive effect resolved by the attacker's save against your spell save DC; nothing derived on the sheet beyond the DC."

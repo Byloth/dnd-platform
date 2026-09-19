@@ -1,0 +1,6 @@
+onCast:
+  - kind: applyCondition
+    condition: srd51.condition.restrained
+    target: other
+    expires: { minutes: 1 }
+    note: { en: "On a failed Constitution saving throw (creatures of flesh only). The restrained creature repeats the save at the end of each of its turns: three successes end the spell; three failures turn it to stone (petrified) for the duration, or permanently if you maintain concentration for the entire duration." }

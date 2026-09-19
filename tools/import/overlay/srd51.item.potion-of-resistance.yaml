@@ -1,0 +1,4 @@
+onUse:
+  - kind: note
+    text:
+      en: "When you drink this potion, you gain resistance to one type of damage for 1 hour (acid, cold, fire, force, lightning, necrotic, poison, psychic, radiant or thunder, chosen or rolled by the GM)."

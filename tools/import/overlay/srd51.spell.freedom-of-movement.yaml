@@ -1,0 +1,8 @@
+effects:
+  - kind: defense
+    defense: condition-immunity
+    to: [srd51.condition.paralyzed, srd51.condition.restrained]
+    note: { en: "Only against spells and other magical effects." }
+  - kind: add-text
+    section: features
+    text: { en: "Your movement is unaffected by difficult terrain, and spells and other magical effects can't reduce your speed; you can spend 5 feet of movement to automatically escape from nonmagical restraints such as manacles or a grapple; being underwater imposes no penalties on your movement or attacks." }

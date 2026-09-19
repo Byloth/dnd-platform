@@ -1,0 +1,14 @@
+effects:
+  - kind: add-action
+    action: command-animated-objects
+    name: { en: "Command animated objects" }
+    activation: bonus-action
+    cost: []
+    text: { en: "Mentally command any creature you made with this spell within 500 feet (all of them at once with the same command). If commanded to attack, an object makes a single melee slam attack against a creature within 5 feet with the attack bonus and bludgeoning damage of its size." }
+  - kind: add-text
+    section: features
+    text: { en: "Animated objects (Tiny: 20 HP, AC 18, +8 to hit, 1d4 + 4; Small: 25 HP, AC 16, +6 to hit, 1d8 + 2; Medium: 40 HP, AC 13, +5 to hit, 2d6 + 1; Large: 50 HP, AC 10, +6 to hit, 2d10 + 2; Huge: 80 HP, AC 10, +8 to hit, 2d12 + 4) are constructs with Con 10, Int 3, Wis 3, Cha 1, speed 30 feet (fly 30 feet and hover if they lack legs) and blindsight 30 feet; at 0 hit points an object reverts to its original form." }
+    note: { en: "The objects' statistics are not tracked in v0." }
+onCast:
+  - kind: note
+    text: { en: "Up to ten nonmagical objects not worn or carried animate (Medium counts as two objects, Large as four, Huge as eight); two additional objects for each slot level above 5th." }

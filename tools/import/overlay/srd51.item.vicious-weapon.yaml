@@ -1,0 +1,21 @@
+features:
+  - id: srd51.feature.item.vicious-weapon.magic-weapon
+    name: { en: "Magic Weapon" }
+    effects:
+      - kind: modify-attacks
+        filter: { item: srd51.item.vicious-weapon }
+        set: { magical: true }
+        note: { en: "Any weapon; this item carries no base weapon properties of its own." }
+  - id: srd51.feature.item.vicious-weapon.vicious
+    name: { en: "Vicious" }
+    effects:
+      - kind: add-action
+        action: vicious
+        name: { en: "Vicious" }
+        activation: special
+        trigger: { en: "when you roll a 20 on your attack roll with this weapon" }
+        text: { en: "Your critical hit deals an extra 2d6 damage of the weapon's type." }
+        onHit:
+          - kind: extraDamage
+            dice: "2d6"
+            note: { en: "Of the weapon's damage type." }

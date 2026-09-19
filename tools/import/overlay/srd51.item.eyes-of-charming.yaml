@@ -1,0 +1,13 @@
+attunement: true
+charges:
+  max: 3
+  recharge: [{ on: dawn, amount: full }]
+features:
+  - id: srd51.feature.item.eyes-of-charming.charm
+    name: { en: "Charm" }
+    effects:
+      - kind: grant-spells
+        spells: [srd51.spell.charm-person]
+        as: always-prepared
+        cost: [{ resource: charges, amount: 1 }]
+        note: { en: "Cast as an action (save DC 13) on a humanoid within 30 feet of you, provided that you and the target can see each other." }

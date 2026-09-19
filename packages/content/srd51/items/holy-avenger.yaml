@@ -14,7 +14,46 @@ text:
 type: weapon
 magical: true
 rarity: legendary
-attunement: true
+attunement:
+  by:
+    en: a paladin
 tags:
   - magic-item
   - weapon
+features:
+  - id: srd51.feature.item.holy-avenger.magic-weapon
+    name:
+      en: Magic Weapon
+    text:
+      en: You gain a +3 bonus to attack and damage rolls made with this magic weapon. When you hit a fiend or an undead with it, that creature takes an extra 2d10 radiant damage.
+    effects:
+      - kind: modify-attacks
+        filter:
+          item: srd51.item.holy-avenger
+        set:
+          attackBonus: 3
+          damageBonus: 3
+          magical: true
+      - kind: modify-attacks
+        filter:
+          item: srd51.item.holy-avenger
+        set:
+          extraDamage:
+            dice: 2d10
+            damageType: radiant
+        note:
+          en: Only when you hit a fiend or an undead.
+  - id: srd51.feature.item.holy-avenger.aura
+    name:
+      en: Aura
+    text:
+      en: While you hold the drawn sword, it creates an aura in a 10-foot radius around you. You and all creatures friendly to you in the aura have advantage on saving throws against spells and other magical effects. If you have 17 or more levels in the paladin class, the radius of the aura increases to 30 feet.
+    effects:
+      - kind: roll-advantage
+        on:
+          type: save
+          against:
+            - spells
+            - other magical effects
+        note:
+          en: While you hold the drawn sword. Creatures friendly to you within 10 feet share the advantage; 30 feet if you have 17 or more paladin levels.

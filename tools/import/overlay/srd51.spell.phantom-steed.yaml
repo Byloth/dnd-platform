@@ -1,0 +1,5 @@
+effects:
+  - kind: add-text
+    section: features
+    text: { en: "A Large quasi-real steed you or a creature you choose can ride: it uses the statistics of a riding horse but has a speed of 100 feet and travels 10 miles per hour (13 at a fast pace). Its equipment vanishes if carried more than 10 feet from it; the spell ends if you dismiss it as an action or if the steed takes any damage, and the steed fades over 1 minute." }
+    note: { en: "No stat blocks in v0: the riding horse statistics must be looked up." }

@@ -1,0 +1,12 @@
+features:
+  - id: srd51.feature.item.robe-of-useful-items.patches
+    name: { en: "Patches" }
+    effects:
+      - kind: add-action
+        action: detach-patch
+        name: { en: "Detach a patch" }
+        activation: action
+        text: { en: "Detach one of the robe's patches, causing it to become the object or creature it represents. Once the last patch is removed, the robe becomes an ordinary garment." }
+        onUse:
+          - kind: note
+            text: { en: "The robe has two each of: dagger, bullseye lantern (filled and lit), steel mirror, 10-foot pole, hempen rope (50 feet, coiled), sack; plus 4d4 other patches chosen or rolled by the GM on the item's d100 table. Track the remaining patches by hand; they do not recharge." }

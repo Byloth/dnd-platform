@@ -1,0 +1,5 @@
+effects:
+  - kind: modify
+    target: ability.cha
+    op: add
+    value: 1

@@ -1,0 +1,61 @@
+effects:
+  - kind: open-choice
+    choice: fighting-style
+    of: fighting-style
+    count: 1
+    note:
+      en: You can't take a Fighting Style option more than once, even if you later get to choose again.
+    options:
+      - id: archery
+        name:
+          en: Archery
+        text:
+          en: You gain a +2 bonus to attack rolls you make with ranged weapons.
+        effects:
+          - kind: modify-attacks
+            filter:
+              ranged: true
+            set:
+              attackBonus: 2
+      - id: defense
+        name:
+          en: Defense
+        text:
+          en: While you are wearing armor, you gain a +1 bonus to AC.
+        effects:
+          - kind: modify
+            target: ac
+            op: add
+            value: 1
+            when:
+              any:
+                - armorCategory: light
+                - armorCategory: medium
+                - armorCategory: heavy
+      - id: dueling
+        name:
+          en: Dueling
+        text:
+          en: When you are wielding a melee weapon in one hand and no other weapons, you gain a +2 bonus to damage rolls with that weapon.
+        effects:
+          - kind: modify-attacks
+            filter:
+              melee: true
+            set:
+              damageBonus: 2
+            when:
+              wieldingOnly:
+                melee: true
+                count: 1
+      - id: two-weapon-fighting
+        name:
+          en: Two-Weapon Fighting
+        text:
+          en: When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack.
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Two-Weapon Fighting: when you engage in two-weapon fighting, add your ability modifier to the damage of the second attack."
+            note:
+              en: The bonus-action off-hand attack is not a distinct attack row yet, so the modifier on the second attack is applied in play.

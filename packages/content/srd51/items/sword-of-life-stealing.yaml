@@ -16,3 +16,37 @@ attunement: true
 tags:
   - magic-item
   - weapon
+features:
+  - id: srd51.feature.item.sword-of-life-stealing.magic-weapon
+    name:
+      en: Magic Weapon
+    effects:
+      - kind: modify-attacks
+        filter:
+          item: srd51.item.sword-of-life-stealing
+        set:
+          magical: true
+        note:
+          en: Any sword; this item carries no base weapon properties of its own.
+  - id: srd51.feature.item.sword-of-life-stealing.life-stealing
+    name:
+      en: Life Stealing
+    effects:
+      - kind: add-action
+        action: life-stealing
+        name:
+          en: Life Stealing
+        activation: special
+        trigger:
+          en: when you roll a 20 on an attack roll with this weapon against a creature
+        text:
+          en: The target takes an extra 3d6 necrotic damage, provided it isn't a construct or an undead. You gain temporary hit points equal to the extra damage dealt.
+        onHit:
+          - kind: extraDamage
+            dice: 3d6
+            damageType: necrotic
+            note:
+              en: Not against constructs or undead.
+          - kind: note
+            text:
+              en: You gain temporary hit points equal to the necrotic damage dealt.

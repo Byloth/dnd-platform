@@ -1,0 +1,7 @@
+features:
+  - id: srd51.feature.item.eyes-of-minute-seeing.minute-seeing
+    name: { en: "Minute seeing" }
+    effects:
+      - kind: roll-advantage
+        on: { type: check, skill: investigation }
+        note: { en: "Only on Intelligence (Investigation) checks that rely on sight while searching an area or studying an object within 1 foot of you." }

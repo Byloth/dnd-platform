@@ -1,0 +1,29 @@
+effects:
+  - kind: declare-resource
+    resource: eldritch-master
+    name:
+      en: Eldritch Master
+    max: 1
+    display: pips
+    recharge:
+      - on: long-rest
+        amount: full
+  - kind: add-action
+    action: eldritch-master
+    name:
+      en: Eldritch Master
+    activation: special
+    cost:
+      - resource: eldritch-master
+        amount: 1
+    duration:
+      type: timed
+      minutes: 1
+    text:
+      en: You can spend 1 minute entreating your patron for aid to regain all your expended spell slots from your Pact Magic feature. Once you regain spell slots with this feature, you must finish a long rest before you can do so again.
+    onUse:
+      - kind: restoreResource
+        resource: spell-slots
+        amount: full
+        note:
+          en: Regain all expended Pact Magic spell slots after 1 minute of entreating your patron.

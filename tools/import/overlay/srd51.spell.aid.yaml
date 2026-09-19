@@ -1,0 +1,11 @@
+effects:
+  - kind: modify
+    target: hp.max
+    op: add
+    value: 5
+    note: { en: "Plus 5 for each slot level above 2nd." }
+onCast:
+  - kind: heal
+    amount: "5"
+    target: other
+    note: { en: "Current hit points increase by 5 together with the hit point maximum (plus 5 for each slot level above 2nd); up to three creatures." }

@@ -27,3 +27,20 @@ text:
     **Change Appearance.** You transform your appearance. You decide what you look like, including your height, weight, facial features, sound of your voice, hair length, coloration, and distinguishing characteristics, if any. You can make yourself appear as a member of another race, though none of your statistics change. You also can't appear as a creature of a different size than you, and your basic shape stays the same; if you're bipedal, you can't use this spell to become quadrupedal, for instance. At any time for the duration of the spell, you can use your action to change your appearance in this way again.
 
     **Natural Weapons.** You grow claws, fangs, spines, horns, or a different natural weapon of your choice. Your unarmed strikes deal 1d6 bludgeoning, piercing, or slashing damage, as appropriate to the natural weapon you chose, and you are proficient with your unarmed strikes. Finally, the natural weapon is magic and you have a +1 bonus to the attack and damage rolls you make using it.
+effects:
+  - kind: add-text
+    section: features
+    text:
+      en: "Aquatic Adaptation: you can breathe underwater and gain a swimming speed equal to your walking speed."
+    note:
+      en: One option is chosen when cast (an action switches to another); the formula language cannot reference the walking speed, so the swimming speed stays text.
+  - kind: add-text
+    section: features
+    text:
+      en: "Change Appearance: you decide what you look like; none of your statistics change. You can use your action to change your appearance again."
+  - kind: add-text
+    section: features
+    text:
+      en: "Natural Weapons: your unarmed strikes deal 1d6 bludgeoning, piercing, or slashing damage, you are proficient with them, the natural weapon is magic and you have a +1 bonus to the attack and damage rolls you make with it."
+    note:
+      en: Option-dependent, so not expressed as modify-attacks (no vocabulary for an option chosen at casting).

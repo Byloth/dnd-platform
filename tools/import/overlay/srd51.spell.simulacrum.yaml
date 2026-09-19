@@ -1,0 +1,5 @@
+effects:
+  - kind: add-text
+    section: features
+    text: { en: "An illusory duplicate of one beast or humanoid with all its statistics, but half its hit point maximum and no equipment; friendly to you, it obeys your spoken commands and acts on your turn. It never gains levels or abilities and can't regain spell slots; damage is repaired only in an alchemical laboratory at 100 gp per hit point. It melts at 0 hit points, and casting the spell again destroys it." }
+    note: { en: "No stat blocks in v0: the duplicated creature's statistics must be tracked by hand." }

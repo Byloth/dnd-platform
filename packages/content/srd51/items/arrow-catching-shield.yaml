@@ -9,10 +9,32 @@ text:
     Armor (shield), rare (requires attunement)
 
     You gain a +2 bonus to AC against ranged attacks while you wield this shield. This bonus is in addition to the shield's normal bonus to AC. In addition, whenever an attacker makes a ranged attack against a target within 5 feet of you, you can use your reaction to become the target of the attack instead.
-type: armor
+type: shield
 magical: true
 rarity: rare
 attunement: true
 tags:
   - magic-item
   - armor
+ac:
+  bonus: 2
+features:
+  - id: srd51.feature.item.arrow-catching-shield.arrow-catching
+    name:
+      en: Arrow catching
+    effects:
+      - kind: add-text
+        section: combat
+        text:
+          en: You gain a +2 bonus to AC against ranged attacks while you wield this shield, in addition to the shield's normal bonus to AC.
+        note:
+          en: A bonus to AC against ranged attacks only cannot be expressed as a modify (it would apply to every attack); apply +2 by hand against ranged attacks.
+      - kind: add-action
+        action: arrow-catching-shield
+        name:
+          en: Catch a ranged attack
+        activation: reaction
+        trigger:
+          en: when an attacker makes a ranged attack against a target within 5 feet of you
+        text:
+          en: You become the target of the attack instead.

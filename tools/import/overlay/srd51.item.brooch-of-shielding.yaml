@@ -1,0 +1,12 @@
+attunement: true
+features:
+  - id: srd51.feature.item.brooch-of-shielding.shielding
+    name: { en: "Shielding" }
+    effects:
+      - kind: defense
+        defense: resistance
+        to: [force]
+      - kind: defense
+        defense: immunity
+        to: [srd51.spell.magic-missile]
+        note: { en: "Immunity to damage from the magic missile spell." }

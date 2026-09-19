@@ -27,3 +27,17 @@ rolls:
   - type: save
     ability: wis
     onSuccess: none
+onCast:
+  - kind: applyCondition
+    condition: srd51.condition.charmed
+    target: other
+    expires:
+      minutes: 1
+  - kind: applyCondition
+    condition: srd51.condition.incapacitated
+    target: other
+    expires:
+      minutes: 1
+  - kind: note
+    text:
+      en: On a failed Wisdom save (advantage if you are fighting the creature). The charmed target is incapacitated and unaware of its surroundings but can hear you; the spell ends if it takes damage or is targeted by another spell. Memory alteration of an event from the last 24 hours (longer with higher slots) is adjudicated by the DM.

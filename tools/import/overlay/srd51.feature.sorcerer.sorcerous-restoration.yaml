@@ -1,0 +1,6 @@
+onRest:
+  - kind: restoreResource
+    resource: sorcery-points
+    amount: 4
+    note:
+      en: You regain 4 expended sorcery points whenever you finish a short rest (a long rest already restores them all).

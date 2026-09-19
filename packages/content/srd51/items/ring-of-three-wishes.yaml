@@ -15,3 +15,22 @@ rarity: legendary
 tags:
   - magic-item
   - ring
+charges:
+  max: 3
+  recharge:
+    - on: manual
+      amount: 0
+features:
+  - id: srd51.feature.item.ring-of-three-wishes.wish
+    name:
+      en: '"Wish"'
+    effects:
+      - kind: grant-spells
+        spells:
+          - srd51.spell.wish
+        as: always-prepared
+        cost:
+          - resource: charges
+            amount: 1
+        note:
+          en: '"Cast as an action. The charges never recharge; the ring becomes nonmagical when you use the last one."'

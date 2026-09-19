@@ -19,3 +19,9 @@ duration:
   type: instantaneous
 text:
   en: A flood of healing energy flows from you into injured creatures around you. You restore up to 700 hit points, divided as you choose among any number of creatures that you can see within range. Creatures healed by this spell are also cured of all diseases and any effect making them blinded or deafened. This spell has no effect on undead or constructs.
+onCast:
+  - kind: heal
+    amount: "700"
+    target: other
+    note:
+      en: Up to 700 hit points in total, divided as you choose among any number of creatures you can see within range. Healed creatures are also cured of all diseases and of any effect making them blinded or deafened. No effect on undead or constructs.

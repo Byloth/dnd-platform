@@ -89,6 +89,63 @@ levels:
             At 1st level, choose two of your skill proficiencies, or one of your skill proficiencies and your proficiency with thieves' tools. Your proficiency bonus is doubled for any ability check you make that uses either of the chosen proficiencies.
 
             At 6th level, you can choose two more of your proficiencies (in skills or with thieves' tools) to gain this benefit.
+        effects:
+          - kind: grant-proficiency
+            type: skill
+            choose:
+              count: 2
+              from:
+                - acrobatics
+                - animal-handling
+                - arcana
+                - athletics
+                - deception
+                - history
+                - insight
+                - intimidation
+                - investigation
+                - medicine
+                - nature
+                - perception
+                - performance
+                - persuasion
+                - religion
+                - sleight-of-hand
+                - stealth
+                - survival
+            expertise: true
+            note:
+              en: Choose two of your skill proficiencies, or one of your skill proficiencies and your proficiency with thieves' tools. The choice cannot yet be restricted to proficiencies you already hold, and thieves' tools cannot be picked in place of a skill.
+          - kind: grant-proficiency
+            type: skill
+            choose:
+              count: 2
+              from:
+                - acrobatics
+                - animal-handling
+                - arcana
+                - athletics
+                - deception
+                - history
+                - insight
+                - intimidation
+                - investigation
+                - medicine
+                - nature
+                - perception
+                - performance
+                - persuasion
+                - religion
+                - sleight-of-hand
+                - stealth
+                - survival
+            expertise: true
+            when:
+              classLevel:
+                class: srd51.class.rogue
+                min: 6
+            note:
+              en: At 6th level, choose two more of your proficiencies (in skills or with thieves' tools). The choice cannot yet be restricted to proficiencies you already hold, and thieves' tools cannot be picked in place of a skill.
       - id: srd51.feature.rogue.sneak-attack
         name:
           en: Sneak Attack
@@ -100,6 +157,29 @@ levels:
             You don't need advantage on the attack roll if another enemy of the target is within 5 feet of it, that enemy isn't incapacitated, and you don't have disadvantage on the attack roll.
 
             The amount of the extra damage increases as you gain levels in this class, as shown in the Sneak Attack column of the Rogue table.
+        effects:
+          - kind: add-action
+            action: sneak-attack
+            name:
+              en: Sneak Attack
+            activation: special
+            requires:
+              condition:
+                any:
+                  - wielding:
+                      property: finesse
+                  - wielding:
+                      ranged: true
+            trigger:
+              en: when you hit a creature with an attack using a finesse or a ranged weapon and you have advantage on the attack roll, or another enemy of the target is within 5 feet of it, that enemy isn't incapacitated, and you don't have disadvantage on the attack roll
+            text:
+              en: Once per turn, you can deal extra damage to one creature you hit with an attack if you have advantage on the attack roll. The attack must use a finesse or a ranged weapon. You don't need advantage on the attack roll if another enemy of the target is within 5 feet of it, that enemy isn't incapacitated, and you don't have disadvantage on the attack roll.
+            onHit:
+              - kind: extraDamage
+                formula: table(rogue.sneak-attack)
+                once: per-turn
+                note:
+                  en: The extra damage is of the weapon's damage type. Requires advantage on the attack roll, or an enemy of the target within 5 feet of it that isn't incapacitated while you don't have disadvantage.
       - id: srd51.feature.rogue.thieves-cant
         name:
           en: Thieves' Cant
@@ -109,6 +189,17 @@ levels:
             During your rogue training you learned thieves' cant, a secret mix of dialect, jargon, and code that allows you to hide messages in seemingly normal conversation. Only another creature that knows thieves' cant understands such messages. It takes four times longer to convey such a message than it does to speak the same idea plainly.
 
             In addition, you understand a set of secret signs and symbols used to convey short, simple messages, such as whether an area is dangerous or the territory of a thieves' guild, whether loot is nearby, or whether the people in an area are easy marks or will provide a safe house for thieves on the run.
+        effects:
+          - kind: grant-proficiency
+            type: language
+            items:
+              - thieves-cant
+            note:
+              en: Thieves' cant is modelled as a language; it takes four times longer to convey a message than to speak the same idea plainly.
+          - kind: add-text
+            section: features
+            text:
+              en: You understand a set of secret signs and symbols used to convey short, simple messages, such as whether an area is dangerous or the territory of a thieves' guild, whether loot is nearby, or whether the people in an area are easy marks or will provide a safe house for thieves on the run.
   "2":
     features:
       - id: srd51.feature.rogue.cunning-action
@@ -117,6 +208,18 @@ levels:
         source: srd51
         text:
           en: Starting at 2nd level, your quick thinking and agility allow you to move and act quickly. You can take a bonus action on each of your turns in combat. This action can be used only to take the Dash, Disengage, or Hide action.
+        effects:
+          - kind: add-action
+            action: cunning-action
+            name:
+              en: Cunning Action
+            activation: bonus-action
+            text:
+              en: You can take a bonus action on each of your turns in combat. This action can be used only to take the Dash, Disengage, or Hide action.
+            onUse:
+              - kind: note
+                text:
+                  en: Choose Dash, Disengage or Hide.
   "3":
     features:
       - id: srd51.feature.rogue.roguish-archetype
@@ -125,12 +228,9 @@ levels:
         source: srd51
         text:
           en: "At 3rd level, you choose an archetype that you emulate in the exercise of your rogue abilities: Thief, Assassin, or Arcane Trickster, all detailed at the end of the class description. Your archetype choice grants you features at 3rd level and then again at 9th, 13th, and 17th level."
-        effects:
-          - kind: open-choice
-            choice: roguish-archetype
-            of: subclass
-            count: 1
-            level: 3
+    choices:
+      - id: roguish-archetype
+        of: subclass
   "4":
     features:
       - id: srd51.feature.rogue.ability-score-improvement
@@ -150,6 +250,20 @@ levels:
         source: srd51
         text:
           en: Starting at 5th level, when an attacker that you can see hits you with an attack, you can use your reaction to halve the attack's damage against you.
+        effects:
+          - kind: add-action
+            action: uncanny-dodge
+            name:
+              en: Uncanny Dodge
+            activation: reaction
+            trigger:
+              en: when an attacker that you can see hits you with an attack
+            text:
+              en: Halve the attack's damage against you.
+            onUse:
+              - kind: note
+                text:
+                  en: The damage of the triggering attack is halved.
   "7":
     features:
       - id: srd51.feature.rogue.evasion
@@ -158,6 +272,13 @@ levels:
         source: srd51
         text:
           en: Beginning at 7th level, you can nimbly dodge out of the way of certain area effects, such as a red dragon's fiery breath or an ice storm spell. When you are subjected to an effect that allows you to make a Dexterity saving throw to take only half damage, you instead take no damage if you succeed on the saving throw, and only half damage if you fail.
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: When you are subjected to an effect that allows you to make a Dexterity saving throw to take only half damage, you instead take no damage if you succeed on the saving throw, and only half damage if you fail.
+            note:
+              en: Save-outcome rule resolved in play; no catalogue kind.
   "8":
     choices:
       - id: asi-8
@@ -174,6 +295,13 @@ levels:
         source: srd51
         text:
           en: By 11th level, you have refined your chosen skills until they approach perfection. Whenever you make an ability check that lets you add your proficiency bonus, you can treat a d20 roll of 9 or lower as a 10.
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: Whenever you make an ability check that lets you add your proficiency bonus, you can treat a d20 roll of 9 or lower as a 10.
+            note:
+              en: A d20 floor on proficient checks has no catalogue kind; applied in play.
   "12":
     choices:
       - id: asi-12
@@ -186,6 +314,11 @@ levels:
         source: srd51
         text:
           en: Starting at 14th level, if you are able to hear, you are aware of the location of any hidden or invisible creature within 10 feet of you.
+        effects:
+          - kind: add-text
+            section: senses
+            text:
+              en: If you are able to hear, you are aware of the location of any hidden or invisible creature within 10 feet of you.
   "15":
     features:
       - id: srd51.feature.rogue.slippery-mind
@@ -194,6 +327,11 @@ levels:
         source: srd51
         text:
           en: By 15th level, you have acquired greater mental strength. You gain proficiency in Wisdom saving throws.
+        effects:
+          - kind: grant-proficiency
+            type: save
+            items:
+              - wis
   "16":
     choices:
       - id: asi-16
@@ -206,6 +344,13 @@ levels:
         source: srd51
         text:
           en: Beginning at 18th level, you are so evasive that attackers rarely gain the upper hand against you. No attack roll has advantage against you while you aren't incapacitated.
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: No attack roll has advantage against you while you aren't incapacitated.
+            note:
+              en: Negating advantage on incoming attack rolls has no catalogue kind; applied in play.
   "19":
     choices:
       - id: asi-19
@@ -221,6 +366,32 @@ levels:
             At 20th level, you have an uncanny knack for succeeding when you need to. If your attack misses a target within range, you can turn the miss into a hit. Alternatively, if you fail an ability check, you can treat the d20 roll as a 20.
 
             Once you use this feature, you can't use it again until you finish a short or long rest.
+        effects:
+          - kind: declare-resource
+            resource: stroke-of-luck
+            name:
+              en: Stroke of Luck
+            max: 1
+            recharge:
+              - on: short-rest
+                amount: full
+              - on: long-rest
+                amount: full
+            display: pips
+          - kind: add-action
+            action: stroke-of-luck
+            name:
+              en: Stroke of Luck
+            activation: free
+            cost:
+              - resource: stroke-of-luck
+                amount: 1
+            text:
+              en: If your attack misses a target within range, you can turn the miss into a hit. Alternatively, if you fail an ability check, you can treat the d20 roll as a 20.
+            onUse:
+              - kind: note
+                text:
+                  en: Turn a missed attack against a target within range into a hit, or treat the d20 of a failed ability check as a 20.
 tables:
   sneak-attack:
     by: classLevel

@@ -1,0 +1,46 @@
+features:
+  - id: srd51.feature.item.mirror-of-life-trapping.activate
+    name:
+      en: "Activate the Mirror"
+    text:
+      en: "If the mirror is hanging on a vertical surface and you are within 5 feet of it, you can use an action to speak its command word and activate it. It remains activated until you use an action to speak the command word again. Any creature other than you that sees its reflection in the activated mirror while within 30 feet of it must succeed on a DC 15 Charisma saving throw or be trapped, along with anything it is wearing or carrying, in one of the mirror's twelve extradimensional cells. This saving throw is made with advantage if the creature knows the mirror's nature, and constructs succeed on the saving throw automatically."
+    effects:
+      - kind: add-action
+        action: activate-the-mirror
+        name:
+          en: "Activate the Mirror"
+        activation: action
+        dc: "15"
+        toggle: { state: mirror-of-life-trapping-active, expires: { manual: true } }
+        onUse:
+          - kind: note
+            text:
+              en: "While active, any creature other than you that sees its reflection within 30 feet must succeed on a DC 15 Charisma saving throw (advantage if it knows the mirror's nature; constructs succeed automatically) or be trapped in one of twelve extradimensional cells. Speak the command word again as an action to deactivate."
+        text:
+          en: "Speak the command word while within 5 feet of the hanging mirror to activate it, or again to deactivate it."
+  - id: srd51.feature.item.mirror-of-life-trapping.speak-with-a-prisoner
+    name:
+      en: "Speak with a Prisoner"
+    text:
+      en: "While within 5 feet of the mirror, you can use an action to speak the name of one creature trapped in it or call out a particular cell by number. The creature named or contained in the named cell appears as an image on the mirror's surface. You and the creature can then communicate normally."
+    effects:
+      - kind: add-action
+        action: speak-with-a-prisoner
+        name:
+          en: "Speak with a Prisoner"
+        activation: action
+        text:
+          en: "Name a trapped creature or call out a cell by number; its image appears on the mirror and you can communicate normally."
+  - id: srd51.feature.item.mirror-of-life-trapping.free-a-prisoner
+    name:
+      en: "Free a Prisoner"
+    text:
+      en: "You can use an action to speak a second command word and free one creature trapped in the mirror. The freed creature appears, along with its possessions, in the unoccupied space nearest to the mirror and facing away from it."
+    effects:
+      - kind: add-action
+        action: free-a-prisoner
+        name:
+          en: "Free a Prisoner"
+        activation: action
+        text:
+          en: "Speak the second command word to free one trapped creature. It appears with its possessions in the nearest unoccupied space, facing away from the mirror."

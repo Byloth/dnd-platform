@@ -1,0 +1,7 @@
+effects:
+  - kind: add-text
+    section: features
+    text:
+      en: You are always under the effects of a protection from evil and good spell.
+    note:
+      en: "Missing capability: applying a spell's ongoing effects to the character permanently (apply-spell-effect); see srd51.spell.protection-from-evil-and-good."

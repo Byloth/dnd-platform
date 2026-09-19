@@ -1,0 +1,18 @@
+attunement: true
+features:
+  - id: srd51.feature.item.ring-of-x-ray-vision.x-ray-vision
+    name:
+      en: "\"X-ray Vision\""
+    effects:
+      - kind: add-action
+        action: x-ray-vision
+        name:
+          en: "\"X-ray Vision\""
+        activation: action
+        duration: { type: timed, minutes: 1 }
+        text:
+          en: "\"Speak the command word to see into and through solid matter for 1 minute, in a 30-foot radius. The vision penetrates 1 foot of stone, 1 inch of common metal, or up to 3 feet of wood or dirt; thicker substances and a thin sheet of lead block it.\""
+        onUse:
+          - kind: note
+            text:
+              en: "\"Whenever you use the ring again before taking a long rest, you must succeed on a DC 15 Constitution saving throw or gain one level of exhaustion.\""

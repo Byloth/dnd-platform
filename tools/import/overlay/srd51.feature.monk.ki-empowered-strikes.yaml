@@ -1,0 +1,8 @@
+effects:
+  - kind: modify-attacks
+    filter:
+      unarmed: true
+    set:
+      magical: true
+    note:
+      en: Your unarmed strikes count as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage.

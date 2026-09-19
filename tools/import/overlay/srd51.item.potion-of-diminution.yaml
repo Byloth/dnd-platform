@@ -1,0 +1,4 @@
+onUse:
+  - kind: note
+    text:
+      en: "When you drink this potion, you gain the reduce effect of the enlarge/reduce spell for 1d4 hours (no concentration required)."

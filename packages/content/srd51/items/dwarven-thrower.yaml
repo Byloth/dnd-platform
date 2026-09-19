@@ -12,7 +12,48 @@ text:
 type: weapon
 magical: true
 rarity: very-rare
-attunement: true
+attunement:
+  by:
+    en: a dwarf
 tags:
   - magic-item
   - weapon
+category: martial
+damage: 1d8
+damageType: bludgeoning
+properties:
+  - versatile
+  - thrown
+versatile: 1d10
+range:
+  normal: 20
+  long: 60
+features:
+  - id: srd51.feature.item.dwarven-thrower.bonus
+    name:
+      en: +3 bonus
+    effects:
+      - kind: modify-attacks
+        filter:
+          item: srd51.item.dwarven-thrower
+        set:
+          attackBonus: 3
+          damageBonus: 3
+          magical: true
+  - id: srd51.feature.item.dwarven-thrower.thrown
+    name:
+      en: Thrown
+    effects:
+      - kind: modify-attacks
+        filter:
+          item: srd51.item.dwarven-thrower
+          ranged: true
+        set:
+          extraDamage:
+            dice: 1d8
+        note:
+          en: "Only when you hit with a ranged (thrown) attack: an extra 1d8 damage, or 2d8 if the target is a giant. Immediately after the attack, the weapon flies back to your hand."
+      - kind: add-text
+        section: attacks
+        text:
+          en: The hammer has the thrown property with a normal range of 20 feet and a long range of 60 feet. When you hit with a ranged attack using it, it deals an extra 1d8 damage or, if the target is a giant, 2d8 damage. Immediately after the attack, the weapon flies back to your hand.

@@ -1,0 +1,16 @@
+effects:
+  - kind: defense
+    defense: immunity
+    to:
+      - poison
+      - disease
+  - kind: defense
+    defense: condition-immunity
+    to:
+      - srd51.condition.poisoned
+  - kind: add-text
+    section: conditions
+    text:
+      en: You can't be charmed or frightened by elementals or fey.
+    note:
+      en: "Gap: a condition immunity limited to elementals and fey as the source; defense cannot scope by source, so it is shown as text."

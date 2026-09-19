@@ -20,7 +20,105 @@ text:
 type: wondrous
 magical: true
 rarity: rare
-attunement: true
+attunement:
+  by:
+    en: a druid
 tags:
   - magic-item
   - staff
+baseItem: srd51.item.quarterstaff
+category: simple
+damage: 1d6
+damageType: bludgeoning
+properties:
+  - versatile
+versatile: 1d8
+monkWeapon: true
+charges:
+  max: 10
+  recharge:
+    - on: dawn
+      amount: 1d6 + 4
+features:
+  - id: srd51.feature.item.staff-of-the-woodlands.magic-quarterstaff
+    name:
+      en: Magic Quarterstaff
+    effects:
+      - kind: modify-attacks
+        filter:
+          item: srd51.item.staff-of-the-woodlands
+        set:
+          attackBonus: 2
+          damageBonus: 2
+          magical: true
+      - kind: modify
+        target: attack.spell.bonus
+        op: add
+        value: 2
+  - id: srd51.feature.item.staff-of-the-woodlands.spells
+    name:
+      en: Spells
+    effects:
+      - kind: grant-spells
+        spells:
+          - srd51.spell.animal-friendship
+          - srd51.spell.speak-with-animals
+        as: always-prepared
+        cost:
+          - resource: charges
+            amount: 1
+        note:
+          en: "Cast as an action using your spell save DC. If you expend the last charge, roll a d20: on a 1 the staff becomes a nonmagical quarterstaff."
+      - kind: grant-spells
+        spells:
+          - srd51.spell.barkskin
+          - srd51.spell.locate-animals-or-plants
+        as: always-prepared
+        cost:
+          - resource: charges
+            amount: 2
+      - kind: grant-spells
+        spells:
+          - srd51.spell.speak-with-plants
+        as: always-prepared
+        cost:
+          - resource: charges
+            amount: 3
+      - kind: grant-spells
+        spells:
+          - srd51.spell.awaken
+        as: always-prepared
+        cost:
+          - resource: charges
+            amount: 5
+      - kind: grant-spells
+        spells:
+          - srd51.spell.wall-of-thorns
+        as: always-prepared
+        cost:
+          - resource: charges
+            amount: 6
+      - kind: grant-spells
+        spells:
+          - srd51.spell.pass-without-trace
+        as: always-prepared
+        note:
+          en: Cast from the staff as an action without using any charges.
+  - id: srd51.feature.item.staff-of-the-woodlands.tree-form
+    name:
+      en: Tree Form
+    effects:
+      - kind: add-action
+        action: tree-form
+        name:
+          en: Tree Form
+        activation: action
+        cost:
+          - resource: charges
+            amount: 1
+        text:
+          en: Plant one end of the staff in fertile earth to transform it into a healthy tree 60 feet tall with a 5-foot-diameter trunk and branches spreading in a 20-foot radius. It appears ordinary but radiates a faint aura of transmutation to detect magic. While touching the tree, use another action to speak the command word and return the staff to its normal form; any creature in the tree falls.
+        onUse:
+          - kind: note
+            text:
+              en: The tree lasts until you use an action, while touching it, to speak the command word.

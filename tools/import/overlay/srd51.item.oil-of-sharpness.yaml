@@ -1,0 +1,4 @@
+onUse:
+  - kind: note
+    text:
+      en: "Applying the oil takes 1 minute and coats one slashing or piercing weapon or up to 5 pieces of slashing or piercing ammunition. For 1 hour, the coated item is magical and has a +3 bonus to attack and damage rolls."

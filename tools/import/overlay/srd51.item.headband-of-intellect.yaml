@@ -1,0 +1,12 @@
+attunement: true
+features:
+  - id: srd51.feature.item.headband-of-intellect.intelligence-19
+    name:
+      en: "Intelligence 19"
+    text:
+      en: "Your Intelligence score is 19 while you wear this headband. It has no effect on you if your Intelligence is already 19 or higher."
+    effects:
+      - kind: modify
+        target: ability.int
+        op: min
+        value: 19

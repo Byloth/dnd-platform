@@ -1,0 +1,11 @@
+effects:
+  - kind: add-action
+    action: move-flaming-sphere
+    name: { en: "Flaming Sphere: move" }
+    activation: bonus-action
+    cost: []
+    rolls:
+      - { type: save, ability: dex, onSuccess: half }
+      - { type: damage, dice: 2d6, damageType: fire }
+    text: { en: "Move the sphere up to 30 feet (over barriers up to 5 feet tall and across pits up to 10 feet wide). If you ram it into a creature, that creature makes the Dexterity saving throw against the sphere's damage and the sphere stops moving this turn." }
+    note: { en: "Damage increases by 1d6 for each slot level above 2nd. Any creature that ends its turn within 5 feet of the sphere makes the same saving throw." }

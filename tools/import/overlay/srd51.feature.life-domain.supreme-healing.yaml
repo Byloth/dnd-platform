@@ -1,0 +1,7 @@
+effects:
+  - kind: add-text
+    section: features
+    text:
+      en: "When you would normally roll one or more dice to restore hit points with a spell, you instead use the highest number possible for each die."
+    note:
+      en: "Gap: maximising healing dice is applied at roll time in play."

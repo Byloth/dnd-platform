@@ -1,0 +1,19 @@
+attunement: { by: { en: "a cleric, druid, or warlock" } }
+features:
+  - id: srd51.feature.item.staff-of-the-python.python
+    name: { en: "Python" }
+    effects:
+      - kind: add-action
+        action: become-python
+        name: { en: "Become a giant constrictor snake" }
+        activation: action
+        range: { type: point, distance: 10 }
+        text: { en: "Speak the command word and throw the staff on the ground within 10 feet: it becomes a giant constrictor snake under your control that acts on its own initiative count. On your turn you can mentally command it if it is within 60 feet and you aren't incapacitated, deciding its action and movement or giving a general command. If the snake drops to 0 hit points it dies, reverts to staff form and the staff shatters; if it reverts before losing all its hit points, it regains all of them." }
+        onUse:
+          - kind: note
+            text: { en: "Use the giant constrictor snake stat block; creature stat blocks are not part of the content in v0." }
+      - kind: add-action
+        action: revert-python
+        name: { en: "Return the staff to its normal form" }
+        activation: bonus-action
+        text: { en: "Speak the command word again to return the staff to its normal form in a space formerly occupied by the snake." }

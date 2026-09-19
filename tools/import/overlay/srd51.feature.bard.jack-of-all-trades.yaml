@@ -1,0 +1,169 @@
+effects:
+  - kind: modify
+    target: check.all
+    op: add
+    formula: floor(proficiencyBonus / 2)
+    note:
+      en: Half your proficiency bonus, rounded down, on ability checks that don't already include it.
+  - kind: modify
+    target: skill.acrobatics
+    op: add
+    formula: floor(proficiencyBonus / 2)
+    when:
+      not:
+        proficient:
+          type: skill
+          item: acrobatics
+  - kind: modify
+    target: skill.animal-handling
+    op: add
+    formula: floor(proficiencyBonus / 2)
+    when:
+      not:
+        proficient:
+          type: skill
+          item: animal-handling
+  - kind: modify
+    target: skill.arcana
+    op: add
+    formula: floor(proficiencyBonus / 2)
+    when:
+      not:
+        proficient:
+          type: skill
+          item: arcana
+  - kind: modify
+    target: skill.athletics
+    op: add
+    formula: floor(proficiencyBonus / 2)
+    when:
+      not:
+        proficient:
+          type: skill
+          item: athletics
+  - kind: modify
+    target: skill.deception
+    op: add
+    formula: floor(proficiencyBonus / 2)
+    when:
+      not:
+        proficient:
+          type: skill
+          item: deception
+  - kind: modify
+    target: skill.history
+    op: add
+    formula: floor(proficiencyBonus / 2)
+    when:
+      not:
+        proficient:
+          type: skill
+          item: history
+  - kind: modify
+    target: skill.insight
+    op: add
+    formula: floor(proficiencyBonus / 2)
+    when:
+      not:
+        proficient:
+          type: skill
+          item: insight
+  - kind: modify
+    target: skill.intimidation
+    op: add
+    formula: floor(proficiencyBonus / 2)
+    when:
+      not:
+        proficient:
+          type: skill
+          item: intimidation
+  - kind: modify
+    target: skill.investigation
+    op: add
+    formula: floor(proficiencyBonus / 2)
+    when:
+      not:
+        proficient:
+          type: skill
+          item: investigation
+  - kind: modify
+    target: skill.medicine
+    op: add
+    formula: floor(proficiencyBonus / 2)
+    when:
+      not:
+        proficient:
+          type: skill
+          item: medicine
+  - kind: modify
+    target: skill.nature
+    op: add
+    formula: floor(proficiencyBonus / 2)
+    when:
+      not:
+        proficient:
+          type: skill
+          item: nature
+  - kind: modify
+    target: skill.perception
+    op: add
+    formula: floor(proficiencyBonus / 2)
+    when:
+      not:
+        proficient:
+          type: skill
+          item: perception
+  - kind: modify
+    target: skill.performance
+    op: add
+    formula: floor(proficiencyBonus / 2)
+    when:
+      not:
+        proficient:
+          type: skill
+          item: performance
+  - kind: modify
+    target: skill.persuasion
+    op: add
+    formula: floor(proficiencyBonus / 2)
+    when:
+      not:
+        proficient:
+          type: skill
+          item: persuasion
+  - kind: modify
+    target: skill.religion
+    op: add
+    formula: floor(proficiencyBonus / 2)
+    when:
+      not:
+        proficient:
+          type: skill
+          item: religion
+  - kind: modify
+    target: skill.sleight-of-hand
+    op: add
+    formula: floor(proficiencyBonus / 2)
+    when:
+      not:
+        proficient:
+          type: skill
+          item: sleight-of-hand
+  - kind: modify
+    target: skill.stealth
+    op: add
+    formula: floor(proficiencyBonus / 2)
+    when:
+      not:
+        proficient:
+          type: skill
+          item: stealth
+  - kind: modify
+    target: skill.survival
+    op: add
+    formula: floor(proficiencyBonus / 2)
+    when:
+      not:
+        proficient:
+          type: skill
+          item: survival

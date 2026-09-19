@@ -1,0 +1,11 @@
+effects:
+  - kind: roll-disadvantage
+    on: { type: save, ability: dex }
+  - kind: roll-disadvantage
+    on: { type: attack }
+  - kind: add-text
+    section: features
+    text: { en: "Must use all its movement to dance without leaving its space; other creatures have advantage on attack rolls against it. As an action, it can make a Wisdom saving throw to regain control: on a success the spell ends." }
+onCast:
+  - kind: note
+    text: { en: "No saving throw when cast; creatures that can't be charmed are immune." }

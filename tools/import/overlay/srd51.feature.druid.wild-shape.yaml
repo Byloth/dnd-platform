@@ -1,0 +1,46 @@
+effects:
+  - kind: declare-resource
+    resource: wild-shape
+    name:
+      en: Wild Shape uses
+    max: 2
+    display: pips
+    recharge:
+      - on: short-rest
+        amount: full
+      - on: long-rest
+        amount: full
+  - kind: add-action
+    action: wild-shape
+    name:
+      en: Wild Shape
+    activation: action
+    cost:
+      - resource: wild-shape
+        amount: 1
+    toggle:
+      state: wild-shape
+      expires:
+        manual: true
+    text:
+      en: Magically assume the shape of a beast that you have seen before, with a challenge rating no higher than the Beast Shapes table allows for your druid level (no flying or swimming speed before 4th level, no flying speed before 8th level). You can stay in a beast shape for a number of hours equal to half your druid level (rounded down).
+    onUse:
+      - kind: note
+        text:
+          en: "Maximum CR: table(druid.wild-shape-max-cr). Your game statistics are replaced by the beast's, but you keep your alignment, personality, Intelligence, Wisdom and Charisma scores, and all your skill and saving throw proficiencies (use the beast's bonus if it is higher). You assume the beast's hit points and Hit Dice; when you revert you return to the hit points you had before, and excess damage from dropping to 0 carries over. You can't cast spells while transformed."
+  - kind: add-action
+    action: wild-shape-revert
+    name:
+      en: Revert from Wild Shape
+    activation: bonus-action
+    requires:
+      condition:
+        toggled: wild-shape
+    text:
+      en: Revert to your normal form. You automatically revert if you fall unconscious, drop to 0 hit points, or die.
+  - kind: add-text
+    section: features
+    text:
+      en: While transformed by Wild Shape your game statistics are replaced by the statistics of the beast; you retain your alignment, personality, Intelligence, Wisdom and Charisma scores, your skill and saving throw proficiencies, and the benefit of your class, race and other features if the new form is physically capable of using them. You can't use your special senses unless the form has them, and you can't cast spells. Your equipment falls to the ground, merges into the form, or is worn by it.
+    note:
+      en: "Gap: replacing the sheet with a beast stat block while keeping mental scores and proficiencies needs an alternate-form capability the engine does not have; the duration (half your druid level in hours), hit point carry-over and the spellcasting restriction are tracked in play. The max-CR table is the class table druid.wild-shape-max-cr."

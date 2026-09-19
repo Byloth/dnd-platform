@@ -1,0 +1,63 @@
+attunement: true
+charges:
+  max: 6
+  recharge: [{ on: dawn, amount: "1d6" }]
+features:
+  - id: srd51.feature.item.ring-of-shooting-stars.lights
+    name:
+      en: "\"Dancing Lights and Light\""
+    effects:
+      - kind: grant-spells
+        spells: [srd51.spell.dancing-lights, srd51.spell.light]
+        as: always-prepared
+        note:
+          en: "\"At will while wearing the ring in dim light or darkness; casting either spell from the ring requires an action. Attunement requires being outdoors at night.\""
+  - id: srd51.feature.item.ring-of-shooting-stars.faerie-fire
+    name:
+      en: "\"Faerie Fire\""
+    effects:
+      - kind: grant-spells
+        spells: [srd51.spell.faerie-fire]
+        as: always-prepared
+        cost: [{ resource: charges, amount: 1 }]
+  - id: srd51.feature.item.ring-of-shooting-stars.ball-lightning
+    name:
+      en: "\"Ball Lightning\""
+    effects:
+      - kind: add-action
+        action: ball-lightning
+        name:
+          en: "\"Ball Lightning\""
+        activation: action
+        cost: [{ resource: charges, amount: 2 }]
+        range: { type: point, distance: 120 }
+        duration: { type: timed, minutes: 1, concentration: true }
+        concentration: true
+        dc: "15"
+        rolls:
+          - { type: save, ability: dex }
+        text:
+          en: "\"Create one to four 3-foot-diameter spheres of lightning in unoccupied spaces you can see within 120 feet. As a bonus action, move each sphere up to 30 feet (no farther than 120 feet from you). When a creature other than you comes within 5 feet of a sphere, it discharges and disappears: DC 15 Dexterity saving throw or lightning damage based on the number of spheres.\""
+        onUse:
+          - kind: note
+            text:
+              en: "\"Lightning damage on a failed save: 4 spheres 2d4, 3 spheres 2d6, 2 spheres 5d4, 1 sphere 4d12. Each sphere sheds dim light in a 30-foot radius.\""
+  - id: srd51.feature.item.ring-of-shooting-stars.shooting-stars
+    name:
+      en: "\"Shooting Stars\""
+    effects:
+      - kind: add-action
+        action: shooting-stars
+        name:
+          en: "\"Shooting Stars\""
+        activation: action
+        cost: [{ resource: charges, amount: 1 }]
+        range: { type: point, distance: 60 }
+        dc: "15"
+        rolls:
+          - { type: save, ability: dex, onSuccess: half }
+          - { type: damage, dice: "5d4", damageType: fire }
+        text:
+          en: "\"Expend 1 to 3 charges. For every charge, launch a glowing mote at a point you can see within 60 feet; each creature within a 15-foot cube originating from that point makes a DC 15 Dexterity saving throw, taking 5d4 fire damage on a failure or half on a success.\""
+        note:
+          en: "\"The cost is 1 charge per mote, up to 3 motes per action.\""

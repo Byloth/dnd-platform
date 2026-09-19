@@ -1,0 +1,48 @@
+effects:
+  - kind: open-choice
+    choice: multiattack
+    of: option
+    count: 1
+    options:
+      - id: volley
+        name:
+          en: Volley
+        text:
+          en: You can use your action to make a ranged attack against any number of creatures within 10 feet of a point you can see within your weapon's range. You must have ammunition for each target, as normal, and you make a separate attack roll for each target.
+        effects:
+          - kind: add-action
+            action: volley
+            name:
+              en: Volley
+            activation: action
+            requires:
+              condition:
+                wielding:
+                  ranged: true
+            text:
+              en: Make a ranged attack against any number of creatures within 10 feet of a point you can see within your weapon's range. You must have ammunition for each target, as normal, and you make a separate attack roll for each target.
+            onUse:
+              - kind: note
+                text:
+                  en: One separate ranged attack roll per target within 10 feet of the chosen point; one piece of ammunition per target.
+      - id: whirlwind-attack
+        name:
+          en: Whirlwind Attack
+        text:
+          en: You can use your action to make a melee attack against any number of creatures within 5 feet of you, with a separate attack roll for each target.
+        effects:
+          - kind: add-action
+            action: whirlwind-attack
+            name:
+              en: Whirlwind Attack
+            activation: action
+            requires:
+              condition:
+                wielding:
+                  melee: true
+            text:
+              en: Make a melee attack against any number of creatures within 5 feet of you, with a separate attack roll for each target.
+            onUse:
+              - kind: note
+                text:
+                  en: One separate melee attack roll per creature within 5 feet of you.

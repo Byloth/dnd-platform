@@ -1,0 +1,17 @@
+attunement: true
+charges:
+  max: 3
+  recharge:
+    - on: dawn
+      amount: 1d3
+features:
+  - id: srd51.feature.item.helm-of-teleportation.teleport
+    name:
+      en: "Teleport"
+    text:
+      en: "While wearing it, you can use an action and expend 1 charge to cast the teleport spell from it."
+    effects:
+      - kind: grant-spells
+        spells: [srd51.spell.teleport]
+        as: always-prepared
+        cost: [{ resource: charges, amount: 1 }]

@@ -1,0 +1,7 @@
+effects:
+  - kind: add-text
+    section: features
+    text:
+      en: You don't need to sleep; meditating deeply for 4 hours a day gives you the same benefit a human gets from 8 hours of sleep.
+    note:
+      en: Rest rule variant; the engine does not model sleep or long-rest duration.

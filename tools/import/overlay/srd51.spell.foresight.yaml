@@ -1,0 +1,11 @@
+effects:
+  - kind: roll-advantage
+    on: { type: attack }
+  - kind: roll-advantage
+    on: { type: check }
+  - kind: roll-advantage
+    on: { type: save }
+  - kind: add-text
+    section: combat
+    text: { en: "You can't be surprised, and other creatures have disadvantage on attack rolls against you." }
+    note: { en: "Disadvantage on attacks made against the character is not expressible in v0. The spell ends immediately if you cast it again before its duration ends." }

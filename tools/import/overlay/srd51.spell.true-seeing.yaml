@@ -1,0 +1,8 @@
+effects:
+  - kind: modify
+    target: sense.truesight
+    op: max
+    value: 120
+  - kind: add-text
+    section: senses
+    text: { en: "Notices secret doors hidden by magic and can see into the Ethereal Plane, out to 120 feet." }

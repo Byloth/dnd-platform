@@ -20,7 +20,44 @@ text:
 type: wondrous
 magical: true
 rarity: legendary
-attunement: true
+attunement:
+  by:
+    en: a sorcerer, warlock, or wizard
 tags:
   - magic-item
   - wondrous-items
+features:
+  - id: srd51.feature.item.robe-of-the-archmagi.armor
+    name:
+      en: Archmage's Armor
+    effects:
+      - kind: modify
+        target: ac
+        op: set-formula
+        formula: 15 + mod(dex)
+        when:
+          armorCategory: none
+        note:
+          en: You can't attune to a robe whose color (white for good, gray for neutral, black for evil) doesn't correspond to your alignment.
+  - id: srd51.feature.item.robe-of-the-archmagi.spell-resistance
+    name:
+      en: Spell Resistance
+    effects:
+      - kind: roll-advantage
+        on:
+          type: save
+          against:
+            - spells
+            - other magical effects
+  - id: srd51.feature.item.robe-of-the-archmagi.spell-power
+    name:
+      en: Spell Power
+    effects:
+      - kind: modify
+        target: spell.dc
+        op: add
+        value: 2
+      - kind: modify
+        target: attack.spell.bonus
+        op: add
+        value: 2

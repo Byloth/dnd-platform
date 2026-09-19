@@ -32,3 +32,10 @@ scaling:
   from: 2
   add:
     dice: 1d6
+effects:
+  - kind: add-text
+    section: combat
+    text:
+      en: The next attack roll made against this target before the end of the caster's next turn has advantage.
+    note:
+      en: Advantage on attacks made against the target is not expressible in v0.

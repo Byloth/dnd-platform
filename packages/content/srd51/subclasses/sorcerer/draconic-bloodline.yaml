@@ -17,6 +17,21 @@ levels:
             As magic flows through your body, it causes physical traits of your dragon ancestors to emerge. At 1st level, your hit point maximum increases by 1 and increases by 1 again whenever you gain a level in this class.
 
             Additionally, parts of your skin are covered by a thin sheen of dragon-like scales. When you aren't wearing armor, your AC equals 13 + your Dexterity modifier.
+        effects:
+          - kind: modify
+            target: hp.perLevel
+            op: add
+            value: 1
+            note:
+              en: +1 hit point at 1st level and +1 again whenever you gain a level in this class (the bonus follows sorcerer levels, not total levels).
+          - kind: modify
+            target: ac
+            op: set-formula
+            formula: 13 + mod(dex)
+            when:
+              armorCategory: none
+            note:
+              en: When you aren't wearing armor, your AC equals 13 + your Dexterity modifier.
       - id: srd51.feature.draconic-bloodline.dragon-ancestor
         name:
           en: Dragon Ancestor
@@ -40,6 +55,124 @@ levels:
             | White | Cold |
 
             You can speak, read, and write Draconic. Additionally, whenever you make a Charisma check when interacting with dragons, your proficiency bonus is doubled if it applies to the check.
+        effects:
+          - kind: open-choice
+            choice: dragon-ancestor
+            of: option
+            count: 1
+            note:
+              en: The damage type associated with your dragon is used by features you gain later (Elemental Affinity).
+            options:
+              - id: black
+                name:
+                  en: Black dragon
+                text:
+                  en: Damage type acid.
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Draconic ancestry: black dragon (acid)."
+              - id: blue
+                name:
+                  en: Blue dragon
+                text:
+                  en: Damage type lightning.
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Draconic ancestry: blue dragon (lightning)."
+              - id: brass
+                name:
+                  en: Brass dragon
+                text:
+                  en: Damage type fire.
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Draconic ancestry: brass dragon (fire)."
+              - id: bronze
+                name:
+                  en: Bronze dragon
+                text:
+                  en: Damage type lightning.
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Draconic ancestry: bronze dragon (lightning)."
+              - id: copper
+                name:
+                  en: Copper dragon
+                text:
+                  en: Damage type acid.
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Draconic ancestry: copper dragon (acid)."
+              - id: gold
+                name:
+                  en: Gold dragon
+                text:
+                  en: Damage type fire.
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Draconic ancestry: gold dragon (fire)."
+              - id: green
+                name:
+                  en: Green dragon
+                text:
+                  en: Damage type poison.
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Draconic ancestry: green dragon (poison)."
+              - id: red
+                name:
+                  en: Red dragon
+                text:
+                  en: Damage type fire.
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Draconic ancestry: red dragon (fire)."
+              - id: silver
+                name:
+                  en: Silver dragon
+                text:
+                  en: Damage type cold.
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Draconic ancestry: silver dragon (cold)."
+              - id: white
+                name:
+                  en: White dragon
+                text:
+                  en: Damage type cold.
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Draconic ancestry: white dragon (cold)."
+          - kind: grant-proficiency
+            type: language
+            items:
+              - draconic
+          - kind: add-text
+            section: features
+            text:
+              en: Whenever you make a Charisma check when interacting with dragons, your proficiency bonus is doubled if it applies to the check.
+            note:
+              en: A check scoped to a creature type has no modify target; apply the doubled proficiency bonus by hand.
   "6":
     features:
       - id: srd51.feature.draconic-bloodline.elemental-affinity
@@ -48,6 +181,91 @@ levels:
         source: srd51
         text:
           en: Starting at 6th level, when you cast a spell that deals damage of the type associated with your draconic ancestry, you can add your Charisma modifier to one damage roll of that spell. At the same time, you can spend 1 sorcery point to gain resistance to that damage type for 1 hour.
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: When you cast a spell that deals damage of the type associated with your draconic ancestry, you can add your Charisma modifier to one damage roll of that spell.
+            note:
+              en: A damage bonus limited to spells of one damage type has no modify target; add your Charisma modifier to one damage roll by hand.
+          - kind: add-action
+            action: elemental-affinity
+            name:
+              en: Elemental Affinity (resistance)
+            activation: free
+            cost:
+              - resource: sorcery-points
+                amount: 1
+            toggle:
+              state: elemental-affinity
+              expires:
+                hours: 1
+            text:
+              en: When you cast a spell that deals damage of the type associated with your draconic ancestry, you can spend 1 sorcery point to gain resistance to that damage type for 1 hour.
+          - kind: defense
+            defense: resistance
+            to:
+              - acid
+            when:
+              toggled: elemental-affinity
+              any:
+                - answer:
+                    choice: dragon-ancestor
+                    is: black
+                - answer:
+                    choice: dragon-ancestor
+                    is: copper
+          - kind: defense
+            defense: resistance
+            to:
+              - lightning
+            when:
+              toggled: elemental-affinity
+              any:
+                - answer:
+                    choice: dragon-ancestor
+                    is: blue
+                - answer:
+                    choice: dragon-ancestor
+                    is: bronze
+          - kind: defense
+            defense: resistance
+            to:
+              - fire
+            when:
+              toggled: elemental-affinity
+              any:
+                - answer:
+                    choice: dragon-ancestor
+                    is: brass
+                - answer:
+                    choice: dragon-ancestor
+                    is: gold
+                - answer:
+                    choice: dragon-ancestor
+                    is: red
+          - kind: defense
+            defense: resistance
+            to:
+              - poison
+            when:
+              toggled: elemental-affinity
+              answer:
+                choice: dragon-ancestor
+                is: green
+          - kind: defense
+            defense: resistance
+            to:
+              - cold
+            when:
+              toggled: elemental-affinity
+              any:
+                - answer:
+                    choice: dragon-ancestor
+                    is: silver
+                - answer:
+                    choice: dragon-ancestor
+                    is: white
   "14":
     features:
       - id: srd51.feature.draconic-bloodline.dragon-wings
@@ -59,6 +277,24 @@ levels:
             At 14th level, you gain the ability to sprout a pair of dragon wings from your back, gaining a flying speed equal to your current speed. You can create these wings as a bonus action on your turn. They last until you dismiss them as a bonus action on your turn.
 
             You can't manifest your wings while wearing armor unless the armor is made to accommodate them, and clothing not made to accommodate your wings might be destroyed when you manifest them.
+        effects:
+          - kind: add-action
+            action: dragon-wings
+            name:
+              en: Dragon Wings
+            activation: bonus-action
+            toggle:
+              state: dragon-wings
+            text:
+              en: As a bonus action on your turn you sprout a pair of dragon wings from your back, gaining a flying speed equal to your current speed. They last until you dismiss them as a bonus action on your turn. You can't manifest your wings while wearing armor unless the armor is made to accommodate them, and clothing not made to accommodate your wings might be destroyed when you manifest them.
+          - kind: add-text
+            section: features
+            text:
+              en: While your dragon wings are manifested, you have a flying speed equal to your current walking speed.
+            when:
+              toggled: dragon-wings
+            note:
+              en: A flying speed equal to the current walking speed has no formula (speeds are not addressable in formulas); read it off your walking speed while the wings are on.
   "18":
     features:
       - id: srd51.feature.draconic-bloodline.draconic-presence
@@ -67,3 +303,28 @@ levels:
         source: srd51
         text:
           en: Beginning at 18th level, you can channel the dread presence of your dragon ancestor, causing those around you to become awestruck or frightened. As an action, you can spend 5 sorcery points to draw on this power and exude an aura of awe or fear (your choice) to a distance of 60 feet. For 1 minute or until you lose your concentration (as if you were casting a concentration spell), each hostile creature that starts its turn in this aura must succeed on a Wisdom saving throw or be charmed (if you chose awe) or frightened (if you chose fear) until the aura ends. A creature that succeeds on this saving throw is immune to your aura for 24 hours.
+        effects:
+          - kind: add-action
+            action: draconic-presence
+            name:
+              en: Draconic Presence
+            activation: action
+            cost:
+              - resource: sorcery-points
+                amount: 5
+            range:
+              type: self
+              distance: 60
+            duration:
+              type: timed
+              minutes: 1
+              concentration: true
+            concentration: true
+            text:
+              en: As an action, you can spend 5 sorcery points to exude an aura of awe or fear (your choice) to a distance of 60 feet. For 1 minute or until you lose your concentration (as if you were casting a concentration spell), each hostile creature that starts its turn in this aura must succeed on a Wisdom saving throw or be charmed (if you chose awe) or frightened (if you chose fear) until the aura ends. A creature that succeeds on this saving throw is immune to your aura for 24 hours.
+            onUse:
+              - kind: note
+                text:
+                  en: Choose awe (charmed) or fear (frightened). Each hostile creature that starts its turn within 60 feet makes a Wisdom saving throw; on a failure it is charmed or frightened until the aura ends, on a success it is immune to your aura for 24 hours.
+            note:
+              en: The text does not state the saving throw DC, so none is declared; the condition is imposed on other creatures at the start of their turns, which the play engine does not track.

@@ -1,0 +1,7 @@
+effects:
+  - kind: roll-advantage
+    on: { type: save, against: ["new saving throws against an existing charm, fright or possession by an aberration, celestial, elemental, fey, fiend or undead"] }
+  - kind: add-text
+    section: features
+    text: { en: "Aberrations, celestials, elementals, fey, fiends and undead have disadvantage on attack rolls against you and can't charm, frighten or possess you." }
+    note: { en: "Keyed on the attacker's creature type: reminder only." }

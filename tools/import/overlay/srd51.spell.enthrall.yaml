@@ -1,0 +1,7 @@
+effects:
+  - kind: roll-disadvantage
+    on: { type: check, skill: perception }
+    note: { en: "Only on Wisdom (Perception) checks made to perceive any creature other than the caster, and only while the target can hear the caster." }
+onCast:
+  - kind: note
+    text: { en: "Wisdom saving throw negates; a creature that can't be charmed succeeds automatically, and a creature you or your companions are fighting saves with advantage. The spell ends if you are incapacitated or can no longer speak." }

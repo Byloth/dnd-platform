@@ -1,0 +1,5 @@
+onCast:
+  - kind: heal
+    amount: 1d4
+    target: other
+    note: { en: "Plus your spellcasting ability modifier, to each of up to six creatures you can see. No effect on undead or constructs." }

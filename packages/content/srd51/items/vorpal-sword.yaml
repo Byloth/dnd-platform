@@ -18,3 +18,42 @@ attunement: true
 tags:
   - magic-item
   - weapon
+features:
+  - id: srd51.feature.item.vorpal-sword.magic-weapon
+    name:
+      en: Magic Weapon
+    effects:
+      - kind: modify-attacks
+        filter:
+          item: srd51.item.vorpal-sword
+        set:
+          attackBonus: 3
+          damageBonus: 3
+          magical: true
+        note:
+          en: Any sword that deals slashing damage; this item carries no base weapon properties of its own.
+      - kind: add-text
+        section: attacks
+        text:
+          en: The weapon ignores resistance to slashing damage.
+        note:
+          en: Ignoring a resistance is a weapon property with no kind in v0; applied at the table.
+  - id: srd51.feature.item.vorpal-sword.vorpal
+    name:
+      en: Vorpal
+    effects:
+      - kind: add-action
+        action: vorpal
+        name:
+          en: Vorpal
+        activation: special
+        trigger:
+          en: when you roll a 20 on the attack roll against a creature that has at least one head
+        text:
+          en: You cut off one of the creature's heads; it dies if it can't survive without the lost head. A creature is immune if it is immune to slashing damage, doesn't have or need a head, has legendary actions, or the GM decides it is too big for its head to be cut off; such a creature instead takes an extra 6d8 slashing damage from the hit.
+        onHit:
+          - kind: extraDamage
+            dice: 6d8
+            damageType: slashing
+            note:
+              en: Only for creatures immune to decapitation; otherwise the head is cut off.

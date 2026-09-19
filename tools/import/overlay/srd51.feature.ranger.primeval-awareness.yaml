@@ -1,0 +1,20 @@
+effects:
+  - kind: add-action
+    action: primeval-awareness
+    name:
+      en: Primeval Awareness
+    activation: action
+    cost:
+      - resource: spell-slot
+        level: 1
+    duration:
+      type: timed
+      minutes: 1
+    text:
+      en: "Use your action and expend one ranger spell slot to focus your awareness on the region around you. For 1 minute per level of the spell slot you expend, you can sense whether the following types of creatures are present within 1 mile of you (or within up to 6 miles if you are in your favored terrain): aberrations, celestials, dragons, elementals, fey, fiends, and undead. This feature doesn't reveal the creatures' location or number."
+    onUse:
+      - kind: note
+        text:
+          en: For 1 minute per level of the slot spent, sense whether aberrations, celestials, dragons, elementals, fey, fiends or undead are present within 1 mile (6 miles in your favored terrain); not their location or number.
+    note:
+      en: The cost is fixed at a 1st-level slot and the duration at 1 minute; spending a higher-level slot for a longer duration is not expressible yet (no slot-level cost variable).

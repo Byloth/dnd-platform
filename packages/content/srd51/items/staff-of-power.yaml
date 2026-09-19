@@ -32,7 +32,136 @@ text:
 type: wondrous
 magical: true
 rarity: very-rare
-attunement: true
+attunement:
+  by:
+    en: a sorcerer, warlock, or wizard
 tags:
   - magic-item
   - staff
+baseItem: srd51.item.quarterstaff
+category: simple
+damage: 1d6
+damageType: bludgeoning
+properties:
+  - versatile
+versatile: 1d8
+monkWeapon: true
+charges:
+  max: 20
+  recharge:
+    - on: dawn
+      amount: 2d8 + 4
+features:
+  - id: srd51.feature.item.staff-of-power.magic-quarterstaff
+    name:
+      en: Magic Quarterstaff
+    effects:
+      - kind: modify-attacks
+        filter:
+          item: srd51.item.staff-of-power
+        set:
+          attackBonus: 2
+          damageBonus: 2
+          magical: true
+  - id: srd51.feature.item.staff-of-power.power
+    name:
+      en: Power
+    effects:
+      - kind: modify
+        target: ac
+        op: add
+        value: 2
+      - kind: modify
+        target: save.all
+        op: add
+        value: 2
+      - kind: modify
+        target: attack.spell.bonus
+        op: add
+        value: 2
+  - id: srd51.feature.item.staff-of-power.power-strike
+    name:
+      en: Power Strike
+    effects:
+      - kind: add-action
+        action: power-strike
+        name:
+          en: Power Strike
+        activation: special
+        trigger:
+          en: when you hit with a melee attack using the staff
+        cost:
+          - resource: charges
+            amount: 1
+        text:
+          en: Expend 1 charge to deal an extra 1d6 force damage to the target.
+        onHit:
+          - kind: extraDamage
+            dice: 1d6
+            damageType: force
+  - id: srd51.feature.item.staff-of-power.spells
+    name:
+      en: Spells
+    effects:
+      - kind: grant-spells
+        spells:
+          - srd51.spell.magic-missile
+          - srd51.spell.ray-of-enfeeblement
+        as: always-prepared
+        cost:
+          - resource: charges
+            amount: 1
+        note:
+          en: "Cast as an action using your spell save DC and spell attack bonus. If you expend the last charge, roll a d20: on a 1 the staff keeps its +2 bonus but loses all other properties; on a 20 it regains 1d8 + 2 charges."
+      - kind: grant-spells
+        spells:
+          - srd51.spell.levitate
+        as: always-prepared
+        cost:
+          - resource: charges
+            amount: 2
+      - kind: grant-spells
+        spells:
+          - srd51.spell.cone-of-cold
+          - srd51.spell.hold-monster
+          - srd51.spell.wall-of-force
+        as: always-prepared
+        cost:
+          - resource: charges
+            amount: 5
+      - kind: grant-spells
+        spells:
+          - srd51.spell.fireball
+          - srd51.spell.lightning-bolt
+        as: always-prepared
+        level: 5
+        cost:
+          - resource: charges
+            amount: 5
+      - kind: grant-spells
+        spells:
+          - srd51.spell.globe-of-invulnerability
+        as: always-prepared
+        cost:
+          - resource: charges
+            amount: 6
+  - id: srd51.feature.item.staff-of-power.retributive-strike
+    name:
+      en: Retributive Strike
+    effects:
+      - kind: add-action
+        action: retributive-strike
+        name:
+          en: Retributive Strike
+        activation: action
+        dc: "17"
+        rolls:
+          - type: save
+            ability: dex
+            onSuccess: half
+        text:
+          en: "Break the staff: it is destroyed and releases its remaining magic in an explosion filling a 30-foot-radius sphere centered on it. You have a 50 percent chance to instantly travel to a random plane of existence, avoiding the explosion; otherwise you take force damage equal to 16 x the number of charges in the staff. Every other creature in the area makes a DC 17 Dexterity saving throw, taking damage based on its distance from the origin (half on a success)."
+        onUse:
+          - kind: note
+            text:
+              en: "Damage by distance: 10 ft. or closer 8 x charges, 11 to 20 ft. 6 x charges, 21 to 30 ft. 4 x charges (force damage). The staff is destroyed."

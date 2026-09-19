@@ -1,0 +1,13 @@
+charges:
+  max: 7
+  recharge: [{ on: dawn, amount: "1d6 + 1" }]
+features:
+  - id: srd51.feature.item.wand-of-magic-missiles.magic-missile
+    name: { en: "Magic Missile" }
+    effects:
+      - kind: grant-spells
+        spells: [srd51.spell.magic-missile]
+        as: always-prepared
+        level: 1
+        cost: [{ resource: charges, amount: 1 }]
+        note: { en: "For 1 charge you cast the 1st-level version; each additional charge expended increases the slot level by one. If you expend the last charge, roll a d20: on a 1 the wand crumbles into ashes and is destroyed." }

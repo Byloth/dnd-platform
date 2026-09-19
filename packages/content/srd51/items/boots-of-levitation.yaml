@@ -16,3 +16,14 @@ attunement: true
 tags:
   - magic-item
   - wondrous-items
+features:
+  - id: srd51.feature.item.boots-of-levitation.levitate
+    name:
+      en: Levitate at will
+    effects:
+      - kind: grant-spells
+        spells:
+          - srd51.spell.levitate
+        as: always-prepared
+        note:
+          en: Cast on yourself only, as an action, at will.

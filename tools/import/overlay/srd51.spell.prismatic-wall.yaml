@@ -1,0 +1,8 @@
+onCast:
+  - kind: applyCondition
+    condition: srd51.condition.blinded
+    target: other
+    expires: { minutes: 1 }
+    note: { en: "A creature that can see the wall and moves within 20 feet of it or starts its turn there must succeed on a Constitution saving throw or be blinded for 1 minute (not you or creatures you designate when casting)." }
+  - kind: note
+    text: { en: "Passing or reaching through the wall crosses its seven layers one at a time, each requiring a Dexterity saving throw: red 10d6 fire, orange 10d6 acid, yellow 10d6 lightning, green 10d6 poison, blue 10d6 cold (half on a success); indigo restrains (then Constitution saves each turn, three failures petrify permanently, three successes end the spell); violet blinds (Wisdom save at the start of your next turn or be sent to another plane). Layers block ranged attacks and spells and are destroyed by specific means, in order from red to violet." }

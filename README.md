@@ -12,7 +12,7 @@ rules engine) is described in [`docs/phase-0/`](docs/phase-0/00-README.md).
 
 ## Status
 
-Phase 0, milestone M0.3 done: the rules engine derives a computed sheet with provenance from a character and its content packages; golden fixtures pass. Next: the full effect catalogue against the whole SRD (M0.4). Nothing playable yet.
+Phase 0, milestone M0.4 done: the whole SRD 5.1 is generated into the base package with authored mechanics (572 overlay files), loads in the engine with every reference resolved, and golden fixtures pass on it. Next: one golden fixture per class and the review pass (M0.5). Nothing playable yet.
 
 ## Development
 

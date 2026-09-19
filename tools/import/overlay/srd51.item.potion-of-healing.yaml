@@ -1,0 +1,6 @@
+onUse:
+  - kind: heal
+    amount: 2d4+2
+    target: self
+    note:
+      en: "Healing 2d4 + 2 (common). Greater healing (uncommon) 4d4 + 4, superior healing (rare) 8d4 + 8, supreme healing (very rare) 10d4 + 20."

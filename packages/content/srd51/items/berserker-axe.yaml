@@ -20,3 +20,36 @@ attunement: true
 tags:
   - magic-item
   - weapon
+features:
+  - id: srd51.feature.item.berserker-axe.bonus
+    name:
+      en: +1 bonus
+    effects:
+      - kind: modify-attacks
+        filter:
+          item: srd51.item.berserker-axe
+        set:
+          attackBonus: 1
+          damageBonus: 1
+          magical: true
+      - kind: modify
+        target: hp.perLevel
+        op: add
+        value: 1
+        note:
+          en: While attuned, your hit point maximum increases by 1 for each level you have attained.
+  - id: srd51.feature.item.berserker-axe.curse
+    name:
+      en: Curse
+    effects:
+      - kind: roll-disadvantage
+        on:
+          type: attack
+          against:
+            - attacks with weapons other than this axe, unless no foe is within 60 feet of you that you can see or hear
+      - kind: add-text
+        section: features
+        text:
+          en: "Curse. This axe is cursed, and becoming attuned to it extends the curse to you. As long as you remain cursed, you are unwilling to part with the axe, keeping it within reach at all times. Whenever a hostile creature damages you while the axe is in your possession, you must succeed on a DC 15 Wisdom saving throw or go berserk: you must use your action each round to attack the creature nearest to you with the axe, until you start your turn with no creatures within 60 feet of you that you can see or hear."
+        note:
+          en: The berserk state is adjudicated at the table; the play engine has no hook on taking damage.

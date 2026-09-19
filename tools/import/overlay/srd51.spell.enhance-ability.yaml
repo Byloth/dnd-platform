@@ -1,0 +1,9 @@
+effects:
+  - kind: add-text
+    section: features
+    text: { en: "Enhanced (one option chosen when cast): Bear's Endurance (advantage on Constitution checks, 2d6 temporary hit points lost when the spell ends); Bull's Strength (advantage on Strength checks, carrying capacity doubled); Cat's Grace (advantage on Dexterity checks, no damage from falling 20 feet or less unless incapacitated); Eagle's Splendor (advantage on Charisma checks); Fox's Cunning (advantage on Intelligence checks); Owl's Wisdom (advantage on Wisdom checks)." }
+    note: { en: "Option-dependent, so not expressed as roll-advantage or modify carry.capacity." }
+onCast:
+  - kind: tempHp
+    amount: 2d6
+    note: { en: "Bear's Endurance only; lost when the spell ends. One additional target for each slot level above 2nd." }

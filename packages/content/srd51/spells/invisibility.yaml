@@ -23,3 +23,11 @@ text:
   en: A creature you touch becomes invisible until the spell ends. Anything the target is wearing or carrying is invisible as long as it is on the target's person. The spell ends for a target that attacks or casts a spell.
 higherLevel:
   en: When you cast this spell using a spell slot of 3rd level or higher, you can target one additional creature for each slot level above 2nd.
+onCast:
+  - kind: applyCondition
+    condition: srd51.condition.invisible
+    target: other
+    expires:
+      hours: 1
+    note:
+      en: Anything the target wears or carries is invisible while on its person. The spell ends for a target that attacks or casts a spell. Each slot level above 2nd targets one additional creature.

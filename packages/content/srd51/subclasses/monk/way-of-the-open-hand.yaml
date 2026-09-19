@@ -19,6 +19,29 @@ levels:
             * It must succeed on a Dexterity saving throw or be knocked prone.
             * It must make a Strength saving throw. If it fails, you can push it up to 15 feet away from you.
             * It can't take reactions until the end of your next turn.
+        effects:
+          - kind: add-action
+            action: open-hand-technique
+            name:
+              en: Open Hand Technique
+            activation: special
+            trigger:
+              en: when you hit a creature with one of the attacks granted by your Flurry of Blows
+            dc: 8 + proficiencyBonus + mod(wis)
+            text:
+              en: "Impose one of the following effects on the target: it must succeed on a Dexterity saving throw or be knocked prone; it must make a Strength saving throw or you can push it up to 15 feet away from you; it can't take reactions until the end of your next turn."
+            onHit:
+              - kind: applyCondition
+                condition: srd51.condition.prone
+                target: other
+                note:
+                  en: "Option 1: only if the target fails a Dexterity saving throw."
+              - kind: note
+                text:
+                  en: "Option 2: the target makes a Strength saving throw; if it fails, you can push it up to 15 feet away from you."
+              - kind: note
+                text:
+                  en: "Option 3: the target can't take reactions until the end of your next turn."
   "6":
     features:
       - id: srd51.feature.way-of-the-open-hand.wholeness-of-body
@@ -27,6 +50,30 @@ levels:
         source: srd51
         text:
           en: At 6th level, you gain the ability to heal yourself. As an action, you can regain hit points equal to three times your monk level. You must finish a long rest before you can use this feature again.
+        effects:
+          - kind: declare-resource
+            resource: wholeness-of-body
+            name:
+              en: Wholeness of Body
+            max: 1
+            display: pips
+            recharge:
+              - on: long-rest
+                amount: full
+          - kind: add-action
+            action: wholeness-of-body
+            name:
+              en: Wholeness of Body
+            activation: action
+            cost:
+              - resource: wholeness-of-body
+                amount: 1
+            text:
+              en: As an action, you can regain hit points equal to three times your monk level.
+            onUse:
+              - kind: heal
+                amount: 3 * classLevel(monk)
+                target: self
   "11":
     features:
       - id: srd51.feature.way-of-the-open-hand.tranquility
@@ -35,6 +82,17 @@ levels:
         source: srd51
         text:
           en: Beginning at 11th level, you can enter a special meditation that surrounds you with an aura of peace. At the end of a long rest, you gain the effect of a sanctuary spell that lasts until the start of your next long rest (the spell can end early as normal). The saving throw DC for the spell equals 8 + your Wisdom modifier + your proficiency bonus.
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: At the end of a long rest, you gain the effect of a sanctuary spell that lasts until the start of your next long rest (the spell can end early as normal). The saving throw DC for the spell equals 8 + your Wisdom modifier + your proficiency bonus.
+            note:
+              en: "Gap: applying a spell's effect to yourself on a rest trigger with a DC override (8 + mod(wis) + proficiencyBonus) has no catalogue kind; tracked in play."
+        onRest:
+          - kind: note
+            text:
+              en: "At the end of a long rest: you gain the effect of sanctuary until the start of your next long rest, save DC 8 + your Wisdom modifier + your proficiency bonus."
   "17":
     features:
       - id: srd51.feature.way-of-the-open-hand.quivering-palm
@@ -46,3 +104,36 @@ levels:
             At 17th level, you gain the ability to set up lethal vibrations in someone's body. When you hit a creature with an unarmed strike, you can spend 3 ki points to start these imperceptible vibrations, which last for a number of days equal to your monk level. The vibrations are harmless unless you use your action to end them. To do so, you and the target must be on the same plane of existence. When you use this action, the creature must make a Constitution saving throw. If it fails, it is reduced to 0 hit points. If it succeeds, it takes 10d10 necrotic damage.
 
             You can have only one creature under the effect of this feature at a time. You can choose to end the vibrations harmlessly without using an action.
+        effects:
+          - kind: add-action
+            action: quivering-palm
+            name:
+              en: Quivering Palm (set up)
+            activation: special
+            cost:
+              - resource: ki
+                amount: 3
+            trigger:
+              en: when you hit a creature with an unarmed strike
+            text:
+              en: Spend 3 ki points to start imperceptible vibrations in the target's body, which last for a number of days equal to your monk level. The vibrations are harmless unless you use your action to end them. You can have only one creature under this effect at a time, and you can end the vibrations harmlessly without using an action.
+            onHit:
+              - kind: note
+                text:
+                  en: The target is marked for classLevel(monk) days. Only one creature can be marked at a time.
+          - kind: add-action
+            action: quivering-palm-end
+            name:
+              en: Quivering Palm (end the vibrations)
+            activation: action
+            dc: 8 + proficiencyBonus + mod(wis)
+            rolls:
+              - type: save
+                ability: con
+                dc: 8 + proficiencyBonus + mod(wis)
+            text:
+              en: You and the target must be on the same plane of existence. The creature must make a Constitution saving throw. If it fails, it is reduced to 0 hit points. If it succeeds, it takes 10d10 necrotic damage.
+            onUse:
+              - kind: note
+                text:
+                  en: "Failed save: the target is reduced to 0 hit points. Successful save: it takes 10d10 necrotic damage."

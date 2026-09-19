@@ -1,0 +1,8 @@
+features:
+  - id: srd51.feature.item.adamantine-armor.critical-hits
+    name: { en: "Critical hits become normal hits" }
+    effects:
+      - kind: add-text
+        section: features
+        text: { en: "While you're wearing this armor, any critical hit against you becomes a normal hit." }
+        note: { en: "Incoming critical hits are resolved by the attacker; no sheet value changes and the play engine has no hook for attacks against you." }

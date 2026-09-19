@@ -1,0 +1,7 @@
+onUse:
+  - kind: applyCondition
+    condition: srd51.condition.charmed
+    target: self
+    expires: { hours: 1 }
+    note:
+      en: "You become charmed by the next creature you see within 10 minutes after drinking the philter. If the creature is of a species and gender you are normally attracted to, you regard it as your true love while charmed."

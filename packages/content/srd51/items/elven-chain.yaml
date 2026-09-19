@@ -15,3 +15,23 @@ rarity: rare
 tags:
   - magic-item
   - armor
+category: medium
+ac:
+  base: 13
+  addDex: true
+  dexMax: 2
+features:
+  - id: srd51.feature.item.elven-chain.bonus
+    name:
+      en: +1 bonus
+    effects:
+      - kind: modify
+        target: ac
+        op: add
+        value: 1
+      - kind: grant-proficiency
+        type: armor
+        items:
+          - self
+        note:
+          en: You are considered proficient with this armor even if you lack proficiency with medium armor.

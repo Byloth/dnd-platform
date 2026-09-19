@@ -403,6 +403,10 @@ export interface GrantProficiency {
          * @minItems 1
          */
         from: [string, ...string[]];
+        /**
+         * Names the choice when a feature grants more than one pick of the same type; the answer key becomes <feature>#<id>.
+         */
+        id?: string;
     };
     expertise?: boolean;
 }

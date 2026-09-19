@@ -1,0 +1,7 @@
+onCast:
+  - kind: applyCondition
+    condition: srd51.condition.paralyzed
+    target: other
+    expires: { minutes: 1 }
+  - kind: note
+    text: { en: "On a failed Wisdom save; no effect against the undead. At the end of each round the target repeats the saving throw; on a success the spell ends for it. Each slot level above 5th targets one additional creature (within 30 feet of each other)." }

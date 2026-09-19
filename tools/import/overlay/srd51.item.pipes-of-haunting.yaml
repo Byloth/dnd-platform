@@ -1,0 +1,33 @@
+charges:
+  max: 3
+  recharge:
+    - on: dawn
+      amount: 1d3
+features:
+  - id: srd51.feature.item.pipes-of-haunting.eerie-tune
+    name:
+      en: "Eerie Tune"
+    text:
+      en: "You must be proficient with wind instruments to use these pipes. You can use an action to play them and expend 1 charge to create an eerie, spellbinding tune. Each creature within 30 feet of you that hears you play must succeed on a DC 15 Wisdom saving throw or become frightened of you for 1 minute. If you wish, all creatures in the area that aren't hostile toward you automatically succeed on the saving throw. A creature that fails the saving throw can repeat it at the end of each of its turns, ending the effect on itself on a success. A creature that succeeds on its saving throw is immune to the effect of these pipes for 24 hours."
+    effects:
+      - kind: add-action
+        action: eerie-tune
+        name:
+          en: "Eerie Tune"
+        activation: action
+        cost: [{ resource: charges, amount: 1 }]
+        dc: "15"
+        range: { type: self, distance: 30 }
+        rolls:
+          - { type: save, ability: wis, dc: "15" }
+        onUse:
+          - kind: applyCondition
+            condition: srd51.condition.frightened
+            target: other
+            expires: { minutes: 1 }
+            note:
+              en: "Each creature within 30 feet that hears you and fails the save; creatures not hostile to you may automatically succeed. A creature repeats the save at the end of each of its turns; one that succeeds is immune for 24 hours."
+        text:
+          en: "Requires proficiency with wind instruments. Each creature within 30 feet that hears you must succeed on a DC 15 Wisdom saving throw or be frightened of you for 1 minute."
+        note:
+          en: "You must be proficient with wind instruments to use these pipes."

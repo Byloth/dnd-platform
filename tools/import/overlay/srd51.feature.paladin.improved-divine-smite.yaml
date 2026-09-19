@@ -1,0 +1,10 @@
+effects:
+  - kind: modify-attacks
+    filter:
+      melee: true
+    set:
+      extraDamage:
+        dice: 1d8
+        damageType: radiant
+    note:
+      en: Whenever you hit a creature with a melee weapon, it takes an extra 1d8 radiant damage; if you also use Divine Smite, add this to that extra damage.

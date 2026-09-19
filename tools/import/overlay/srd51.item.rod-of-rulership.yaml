@@ -1,0 +1,27 @@
+attunement: true
+features:
+  - id: srd51.feature.item.rod-of-rulership.command-obedience
+    name: { en: "Command Obedience" }
+    effects:
+      - kind: declare-resource
+        resource: rulership
+        name: { en: "Rod of Rulership" }
+        max: 1
+        recharge: [{ on: dawn, amount: full }]
+        display: pips
+      - kind: add-action
+        action: command-obedience
+        name: { en: "Command Obedience" }
+        activation: action
+        cost: [{ resource: rulership, amount: 1 }]
+        range: { type: point, distance: 120 }
+        dc: "15"
+        rolls:
+          - { type: save, ability: wis }
+        text: { en: "Present the rod and command obedience from each creature of your choice that you can see within 120 feet. Each target must succeed on a DC 15 Wisdom saving throw or be charmed by you for 8 hours, regarding you as its trusted leader. A target harmed by you or your companions, or commanded to act contrary to its nature, ceases to be charmed." }
+        onUse:
+          - kind: applyCondition
+            condition: srd51.condition.charmed
+            target: other
+            expires: { hours: 8 }
+            note: { en: "Only targets that fail the DC 15 Wisdom save." }

@@ -1,0 +1,6 @@
+onCast:
+  - kind: applyCondition
+    condition: srd51.condition.invisible
+    target: other
+    expires: { hours: 1 }
+    note: { en: "Anything the target wears or carries is invisible while on its person. The spell ends for a target that attacks or casts a spell. Each slot level above 2nd targets one additional creature." }

@@ -1,0 +1,13 @@
+effects:
+  - kind: add-action
+    action: hurl-flame
+    name: { en: "Hurl Flame" }
+    activation: action
+    range: { type: point, distance: 30 }
+    rolls:
+      - { type: attack }
+      - { type: damage, dice: "1d8", damageType: fire }
+    text: { en: "Hurl the flame at a creature within 30 feet: ranged spell attack, 1d8 fire damage on a hit (2d8 at 5th level, 3d8 at 11th, 4d8 at 17th). Attacking with the flame ends the spell." }
+  - kind: add-text
+    section: features
+    text: { en: "The flame sheds bright light in a 10-foot radius and dim light for an additional 10 feet; it ends if you dismiss it as an action or cast the spell again." }

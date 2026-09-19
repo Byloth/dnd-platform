@@ -1,0 +1,8 @@
+onCast:
+  - kind: applyCondition
+    condition: srd51.condition.invisible
+    target: other
+    expires: { manual: true }
+    note: { en: "A willing creature or an object; it can't be targeted by divination spells or perceived through scrying sensors." }
+  - kind: note
+    text: { en: "A creature falls into suspended animation and doesn't age. The spell ends when a condition you set (occurring or visible within 1 mile) is met or if the target takes any damage." }

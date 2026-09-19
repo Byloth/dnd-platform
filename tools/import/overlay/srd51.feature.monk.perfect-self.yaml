@@ -1,0 +1,7 @@
+effects:
+  - kind: add-text
+    section: resources
+    text:
+      en: "Perfect Self: when you roll for initiative and have no ki points remaining, you regain 4 ki points."
+    note:
+      en: "Gap: an initiative-triggered resource event; the engine has no initiative hook, so the 4 ki points are restored by hand."

@@ -1,0 +1,5 @@
+effects:
+  - kind: defense
+    defense: immunity
+    to:
+      - disease

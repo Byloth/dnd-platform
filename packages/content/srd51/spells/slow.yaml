@@ -31,3 +31,24 @@ rolls:
     onSuccess: none
 tags:
   - area
+effects:
+  - kind: modify
+    target: speed.walk
+    op: mul
+    value: 0.5
+  - kind: modify
+    target: ac
+    op: add
+    value: -2
+  - kind: modify
+    target: save.dex
+    op: add
+    value: -2
+  - kind: add-text
+    section: features
+    text:
+      en: "Can't use reactions; on its turn it can use either an action or a bonus action, not both, and can't make more than one melee or ranged attack. When it casts a spell with a casting time of 1 action, roll a d20: on 11 or higher the spell takes effect on its next turn only if it uses its action to complete it."
+onCast:
+  - kind: note
+    text:
+      en: Up to six creatures in a 40-foot cube, on a failed Wisdom save. An affected creature repeats the saving throw at the end of its turn; on a success the effect ends for it.

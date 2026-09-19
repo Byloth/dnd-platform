@@ -1,0 +1,19 @@
+features:
+  - id: srd51.feature.item.cloak-of-the-manta-ray.hood
+    name: { en: "Hood" }
+    effects:
+      - kind: add-action
+        action: cloak-of-the-manta-ray-hood
+        name: { en: "Pull the hood up or down" }
+        activation: action
+        toggle: { state: cloak-of-the-manta-ray-hood-up, expires: { manual: true } }
+        text: { en: "While you wear this cloak with its hood up, you can breathe underwater, and you have a swimming speed of 60 feet." }
+      - kind: modify
+        target: speed.swim
+        op: min
+        value: 60
+        when: { toggled: cloak-of-the-manta-ray-hood-up }
+      - kind: add-text
+        section: features
+        text: { en: "While the hood is up, you can breathe underwater." }
+        when: { toggled: cloak-of-the-manta-ray-hood-up }

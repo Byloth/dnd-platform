@@ -17,3 +17,29 @@ rarity: uncommon
 tags:
   - magic-item
   - wondrous-items
+features:
+  - id: srd51.feature.item.eversmoking-bottle.smoke
+    name:
+      en: Smoke
+    effects:
+      - kind: add-action
+        action: open-eversmoking-bottle
+        name:
+          en: Remove the stopper
+        activation: action
+        toggle:
+          state: eversmoking-bottle-open
+          expires:
+            manual: true
+        text:
+          en: A cloud of thick smoke pours out in a 60-foot radius from the bottle; the area is heavily obscured. Each minute the bottle remains open and within the cloud, the radius increases by 10 feet, up to 120 feet. The cloud persists as long as the bottle is open.
+      - kind: add-action
+        action: close-eversmoking-bottle
+        name:
+          en: Close the bottle
+        activation: action
+        requires:
+          condition:
+            toggled: eversmoking-bottle-open
+        text:
+          en: Speak the command word to close the bottle. The cloud disperses after 10 minutes; a moderate wind disperses it after 1 minute and a strong wind after 1 round.

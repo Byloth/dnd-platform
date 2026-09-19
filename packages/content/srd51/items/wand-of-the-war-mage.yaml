@@ -11,7 +11,24 @@ text:
     While holding this wand, you gain a bonus to spell attack rolls determined by the wand's rarity. In addition, you ignore half cover when making a spell attack.
 type: wondrous
 magical: true
-attunement: true
+attunement:
+  by:
+    en: a spellcaster
 tags:
   - magic-item
   - wand
+features:
+  - id: srd51.feature.item.wand-of-the-war-mage.war-mage
+    name:
+      en: War Mage
+    effects:
+      - kind: modify
+        target: attack.spell.bonus
+        op: add
+        value: 1
+        note:
+          en: "The bonus is determined by the wand's rarity: +1 (uncommon), +2 (rare) or +3 (very rare). This entity carries the +1 value; the other variants need the value changed."
+      - kind: add-text
+        section: spellcasting
+        text:
+          en: You ignore half cover when making a spell attack.

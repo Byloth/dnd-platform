@@ -23,3 +23,11 @@ rolls:
   - type: save
     ability: con
     onSuccess: none
+onCast:
+  - kind: applyCondition
+    condition: srd51.condition.stunned
+    target: other
+    expires:
+      manual: true
+    note:
+      en: "No saving throw when cast: stunned only if the target has 150 hit points or fewer, otherwise no effect. At the end of each of its turns the target makes a Constitution saving throw; on a success the stun ends."

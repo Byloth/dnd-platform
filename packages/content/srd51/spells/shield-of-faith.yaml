@@ -22,3 +22,8 @@ duration:
   concentration: true
 text:
   en: A shimmering field appears and surrounds a creature of your choice within range, granting it a +2 bonus to AC for the duration.
+effects:
+  - kind: modify
+    target: ac
+    op: add
+    value: 2

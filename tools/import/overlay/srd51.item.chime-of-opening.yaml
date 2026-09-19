@@ -1,0 +1,14 @@
+charges:
+  max: 10
+  recharge: [{ on: manual, amount: 0 }]
+features:
+  - id: srd51.feature.item.chime-of-opening.strike
+    name: { en: "Strike the chime" }
+    effects:
+      - kind: add-action
+        action: strike-chime-of-opening
+        name: { en: "Strike the chime" }
+        activation: action
+        cost: [{ resource: charges, amount: 1 }]
+        text: { en: "Point the chime at an object within 120 feet that can be opened, such as a door, lid, or lock. One lock or latch on the object opens unless the sound can't reach it; if no locks or latches remain, the object itself opens. The chime can be used ten times, after which it cracks and becomes useless." }
+        note: { en: "The charges never recharge: after the tenth use the chime is destroyed." }

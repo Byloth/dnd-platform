@@ -388,9 +388,8 @@ function levelsBlock(ownerPk: string, ownerSlug: string, classIndex: string | un
         {
             subclassChoice = featureSlug;
             subclassLevel = minLevel;
-            push(minLevel, "features", featureEntity(ownerSlug, feature.pk, feature.fields, {
-                effects: [{ kind: "open-choice", choice: featureSlug, of: "subclass", count: 1, level: minLevel }]
-            }));
+            push(minLevel, "features", featureEntity(ownerSlug, feature.pk, feature.fields));
+            push(minLevel, "choices", { id: featureSlug, of: "subclass" });
 
             continue;
         }
@@ -543,7 +542,7 @@ for (const species of speciesRows.filter((s) => s.fields.subspecies_of === null)
     const subspecies = speciesRows.filter((s) => s.fields.subspecies_of === species.pk).map((sub) =>
     {
         const subSlug = o5e.slug(sub.pk);
-        const subrace = dbSubraces.get(subSlug);
+        const subrace = dbSubraces.get(subSlug) ?? [...dbSubraces.values()].find((r) => slug(r.name) === subSlug || r.index.startsWith(`${subSlug}-`));
 
         return compact({
             id: id("species", `${index}.${subSlug}`),
@@ -747,11 +746,7 @@ for (const spell of spells)
     {
         rolls.push(compact({ type: "damage", dice: f.damage_roll.replace(/\s+/g, ""), damageType: f.damage_types[0] }));
     }
-    for (const cls of f.classes)
-    {
-        const c = o5e.slug(cls);
-        spellLists.set(c, [...(spellLists.get(c) ?? []), id("spell", index)]);
-    }
+    for (const cls of dbSpell?.classes ?? []) { spellLists.set(cls.index, [...(spellLists.get(cls.index) ?? []), id("spell", index)]); }
     let material: boolean | { en: string } = false;
     if (f.material) { material = f.material_specified ? { en: f.material_specified } : true; }
     write("spells", index, compact({
@@ -867,6 +862,26 @@ for (const item of items)
     }
     write("items", index, entity);
 }
+const producedItems = new Set(items.map((i) => o5e.slug(i.pk)));
+for (const equipment of dbEquipment.values())
+{
+    if (producedItems.has(equipment.index)) { continue; }
+    const category = equipment.gear_category?.index ?? equipment.equipment_category.index;
+    if (!["equipment-packs", "ammunition"].includes(category)) { continue; }
+    const contents = (equipment as unknown as { contents?: { item: db.Ref, quantity: number }[] }).contents ?? [];
+    const description = (equipment as unknown as { desc?: string[] }).desc?.join("\n\n") ?? "";
+    const list = contents.length ? `Includes: ${contents.map((c) => `${c.quantity} × ${c.item.name}`).join(", ")}.` : "";
+    write("items", equipment.index, compact({
+        id: id("item", equipment.index),
+        name: { en: equipment.name },
+        source: PKG,
+        text: text([description, list].filter(Boolean).join("\n\n")),
+        cost: equipment.cost ? { amount: equipment.cost.quantity, currency: equipment.cost.unit } : undefined,
+        weight: equipment.weight || undefined,
+        type: category === "ammunition" ? "ammunition" : "gear",
+        tags: [category]
+    }));
+}
 for (const magic of dbMagic)
 {
     const category = magic.equipment_category.index;
@@ -899,6 +914,8 @@ for (const condition of conditions)
     });
 }
 
+/** Rule slugs aligned with the ids the ruleset refers to. */
+const RULE_RENAMES: Record<string, string> = { "use-an-object": "use-object" };
 const RULE_CATEGORY: Record<string, string> = {
     "actions-in-combat": "action",
     "movement": "movement",
@@ -921,7 +938,8 @@ for (const ruleSet of ruleSets)
     for (const rule of own)
     {
         const ruleSlug = slug(o5e.slug(rule.pk).replace(`${setSlug}_`, ""));
-        const name = category === "action" ? `action.${ruleSlug}` : `${setSlug}.${ruleSlug}`;
+        const renamed = RULE_RENAMES[ruleSlug] ?? ruleSlug;
+        const name = category === "action" ? `action.${renamed}` : `${setSlug}.${renamed}`;
         write("rules", name, {
             id: id("rule", name),
             name: { en: rule.fields.name },

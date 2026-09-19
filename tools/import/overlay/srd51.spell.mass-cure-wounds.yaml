@@ -1,0 +1,5 @@
+onCast:
+  - kind: heal
+    amount: 3d8
+    target: other
+    note: { en: "Plus your spellcasting ability modifier, to each of up to six creatures in a 30-foot-radius sphere. No effect on undead or constructs." }

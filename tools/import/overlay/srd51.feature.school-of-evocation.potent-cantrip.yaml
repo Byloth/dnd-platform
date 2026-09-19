@@ -1,0 +1,7 @@
+effects:
+  - kind: add-text
+    section: features
+    text:
+      en: When a creature succeeds on a saving throw against your cantrip, the creature takes half the cantrip's damage (if any) but suffers no additional effect from the cantrip.
+    note:
+      en: Half damage on a successful save against your cantrips is resolved on the target's save, which the play engine does not model.

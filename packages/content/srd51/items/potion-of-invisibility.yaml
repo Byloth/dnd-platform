@@ -15,3 +15,7 @@ rarity: very-rare
 tags:
   - magic-item
   - potion
+onUse:
+  - kind: note
+    text:
+      en: When you drink it, you become invisible for 1 hour. Anything you wear or carry is invisible with you. The effect ends early if you attack or cast a spell.

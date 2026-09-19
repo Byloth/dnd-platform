@@ -37,3 +37,21 @@ rolls:
   - type: save
     ability: con
     onSuccess: none
+effects:
+  - kind: add-text
+    section: features
+    text:
+      en: "Diseased (one disease chosen on the hit): Blinding Sickness (disadvantage on Wisdom checks and Wisdom saving throws, blinded); Filth Fever (disadvantage on Strength checks, Strength saving throws and attack rolls that use Strength); Flesh Rot (disadvantage on Charisma checks, vulnerability to all damage); Mindfire (disadvantage on Intelligence checks and Intelligence saving throws, behaves as if under the confusion spell during combat); Seizure (disadvantage on Dexterity checks, Dexterity saving throws and attack rolls that use Dexterity); Slimy Doom (disadvantage on Constitution checks and Constitution saving throws, stunned until the end of its next turn whenever it takes damage)."
+    note:
+      en: Option-dependent, so not expressed as roll-disadvantage or defense.
+onCast:
+  - kind: applyCondition
+    condition: srd51.condition.blinded
+    target: other
+    expires:
+      manual: true
+    note:
+      en: Blinding Sickness only.
+  - kind: note
+    text:
+      en: "On a hit with the melee spell attack, at the end of each of its turns the target makes a Constitution saving throw: after three failures the disease lasts for the duration (7 days) and the saves stop; after three successes the target recovers and the spell ends. Any effect that removes or ameliorates a disease applies."

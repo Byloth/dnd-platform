@@ -1,0 +1,15 @@
+type: weapon
+features:
+  - id: srd51.feature.item.giant-slayer.bonus
+    name: { en: "+1 bonus" }
+    effects:
+      - kind: modify-attacks
+        filter: { item: srd51.item.giant-slayer }
+        set: { attackBonus: 1, damageBonus: 1, magical: true }
+  - id: srd51.feature.item.giant-slayer.slaying
+    name: { en: "Giant slaying" }
+    effects:
+      - kind: modify-attacks
+        filter: { item: srd51.item.giant-slayer }
+        set: { extraDamage: { dice: 2d6 } }
+        note: { en: "Only when you hit a giant (any creature with the giant type, including ettins and trolls): an extra 2d6 damage of the weapon's type, and the giant must succeed on a DC 15 Strength saving throw or fall prone." }

@@ -1,0 +1,14 @@
+type: shield
+ac: { bonus: 2 }
+attunement: true
+features:
+  - id: srd51.feature.item.animated-shield.animate
+    name: { en: "Animate" }
+    effects:
+      - kind: add-action
+        action: animate-shield
+        name: { en: "Animate the shield" }
+        activation: bonus-action
+        toggle: { state: animated-shield, expires: { minutes: 1 } }
+        text: { en: "Speak the command word to make the shield hover in your space and protect you as if you were wielding it, leaving your hands free. It remains animated for 1 minute, until you use a bonus action to end the effect, or until you are incapacitated or die." }
+        note: { en: "While animated the shield's normal AC bonus applies with your hands free; the engine cannot tell a hovering shield from a wielded one, so keep it equipped." }

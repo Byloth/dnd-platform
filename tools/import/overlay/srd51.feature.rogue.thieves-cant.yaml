@@ -1,0 +1,11 @@
+effects:
+  - kind: grant-proficiency
+    type: language
+    items:
+      - thieves-cant
+    note:
+      en: Thieves' cant is modelled as a language; it takes four times longer to convey a message than to speak the same idea plainly.
+  - kind: add-text
+    section: features
+    text:
+      en: You understand a set of secret signs and symbols used to convey short, simple messages, such as whether an area is dangerous or the territory of a thieves' guild, whether loot is nearby, or whether the people in an area are easy marks or will provide a safe house for thieves on the run.

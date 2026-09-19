@@ -1,0 +1,10 @@
+effects:
+  - kind: open-choice
+    choice: cantrip
+    of: spell
+    count: 1
+    filter:
+      list: srd51.spell-list.wizard
+      level: 0
+    note:
+      en: "Intelligence is your spellcasting ability for this cantrip: the choice cannot carry an ability, so it is stated here."

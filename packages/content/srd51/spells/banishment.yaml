@@ -28,3 +28,11 @@ rolls:
   - type: save
     ability: cha
     onSuccess: none
+onCast:
+  - kind: applyCondition
+    condition: srd51.condition.incapacitated
+    target: other
+    expires:
+      minutes: 1
+    note:
+      en: On a failed Charisma saving throw, a creature native to your plane is banished to a harmless demiplane and incapacitated there until the spell ends, then reappears in the space it left. A creature native to another plane returns to its home plane and doesn't return if the spell lasts a full minute. One additional creature for each slot level above 4th.

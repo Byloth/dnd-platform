@@ -1,0 +1,17 @@
+features:
+  - id: srd51.feature.item.decanter-of-endless-water.pour
+    name: { en: "Command words" }
+    effects:
+      - kind: add-action
+        action: decanter-of-endless-water
+        name: { en: "Remove the stopper and speak a command word" }
+        activation: action
+        text: { en: "Fresh or salt water (your choice) pours out until the start of your next turn. \"Stream\" produces 1 gallon; \"Fountain\" produces 5 gallons; \"Geyser\" produces 30 gallons in a geyser 30 feet long and 1 foot wide." }
+      - kind: add-action
+        action: aim-decanter-geyser
+        name: { en: "Aim the geyser" }
+        activation: bonus-action
+        text: { en: "While holding the decanter, aim the geyser at a creature you can see within 30 feet. The target must succeed on a DC 13 Strength saving throw or take 1d4 bludgeoning damage and fall prone. You can instead target an object that isn't being worn or carried and weighs no more than 200 pounds: it is knocked over or pushed up to 15 feet away from you." }
+        onUse:
+          - kind: note
+            text: { en: "DC 13 Strength save: 1d4 bludgeoning damage and prone on a failure." }

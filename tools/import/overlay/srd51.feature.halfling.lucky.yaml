@@ -1,0 +1,21 @@
+effects:
+  - kind: add-action
+    action: lucky
+    name: { en: Lucky }
+    activation: special
+    trigger:
+      en: when you roll a 1 on the d20 for an attack roll, ability check, or saving throw
+    text:
+      en: When you roll a 1 on the d20 for an attack roll, ability check, or saving throw, you can reroll the die and must use the new roll.
+    onUse:
+      - kind: reroll
+        roll: attack
+        keep: new
+      - kind: reroll
+        roll: check
+        keep: new
+      - kind: reroll
+        roll: save
+        keep: new
+    note:
+      en: Play-mode reroll of a natural 1; the reroll applies to whichever of the three rolls was made.

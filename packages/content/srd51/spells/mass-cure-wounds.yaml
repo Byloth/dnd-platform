@@ -26,3 +26,9 @@ higherLevel:
   en: When you cast this spell using a spell slot of 6th level or higher, the healing increases by 1d8 for each slot level above 5th.
 tags:
   - area
+onCast:
+  - kind: heal
+    amount: 3d8
+    target: other
+    note:
+      en: Plus your spellcasting ability modifier, to each of up to six creatures in a 30-foot-radius sphere. No effect on undead or constructs.

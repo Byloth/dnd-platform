@@ -1,0 +1,8 @@
+onCast:
+  - kind: applyCondition
+    condition: srd51.condition.restrained
+    target: other
+    expires: { manual: true }
+    note: { en: "A creature that starts its turn in the webs or enters them during its turn, on a failed Dexterity save; restrained as long as it remains in the webs or until it breaks free with a Strength check against your spell save DC as an action." }
+  - kind: note
+    text: { en: "The 20-foot cube of webs is difficult terrain and lightly obscured; if not anchored between two solid masses or layered over a surface it collapses and the spell ends at the start of your next turn. Any 5-foot cube exposed to fire burns away in 1 round, dealing 2d4 fire damage to a creature that starts its turn in the fire." }

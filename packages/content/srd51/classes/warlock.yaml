@@ -242,12 +242,6 @@ levels:
         source: srd51
         text:
           en: "At 1st level, you have struck a bargain with an otherworldly being of your choice: the Archfey, the Fiend, or the Great Old One, each of which is detailed at the end of the class description. Your choice grants you features at 1st level and again at 6th, 10th, and 14th level."
-        effects:
-          - kind: open-choice
-            choice: otherworldly-patron
-            of: subclass
-            count: 1
-            level: 1
       - id: srd51.feature.warlock.pact-magic
         name:
           en: Pact Magic
@@ -296,6 +290,9 @@ levels:
             known:
               table: srd51.table.warlock.spells-known
             ritual: false
+    choices:
+      - id: otherworldly-patron
+        of: subclass
   "2":
     features:
       - id: srd51.feature.warlock.eldritch-invocations
@@ -309,6 +306,542 @@ levels:
             At 2nd level, you gain two eldritch invocations of your choice. Your invocation options are detailed at the end of the class description. When you gain certain warlock levels, you gain additional invocations of your choice, as shown in the Invocations Known column of the Warlock table.
 
             Additionally, when you gain a level in this class, you can choose one of the invocations you know and replace it with another invocation that you could learn at that level.
+        effects:
+          - kind: open-choice
+            choice: eldritch-invocations
+            of: option
+            count: 2
+            note:
+              en: Two invocations at 2nd level; you gain more as shown in the Invocations Known column (table(warlock.invocations-known)), and a choice's count cannot follow a table yet. When you gain a level in this class, you can replace one invocation you know with another you could learn at that level. A level prerequisite refers to your warlock level.
+            options:
+              - id: agonizing-blast
+                name:
+                  en: Agonizing Blast
+                text:
+                  en: "Prerequisite: eldritch blast cantrip. When you cast eldritch blast, add your Charisma modifier to the damage it deals on a hit."
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: When you cast eldritch blast, add your Charisma modifier to the damage it deals on a hit.
+                    note:
+                      en: A damage bonus limited to one spell has no modify target; add mod(cha) to each eldritch blast beam that hits.
+                prerequisites:
+                  knowsSpell: srd51.spell.eldritch-blast
+              - id: armor-of-shadows
+                name:
+                  en: Armor of Shadows
+                text:
+                  en: You can cast mage armor on yourself at will, without expending a spell slot or material components.
+                effects:
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.mage-armor
+                    as: always-prepared
+                    ability: cha
+                    note:
+                      en: Cast at will, without expending a spell slot or material components, on yourself only.
+              - id: ascendant-step
+                name:
+                  en: Ascendant Step
+                text:
+                  en: "Prerequisite: 9th level. You can cast levitate on yourself at will, without expending a spell slot or material components."
+                effects:
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.levitate
+                    as: always-prepared
+                    ability: cha
+                    note:
+                      en: Cast at will, without expending a spell slot or material components, on yourself only.
+                prerequisites:
+                  classLevel:
+                    class: srd51.class.warlock
+                    min: 9
+              - id: beast-speech
+                name:
+                  en: Beast Speech
+                text:
+                  en: You can cast speak with animals at will, without expending a spell slot.
+                effects:
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.speak-with-animals
+                    as: always-prepared
+                    ability: cha
+                    note:
+                      en: Cast at will, without expending a spell slot.
+              - id: beguiling-influence
+                name:
+                  en: Beguiling Influence
+                text:
+                  en: You gain proficiency in the Deception and Persuasion skills.
+                effects:
+                  - kind: grant-proficiency
+                    type: skill
+                    items:
+                      - deception
+                      - persuasion
+              - id: bewitching-whispers
+                name:
+                  en: Bewitching Whispers
+                text:
+                  en: "Prerequisite: 7th level. You can cast compulsion once using a warlock spell slot. You can't do so again until you finish a long rest."
+                effects:
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.compulsion
+                    as: always-prepared
+                    ability: cha
+                    uses:
+                      count: 1
+                      recharge: long-rest
+                    note:
+                      en: Cast once using a warlock spell slot (the slot is still expended); you can't do so again until you finish a long rest.
+                prerequisites:
+                  classLevel:
+                    class: srd51.class.warlock
+                    min: 7
+              - id: book-of-ancient-secrets
+                name:
+                  en: Book of Ancient Secrets
+                text:
+                  en: "Prerequisite: Pact of the Tome feature. You can now inscribe magical rituals in your Book of Shadows. Choose two 1st-level spells that have the ritual tag from any class's spell list (the two needn't be from the same list). The spells appear in the book and don't count against the number of spells you know. With your Book of Shadows in hand, you can cast the chosen spells as rituals. You can't cast the spells except as rituals, unless you've learned them by some other means. You can also cast a warlock spell you know as a ritual if it has the ritual tag. On your adventures, you can add other ritual spells to your Book of Shadows if the spell's level is equal to or less than half your warlock level (rounded up); for each level of the spell, the transcription takes 2 hours and costs 50 gp."
+                effects:
+                  - kind: open-choice
+                    choice: book-of-ancient-secrets
+                    of: spell
+                    count: 2
+                    filter:
+                      type: spell
+                      level: 1
+                      ritual: true
+                    note:
+                      en: Two 1st-level ritual spells from any class's spell list. They don't count against the spells you know and can be cast only as rituals, with your Book of Shadows in hand. The chosen spells cannot yet be granted from the answer; add them to your spellbook of rituals by hand.
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: You can also cast a warlock spell you know as a ritual if it has the ritual tag. On your adventures, you can add other ritual spells to your Book of Shadows if the spell's level is equal to or less than half your warlock level (rounded up); for each level of the spell, the transcription takes 2 hours and costs 50 gp for the rare inks.
+                prerequisites:
+                  answer:
+                    choice: pact-boon
+                    is: pact-of-the-tome
+              - id: chains-of-carceri
+                name:
+                  en: Chains of Carceri
+                text:
+                  en: "Prerequisite: 15th level, Pact of the Chain feature. You can cast hold monster at will, targeting a celestial, fiend, or elemental, without expending a spell slot or material components. You must finish a long rest before you can use this invocation on the same creature again."
+                effects:
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.hold-monster
+                    as: always-prepared
+                    ability: cha
+                    note:
+                      en: Cast at will, without expending a spell slot or material components, targeting only a celestial, fiend, or elemental. You must finish a long rest before you can use this invocation on the same creature again.
+                prerequisites:
+                  classLevel:
+                    class: srd51.class.warlock
+                    min: 15
+                  answer:
+                    choice: pact-boon
+                    is: pact-of-the-chain
+              - id: devils-sight
+                name:
+                  en: Devil's Sight
+                text:
+                  en: You can see normally in darkness, both magical and nonmagical, to a distance of 120 feet.
+                effects:
+                  - kind: modify
+                    target: sense.darkvision
+                    op: max
+                    value: 120
+                    note:
+                      en: You see normally (not as in dim light) in darkness, both magical and nonmagical, to 120 feet.
+              - id: dreadful-word
+                name:
+                  en: Dreadful Word
+                text:
+                  en: "Prerequisite: 7th level. You can cast confusion once using a warlock spell slot. You can't do so again until you finish a long rest."
+                effects:
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.confusion
+                    as: always-prepared
+                    ability: cha
+                    uses:
+                      count: 1
+                      recharge: long-rest
+                    note:
+                      en: Cast once using a warlock spell slot (the slot is still expended); you can't do so again until you finish a long rest.
+                prerequisites:
+                  classLevel:
+                    class: srd51.class.warlock
+                    min: 7
+              - id: eldritch-sight
+                name:
+                  en: Eldritch Sight
+                text:
+                  en: You can cast detect magic at will, without expending a spell slot.
+                effects:
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.detect-magic
+                    as: always-prepared
+                    ability: cha
+                    note:
+                      en: Cast at will, without expending a spell slot.
+              - id: eldritch-spear
+                name:
+                  en: Eldritch Spear
+                text:
+                  en: "Prerequisite: eldritch blast cantrip. When you cast eldritch blast, its range is 300 feet."
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: When you cast eldritch blast, its range is 300 feet.
+                    note:
+                      en: A spell's range cannot be overridden per spell; use 300 feet for eldritch blast.
+                prerequisites:
+                  knowsSpell: srd51.spell.eldritch-blast
+              - id: eyes-of-the-rune-keeper
+                name:
+                  en: Eyes of the Rune Keeper
+                text:
+                  en: You can read all writing.
+                effects:
+                  - kind: add-text
+                    section: senses
+                    text:
+                      en: You can read all writing.
+              - id: fiendish-vigor
+                name:
+                  en: Fiendish Vigor
+                text:
+                  en: You can cast false life on yourself at will as a 1st-level spell, without expending a spell slot or material components.
+                effects:
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.false-life
+                    as: always-prepared
+                    ability: cha
+                    level: 1
+                    note:
+                      en: Cast at will as a 1st-level spell, without expending a spell slot or material components, on yourself only.
+              - id: gaze-of-two-minds
+                name:
+                  en: Gaze of Two Minds
+                text:
+                  en: You can use your action to touch a willing humanoid and perceive through its senses until the end of your next turn. As long as the creature is on the same plane of existence as you, you can use your action on subsequent turns to maintain this connection, extending the duration until the end of your next turn. While perceiving through the other creature's senses, you benefit from any special senses possessed by that creature, and you are blinded and deafened to your own surroundings.
+                effects:
+                  - kind: add-action
+                    action: gaze-of-two-minds
+                    name:
+                      en: Gaze of Two Minds
+                    activation: action
+                    range:
+                      type: touch
+                    duration:
+                      type: timed
+                      rounds: 1
+                    text:
+                      en: Touch a willing humanoid and perceive through its senses until the end of your next turn. As long as the creature is on the same plane of existence as you, you can use your action on subsequent turns to maintain this connection, extending the duration until the end of your next turn. While perceiving through the other creature's senses, you benefit from any special senses possessed by that creature, and you are blinded and deafened to your own surroundings.
+              - id: lifedrinker
+                name:
+                  en: Lifedrinker
+                text:
+                  en: "Prerequisite: 12th level, Pact of the Blade feature. When you hit a creature with your pact weapon, the creature takes extra necrotic damage equal to your Charisma modifier (minimum 1)."
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: When you hit a creature with your pact weapon, the creature takes extra necrotic damage equal to your Charisma modifier (minimum 1).
+                    note:
+                      en: Attacks cannot be filtered by pact weapon; add max(1, mod(cha)) necrotic damage to hits with your pact weapon by hand.
+                prerequisites:
+                  classLevel:
+                    class: srd51.class.warlock
+                    min: 12
+                  answer:
+                    choice: pact-boon
+                    is: pact-of-the-blade
+              - id: mask-of-many-faces
+                name:
+                  en: Mask of Many Faces
+                text:
+                  en: You can cast disguise self at will, without expending a spell slot.
+                effects:
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.disguise-self
+                    as: always-prepared
+                    ability: cha
+                    note:
+                      en: Cast at will, without expending a spell slot.
+              - id: master-of-myriad-forms
+                name:
+                  en: Master of Myriad Forms
+                text:
+                  en: "Prerequisite: 15th level. You can cast alter self at will, without expending a spell slot."
+                effects:
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.alter-self
+                    as: always-prepared
+                    ability: cha
+                    note:
+                      en: Cast at will, without expending a spell slot.
+                prerequisites:
+                  classLevel:
+                    class: srd51.class.warlock
+                    min: 15
+              - id: minions-of-chaos
+                name:
+                  en: Minions of Chaos
+                text:
+                  en: "Prerequisite: 9th level. You can cast conjure elemental once using a warlock spell slot. You can't do so again until you finish a long rest."
+                effects:
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.conjure-elemental
+                    as: always-prepared
+                    ability: cha
+                    uses:
+                      count: 1
+                      recharge: long-rest
+                    note:
+                      en: Cast once using a warlock spell slot (the slot is still expended); you can't do so again until you finish a long rest.
+                prerequisites:
+                  classLevel:
+                    class: srd51.class.warlock
+                    min: 9
+              - id: mire-the-mind
+                name:
+                  en: Mire the Mind
+                text:
+                  en: "Prerequisite: 5th level. You can cast slow once using a warlock spell slot. You can't do so again until you finish a long rest."
+                effects:
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.slow
+                    as: always-prepared
+                    ability: cha
+                    uses:
+                      count: 1
+                      recharge: long-rest
+                    note:
+                      en: Cast once using a warlock spell slot (the slot is still expended); you can't do so again until you finish a long rest.
+                prerequisites:
+                  classLevel:
+                    class: srd51.class.warlock
+                    min: 5
+              - id: misty-visions
+                name:
+                  en: Misty Visions
+                text:
+                  en: You can cast silent image at will, without expending a spell slot or material components.
+                effects:
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.silent-image
+                    as: always-prepared
+                    ability: cha
+                    note:
+                      en: Cast at will, without expending a spell slot or material components.
+              - id: one-with-shadows
+                name:
+                  en: One with Shadows
+                text:
+                  en: "Prerequisite: 5th level. When you are in an area of dim light or darkness, you can use your action to become invisible until you move or take an action or a reaction."
+                effects:
+                  - kind: add-action
+                    action: one-with-shadows
+                    name:
+                      en: One with Shadows
+                    activation: action
+                    text:
+                      en: When you are in an area of dim light or darkness, you can use your action to become invisible until you move or take an action or a reaction.
+                    onUse:
+                      - kind: applyCondition
+                        condition: srd51.condition.invisible
+                        target: self
+                        expires:
+                          manual: true
+                        note:
+                          en: Only in dim light or darkness; ends as soon as you move or take an action or a reaction.
+                prerequisites:
+                  classLevel:
+                    class: srd51.class.warlock
+                    min: 5
+              - id: otherworldly-leap
+                name:
+                  en: Otherworldly Leap
+                text:
+                  en: "Prerequisite: 9th level. You can cast jump on yourself at will, without expending a spell slot or material components."
+                effects:
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.jump
+                    as: always-prepared
+                    ability: cha
+                    note:
+                      en: Cast at will, without expending a spell slot or material components, on yourself only.
+                prerequisites:
+                  classLevel:
+                    class: srd51.class.warlock
+                    min: 9
+              - id: repelling-blast
+                name:
+                  en: Repelling Blast
+                text:
+                  en: "Prerequisite: eldritch blast cantrip. When you hit a creature with eldritch blast, you can push the creature up to 10 feet away from you in a straight line."
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: When you hit a creature with eldritch blast, you can push the creature up to 10 feet away from you in a straight line.
+                    note:
+                      en: A push on hit with one spell is not modelled; apply it by hand.
+                prerequisites:
+                  knowsSpell: srd51.spell.eldritch-blast
+              - id: sculptor-of-flesh
+                name:
+                  en: Sculptor of Flesh
+                text:
+                  en: "Prerequisite: 7th level. You can cast polymorph once using a warlock spell slot. You can't do so again until you finish a long rest."
+                effects:
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.polymorph
+                    as: always-prepared
+                    ability: cha
+                    uses:
+                      count: 1
+                      recharge: long-rest
+                    note:
+                      en: Cast once using a warlock spell slot (the slot is still expended); you can't do so again until you finish a long rest.
+                prerequisites:
+                  classLevel:
+                    class: srd51.class.warlock
+                    min: 7
+              - id: sign-of-ill-omen
+                name:
+                  en: Sign of Ill Omen
+                text:
+                  en: "Prerequisite: 5th level. You can cast bestow curse once using a warlock spell slot. You can't do so again until you finish a long rest."
+                effects:
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.bestow-curse
+                    as: always-prepared
+                    ability: cha
+                    uses:
+                      count: 1
+                      recharge: long-rest
+                    note:
+                      en: Cast once using a warlock spell slot (the slot is still expended); you can't do so again until you finish a long rest.
+                prerequisites:
+                  classLevel:
+                    class: srd51.class.warlock
+                    min: 5
+              - id: thief-of-five-fates
+                name:
+                  en: Thief of Five Fates
+                text:
+                  en: You can cast bane once using a warlock spell slot. You can't do so again until you finish a long rest.
+                effects:
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.bane
+                    as: always-prepared
+                    ability: cha
+                    uses:
+                      count: 1
+                      recharge: long-rest
+                    note:
+                      en: Cast once using a warlock spell slot (the slot is still expended); you can't do so again until you finish a long rest.
+              - id: thirsting-blade
+                name:
+                  en: Thirsting Blade
+                text:
+                  en: "Prerequisite: 5th level, Pact of the Blade feature. You can attack with your pact weapon twice, instead of once, whenever you take the Attack action on your turn."
+                effects:
+                  - kind: modify
+                    target: attacks.perAction
+                    op: max
+                    value: 2
+                    note:
+                      en: Only when you attack with your pact weapon; with any other weapon you still make one attack.
+                prerequisites:
+                  classLevel:
+                    class: srd51.class.warlock
+                    min: 5
+                  answer:
+                    choice: pact-boon
+                    is: pact-of-the-blade
+              - id: visions-of-distant-realms
+                name:
+                  en: Visions of Distant Realms
+                text:
+                  en: "Prerequisite: 15th level. You can cast arcane eye at will, without expending a spell slot."
+                effects:
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.arcane-eye
+                    as: always-prepared
+                    ability: cha
+                    note:
+                      en: Cast at will, without expending a spell slot.
+                prerequisites:
+                  classLevel:
+                    class: srd51.class.warlock
+                    min: 15
+              - id: voice-of-the-chain-master
+                name:
+                  en: Voice of the Chain Master
+                text:
+                  en: "Prerequisite: Pact of the Chain feature. You can communicate telepathically with your familiar and perceive through your familiar's senses as long as you are on the same plane of existence. Additionally, while perceiving through your familiar's senses, you can also speak through your familiar in your own voice, even if your familiar is normally incapable of speech."
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: You can communicate telepathically with your familiar and perceive through your familiar's senses as long as you are on the same plane of existence. While perceiving through your familiar's senses, you can also speak through your familiar in your own voice, even if your familiar is normally incapable of speech.
+                prerequisites:
+                  answer:
+                    choice: pact-boon
+                    is: pact-of-the-chain
+              - id: whispers-of-the-grave
+                name:
+                  en: Whispers of the Grave
+                text:
+                  en: "Prerequisite: 9th level. You can cast speak with dead at will, without expending a spell slot."
+                effects:
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.speak-with-dead
+                    as: always-prepared
+                    ability: cha
+                    note:
+                      en: Cast at will, without expending a spell slot.
+                prerequisites:
+                  classLevel:
+                    class: srd51.class.warlock
+                    min: 9
+              - id: witch-sight
+                name:
+                  en: Witch Sight
+                text:
+                  en: "Prerequisite: 15th level. You can see the true form of any shapechanger or creature concealed by illusion or transmutation magic while the creature is within 30 feet of you and within line of sight."
+                effects:
+                  - kind: add-text
+                    section: senses
+                    text:
+                      en: You can see the true form of any shapechanger or creature concealed by illusion or transmutation magic while the creature is within 30 feet of you and within line of sight.
+                prerequisites:
+                  classLevel:
+                    class: srd51.class.warlock
+                    min: 15
   "3":
     features:
       - id: srd51.feature.warlock.pact-boon
@@ -340,6 +873,69 @@ levels:
             Your patron gives you a grimoire called a Book of Shadows. When you gain this feature, choose three cantrips from any class's spell list (the three needn't be from the same list). While the book is on your person, you can cast those cantrips at will. They don't count against your number of cantrips known. If they don't appear on the warlock spell list, they are nonetheless warlock spells for you.
 
             If you lose your Book of Shadows, you can perform a 1-hour ceremony to receive a replacement from your patron. This ceremony can be performed during a short or long rest, and it destroys the previous book. The book turns to ash when you die.
+        effects:
+          - kind: open-choice
+            choice: pact-boon
+            of: option
+            count: 1
+            options:
+              - id: pact-of-the-chain
+                name:
+                  en: Pact of the Chain
+                text:
+                  en: "You learn the find familiar spell and can cast it as a ritual. The spell doesn't count against your number of spells known. When you cast the spell, you can choose one of the normal forms for your familiar or one of the following special forms: imp, pseudodragon, quasit, or sprite. Additionally, when you take the Attack action, you can forgo one of your own attacks to allow your familiar to make one attack of its own with its reaction."
+                effects:
+                  - kind: grant-spells
+                    spells:
+                      - srd51.spell.find-familiar
+                    as: known
+                    ability: cha
+                    note:
+                      en: "You can cast it as a ritual; it doesn't count against your number of spells known. Special familiar forms available: imp, pseudodragon, quasit, sprite."
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: When you take the Attack action, you can forgo one of your own attacks to allow your familiar to make one attack of its own with its reaction.
+                    note:
+                      en: The familiar and its attack are not modelled; resolve it by hand.
+              - id: pact-of-the-blade
+                name:
+                  en: Pact of the Blade
+                text:
+                  en: You can use your action to create a pact weapon in your empty hand. You can choose the form that this melee weapon takes each time you create it. You are proficient with it while you wield it. This weapon counts as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage. Your pact weapon disappears if it is more than 5 feet away from you for 1 minute or more, if you use this feature again, if you dismiss the weapon (no action required), or if you die. You can transform one magic weapon into your pact weapon by performing a special ritual over the course of 1 hour, which can be done during a short rest.
+                effects:
+                  - kind: add-action
+                    action: create-pact-weapon
+                    name:
+                      en: Create pact weapon
+                    activation: action
+                    text:
+                      en: You create a pact weapon in your empty hand, choosing the form this melee weapon takes each time. You are proficient with it while you wield it, and it counts as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage. It disappears if it is more than 5 feet away from you for 1 minute or more, if you use this feature again, if you dismiss it (no action required), or if you die.
+                    note:
+                      en: There is no pact-weapon item, so the proficiency and the magical property cannot be attached to the created weapon; treat the weapon you add to your equipment as proficient and magical.
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: You can transform one magic weapon into your pact weapon by performing a special ritual while you hold the weapon, over the course of 1 hour (possible during a short rest). You can then dismiss the weapon, shunting it into an extradimensional space, and it appears whenever you create your pact weapon thereafter. You can't affect an artifact or a sentient weapon in this way. The weapon ceases being your pact weapon if you die, if you perform the 1-hour ritual on a different weapon, or if you use a 1-hour ritual to break your bond to it.
+              - id: pact-of-the-tome
+                name:
+                  en: Pact of the Tome
+                text:
+                  en: Your patron gives you a grimoire called a Book of Shadows. When you gain this feature, choose three cantrips from any class's spell list (the three needn't be from the same list). While the book is on your person, you can cast those cantrips at will. They don't count against your number of cantrips known. If they don't appear on the warlock spell list, they are nonetheless warlock spells for you.
+                effects:
+                  - kind: open-choice
+                    choice: book-of-shadows-cantrips
+                    of: spell
+                    count: 3
+                    filter:
+                      type: spell
+                      level: 0
+                    note:
+                      en: Three cantrips from any class's spell list. While the Book of Shadows is on your person you can cast them at will; they don't count against your cantrips known and count as warlock spells for you. The chosen cantrips cannot yet be granted from the answer, so add them to your known spells by hand.
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: If you lose your Book of Shadows, you can perform a 1-hour ceremony to receive a replacement from your patron. This ceremony can be performed during a short or long rest, and it destroys the previous book. The book turns to ash when you die.
   "4":
     features:
       - id: srd51.feature.warlock.ability-score-improvement
@@ -368,6 +964,89 @@ levels:
             You can cast your arcanum spell once without expending a spell slot. You must finish a long rest before you can do so again.
 
             At higher levels, you gain more warlock spells of your choice that can be cast in this way: one 7th- level spell at 13th level, one 8th-level spell at 15th level, and one 9th-level spell at 17th level. You regain all uses of your Mystic Arcanum when you finish a long rest.
+        effects:
+          - kind: open-choice
+            choice: mystic-arcanum-6
+            of: spell
+            count: 1
+            level: 11
+            filter:
+              list: srd51.spell-list.warlock
+              level: 6
+            note:
+              en: Your 6th-level arcanum. You can cast it once without expending a spell slot; you regain the use when you finish a long rest.
+          - kind: open-choice
+            choice: mystic-arcanum-7
+            of: spell
+            count: 1
+            level: 13
+            filter:
+              list: srd51.spell-list.warlock
+              level: 7
+            note:
+              en: Your 7th-level arcanum, gained at 13th level. You can cast it once without expending a spell slot; you regain the use when you finish a long rest.
+          - kind: open-choice
+            choice: mystic-arcanum-8
+            of: spell
+            count: 1
+            level: 15
+            filter:
+              list: srd51.spell-list.warlock
+              level: 8
+            note:
+              en: Your 8th-level arcanum, gained at 15th level. You can cast it once without expending a spell slot; you regain the use when you finish a long rest.
+          - kind: open-choice
+            choice: mystic-arcanum-9
+            of: spell
+            count: 1
+            level: 17
+            filter:
+              list: srd51.spell-list.warlock
+              level: 9
+            note:
+              en: Your 9th-level arcanum, gained at 17th level. You can cast it once without expending a spell slot; you regain the use when you finish a long rest.
+          - kind: declare-resource
+            resource: mystic-arcanum-6
+            name:
+              en: Mystic Arcanum (6th level)
+            max: table(warlock.mystic-arcanum-level-6)
+            display: pips
+            recharge:
+              - on: long-rest
+                amount: full
+          - kind: declare-resource
+            resource: mystic-arcanum-7
+            name:
+              en: Mystic Arcanum (7th level)
+            max: table(warlock.mystic-arcanum-level-7)
+            display: pips
+            recharge:
+              - on: long-rest
+                amount: full
+          - kind: declare-resource
+            resource: mystic-arcanum-8
+            name:
+              en: Mystic Arcanum (8th level)
+            max: table(warlock.mystic-arcanum-level-8)
+            display: pips
+            recharge:
+              - on: long-rest
+                amount: full
+          - kind: declare-resource
+            resource: mystic-arcanum-9
+            name:
+              en: Mystic Arcanum (9th level)
+            max: table(warlock.mystic-arcanum-level-9)
+            display: pips
+            recharge:
+              - on: long-rest
+                amount: full
+          - kind: add-text
+            section: features
+            text:
+              en: You can cast each arcanum spell once without expending a spell slot. You must finish a long rest before you can do so again.
+            note:
+              en: A spell chosen through a choice cannot yet be granted with uses (grant-spells needs fixed spell ids); spend the matching Mystic Arcanum use by hand when you cast the arcanum.
   "12":
     choices:
       - id: asi-12
@@ -384,6 +1063,35 @@ levels:
         source: srd51
         text:
           en: At 20th level, you can draw on your inner reserve of mystical power while entreating your patron to regain expended spell slots. You can spend 1 minute entreating your patron for aid to regain all your expended spell slots from your Pact Magic feature. Once you regain spell slots with this feature, you must finish a long rest before you can do so again.
+        effects:
+          - kind: declare-resource
+            resource: eldritch-master
+            name:
+              en: Eldritch Master
+            max: 1
+            display: pips
+            recharge:
+              - on: long-rest
+                amount: full
+          - kind: add-action
+            action: eldritch-master
+            name:
+              en: Eldritch Master
+            activation: special
+            cost:
+              - resource: eldritch-master
+                amount: 1
+            duration:
+              type: timed
+              minutes: 1
+            text:
+              en: You can spend 1 minute entreating your patron for aid to regain all your expended spell slots from your Pact Magic feature. Once you regain spell slots with this feature, you must finish a long rest before you can do so again.
+            onUse:
+              - kind: restoreResource
+                resource: spell-slots
+                amount: full
+                note:
+                  en: Regain all expended Pact Magic spell slots after 1 minute of entreating your patron.
 tables:
   invocations-known:
     by: classLevel

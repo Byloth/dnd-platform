@@ -1,0 +1,41 @@
+effects:
+  - kind: open-choice
+    choice: defensive-tactics
+    of: option
+    count: 1
+    options:
+      - id: escape-the-horde
+        name:
+          en: Escape the Horde
+        text:
+          en: Opportunity attacks against you are made with disadvantage.
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: Opportunity attacks against you are made with disadvantage.
+            note:
+              en: Disadvantage on incoming rolls (the attacker's) has no catalogue kind; applied in play.
+      - id: multiattack-defense
+        name:
+          en: Multiattack Defense
+        text:
+          en: When a creature hits you with an attack, you gain a +4 bonus to AC against all subsequent attacks made by that creature for the rest of the turn.
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: When a creature hits you with an attack, you gain a +4 bonus to AC against all subsequent attacks made by that creature for the rest of the turn.
+            note:
+              en: A per-attacker AC bonus for the rest of a turn has no catalogue kind; applied in play.
+      - id: steel-will
+        name:
+          en: Steel Will
+        text:
+          en: You have advantage on saving throws against being frightened.
+        effects:
+          - kind: roll-advantage
+            on:
+              type: save
+              against:
+                - being frightened

@@ -18,3 +18,25 @@ attunement: true
 tags:
   - magic-item
   - wondrous-items
+features:
+  - id: srd51.feature.item.winged-boots.flight
+    name:
+      en: Flight
+    effects:
+      - kind: add-text
+        section: combat
+        text:
+          en: You have a flying speed equal to your walking speed. You can use the boots to fly for up to 4 hours, all at once or in several shorter flights, each one using a minimum of 1 minute from the duration. If you are flying when the duration expires, you descend at a rate of 30 feet per round until you land.
+        note:
+          en: No formula can reference the walking speed in v0 (speed.fly set-formula needs a walking-speed variable); shown as text.
+      - kind: declare-resource
+        resource: flight-hours
+        name:
+          en: Flight (hours)
+        max: 4
+        recharge:
+          - on: manual
+            amount: 2
+        display: counter
+        note:
+          en: The boots regain 2 hours of flying capability for every 12 hours they aren't in use; no timed recharge exists, so restore them by hand. Each flight uses at least 1 minute.

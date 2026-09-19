@@ -1,0 +1,5 @@
+effects:
+  - kind: add-text
+    section: features
+    text: { en: "Warm shield: resistance to cold damage; chill shield: resistance to fire damage (your choice when cast). Whenever a creature within 5 feet of you hits you with a melee attack, it takes 2d8 fire damage (warm shield) or cold damage (chill shield). You radiate bright light in a 10-foot radius and dim light for an additional 10 feet; you can end the spell early as an action." }
+    note: { en: "The resistance is option-dependent, so not expressed as defense; damage dealt to attackers is not expressible in v0." }

@@ -1,0 +1,204 @@
+effects:
+  - kind: open-choice
+    choice: favored-terrain-1
+    of: option
+    count: 1
+    options:
+      - id: arctic
+        name:
+          en: Arctic
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored terrain: arctic."
+      - id: coast
+        name:
+          en: Coast
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored terrain: coast."
+      - id: desert
+        name:
+          en: Desert
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored terrain: desert."
+      - id: forest
+        name:
+          en: Forest
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored terrain: forest."
+      - id: grassland
+        name:
+          en: Grassland
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored terrain: grassland."
+      - id: mountain
+        name:
+          en: Mountain
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored terrain: mountain."
+      - id: swamp
+        name:
+          en: Swamp
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored terrain: swamp."
+  - kind: open-choice
+    choice: favored-terrain-2
+    of: option
+    count: 1
+    when:
+      classLevel:
+        class: srd51.class.ranger
+        min: 6
+    options:
+      - id: arctic
+        name:
+          en: Arctic
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored terrain: arctic."
+      - id: coast
+        name:
+          en: Coast
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored terrain: coast."
+      - id: desert
+        name:
+          en: Desert
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored terrain: desert."
+      - id: forest
+        name:
+          en: Forest
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored terrain: forest."
+      - id: grassland
+        name:
+          en: Grassland
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored terrain: grassland."
+      - id: mountain
+        name:
+          en: Mountain
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored terrain: mountain."
+      - id: swamp
+        name:
+          en: Swamp
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored terrain: swamp."
+  - kind: open-choice
+    choice: favored-terrain-3
+    of: option
+    count: 1
+    when:
+      classLevel:
+        class: srd51.class.ranger
+        min: 10
+    options:
+      - id: arctic
+        name:
+          en: Arctic
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored terrain: arctic."
+      - id: coast
+        name:
+          en: Coast
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored terrain: coast."
+      - id: desert
+        name:
+          en: Desert
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored terrain: desert."
+      - id: forest
+        name:
+          en: Forest
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored terrain: forest."
+      - id: grassland
+        name:
+          en: Grassland
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored terrain: grassland."
+      - id: mountain
+        name:
+          en: Mountain
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored terrain: mountain."
+      - id: swamp
+        name:
+          en: Swamp
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored terrain: swamp."
+  - kind: add-text
+    section: features
+    text:
+      en: When you make an Intelligence or Wisdom check related to your favored terrain, your proficiency bonus is doubled if you are using a skill that you're proficient in.
+    note:
+      en: "Situational: the player asserts the check relates to the favored terrain; not a sheet expertise."
+  - kind: add-text
+    section: features
+    text:
+      en: "While traveling for an hour or more in your favored terrain: difficult terrain doesn't slow your group's travel; your group can't become lost except by magical means; even when engaged in another activity while traveling (such as foraging, navigating, or tracking) you remain alert to danger; if traveling alone you can move stealthily at a normal pace; when you forage you find twice as much food as you normally would; while tracking other creatures you also learn their exact number, their sizes, and how long ago they passed through the area."
+    note:
+      en: Travel benefits are narrative; no catalogue kind.

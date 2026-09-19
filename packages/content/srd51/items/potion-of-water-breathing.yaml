@@ -15,3 +15,7 @@ rarity: uncommon
 tags:
   - magic-item
   - potion
+onUse:
+  - kind: note
+    text:
+      en: You can breathe underwater for 1 hour after drinking this potion.

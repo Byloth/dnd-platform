@@ -1,0 +1,13 @@
+effects:
+  - kind: modify
+    target: save.all
+    op: add
+    formula: max(1, mod(cha))
+    note:
+      en: Applies while you are conscious.
+  - kind: add-text
+    section: features
+    text:
+      en: Friendly creatures within 10 feet of you (30 feet at 18th level) gain the same bonus to their saving throws while you are conscious.
+    note:
+      en: The bonus to allies and the conscious gate are play mode; the range is table(paladin.aura-range).

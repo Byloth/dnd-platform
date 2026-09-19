@@ -1,0 +1,14 @@
+effects:
+  - kind: defense
+    defense: condition-immunity
+    to:
+      - srd51.condition.charmed
+      - srd51.condition.frightened
+    when:
+      toggled: raging
+  - kind: add-text
+    section: features
+    text:
+      en: If you are charmed or frightened when you enter your rage, the effect is suspended for the duration of the rage.
+    note:
+      en: "Gap: suspending an already-applied condition for the rage is resolved in play."

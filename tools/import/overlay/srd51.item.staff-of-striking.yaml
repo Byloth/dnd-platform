@@ -1,0 +1,34 @@
+attunement: true
+baseItem: srd51.item.quarterstaff
+category: simple
+damage: 1d6
+damageType: bludgeoning
+properties: [versatile]
+versatile: 1d8
+monkWeapon: true
+charges:
+  max: 10
+  recharge: [{ on: dawn, amount: "1d6 + 4" }]
+features:
+  - id: srd51.feature.item.staff-of-striking.magic-quarterstaff
+    name: { en: "Magic Quarterstaff" }
+    effects:
+      - kind: modify-attacks
+        filter: { item: srd51.item.staff-of-striking }
+        set: { attackBonus: 3, damageBonus: 3, magical: true }
+  - id: srd51.feature.item.staff-of-striking.striking
+    name: { en: "Striking" }
+    effects:
+      - kind: add-action
+        action: striking
+        name: { en: "Striking" }
+        activation: special
+        trigger: { en: "when you hit with a melee attack using the staff" }
+        cost: [{ resource: charges, amount: 1 }]
+        text: { en: "Expend up to 3 charges. For each charge you expend, the target takes an extra 1d6 force damage. If you expend the last charge, roll a d20: on a 1 the staff becomes a nonmagical quarterstaff." }
+        note: { en: "1 to 3 charges per hit; the extra damage is 1d6 force per charge." }
+        onHit:
+          - kind: extraDamage
+            dice: "1d6"
+            damageType: force
+            note: { en: "Per charge expended, up to 3." }

@@ -1,0 +1,19 @@
+effects:
+  - kind: roll-advantage
+    on:
+      type: save
+      ability: int
+      against:
+        - magic
+  - kind: roll-advantage
+    on:
+      type: save
+      ability: wis
+      against:
+        - magic
+  - kind: roll-advantage
+    on:
+      type: save
+      ability: cha
+      against:
+        - magic

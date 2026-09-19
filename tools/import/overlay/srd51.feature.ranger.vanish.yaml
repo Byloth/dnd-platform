@@ -1,0 +1,16 @@
+effects:
+  - kind: add-action
+    action: vanish
+    name:
+      en: Vanish
+    activation: bonus-action
+    text:
+      en: You can use the Hide action as a bonus action on your turn.
+    onUse:
+      - kind: note
+        text:
+          en: Take the Hide action (make a Dexterity (Stealth) check).
+  - kind: add-text
+    section: features
+    text:
+      en: You can't be tracked by nonmagical means, unless you choose to leave a trail.

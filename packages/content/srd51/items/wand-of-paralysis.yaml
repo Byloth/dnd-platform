@@ -14,7 +14,44 @@ text:
 type: wondrous
 magical: true
 rarity: rare
-attunement: true
+attunement:
+  by:
+    en: a spellcaster
 tags:
   - magic-item
   - wand
+charges:
+  max: 7
+  recharge:
+    - on: dawn
+      amount: 1d6 + 1
+features:
+  - id: srd51.feature.item.wand-of-paralysis.paralyzing-ray
+    name:
+      en: Paralyzing Ray
+    effects:
+      - kind: add-action
+        action: paralyzing-ray
+        name:
+          en: Paralyzing Ray
+        activation: action
+        cost:
+          - resource: charges
+            amount: 1
+        range:
+          type: point
+          distance: 60
+        dc: "15"
+        rolls:
+          - type: save
+            ability: con
+        text:
+          en: "A thin blue ray streaks from the tip toward a creature you can see within 60 feet. The target must succeed on a DC 15 Constitution saving throw or be paralyzed for 1 minute; at the end of each of its turns it can repeat the saving throw, ending the effect on itself on a success. If you expend the last charge, roll a d20: on a 1 the wand crumbles into ashes and is destroyed."
+        onUse:
+          - kind: applyCondition
+            condition: srd51.condition.paralyzed
+            target: other
+            expires:
+              minutes: 1
+            note:
+              en: Only on a failed DC 15 Constitution save; the target repeats the save at the end of each of its turns.

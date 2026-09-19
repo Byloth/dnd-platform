@@ -16,7 +16,59 @@ text:
 type: wondrous
 magical: true
 rarity: very-rare
-attunement: true
+attunement:
+  by:
+    en: a bard, cleric, druid, sorcerer, warlock, or wizard
 tags:
   - magic-item
   - staff
+charges:
+  max: 10
+  recharge:
+    - on: dawn
+      amount: 1d6 + 4
+features:
+  - id: srd51.feature.item.staff-of-swarming-insects.spells
+    name:
+      en: Spells
+    effects:
+      - kind: grant-spells
+        spells:
+          - srd51.spell.giant-insect
+        as: always-prepared
+        cost:
+          - resource: charges
+            amount: 4
+        note:
+          en: "Cast as an action using your spell save DC. If you expend the last charge, roll a d20: on a 1 a swarm of insects consumes and destroys the staff."
+      - kind: grant-spells
+        spells:
+          - srd51.spell.insect-plague
+        as: always-prepared
+        cost:
+          - resource: charges
+            amount: 5
+  - id: srd51.feature.item.staff-of-swarming-insects.insect-cloud
+    name:
+      en: Insect Cloud
+    effects:
+      - kind: add-action
+        action: insect-cloud
+        name:
+          en: Insect Cloud
+        activation: action
+        cost:
+          - resource: charges
+            amount: 1
+        duration:
+          type: timed
+          minutes: 10
+        range:
+          type: self
+          distance: 30
+        text:
+          en: A swarm of harmless flying insects spreads out in a 30-foot radius from you for 10 minutes, making the area heavily obscured for creatures other than you. The swarm moves with you, staying centered on you. A wind of at least 10 miles per hour disperses it and ends the effect.
+        onUse:
+          - kind: note
+            text:
+              en: The area is heavily obscured for everyone but you for 10 minutes.

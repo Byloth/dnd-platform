@@ -1,7 +1,7 @@
 formatVersion: 0
 id: srd51
 name: { en: "System Reference Document 5.1" }
-version: 0.0.0
+version: 0.1.0
 kind: base
 defaultLanguage: en
 languages: [en]

@@ -1,0 +1,35 @@
+attunement: { by: { en: "a creature of good alignment" } }
+charges:
+  max: 7
+  recharge: [{ on: manual, amount: 0 }]
+features:
+  - id: srd51.feature.item.talisman-of-pure-good.holy-symbol
+    name: { en: "Holy Symbol" }
+    effects:
+      - kind: modify
+        target: attack.spell.bonus
+        op: add
+        value: 2
+        note: { en: "Only if you are a good cleric or paladin, while you wear or hold the talisman; you can also use it as a holy symbol." }
+  - id: srd51.feature.item.talisman-of-pure-good.fissure
+    name: { en: "Fissure" }
+    effects:
+      - kind: add-action
+        action: fissure
+        name: { en: "Fissure" }
+        activation: action
+        cost: [{ resource: charges, amount: 1 }]
+        range: { type: point, distance: 120 }
+        dc: "20"
+        rolls:
+          - { type: save, ability: dex }
+        text: { en: "Choose one creature you can see on the ground within 120 feet. If the target is of evil alignment, a flaming fissure opens under it: it must succeed on a DC 20 Dexterity saving throw or fall into the fissure and be destroyed, leaving no remains. The charges never recharge; when you expend the last one, the talisman disperses into motes of golden light and is destroyed." }
+        onUse:
+          - kind: note
+            text: { en: "Evil targets only: DC 20 Dexterity save or destroyed." }
+  - id: srd51.feature.item.talisman-of-pure-good.touch
+    name: { en: "Symbol of Goodness" }
+    effects:
+      - kind: add-text
+        section: features
+        text: { en: "A creature that is neither good nor evil takes 6d6 radiant damage upon touching the talisman; an evil creature takes 8d6 radiant damage. Either sort of creature takes the damage again each time it ends its turn holding or carrying the talisman." }

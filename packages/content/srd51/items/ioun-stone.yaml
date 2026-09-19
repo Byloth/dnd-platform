@@ -55,3 +55,215 @@ attunement: true
 tags:
   - magic-item
   - wondrous-items
+features:
+  - id: srd51.feature.item.ioun-stone.stone-type
+    name:
+      en: Stone Type
+    text:
+      en: Many types of Ioun stone exist, each type a distinct combination of shape and color. When you use an action to toss one of these stones into the air, the stone orbits your head at a distance of 1d3 feet and confers a benefit to you. You can use an action to seize and stow the stone, ending its effect.
+    effects:
+      - kind: open-choice
+        choice: ioun-stone-type
+        of: option
+        count: 1
+        options:
+          - id: absorption
+            name:
+              en: Absorption (Very Rare)
+            text:
+              en: While this pale lavender ellipsoid orbits your head, you can use your reaction to cancel a spell of 4th level or lower cast by a creature you can see and targeting only you. Once the stone has canceled 20 levels of spells, it burns out and turns dull gray, losing its magic.
+            effects:
+              - kind: declare-resource
+                resource: absorption-levels
+                name:
+                  en: Spell levels left
+                max: 20
+                recharge:
+                  - on: manual
+                    amount: full
+                display: counter
+                note:
+                  en: The stone never regains levels; when they reach 0 it burns out.
+              - kind: add-action
+                action: absorb-spell
+                name:
+                  en: Absorb Spell
+                activation: reaction
+                trigger:
+                  en: when a creature you can see casts a spell of 4th level or lower targeting only you
+                onUse:
+                  - kind: note
+                    text:
+                      en: The spell is canceled. Spend a number of the stone's spell levels equal to the spell's level; the stone can't cancel a spell whose level is higher than the levels it has left.
+                text:
+                  en: Cancel a spell of 4th level or lower cast by a creature you can see and targeting only you.
+          - id: agility
+            name:
+              en: Agility (Very Rare)
+            text:
+              en: Your Dexterity score increases by 2, to a maximum of 20, while this deep red sphere orbits your head.
+            effects:
+              - kind: modify
+                target: ability.dex
+                op: add
+                value: 2
+                note:
+                  en: To a maximum of 20.
+          - id: awareness
+            name:
+              en: Awareness (Rare)
+            text:
+              en: You can't be surprised while this dark blue rhomboid orbits your head.
+            effects:
+              - kind: add-text
+                section: features
+                text:
+                  en: You can't be surprised while this dark blue rhomboid orbits your head.
+                note:
+                  en: Surprise immunity has no kind.
+          - id: fortitude
+            name:
+              en: Fortitude (Very Rare)
+            text:
+              en: Your Constitution score increases by 2, to a maximum of 20, while this pink rhomboid orbits your head.
+            effects:
+              - kind: modify
+                target: ability.con
+                op: add
+                value: 2
+                note:
+                  en: To a maximum of 20.
+          - id: greater-absorption
+            name:
+              en: Greater Absorption (Legendary)
+            text:
+              en: While this marbled lavender and green ellipsoid orbits your head, you can use your reaction to cancel a spell of 8th level or lower cast by a creature you can see and targeting only you. Once the stone has canceled 50 levels of spells, it burns out and turns dull gray, losing its magic.
+            effects:
+              - kind: declare-resource
+                resource: greater-absorption-levels
+                name:
+                  en: Spell levels left
+                max: 50
+                recharge:
+                  - on: manual
+                    amount: full
+                display: counter
+                note:
+                  en: The stone never regains levels; when they reach 0 it burns out.
+              - kind: add-action
+                action: absorb-spell
+                name:
+                  en: Absorb Spell
+                activation: reaction
+                trigger:
+                  en: when a creature you can see casts a spell of 8th level or lower targeting only you
+                onUse:
+                  - kind: note
+                    text:
+                      en: The spell is canceled. Spend a number of the stone's spell levels equal to the spell's level; the stone can't cancel a spell whose level is higher than the levels it has left.
+                text:
+                  en: Cancel a spell of 8th level or lower cast by a creature you can see and targeting only you.
+          - id: insight
+            name:
+              en: Insight (Very Rare)
+            text:
+              en: Your Wisdom score increases by 2, to a maximum of 20, while this incandescent blue sphere orbits your head.
+            effects:
+              - kind: modify
+                target: ability.wis
+                op: add
+                value: 2
+                note:
+                  en: To a maximum of 20.
+          - id: intellect
+            name:
+              en: Intellect (Very Rare)
+            text:
+              en: Your Intelligence score increases by 2, to a maximum of 20, while this marbled scarlet and blue sphere orbits your head.
+            effects:
+              - kind: modify
+                target: ability.int
+                op: add
+                value: 2
+                note:
+                  en: To a maximum of 20.
+          - id: leadership
+            name:
+              en: Leadership (Very Rare)
+            text:
+              en: Your Charisma score increases by 2, to a maximum of 20, while this marbled pink and green sphere orbits your head.
+            effects:
+              - kind: modify
+                target: ability.cha
+                op: add
+                value: 2
+                note:
+                  en: To a maximum of 20.
+          - id: mastery
+            name:
+              en: Mastery (Legendary)
+            text:
+              en: Your proficiency bonus increases by 1 while this pale green prism orbits your head.
+            effects:
+              - kind: modify
+                target: proficiencyBonus
+                op: add
+                value: 1
+          - id: protection
+            name:
+              en: Protection (Rare)
+            text:
+              en: You gain a +1 bonus to AC while this dusty rose prism orbits your head.
+            effects:
+              - kind: modify
+                target: ac
+                op: add
+                value: 1
+          - id: regeneration
+            name:
+              en: Regeneration (Legendary)
+            text:
+              en: You regain 15 hit points at the end of each hour this pearly white spindle orbits your head, provided that you have at least 1 hit point.
+            effects:
+              - kind: add-text
+                section: features
+                text:
+                  en: You regain 15 hit points at the end of each hour this pearly white spindle orbits your head, provided that you have at least 1 hit point.
+                note:
+                  en: Hourly healing outside rests has no kind.
+          - id: reserve
+            name:
+              en: Reserve (Rare)
+            text:
+              en: This vibrant purple prism stores spells cast into it, holding them until you use them. The stone can store up to 3 levels worth of spells at a time. Any creature can cast a spell of 1st through 3rd level into the stone by touching it as the spell is cast. While this stone orbits your head, you can cast any spell stored in it, using the slot level, spell save DC, spell attack bonus, and spellcasting ability of the original caster.
+            effects:
+              - kind: add-text
+                section: features
+                text:
+                  en: The stone stores up to 3 levels worth of spells cast into it (1st through 3rd level). While it orbits your head, you can cast any stored spell using the slot level, spell save DC, spell attack bonus and spellcasting ability of the original caster; the spell is then no longer stored.
+                note:
+                  en: Spell storage (a level-budgeted store of spells cast later with the original caster's statistics) has no kind.
+          - id: strength
+            name:
+              en: Strength (Very Rare)
+            text:
+              en: Your Strength score increases by 2, to a maximum of 20, while this pale blue rhomboid orbits your head.
+            effects:
+              - kind: modify
+                target: ability.str
+                op: add
+                value: 2
+                note:
+                  en: To a maximum of 20.
+          - id: sustenance
+            name:
+              en: Sustenance (Rare)
+            text:
+              en: You don't need to eat or drink while this clear spindle orbits your head.
+            effects:
+              - kind: add-text
+                section: features
+                text:
+                  en: You don't need to eat or drink while this clear spindle orbits your head.
+                note:
+                  en: Text only.

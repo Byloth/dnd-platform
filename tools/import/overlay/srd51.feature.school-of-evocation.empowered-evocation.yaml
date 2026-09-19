@@ -1,0 +1,7 @@
+effects:
+  - kind: modify
+    target: damage.spell.bonus
+    op: add
+    formula: mod(int)
+    note:
+      en: Only to one damage roll of a wizard evocation spell you cast; the bonus cannot be limited to a school, so ignore it on other spells.

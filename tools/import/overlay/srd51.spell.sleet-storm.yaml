@@ -1,0 +1,7 @@
+onCast:
+  - kind: applyCondition
+    condition: srd51.condition.prone
+    target: other
+    note: { en: "A creature that enters the area for the first time on a turn or starts its turn there falls prone on a failed Dexterity save." }
+  - kind: note
+    text: { en: "The area is heavily obscured and difficult terrain (slick ice); exposed flames are doused. A creature concentrating in the area must succeed on a Constitution saving throw against your spell save DC or lose concentration." }

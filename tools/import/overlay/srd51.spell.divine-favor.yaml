@@ -1,0 +1,5 @@
+effects:
+  - kind: modify-attacks
+    set:
+      extraDamage: { dice: 1d4, damageType: radiant }
+    note: { en: "Weapon attacks only." }

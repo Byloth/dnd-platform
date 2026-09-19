@@ -20,3 +20,12 @@ duration:
   minutes: 1
 text:
   en: You touch a creature. The creature's jump distance is tripled until the spell ends.
+effects:
+  - kind: modify
+    target: jump.long
+    op: mul
+    value: 3
+  - kind: modify
+    target: jump.high
+    op: mul
+    value: 3

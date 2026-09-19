@@ -16,7 +16,50 @@ text:
 type: wondrous
 magical: true
 rarity: very-rare
-attunement: true
+attunement:
+  by:
+    en: a druid, sorcerer, warlock, or wizard
 tags:
   - magic-item
   - staff
+charges:
+  max: 10
+  recharge:
+    - on: dawn
+      amount: 1d6 + 4
+features:
+  - id: srd51.feature.item.staff-of-fire.fire-resistance
+    name:
+      en: Fire Resistance
+    effects:
+      - kind: defense
+        defense: resistance
+        to:
+          - fire
+  - id: srd51.feature.item.staff-of-fire.spells
+    name:
+      en: Spells
+    effects:
+      - kind: grant-spells
+        spells:
+          - srd51.spell.burning-hands
+        as: always-prepared
+        cost:
+          - resource: charges
+            amount: 1
+        note:
+          en: "Cast as an action using your spell save DC. If you expend the last charge, roll a d20: on a 1 the staff crumbles into cinders and is destroyed."
+      - kind: grant-spells
+        spells:
+          - srd51.spell.fireball
+        as: always-prepared
+        cost:
+          - resource: charges
+            amount: 3
+      - kind: grant-spells
+        spells:
+          - srd51.spell.wall-of-fire
+        as: always-prepared
+        cost:
+          - resource: charges
+            amount: 4

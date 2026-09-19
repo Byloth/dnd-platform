@@ -24,3 +24,78 @@ attunement: true
 tags:
   - magic-item
   - rod
+features:
+  - id: srd51.feature.item.rod-of-alertness.alertness
+    name:
+      en: Alertness
+    effects:
+      - kind: roll-advantage
+        on:
+          type: check
+          skill: perception
+      - kind: roll-advantage
+        on:
+          type: initiative
+  - id: srd51.feature.item.rod-of-alertness.spells
+    name:
+      en: Spells
+    effects:
+      - kind: grant-spells
+        spells:
+          - srd51.spell.detect-evil-and-good
+          - srd51.spell.detect-magic
+          - srd51.spell.detect-poison-and-disease
+          - srd51.spell.see-invisibility
+        as: always-prepared
+        note:
+          en: Cast from the rod as an action while holding it; the text states no limit on uses.
+  - id: srd51.feature.item.rod-of-alertness.protective-aura
+    name:
+      en: Protective Aura
+    effects:
+      - kind: declare-resource
+        resource: protective-aura
+        name:
+          en: Protective Aura
+        max: 1
+        recharge:
+          - on: dawn
+            amount: full
+        display: pips
+      - kind: add-action
+        action: protective-aura
+        name:
+          en: Protective Aura
+        activation: action
+        cost:
+          - resource: protective-aura
+            amount: 1
+        duration:
+          type: timed
+          minutes: 10
+        toggle:
+          state: protective-aura
+          expires:
+            minutes: 10
+        text:
+          en: "Plant the haft end of the rod in the ground: its head sheds bright light in a 60-foot radius and dim light for an additional 60 feet. While in that bright light, you and any creature friendly to you gain a +1 bonus to AC and saving throws and can sense the location of any invisible hostile creature that is also in the bright light. The effect ends after 10 minutes or when a creature uses an action to pull the rod from the ground."
+        onUse:
+          - kind: note
+            text:
+              en: Friendly creatures in the bright light share the +1 to AC and saving throws; only your own sheet is modified.
+      - kind: modify
+        target: ac
+        op: add
+        value: 1
+        when:
+          toggled: protective-aura
+        note:
+          en: While you are in the rod's bright light.
+      - kind: modify
+        target: save.all
+        op: add
+        value: 1
+        when:
+          toggled: protective-aura
+        note:
+          en: While you are in the rod's bright light.

@@ -1,0 +1,11 @@
+attunement: true
+features:
+  - id: srd51.feature.item.boots-of-the-winterlands.warmth
+    name: { en: "Boots of the Winterlands" }
+    effects:
+      - kind: defense
+        defense: resistance
+        to: [cold]
+      - kind: add-text
+        section: features
+        text: { en: "You ignore difficult terrain created by ice or snow. You can tolerate temperatures as low as -50 degrees Fahrenheit without any additional protection, or as low as -100 degrees Fahrenheit if you wear heavy clothes." }

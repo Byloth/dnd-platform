@@ -15,3 +15,21 @@ rarity: uncommon
 tags:
   - magic-item
   - rod
+features:
+  - id: srd51.feature.item.immovable-rod.fix-in-place
+    name:
+      en: Fix in Place
+    text:
+      en: This flat iron rod has a button on one end. You can use an action to press the button, which causes the rod to become magically fixed in place. Until you or another creature uses an action to push the button again, the rod doesn't move, even if it is defying gravity. The rod can hold up to 8,000 pounds of weight. More weight causes the rod to deactivate and fall. A creature can use an action to make a DC 30 Strength check, moving the fixed rod up to 10 feet on a success.
+    effects:
+      - kind: add-action
+        action: press-the-button
+        name:
+          en: Press the Button
+        activation: action
+        toggle:
+          state: immovable-rod-fixed
+          expires:
+            manual: true
+        text:
+          en: The rod becomes magically fixed in place until the button is pressed again. It holds up to 8,000 pounds; a DC 30 Strength check moves it up to 10 feet.

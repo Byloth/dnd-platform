@@ -44,3 +44,40 @@ attunement: true
 tags:
   - magic-item
   - wondrous-items
+features:
+  - id: srd51.feature.item.candle-of-invocation.invocation
+    name:
+      en: Invocation
+    effects:
+      - kind: add-action
+        action: light-candle-of-invocation
+        name:
+          en: Light the candle
+        activation: action
+        toggle:
+          state: candle-of-invocation-lit
+          expires:
+            hours: 4
+        text:
+          en: The candle burns for a total of 4 hours, after which it is destroyed; you can snuff it out early (deduct the time burned in 1-minute increments). While lit, it sheds dim light in a 30-foot radius.
+        onUse:
+          - kind: note
+            text:
+              en: "Track the burn time: 4 hours in total, deducted in 1-minute increments."
+      - kind: add-text
+        section: features
+        text:
+          en: While the candle is lit, any creature within its light whose alignment matches that of the candle makes attack rolls, saving throws, and ability checks with advantage. A cleric or druid in the light whose alignment matches the candle's can cast 1st-level spells he or she has prepared without expending spell slots, as if cast with a 1st-level slot.
+        note:
+          en: Advantage applies to every creature of the candle's alignment in the light, not only to you; the engine cannot compare alignments, so apply it by hand while the candle is lit.
+        when:
+          toggled: candle-of-invocation-lit
+      - kind: grant-spells
+        spells:
+          - srd51.spell.gate
+        as: always-prepared
+        uses:
+          count: 1
+          recharge: manual
+        note:
+          en: Only when you light the candle for the first time; doing so destroys the candle.

@@ -27,3 +27,19 @@ rarity: very-rare
 tags:
   - magic-item
   - wondrous-items
+features:
+  - id: srd51.feature.item.efreeti-bottle.open
+    name:
+      en: Open the bottle
+    effects:
+      - kind: add-action
+        action: open-efreeti-bottle
+        name:
+          en: Remove the stopper
+        activation: action
+        text:
+          en: "A cloud of thick smoke flows out of the bottle. At the end of your turn, the smoke disappears with a flash of harmless fire, and an efreeti appears in an unoccupied space within 30 feet of you. The first time the bottle is opened, the GM rolls a d100: 01-10 the efreeti attacks you for 5 rounds and the bottle loses its magic; 11-90 the efreeti serves you for 1 hour, then returns to the bottle (the same effect occurs the next two times, and on a fourth opening the efreeti escapes); 91-100 the efreeti casts wish three times for you, then disappears and the bottle loses its magic."
+        onUse:
+          - kind: note
+            text:
+              en: "First opening: the GM rolls a d100 on the bottle's table."

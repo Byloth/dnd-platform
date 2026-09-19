@@ -15,3 +15,17 @@ rarity: rare
 tags:
   - magic-item
   - wondrous-items
+features:
+  - id: srd51.feature.item.stone-of-controlling-earth-elementals.summon
+    name:
+      en: Summon Earth Elemental
+    effects:
+      - kind: grant-spells
+        spells:
+          - srd51.spell.conjure-elemental
+        as: always-prepared
+        uses:
+          count: 1
+          recharge: dawn
+        note:
+          en: "Only while the stone is touching the ground: speak its command word as an action to summon an earth elemental, as if you had cast conjure elemental. The elemental's stat block is not part of the content in v0."

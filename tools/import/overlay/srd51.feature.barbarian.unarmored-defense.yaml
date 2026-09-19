@@ -1,0 +1,9 @@
+effects:
+  - kind: modify
+    target: ac
+    op: set-formula
+    formula: 10 + mod(dex) + mod(con)
+    when:
+      armorCategory: none
+    note:
+      en: You can use a shield and still gain this benefit.

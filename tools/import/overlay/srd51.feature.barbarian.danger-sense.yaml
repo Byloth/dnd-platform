@@ -1,0 +1,13 @@
+effects:
+  - kind: roll-advantage
+    on:
+      type: save
+      ability: dex
+      against:
+        - "effects that you can see, such as traps and spells"
+    when:
+      not:
+        any:
+          - conditionActive: srd51.condition.blinded
+          - conditionActive: srd51.condition.deafened
+          - conditionActive: srd51.condition.incapacitated

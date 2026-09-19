@@ -74,6 +74,35 @@ levels:
             The presence of strong evil registers on your senses like a noxious odor, and powerful good rings like heavenly music in your ears. As an action, you can open your awareness to detect such forces. Until the end of your next turn, you know the location of any celestial, fiend, or undead within 60 feet of you that is not behind total cover. You know the type (celestial, fiend, or undead) of any being whose presence you sense, but not its identity (the vampire Count Strahd von Zarovich, for instance). Within the same radius, you also detect the presence of any place or object that has been consecrated or desecrated, as with the hallow spell.
 
             You can use this feature a number of times equal to 1 + your Charisma modifier. When you finish a long rest, you regain all expended uses.
+        effects:
+          - kind: declare-resource
+            resource: divine-sense
+            name:
+              en: Divine Sense
+            max: 1 + mod(cha)
+            recharge:
+              - on: long-rest
+                amount: full
+            display: pips
+          - kind: add-action
+            action: divine-sense
+            name:
+              en: Divine Sense
+            activation: action
+            cost:
+              - resource: divine-sense
+                amount: 1
+            range:
+              type: self
+              distance: 60
+            duration:
+              type: special
+            text:
+              en: As an action, you open your awareness. Until the end of your next turn, you know the location of any celestial, fiend, or undead within 60 feet of you that is not behind total cover, and its type (celestial, fiend, or undead) but not its identity. Within the same radius, you also detect any place or object that has been consecrated or desecrated, as with the hallow spell.
+            onUse:
+              - kind: note
+                text:
+                  en: Until the end of your next turn, sense celestials, fiends and undead within 60 feet (not behind total cover) and consecrated or desecrated places or objects.
       - id: srd51.feature.paladin.lay-on-hands
         name:
           en: Lay on Hands
@@ -87,6 +116,52 @@ levels:
             Alternatively, you can expend 5 hit points from your pool of healing to cure the target of one disease or neutralize one poison affecting it. You can cure multiple diseases and neutralize multiple poisons with a single use of Lay on Hands, expending hit points separately for each one.
 
             This feature has no effect on undead and constructs.
+        effects:
+          - kind: declare-resource
+            resource: lay-on-hands
+            name:
+              en: Lay on Hands pool
+            max: 5 * classLevel(paladin)
+            recharge:
+              - on: long-rest
+                amount: full
+            display: counter
+          - kind: add-action
+            action: lay-on-hands
+            name:
+              en: Lay on Hands
+            activation: action
+            cost:
+              - resource: lay-on-hands
+                amount: 1
+            range:
+              type: touch
+            text:
+              en: Touch a creature and draw power from your pool to restore a number of hit points to that creature, up to the maximum amount remaining in your pool. This feature has no effect on undead and constructs.
+            onUse:
+              - kind: heal
+                amount: "1"
+                target: other
+                note:
+                  en: You choose how many points to spend; each point spent from the pool restores 1 hit point, up to the amount remaining in the pool. The cost of 1 is the minimum, not the amount.
+            note:
+              en: The amount healed is chosen by the player at the moment of use; the engine has no variable resource cost yet.
+          - kind: add-action
+            action: lay-on-hands-cure
+            name:
+              en: Lay on Hands (cure disease or poison)
+            activation: action
+            cost:
+              - resource: lay-on-hands
+                amount: 5
+            range:
+              type: touch
+            text:
+              en: Expend 5 hit points from your pool of healing to cure the target of one disease or neutralize one poison affecting it. You can cure multiple diseases and neutralize multiple poisons with a single use of Lay on Hands, expending hit points separately for each one. This feature has no effect on undead and constructs.
+            onUse:
+              - kind: note
+                text:
+                  en: Cure one disease or neutralize one poison affecting the touched creature (5 points each; repeat within the same action for additional diseases or poisons).
   "2":
     features:
       - id: srd51.feature.paladin.divine-smite
@@ -95,6 +170,31 @@ levels:
         source: srd51
         text:
           en: Starting at 2nd level, when you hit a creature with a melee weapon attack, you can expend one spell slot to deal radiant damage to the target, in addition to the weapon's damage. The extra damage is 2d8 for a 1st-level spell slot, plus 1d8 for each spell level higher than 1st, to a maximum of 5d8. The damage increases by 1d8 if the target is an undead or a fiend.
+        effects:
+          - kind: add-action
+            action: divine-smite
+            name:
+              en: Divine Smite
+            activation: special
+            cost:
+              - resource: spell-slot
+                level: 1
+            requires:
+              condition:
+                wielding:
+                  melee: true
+            trigger:
+              en: when you hit a creature with a melee weapon attack
+            text:
+              en: When you hit a creature with a melee weapon attack, you can expend one spell slot to deal radiant damage to the target, in addition to the weapon's damage. The extra damage is 2d8 for a 1st-level spell slot, plus 1d8 for each spell level higher than 1st, to a maximum of 5d8. The damage increases by 1d8 if the target is an undead or a fiend.
+            onHit:
+              - kind: extraDamage
+                dice: 2d8
+                damageType: radiant
+                note:
+                  en: 2d8 for a 1st-level slot, plus 1d8 per slot level above 1st (maximum 5d8); +1d8 if the target is an undead or a fiend.
+            note:
+              en: The cost is fixed at a 1st-level slot; spending a higher-level slot for more dice is not expressible yet (no slot-level cost variable).
       - id: srd51.feature.paladin.fighting-style
         name:
           en: Fighting Style
@@ -118,6 +218,78 @@ levels:
             ### Protection
 
             When a creature you can see attacks a target other than you that is within 5 feet of you, you can use your reaction to impose disadvantage on the attack roll. You must be wielding a shield.
+        effects:
+          - kind: open-choice
+            choice: fighting-style
+            of: fighting-style
+            count: 1
+            note:
+              en: You can't take a Fighting Style option more than once, even if you later get to choose again.
+            options:
+              - id: defense
+                name:
+                  en: Defense
+                text:
+                  en: While you are wearing armor, you gain a +1 bonus to AC.
+                effects:
+                  - kind: modify
+                    target: ac
+                    op: add
+                    value: 1
+                    when:
+                      any:
+                        - armorCategory: light
+                        - armorCategory: medium
+                        - armorCategory: heavy
+              - id: dueling
+                name:
+                  en: Dueling
+                text:
+                  en: When you are wielding a melee weapon in one hand and no other weapons, you gain a +2 bonus to damage rolls with that weapon.
+                effects:
+                  - kind: modify-attacks
+                    filter:
+                      melee: true
+                    set:
+                      damageBonus: 2
+                    when:
+                      wieldingOnly:
+                        melee: true
+                        count: 1
+              - id: great-weapon-fighting
+                name:
+                  en: Great Weapon Fighting
+                text:
+                  en: When you roll a 1 or 2 on a damage die for an attack you make with a melee weapon that you are wielding with two hands, you can reroll the die and must use the new roll. The weapon must have the two-handed or versatile property for you to gain this benefit.
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Great Weapon Fighting: when you roll a 1 or 2 on a damage die for an attack with a melee weapon wielded with two hands (two-handed or versatile property), reroll the die and use the new roll."
+                    note:
+                      en: Rerolling individual damage dice of 1 or 2 has no catalogue kind; resolved in play.
+              - id: protection
+                name:
+                  en: Protection
+                text:
+                  en: When a creature you can see attacks a target other than you that is within 5 feet of you, you can use your reaction to impose disadvantage on the attack roll. You must be wielding a shield.
+                effects:
+                  - kind: add-action
+                    action: protection
+                    name:
+                      en: Protection
+                    activation: reaction
+                    requires:
+                      condition:
+                        shield: true
+                    trigger:
+                      en: when a creature you can see attacks a target other than you that is within 5 feet of you
+                    text:
+                      en: Impose disadvantage on the attack roll. You must be wielding a shield.
+                    onUse:
+                      - kind: note
+                        text:
+                          en: The triggering attack roll is made with disadvantage.
       - id: srd51.feature.paladin.spellcasting
         name:
           en: Spellcasting
@@ -162,6 +334,11 @@ levels:
         source: srd51
         text:
           en: By 3rd level, the divine magic flowing through you makes you immune to disease.
+        effects:
+          - kind: defense
+            defense: immunity
+            to:
+              - disease
       - id: srd51.feature.paladin.sacred-oath
         name:
           en: Sacred Oath
@@ -186,11 +363,22 @@ levels:
 
             Some Channel Divinity effects require saving throws. When you use such an effect from this class, the DC equals your paladin spell save DC.
         effects:
-          - kind: open-choice
-            choice: sacred-oath
-            of: subclass
-            count: 1
-            level: 3
+          - kind: declare-resource
+            resource: channel-divinity
+            name:
+              en: Channel Divinity
+            max: 1
+            recharge:
+              - on: short-rest
+                amount: full
+              - on: long-rest
+                amount: full
+            display: pips
+            note:
+              en: Declared here because every Sacred Oath's Channel Divinity options spend this pool; the oath features add the options.
+    choices:
+      - id: sacred-oath
+        of: subclass
   "4":
     features:
       - id: srd51.feature.paladin.ability-score-improvement
@@ -210,6 +398,11 @@ levels:
         source: srd51
         text:
           en: Beginning at 5th level, you can attack twice, instead of once, whenever you take the Attack action on your turn.
+        effects:
+          - kind: modify
+            target: attacks.perAction
+            op: set
+            value: 2
   "6":
     features:
       - id: srd51.feature.paladin.aura-of-protection
@@ -221,6 +414,19 @@ levels:
             Starting at 6th level, whenever you or a friendly creature within 10 feet of you must make a saving throw, the creature gains a bonus to the saving throw equal to your Charisma modifier (with a minimum bonus of +1). You must be conscious to grant this bonus.
 
             At 18th level, the range of this aura increases to 30 feet.
+        effects:
+          - kind: modify
+            target: save.all
+            op: add
+            formula: max(1, mod(cha))
+            note:
+              en: Applies while you are conscious.
+          - kind: add-text
+            section: features
+            text:
+              en: Friendly creatures within 10 feet of you (30 feet at 18th level) gain the same bonus to their saving throws while you are conscious.
+            note:
+              en: The bonus to allies and the conscious gate are play mode; the range is table(paladin.aura-range).
   "8":
     choices:
       - id: asi-8
@@ -236,6 +442,19 @@ levels:
             Starting at 10th level, you and friendly creatures within 10 feet of you can't be frightened while you are conscious.
 
             At 18th level, the range of this aura increases to 30 feet.
+        effects:
+          - kind: defense
+            defense: condition-immunity
+            to:
+              - srd51.condition.frightened
+            note:
+              en: Applies while you are conscious.
+          - kind: add-text
+            section: features
+            text:
+              en: Friendly creatures within 10 feet of you (30 feet at 18th level) can't be frightened while you are conscious.
+            note:
+              en: The immunity for allies and the conscious gate are play mode; the range is table(paladin.aura-range).
   "11":
     features:
       - id: srd51.feature.paladin.improved-divine-smite
@@ -244,6 +463,16 @@ levels:
         source: srd51
         text:
           en: By 11th level, you are so suffused with righteous might that all your melee weapon strikes carry divine power with them. Whenever you hit a creature with a melee weapon, the creature takes an extra 1d8 radiant damage. If you also use your Divine Smite with an attack, you add this damage to the extra damage of your Divine Smite.
+        effects:
+          - kind: modify-attacks
+            filter:
+              melee: true
+            set:
+              extraDamage:
+                dice: 1d8
+                damageType: radiant
+            note:
+              en: Whenever you hit a creature with a melee weapon, it takes an extra 1d8 radiant damage; if you also use Divine Smite, add this to that extra damage.
   "12":
     choices:
       - id: asi-12
@@ -259,6 +488,32 @@ levels:
             Beginning at 14th level, you can use your action to end one spell on yourself or on one willing creature that you touch.
 
             You can use this feature a number of times equal to your Charisma modifier (a minimum of once). You regain expended uses when you finish a long rest.
+        effects:
+          - kind: declare-resource
+            resource: cleansing-touch
+            name:
+              en: Cleansing Touch
+            max: max(1, mod(cha))
+            recharge:
+              - on: long-rest
+                amount: full
+            display: pips
+          - kind: add-action
+            action: cleansing-touch
+            name:
+              en: Cleansing Touch
+            activation: action
+            cost:
+              - resource: cleansing-touch
+                amount: 1
+            range:
+              type: touch
+            text:
+              en: Use your action to end one spell on yourself or on one willing creature that you touch.
+            onUse:
+              - kind: note
+                text:
+                  en: End one spell on yourself or on one willing creature you touch.
   "16":
     choices:
       - id: asi-16

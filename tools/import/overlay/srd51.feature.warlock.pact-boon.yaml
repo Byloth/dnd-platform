@@ -1,0 +1,63 @@
+effects:
+  - kind: open-choice
+    choice: pact-boon
+    of: option
+    count: 1
+    options:
+      - id: pact-of-the-chain
+        name:
+          en: Pact of the Chain
+        text:
+          en: "You learn the find familiar spell and can cast it as a ritual. The spell doesn't count against your number of spells known. When you cast the spell, you can choose one of the normal forms for your familiar or one of the following special forms: imp, pseudodragon, quasit, or sprite. Additionally, when you take the Attack action, you can forgo one of your own attacks to allow your familiar to make one attack of its own with its reaction."
+        effects:
+          - kind: grant-spells
+            spells:
+              - srd51.spell.find-familiar
+            as: known
+            ability: cha
+            note:
+              en: "You can cast it as a ritual; it doesn't count against your number of spells known. Special familiar forms available: imp, pseudodragon, quasit, sprite."
+          - kind: add-text
+            section: features
+            text:
+              en: When you take the Attack action, you can forgo one of your own attacks to allow your familiar to make one attack of its own with its reaction.
+            note:
+              en: The familiar and its attack are not modelled; resolve it by hand.
+      - id: pact-of-the-blade
+        name:
+          en: Pact of the Blade
+        text:
+          en: You can use your action to create a pact weapon in your empty hand. You can choose the form that this melee weapon takes each time you create it. You are proficient with it while you wield it. This weapon counts as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage. Your pact weapon disappears if it is more than 5 feet away from you for 1 minute or more, if you use this feature again, if you dismiss the weapon (no action required), or if you die. You can transform one magic weapon into your pact weapon by performing a special ritual over the course of 1 hour, which can be done during a short rest.
+        effects:
+          - kind: add-action
+            action: create-pact-weapon
+            name:
+              en: Create pact weapon
+            activation: action
+            text:
+              en: You create a pact weapon in your empty hand, choosing the form this melee weapon takes each time. You are proficient with it while you wield it, and it counts as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage. It disappears if it is more than 5 feet away from you for 1 minute or more, if you use this feature again, if you dismiss it (no action required), or if you die.
+            note:
+              en: There is no pact-weapon item, so the proficiency and the magical property cannot be attached to the created weapon; treat the weapon you add to your equipment as proficient and magical.
+          - kind: add-text
+            section: features
+            text:
+              en: You can transform one magic weapon into your pact weapon by performing a special ritual while you hold the weapon, over the course of 1 hour (possible during a short rest). You can then dismiss the weapon, shunting it into an extradimensional space, and it appears whenever you create your pact weapon thereafter. You can't affect an artifact or a sentient weapon in this way. The weapon ceases being your pact weapon if you die, if you perform the 1-hour ritual on a different weapon, or if you use a 1-hour ritual to break your bond to it.
+      - id: pact-of-the-tome
+        name:
+          en: Pact of the Tome
+        text:
+          en: Your patron gives you a grimoire called a Book of Shadows. When you gain this feature, choose three cantrips from any class's spell list (the three needn't be from the same list). While the book is on your person, you can cast those cantrips at will. They don't count against your number of cantrips known. If they don't appear on the warlock spell list, they are nonetheless warlock spells for you.
+        effects:
+          - kind: open-choice
+            choice: book-of-shadows-cantrips
+            of: spell
+            count: 3
+            filter:
+              type: spell
+              level: 0
+            note:
+              en: Three cantrips from any class's spell list. While the Book of Shadows is on your person you can cast them at will; they don't count against your cantrips known and count as warlock spells for you. The chosen cantrips cannot yet be granted from the answer, so add them to your known spells by hand.
+          - kind: add-text
+            section: features
+            text:
+              en: If you lose your Book of Shadows, you can perform a 1-hour ceremony to receive a replacement from your patron. This ceremony can be performed during a short or long rest, and it destroys the previous book. The book turns to ash when you die.

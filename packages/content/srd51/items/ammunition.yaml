@@ -14,3 +14,52 @@ magical: true
 tags:
   - magic-item
   - ammunition
+features:
+  - id: srd51.feature.item.ammunition.bonus
+    name:
+      en: Magic ammunition bonus
+    effects:
+      - kind: open-choice
+        choice: variant
+        of: option
+        count: 1
+        options:
+          - id: plus-1
+            name:
+              en: +1 (uncommon)
+            effects:
+              - kind: modify-attacks
+                filter:
+                  ranged: true
+                set:
+                  attackBonus: 1
+                  damageBonus: 1
+                  magical: true
+                note:
+                  en: Only for attacks made with this piece of ammunition; once it hits a target, the ammunition is no longer magical.
+          - id: plus-2
+            name:
+              en: +2 (rare)
+            effects:
+              - kind: modify-attacks
+                filter:
+                  ranged: true
+                set:
+                  attackBonus: 2
+                  damageBonus: 2
+                  magical: true
+                note:
+                  en: Only for attacks made with this piece of ammunition; once it hits a target, the ammunition is no longer magical.
+          - id: plus-3
+            name:
+              en: +3 (very rare)
+            effects:
+              - kind: modify-attacks
+                filter:
+                  ranged: true
+                set:
+                  attackBonus: 3
+                  damageBonus: 3
+                  magical: true
+                note:
+                  en: Only for attacks made with this piece of ammunition; once it hits a target, the ammunition is no longer magical.

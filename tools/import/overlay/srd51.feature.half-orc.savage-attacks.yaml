@@ -1,0 +1,7 @@
+effects:
+  - kind: add-text
+    section: features
+    text:
+      en: When you score a critical hit with a melee weapon attack, roll one of the weapon's damage dice one additional time and add it to the extra damage of the critical hit.
+    note:
+      en: Play-mode critical hit rule (same shape as Brutal Critical); no derived value models it in v0.

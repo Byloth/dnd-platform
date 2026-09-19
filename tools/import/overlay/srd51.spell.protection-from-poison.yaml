@@ -1,0 +1,9 @@
+effects:
+  - kind: defense
+    defense: resistance
+    to: [poison]
+  - kind: roll-advantage
+    on: { type: save, against: ["being poisoned"] }
+onCast:
+  - kind: note
+    text: { en: "If the target is poisoned, you neutralize one poison (one you know is present, or one at random if several afflict it)." }

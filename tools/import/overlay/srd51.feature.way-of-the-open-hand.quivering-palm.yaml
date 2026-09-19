@@ -1,0 +1,33 @@
+effects:
+  - kind: add-action
+    action: quivering-palm
+    name:
+      en: Quivering Palm (set up)
+    activation: special
+    cost:
+      - resource: ki
+        amount: 3
+    trigger:
+      en: when you hit a creature with an unarmed strike
+    text:
+      en: Spend 3 ki points to start imperceptible vibrations in the target's body, which last for a number of days equal to your monk level. The vibrations are harmless unless you use your action to end them. You can have only one creature under this effect at a time, and you can end the vibrations harmlessly without using an action.
+    onHit:
+      - kind: note
+        text:
+          en: The target is marked for classLevel(monk) days. Only one creature can be marked at a time.
+  - kind: add-action
+    action: quivering-palm-end
+    name:
+      en: Quivering Palm (end the vibrations)
+    activation: action
+    dc: 8 + proficiencyBonus + mod(wis)
+    rolls:
+      - type: save
+        ability: con
+        dc: 8 + proficiencyBonus + mod(wis)
+    text:
+      en: You and the target must be on the same plane of existence. The creature must make a Constitution saving throw. If it fails, it is reduced to 0 hit points. If it succeeds, it takes 10d10 necrotic damage.
+    onUse:
+      - kind: note
+        text:
+          en: "Failed save: the target is reduced to 0 hit points. Successful save: it takes 10d10 necrotic damage."

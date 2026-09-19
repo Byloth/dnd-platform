@@ -1,0 +1,29 @@
+effects:
+  - kind: open-choice
+    choice: signature-spells
+    of: spell
+    count: 2
+    filter:
+      list: srd51.spell-list.wizard
+      level: 3
+    note:
+      en: Two 3rd-level wizard spells in your spellbook. You always have them prepared and they don't count against the number of spells you have prepared.
+  - kind: declare-resource
+    resource: signature-spells
+    name:
+      en: Signature Spells
+    max: 2
+    display: pips
+    recharge:
+      - on: short-rest
+        amount: full
+      - on: long-rest
+        amount: full
+    note:
+      en: One use per signature spell, each regained when you finish a short or long rest; the pool cannot tie a use to a specific spell, so spend one per spell.
+  - kind: add-text
+    section: features
+    text:
+      en: You can cast each of your signature spells once at 3rd level without expending a spell slot. When you do so, you can't do so again until you finish a short or long rest. If you want to cast either spell at a higher level, you must expend a spell slot as normal.
+    note:
+      en: The filter cannot restrict the choice to spells in your spellbook, and a chosen spell cannot yet be marked always-prepared or granted with uses (grant-spells needs fixed spell ids); prepare them and spend the Signature Spells uses by hand.

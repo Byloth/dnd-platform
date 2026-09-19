@@ -1,0 +1,19 @@
+effects:
+  - kind: add-text
+    section: features
+    text:
+      en: Climbing no longer costs you extra movement.
+    note:
+      en: The text does not grant a climb speed; the movement-cost rule is applied in play.
+  - kind: modify
+    target: jump.long
+    op: add
+    formula: mod(dex)
+    note:
+      en: Running jumps only.
+  - kind: modify
+    target: jump.high
+    op: add
+    formula: mod(dex)
+    note:
+      en: Running jumps only.

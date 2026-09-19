@@ -20,3 +20,74 @@ attunement: true
 tags:
   - magic-item
   - weapon
+charges:
+  max: 1d4 - 1
+  recharge:
+    - on: manual
+      amount: full
+features:
+  - id: srd51.feature.item.luck-blade.magic-weapon
+    name:
+      en: Magic Weapon
+    text:
+      en: You gain a +1 bonus to attack and damage rolls made with this magic weapon. While the sword is on your person, you also gain a +1 bonus to saving throws.
+    effects:
+      - kind: modify-attacks
+        filter:
+          item: srd51.item.luck-blade
+        set:
+          attackBonus: 1
+          damageBonus: 1
+          magical: true
+      - kind: modify
+        target: save.all
+        op: add
+        value: 1
+        note:
+          en: While the sword is on your person.
+  - id: srd51.feature.item.luck-blade.luck
+    name:
+      en: Luck
+    text:
+      en: If the sword is on your person, you can call on its luck (no action required) to reroll one attack roll, ability check, or saving throw you dislike. You must use the second roll. This property can't be used again until the next dawn.
+    effects:
+      - kind: declare-resource
+        resource: luck-blade-luck
+        name:
+          en: Luck
+        max: 1
+        recharge:
+          - on: dawn
+            amount: full
+        display: pips
+      - kind: add-action
+        action: luck
+        name:
+          en: Luck
+        activation: free
+        cost:
+          - resource: luck-blade-luck
+            amount: 1
+        onUse:
+          - kind: reroll
+            roll: attack
+            keep: new
+            note:
+              en: One attack roll, ability check or saving throw you dislike. You must use the second roll.
+        text:
+          en: Reroll one attack roll, ability check, or saving throw you dislike. You must use the second roll.
+  - id: srd51.feature.item.luck-blade.wish
+    name:
+      en: Wish
+    text:
+      en: The sword has 1d4 - 1 charges. While holding it, you can use an action to expend 1 charge and cast the wish spell from it. This property can't be used again until the next dawn. The sword loses this property if it has no charges.
+    effects:
+      - kind: grant-spells
+        spells:
+          - srd51.spell.wish
+        as: always-prepared
+        cost:
+          - resource: charges
+            amount: 1
+        note:
+          en: At most once per dawn. The charges never come back; the sword loses this property when it has none.

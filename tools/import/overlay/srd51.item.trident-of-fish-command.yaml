@@ -1,0 +1,26 @@
+attunement: true
+baseItem: srd51.item.trident
+category: martial
+damage: 1d6
+damageType: piercing
+properties: [thrown, versatile]
+versatile: 1d8
+range: { normal: 20, long: 60 }
+charges:
+  max: 3
+  recharge: [{ on: dawn, amount: "1d3" }]
+features:
+  - id: srd51.feature.item.trident-of-fish-command.magic-weapon
+    name: { en: "Magic Weapon" }
+    effects:
+      - kind: modify-attacks
+        filter: { item: srd51.item.trident-of-fish-command }
+        set: { magical: true }
+  - id: srd51.feature.item.trident-of-fish-command.fish-command
+    name: { en: "Fish Command" }
+    effects:
+      - kind: grant-spells
+        spells: [srd51.spell.dominate-beast]
+        as: always-prepared
+        cost: [{ resource: charges, amount: 1 }]
+        note: { en: "Save DC 15; cast as an action while you carry the trident, only on a beast that has an innate swimming speed." }

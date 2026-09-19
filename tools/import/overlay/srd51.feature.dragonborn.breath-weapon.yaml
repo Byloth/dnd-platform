@@ -1,0 +1,34 @@
+effects:
+  - kind: declare-resource
+    resource: breath-weapon
+    name: { en: Breath Weapon }
+    max: 1
+    recharge:
+      - on: short-rest
+        amount: full
+      - on: long-rest
+        amount: full
+    display: pips
+    note:
+      en: "Once per short or long rest; the imported text omits the rest sentence, the limit follows the SRD."
+  - kind: add-action
+    action: breath-weapon
+    name: { en: Breath Weapon }
+    activation: action
+    cost:
+      - resource: breath-weapon
+        amount: 1
+    dc: 8 + mod(con) + proficiencyBonus
+    rolls:
+      - type: save
+        onSuccess: half
+      - type: damage
+        dice: 2d6
+    text:
+      en: You exhale destructive energy in the area determined by your draconic ancestry. Each creature in the area must make a saving throw (DC 8 + your Constitution modifier + your proficiency bonus), taking 2d6 damage on a failed save and half as much on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level.
+    onUse:
+      - kind: note
+        text:
+          en: "Area, save ability and damage type follow your Draconic Ancestry: black/blue/brass/bronze/copper 5 by 30 ft. line (Dex. save); gold/red 15 ft. cone (Dex. save); green/silver/white 15 ft. cone (Con. save). Damage: 2d6, 3d6 at 6th level, 4d6 at 11th, 5d6 at 16th."
+    note:
+      en: The damage dice scale with character level and the shape, save and damage type vary with the ancestry answer; v0 carries them in the note.

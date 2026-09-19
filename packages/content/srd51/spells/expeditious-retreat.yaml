@@ -20,3 +20,12 @@ duration:
   concentration: true
 text:
   en: This spell allows you to move at an incredible pace. When you cast this spell, and then as a bonus action on each of your turns until the spell ends, you can take the Dash action.
+effects:
+  - kind: add-action
+    action: expeditious-retreat-dash
+    name:
+      en: "Expeditious Retreat: Dash"
+    activation: bonus-action
+    cost: []
+    text:
+      en: Take the Dash action as a bonus action (also when you cast the spell).

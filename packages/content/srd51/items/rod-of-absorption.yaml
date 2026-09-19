@@ -22,3 +22,31 @@ attunement: true
 tags:
   - magic-item
   - rod
+features:
+  - id: srd51.feature.item.rod-of-absorption.absorb-spell
+    name:
+      en: Absorb Spell
+    effects:
+      - kind: add-action
+        action: absorb-spell
+        name:
+          en: Absorb Spell
+        activation: reaction
+        trigger:
+          en: when a spell that targets only you (not with an area of effect) is cast
+        text:
+          en: The absorbed spell's effect is canceled and its energy is stored in the rod at the level the spell was cast. The rod can absorb and store up to 50 levels of energy over its existence; once it has absorbed 50 levels it can't absorb more, and a spell it can't store is unaffected.
+        onUse:
+          - kind: note
+            text:
+              en: Track the levels stored and the lifetime total (max 50) by hand. A newly found rod already holds 1d10 levels.
+  - id: srd51.feature.item.rod-of-absorption.stored-energy
+    name:
+      en: Stored Energy
+    effects:
+      - kind: add-text
+        section: features
+        text:
+          en: If you are a spellcaster holding the rod, you can convert stored energy into spell slots to cast spells you have prepared or know, of a level equal to or lower than your own spell slots, up to 5th level. The stored levels replace your slot; the spell is otherwise cast as normal. A rod that can no longer absorb energy and has none remaining becomes nonmagical.
+        note:
+          en: Spell storage (converting stored energy into slots) is not expressible in v0; tracked as text.

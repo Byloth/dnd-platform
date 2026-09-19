@@ -17,3 +17,37 @@ rarity: rare
 tags:
   - magic-item
   - weapon
+baseItem: srd51.item.mace
+category: simple
+damage: 1d6
+damageType: bludgeoning
+monkWeapon: true
+weight: 4
+features:
+  - id: srd51.feature.item.mace-of-smiting.magic-weapon
+    name:
+      en: Magic Weapon
+    text:
+      en: You gain a +1 bonus to attack and damage rolls made with this magic weapon. The bonus increases to +3 when you use the mace to attack a construct.
+    effects:
+      - kind: modify-attacks
+        filter:
+          item: srd51.item.mace-of-smiting
+        set:
+          attackBonus: 1
+          damageBonus: 1
+          magical: true
+        note:
+          en: The bonus is +3 instead when you attack a construct.
+  - id: srd51.feature.item.mace-of-smiting.smiting
+    name:
+      en: Smiting
+    text:
+      en: When you roll a 20 on an attack roll made with this weapon, the target takes an extra 2d6 bludgeoning damage, or 4d6 bludgeoning damage if it's a construct. If a construct has 25 hit points or fewer after taking this damage, it is destroyed.
+    effects:
+      - kind: add-text
+        section: features
+        text:
+          en: When you roll a 20 on an attack roll made with this weapon, the target takes an extra 2d6 bludgeoning damage, or 4d6 bludgeoning damage if it's a construct. If a construct has 25 hit points or fewer after taking this damage, it is destroyed.
+        note:
+          en: Extra damage only on a natural 20; modify-attacks cannot gate extra damage on the roll.

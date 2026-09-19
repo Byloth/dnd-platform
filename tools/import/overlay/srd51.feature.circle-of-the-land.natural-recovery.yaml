@@ -1,0 +1,29 @@
+effects:
+  - kind: declare-resource
+    resource: natural-recovery
+    name:
+      en: Natural Recovery
+    max: 1
+    display: pips
+    recharge:
+      - on: long-rest
+        amount: full
+  - kind: add-action
+    action: natural-recovery
+    name:
+      en: Natural Recovery
+    activation: special
+    cost:
+      - resource: natural-recovery
+        amount: 1
+    trigger:
+      en: during a short rest
+    text:
+      en: During a short rest, you choose expended spell slots to recover. The spell slots can have a combined level that is equal to or less than half your druid level (rounded up), and none of the slots can be 6th level or higher.
+    onUse:
+      - kind: restoreResource
+        resource: spell-slots
+        amount: ceil(classLevel(druid) / 2)
+        budget: ceil(classLevel(druid) / 2)
+        note:
+          en: Combined slot level up to half your druid level (rounded up); no slot of 6th level or higher.

@@ -1,0 +1,37 @@
+attunement: true
+charges:
+  max: 1
+  recharge:
+    - on: dawn
+      amount: full
+features:
+  - id: srd51.feature.item.helm-of-telepathy.detect-thoughts
+    name:
+      en: "Detect Thoughts"
+    text:
+      en: "While wearing this helm, you can use an action to cast the detect thoughts spell (save DC 13) from it. As long as you maintain concentration on the spell, you can use a bonus action to send a telepathic message to a creature you are focused on. It can reply, using a bonus action to do so, while your focus on it continues."
+    effects:
+      - kind: grant-spells
+        spells: [srd51.spell.detect-thoughts]
+        as: always-prepared
+        note:
+          en: "Cast as an action, without a spell slot, save DC 13."
+      - kind: add-action
+        action: telepathic-message
+        name:
+          en: "Telepathic Message"
+        activation: bonus-action
+        text:
+          en: "While you maintain concentration on detect thoughts cast from the helm, send a telepathic message to a creature you are focused on. It can reply, using a bonus action to do so, while your focus on it continues."
+  - id: srd51.feature.item.helm-of-telepathy.suggestion
+    name:
+      en: "Suggestion"
+    text:
+      en: "While focusing on a creature with detect thoughts, you can use an action to cast the suggestion spell (save DC 13) from the helm on that creature. Once used, the suggestion property can't be used again until the next dawn."
+    effects:
+      - kind: grant-spells
+        spells: [srd51.spell.suggestion]
+        as: always-prepared
+        cost: [{ resource: charges, amount: 1 }]
+        note:
+          en: "Only on a creature you are focusing on with detect thoughts, save DC 13; once per dawn (the helm's single charge)."

@@ -40,3 +40,21 @@ rolls:
     damageType: bludgeoning
 tags:
   - area
+effects:
+  - kind: add-action
+    action: control-water
+    name:
+      en: Control Water
+    activation: action
+    cost: []
+    rolls:
+      - type: save
+        ability: str
+        onSuccess: half
+      - type: damage
+        dice: 2d8
+        damageType: bludgeoning
+    text:
+      en: "Repeat the same effect or choose a different one: Flood (raise the water level by up to 20 feet, or send a 20-foot tall wave across the area that carries Huge or smaller vehicles and capsizes them 25 percent of the time); Part Water (open a trench across the area); Redirect Flow (make flowing water move in a direction you choose); Whirlpool (in water at least 50 feet square and 25 feet deep: creatures and objects within 25 feet are pulled 10 feet toward the vortex; a creature that enters it or starts its turn there makes a Strength saving throw, taking 2d8 bludgeoning damage and being caught on a failure or half damage on a success; swimming away is a Strength (Athletics) check against your spell save DC, with disadvantage if caught)."
+    note:
+      en: The rolls belong to the Whirlpool effect; the other effects are DM-adjudicated.

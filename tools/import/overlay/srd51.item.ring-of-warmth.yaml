@@ -1,0 +1,11 @@
+attunement: true
+features:
+  - id: srd51.feature.item.ring-of-warmth.warmth
+    name:
+      en: "\"Warmth\""
+    effects:
+      - kind: defense
+        defense: resistance
+        to: [cold]
+        note:
+          en: "\"You and everything you wear and carry are also unharmed by temperatures as low as -50 degrees Fahrenheit.\""

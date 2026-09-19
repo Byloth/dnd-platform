@@ -1,0 +1,4 @@
+onUse:
+  - kind: note
+    text:
+      en: "When you drink this potion, you gain the effect of the detect thoughts spell (save DC 13)."

@@ -16,3 +16,14 @@ attunement: true
 tags:
   - magic-item
   - wondrous-items
+features:
+  - id: srd51.feature.item.slippers-of-spider-climbing.spider-climb
+    name:
+      en: Spider Climbing
+    effects:
+      - kind: add-text
+        section: combat
+        text:
+          en: You have a climbing speed equal to your walking speed and can move up, down and across vertical surfaces and upside down along ceilings while leaving your hands free, except on a slippery surface such as one covered by ice or oil.
+        note:
+          en: No formula can reference the walking speed in v0 (speed.climb set-formula needs a walking-speed variable); shown as text.

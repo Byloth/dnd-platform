@@ -1,0 +1,6 @@
+onCast:
+  - kind: applyCondition
+    condition: srd51.condition.charmed
+    target: other
+    expires: { hours: 1 }
+    note: { en: "On a failed Wisdom saving throw (made with advantage if you or your companions are fighting the target); ends if you or your companions do anything harmful to it. The target regards you as a friendly acquaintance and knows it was charmed when the spell ends. One additional creature (within 30 feet of the others) for each slot level above 1st." }

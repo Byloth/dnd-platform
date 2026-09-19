@@ -20,3 +20,11 @@ duration:
   concentration: true
 text:
   en: You or a creature you touch becomes invisible until the spell ends. Anything the target is wearing or carrying is invisible as long as it is on the target's person.
+onCast:
+  - kind: applyCondition
+    condition: srd51.condition.invisible
+    target: self
+    expires:
+      minutes: 1
+    note:
+      en: You or a creature you touch; anything the target is wearing or carrying is invisible as long as it is on the target's person.

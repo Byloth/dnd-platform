@@ -1,0 +1,29 @@
+features:
+  - id: srd51.feature.item.instant-fortress.raise-the-fortress
+    name:
+      en: "Raise the Fortress"
+    text:
+      en: "You can use an action to place this 1-inch metal cube on the ground and speak its command word. The cube rapidly grows into a fortress that remains until you use an action to speak the command word that dismisses it, which works only if the fortress is empty. Each creature in the area where the fortress appears must make a DC 15 Dexterity saving throw, taking 10d10 bludgeoning damage on a failed save, or half as much damage on a successful one. In either case, the creature is pushed to an unoccupied space outside but next to the fortress."
+    effects:
+      - kind: add-action
+        action: raise-the-fortress
+        name:
+          en: "Raise the Fortress"
+        activation: action
+        dc: "15"
+        rolls:
+          - { type: save, ability: dex, dc: "15" }
+          - { type: damage, dice: 10d10, damageType: bludgeoning, onSuccess: half }
+        onUse:
+          - kind: note
+            text:
+              en: "A 20-foot square, 30-foot high adamantine tower grows on the spot. Creatures in its area are pushed to an unoccupied space next to it. The door opens only at your command (a bonus action). The roof, door and walls have 100 hit points each. Dismiss it with an action while it is empty."
+        text:
+          en: "Place the cube and speak the command word to grow a fortress. Creatures in the area make a DC 15 Dexterity save against 10d10 bludgeoning damage and are pushed outside."
+      - kind: add-action
+        action: dismiss-the-fortress
+        name:
+          en: "Dismiss the Fortress"
+        activation: action
+        text:
+          en: "Speak the command word that dismisses the fortress. This works only if the fortress is empty."

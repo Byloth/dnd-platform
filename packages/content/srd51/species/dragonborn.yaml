@@ -83,6 +83,64 @@ features:
     source: srd51
     text:
       en: You have draconic ancestry. Choose one type of dragon from the Draconic Ancestry table. Your breath weapon and damage resistance are determined by the dragon type, as shown in the table.
+    effects:
+      - kind: open-choice
+        choice: draconic-ancestry
+        of: option
+        count: 1
+        options:
+          - id: black
+            name:
+              en: Black
+            text:
+              en: "Acid damage. Breath weapon: 5 by 30 ft. line (Dex. save)."
+          - id: blue
+            name:
+              en: Blue
+            text:
+              en: "Lightning damage. Breath weapon: 5 by 30 ft. line (Dex. save)."
+          - id: brass
+            name:
+              en: Brass
+            text:
+              en: "Fire damage. Breath weapon: 5 by 30 ft. line (Dex. save)."
+          - id: bronze
+            name:
+              en: Bronze
+            text:
+              en: "Lightning damage. Breath weapon: 5 by 30 ft. line (Dex. save)."
+          - id: copper
+            name:
+              en: Copper
+            text:
+              en: "Acid damage. Breath weapon: 5 by 30 ft. line (Dex. save)."
+          - id: gold
+            name:
+              en: Gold
+            text:
+              en: "Fire damage. Breath weapon: 15 ft. cone (Dex. save)."
+          - id: green
+            name:
+              en: Green
+            text:
+              en: "Poison damage. Breath weapon: 15 ft. cone (Con. save)."
+          - id: red
+            name:
+              en: Red
+            text:
+              en: "Fire damage. Breath weapon: 15 ft. cone (Dex. save)."
+          - id: silver
+            name:
+              en: Silver
+            text:
+              en: "Cold damage. Breath weapon: 15 ft. cone (Con. save)."
+          - id: white
+            name:
+              en: White
+            text:
+              en: "Cold damage. Breath weapon: 15 ft. cone (Con. save)."
+        note:
+          en: The damage resistance and the breath weapon of the chosen dragon are applied by the Damage Resistance and Breath Weapon traits.
   - id: srd51.feature.dragonborn.breath-weapon
     name:
       en: Breath Weapon
@@ -91,9 +149,126 @@ features:
       en: |-
         You can use your action to exhale destructive energy. Your draconic ancestry determines the size, shape, and damage type of the exhalation.
         When you use your breath weapon, each creature in the area of the exhalation must make a saving throw, the type of which is determined by your draconic ancestry. The DC for this saving throw equals 8 + your Constitution modifier + your proficiency bonus. A creature takes 2d6 damage on a failed save, and half as much damage on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level.
+    effects:
+      - kind: declare-resource
+        resource: breath-weapon
+        name:
+          en: Breath Weapon
+        max: 1
+        recharge:
+          - on: short-rest
+            amount: full
+          - on: long-rest
+            amount: full
+        display: pips
+        note:
+          en: Once per short or long rest; the imported text omits the rest sentence, the limit follows the SRD.
+      - kind: add-action
+        action: breath-weapon
+        name:
+          en: Breath Weapon
+        activation: action
+        cost:
+          - resource: breath-weapon
+            amount: 1
+        dc: 8 + mod(con) + proficiencyBonus
+        rolls:
+          - type: save
+            onSuccess: half
+          - type: damage
+            dice: 2d6
+        text:
+          en: You exhale destructive energy in the area determined by your draconic ancestry. Each creature in the area must make a saving throw (DC 8 + your Constitution modifier + your proficiency bonus), taking 2d6 damage on a failed save and half as much on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level.
+        onUse:
+          - kind: note
+            text:
+              en: "Area, save ability and damage type follow your Draconic Ancestry: black/blue/brass/bronze/copper 5 by 30 ft. line (Dex. save); gold/red 15 ft. cone (Dex. save); green/silver/white 15 ft. cone (Con. save). Damage: 2d6, 3d6 at 6th level, 4d6 at 11th, 5d6 at 16th."
+        note:
+          en: The damage dice scale with character level and the shape, save and damage type vary with the ancestry answer; v0 carries them in the note.
   - id: srd51.feature.dragonborn.damage-resistance
     name:
       en: Damage Resistance
     source: srd51
     text:
       en: You have resistance to the damage type associated with your draconic ancestry.
+    effects:
+      - kind: defense
+        defense: resistance
+        to:
+          - acid
+        when:
+          answer:
+            choice: draconic-ancestry
+            is: black
+      - kind: defense
+        defense: resistance
+        to:
+          - lightning
+        when:
+          answer:
+            choice: draconic-ancestry
+            is: blue
+      - kind: defense
+        defense: resistance
+        to:
+          - fire
+        when:
+          answer:
+            choice: draconic-ancestry
+            is: brass
+      - kind: defense
+        defense: resistance
+        to:
+          - lightning
+        when:
+          answer:
+            choice: draconic-ancestry
+            is: bronze
+      - kind: defense
+        defense: resistance
+        to:
+          - acid
+        when:
+          answer:
+            choice: draconic-ancestry
+            is: copper
+      - kind: defense
+        defense: resistance
+        to:
+          - fire
+        when:
+          answer:
+            choice: draconic-ancestry
+            is: gold
+      - kind: defense
+        defense: resistance
+        to:
+          - poison
+        when:
+          answer:
+            choice: draconic-ancestry
+            is: green
+      - kind: defense
+        defense: resistance
+        to:
+          - fire
+        when:
+          answer:
+            choice: draconic-ancestry
+            is: red
+      - kind: defense
+        defense: resistance
+        to:
+          - cold
+        when:
+          answer:
+            choice: draconic-ancestry
+            is: silver
+      - kind: defense
+        defense: resistance
+        to:
+          - cold
+        when:
+          answer:
+            choice: draconic-ancestry
+            is: white

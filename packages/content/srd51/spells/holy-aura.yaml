@@ -28,3 +28,13 @@ rolls:
     onSuccess: none
 tags:
   - area
+effects:
+  - kind: roll-advantage
+    on:
+      type: save
+  - kind: add-text
+    section: features
+    text:
+      en: Sheds dim light in a 5-foot radius; other creatures have disadvantage on attack rolls against you. When a fiend or an undead hits you with a melee attack, it must succeed on a Constitution saving throw or be blinded until the spell ends.
+    note:
+      en: "Attacker disadvantage and the blinding of fiends and undead depend on the attacker: reminder only."

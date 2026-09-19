@@ -1,0 +1,26 @@
+attunement: true
+features:
+  - id: srd51.feature.item.belt-of-giant-strength.strength
+    name: { en: "Giant strength" }
+    effects:
+      - kind: open-choice
+        choice: variant
+        of: option
+        count: 1
+        note: { en: "Your Strength score changes to the belt's score; no effect if your Strength is already equal or higher." }
+        options:
+          - id: hill-giant
+            name: { en: "Hill giant (21, rare)" }
+            effects: [{ kind: modify, target: ability.str, op: min, value: 21 }]
+          - id: stone-or-frost-giant
+            name: { en: "Stone or frost giant (23, very rare)" }
+            effects: [{ kind: modify, target: ability.str, op: min, value: 23 }]
+          - id: fire-giant
+            name: { en: "Fire giant (25, very rare)" }
+            effects: [{ kind: modify, target: ability.str, op: min, value: 25 }]
+          - id: cloud-giant
+            name: { en: "Cloud giant (27, legendary)" }
+            effects: [{ kind: modify, target: ability.str, op: min, value: 27 }]
+          - id: storm-giant
+            name: { en: "Storm giant (29, legendary)" }
+            effects: [{ kind: modify, target: ability.str, op: min, value: 29 }]

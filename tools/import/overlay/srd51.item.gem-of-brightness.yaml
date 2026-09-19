@@ -1,0 +1,38 @@
+charges:
+  max: 50
+  recharge: [{ on: manual, amount: 0 }]
+features:
+  - id: srd51.feature.item.gem-of-brightness.command-words
+    name: { en: "Command words" }
+    effects:
+      - kind: add-action
+        action: gem-of-brightness-light
+        name: { en: "First command word: shed light" }
+        activation: action
+        toggle: { state: gem-of-brightness-light, expires: { manual: true } }
+        text: { en: "The gem sheds bright light in a 30-foot radius and dim light for an additional 30 feet. This doesn't expend a charge. It lasts until you use a bonus action to repeat the command word or until you use another function of the gem." }
+      - kind: add-action
+        action: gem-of-brightness-beam
+        name: { en: "Second command word: beam of light" }
+        activation: action
+        cost: [{ resource: charges, amount: 1 }]
+        text: { en: "The gem fires a brilliant beam at one creature you can see within 60 feet. The creature must succeed on a DC 15 Constitution saving throw or be blinded for 1 minute; it can repeat the save at the end of each of its turns, ending the effect on a success." }
+        onUse:
+          - kind: applyCondition
+            condition: srd51.condition.blinded
+            target: other
+            expires: { minutes: 1 }
+            note: { en: "Only on a failed DC 15 Constitution save; the target repeats the save at the end of each of its turns." }
+      - kind: add-action
+        action: gem-of-brightness-flare
+        name: { en: "Third command word: blinding flare" }
+        activation: action
+        cost: [{ resource: charges, amount: 5 }]
+        text: { en: "The gem flares with blinding light in a 30-foot cone originating from it. Each creature in the cone must make the same saving throw as for the beam, being blinded for 1 minute on a failure." }
+        onUse:
+          - kind: note
+            text: { en: "Each creature in the 30-foot cone: DC 15 Constitution save or blinded for 1 minute, repeating the save at the end of each of its turns." }
+      - kind: add-text
+        section: features
+        text: { en: "When all of the gem's charges are expended, the gem becomes a nonmagical jewel worth 50 gp." }
+        note: { en: "The charges never recharge." }

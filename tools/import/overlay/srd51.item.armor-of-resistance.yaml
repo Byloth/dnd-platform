@@ -1,0 +1,42 @@
+type: armor
+attunement: true
+features:
+  - id: srd51.feature.item.armor-of-resistance.resistance
+    name: { en: "Resistance" }
+    effects:
+      - kind: open-choice
+        choice: damage-type
+        of: option
+        count: 1
+        note: { en: "The GM chooses the damage type or determines it randomly (d10)." }
+        options:
+          - id: acid
+            name: { en: "Acid" }
+            effects: [{ kind: defense, defense: resistance, to: [acid] }]
+          - id: cold
+            name: { en: "Cold" }
+            effects: [{ kind: defense, defense: resistance, to: [cold] }]
+          - id: fire
+            name: { en: "Fire" }
+            effects: [{ kind: defense, defense: resistance, to: [fire] }]
+          - id: force
+            name: { en: "Force" }
+            effects: [{ kind: defense, defense: resistance, to: [force] }]
+          - id: lightning
+            name: { en: "Lightning" }
+            effects: [{ kind: defense, defense: resistance, to: [lightning] }]
+          - id: necrotic
+            name: { en: "Necrotic" }
+            effects: [{ kind: defense, defense: resistance, to: [necrotic] }]
+          - id: poison
+            name: { en: "Poison" }
+            effects: [{ kind: defense, defense: resistance, to: [poison] }]
+          - id: psychic
+            name: { en: "Psychic" }
+            effects: [{ kind: defense, defense: resistance, to: [psychic] }]
+          - id: radiant
+            name: { en: "Radiant" }
+            effects: [{ kind: defense, defense: resistance, to: [radiant] }]
+          - id: thunder
+            name: { en: "Thunder" }
+            effects: [{ kind: defense, defense: resistance, to: [thunder] }]

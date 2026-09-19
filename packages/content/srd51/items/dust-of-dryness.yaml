@@ -19,3 +19,19 @@ rarity: uncommon
 tags:
   - magic-item
   - wondrous-items
+features:
+  - id: srd51.feature.item.dust-of-dryness.pinches
+    name:
+      en: Pinches of dust
+    effects:
+      - kind: add-action
+        action: sprinkle-dust-of-dryness
+        name:
+          en: Sprinkle a pinch over water
+        activation: action
+        text:
+          en: The dust turns a cube of water 15 feet on a side into one marble-sized pellet of negligible weight. Someone can use an action to smash the pellet against a hard surface, releasing the water and ending that pellet's magic. An elemental composed mostly of water that is exposed to a pinch must make a DC 13 Constitution saving throw, taking 10d6 necrotic damage on a failed save, or half as much on a successful one.
+        onUse:
+          - kind: note
+            text:
+              en: "The packet contains 1d6 + 4 pinches; track them by hand. Against a water elemental: DC 13 Constitution save, 10d6 necrotic damage, half on a success."

@@ -1,0 +1,65 @@
+effects:
+  - kind: open-choice
+    choice: hunters-prey
+    of: option
+    count: 1
+    options:
+      - id: colossus-slayer
+        name:
+          en: Colossus Slayer
+        text:
+          en: Your tenacity can wear down the most potent foes. When you hit a creature with a weapon attack, the creature takes an extra 1d8 damage if it's below its hit point maximum. You can deal this extra damage only once per turn.
+        effects:
+          - kind: add-action
+            action: colossus-slayer
+            name:
+              en: Colossus Slayer
+            activation: special
+            trigger:
+              en: when you hit a creature that is below its hit point maximum with a weapon attack
+            text:
+              en: The creature takes an extra 1d8 damage. Once per turn.
+            onHit:
+              - kind: extraDamage
+                dice: 1d8
+                once: per-turn
+                note:
+                  en: Only if the target is below its hit point maximum; the extra damage is of the weapon's damage type.
+      - id: giant-killer
+        name:
+          en: Giant Killer
+        text:
+          en: When a Large or larger creature within 5 feet of you hits or misses you with an attack, you can use your reaction to attack that creature immediately after its attack, provided that you can see the creature.
+        effects:
+          - kind: add-action
+            action: giant-killer
+            name:
+              en: Giant Killer
+            activation: reaction
+            trigger:
+              en: when a Large or larger creature within 5 feet of you hits or misses you with an attack and you can see it
+            text:
+              en: Attack that creature immediately after its attack.
+            onUse:
+              - kind: note
+                text:
+                  en: Make one weapon attack against the triggering creature.
+      - id: horde-breaker
+        name:
+          en: Horde Breaker
+        text:
+          en: Once on each of your turns when you make a weapon attack, you can make another attack with the same weapon against a different creature that is within 5 feet of the original target and within range of your weapon.
+        effects:
+          - kind: add-action
+            action: horde-breaker
+            name:
+              en: Horde Breaker
+            activation: free
+            requires:
+              afterAction: attack
+            text:
+              en: Once on each of your turns when you make a weapon attack, make another attack with the same weapon against a different creature that is within 5 feet of the original target and within range of your weapon.
+            onUse:
+              - kind: note
+                text:
+                  en: One additional attack with the same weapon against a different creature within 5 feet of the original target; once per turn.

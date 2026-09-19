@@ -1,0 +1,10 @@
+effects:
+  - kind: add-action
+    action: command-unseen-servant
+    name: { en: "Command Unseen Servant" }
+    activation: bonus-action
+    text: { en: "Mentally command the servant to move up to 15 feet and interact with an object, performing a simple task a human servant could do until it is done. Commanding it more than 60 feet away from you ends the spell." }
+  - kind: add-text
+    section: features
+    text: { en: "An invisible, mindless, shapeless force with AC 10, 1 hit point and Strength 2 that can't attack; the spell ends if it drops to 0 hit points." }
+    note: { en: "No stat blocks in v0: the servant's few statistics are in the text." }

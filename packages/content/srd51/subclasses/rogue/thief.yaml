@@ -14,6 +14,18 @@ levels:
         source: srd51
         text:
           en: Starting at 3rd level, you can use the bonus action granted by your Cunning Action to make a Dexterity (Sleight of Hand) check, use your thieves' tools to disarm a trap or open a lock, or take the Use an Object action.
+        effects:
+          - kind: add-action
+            action: fast-hands
+            name:
+              en: Fast Hands
+            activation: bonus-action
+            text:
+              en: Use the bonus action granted by your Cunning Action to make a Dexterity (Sleight of Hand) check, use your thieves' tools to disarm a trap or open a lock, or take the Use an Object action.
+            onUse:
+              - kind: note
+                text:
+                  en: Choose a Dexterity (Sleight of Hand) check, using thieves' tools to disarm a trap or open a lock, or the Use an Object action.
       - id: srd51.feature.thief.second-story-work
         name:
           en: Second-Story Work
@@ -23,6 +35,25 @@ levels:
             When you choose this archetype at 3rd level, you gain the ability to climb faster than normal; climbing no longer costs you extra movement.
 
             In addition, when you make a running jump, the distance you cover increases by a number of feet equal to your Dexterity modifier.
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: Climbing no longer costs you extra movement.
+            note:
+              en: The text does not grant a climb speed; the movement-cost rule is applied in play.
+          - kind: modify
+            target: jump.long
+            op: add
+            formula: mod(dex)
+            note:
+              en: Running jumps only.
+          - kind: modify
+            target: jump.high
+            op: add
+            formula: mod(dex)
+            note:
+              en: Running jumps only.
   "9":
     features:
       - id: srd51.feature.thief.supreme-sneak
@@ -31,6 +62,13 @@ levels:
         source: srd51
         text:
           en: Starting at 9th level, you have advantage on a Dexterity (Stealth) check if you move no more than half your speed on the same turn.
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: You have advantage on a Dexterity (Stealth) check if you move no more than half your speed on the same turn.
+            note:
+              en: "Missing capability: the condition language has no key for movement spent this turn, so the advantage cannot be gated and stays text."
   "13":
     features:
       - id: srd51.feature.thief.use-magic-device
@@ -47,3 +85,10 @@ levels:
         source: srd51
         text:
           en: When you reach 17th level, you have become adept at laying ambushes and quickly escaping danger. You can take two turns during the first round of any combat. You take your first turn at your normal initiative and your second turn at your initiative minus 10. You can't use this feature when you are surprised.
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: You can take two turns during the first round of any combat. You take your first turn at your normal initiative and your second turn at your initiative minus 10. You can't use this feature when you are surprised.
+            note:
+              en: An initiative-tracker rule with no catalogue kind; applied in play.

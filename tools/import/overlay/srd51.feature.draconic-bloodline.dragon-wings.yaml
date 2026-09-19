@@ -1,0 +1,18 @@
+effects:
+  - kind: add-action
+    action: dragon-wings
+    name:
+      en: Dragon Wings
+    activation: bonus-action
+    toggle:
+      state: dragon-wings
+    text:
+      en: As a bonus action on your turn you sprout a pair of dragon wings from your back, gaining a flying speed equal to your current speed. They last until you dismiss them as a bonus action on your turn. You can't manifest your wings while wearing armor unless the armor is made to accommodate them, and clothing not made to accommodate your wings might be destroyed when you manifest them.
+  - kind: add-text
+    section: features
+    text:
+      en: While your dragon wings are manifested, you have a flying speed equal to your current walking speed.
+    when:
+      toggled: dragon-wings
+    note:
+      en: A flying speed equal to the current walking speed has no formula (speeds are not addressable in formulas); read it off your walking speed while the wings are on.

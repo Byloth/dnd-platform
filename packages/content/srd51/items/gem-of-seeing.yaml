@@ -18,3 +18,38 @@ attunement: true
 tags:
   - magic-item
   - wondrous-items
+charges:
+  max: 3
+  recharge:
+    - on: dawn
+      amount: 1d3
+features:
+  - id: srd51.feature.item.gem-of-seeing.truesight
+    name:
+      en: Truesight
+    effects:
+      - kind: add-action
+        action: gem-of-seeing
+        name:
+          en: Speak the gem's command word
+        activation: action
+        cost:
+          - resource: charges
+            amount: 1
+        toggle:
+          state: gem-of-seeing-active
+          expires:
+            minutes: 10
+        duration:
+          type: timed
+          minutes: 10
+        text:
+          en: For the next 10 minutes, you have truesight out to 120 feet when you peer through the gem.
+      - kind: modify
+        target: sense.truesight
+        op: min
+        value: 120
+        when:
+          toggled: gem-of-seeing-active
+        note:
+          en: Only when you peer through the gem.

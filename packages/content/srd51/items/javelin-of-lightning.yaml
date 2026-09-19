@@ -17,3 +17,69 @@ rarity: uncommon
 tags:
   - magic-item
   - weapon
+baseItem: srd51.item.javelin
+category: simple
+damage: 1d6
+damageType: piercing
+properties:
+  - thrown
+range:
+  normal: 30
+  long: 120
+monkWeapon: true
+weight: 2
+charges:
+  max: 1
+  recharge:
+    - on: dawn
+      amount: full
+features:
+  - id: srd51.feature.item.javelin-of-lightning.magic-weapon
+    name:
+      en: Magic Weapon
+    text:
+      en: This javelin is a magic weapon.
+    effects:
+      - kind: modify-attacks
+        filter:
+          item: srd51.item.javelin-of-lightning
+        set:
+          magical: true
+  - id: srd51.feature.item.javelin-of-lightning.lightning-bolt
+    name:
+      en: Lightning Bolt
+    text:
+      en: When you hurl it and speak its command word, it transforms into a bolt of lightning, forming a line 5 feet wide that extends out from you to a target within 120 feet. Each creature in the line excluding you and the target must make a DC 13 Dexterity saving throw, taking 4d6 lightning damage on a failed save, and half as much damage on a successful one. The lightning bolt turns back into a javelin when it reaches the target. Make a ranged weapon attack against the target. On a hit, the target takes damage from the javelin plus 4d6 lightning damage. The javelin's property can't be used again until the next dawn.
+    effects:
+      - kind: add-action
+        action: lightning-bolt
+        name:
+          en: Lightning Bolt
+        activation: action
+        cost:
+          - resource: charges
+            amount: 1
+        dc: "13"
+        range:
+          type: point
+          distance: 120
+        rolls:
+          - type: save
+            ability: dex
+            dc: "13"
+          - type: damage
+            dice: 4d6
+            damageType: lightning
+            onSuccess: half
+          - type: attack
+            ability: str
+            proficient: true
+          - type: damage
+            dice: 1d6
+            damageType: piercing
+        onHit:
+          - kind: extraDamage
+            dice: 4d6
+            damageType: lightning
+        text:
+          en: Hurl the javelin and speak its command word. Each creature in a 5-foot-wide line to a target within 120 feet (excluding you and the target) makes a DC 13 Dexterity save against 4d6 lightning damage, half on a success. Then make a ranged weapon attack against the target; on a hit it takes the javelin's damage plus 4d6 lightning damage.

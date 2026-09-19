@@ -1,0 +1,14 @@
+effects:
+  - kind: add-action
+    action: slow-fall
+    name:
+      en: Slow Fall
+    activation: reaction
+    trigger:
+      en: when you fall
+    text:
+      en: Reduce any falling damage you take by an amount equal to five times your monk level.
+    onUse:
+      - kind: note
+        text:
+          en: "Damage reduction: 5 * classLevel(monk)."

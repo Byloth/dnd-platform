@@ -76,9 +76,43 @@ features:
     source: srd51
     text:
       en: You have resistance to fire damage.
+    effects:
+      - kind: defense
+        defense: resistance
+        to:
+          - fire
   - id: srd51.feature.tiefling.infernal-legacy
     name:
       en: Infernal Legacy
     source: srd51
     text:
       en: You know the thaumaturgy cantrip. When you reach 3rd level, you can cast the hellish rebuke spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the darkness spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.
+    effects:
+      - kind: grant-spells
+        spells:
+          - srd51.spell.thaumaturgy
+        as: known
+        ability: cha
+      - kind: grant-spells
+        spells:
+          - srd51.spell.hellish-rebuke
+        as: always-prepared
+        ability: cha
+        level: 2
+        uses:
+          count: 1
+          recharge: long-rest
+        when:
+          level:
+            min: 3
+      - kind: grant-spells
+        spells:
+          - srd51.spell.darkness
+        as: always-prepared
+        ability: cha
+        uses:
+          count: 1
+          recharge: long-rest
+        when:
+          level:
+            min: 5

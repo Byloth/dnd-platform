@@ -1,0 +1,7 @@
+effects:
+  - kind: add-text
+    section: features
+    text: { en: "Deals only half damage with weapon attacks that use Strength." }
+onCast:
+  - kind: note
+    text: { en: "On a hit with the ranged spell attack. At the end of each of its turns the target can make a Constitution saving throw against the spell (the text says Constitution, not Strength); on a success the spell ends." }

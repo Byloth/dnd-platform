@@ -1,0 +1,15 @@
+effects:
+  - kind: add-action
+    action: dark-ones-blessing
+    name:
+      en: Dark One's Blessing
+    activation: free
+    trigger:
+      en: When you reduce a hostile creature to 0 hit points.
+    text:
+      en: When you reduce a hostile creature to 0 hit points, you gain temporary hit points equal to your Charisma modifier + your warlock level (minimum of 1).
+    onUse:
+      - kind: tempHp
+        amount: max(1, mod(cha) + classLevel(warlock))
+    note:
+      en: The trigger (reducing a hostile creature to 0 hit points) is not detected by the play engine; use this when it happens.

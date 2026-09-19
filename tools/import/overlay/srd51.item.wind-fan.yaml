@@ -1,0 +1,9 @@
+features:
+  - id: srd51.feature.item.wind-fan.gust-of-wind
+    name: { en: "Gust of Wind" }
+    effects:
+      - kind: grant-spells
+        spells: [srd51.spell.gust-of-wind]
+        as: always-prepared
+        uses: { count: 1, recharge: dawn }
+        note: { en: "Save DC 13; cast as an action while holding the fan. Once used, the fan shouldn't be used again until the next dawn: each further use before then has a cumulative 20 percent chance of not working and tearing the fan into useless, nonmagical tatters." }

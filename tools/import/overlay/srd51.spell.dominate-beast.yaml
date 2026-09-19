@@ -1,0 +1,13 @@
+effects:
+  - kind: add-action
+    action: dominate-beast-control
+    name: { en: "Dominate Beast: total control" }
+    activation: action
+    cost: []
+    text: { en: "Take total and precise control of the charmed beast until the end of your next turn: it takes only the actions you choose; you can also make it use a reaction by using your own reaction." }
+onCast:
+  - kind: applyCondition
+    condition: srd51.condition.charmed
+    target: other
+    expires: { minutes: 1 }
+    note: { en: "On a failed Wisdom saving throw (with advantage if you or your friends are fighting it). While charmed you have a telepathic link to issue commands (no action required); each time the target takes damage it repeats the save, ending the spell on a success. Duration: concentration up to 10 minutes with a 5th-level slot, 1 hour with 6th, 8 hours with 7th or higher." }

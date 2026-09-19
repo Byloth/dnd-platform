@@ -1,0 +1,19 @@
+attunement: true
+features:
+  - id: srd51.feature.item.cloak-of-elvenkind.hood
+    name: { en: "Hood" }
+    effects:
+      - kind: add-action
+        action: cloak-of-elvenkind-hood
+        name: { en: "Pull the hood up or down" }
+        activation: action
+        toggle: { state: cloak-of-elvenkind-hood-up, expires: { manual: true } }
+        text: { en: "While you wear this cloak with its hood up, Wisdom (Perception) checks made to see you have disadvantage, and you have advantage on Dexterity (Stealth) checks made to hide, as the cloak's color shifts to camouflage you." }
+      - kind: roll-advantage
+        on: { type: check, skill: stealth }
+        when: { toggled: cloak-of-elvenkind-hood-up }
+        note: { en: "Only on Dexterity (Stealth) checks made to hide, while the hood is up." }
+      - kind: add-text
+        section: combat
+        text: { en: "While the hood is up, Wisdom (Perception) checks made to see you have disadvantage." }
+        when: { toggled: cloak-of-elvenkind-hood-up }

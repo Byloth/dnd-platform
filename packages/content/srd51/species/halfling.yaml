@@ -61,18 +61,53 @@ features:
     source: srd51
     text:
       en: When you roll a 1 on the d20 for an attack roll, ability check, or saving throw, you can reroll the die and must use the new roll.
+    effects:
+      - kind: add-action
+        action: lucky
+        name:
+          en: Lucky
+        activation: special
+        trigger:
+          en: when you roll a 1 on the d20 for an attack roll, ability check, or saving throw
+        text:
+          en: When you roll a 1 on the d20 for an attack roll, ability check, or saving throw, you can reroll the die and must use the new roll.
+        onUse:
+          - kind: reroll
+            roll: attack
+            keep: new
+          - kind: reroll
+            roll: check
+            keep: new
+          - kind: reroll
+            roll: save
+            keep: new
+        note:
+          en: Play-mode reroll of a natural 1; the reroll applies to whichever of the three rolls was made.
   - id: srd51.feature.halfling.brave
     name:
       en: Brave
     source: srd51
     text:
       en: You have advantage on saving throws against being frightened.
+    effects:
+      - kind: roll-advantage
+        on:
+          type: save
+          against:
+            - frightened
   - id: srd51.feature.halfling.halfling-nimbleness
     name:
       en: Halfling Nimbleness
     source: srd51
     text:
       en: You can move through the space of any creature that is of a size larger than yours.
+    effects:
+      - kind: add-text
+        section: features
+        text:
+          en: You can move through the space of any creature that is of a size larger than yours.
+        note:
+          en: Movement rule adjudicated at the table; no derived value.
 subspecies:
   - id: srd51.species.halfling.lightfoot
     name:
@@ -87,9 +122,21 @@ subspecies:
         source: srd51
         text:
           en: Your Charisma score increases by 1.
+        effects:
+          - kind: modify
+            target: ability.cha
+            op: add
+            value: 1
       - id: srd51.feature.lightfoot.naturally-stealthy
         name:
           en: Naturally Stealthy
         source: srd51
         text:
           en: You can attempt to hide even when you are obscured only by a creature that is at least one size larger than you.
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: You can attempt to hide even when you are obscured only by a creature that is at least one size larger than you.
+            note:
+              en: Hiding rule adjudicated at the table; no derived value.

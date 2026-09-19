@@ -1,0 +1,26 @@
+effects:
+  - kind: declare-resource
+    resource: indomitable
+    name:
+      en: Indomitable
+    max: table(fighter.indomitable-uses)
+    display: pips
+    recharge:
+      - on: long-rest
+        amount: full
+  - kind: add-action
+    action: indomitable
+    name:
+      en: Indomitable
+    activation: free
+    cost:
+      - resource: indomitable
+        amount: 1
+    trigger:
+      en: when you fail a saving throw
+    text:
+      en: Reroll a saving throw that you fail. You must use the new roll.
+    onUse:
+      - kind: reroll
+        roll: save
+        keep: new

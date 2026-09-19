@@ -1,0 +1,26 @@
+effects:
+  - kind: declare-resource
+    resource: dark-ones-own-luck
+    name:
+      en: Dark One's Own Luck
+    max: 1
+    display: pips
+    recharge:
+      - on: short-rest
+        amount: full
+      - on: long-rest
+        amount: full
+  - kind: add-action
+    action: dark-ones-own-luck
+    name:
+      en: Dark One's Own Luck
+    activation: free
+    cost:
+      - resource: dark-ones-own-luck
+        amount: 1
+    text:
+      en: When you make an ability check or a saving throw, you can use this feature to add a d10 to your roll. You can do so after seeing the initial roll but before any of the roll's effects occur.
+    onUse:
+      - kind: note
+        text:
+          en: Add 1d10 to the ability check or saving throw you just rolled.

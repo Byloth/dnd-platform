@@ -1,0 +1,29 @@
+effects:
+  - kind: grant-spells
+    spells:
+      - srd51.spell.thaumaturgy
+    as: known
+    ability: cha
+  - kind: grant-spells
+    spells:
+      - srd51.spell.hellish-rebuke
+    as: always-prepared
+    ability: cha
+    level: 2
+    uses:
+      count: 1
+      recharge: long-rest
+    when:
+      level:
+        min: 3
+  - kind: grant-spells
+    spells:
+      - srd51.spell.darkness
+    as: always-prepared
+    ability: cha
+    uses:
+      count: 1
+      recharge: long-rest
+    when:
+      level:
+        min: 5

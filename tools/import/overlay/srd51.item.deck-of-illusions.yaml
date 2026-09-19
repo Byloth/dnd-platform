@@ -1,0 +1,17 @@
+features:
+  - id: srd51.feature.item.deck-of-illusions.cards
+    name: { en: "Illusion cards" }
+    effects:
+      - kind: add-action
+        action: draw-deck-of-illusions
+        name: { en: "Draw and throw a card" }
+        activation: action
+        text: { en: "Draw a card at random and throw it to the ground at a point within 30 feet of you. An illusion of one or more creatures forms over the card and remains until dispelled; it appears real and behaves as a real creature except that it can do no harm. A creature that inspects it as an action identifies it as illusory with a successful DC 15 Intelligence (Investigation) check. When the illusion ends, the card can't be used again." }
+        onUse:
+          - kind: note
+            text: { en: "Draw randomly and consult the deck's card table for the creature; a full deck has 34 cards, a found deck is usually missing 1d20 - 1." }
+      - kind: add-action
+        action: move-deck-of-illusions-illusion
+        name: { en: "Move an illusory creature" }
+        activation: action
+        text: { en: "While you are within 120 feet of the illusory creature and can see it, move it magically anywhere within 30 feet of its card." }

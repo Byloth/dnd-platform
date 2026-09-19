@@ -1,0 +1,26 @@
+effects:
+  - kind: add-action
+    action: stunning-strike
+    name:
+      en: Stunning Strike
+    activation: special
+    cost:
+      - resource: ki
+        amount: 1
+    trigger:
+      en: when you hit another creature with a melee weapon attack
+    dc: 8 + proficiencyBonus + mod(wis)
+    rolls:
+      - type: save
+        ability: con
+        dc: 8 + proficiencyBonus + mod(wis)
+    text:
+      en: When you hit another creature with a melee weapon attack, you can spend 1 ki point to attempt a stunning strike. The target must succeed on a Constitution saving throw or be stunned until the end of your next turn.
+    onHit:
+      - kind: applyCondition
+        condition: srd51.condition.stunned
+        target: other
+        expires:
+          until: next-turn-end
+        note:
+          en: Only if the target fails the Constitution saving throw.

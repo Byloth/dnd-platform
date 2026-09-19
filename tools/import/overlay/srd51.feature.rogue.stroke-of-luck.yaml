@@ -1,0 +1,26 @@
+effects:
+  - kind: declare-resource
+    resource: stroke-of-luck
+    name:
+      en: Stroke of Luck
+    max: 1
+    recharge:
+      - on: short-rest
+        amount: full
+      - on: long-rest
+        amount: full
+    display: pips
+  - kind: add-action
+    action: stroke-of-luck
+    name:
+      en: Stroke of Luck
+    activation: free
+    cost:
+      - resource: stroke-of-luck
+        amount: 1
+    text:
+      en: If your attack misses a target within range, you can turn the miss into a hit. Alternatively, if you fail an ability check, you can treat the d20 roll as a 20.
+    onUse:
+      - kind: note
+        text:
+          en: Turn a missed attack against a target within range into a hit, or treat the d20 of a failed ability check as a 20.

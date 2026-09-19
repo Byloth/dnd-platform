@@ -1,0 +1,6 @@
+# Same character as monk-l3-feline, derived from the REAL base package instead of the excerpt fixture:
+# proves the import pipeline (map + overlay) reproduces the hand-authored mechanics.
+packages:
+  - packages/content/srd51
+  - fixtures/packages/homebrew-feline
+requires: [srd51, homebrew.byloth]

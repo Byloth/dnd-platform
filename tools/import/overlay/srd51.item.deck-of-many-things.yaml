@@ -1,0 +1,12 @@
+features:
+  - id: srd51.feature.item.deck-of-many-things.draw
+    name: { en: "Draw cards" }
+    effects:
+      - kind: add-action
+        action: draw-deck-of-many-things
+        name: { en: "Draw from the deck" }
+        activation: special
+        text: { en: "Declare how many cards you intend to draw, then draw them randomly; each card's magic takes effect as soon as it is drawn. You must draw each card no more than 1 hour after the previous draw; if you fail to draw the chosen number, the remaining cards fly from the deck and take effect all at once. A drawn card fades and, unless it is the Fool or the Jester, reappears in the deck." }
+        onUse:
+          - kind: note
+            text: { en: "Resolve each card with the GM using the deck's card descriptions; persistent results (Euryale: -2 to saving throws; Idiot: Intelligence reduced by 1d4 + 1; Moon: wish 1d3 times) must be recorded by hand." }

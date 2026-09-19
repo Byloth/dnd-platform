@@ -1,0 +1,60 @@
+type: armor
+category: medium
+ac: { base: 14, addDex: true, dexMax: 2 }
+stealthDisadvantage: true
+attunement: true
+charges:
+  max: 1
+  recharge: [{ on: dawn, amount: full }]
+features:
+  - id: srd51.feature.item.dragon-scale-mail.benefits
+    name: { en: "Dragon Scale Mail" }
+    effects:
+      - kind: modify
+        target: ac
+        op: add
+        value: 1
+      - kind: roll-advantage
+        on: { type: save, against: ["the Frightful Presence and breath weapons of dragons"] }
+      - kind: open-choice
+        choice: dragon
+        of: option
+        count: 1
+        note: { en: "The resistance is determined by the kind of dragon that provided the scales." }
+        options:
+          - id: black
+            name: { en: "Black (acid)" }
+            effects: [{ kind: defense, defense: resistance, to: [acid] }]
+          - id: blue
+            name: { en: "Blue (lightning)" }
+            effects: [{ kind: defense, defense: resistance, to: [lightning] }]
+          - id: brass
+            name: { en: "Brass (fire)" }
+            effects: [{ kind: defense, defense: resistance, to: [fire] }]
+          - id: bronze
+            name: { en: "Bronze (lightning)" }
+            effects: [{ kind: defense, defense: resistance, to: [lightning] }]
+          - id: copper
+            name: { en: "Copper (acid)" }
+            effects: [{ kind: defense, defense: resistance, to: [acid] }]
+          - id: gold
+            name: { en: "Gold (fire)" }
+            effects: [{ kind: defense, defense: resistance, to: [fire] }]
+          - id: green
+            name: { en: "Green (poison)" }
+            effects: [{ kind: defense, defense: resistance, to: [poison] }]
+          - id: red
+            name: { en: "Red (fire)" }
+            effects: [{ kind: defense, defense: resistance, to: [fire] }]
+          - id: silver
+            name: { en: "Silver (cold)" }
+            effects: [{ kind: defense, defense: resistance, to: [cold] }]
+          - id: white
+            name: { en: "White (cold)" }
+            effects: [{ kind: defense, defense: resistance, to: [cold] }]
+      - kind: add-action
+        action: dragon-scale-mail-sense
+        name: { en: "Sense the closest dragon" }
+        activation: action
+        cost: [{ resource: charges, amount: 1 }]
+        text: { en: "Focus your senses to magically discern the distance and direction to the closest dragon within 30 miles of you that is of the same type as the armor. This special action can't be used again until the next dawn." }

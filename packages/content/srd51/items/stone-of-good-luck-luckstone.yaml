@@ -16,3 +16,16 @@ attunement: true
 tags:
   - magic-item
   - wondrous-items
+features:
+  - id: srd51.feature.item.stone-of-good-luck-luckstone.luck
+    name:
+      en: Luck
+    effects:
+      - kind: modify
+        target: check.all
+        op: add
+        value: 1
+      - kind: modify
+        target: save.all
+        op: add
+        value: 1

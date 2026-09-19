@@ -1,0 +1,55 @@
+attunement: { by: { en: "a bard, cleric, druid, sorcerer, warlock, or wizard" } }
+baseItem: srd51.item.quarterstaff
+category: simple
+damage: 1d6
+damageType: bludgeoning
+properties: [versatile]
+versatile: 1d8
+monkWeapon: true
+charges:
+  max: 10
+  recharge: [{ on: dawn, amount: "1d8 + 2" }]
+features:
+  - id: srd51.feature.item.staff-of-charming.magic-quarterstaff
+    name: { en: "Magic Quarterstaff" }
+    effects:
+      - kind: modify-attacks
+        filter: { item: srd51.item.staff-of-charming }
+        set: { magical: true }
+  - id: srd51.feature.item.staff-of-charming.spells
+    name: { en: "Spells" }
+    effects:
+      - kind: grant-spells
+        spells: [srd51.spell.charm-person, srd51.spell.command, srd51.spell.comprehend-languages]
+        as: always-prepared
+        cost: [{ resource: charges, amount: 1 }]
+        note: { en: "Cast as an action using your spell save DC. If you expend the last charge, roll a d20: on a 1 the staff becomes a nonmagical quarterstaff." }
+  - id: srd51.feature.item.staff-of-charming.enchantment-ward
+    name: { en: "Enchantment Ward" }
+    effects:
+      - kind: declare-resource
+        resource: enchantment-ward
+        name: { en: "Enchantment Ward" }
+        max: 1
+        recharge: [{ on: dawn, amount: full }]
+        display: pips
+      - kind: add-action
+        action: enchantment-ward
+        name: { en: "Turn a failed save" }
+        activation: special
+        trigger: { en: "when you fail a saving throw against an enchantment spell that targets only you" }
+        cost: [{ resource: enchantment-ward, amount: 1 }]
+        text: { en: "Turn the failed save into a successful one." }
+        onUse:
+          - kind: note
+            text: { en: "The failed saving throw becomes a success." }
+      - kind: add-action
+        action: turn-enchantment
+        name: { en: "Turn the spell back" }
+        activation: reaction
+        trigger: { en: "when you succeed on a saving throw against an enchantment spell that targets only you" }
+        cost: [{ resource: charges, amount: 1 }]
+        text: { en: "Turn the spell back on its caster as if you had cast the spell." }
+        onUse:
+          - kind: note
+            text: { en: "The caster becomes the target of its own spell, as if you had cast it." }

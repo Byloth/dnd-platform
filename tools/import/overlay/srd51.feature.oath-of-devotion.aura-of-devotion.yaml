@@ -1,0 +1,13 @@
+effects:
+  - kind: defense
+    defense: condition-immunity
+    to:
+      - srd51.condition.charmed
+    note:
+      en: Applies while you are conscious.
+  - kind: add-text
+    section: features
+    text:
+      en: Friendly creatures within 10 feet of you (30 feet at 18th level) can't be charmed while you are conscious.
+    note:
+      en: The immunity for allies and the conscious gate are play mode; the range is table(paladin.aura-range).

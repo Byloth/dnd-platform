@@ -1,0 +1,32 @@
+attunement: true
+charges:
+  max: 7
+  recharge: [{ on: dawn, amount: "1d6 + 1" }]
+features:
+  - id: srd51.feature.item.wand-of-fear.command
+    name: { en: "Command" }
+    effects:
+      - kind: grant-spells
+        spells: [srd51.spell.command]
+        as: always-prepared
+        cost: [{ resource: charges, amount: 1 }]
+        note: { en: "Save DC 15; command another creature to flee or grovel only, as with the command spell. If you expend the last charge, roll a d20: on a 1 the wand crumbles into ashes and is destroyed." }
+  - id: srd51.feature.item.wand-of-fear.cone-of-fear
+    name: { en: "Cone of Fear" }
+    effects:
+      - kind: add-action
+        action: cone-of-fear
+        name: { en: "Cone of Fear" }
+        activation: action
+        cost: [{ resource: charges, amount: 2 }]
+        range: { type: self, distance: 60 }
+        dc: "15"
+        rolls:
+          - { type: save, ability: wis }
+        text: { en: "The wand's tip emits a 60-foot cone of amber light. Each creature in the cone must succeed on a DC 15 Wisdom saving throw or become frightened of you for 1 minute. While frightened this way, a creature must spend its turns trying to move as far away from you as it can, can't willingly move within 30 feet of you, can't take reactions, and can use only the Dash action or try to escape an effect that prevents it from moving (Dodge if it has nowhere to move). At the end of each of its turns, it can repeat the saving throw, ending the effect on itself on a success." }
+        onUse:
+          - kind: applyCondition
+            condition: srd51.condition.frightened
+            target: other
+            expires: { minutes: 1 }
+            note: { en: "Only creatures that fail the DC 15 Wisdom save; each repeats the save at the end of its turns." }

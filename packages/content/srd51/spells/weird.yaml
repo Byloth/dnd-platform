@@ -30,3 +30,12 @@ rolls:
     onSuccess: none
 tags:
   - area
+onCast:
+  - kind: applyCondition
+    condition: srd51.condition.frightened
+    target: other
+    expires:
+      minutes: 1
+  - kind: note
+    text:
+      en: Each creature in the 30-foot-radius sphere, on a failed Wisdom save. At the start of each of its turns a frightened creature must succeed on a Wisdom saving throw or take 4d10 psychic damage; on a success the spell ends for it.

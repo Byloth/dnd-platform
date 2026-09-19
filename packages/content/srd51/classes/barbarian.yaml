@@ -75,12 +75,88 @@ levels:
             Your rage lasts for 1 minute. It ends early if you are knocked unconscious or if your turn ends and you haven't attacked a hostile creature since your last turn or taken damage since then. You can also end your rage on your turn as a bonus action.
 
             Once you have raged the number of times shown for your barbarian level in the Rages column of the Barbarian table, you must finish a long rest before you can rage again.
+        effects:
+          - kind: declare-resource
+            resource: rage
+            name:
+              en: Rages
+            max: table(barbarian.rage-count)
+            recharge:
+              - on: long-rest
+                amount: full
+            display: pips
+          - kind: add-action
+            action: rage
+            name:
+              en: Rage
+            activation: bonus-action
+            cost:
+              - resource: rage
+                amount: 1
+            duration:
+              type: timed
+              minutes: 1
+            toggle:
+              state: raging
+              expires:
+                minutes: 1
+            text:
+              en: On your turn, you can enter a rage as a bonus action. Your rage lasts for 1 minute. It ends early if you are knocked unconscious or if your turn ends and you haven't attacked a hostile creature since your last turn or taken damage since then. You can also end your rage on your turn as a bonus action.
+            onUse:
+              - kind: note
+                text:
+                  en: While raging you can't cast spells or concentrate on them. The benefits apply only if you aren't wearing heavy armor. End the rage early on your turn as a bonus action by switching it off.
+          - kind: roll-advantage
+            on:
+              type: check
+              ability: str
+            when:
+              toggled: raging
+              not:
+                armorCategory: heavy
+          - kind: roll-advantage
+            on:
+              type: save
+              ability: str
+            when:
+              toggled: raging
+              not:
+                armorCategory: heavy
+          - kind: modify
+            target: damage.melee.bonus
+            op: add
+            formula: table(barbarian.rage-damage-bonus)
+            when:
+              toggled: raging
+              not:
+                armorCategory: heavy
+            note:
+              en: Only on melee weapon attacks made using Strength.
+          - kind: defense
+            defense: resistance
+            to:
+              - bludgeoning
+              - piercing
+              - slashing
+            when:
+              toggled: raging
+              not:
+                armorCategory: heavy
       - id: srd51.feature.barbarian.unarmored-defense
         name:
           en: Unarmored Defense
         source: srd51
         text:
           en: While you are not wearing any armor, your Armor Class equals 10 + your Dexterity modifier + your Constitution modifier. You can use a shield and still gain this benefit.
+        effects:
+          - kind: modify
+            target: ac
+            op: set-formula
+            formula: 10 + mod(dex) + mod(con)
+            when:
+              armorCategory: none
+            note:
+              en: You can use a shield and still gain this benefit.
   "2":
     features:
       - id: srd51.feature.barbarian.danger-sense
@@ -92,12 +168,49 @@ levels:
             At 2nd level, you gain an uncanny sense of when things nearby aren’t as they should be, giving you an edge when you dodge away from danger.
 
             You have advantage on Dexterity saving throws against effects that you can see, such as traps and spells. To gain this benefit, you can’t be blinded, deafened, or incapacitated.
+        effects:
+          - kind: roll-advantage
+            on:
+              type: save
+              ability: dex
+              against:
+                - effects that you can see, such as traps and spells
+            when:
+              not:
+                any:
+                  - conditionActive: srd51.condition.blinded
+                  - conditionActive: srd51.condition.deafened
+                  - conditionActive: srd51.condition.incapacitated
       - id: srd51.feature.barbarian.reckless-attack
         name:
           en: Reckless Attack
         source: srd51
         text:
           en: Starting at 2nd level, you can throw aside all concern for defense to attack with fierce desperation. When you make your first attack on your turn, you can decide to attack recklessly. Doing so gives you advantage on melee weapon attack rolls using Strength during this turn, but attack rolls against you have advantage until your next turn.
+        effects:
+          - kind: add-action
+            action: reckless-attack
+            name:
+              en: Reckless Attack
+            activation: free
+            toggle:
+              state: reckless-attack
+              expires:
+                until: next-turn-start
+            text:
+              en: When you make your first attack on your turn, you can decide to attack recklessly. Doing so gives you advantage on melee weapon attack rolls using Strength during this turn, but attack rolls against you have advantage until your next turn.
+            onUse:
+              - kind: note
+                text:
+                  en: Attack rolls against you have advantage until your next turn.
+          - kind: roll-advantage
+            on:
+              type: attack
+              ability: str
+            when:
+              toggled: reckless-attack
+            note:
+              en: Melee weapon attack rolls using Strength only.
   "3":
     features:
       - id: srd51.feature.barbarian.primal-path
@@ -106,12 +219,9 @@ levels:
         source: srd51
         text:
           en: At 3rd level, you choose a path that shapes the nature of your rage. Choose the Path of the Berserker or the Path of the Totem Warrior, both detailed at the end of the class description. Your choice grants you features at 3rd level and again at 6th, 10th, and 14th levels.
-        effects:
-          - kind: open-choice
-            choice: primal-path
-            of: subclass
-            count: 1
-            level: 3
+    choices:
+      - id: primal-path
+        of: subclass
   "4":
     features:
       - id: srd51.feature.barbarian.ability-score-improvement
@@ -131,12 +241,25 @@ levels:
         source: srd51
         text:
           en: Beginning at 5th level, you can attack twice, instead of once, whenever you take the Attack action on your turn.
+        effects:
+          - kind: modify
+            target: attacks.perAction
+            op: max
+            value: 2
       - id: srd51.feature.barbarian.fast-movement
         name:
           en: Fast Movement
         source: srd51
         text:
           en: Starting at 5th level, your speed increases by 10 feet while you aren’t wearing heavy armor.
+        effects:
+          - kind: modify
+            target: speed.walk
+            op: add
+            value: 10
+            when:
+              not:
+                armorCategory: heavy
   "7":
     features:
       - id: srd51.feature.barbarian.feral-instinct
@@ -148,6 +271,16 @@ levels:
             By 7th level, your instincts are so honed that you have advantage on initiative rolls.
 
             Additionally, if you are surprised at the beginning of combat and aren’t incapacitated, you can act normally on your first turn, but only if you enter your rage before doing anything else on that turn.
+        effects:
+          - kind: roll-advantage
+            on:
+              type: initiative
+          - kind: add-text
+            section: features
+            text:
+              en: If you are surprised at the beginning of combat and aren't incapacitated, you can act normally on your first turn, but only if you enter your rage before doing anything else on that turn.
+            note:
+              en: "Situational: surprise is a play-time fact the engine does not track."
   "8":
     choices:
       - id: asi-8
@@ -163,6 +296,13 @@ levels:
             Beginning at 9th level, you can roll one additional weapon damage die when determining the extra damage for a critical hit with a melee attack.
 
             This increases to two additional dice at 13th level and three additional dice at 17th level.
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: You can roll one additional weapon damage die when determining the extra damage for a critical hit with a melee attack. This increases to two additional dice at 13th level and three additional dice at 17th level.
+            note:
+              en: "Gap: no play effect for critical-hit riders; the number of extra dice is table(barbarian.brutal-critical-dice)."
   "11":
     features:
       - id: srd51.feature.barbarian.relentless-rage
@@ -174,6 +314,26 @@ levels:
             Starting at 11th level, your rage can keep you fighting despite grievous wounds. If you drop to 0 hit points while you’re raging and don’t die outright, you can make a DC 10 Constitution saving throw. If you succeed, you drop to 1 hit point instead.
 
             Each time you use this feature after the first, the DC increases by 5. When you finish a short or long rest, the DC resets to 10.
+        effects:
+          - kind: declare-resource
+            resource: relentless-rage
+            name:
+              en: Relentless Rage uses since last rest
+            max: unlimited
+            recharge:
+              - on: short-rest
+                amount: full
+              - on: long-rest
+                amount: full
+            display: counter
+            note:
+              en: Counts the uses since the last rest; the save DC is 10 + 5 per use already made.
+          - kind: add-text
+            section: features
+            text:
+              en: If you drop to 0 hit points while you're raging and don't die outright, you can make a DC 10 Constitution saving throw. If you succeed, you drop to 1 hit point instead. Each time you use this feature after the first, the DC increases by 5. When you finish a short or long rest, the DC resets to 10.
+            note:
+              en: "Gap: no play hook for dropping to 0 hit points; the escalating DC is tracked with the relentless-rage counter."
   "12":
     choices:
       - id: asi-12
@@ -186,6 +346,13 @@ levels:
         source: srd51
         text:
           en: Beginning at 15th level, your rage is so fierce that it ends early only if you fall unconscious or if you choose to end it.
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: Your rage is so fierce that it ends early only if you fall unconscious or if you choose to end it.
+            note:
+              en: "Gap: changes only the end conditions of the raging toggle, which play mode tracks."
   "16":
     choices:
       - id: asi-16
@@ -198,6 +365,13 @@ levels:
         source: srd51
         text:
           en: Beginning at 18th level, if your total for a Strength check is less than your Strength score, you can use that score in place of the total.
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: If your total for a Strength check is less than your Strength score, you can use that score in place of the total.
+            note:
+              en: "Gap: a floor on the roll total of Strength checks is applied after the roll, not a sheet value."
   "19":
     choices:
       - id: asi-19
@@ -210,6 +384,23 @@ levels:
         source: srd51
         text:
           en: At 20th level, you embody the power of the wilds. Your Strength and Constitution scores increase by 4. Your maximum for those scores is now 24.
+        effects:
+          - kind: modify
+            target: ability.str.max
+            op: set
+            value: 24
+          - kind: modify
+            target: ability.con.max
+            op: set
+            value: 24
+          - kind: modify
+            target: ability.str
+            op: add
+            value: 4
+          - kind: modify
+            target: ability.con
+            op: add
+            value: 4
 tables:
   rage-count:
     by: classLevel

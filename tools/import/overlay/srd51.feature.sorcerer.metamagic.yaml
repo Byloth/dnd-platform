@@ -1,0 +1,145 @@
+effects:
+  - kind: open-choice
+    choice: metamagic
+    of: option
+    count: 2
+    note:
+      en: You gain another Metamagic option at 10th and 17th level (Metamagic Known column, table(sorcerer.metamagic-known)); the count of a choice cannot follow a table yet. You can use only one Metamagic option on a spell when you cast it, unless otherwise noted.
+    options:
+      - id: careful-spell
+        name:
+          en: Careful Spell
+        text:
+          en: When you cast a spell that forces other creatures to make a saving throw, you can protect some of those creatures from the spell's full force. To do so, you spend 1 sorcery point and choose a number of those creatures up to your Charisma modifier (minimum of one creature). A chosen creature automatically succeeds on its saving throw against the spell.
+        effects:
+          - kind: add-action
+            action: careful-spell
+            name:
+              en: Careful Spell
+            activation: free
+            cost:
+              - resource: sorcery-points
+                amount: 1
+            text:
+              en: When you cast a spell that forces other creatures to make a saving throw, spend 1 sorcery point and choose up to your Charisma modifier (minimum one) of those creatures; they automatically succeed on their saving throw against the spell.
+      - id: distant-spell
+        name:
+          en: Distant Spell
+        text:
+          en: When you cast a spell that has a range of 5 feet or greater, you can spend 1 sorcery point to double the range of the spell. When you cast a spell that has a range of touch, you can spend 1 sorcery point to make the range of the spell 30 feet.
+        effects:
+          - kind: add-action
+            action: distant-spell
+            name:
+              en: Distant Spell
+            activation: free
+            cost:
+              - resource: sorcery-points
+                amount: 1
+            text:
+              en: When you cast a spell with a range of 5 feet or greater, spend 1 sorcery point to double its range; a spell with a range of touch gets a range of 30 feet instead.
+      - id: empowered-spell
+        name:
+          en: Empowered Spell
+        text:
+          en: When you roll damage for a spell, you can spend 1 sorcery point to reroll a number of the damage dice up to your Charisma modifier (minimum of one). You must use the new rolls. You can use Empowered Spell even if you have already used a different Metamagic option during the casting of the spell.
+        effects:
+          - kind: add-action
+            action: empowered-spell
+            name:
+              en: Empowered Spell
+            activation: free
+            cost:
+              - resource: sorcery-points
+                amount: 1
+            text:
+              en: When you roll damage for a spell, spend 1 sorcery point to reroll up to your Charisma modifier (minimum one) of the damage dice; you must use the new rolls. Usable even if you already used another Metamagic option on the spell.
+            onUse:
+              - kind: reroll
+                roll: damage
+                keep: new
+                note:
+                  en: Reroll up to your Charisma modifier (minimum one) of the damage dice.
+      - id: extended-spell
+        name:
+          en: Extended Spell
+        text:
+          en: When you cast a spell that has a duration of 1 minute or longer, you can spend 1 sorcery point to double its duration, to a maximum duration of 24 hours.
+        effects:
+          - kind: add-action
+            action: extended-spell
+            name:
+              en: Extended Spell
+            activation: free
+            cost:
+              - resource: sorcery-points
+                amount: 1
+            text:
+              en: When you cast a spell with a duration of 1 minute or longer, spend 1 sorcery point to double its duration, to a maximum of 24 hours.
+      - id: heightened-spell
+        name:
+          en: Heightened Spell
+        text:
+          en: When you cast a spell that forces a creature to make a saving throw to resist its effects, you can spend 3 sorcery points to give one target of the spell disadvantage on its first saving throw made against the spell.
+        effects:
+          - kind: add-action
+            action: heightened-spell
+            name:
+              en: Heightened Spell
+            activation: free
+            cost:
+              - resource: sorcery-points
+                amount: 3
+            text:
+              en: When you cast a spell that forces a creature to make a saving throw, spend 3 sorcery points to give one target disadvantage on its first saving throw against the spell.
+      - id: quickened-spell
+        name:
+          en: Quickened Spell
+        text:
+          en: When you cast a spell that has a casting time of 1 action, you can spend 2 sorcery points to change the casting time to 1 bonus action for this casting.
+        effects:
+          - kind: add-action
+            action: quickened-spell
+            name:
+              en: Quickened Spell
+            activation: free
+            cost:
+              - resource: sorcery-points
+                amount: 2
+            text:
+              en: When you cast a spell with a casting time of 1 action, spend 2 sorcery points to cast it as a bonus action instead.
+      - id: subtle-spell
+        name:
+          en: Subtle Spell
+        text:
+          en: When you cast a spell, you can spend 1 sorcery point to cast it without any somatic or verbal components.
+        effects:
+          - kind: add-action
+            action: subtle-spell
+            name:
+              en: Subtle Spell
+            activation: free
+            cost:
+              - resource: sorcery-points
+                amount: 1
+            text:
+              en: When you cast a spell, spend 1 sorcery point to cast it without any somatic or verbal components.
+      - id: twinned-spell
+        name:
+          en: Twinned Spell
+        text:
+          en: When you cast a spell that targets only one creature and doesn't have a range of self, you can spend a number of sorcery points equal to the spell's level to target a second creature in range with the same spell (1 sorcery point if the spell is a cantrip). To be eligible, a spell must be incapable of targeting more than one creature at the spell's current level.
+        effects:
+          - kind: add-action
+            action: twinned-spell
+            name:
+              en: Twinned Spell
+            activation: free
+            text:
+              en: When you cast a spell that targets only one creature and doesn't have a range of self, spend sorcery points equal to the spell's level (1 for a cantrip) to target a second creature in range with the same spell. The spell must be incapable of targeting more than one creature at the level it is cast.
+            onUse:
+              - kind: note
+                text:
+                  en: Spend sorcery points equal to the spell's level (1 for a cantrip).
+            note:
+              en: The cost equals the level of the spell being cast, which a fixed cost cannot express; deduct the points by hand.

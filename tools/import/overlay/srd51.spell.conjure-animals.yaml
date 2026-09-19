@@ -1,0 +1,7 @@
+effects:
+  - kind: add-text
+    section: features
+    text: { en: "Summoned fey spirits in beast form (one beast of challenge rating 2 or lower, two of CR 1 or lower, four of CR 1/2 or lower, or eight of CR 1/4 or lower) are friendly to you and your companions, roll initiative as a group and obey your verbal commands (no action required); without commands they only defend themselves. A beast disappears at 0 hit points or when the spell ends." }
+onCast:
+  - kind: note
+    text: { en: "The DM has the creatures' statistics (no stat blocks in v0). Twice as many creatures with a 5th-level slot, three times as many with a 7th-level slot, four times as many with a 9th-level slot." }

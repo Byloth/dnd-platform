@@ -15,3 +15,16 @@ rarity: uncommon
 tags:
   - magic-item
   - wondrous-items
+features:
+  - id: srd51.feature.item.goggles-of-night.darkvision
+    name:
+      en: Darkvision
+    text:
+      en: While wearing these dark lenses, you have darkvision out to a range of 60 feet. If you already have darkvision, wearing the goggles increases its range by 60 feet.
+    effects:
+      - kind: modify
+        target: sense.darkvision
+        op: add
+        value: 60
+        note:
+          en: Darkvision 60 feet, or 60 feet more if you already have darkvision.

@@ -1,0 +1,72 @@
+effects:
+  - kind: open-choice
+    choice: fighting-style
+    of: fighting-style
+    count: 1
+    note:
+      en: You can't take a Fighting Style option more than once, even if you later get to choose again.
+    options:
+      - id: defense
+        name:
+          en: Defense
+        text:
+          en: While you are wearing armor, you gain a +1 bonus to AC.
+        effects:
+          - kind: modify
+            target: ac
+            op: add
+            value: 1
+            when:
+              any:
+                - armorCategory: light
+                - armorCategory: medium
+                - armorCategory: heavy
+      - id: dueling
+        name:
+          en: Dueling
+        text:
+          en: When you are wielding a melee weapon in one hand and no other weapons, you gain a +2 bonus to damage rolls with that weapon.
+        effects:
+          - kind: modify-attacks
+            filter:
+              melee: true
+            set:
+              damageBonus: 2
+            when:
+              wieldingOnly:
+                melee: true
+                count: 1
+      - id: great-weapon-fighting
+        name:
+          en: Great Weapon Fighting
+        text:
+          en: When you roll a 1 or 2 on a damage die for an attack you make with a melee weapon that you are wielding with two hands, you can reroll the die and must use the new roll. The weapon must have the two-handed or versatile property for you to gain this benefit.
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Great Weapon Fighting: when you roll a 1 or 2 on a damage die for an attack with a melee weapon wielded with two hands (two-handed or versatile property), reroll the die and use the new roll."
+            note:
+              en: Rerolling individual damage dice of 1 or 2 has no catalogue kind; resolved in play.
+      - id: protection
+        name:
+          en: Protection
+        text:
+          en: When a creature you can see attacks a target other than you that is within 5 feet of you, you can use your reaction to impose disadvantage on the attack roll. You must be wielding a shield.
+        effects:
+          - kind: add-action
+            action: protection
+            name:
+              en: Protection
+            activation: reaction
+            requires:
+              condition:
+                shield: true
+            trigger:
+              en: when a creature you can see attacks a target other than you that is within 5 feet of you
+            text:
+              en: Impose disadvantage on the attack roll. You must be wielding a shield.
+            onUse:
+              - kind: note
+                text:
+                  en: The triggering attack roll is made with disadvantage.

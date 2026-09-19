@@ -1,0 +1,13 @@
+attunement: { by: { en: "a spellcaster" } }
+charges:
+  max: 7
+  recharge: [{ on: dawn, amount: "1d6 + 1" }]
+features:
+  - id: srd51.feature.item.wand-of-polymorph.polymorph
+    name: { en: "Polymorph" }
+    effects:
+      - kind: grant-spells
+        spells: [srd51.spell.polymorph]
+        as: always-prepared
+        cost: [{ resource: charges, amount: 1 }]
+        note: { en: "Save DC 15; cast as an action while holding the wand. If you expend the last charge, roll a d20: on a 1 the wand crumbles into ashes and is destroyed." }

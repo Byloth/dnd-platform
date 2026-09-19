@@ -54,3 +54,96 @@ attunement: true
 tags:
   - magic-item
   - wondrous-items
+charges:
+  max: 36
+  recharge:
+    - on: dawn
+      amount: 1d20
+features:
+  - id: srd51.feature.item.cube-of-force.faces
+    name:
+      en: Cube of Force faces
+    effects:
+      - kind: add-text
+        section: features
+        text:
+          en: "Pressing a face creates a barrier of invisible force forming a cube 15 feet on a side, centered on you and moving with you, lasting for 1 minute, until you press the sixth face, or until the cube runs out of charges. Pressing a different face changes the barrier's effect and resets the duration. If the cube has insufficient charges, nothing happens. The cube loses charges when the barrier is targeted by certain spells or items: disintegrate 1d12, horn of blasting 1d10, passwall 1d6, prismatic spray 1d20, wall of fire 1d4."
+      - kind: add-action
+        action: cube-of-force-face-1
+        name:
+          en: "Face 1: gases, wind and fog can't pass"
+        activation: action
+        cost:
+          - resource: charges
+            amount: 1
+        toggle:
+          state: cube-of-force-barrier
+          expires:
+            minutes: 1
+        text:
+          en: Gases, wind, and fog can't pass through the barrier.
+      - kind: add-action
+        action: cube-of-force-face-2
+        name:
+          en: "Face 2: nonliving matter can't pass"
+        activation: action
+        cost:
+          - resource: charges
+            amount: 2
+        toggle:
+          state: cube-of-force-barrier
+          expires:
+            minutes: 1
+        text:
+          en: Nonliving matter can't pass through the barrier. Walls, floors, and ceilings can pass through at your discretion.
+      - kind: add-action
+        action: cube-of-force-face-3
+        name:
+          en: "Face 3: living matter can't pass"
+        activation: action
+        cost:
+          - resource: charges
+            amount: 3
+        toggle:
+          state: cube-of-force-barrier
+          expires:
+            minutes: 1
+        text:
+          en: Living matter can't pass through the barrier.
+      - kind: add-action
+        action: cube-of-force-face-4
+        name:
+          en: "Face 4: spell effects can't pass"
+        activation: action
+        cost:
+          - resource: charges
+            amount: 4
+        toggle:
+          state: cube-of-force-barrier
+          expires:
+            minutes: 1
+        text:
+          en: Spell effects can't pass through the barrier.
+      - kind: add-action
+        action: cube-of-force-face-5
+        name:
+          en: "Face 5: nothing can pass"
+        activation: action
+        cost:
+          - resource: charges
+            amount: 5
+        toggle:
+          state: cube-of-force-barrier
+          expires:
+            minutes: 1
+        text:
+          en: Nothing can pass through the barrier. Walls, floors, and ceilings can pass through at your discretion.
+      - kind: add-action
+        action: cube-of-force-face-6
+        name:
+          en: "Face 6: deactivate the barrier"
+        activation: action
+        text:
+          en: The barrier deactivates.
+        note:
+          en: Costs no charge; switch the barrier toggle off.

@@ -1,0 +1,21 @@
+attunement: { by: { en: "a bard, cleric, or druid" } }
+charges:
+  max: 10
+  recharge: [{ on: dawn, amount: "1d6 + 4" }]
+features:
+  - id: srd51.feature.item.staff-of-healing.spells
+    name: { en: "Spells" }
+    effects:
+      - kind: grant-spells
+        spells: [srd51.spell.cure-wounds]
+        as: always-prepared
+        cost: [{ resource: charges, amount: 1 }]
+        note: { en: "1 charge per spell level, up to 4th. Cast as an action using your spell save DC and spellcasting ability modifier. If you expend the last charge, roll a d20: on a 1 the staff vanishes in a flash of light, lost forever." }
+      - kind: grant-spells
+        spells: [srd51.spell.lesser-restoration]
+        as: always-prepared
+        cost: [{ resource: charges, amount: 2 }]
+      - kind: grant-spells
+        spells: [srd51.spell.mass-cure-wounds]
+        as: always-prepared
+        cost: [{ resource: charges, amount: 5 }]

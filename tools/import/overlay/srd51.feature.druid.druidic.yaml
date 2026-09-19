@@ -1,0 +1,7 @@
+effects:
+  - kind: grant-proficiency
+    type: language
+    items:
+      - druidic
+    note:
+      en: Hidden messages in Druidic are spotted automatically by those who know the language; others notice them with a DC 15 Wisdom (Perception) check but cannot decipher them without magic.

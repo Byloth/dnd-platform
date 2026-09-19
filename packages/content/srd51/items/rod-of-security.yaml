@@ -19,3 +19,33 @@ rarity: very-rare
 tags:
   - magic-item
   - rod
+features:
+  - id: srd51.feature.item.rod-of-security.paradise
+    name:
+      en: Paradise
+    effects:
+      - kind: declare-resource
+        resource: rod-of-security
+        name:
+          en: Rod of Security
+        max: 1
+        recharge:
+          - on: manual
+            amount: full
+        display: pips
+        note:
+          en: The rod can't be used again until ten days have passed; no ten-day recharge exists, so restore it by hand.
+      - kind: add-action
+        action: paradise
+        name:
+          en: Paradise
+        activation: action
+        cost:
+          - resource: rod-of-security
+            amount: 1
+        text:
+          en: Instantly transport yourself and up to 199 other willing creatures you can see to an extraplanar paradise of a form you choose, with enough food and water for its visitors. Each hour spent there, a visitor regains hit points as if it had spent 1 Hit Die; creatures don't age. Visitors can remain up to 200 days divided by the number of creatures present (round down). When the time runs out or you use an action to end it, everyone reappears where they were, or in the nearest unoccupied space.
+        onUse:
+          - kind: note
+            text:
+              en: Track the stay (200 days divided by the number of visitors) and the hourly Hit Die recovery at the table.

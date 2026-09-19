@@ -30,3 +30,38 @@ rolls:
     damageType: radiant
 tags:
   - area
+effects:
+  - kind: add-action
+    action: sunbeam
+    name:
+      en: Sunbeam (new line)
+    activation: action
+    rolls:
+      - type: save
+        ability: con
+        onSuccess: half
+      - type: damage
+        dice: 6d8
+        damageType: radiant
+    onUse:
+      - kind: applyCondition
+        condition: srd51.condition.blinded
+        target: other
+        expires:
+          until: next-turn-start
+        note:
+          en: On a failed save; undead and oozes save with disadvantage.
+    text:
+      en: Create a new 5-foot-wide, 60-foot-long line of radiance.
+  - kind: add-text
+    section: features
+    text:
+      en: A mote of brilliant radiance in your hand sheds bright light in a 30-foot radius and dim light for an additional 30 feet; this light is sunlight.
+onCast:
+  - kind: applyCondition
+    condition: srd51.condition.blinded
+    target: other
+    expires:
+      until: next-turn-start
+    note:
+      en: On a failed save; undead and oozes save with disadvantage.

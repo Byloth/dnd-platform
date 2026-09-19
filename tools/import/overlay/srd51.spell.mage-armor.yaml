@@ -1,0 +1,7 @@
+effects:
+  - kind: modify
+    target: ac
+    op: set-formula
+    formula: 13 + mod(dex)
+    when: { armorCategory: none }
+    note: { en: "Base AC while not wearing armor; the spell ends if the target dons armor or the caster dismisses it as an action." }

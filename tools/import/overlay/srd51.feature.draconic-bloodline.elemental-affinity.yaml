@@ -1,0 +1,85 @@
+effects:
+  - kind: add-text
+    section: features
+    text:
+      en: When you cast a spell that deals damage of the type associated with your draconic ancestry, you can add your Charisma modifier to one damage roll of that spell.
+    note:
+      en: A damage bonus limited to spells of one damage type has no modify target; add your Charisma modifier to one damage roll by hand.
+  - kind: add-action
+    action: elemental-affinity
+    name:
+      en: Elemental Affinity (resistance)
+    activation: free
+    cost:
+      - resource: sorcery-points
+        amount: 1
+    toggle:
+      state: elemental-affinity
+      expires:
+        hours: 1
+    text:
+      en: When you cast a spell that deals damage of the type associated with your draconic ancestry, you can spend 1 sorcery point to gain resistance to that damage type for 1 hour.
+  - kind: defense
+    defense: resistance
+    to:
+      - acid
+    when:
+      toggled: elemental-affinity
+      any:
+        - answer:
+            choice: dragon-ancestor
+            is: black
+        - answer:
+            choice: dragon-ancestor
+            is: copper
+  - kind: defense
+    defense: resistance
+    to:
+      - lightning
+    when:
+      toggled: elemental-affinity
+      any:
+        - answer:
+            choice: dragon-ancestor
+            is: blue
+        - answer:
+            choice: dragon-ancestor
+            is: bronze
+  - kind: defense
+    defense: resistance
+    to:
+      - fire
+    when:
+      toggled: elemental-affinity
+      any:
+        - answer:
+            choice: dragon-ancestor
+            is: brass
+        - answer:
+            choice: dragon-ancestor
+            is: gold
+        - answer:
+            choice: dragon-ancestor
+            is: red
+  - kind: defense
+    defense: resistance
+    to:
+      - poison
+    when:
+      toggled: elemental-affinity
+      answer:
+        choice: dragon-ancestor
+        is: green
+  - kind: defense
+    defense: resistance
+    to:
+      - cold
+    when:
+      toggled: elemental-affinity
+      any:
+        - answer:
+            choice: dragon-ancestor
+            is: silver
+        - answer:
+            choice: dragon-ancestor
+            is: white

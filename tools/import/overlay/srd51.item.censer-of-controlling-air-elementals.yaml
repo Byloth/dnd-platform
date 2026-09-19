@@ -1,0 +1,17 @@
+charges:
+  max: 1
+  recharge: [{ on: dawn, amount: full }]
+features:
+  - id: srd51.feature.item.censer-of-controlling-air-elementals.summon
+    name: { en: "Summon an air elemental" }
+    effects:
+      - kind: add-action
+        action: summon-air-elemental
+        name: { en: "Summon an air elemental" }
+        activation: action
+        cost: [{ resource: charges, amount: 1 }]
+        requires: { condition: { resourceAtLeast: { resource: charges, amount: 1 } } }
+        text: { en: "While incense is burning in the censer, speak its command word to summon an air elemental, as if you had cast the conjure elemental spell. The censer can't be used this way again until the next dawn." }
+        onUse:
+          - kind: note
+            text: { en: "An air elemental appears as if by conjure elemental (incense must be burning in the censer); see that spell for control and duration." }

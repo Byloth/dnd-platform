@@ -34,7 +34,149 @@ text:
 type: wondrous
 magical: true
 rarity: legendary
-attunement: true
+attunement:
+  by:
+    en: a sorcerer, warlock, or wizard
 tags:
   - magic-item
   - staff
+baseItem: srd51.item.quarterstaff
+category: simple
+damage: 1d6
+damageType: bludgeoning
+properties:
+  - versatile
+versatile: 1d8
+monkWeapon: true
+charges:
+  max: 50
+  recharge:
+    - on: dawn
+      amount: 4d6 + 2
+features:
+  - id: srd51.feature.item.staff-of-the-magi.magic-quarterstaff
+    name:
+      en: Magic Quarterstaff
+    effects:
+      - kind: modify-attacks
+        filter:
+          item: srd51.item.staff-of-the-magi
+        set:
+          attackBonus: 2
+          damageBonus: 2
+          magical: true
+      - kind: modify
+        target: attack.spell.bonus
+        op: add
+        value: 2
+  - id: srd51.feature.item.staff-of-the-magi.spell-absorption
+    name:
+      en: Spell Absorption
+    effects:
+      - kind: roll-advantage
+        on:
+          type: save
+          against:
+            - spells
+      - kind: add-action
+        action: absorb-spell
+        name:
+          en: Absorb Spell
+        activation: reaction
+        trigger:
+          en: when another creature casts a spell that targets only you
+        text:
+          en: The staff absorbs the magic of the spell, canceling its effect and gaining a number of charges equal to the absorbed spell's level. If doing so brings the staff above 50 charges, the staff explodes as if you activated its retributive strike.
+        onUse:
+          - kind: restoreResource
+            resource: charges
+            amount: 1
+            note:
+              en: The staff regains charges equal to the absorbed spell's level, not 1; above 50 charges it explodes (Retributive Strike).
+  - id: srd51.feature.item.staff-of-the-magi.spells
+    name:
+      en: Spells
+    effects:
+      - kind: grant-spells
+        spells:
+          - srd51.spell.flaming-sphere
+          - srd51.spell.invisibility
+          - srd51.spell.knock
+          - srd51.spell.web
+        as: always-prepared
+        cost:
+          - resource: charges
+            amount: 2
+        note:
+          en: "Cast as an action using your spell save DC and spellcasting ability. If you expend the last charge, roll a d20: on a 20 the staff regains 1d12 + 1 charges."
+      - kind: grant-spells
+        spells:
+          - srd51.spell.dispel-magic
+        as: always-prepared
+        cost:
+          - resource: charges
+            amount: 3
+      - kind: grant-spells
+        spells:
+          - srd51.spell.ice-storm
+          - srd51.spell.wall-of-fire
+        as: always-prepared
+        cost:
+          - resource: charges
+            amount: 4
+      - kind: grant-spells
+        spells:
+          - srd51.spell.passwall
+          - srd51.spell.telekinesis
+        as: always-prepared
+        cost:
+          - resource: charges
+            amount: 5
+      - kind: grant-spells
+        spells:
+          - srd51.spell.conjure-elemental
+          - srd51.spell.plane-shift
+        as: always-prepared
+        cost:
+          - resource: charges
+            amount: 7
+      - kind: grant-spells
+        spells:
+          - srd51.spell.fireball
+          - srd51.spell.lightning-bolt
+        as: always-prepared
+        level: 7
+        cost:
+          - resource: charges
+            amount: 7
+      - kind: grant-spells
+        spells:
+          - srd51.spell.arcane-lock
+          - srd51.spell.detect-magic
+          - srd51.spell.enlargereduce
+          - srd51.spell.light
+          - srd51.spell.mage-hand
+          - srd51.spell.protection-from-evil-and-good
+        as: always-prepared
+        note:
+          en: Cast from the staff as an action without using any charges.
+  - id: srd51.feature.item.staff-of-the-magi.retributive-strike
+    name:
+      en: Retributive Strike
+    effects:
+      - kind: add-action
+        action: retributive-strike
+        name:
+          en: Retributive Strike
+        activation: action
+        dc: "17"
+        rolls:
+          - type: save
+            ability: dex
+            onSuccess: half
+        text:
+          en: "Break the staff: it is destroyed and releases its remaining magic in an explosion filling a 30-foot-radius sphere centered on it. You have a 50 percent chance to instantly travel to a random plane of existence, avoiding the explosion; otherwise you take force damage equal to 16 x the number of charges in the staff. Every other creature in the area makes a DC 17 Dexterity saving throw, taking damage based on its distance from the origin (half on a success)."
+        onUse:
+          - kind: note
+            text:
+              en: "Damage by distance: 10 ft. or closer 8 x charges, 11 to 20 ft. 6 x charges, 21 to 30 ft. 4 x charges (force damage). The staff is destroyed."

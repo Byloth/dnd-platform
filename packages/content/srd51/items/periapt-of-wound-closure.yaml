@@ -16,3 +16,24 @@ attunement: true
 tags:
   - magic-item
   - wondrous-items
+features:
+  - id: srd51.feature.item.periapt-of-wound-closure.wound-closure
+    name:
+      en: Wound Closure
+    text:
+      en: While you wear this pendant, you stabilize whenever you are dying at the start of your turn. In addition, whenever you roll a Hit Die to regain hit points, double the number of hit points it restores.
+    effects:
+      - kind: add-text
+        section: features
+        text:
+          en: Whenever you roll a Hit Die to regain hit points, double the number of hit points it restores.
+        note:
+          en: Hit Die healing has no modifier target.
+    onTurnStart:
+      - kind: note
+        text:
+          en: If you are dying at the start of your turn, you stabilize.
+    onRest:
+      - kind: note
+        text:
+          en: Whenever you roll a Hit Die to regain hit points, double the number of hit points it restores.

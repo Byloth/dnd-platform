@@ -1,0 +1,118 @@
+effects:
+  - kind: open-choice
+    choice: dragon-ancestor
+    of: option
+    count: 1
+    note:
+      en: The damage type associated with your dragon is used by features you gain later (Elemental Affinity).
+    options:
+      - id: black
+        name:
+          en: Black dragon
+        text:
+          en: Damage type acid.
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Draconic ancestry: black dragon (acid)."
+      - id: blue
+        name:
+          en: Blue dragon
+        text:
+          en: Damage type lightning.
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Draconic ancestry: blue dragon (lightning)."
+      - id: brass
+        name:
+          en: Brass dragon
+        text:
+          en: Damage type fire.
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Draconic ancestry: brass dragon (fire)."
+      - id: bronze
+        name:
+          en: Bronze dragon
+        text:
+          en: Damage type lightning.
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Draconic ancestry: bronze dragon (lightning)."
+      - id: copper
+        name:
+          en: Copper dragon
+        text:
+          en: Damage type acid.
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Draconic ancestry: copper dragon (acid)."
+      - id: gold
+        name:
+          en: Gold dragon
+        text:
+          en: Damage type fire.
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Draconic ancestry: gold dragon (fire)."
+      - id: green
+        name:
+          en: Green dragon
+        text:
+          en: Damage type poison.
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Draconic ancestry: green dragon (poison)."
+      - id: red
+        name:
+          en: Red dragon
+        text:
+          en: Damage type fire.
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Draconic ancestry: red dragon (fire)."
+      - id: silver
+        name:
+          en: Silver dragon
+        text:
+          en: Damage type cold.
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Draconic ancestry: silver dragon (cold)."
+      - id: white
+        name:
+          en: White dragon
+        text:
+          en: Damage type cold.
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Draconic ancestry: white dragon (cold)."
+  - kind: grant-proficiency
+    type: language
+    items:
+      - draconic
+  - kind: add-text
+    section: features
+    text:
+      en: Whenever you make a Charisma check when interacting with dragons, your proficiency bonus is doubled if it applies to the check.
+    note:
+      en: A check scoped to a creature type has no modify target; apply the doubled proficiency bonus by hand.

@@ -20,3 +20,33 @@ attunement: true
 tags:
   - magic-item
   - weapon
+features:
+  - id: srd51.feature.item.dancing-sword.dance
+    name:
+      en: Dancing
+    effects:
+      - kind: add-action
+        action: toss-dancing-sword
+        name:
+          en: Toss the sword into the air
+        activation: bonus-action
+        toggle:
+          state: dancing-sword-hovering
+          expires:
+            manual: true
+        text:
+          en: "Speak the command word: the sword hovers, flies up to 30 feet, and attacks one creature of your choice within 5 feet of it, using your attack roll and ability score modifier to damage rolls. After the hovering sword attacks for the fourth time, it flies up to 30 feet and tries to return to your hand; it also ceases to hover if you grasp it or move more than 30 feet away from it."
+        onUse:
+          - kind: note
+            text:
+              en: The sword attacks with your attack bonus and adds your ability modifier to damage; track its four attacks.
+      - kind: add-action
+        action: direct-dancing-sword
+        name:
+          en: Direct the hovering sword
+        activation: bonus-action
+        requires:
+          condition:
+            toggled: dancing-sword-hovering
+        text:
+          en: The sword flies up to 30 feet to another spot within 30 feet of you and, as part of the same bonus action, attacks one creature within 5 feet of it.

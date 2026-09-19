@@ -1,0 +1,67 @@
+effects:
+  - kind: modify
+    target: check.str
+    op: add
+    formula: ceil(proficiencyBonus / 2)
+    note:
+      en: Half your proficiency bonus (round up) on Strength checks that don't already use your proficiency bonus.
+  - kind: modify
+    target: check.dex
+    op: add
+    formula: ceil(proficiencyBonus / 2)
+    note:
+      en: Half your proficiency bonus (round up) on Dexterity checks that don't already use your proficiency bonus.
+  - kind: modify
+    target: check.con
+    op: add
+    formula: ceil(proficiencyBonus / 2)
+    note:
+      en: Half your proficiency bonus (round up) on Constitution checks that don't already use your proficiency bonus.
+  - kind: modify
+    target: initiative
+    op: add
+    formula: ceil(proficiencyBonus / 2)
+    note:
+      en: Initiative is a Dexterity check.
+  - kind: modify
+    target: skill.athletics
+    op: add
+    formula: ceil(proficiencyBonus / 2)
+    when:
+      not:
+        proficient:
+          type: skill
+          item: athletics
+  - kind: modify
+    target: skill.acrobatics
+    op: add
+    formula: ceil(proficiencyBonus / 2)
+    when:
+      not:
+        proficient:
+          type: skill
+          item: acrobatics
+  - kind: modify
+    target: skill.sleight-of-hand
+    op: add
+    formula: ceil(proficiencyBonus / 2)
+    when:
+      not:
+        proficient:
+          type: skill
+          item: sleight-of-hand
+  - kind: modify
+    target: skill.stealth
+    op: add
+    formula: ceil(proficiencyBonus / 2)
+    when:
+      not:
+        proficient:
+          type: skill
+          item: stealth
+  - kind: modify
+    target: jump.long
+    op: add
+    formula: mod(str)
+    note:
+      en: When you make a running long jump, the distance you can cover increases by a number of feet equal to your Strength modifier.

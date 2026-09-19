@@ -1,0 +1,6 @@
+onTurnStart:
+  - kind: heal
+    amount: 5 + mod(con)
+    target: self
+    note:
+      en: Only if you have no more than half of your hit points left and more than 0 hit points.

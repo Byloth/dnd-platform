@@ -15,3 +15,18 @@ rarity: rare
 tags:
   - magic-item
   - wondrous-items
+features:
+  - id: srd51.feature.item.periapt-of-proof-against-poison.proof-against-poison
+    name:
+      en: Proof against Poison
+    text:
+      en: While you wear it, poisons have no effect on you. You are immune to the poisoned condition and have immunity to poison damage.
+    effects:
+      - kind: defense
+        defense: immunity
+        to:
+          - poison
+      - kind: defense
+        defense: condition-immunity
+        to:
+          - srd51.condition.poisoned

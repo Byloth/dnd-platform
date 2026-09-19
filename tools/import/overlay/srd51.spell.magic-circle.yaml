@@ -1,0 +1,5 @@
+effects:
+  - kind: add-text
+    section: features
+    text: { en: "Against the chosen creature types (celestials, elementals, fey, fiends or undead): they can't willingly enter the cylinder by nonmagical means (Charisma save to do so by teleportation or interplanar travel), have disadvantage on attack rolls against targets inside it, and can't charm, frighten or possess them. The circle can be reversed to keep such creatures inside. Each slot level above 3rd adds 1 hour to the duration." }
+    note: { en: "Keyed on the attacker's creature type: reminder only." }

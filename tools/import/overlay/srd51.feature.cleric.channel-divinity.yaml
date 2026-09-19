@@ -1,0 +1,35 @@
+effects:
+  - kind: declare-resource
+    resource: channel-divinity
+    name:
+      en: Channel Divinity
+    max: table(cleric.channel-divinity-charges)
+    recharge:
+      - on: short-rest
+        amount: full
+      - on: long-rest
+        amount: full
+    display: pips
+    note:
+      en: "Channel Divinity save DC = your cleric spell save DC (8 + your proficiency bonus + your Wisdom modifier)."
+  - kind: add-action
+    action: turn-undead
+    name:
+      en: "Channel Divinity: Turn Undead"
+    activation: action
+    cost:
+      - resource: channel-divinity
+        amount: 1
+    dc: 8 + proficiencyBonus + mod(wis)
+    range:
+      type: point
+      distance: 30
+    duration:
+      type: timed
+      minutes: 1
+    text:
+      en: "You present your holy symbol and speak a prayer censuring the undead. Each undead that can see or hear you within 30 feet of you must make a Wisdom saving throw. If the creature fails its saving throw, it is turned for 1 minute or until it takes any damage."
+    onUse:
+      - kind: note
+        text:
+          en: "A turned creature must spend its turns trying to move as far away from you as it can, and it can't willingly move to a space within 30 feet of you. It also can't take reactions. For its action, it can use only the Dash action or try to escape from an effect that prevents it from moving. If there's nowhere to move, the creature can use the Dodge action."

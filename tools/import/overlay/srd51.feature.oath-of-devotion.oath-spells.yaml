@@ -1,0 +1,49 @@
+effects:
+  - kind: grant-spells
+    spells:
+      - srd51.spell.protection-from-evil-and-good
+      - srd51.spell.sanctuary
+    as: always-prepared
+    ability: cha
+    note:
+      en: Oath spells are always prepared, don't count against the number of spells you can prepare, and count as paladin spells for you.
+  - kind: grant-spells
+    spells:
+      - srd51.spell.lesser-restoration
+      - srd51.spell.zone-of-truth
+    as: always-prepared
+    ability: cha
+    when:
+      classLevel:
+        class: srd51.class.paladin
+        min: 5
+  - kind: grant-spells
+    spells:
+      - srd51.spell.beacon-of-hope
+      - srd51.spell.dispel-magic
+    as: always-prepared
+    ability: cha
+    when:
+      classLevel:
+        class: srd51.class.paladin
+        min: 9
+  - kind: grant-spells
+    spells:
+      - srd51.spell.freedom-of-movement
+      - srd51.spell.guardian-of-faith
+    as: always-prepared
+    ability: cha
+    when:
+      classLevel:
+        class: srd51.class.paladin
+        min: 13
+  - kind: grant-spells
+    spells:
+      - srd51.spell.commune
+      - srd51.spell.flame-strike
+    as: always-prepared
+    ability: cha
+    when:
+      classLevel:
+        class: srd51.class.paladin
+        min: 17

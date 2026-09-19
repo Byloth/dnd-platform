@@ -16,3 +16,15 @@ attunement: true
 tags:
   - magic-item
   - wondrous-items
+features:
+  - id: srd51.feature.item.mantle-of-spell-resistance.spell-resistance
+    name:
+      en: Spell Resistance
+    text:
+      en: You have advantage on saving throws against spells while you wear this cloak.
+    effects:
+      - kind: roll-advantage
+        on:
+          type: save
+          against:
+            - spells

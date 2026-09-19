@@ -1,0 +1,8 @@
+effects:
+  - kind: modify
+    target: speed.walk
+    op: add
+    value: 10
+    when:
+      not:
+        armorCategory: heavy

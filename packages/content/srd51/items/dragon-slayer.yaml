@@ -17,3 +17,27 @@ rarity: rare
 tags:
   - magic-item
   - weapon
+features:
+  - id: srd51.feature.item.dragon-slayer.bonus
+    name:
+      en: +1 bonus
+    effects:
+      - kind: modify-attacks
+        filter:
+          item: srd51.item.dragon-slayer
+        set:
+          attackBonus: 1
+          damageBonus: 1
+          magical: true
+  - id: srd51.feature.item.dragon-slayer.slaying
+    name:
+      en: Dragon slaying
+    effects:
+      - kind: modify-attacks
+        filter:
+          item: srd51.item.dragon-slayer
+        set:
+          extraDamage:
+            dice: 3d6
+        note:
+          en: "Only when you hit a dragon (any creature with the dragon type, including dragon turtles and wyverns): an extra 3d6 damage of the weapon's type."

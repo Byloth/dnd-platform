@@ -1,0 +1,101 @@
+attunement: true
+baseItem: srd51.item.mace
+category: simple
+damage: 1d6
+damageType: bludgeoning
+monkWeapon: true
+features:
+  - id: srd51.feature.item.rod-of-lordly-might.magic-mace
+    name: { en: "Magic Mace" }
+    effects:
+      - kind: modify-attacks
+        filter: { item: srd51.item.rod-of-lordly-might }
+        set: { attackBonus: 3, damageBonus: 3, magical: true }
+  - id: srd51.feature.item.rod-of-lordly-might.six-buttons
+    name: { en: "Six Buttons" }
+    effects:
+      - kind: add-action
+        action: press-button
+        name: { en: "Press a button" }
+        activation: bonus-action
+        text: { en: "Press one of the rod's six buttons. The effect lasts until you push a different button or the same button again, which returns the rod to its normal form." }
+        onUse:
+          - kind: note
+            text: { en: "Button 1: the rod becomes a flame tongue. Button 2: a magic battleaxe with a +3 bonus to attack and damage rolls. Button 3: a magic spear with a +3 bonus to attack and damage rolls. Button 4: a climbing pole up to 50 feet long that bears up to 4,000 pounds. Button 5: a handheld battering ram granting a +10 bonus to Strength checks made to break through doors, barricades and other barriers. Button 6: normal form; the rod indicates magnetic north and tells you your approximate depth beneath the ground or height above it." }
+        note: { en: "Changing the rod's weapon form (flame tongue, battleaxe, spear) has no kind in v0; the attack rows stay those of the +3 mace and the alternative forms are applied at the table." }
+  - id: srd51.feature.item.rod-of-lordly-might.drain-life
+    name: { en: "Drain Life" }
+    effects:
+      - kind: declare-resource
+        resource: drain-life
+        name: { en: "Drain Life" }
+        max: 1
+        recharge: [{ on: dawn, amount: full }]
+        display: pips
+      - kind: add-action
+        action: drain-life
+        name: { en: "Drain Life" }
+        activation: special
+        trigger: { en: "when you hit a creature with a melee attack using the rod" }
+        cost: [{ resource: drain-life, amount: 1 }]
+        dc: "17"
+        rolls:
+          - { type: save, ability: con }
+        text: { en: "Force the target to make a DC 17 Constitution saving throw. On a failure, the target takes an extra 4d6 necrotic damage, and you regain a number of hit points equal to half that necrotic damage." }
+        onHit:
+          - kind: extraDamage
+            dice: "4d6"
+            damageType: necrotic
+            note: { en: "Only on a failed DC 17 Constitution save." }
+          - kind: note
+            text: { en: "You regain hit points equal to half the necrotic damage dealt." }
+  - id: srd51.feature.item.rod-of-lordly-might.paralyze
+    name: { en: "Paralyze" }
+    effects:
+      - kind: declare-resource
+        resource: paralyze
+        name: { en: "Paralyze" }
+        max: 1
+        recharge: [{ on: dawn, amount: full }]
+        display: pips
+      - kind: add-action
+        action: paralyze
+        name: { en: "Paralyze" }
+        activation: special
+        trigger: { en: "when you hit a creature with a melee attack using the rod" }
+        cost: [{ resource: paralyze, amount: 1 }]
+        dc: "17"
+        rolls:
+          - { type: save, ability: str }
+        text: { en: "Force the target to make a DC 17 Strength saving throw. On a failure, the target is paralyzed for 1 minute; it can repeat the saving throw at the end of each of its turns, ending the effect on a success." }
+        onHit:
+          - kind: applyCondition
+            condition: srd51.condition.paralyzed
+            target: other
+            expires: { minutes: 1 }
+            note: { en: "Only on a failed DC 17 Strength save; the target repeats the save at the end of each of its turns." }
+  - id: srd51.feature.item.rod-of-lordly-might.terrify
+    name: { en: "Terrify" }
+    effects:
+      - kind: declare-resource
+        resource: terrify
+        name: { en: "Terrify" }
+        max: 1
+        recharge: [{ on: dawn, amount: full }]
+        display: pips
+      - kind: add-action
+        action: terrify
+        name: { en: "Terrify" }
+        activation: action
+        cost: [{ resource: terrify, amount: 1 }]
+        range: { type: self, distance: 30 }
+        dc: "17"
+        rolls:
+          - { type: save, ability: wis }
+        text: { en: "Each creature you can see within 30 feet of you must make a DC 17 Wisdom saving throw. On a failure, a target is frightened of you for 1 minute; it can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success." }
+        onUse:
+          - kind: applyCondition
+            condition: srd51.condition.frightened
+            target: other
+            expires: { minutes: 1 }
+            note: { en: "Only creatures that fail the DC 17 Wisdom save; each repeats the save at the end of its turns." }

@@ -56,6 +56,39 @@ levels:
             You have learned to regain some of your magical energy by studying your spellbook. Once per day when you finish a short rest, you can choose expended spell slots to recover. The spell slots can have a combined level that is equal to or less than half your wizard level (rounded up), and none of the slots can be 6th level or higher.
 
             For example, if you're a 4th-level wizard, you can recover up to two levels worth of spell slots. You can recover either a 2nd-level spell slot or two 1st-level spell slots.
+        effects:
+          - kind: declare-resource
+            resource: arcane-recovery
+            name:
+              en: Arcane Recovery
+            max: 1
+            display: pips
+            recharge:
+              - on: dawn
+                amount: full
+            note:
+              en: Once per day.
+          - kind: add-action
+            action: arcane-recovery
+            name:
+              en: Arcane Recovery
+            activation: special
+            cost:
+              - resource: arcane-recovery
+                amount: 1
+            text:
+              en: Once per day when you finish a short rest, you can choose expended spell slots to recover. The spell slots can have a combined level that is equal to or less than half your wizard level (rounded up), and none of the slots can be 6th level or higher.
+            onUse:
+              - kind: restoreResource
+                resource: spell-slots
+                amount: full
+                budget: ceil(classLevel(wizard) / 2)
+                note:
+                  en: Recover expended spell slots whose combined level is at most half your wizard level (rounded up); none of the slots can be 6th level or higher.
+        onRest:
+          - kind: note
+            text:
+              en: If this is a short rest and you have not used Arcane Recovery today, you may use it now to recover expended spell slots (combined level up to half your wizard level, rounded up; no slot of 6th level or higher).
       - id: srd51.feature.wizard.spellcasting
         name:
           en: Spellcasting
@@ -122,12 +155,9 @@ levels:
             When you reach 2nd level, you choose an arcane tradition, shaping your practice of magic through one of eight schools: Abjuration, Conjuration, Divination, Enchantment, Evocation, Illusion, Necromancy, or Transmutation, all detailed at the end of the class description.
 
             Your choice grants you features at 2nd level and again at 6th, 10th, and 14th level.
-        effects:
-          - kind: open-choice
-            choice: arcane-tradition
-            of: subclass
-            count: 1
-            level: 2
+    choices:
+      - id: arcane-tradition
+        of: subclass
   "4":
     features:
       - id: srd51.feature.wizard.ability-score-improvement
@@ -162,6 +192,31 @@ levels:
             At 18th level, you have achieved such mastery over certain spells that you can cast them at will. Choose a 1st-level wizard spell and a 2nd-level wizard spell that are in your spellbook. You can cast those spells at their lowest level without expending a spell slot when you have them prepared. If you want to cast either spell at a higher level, you must expend a spell slot as normal.
 
             By spending 8 hours in study, you can exchange one or both of the spells you chose for different spells of the same levels.
+        effects:
+          - kind: open-choice
+            choice: spell-mastery-1
+            of: spell
+            count: 1
+            filter:
+              list: srd51.spell-list.wizard
+              level: 1
+            note:
+              en: A 1st-level wizard spell in your spellbook. You can cast it at its lowest level without expending a spell slot when you have it prepared.
+          - kind: open-choice
+            choice: spell-mastery-2
+            of: spell
+            count: 1
+            filter:
+              list: srd51.spell-list.wizard
+              level: 2
+            note:
+              en: A 2nd-level wizard spell in your spellbook. You can cast it at its lowest level without expending a spell slot when you have it prepared.
+          - kind: add-text
+            section: features
+            text:
+              en: You can cast your Spell Mastery spells at their lowest level without expending a spell slot when you have them prepared. If you want to cast either spell at a higher level, you must expend a spell slot as normal. By spending 8 hours in study, you can exchange one or both of the spells you chose for different spells of the same levels.
+            note:
+              en: The filter cannot restrict the choice to spells in your spellbook, and a chosen spell cannot yet be granted as castable without a slot; cast them without spending a slot by hand.
   "19":
     choices:
       - id: asi-19
@@ -177,6 +232,35 @@ levels:
             When you reach 20th level, you gain mastery over two powerful spells and can cast them with little effort. Choose two 3rd-level wizard spells in your spellbook as your signature spells. You always have these spells prepared, they don't count against the number of spells you have prepared, and you can cast each of them once at 3rd level without expending a spell slot. When you do so, you can't do so again until you finish a short or long rest.
 
             If you want to cast either spell at a higher level, you must expend a spell slot as normal.
+        effects:
+          - kind: open-choice
+            choice: signature-spells
+            of: spell
+            count: 2
+            filter:
+              list: srd51.spell-list.wizard
+              level: 3
+            note:
+              en: Two 3rd-level wizard spells in your spellbook. You always have them prepared and they don't count against the number of spells you have prepared.
+          - kind: declare-resource
+            resource: signature-spells
+            name:
+              en: Signature Spells
+            max: 2
+            display: pips
+            recharge:
+              - on: short-rest
+                amount: full
+              - on: long-rest
+                amount: full
+            note:
+              en: One use per signature spell, each regained when you finish a short or long rest; the pool cannot tie a use to a specific spell, so spend one per spell.
+          - kind: add-text
+            section: features
+            text:
+              en: You can cast each of your signature spells once at 3rd level without expending a spell slot. When you do so, you can't do so again until you finish a short or long rest. If you want to cast either spell at a higher level, you must expend a spell slot as normal.
+            note:
+              en: The filter cannot restrict the choice to spells in your spellbook, and a chosen spell cannot yet be marked always-prepared or granted with uses (grant-spells needs fixed spell ids); prepare them and spend the Signature Spells uses by hand.
 tables:
   arcane-recovery-levels:
     by: classLevel

@@ -1,0 +1,18 @@
+effects:
+  - kind: modify
+    target: ac
+    op: add
+    value: 1
+    note: { en: "While within 60 feet of the caster." }
+  - kind: modify
+    target: save.all
+    op: add
+    value: 1
+    note: { en: "While within 60 feet of the caster." }
+  - kind: defense
+    defense: resistance
+    to: [acid, bludgeoning, cold, fire, force, lightning, necrotic, piercing, poison, psychic, radiant, slashing, thunder]
+    note: { en: "All damage, while within 60 feet of the caster." }
+  - kind: add-text
+    section: features
+    text: { en: "Each time the target takes damage, the caster takes the same amount. The spell ends if the caster drops to 0 hit points, if the two are separated by more than 60 feet, if it is cast again on either of them, or if the caster dismisses it as an action." }

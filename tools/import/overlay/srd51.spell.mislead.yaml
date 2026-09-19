@@ -1,0 +1,8 @@
+onCast:
+  - kind: applyCondition
+    condition: srd51.condition.invisible
+    target: self
+    expires: { hours: 1 }
+    note: { en: "The invisibility ends if you attack or cast a spell." }
+  - kind: note
+    text: { en: "An illusory double appears where you stand for the duration: as an action you can move it up to twice your speed and make it gesture, speak and behave as you choose; you can see and hear through it, switching senses as a bonus action (while using its senses you are blinded and deafened to your own surroundings)." }

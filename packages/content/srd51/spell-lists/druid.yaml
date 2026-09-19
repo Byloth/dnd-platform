@@ -5,21 +5,16 @@ name:
   en: Druid spells
 source: srd51
 spells:
-  - srd51.spell.acid-arrow
   - srd51.spell.animal-friendship
   - srd51.spell.animal-messenger
   - srd51.spell.animal-shapes
   - srd51.spell.antilife-shell
-  - srd51.spell.antipathysympathy
   - srd51.spell.awaken
   - srd51.spell.barkskin
   - srd51.spell.blight
-  - srd51.spell.blur
   - srd51.spell.call-lightning
   - srd51.spell.charm-person
-  - srd51.spell.cloudkill
   - srd51.spell.commune-with-nature
-  - srd51.spell.cone-of-cold
   - srd51.spell.confusion
   - srd51.spell.conjure-animals
   - srd51.spell.conjure-elemental
@@ -32,7 +27,6 @@ spells:
   - srd51.spell.create-food-and-water
   - srd51.spell.create-or-destroy-water
   - srd51.spell.cure-wounds
-  - srd51.spell.darkness
   - srd51.spell.darkvision
   - srd51.spell.daylight
   - srd51.spell.detect-magic
@@ -40,7 +34,6 @@ spells:
   - srd51.spell.dispel-magic
   - srd51.spell.divination
   - srd51.spell.dominate-beast
-  - srd51.spell.dream
   - srd51.spell.druidcraft
   - srd51.spell.earthquake
   - srd51.spell.enhance-ability
@@ -55,16 +48,13 @@ spells:
   - srd51.spell.fog-cloud
   - srd51.spell.foresight
   - srd51.spell.freedom-of-movement
-  - srd51.spell.gaseous-form
   - srd51.spell.geas
   - srd51.spell.giant-insect
   - srd51.spell.goodberry
-  - srd51.spell.greater-invisibility
   - srd51.spell.greater-restoration
   - srd51.spell.guidance
   - srd51.spell.gust-of-wind
   - srd51.spell.hallucinatory-terrain
-  - srd51.spell.haste
   - srd51.spell.heal
   - srd51.spell.healing-word
   - srd51.spell.heat-metal
@@ -72,25 +62,20 @@ spells:
   - srd51.spell.hold-person
   - srd51.spell.ice-storm
   - srd51.spell.insect-plague
-  - srd51.spell.invisibility
   - srd51.spell.jump
   - srd51.spell.lesser-restoration
-  - srd51.spell.lightning-bolt
   - srd51.spell.locate-animals-or-plants
   - srd51.spell.locate-creature
   - srd51.spell.locate-object
   - srd51.spell.longstrider
   - srd51.spell.mass-cure-wounds
-  - srd51.spell.meld-into-stone
   - srd51.spell.mending
   - srd51.spell.mirage-arcane
-  - srd51.spell.mirror-image
-  - srd51.spell.misty-step
   - srd51.spell.moonbeam
   - srd51.spell.move-earth
   - srd51.spell.pass-without-trace
-  - srd51.spell.passwall
   - srd51.spell.planar-binding
+  - srd51.spell.plane-shift
   - srd51.spell.plant-growth
   - srd51.spell.poison-spray
   - srd51.spell.polymorph
@@ -105,14 +90,10 @@ spells:
   - srd51.spell.scrying
   - srd51.spell.shapechange
   - srd51.spell.shillelagh
-  - srd51.spell.silence
   - srd51.spell.sleet-storm
-  - srd51.spell.slow
   - srd51.spell.speak-with-animals
   - srd51.spell.speak-with-plants
-  - srd51.spell.spider-climb
   - srd51.spell.spike-growth
-  - srd51.spell.stinking-cloud
   - srd51.spell.stone-shape
   - srd51.spell.stoneskin
   - srd51.spell.storm-of-vengeance
@@ -127,6 +108,5 @@ spells:
   - srd51.spell.wall-of-thorns
   - srd51.spell.water-breathing
   - srd51.spell.water-walk
-  - srd51.spell.web
   - srd51.spell.wind-walk
   - srd51.spell.wind-wall

@@ -1,0 +1,7 @@
+effects:
+  - kind: add-text
+    section: features
+    text:
+      en: You can move through the space of any creature that is of a size larger than yours.
+    note:
+      en: Movement rule adjudicated at the table; no derived value.

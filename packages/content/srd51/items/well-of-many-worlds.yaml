@@ -17,3 +17,40 @@ rarity: legendary
 tags:
   - magic-item
   - wondrous-items
+features:
+  - id: srd51.feature.item.well-of-many-worlds.portal
+    name:
+      en: Portal
+    effects:
+      - kind: declare-resource
+        resource: well-of-many-worlds
+        name:
+          en: Well of Many Worlds
+        max: 1
+        recharge:
+          - on: manual
+            amount: full
+        display: pips
+        note:
+          en: Once the well has opened a portal, it can't do so again for 1d8 hours; no timed recharge exists, so restore it by hand.
+      - kind: add-action
+        action: open-portal
+        name:
+          en: Open a portal
+        activation: action
+        cost:
+          - resource: well-of-many-worlds
+            amount: 1
+        text:
+          en: "Unfold and place the well on a solid surface: it creates a two-way portal to another world or plane of existence. Each time the item opens a portal, the GM decides where it leads."
+        onUse:
+          - kind: note
+            text:
+              en: The GM decides where the portal leads.
+      - kind: add-action
+        action: close-portal
+        name:
+          en: Close the portal
+        activation: action
+        text:
+          en: Take hold of the edges of the cloth and fold it up to close an open portal.

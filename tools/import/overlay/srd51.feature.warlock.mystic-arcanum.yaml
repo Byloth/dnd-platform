@@ -1,0 +1,83 @@
+effects:
+  - kind: open-choice
+    choice: mystic-arcanum-6
+    of: spell
+    count: 1
+    level: 11
+    filter:
+      list: srd51.spell-list.warlock
+      level: 6
+    note:
+      en: Your 6th-level arcanum. You can cast it once without expending a spell slot; you regain the use when you finish a long rest.
+  - kind: open-choice
+    choice: mystic-arcanum-7
+    of: spell
+    count: 1
+    level: 13
+    filter:
+      list: srd51.spell-list.warlock
+      level: 7
+    note:
+      en: Your 7th-level arcanum, gained at 13th level. You can cast it once without expending a spell slot; you regain the use when you finish a long rest.
+  - kind: open-choice
+    choice: mystic-arcanum-8
+    of: spell
+    count: 1
+    level: 15
+    filter:
+      list: srd51.spell-list.warlock
+      level: 8
+    note:
+      en: Your 8th-level arcanum, gained at 15th level. You can cast it once without expending a spell slot; you regain the use when you finish a long rest.
+  - kind: open-choice
+    choice: mystic-arcanum-9
+    of: spell
+    count: 1
+    level: 17
+    filter:
+      list: srd51.spell-list.warlock
+      level: 9
+    note:
+      en: Your 9th-level arcanum, gained at 17th level. You can cast it once without expending a spell slot; you regain the use when you finish a long rest.
+  - kind: declare-resource
+    resource: mystic-arcanum-6
+    name:
+      en: Mystic Arcanum (6th level)
+    max: table(warlock.mystic-arcanum-level-6)
+    display: pips
+    recharge:
+      - on: long-rest
+        amount: full
+  - kind: declare-resource
+    resource: mystic-arcanum-7
+    name:
+      en: Mystic Arcanum (7th level)
+    max: table(warlock.mystic-arcanum-level-7)
+    display: pips
+    recharge:
+      - on: long-rest
+        amount: full
+  - kind: declare-resource
+    resource: mystic-arcanum-8
+    name:
+      en: Mystic Arcanum (8th level)
+    max: table(warlock.mystic-arcanum-level-8)
+    display: pips
+    recharge:
+      - on: long-rest
+        amount: full
+  - kind: declare-resource
+    resource: mystic-arcanum-9
+    name:
+      en: Mystic Arcanum (9th level)
+    max: table(warlock.mystic-arcanum-level-9)
+    display: pips
+    recharge:
+      - on: long-rest
+        amount: full
+  - kind: add-text
+    section: features
+    text:
+      en: You can cast each arcanum spell once without expending a spell slot. You must finish a long rest before you can do so again.
+    note:
+      en: A spell chosen through a choice cannot yet be granted with uses (grant-spells needs fixed spell ids); spend the matching Mystic Arcanum use by hand when you cast the arcanum.

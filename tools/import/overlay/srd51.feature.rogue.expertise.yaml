@@ -1,0 +1,57 @@
+effects:
+  - kind: grant-proficiency
+    type: skill
+    choose:
+      count: 2
+      from:
+        - acrobatics
+        - animal-handling
+        - arcana
+        - athletics
+        - deception
+        - history
+        - insight
+        - intimidation
+        - investigation
+        - medicine
+        - nature
+        - perception
+        - performance
+        - persuasion
+        - religion
+        - sleight-of-hand
+        - stealth
+        - survival
+    expertise: true
+    note:
+      en: Choose two of your skill proficiencies, or one of your skill proficiencies and your proficiency with thieves' tools. The choice cannot yet be restricted to proficiencies you already hold, and thieves' tools cannot be picked in place of a skill.
+  - kind: grant-proficiency
+    type: skill
+    choose:
+      count: 2
+      from:
+        - acrobatics
+        - animal-handling
+        - arcana
+        - athletics
+        - deception
+        - history
+        - insight
+        - intimidation
+        - investigation
+        - medicine
+        - nature
+        - perception
+        - performance
+        - persuasion
+        - religion
+        - sleight-of-hand
+        - stealth
+        - survival
+    expertise: true
+    when:
+      classLevel:
+        class: srd51.class.rogue
+        min: 6
+    note:
+      en: At 6th level, choose two more of your proficiencies (in skills or with thieves' tools). The choice cannot yet be restricted to proficiencies you already hold, and thieves' tools cannot be picked in place of a skill.

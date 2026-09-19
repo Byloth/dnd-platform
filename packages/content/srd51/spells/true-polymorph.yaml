@@ -33,3 +33,14 @@ rolls:
   - type: save
     ability: wis
     onSuccess: none
+effects:
+  - kind: add-text
+    section: features
+    text:
+      en: "Creature into creature: game statistics (including mental ability scores) replaced by those of a creature of challenge rating no higher than the target's (or its level), keeping alignment and personality; it has the new form's hit points, can't speak, cast spells or take actions requiring hands or speech unless the form can, and its gear melds and can't be used. Object into creature (CR 9 or lower, no larger than the object): a friendly creature acting on your turns, with the DM resolving its statistics. Creature into object: its statistics become the object's. If you concentrate for the full duration, the transformation becomes permanent."
+    note:
+      en: "Stat-block replacement and summoned creatures are not expressible in v0: track the statistics by hand."
+onCast:
+  - kind: note
+    text:
+      en: An unwilling creature that succeeds on a Wisdom saving throw isn't affected; no effect on a shapechanger or a creature with 0 hit points. The transformation ends at 0 hit points, when the creature returns to its previous hit points, with excess damage carrying over.

@@ -1,0 +1,7 @@
+effects:
+  - kind: add-text
+    section: features
+    text:
+      en: "If your total for a Strength check is less than your Strength score, you can use that score in place of the total."
+    note:
+      en: "Gap: a floor on the roll total of Strength checks is applied after the roll, not a sheet value."

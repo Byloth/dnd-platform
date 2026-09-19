@@ -1,0 +1,3 @@
+onCast:
+  - kind: note
+    text: { en: "The damage can't reduce the target's hit points below 1. On a failed Constitution saving throw the target's hit point maximum is reduced for 1 hour by the necrotic damage it took (no formula for damage taken in v0); any effect that removes a disease restores it earlier." }

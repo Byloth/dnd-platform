@@ -1,0 +1,8 @@
+effects:
+  - kind: add-text
+    section: features
+    text: { en: "Regains 1 hit point at the start of each of its turns (10 hit points each minute); severed body members are restored after 2 minutes, or instantly if held to the stump." }
+onCast:
+  - kind: heal
+    amount: 4d8+15
+    target: other

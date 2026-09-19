@@ -14,7 +14,7 @@ import { dirname, join, resolve } from "node:path";
 import { parse } from "yaml";
 
 import { derive, loadPackages, stableStringify } from "@byloth/dnd-platform-engine";
-import type { Character, ComputedSheet } from "@byloth/dnd-platform-engine";
+import type { Character, ComputedSheet, SpellView } from "@byloth/dnd-platform-engine";
 
 import { toPackageSource } from "../io/to-package-source.js";
 
@@ -53,9 +53,21 @@ interface ExpectedAction
     readonly activation: string;
     readonly cost?: Readonly<Record<string, number>>;
 }
+interface ExpectedSpellcasting
+{
+    readonly dc?: number;
+    readonly attackBonus?: number;
+    readonly slots?: Readonly<Record<string, number>>;
+    readonly cantripsKnown?: number;
+    readonly spellsKnown?: number;
+}
 interface Expected
 {
     readonly values?: Readonly<Record<string, number | string>>;
+    /** Class id → expected spellcasting numbers. */
+    readonly spellcasting?: Readonly<Record<string, ExpectedSpellcasting>>;
+    /** Spell id → how it is paid: `free`, `slot`, `<resource>:<amount>` or `uses:<n>`. */
+    readonly spells?: Readonly<Record<string, string>>;
     readonly provenance?: Readonly<Record<string, readonly string[]>>;
     readonly resources?: Readonly<Record<string, ExpectedResource>>;
     readonly actions?: Readonly<Record<string, ExpectedAction>>;
@@ -144,6 +156,41 @@ function compareExpected(sheet: ComputedSheet, expected: Expected, name: string)
             }
             if (show(got) !== show(wanted.cost)) { fail(`actions.${id}.cost`, wanted.cost, got); }
         }
+    }
+    for (const [classId, wanted] of Object.entries(expected.spellcasting ?? {}))
+    {
+        const got = sheet.spellcasting.find((c) => c.class === classId);
+        if (got === undefined)
+        {
+            fail(`spellcasting.${classId}`, "present", sheet.spellcasting.map((c) => c.class));
+
+            continue;
+        }
+        if ((wanted.dc !== undefined) && (got.dc.value !== wanted.dc)) { fail(`spellcasting.${classId}.dc`, wanted.dc, got.dc.value); }
+        if ((wanted.attackBonus !== undefined) && (got.attackBonus.value !== wanted.attackBonus))
+        {
+            fail(`spellcasting.${classId}.attackBonus`, wanted.attackBonus, got.attackBonus.value);
+        }
+        for (const [level, max] of Object.entries(wanted.slots ?? {}))
+        {
+            const slot = got.slots.find((x) => x.level === Number(level));
+            if ((slot?.max ?? 0) !== max) { fail(`spellcasting.${classId}.slots.${level}`, max, slot?.max ?? 0); }
+        }
+        if ((wanted.cantripsKnown !== undefined) && (got.cantripsKnown !== wanted.cantripsKnown))
+        {
+            fail(`spellcasting.${classId}.cantripsKnown`, wanted.cantripsKnown, got.cantripsKnown);
+        }
+        if ((wanted.spellsKnown !== undefined) && (got.spellsKnown !== wanted.spellsKnown))
+        {
+            fail(`spellcasting.${classId}.spellsKnown`, wanted.spellsKnown, got.spellsKnown);
+        }
+    }
+    const payment = (p: SpellView["paidWith"]): string => "free" in p ? "free" : "slot" in p ? "slot" : "uses" in p ? `uses:${p.uses}` : `${p.resource}:${p.amount}`;
+    for (const [spellId, wanted] of Object.entries(expected.spells ?? {}))
+    {
+        const got = sheet.spells.find((x) => x.id === spellId);
+        if (got === undefined) { fail(`spells.${spellId}`, wanted, "absent"); }
+        else if (payment(got.paidWith) !== wanted) { fail(`spells.${spellId}`, wanted, payment(got.paidWith)); }
     }
     const held = new Set(sheet.proficiencies.map((p) => `${p.type}:${p.item}`));
     for (const wanted of expected.proficiencies ?? [])

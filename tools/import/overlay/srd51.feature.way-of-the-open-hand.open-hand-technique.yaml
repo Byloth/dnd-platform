@@ -1,0 +1,23 @@
+effects:
+  - kind: add-action
+    action: open-hand-technique
+    name:
+      en: Open Hand Technique
+    activation: special
+    trigger:
+      en: when you hit a creature with one of the attacks granted by your Flurry of Blows
+    dc: 8 + proficiencyBonus + mod(wis)
+    text:
+      en: "Impose one of the following effects on the target: it must succeed on a Dexterity saving throw or be knocked prone; it must make a Strength saving throw or you can push it up to 15 feet away from you; it can't take reactions until the end of your next turn."
+    onHit:
+      - kind: applyCondition
+        condition: srd51.condition.prone
+        target: other
+        note:
+          en: "Option 1: only if the target fails a Dexterity saving throw."
+      - kind: note
+        text:
+          en: "Option 2: the target makes a Strength saving throw; if it fails, you can push it up to 15 feet away from you."
+      - kind: note
+        text:
+          en: "Option 3: the target can't take reactions until the end of your next turn."

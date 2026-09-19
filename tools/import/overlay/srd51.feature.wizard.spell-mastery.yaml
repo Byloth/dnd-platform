@@ -1,0 +1,25 @@
+effects:
+  - kind: open-choice
+    choice: spell-mastery-1
+    of: spell
+    count: 1
+    filter:
+      list: srd51.spell-list.wizard
+      level: 1
+    note:
+      en: A 1st-level wizard spell in your spellbook. You can cast it at its lowest level without expending a spell slot when you have it prepared.
+  - kind: open-choice
+    choice: spell-mastery-2
+    of: spell
+    count: 1
+    filter:
+      list: srd51.spell-list.wizard
+      level: 2
+    note:
+      en: A 2nd-level wizard spell in your spellbook. You can cast it at its lowest level without expending a spell slot when you have it prepared.
+  - kind: add-text
+    section: features
+    text:
+      en: You can cast your Spell Mastery spells at their lowest level without expending a spell slot when you have them prepared. If you want to cast either spell at a higher level, you must expend a spell slot as normal. By spending 8 hours in study, you can exchange one or both of the spells you chose for different spells of the same levels.
+    note:
+      en: The filter cannot restrict the choice to spells in your spellbook, and a chosen spell cannot yet be granted as castable without a slot; cast them without spending a slot by hand.

@@ -15,3 +15,7 @@ rarity: rare
 tags:
   - magic-item
   - potion
+onUse:
+  - kind: note
+    text:
+      en: When you drink this potion, you gain the effect of the clairvoyance spell.

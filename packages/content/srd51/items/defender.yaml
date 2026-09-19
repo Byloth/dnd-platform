@@ -18,3 +18,26 @@ attunement: true
 tags:
   - magic-item
   - weapon
+features:
+  - id: srd51.feature.item.defender.bonus
+    name:
+      en: +3 bonus
+    effects:
+      - kind: modify-attacks
+        filter:
+          item: srd51.item.defender
+        set:
+          attackBonus: 3
+          damageBonus: 3
+          magical: true
+      - kind: add-action
+        action: defender-transfer-bonus
+        name:
+          en: Transfer the sword's bonus to AC
+        activation: free
+        text:
+          en: The first time you attack with the sword on each of your turns, you can transfer some or all of the sword's +3 bonus to your Armor Class instead of using it on attacks that turn (for example, +1 to attack and damage rolls and +2 to AC). The adjusted bonuses remain until the start of your next turn; you must hold the sword to gain the AC bonus.
+        onUse:
+          - kind: note
+            text:
+              en: "Choose the split: reduce the attack and damage bonus by the amount you add to AC (up to +3), until the start of your next turn."

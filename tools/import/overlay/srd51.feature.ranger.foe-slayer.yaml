@@ -1,0 +1,12 @@
+effects:
+  - kind: add-action
+    action: foe-slayer
+    name:
+      en: Foe Slayer
+    activation: free
+    text:
+      en: Once on each of your turns, you can add your Wisdom modifier to the attack roll or the damage roll of an attack you make against one of your favored enemies. You can choose to use this feature before or after the roll, but before any effects of the roll are applied.
+    onUse:
+      - kind: note
+        text:
+          en: Add your Wisdom modifier (mod(wis)) to the attack roll or the damage roll of one attack against a favored enemy; once per turn, before or after the roll but before its effects apply.

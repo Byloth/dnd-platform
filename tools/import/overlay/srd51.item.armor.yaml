@@ -1,0 +1,20 @@
+type: armor
+features:
+  - id: srd51.feature.item.armor.bonus
+    name: { en: "Armor bonus" }
+    effects:
+      - kind: open-choice
+        choice: variant
+        of: option
+        count: 1
+        note: { en: "The bonus is determined by the armor's rarity." }
+        options:
+          - id: plus-1
+            name: { en: "+1 (rare)" }
+            effects: [{ kind: modify, target: ac, op: add, value: 1 }]
+          - id: plus-2
+            name: { en: "+2 (very rare)" }
+            effects: [{ kind: modify, target: ac, op: add, value: 2 }]
+          - id: plus-3
+            name: { en: "+3 (legendary)" }
+            effects: [{ kind: modify, target: ac, op: add, value: 3 }]

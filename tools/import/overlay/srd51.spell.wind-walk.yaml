@@ -1,0 +1,10 @@
+effects:
+  - kind: modify
+    target: speed.fly
+    op: set
+    value: 300
+    note: { en: "While in cloud form." }
+  - kind: add-text
+    section: features
+    text: { en: "In cloud form: resistance to damage from nonmagical weapons; the only actions available are Dash or reverting to normal form. Reverting (or resuming cloud form) takes 1 minute, during which the creature is incapacitated and can't move. If the spell ends while flying, the creature descends 60 feet per round for 1 minute, landing safely." }
+    note: { en: "Resistance to nonmagical weapon damage is kept as text: defense lists damage types, not sources. Incapacitated during the 1-minute reversion is a transient state, not applied as a condition." }

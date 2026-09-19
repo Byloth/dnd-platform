@@ -20,3 +20,15 @@ duration:
   hours: 1
 text:
   en: You touch a willing creature. For the duration, the target's movement is unaffected by difficult terrain, and spells and other magical effects can neither reduce the target's speed nor cause the target to be paralyzed or restrained. The target can also spend 5 feet of movement to automatically escape from nonmagical restraints, such as manacles or a creature that has it grappled. Finally, being underwater imposes no penalties on the target's movement or attacks.
+effects:
+  - kind: defense
+    defense: condition-immunity
+    to:
+      - srd51.condition.paralyzed
+      - srd51.condition.restrained
+    note:
+      en: Only against spells and other magical effects.
+  - kind: add-text
+    section: features
+    text:
+      en: Your movement is unaffected by difficult terrain, and spells and other magical effects can't reduce your speed; you can spend 5 feet of movement to automatically escape from nonmagical restraints such as manacles or a grapple; being underwater imposes no penalties on your movement or attacks.

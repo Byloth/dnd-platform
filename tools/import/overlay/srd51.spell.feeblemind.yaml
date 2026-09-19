@@ -1,0 +1,15 @@
+effects:
+  - kind: modify
+    target: ability.int
+    op: set
+    value: 1
+  - kind: modify
+    target: ability.cha
+    op: set
+    value: 1
+  - kind: add-text
+    section: features
+    text: { en: "Can't cast spells, activate magic items, understand language or communicate in any intelligible way; can identify, follow and protect friends." }
+onCast:
+  - kind: note
+    text: { en: "4d6 psychic damage regardless of the save; on a failed Intelligence saving throw the creature's Intelligence and Charisma become 1 and the effects above apply until it succeeds on the save repeated at the end of every 30 days, or greater restoration, heal or wish ends the spell. The spell is instantaneous, so the play engine does not track these effects as an active spell." }

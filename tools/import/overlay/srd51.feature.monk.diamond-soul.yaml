@@ -1,0 +1,26 @@
+effects:
+  - kind: grant-proficiency
+    type: save
+    items:
+      - str
+      - dex
+      - con
+      - int
+      - wis
+      - cha
+  - kind: add-action
+    action: diamond-soul
+    name:
+      en: Diamond Soul
+    activation: free
+    cost:
+      - resource: ki
+        amount: 1
+    trigger:
+      en: when you fail a saving throw
+    text:
+      en: Whenever you make a saving throw and fail, you can spend 1 ki point to reroll it and take the second result.
+    onUse:
+      - kind: reroll
+        roll: save
+        keep: new

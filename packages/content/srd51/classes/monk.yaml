@@ -326,7 +326,9 @@ levels:
         source: srd51
         text:
           en: When you reach 3rd level, you commit yourself to a monastic tradition such as the Way of the Open Hand. Your tradition grants you features at 3rd level and again at 6th, 11th, and 17th level.
-        effects: []
+    choices:
+      - id: monastic-tradition
+        of: subclass
   "4":
     features:
       - id: srd51.feature.monk.ability-score-improvement
@@ -341,6 +343,20 @@ levels:
         source: srd51
         text:
           en: Beginning at 4th level, you can use your reaction when you fall to reduce any falling damage you take by an amount equal to five times your monk level.
+        effects:
+          - kind: add-action
+            action: slow-fall
+            name:
+              en: Slow Fall
+            activation: reaction
+            trigger:
+              en: when you fall
+            text:
+              en: Reduce any falling damage you take by an amount equal to five times your monk level.
+            onUse:
+              - kind: note
+                text:
+                  en: "Damage reduction: 5 * classLevel(monk)."
     choices:
       - id: asi-4
         of: asi-or-feat
@@ -352,12 +368,43 @@ levels:
         source: srd51
         text:
           en: Beginning at 5th level, you can attack twice, instead of once, whenever you take the Attack action on your turn.
+        effects:
+          - kind: modify
+            target: attacks.perAction
+            op: set
+            value: 2
       - id: srd51.feature.monk.stunning-strike
         name:
           en: Stunning Strike
         source: srd51
         text:
           en: Starting at 5th level, you can interfere with the flow of ki in an opponent's body. When you hit another creature with a melee weapon attack, you can spend 1 ki point to attempt a stunning strike. The target must succeed on a Constitution saving throw or be stunned until the end of your next turn.
+        effects:
+          - kind: add-action
+            action: stunning-strike
+            name:
+              en: Stunning Strike
+            activation: special
+            cost:
+              - resource: ki
+                amount: 1
+            trigger:
+              en: when you hit another creature with a melee weapon attack
+            dc: 8 + proficiencyBonus + mod(wis)
+            rolls:
+              - type: save
+                ability: con
+                dc: 8 + proficiencyBonus + mod(wis)
+            text:
+              en: When you hit another creature with a melee weapon attack, you can spend 1 ki point to attempt a stunning strike. The target must succeed on a Constitution saving throw or be stunned until the end of your next turn.
+            onHit:
+              - kind: applyCondition
+                condition: srd51.condition.stunned
+                target: other
+                expires:
+                  until: next-turn-end
+                note:
+                  en: Only if the target fails the Constitution saving throw.
   "6":
     features:
       - id: srd51.feature.monk.ki-empowered-strikes
@@ -366,6 +413,14 @@ levels:
         source: srd51
         text:
           en: Starting at 6th level, your unarmed strikes count as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage.
+        effects:
+          - kind: modify-attacks
+            filter:
+              unarmed: true
+            set:
+              magical: true
+            note:
+              en: Your unarmed strikes count as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage.
   "7":
     features:
       - id: srd51.feature.monk.evasion
@@ -374,12 +429,36 @@ levels:
         source: srd51
         text:
           en: At 7th level, your instinctive agility lets you dodge out of the way of certain area effects, such as a blue dragon's lightning breath or a fireball spell. When you are subjected to an effect that allows you to make a Dexterity saving throw to take only half damage, you instead take no damage if you succeed on the saving throw, and only half damage if you fail.
+        effects:
+          - kind: add-text
+            section: saves
+            text:
+              en: "Evasion: when you are subjected to an effect that allows you to make a Dexterity saving throw to take only half damage, you instead take no damage if you succeed on the saving throw, and only half damage if you fail."
+            note:
+              en: "Gap: a save-outcome rule (no damage on success, half on failure for Dexterity half-damage saves) that play mode must hook; nothing to derive on the sheet."
       - id: srd51.feature.monk.stillness-of-mind
         name:
           en: Stillness of Mind
         source: srd51
         text:
           en: Starting at 7th level, you can use your action to end one effect on yourself that is causing you to be charmed or frightened.
+        effects:
+          - kind: add-action
+            action: stillness-of-mind
+            name:
+              en: Stillness of Mind
+            activation: action
+            requires:
+              condition:
+                any:
+                  - conditionActive: srd51.condition.charmed
+                  - conditionActive: srd51.condition.frightened
+            text:
+              en: You can use your action to end one effect on yourself that is causing you to be charmed or frightened.
+            onUse:
+              - kind: note
+                text:
+                  en: End one effect on yourself that is causing you to be charmed or frightened.
   "8":
     choices:
       - id: asi-8
@@ -392,6 +471,16 @@ levels:
         source: srd51
         text:
           en: At 10th level, your mastery of the ki flowing through you makes you immune to disease and poison.
+        effects:
+          - kind: defense
+            defense: immunity
+            to:
+              - poison
+              - disease
+          - kind: defense
+            defense: condition-immunity
+            to:
+              - srd51.condition.poisoned
   "12":
     choices:
       - id: asi-12
@@ -404,6 +493,13 @@ levels:
         source: srd51
         text:
           en: Starting at 13th level, you learn to touch the ki of other minds so that you understand all spoken languages. Moreover, any creature that can understand a language can understand what you say.
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: You understand all spoken languages. Moreover, any creature that can understand a language can understand what you say.
+            note:
+              en: "Gap: grant-proficiency has no 'all languages' item; shown as text."
   "14":
     features:
       - id: srd51.feature.monk.diamond-soul
@@ -415,6 +511,32 @@ levels:
             Beginning at 14th level, your mastery of ki grants you proficiency in all saving throws.
 
             Additionally, whenever you make a saving throw and fail, you can spend 1 ki point to reroll it and take the second result.
+        effects:
+          - kind: grant-proficiency
+            type: save
+            items:
+              - str
+              - dex
+              - con
+              - int
+              - wis
+              - cha
+          - kind: add-action
+            action: diamond-soul
+            name:
+              en: Diamond Soul
+            activation: free
+            cost:
+              - resource: ki
+                amount: 1
+            trigger:
+              en: when you fail a saving throw
+            text:
+              en: Whenever you make a saving throw and fail, you can spend 1 ki point to reroll it and take the second result.
+            onUse:
+              - kind: reroll
+                roll: save
+                keep: new
   "15":
     features:
       - id: srd51.feature.monk.timeless-body
@@ -438,6 +560,59 @@ levels:
             Beginning at 18th level, you can use your action to spend 4 ki points to become invisible for 1 minute. During that time, you also have resistance to all damage but force damage.
 
             Additionally, you can spend 8 ki points to cast the astral projection spell, without needing material components. When you do so, you can't take any other creatures with you.
+        effects:
+          - kind: add-action
+            action: empty-body
+            name:
+              en: Empty Body
+            activation: action
+            cost:
+              - resource: ki
+                amount: 4
+            duration:
+              type: timed
+              minutes: 1
+            toggle:
+              state: empty-body
+              expires:
+                minutes: 1
+            text:
+              en: You can use your action to spend 4 ki points to become invisible for 1 minute. During that time, you also have resistance to all damage but force damage.
+            onUse:
+              - kind: applyCondition
+                condition: srd51.condition.invisible
+                target: self
+                expires:
+                  minutes: 1
+          - kind: defense
+            defense: resistance
+            to:
+              - acid
+              - bludgeoning
+              - cold
+              - fire
+              - lightning
+              - necrotic
+              - piercing
+              - poison
+              - psychic
+              - radiant
+              - slashing
+              - thunder
+            when:
+              toggled: empty-body
+            note:
+              en: Resistance to all damage but force while Empty Body is active.
+          - kind: grant-spells
+            spells:
+              - srd51.spell.astral-projection
+            as: known
+            ability: wis
+            cost:
+              - resource: ki
+                amount: 8
+            note:
+              en: Cast astral projection by spending 8 ki points, without needing material components. You can't take any other creatures with you.
   "19":
     choices:
       - id: asi-19
@@ -450,6 +625,13 @@ levels:
         source: srd51
         text:
           en: At 20th level, when you roll for initiative and have no ki points remaining, you regain 4 ki points.
+        effects:
+          - kind: add-text
+            section: resources
+            text:
+              en: "Perfect Self: when you roll for initiative and have no ki points remaining, you regain 4 ki points."
+            note:
+              en: "Gap: an initiative-triggered resource event; the engine has no initiative hook, so the 4 ki points are restored by hand."
 tables:
   martial-arts:
     by: classLevel

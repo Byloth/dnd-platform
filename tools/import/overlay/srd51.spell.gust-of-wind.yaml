@@ -1,0 +1,10 @@
+effects:
+  - kind: add-action
+    action: gust-of-wind-redirect
+    name: { en: "Gust of Wind: change direction" }
+    activation: bonus-action
+    cost: []
+    text: { en: "Change the direction in which the line of wind blasts from you." }
+  - kind: add-text
+    section: features
+    text: { en: "Each creature that starts its turn in the line must succeed on a Strength saving throw or be pushed 15 feet away from you along the line; moving closer to you within the line costs 2 feet of movement for every 1 foot. The gust disperses gas or vapor and extinguishes unprotected flames (protected flames have a 50 percent chance of going out)." }

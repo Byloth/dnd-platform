@@ -56,3 +56,284 @@ attunement: true
 tags:
   - magic-item
   - ring
+charges:
+  max: 5
+  recharge:
+    - on: dawn
+      amount: 1d4 + 1
+features:
+  - id: srd51.feature.item.ring-of-elemental-command.elemental-bane
+    name:
+      en: Elemental Bane
+    text:
+      en: While wearing this ring, you have advantage on attack rolls against elementals from the linked plane, and they have disadvantage on attack rolls against you.
+    effects:
+      - kind: roll-advantage
+        on:
+          type: attack
+          against:
+            - elementals from the linked plane
+        note:
+          en: Elementals from the linked plane also have disadvantage on attack rolls against you.
+  - id: srd51.feature.item.ring-of-elemental-command.linked-plane
+    name:
+      en: Linked Plane
+    text:
+      en: This ring is linked to one of the four Elemental Planes. The GM chooses or randomly determines the linked plane. Spells cast from the ring have a save DC of 17. Each plane grants its own properties, and further ones once you help slay an elemental from that plane while attuned to the ring.
+    effects:
+      - kind: open-choice
+        choice: linked-plane
+        of: option
+        count: 1
+        options:
+          - id: air
+            name:
+              en: Ring of Air Elemental Command
+            text:
+              en: You can expend 2 of the ring's charges to cast dominate monster on an air elemental. In addition, when you fall, you descend 60 feet per round and take no damage from falling. You can also speak and understand Auran. If you help slay an air elemental while attuned to the ring, you gain resistance to lightning damage, a flying speed equal to your walking speed (and can hover), and can cast chain lightning (3 charges), gust of wind (2 charges) or wind wall (1 charge) from the ring.
+            effects:
+              - kind: grant-spells
+                spells:
+                  - srd51.spell.dominate-monster
+                as: always-prepared
+                cost:
+                  - resource: charges
+                    amount: 2
+                note:
+                  en: Only on an air elemental. Save DC 17.
+              - kind: add-text
+                section: features
+                text:
+                  en: When you fall, you descend 60 feet per round and take no damage from falling.
+                note:
+                  en: A falling rule, not a damage-type defense.
+              - kind: grant-proficiency
+                type: language
+                items:
+                  - auran
+              - kind: defense
+                defense: resistance
+                to:
+                  - lightning
+                note:
+                  en: Only after you help slay an air elemental while attuned to the ring.
+              - kind: add-text
+                section: features
+                text:
+                  en: After you help slay an air elemental while attuned to the ring, you have a flying speed equal to your walking speed and can hover.
+                note:
+                  en: The slay-unlock is a narrative condition with no condition key, and the formula language has no walking-speed variable.
+              - kind: grant-spells
+                spells:
+                  - srd51.spell.chain-lightning
+                as: always-prepared
+                cost:
+                  - resource: charges
+                    amount: 3
+                note:
+                  en: Only after you help slay an air elemental while attuned to the ring. Save DC 17.
+              - kind: grant-spells
+                spells:
+                  - srd51.spell.gust-of-wind
+                as: always-prepared
+                cost:
+                  - resource: charges
+                    amount: 2
+                note:
+                  en: Only after you help slay an air elemental while attuned to the ring. Save DC 17.
+              - kind: grant-spells
+                spells:
+                  - srd51.spell.wind-wall
+                as: always-prepared
+                cost:
+                  - resource: charges
+                    amount: 1
+                note:
+                  en: Only after you help slay an air elemental while attuned to the ring. Save DC 17.
+          - id: earth
+            name:
+              en: Ring of Earth Elemental Command
+            text:
+              en: You can expend 2 of the ring's charges to cast dominate monster on an earth elemental. In addition, you can move in difficult terrain that is composed of rubble, rocks, or dirt as if it were normal terrain. You can also speak and understand Terran. If you help slay an earth elemental while attuned to the ring, you gain resistance to acid damage, can move through solid earth or rock as if those areas were difficult terrain (if you end your turn there, you are shunted out to the nearest unoccupied space you last occupied), and can cast stone shape (2 charges), stoneskin (3 charges) or wall of stone (3 charges) from the ring.
+            effects:
+              - kind: grant-spells
+                spells:
+                  - srd51.spell.dominate-monster
+                as: always-prepared
+                cost:
+                  - resource: charges
+                    amount: 2
+                note:
+                  en: Only on an earth elemental. Save DC 17.
+              - kind: add-text
+                section: features
+                text:
+                  en: You can move in difficult terrain that is composed of rubble, rocks, or dirt as if it were normal terrain.
+                note:
+                  en: Text only.
+              - kind: grant-proficiency
+                type: language
+                items:
+                  - terran
+              - kind: defense
+                defense: resistance
+                to:
+                  - acid
+                note:
+                  en: Only after you help slay an earth elemental while attuned to the ring.
+              - kind: add-text
+                section: features
+                text:
+                  en: After you help slay an earth elemental while attuned to the ring, you can move through solid earth or rock as if those areas were difficult terrain. If you end your turn there, you are shunted out to the nearest unoccupied space you last occupied.
+                note:
+                  en: The slay-unlock is a narrative condition with no condition key.
+              - kind: grant-spells
+                spells:
+                  - srd51.spell.stone-shape
+                as: always-prepared
+                cost:
+                  - resource: charges
+                    amount: 2
+                note:
+                  en: Only after you help slay an earth elemental while attuned to the ring. Save DC 17.
+              - kind: grant-spells
+                spells:
+                  - srd51.spell.stoneskin
+                as: always-prepared
+                cost:
+                  - resource: charges
+                    amount: 3
+                note:
+                  en: Only after you help slay an earth elemental while attuned to the ring. Save DC 17.
+              - kind: grant-spells
+                spells:
+                  - srd51.spell.wall-of-stone
+                as: always-prepared
+                cost:
+                  - resource: charges
+                    amount: 3
+                note:
+                  en: Only after you help slay an earth elemental while attuned to the ring. Save DC 17.
+          - id: fire
+            name:
+              en: Ring of Fire Elemental Command
+            text:
+              en: You can expend 2 of the ring's charges to cast dominate monster on a fire elemental. In addition, you have resistance to fire damage. You can also speak and understand Ignan. If you help slay a fire elemental while attuned to the ring, you are immune to fire damage and can cast burning hands (1 charge), fireball (2 charges) and wall of fire (3 charges) from the ring.
+            effects:
+              - kind: grant-spells
+                spells:
+                  - srd51.spell.dominate-monster
+                as: always-prepared
+                cost:
+                  - resource: charges
+                    amount: 2
+                note:
+                  en: Only on a fire elemental. Save DC 17.
+              - kind: defense
+                defense: resistance
+                to:
+                  - fire
+              - kind: grant-proficiency
+                type: language
+                items:
+                  - ignan
+              - kind: defense
+                defense: immunity
+                to:
+                  - fire
+                note:
+                  en: Only after you help slay a fire elemental while attuned to the ring.
+              - kind: grant-spells
+                spells:
+                  - srd51.spell.burning-hands
+                as: always-prepared
+                cost:
+                  - resource: charges
+                    amount: 1
+                note:
+                  en: Only after you help slay a fire elemental while attuned to the ring. Save DC 17.
+              - kind: grant-spells
+                spells:
+                  - srd51.spell.fireball
+                as: always-prepared
+                cost:
+                  - resource: charges
+                    amount: 2
+                note:
+                  en: Only after you help slay a fire elemental while attuned to the ring. Save DC 17.
+              - kind: grant-spells
+                spells:
+                  - srd51.spell.wall-of-fire
+                as: always-prepared
+                cost:
+                  - resource: charges
+                    amount: 3
+                note:
+                  en: Only after you help slay a fire elemental while attuned to the ring. Save DC 17.
+          - id: water
+            name:
+              en: Ring of Water Elemental Command
+            text:
+              en: You can expend 2 of the ring's charges to cast dominate monster on a water elemental. In addition, you can stand on and walk across liquid surfaces as if they were solid ground. You can also speak and understand Aquan. If you help slay a water elemental while attuned to the ring, you can breathe underwater, have a swimming speed equal to your walking speed, and can cast create or destroy water (1 charge), control water (3 charges), ice storm (2 charges) or wall of ice (3 charges) from the ring.
+            effects:
+              - kind: grant-spells
+                spells:
+                  - srd51.spell.dominate-monster
+                as: always-prepared
+                cost:
+                  - resource: charges
+                    amount: 2
+                note:
+                  en: Only on a water elemental. Save DC 17.
+              - kind: add-text
+                section: features
+                text:
+                  en: You can stand on and walk across liquid surfaces as if they were solid ground.
+                note:
+                  en: Text only.
+              - kind: grant-proficiency
+                type: language
+                items:
+                  - aquan
+              - kind: add-text
+                section: features
+                text:
+                  en: After you help slay a water elemental while attuned to the ring, you can breathe underwater and have a swimming speed equal to your walking speed.
+                note:
+                  en: The slay-unlock is a narrative condition with no condition key, and the formula language has no walking-speed variable.
+              - kind: grant-spells
+                spells:
+                  - srd51.spell.create-or-destroy-water
+                as: always-prepared
+                cost:
+                  - resource: charges
+                    amount: 1
+                note:
+                  en: Only after you help slay a water elemental while attuned to the ring. Save DC 17.
+              - kind: grant-spells
+                spells:
+                  - srd51.spell.control-water
+                as: always-prepared
+                cost:
+                  - resource: charges
+                    amount: 3
+                note:
+                  en: Only after you help slay a water elemental while attuned to the ring. Save DC 17.
+              - kind: grant-spells
+                spells:
+                  - srd51.spell.ice-storm
+                as: always-prepared
+                cost:
+                  - resource: charges
+                    amount: 2
+                note:
+                  en: Only after you help slay a water elemental while attuned to the ring. Save DC 17.
+              - kind: grant-spells
+                spells:
+                  - srd51.spell.wall-of-ice
+                as: always-prepared
+                cost:
+                  - resource: charges
+                    amount: 3
+                note:
+                  en: Only after you help slay a water elemental while attuned to the ring. Save DC 17.

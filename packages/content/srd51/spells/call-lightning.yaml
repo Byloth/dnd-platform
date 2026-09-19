@@ -40,3 +40,21 @@ scaling:
     dice: 1d10
 tags:
   - area
+effects:
+  - kind: add-action
+    action: call-lightning
+    name:
+      en: Call Lightning
+    activation: action
+    cost: []
+    rolls:
+      - type: save
+        ability: dex
+        onSuccess: half
+      - type: damage
+        dice: 3d10
+        damageType: lightning
+    text:
+      en: "Call down a bolt of lightning on a point you can see under the storm cloud: each creature within 5 feet of that point makes a Dexterity saving throw, taking 3d10 lightning damage on a failed save or half as much on a successful one."
+    note:
+      en: Damage increases by 1d10 for each slot level above 3rd, and by 1d10 if you were outdoors in stormy conditions when you cast the spell.

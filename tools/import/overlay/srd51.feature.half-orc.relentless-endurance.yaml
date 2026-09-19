@@ -1,0 +1,24 @@
+effects:
+  - kind: declare-resource
+    resource: relentless-endurance
+    name: { en: Relentless Endurance }
+    max: 1
+    recharge:
+      - on: long-rest
+        amount: full
+    display: pips
+  - kind: add-action
+    action: relentless-endurance
+    name: { en: Relentless Endurance }
+    activation: special
+    trigger:
+      en: when you are reduced to 0 hit points but not killed outright
+    cost:
+      - resource: relentless-endurance
+        amount: 1
+    text:
+      en: When you are reduced to 0 hit points but not killed outright, you can drop to 1 hit point instead. You can't use this feature again until you finish a long rest.
+    onUse:
+      - kind: note
+        text:
+          en: Drop to 1 hit point instead of 0.

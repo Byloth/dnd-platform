@@ -1,0 +1,12 @@
+effects:
+  - kind: add-action
+    action: telekinesis
+    name: { en: "Telekinesis" }
+    activation: action
+    onUse:
+      - kind: applyCondition
+        condition: srd51.condition.restrained
+        target: other
+        expires: { until: next-turn-end }
+        note: { en: "A creature you win the contest against, held in your telekinetic grip." }
+    text: { en: "Creature: contest your spellcasting ability check against the Strength check of a Huge or smaller creature; if you win, move it up to 30 feet in any direction (within range) and it is restrained until the end of your next turn; repeat the contest on later turns to maintain the grip. Object: move an object up to 1,000 pounds up to 30 feet (automatically if unattended, otherwise winning the same contest) and manipulate it with fine control." }

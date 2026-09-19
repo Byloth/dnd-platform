@@ -31,3 +31,34 @@ rolls:
   - type: save
     ability: wis
     onSuccess: none
+effects:
+  - kind: add-action
+    action: eyebite
+    name:
+      en: "Eyebite: target another creature"
+    activation: action
+    cost: []
+    rolls:
+      - type: save
+        ability: wis
+        onSuccess: none
+    text:
+      en: One creature of your choice within 60 feet that you can see must succeed on a Wisdom saving throw or be affected by Asleep, Panicked or Sickened for the duration; a creature that has succeeded on a save against this casting can't be targeted again.
+onCast:
+  - kind: applyCondition
+    condition: srd51.condition.unconscious
+    target: other
+    expires:
+      minutes: 1
+    note:
+      en: "Asleep only: the target wakes up if it takes any damage or if another creature uses its action to shake it awake."
+  - kind: applyCondition
+    condition: srd51.condition.frightened
+    target: other
+    expires:
+      minutes: 1
+    note:
+      en: "Panicked only: on each of its turns the target must take the Dash action and move away from you by the safest and shortest route; the effect ends if it reaches a place at least 60 feet away where it can no longer see you."
+  - kind: note
+    text:
+      en: "Sickened: the target has disadvantage on attack rolls and ability checks; at the end of each of its turns it can repeat the Wisdom saving throw to end the effect."

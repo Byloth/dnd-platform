@@ -90,6 +90,410 @@ levels:
             When you gain this feature, you also learn one language of your choice that is spoken by your favored enemies, if they speak one at all.
 
             You choose one additional favored enemy, as well as an associated language, at 6th and 14th level. As you gain levels, your choices should reflect the types of monsters you have encountered on your adventures.
+        effects:
+          - kind: open-choice
+            choice: favored-enemy-1
+            of: option
+            count: 1
+            options:
+              - id: aberrations
+                name:
+                  en: Aberrations
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored enemy: aberrations."
+              - id: beasts
+                name:
+                  en: Beasts
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored enemy: beasts."
+              - id: celestials
+                name:
+                  en: Celestials
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored enemy: celestials."
+              - id: constructs
+                name:
+                  en: Constructs
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored enemy: constructs."
+              - id: dragons
+                name:
+                  en: Dragons
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored enemy: dragons."
+              - id: elementals
+                name:
+                  en: Elementals
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored enemy: elementals."
+              - id: fey
+                name:
+                  en: Fey
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored enemy: fey."
+              - id: fiends
+                name:
+                  en: Fiends
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored enemy: fiends."
+              - id: giants
+                name:
+                  en: Giants
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored enemy: giants."
+              - id: monstrosities
+                name:
+                  en: Monstrosities
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored enemy: monstrosities."
+              - id: oozes
+                name:
+                  en: Oozes
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored enemy: oozes."
+              - id: plants
+                name:
+                  en: Plants
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored enemy: plants."
+              - id: undead
+                name:
+                  en: Undead
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored enemy: undead."
+              - id: two-humanoid-races
+                name:
+                  en: Two races of humanoid
+                text:
+                  en: Select two races of humanoid (such as gnolls and orcs) as favored enemies.
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored enemy: two races of humanoid of your choice (such as gnolls and orcs)."
+          - kind: open-choice
+            choice: favored-enemy-language-1
+            of: language
+            count: 1
+            note:
+              en: One language of your choice that is spoken by your favored enemies, if they speak one at all.
+          - kind: open-choice
+            choice: favored-enemy-2
+            of: option
+            count: 1
+            when:
+              classLevel:
+                class: srd51.class.ranger
+                min: 6
+            options:
+              - id: aberrations
+                name:
+                  en: Aberrations
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored enemy: aberrations."
+              - id: beasts
+                name:
+                  en: Beasts
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored enemy: beasts."
+              - id: celestials
+                name:
+                  en: Celestials
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored enemy: celestials."
+              - id: constructs
+                name:
+                  en: Constructs
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored enemy: constructs."
+              - id: dragons
+                name:
+                  en: Dragons
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored enemy: dragons."
+              - id: elementals
+                name:
+                  en: Elementals
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored enemy: elementals."
+              - id: fey
+                name:
+                  en: Fey
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored enemy: fey."
+              - id: fiends
+                name:
+                  en: Fiends
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored enemy: fiends."
+              - id: giants
+                name:
+                  en: Giants
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored enemy: giants."
+              - id: monstrosities
+                name:
+                  en: Monstrosities
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored enemy: monstrosities."
+              - id: oozes
+                name:
+                  en: Oozes
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored enemy: oozes."
+              - id: plants
+                name:
+                  en: Plants
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored enemy: plants."
+              - id: undead
+                name:
+                  en: Undead
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored enemy: undead."
+              - id: two-humanoid-races
+                name:
+                  en: Two races of humanoid
+                text:
+                  en: Select two races of humanoid (such as gnolls and orcs) as favored enemies.
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored enemy: two races of humanoid of your choice (such as gnolls and orcs)."
+          - kind: open-choice
+            choice: favored-enemy-language-2
+            of: language
+            count: 1
+            when:
+              classLevel:
+                class: srd51.class.ranger
+                min: 6
+            note:
+              en: One language of your choice that is spoken by your favored enemies, if they speak one at all.
+          - kind: open-choice
+            choice: favored-enemy-3
+            of: option
+            count: 1
+            when:
+              classLevel:
+                class: srd51.class.ranger
+                min: 14
+            options:
+              - id: aberrations
+                name:
+                  en: Aberrations
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored enemy: aberrations."
+              - id: beasts
+                name:
+                  en: Beasts
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored enemy: beasts."
+              - id: celestials
+                name:
+                  en: Celestials
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored enemy: celestials."
+              - id: constructs
+                name:
+                  en: Constructs
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored enemy: constructs."
+              - id: dragons
+                name:
+                  en: Dragons
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored enemy: dragons."
+              - id: elementals
+                name:
+                  en: Elementals
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored enemy: elementals."
+              - id: fey
+                name:
+                  en: Fey
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored enemy: fey."
+              - id: fiends
+                name:
+                  en: Fiends
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored enemy: fiends."
+              - id: giants
+                name:
+                  en: Giants
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored enemy: giants."
+              - id: monstrosities
+                name:
+                  en: Monstrosities
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored enemy: monstrosities."
+              - id: oozes
+                name:
+                  en: Oozes
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored enemy: oozes."
+              - id: plants
+                name:
+                  en: Plants
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored enemy: plants."
+              - id: undead
+                name:
+                  en: Undead
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored enemy: undead."
+              - id: two-humanoid-races
+                name:
+                  en: Two races of humanoid
+                text:
+                  en: Select two races of humanoid (such as gnolls and orcs) as favored enemies.
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored enemy: two races of humanoid of your choice (such as gnolls and orcs)."
+          - kind: open-choice
+            choice: favored-enemy-language-3
+            of: language
+            count: 1
+            when:
+              classLevel:
+                class: srd51.class.ranger
+                min: 14
+            note:
+              en: One language of your choice that is spoken by your favored enemies, if they speak one at all.
+          - kind: roll-advantage
+            on:
+              type: check
+              skill: survival
+              against:
+                - tracking your favored enemies
+          - kind: roll-advantage
+            on:
+              type: check
+              ability: int
+              against:
+                - recalling information about your favored enemies
       - id: srd51.feature.ranger.natural-explorer
         name:
           en: Natural Explorer
@@ -108,6 +512,210 @@ levels:
             * While tracking other creatures, you also learn their exact number, their sizes, and how long ago they passed through the area. 
 
             You choose additional favored terrain types at 6th and 10th level.
+        effects:
+          - kind: open-choice
+            choice: favored-terrain-1
+            of: option
+            count: 1
+            options:
+              - id: arctic
+                name:
+                  en: Arctic
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored terrain: arctic."
+              - id: coast
+                name:
+                  en: Coast
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored terrain: coast."
+              - id: desert
+                name:
+                  en: Desert
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored terrain: desert."
+              - id: forest
+                name:
+                  en: Forest
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored terrain: forest."
+              - id: grassland
+                name:
+                  en: Grassland
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored terrain: grassland."
+              - id: mountain
+                name:
+                  en: Mountain
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored terrain: mountain."
+              - id: swamp
+                name:
+                  en: Swamp
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored terrain: swamp."
+          - kind: open-choice
+            choice: favored-terrain-2
+            of: option
+            count: 1
+            when:
+              classLevel:
+                class: srd51.class.ranger
+                min: 6
+            options:
+              - id: arctic
+                name:
+                  en: Arctic
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored terrain: arctic."
+              - id: coast
+                name:
+                  en: Coast
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored terrain: coast."
+              - id: desert
+                name:
+                  en: Desert
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored terrain: desert."
+              - id: forest
+                name:
+                  en: Forest
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored terrain: forest."
+              - id: grassland
+                name:
+                  en: Grassland
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored terrain: grassland."
+              - id: mountain
+                name:
+                  en: Mountain
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored terrain: mountain."
+              - id: swamp
+                name:
+                  en: Swamp
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored terrain: swamp."
+          - kind: open-choice
+            choice: favored-terrain-3
+            of: option
+            count: 1
+            when:
+              classLevel:
+                class: srd51.class.ranger
+                min: 10
+            options:
+              - id: arctic
+                name:
+                  en: Arctic
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored terrain: arctic."
+              - id: coast
+                name:
+                  en: Coast
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored terrain: coast."
+              - id: desert
+                name:
+                  en: Desert
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored terrain: desert."
+              - id: forest
+                name:
+                  en: Forest
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored terrain: forest."
+              - id: grassland
+                name:
+                  en: Grassland
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored terrain: grassland."
+              - id: mountain
+                name:
+                  en: Mountain
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored terrain: mountain."
+              - id: swamp
+                name:
+                  en: Swamp
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Favored terrain: swamp."
+          - kind: add-text
+            section: features
+            text:
+              en: When you make an Intelligence or Wisdom check related to your favored terrain, your proficiency bonus is doubled if you are using a skill that you're proficient in.
+            note:
+              en: "Situational: the player asserts the check relates to the favored terrain; not a sheet expertise."
+          - kind: add-text
+            section: features
+            text:
+              en: "While traveling for an hour or more in your favored terrain: difficult terrain doesn't slow your group's travel; your group can't become lost except by magical means; even when engaged in another activity while traveling (such as foraging, navigating, or tracking) you remain alert to danger; if traveling alone you can move stealthily at a normal pace; when you forage you find twice as much food as you normally would; while tracking other creatures you also learn their exact number, their sizes, and how long ago they passed through the area."
+            note:
+              en: Travel benefits are narrative; no catalogue kind.
   "2":
     features:
       - id: srd51.feature.ranger.fighting-style
@@ -133,6 +741,67 @@ levels:
             ### Two-Weapon Fighting
 
             When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack.
+        effects:
+          - kind: open-choice
+            choice: fighting-style
+            of: fighting-style
+            count: 1
+            note:
+              en: You can't take a Fighting Style option more than once, even if you later get to choose again.
+            options:
+              - id: archery
+                name:
+                  en: Archery
+                text:
+                  en: You gain a +2 bonus to attack rolls you make with ranged weapons.
+                effects:
+                  - kind: modify-attacks
+                    filter:
+                      ranged: true
+                    set:
+                      attackBonus: 2
+              - id: defense
+                name:
+                  en: Defense
+                text:
+                  en: While you are wearing armor, you gain a +1 bonus to AC.
+                effects:
+                  - kind: modify
+                    target: ac
+                    op: add
+                    value: 1
+                    when:
+                      any:
+                        - armorCategory: light
+                        - armorCategory: medium
+                        - armorCategory: heavy
+              - id: dueling
+                name:
+                  en: Dueling
+                text:
+                  en: When you are wielding a melee weapon in one hand and no other weapons, you gain a +2 bonus to damage rolls with that weapon.
+                effects:
+                  - kind: modify-attacks
+                    filter:
+                      melee: true
+                    set:
+                      damageBonus: 2
+                    when:
+                      wieldingOnly:
+                        melee: true
+                        count: 1
+              - id: two-weapon-fighting
+                name:
+                  en: Two-Weapon Fighting
+                text:
+                  en: When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack.
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: "Two-Weapon Fighting: when you engage in two-weapon fighting, add your ability modifier to the damage of the second attack."
+                    note:
+                      en: The bonus-action off-hand attack is not a distinct attack row yet, so the modifier on the second attack is applied in play.
       - id: srd51.feature.ranger.spellcasting
         name:
           en: Spellcasting
@@ -180,18 +849,35 @@ levels:
         source: srd51
         text:
           en: "Beginning at 3rd level, you can use your action and expend one ranger spell slot to focus your awareness on the region around you. For 1 minute per level of the spell slot you expend, you can sense whether the following types of creatures are present within 1 mile of you (or within up to 6 miles if you are in your favored terrain): aberrations, celestials, dragons, elementals, fey, fiends, and undead. This feature doesn't reveal the creatures' location or number."
+        effects:
+          - kind: add-action
+            action: primeval-awareness
+            name:
+              en: Primeval Awareness
+            activation: action
+            cost:
+              - resource: spell-slot
+                level: 1
+            duration:
+              type: timed
+              minutes: 1
+            text:
+              en: "Use your action and expend one ranger spell slot to focus your awareness on the region around you. For 1 minute per level of the spell slot you expend, you can sense whether the following types of creatures are present within 1 mile of you (or within up to 6 miles if you are in your favored terrain): aberrations, celestials, dragons, elementals, fey, fiends, and undead. This feature doesn't reveal the creatures' location or number."
+            onUse:
+              - kind: note
+                text:
+                  en: For 1 minute per level of the slot spent, sense whether aberrations, celestials, dragons, elementals, fey, fiends or undead are present within 1 mile (6 miles in your favored terrain); not their location or number.
+            note:
+              en: The cost is fixed at a 1st-level slot and the duration at 1 minute; spending a higher-level slot for a longer duration is not expressible yet (no slot-level cost variable).
       - id: srd51.feature.ranger.ranger-archetype
         name:
           en: Ranger Archetype
         source: srd51
         text:
           en: "At 3rd level, you choose an archetype that you strive to emulate: Hunter or Beast Master, both detailed at the end of the class description. Your choice grants you features at 3rd level and again at 7th, 11th, and 15th level."
-        effects:
-          - kind: open-choice
-            choice: ranger-archetype
-            of: subclass
-            count: 1
-            level: 3
+    choices:
+      - id: ranger-archetype
+        of: subclass
   "4":
     features:
       - id: srd51.feature.ranger.ability-score-improvement
@@ -211,6 +897,11 @@ levels:
         source: srd51
         text:
           en: Beginning at 5th level, you can attack twice, instead of once, whenever you take the Attack action on your turn.
+        effects:
+          - kind: modify
+            target: attacks.perAction
+            op: set
+            value: 2
   "8":
     choices:
       - id: asi-8
@@ -225,6 +916,18 @@ levels:
             Starting at 8th level, moving through nonmagical difficult terrain costs you no extra movement. You can also pass through nonmagical plants without being slowed by them and without taking damage from them if they have thorns, spines, or a similar hazard.
 
             In addition, you have advantage on saving throws against plants that are magically created or manipulated to impede movement, such those created by the entangle spell.
+        effects:
+          - kind: roll-advantage
+            on:
+              type: save
+              against:
+                - plants that are magically created or manipulated to impede movement (such as the entangle spell)
+          - kind: add-text
+            section: features
+            text:
+              en: Moving through nonmagical difficult terrain costs you no extra movement. You can also pass through nonmagical plants without being slowed by them and without taking damage from them if they have thorns, spines, or a similar hazard.
+            note:
+              en: Movement-cost rules have no catalogue kind; applied in play.
   "10":
     features:
       - id: srd51.feature.ranger.hide-in-plain-sight
@@ -236,6 +939,32 @@ levels:
             Starting at 10th level, you can spend 1 minute creating camouflage for yourself. You must have access to fresh mud, dirt, plants, soot, and other naturally occurring materials with which to create your camouflage.
 
             Once you are camouflaged in this way, you can try to hide by pressing yourself up against a solid surface, such as a tree or wall, that is at least as tall and wide as you are. You gain a +10 bonus to Dexterity (Stealth) checks as long as you remain there without moving or taking actions. Once you move or take an action or a reaction, you must camouflage yourself again to gain this benefit.
+        effects:
+          - kind: add-action
+            action: hide-in-plain-sight
+            name:
+              en: Hide in Plain Sight
+            activation: special
+            duration:
+              type: special
+            toggle:
+              state: hide-in-plain-sight
+              expires:
+                manual: true
+            text:
+              en: Spend 1 minute creating camouflage for yourself (you need fresh mud, dirt, plants, soot, and other naturally occurring materials). Once camouflaged, you can try to hide by pressing yourself up against a solid surface, such as a tree or wall, that is at least as tall and wide as you are. You gain a +10 bonus to Dexterity (Stealth) checks as long as you remain there without moving or taking actions. Once you move or take an action or a reaction, you must camouflage yourself again to gain this benefit.
+            onUse:
+              - kind: note
+                text:
+                  en: Takes 1 minute. Switch the state off as soon as you move or take an action or a reaction.
+          - kind: modify
+            target: skill.stealth
+            op: add
+            value: 10
+            when:
+              toggled: hide-in-plain-sight
+            note:
+              en: Only while camouflaged and pressed against a solid surface without moving or taking actions.
   "12":
     choices:
       - id: asi-12
@@ -248,6 +977,22 @@ levels:
         source: srd51
         text:
           en: Starting at 14th level, you can use the Hide action as a bonus action on your turn. Also, you can't be tracked by nonmagical means, unless you choose to leave a trail.
+        effects:
+          - kind: add-action
+            action: vanish
+            name:
+              en: Vanish
+            activation: bonus-action
+            text:
+              en: You can use the Hide action as a bonus action on your turn.
+            onUse:
+              - kind: note
+                text:
+                  en: Take the Hide action (make a Dexterity (Stealth) check).
+          - kind: add-text
+            section: features
+            text:
+              en: You can't be tracked by nonmagical means, unless you choose to leave a trail.
   "16":
     choices:
       - id: asi-16
@@ -263,6 +1008,17 @@ levels:
             At 18th level, you gain preternatural senses that help you fight creatures you can't see. When you attack a creature you can't see, your inability to see it doesn't impose disadvantage on your attack rolls against it.
 
             You are also aware of the location of any invisible creature within 30 feet of you, provided that the creature isn't hidden from you and you aren't blinded or deafened.
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: When you attack a creature you can't see, your inability to see it doesn't impose disadvantage on your attack rolls against it.
+            note:
+              en: Negating the unseen-target disadvantage is a play-mode roll rule; no catalogue kind.
+          - kind: add-text
+            section: senses
+            text:
+              en: You are aware of the location of any invisible creature within 30 feet of you, provided that the creature isn't hidden from you and you aren't blinded or deafened.
   "19":
     choices:
       - id: asi-19
@@ -275,6 +1031,18 @@ levels:
         source: srd51
         text:
           en: At 20th level, you become an unparalleled hunter of your enemies. Once on each of your turns, you can add your Wisdom modifier to the attack roll or the damage roll of an attack you make against one of your favored enemies. You can choose to use this feature before or after the roll, but before any effects of the roll are applied.
+        effects:
+          - kind: add-action
+            action: foe-slayer
+            name:
+              en: Foe Slayer
+            activation: free
+            text:
+              en: Once on each of your turns, you can add your Wisdom modifier to the attack roll or the damage roll of an attack you make against one of your favored enemies. You can choose to use this feature before or after the roll, but before any effects of the roll are applied.
+            onUse:
+              - kind: note
+                text:
+                  en: Add your Wisdom modifier (mod(wis)) to the attack roll or the damage roll of one attack against a favored enemy; once per turn, before or after the roll but before its effects apply.
 tables:
   favored-enemies:
     by: classLevel

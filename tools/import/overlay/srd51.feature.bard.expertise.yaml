@@ -1,0 +1,14 @@
+effects:
+  - kind: open-choice
+    choice: expertise-3
+    of: skill
+    count: 2
+    note:
+      en: "Choose two of your skill proficiencies; your proficiency bonus is doubled for ability checks using them. Gap: the choice cannot be filtered to held proficiencies and open-choice carries no expertise flag, so the doubling is not applied."
+  - kind: open-choice
+    choice: expertise-10
+    of: skill
+    count: 2
+    level: 10
+    note:
+      en: "At 10th level, choose another two skill proficiencies to gain this benefit. Gap: as above, the doubling is not applied."

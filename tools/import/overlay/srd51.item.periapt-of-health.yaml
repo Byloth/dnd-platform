@@ -1,0 +1,12 @@
+features:
+  - id: srd51.feature.item.periapt-of-health.disease-immunity
+    name:
+      en: "Disease Immunity"
+    text:
+      en: "You are immune to contracting any disease while you wear this pendant. If you are already infected with a disease, the effects of the disease are suppressed while you wear the pendant."
+    effects:
+      - kind: defense
+        defense: immunity
+        to: [disease]
+        note:
+          en: "An existing disease is suppressed while you wear the pendant."

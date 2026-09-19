@@ -25,3 +25,14 @@ rolls:
   - type: save
     ability: cha
     onSuccess: none
+effects:
+  - kind: add-text
+    section: features
+    text:
+      en: While possessing a body, your game statistics are replaced by the creature's, though you retain your alignment and your Intelligence, Wisdom and Charisma scores, and you keep your own class features (but can't use the host's). While your soul is in the container you can't move or use reactions; your only action is to project your soul up to 100 feet to return to your body or attempt a possession.
+    note:
+      en: Stat-block replacement is not expressible in v0; the host's statistics must be tracked by hand.
+onCast:
+  - kind: note
+    text:
+      en: A humanoid within 100 feet that you can see must make a Charisma saving throw; on a failure your soul moves into its body and its soul is trapped in the container; on a success you can't attempt to possess it again for 24 hours. Creatures warded by protection from evil and good or magic circle can't be possessed. If the host body dies while you're in it, make a Charisma save against your own DC to return to the container within 100 feet, or die.

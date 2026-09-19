@@ -1,0 +1,89 @@
+attunement: true
+charges:
+  max: 7
+  recharge:
+    - on: dawn
+      amount: "1d4 + 3"
+features:
+  - id: srd51.feature.item.orb-of-dragonkind.command-the-orb
+    name:
+      en: "Command the Orb"
+    text:
+      en: "While attuned to an orb, you can use an action to peer into the orb's depths and speak its command word. You must then make a DC 15 Charisma check. On a successful check, you control the orb for as long as you remain attuned to it. On a failed check, you become charmed by the orb for as long as you remain attuned to it. While you are charmed by the orb, you can't voluntarily end your attunement to it, and the orb casts suggestion on you at will (save DC 18), urging you to work toward the evil ends it desires."
+    effects:
+      - kind: add-action
+        action: command-the-orb
+        name:
+          en: "Command the Orb"
+        activation: action
+        onUse:
+          - kind: note
+            text:
+              en: "Make a DC 15 Charisma check. On a success you control the orb while attuned; on a failure you are charmed by it while attuned, can't voluntarily end the attunement, and it casts suggestion on you at will (save DC 18)."
+        text:
+          en: "Peer into the orb and speak its command word, then make a DC 15 Charisma check to control it."
+  - id: srd51.feature.item.orb-of-dragonkind.random-properties
+    name:
+      en: "Random Properties"
+    text:
+      en: "An Orb of Dragonkind has the following random properties, 2 minor beneficial properties, 1 minor detrimental property, 1 major detrimental property."
+    effects:
+      - kind: add-text
+        section: features
+        text:
+          en: "2 minor beneficial properties, 1 minor detrimental property, 1 major detrimental property (artifact tables, chosen by the GM)."
+        note:
+          en: "Artifact random properties are GM text."
+  - id: srd51.feature.item.orb-of-dragonkind.spells
+    name:
+      en: "Spells"
+    text:
+      en: "If you control the orb, you can use an action and expend 1 or more charges to cast one of the following spells (save DC 18) from it, cure wounds (5th-level version, 3 charges), daylight (1 charge), death ward (2 charges), or scrying (3 charges). You can also use an action to cast the detect magic spell from the orb without using any charges."
+    effects:
+      - kind: grant-spells
+        spells: [srd51.spell.cure-wounds]
+        as: always-prepared
+        cost: [{ resource: charges, amount: 3 }]
+        level: 5
+        note:
+          en: "Only while you control the orb. Save DC 18."
+      - kind: grant-spells
+        spells: [srd51.spell.daylight]
+        as: always-prepared
+        cost: [{ resource: charges, amount: 1 }]
+        note:
+          en: "Only while you control the orb. Save DC 18."
+      - kind: grant-spells
+        spells: [srd51.spell.death-ward]
+        as: always-prepared
+        cost: [{ resource: charges, amount: 2 }]
+        note:
+          en: "Only while you control the orb. Save DC 18."
+      - kind: grant-spells
+        spells: [srd51.spell.scrying]
+        as: always-prepared
+        cost: [{ resource: charges, amount: 3 }]
+        note:
+          en: "Only while you control the orb. Save DC 18."
+      - kind: grant-spells
+        spells: [srd51.spell.detect-magic]
+        as: always-prepared
+        note:
+          en: "Cast as an action without using any charges or slots."
+  - id: srd51.feature.item.orb-of-dragonkind.call-dragons
+    name:
+      en: "Call Dragons"
+    text:
+      en: "While you control the orb, you can use an action to cause the artifact to issue a telepathic call that extends in all directions for 40 miles. Evil dragons in range feel compelled to come to the orb as soon as possible by the most direct route. Dragon deities such as Tiamat are unaffected by this call. Dragons drawn to the orb might be hostile toward you for compelling them against their will. Once you have used this property, it can't be used again for 1 hour."
+    effects:
+      - kind: add-action
+        action: call-dragons
+        name:
+          en: "Call Dragons"
+        activation: action
+        onUse:
+          - kind: note
+            text:
+              en: "Evil dragons within 40 miles feel compelled to come to the orb by the most direct route; dragon deities are unaffected. The property can't be used again for 1 hour."
+        text:
+          en: "Issue a telepathic call to evil dragons within 40 miles. Once per hour, only while you control the orb."

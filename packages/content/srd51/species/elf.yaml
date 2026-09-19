@@ -72,18 +72,42 @@ features:
     source: srd51
     text:
       en: You have proficiency in the Perception skill.
+    effects:
+      - kind: grant-proficiency
+        type: skill
+        items:
+          - perception
   - id: srd51.feature.elf.fey-ancestry
     name:
       en: Fey Ancestry
     source: srd51
     text:
       en: You have advantage on saving throws against being charmed, and magic can't put you to sleep.
+    effects:
+      - kind: roll-advantage
+        on:
+          type: save
+          against:
+            - charmed
+      - kind: defense
+        defense: condition-immunity
+        to:
+          - magical-sleep
+        note:
+          en: "Magic can't put you to sleep: sleep is not a listed condition, so this uses the descriptive id magical-sleep."
   - id: srd51.feature.elf.trance
     name:
       en: Trance
     source: srd51
     text:
       en: Elves don't need to sleep. Instead, they meditate deeply, remaining semiconscious, for 4 hours a day. (The Common word for such meditation is “trance.”) While meditating, you can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, you gain the same benefit that a human does from 8 hours of sleep.
+    effects:
+      - kind: add-text
+        section: features
+        text:
+          en: You don't need to sleep; meditating deeply for 4 hours a day gives you the same benefit a human gets from 8 hours of sleep.
+        note:
+          en: Rest rule variant; the engine does not model sleep or long-rest duration.
 subspecies:
   - id: srd51.species.elf.high-elf
     name:
@@ -109,15 +133,38 @@ subspecies:
         source: srd51
         text:
           en: You have proficiency with the longsword, shortsword, shortbow, and longbow.
+        effects:
+          - kind: grant-proficiency
+            type: weapon
+            items:
+              - longsword
+              - shortsword
+              - shortbow
+              - longbow
       - id: srd51.feature.high-elf.cantrip
         name:
           en: Cantrip
         source: srd51
         text:
           en: You know one cantrip of your choice from the wizard spell list. Intelligence is your spellcasting ability for it.
+        effects:
+          - kind: open-choice
+            choice: cantrip
+            of: spell
+            count: 1
+            filter:
+              list: srd51.spell-list.wizard
+              level: 0
+            note:
+              en: "Intelligence is your spellcasting ability for this cantrip: the choice cannot carry an ability, so it is stated here."
       - id: srd51.feature.high-elf.extra-language
         name:
           en: Extra Language
         source: srd51
         text:
           en: You can speak, read, and write one extra language of your choice.
+        effects:
+          - kind: open-choice
+            choice: extra-language
+            of: language
+            count: 1

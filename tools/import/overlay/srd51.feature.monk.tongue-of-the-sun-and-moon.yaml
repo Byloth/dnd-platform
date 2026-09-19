@@ -1,0 +1,7 @@
+effects:
+  - kind: add-text
+    section: features
+    text:
+      en: You understand all spoken languages. Moreover, any creature that can understand a language can understand what you say.
+    note:
+      en: "Gap: grant-proficiency has no 'all languages' item; shown as text."

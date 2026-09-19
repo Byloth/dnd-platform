@@ -1,0 +1,8 @@
+effects:
+  - kind: add-text
+    section: combat
+    text: { en: "Outlined in light: you shed dim light in a 10-foot radius, any attack roll against you has advantage if the attacker can see you, and you can't benefit from being invisible." }
+    note: { en: "Advantage on attacks made against the character is not expressible in v0." }
+onCast:
+  - kind: note
+    text: { en: "Creatures in the 20-foot cube are outlined on a failed Dexterity saving throw; objects are outlined automatically." }

@@ -1,0 +1,26 @@
+effects:
+  - kind: declare-resource
+    resource: divine-intervention
+    name:
+      en: Divine Intervention
+    max: 1
+    recharge:
+      - on: long-rest
+        amount: full
+    display: pips
+    note:
+      en: "Gap: if your deity intervenes, you can't use this feature again for 7 days; a 7-day lockout is not a recharge the catalogue has, so the long-rest recharge must be withheld by hand in that case."
+  - kind: add-action
+    action: divine-intervention
+    name:
+      en: Divine Intervention
+    activation: action
+    cost:
+      - resource: divine-intervention
+        amount: 1
+    text:
+      en: "Describe the assistance you seek, and roll percentile dice. If you roll a number equal to or lower than your cleric level, your deity intervenes. The GM chooses the nature of the intervention; the effect of any cleric spell or cleric domain spell would be appropriate. If your deity intervenes, you can't use this feature again for 7 days. Otherwise, you can use it again after you finish a long rest. At 20th level, your call for intervention succeeds automatically, no roll required."
+    onUse:
+      - kind: note
+        text:
+          en: "Roll d100: success on a result equal to or lower than classLevel(cleric); automatic at 20th level. On success, no further use for 7 days."

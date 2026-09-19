@@ -2391,6 +2391,11 @@ export const SCHEMAS = {
                                     "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
                                 },
                                 "minItems": 1
+                            },
+                            "id": {
+                                "type": "string",
+                                "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                                "description": "Names the choice when a feature grants more than one pick of the same type; the answer key becomes <feature>#<id>."
                             }
                         },
                         "additionalProperties": false,

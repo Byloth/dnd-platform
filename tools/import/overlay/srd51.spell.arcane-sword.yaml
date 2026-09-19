@@ -1,0 +1,10 @@
+effects:
+  - kind: add-action
+    action: arcane-sword-attack
+    name: { en: "Arcane Sword: attack" }
+    activation: bonus-action
+    cost: []
+    rolls:
+      - { type: attack }
+      - { type: damage, dice: 3d10, damageType: force }
+    text: { en: "Move the sword up to 20 feet to a spot you can see and make a melee spell attack against a target within 5 feet of it; on a hit the target takes 3d10 force damage." }

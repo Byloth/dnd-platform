@@ -1,0 +1,7 @@
+effects:
+  - kind: modify
+    target: attacks.perAction
+    op: set
+    formula: 1 + table(fighter.extra-attacks)
+    note:
+      en: Two attacks at 5th level, three at 11th and four at 20th level in this class.

@@ -1,0 +1,9 @@
+effects:
+  - kind: modify
+    target: jump.long
+    op: mul
+    value: 3
+  - kind: modify
+    target: jump.high
+    op: mul
+    value: 3

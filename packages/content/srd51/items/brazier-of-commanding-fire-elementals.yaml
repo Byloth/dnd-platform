@@ -17,3 +17,32 @@ rarity: rare
 tags:
   - magic-item
   - wondrous-items
+charges:
+  max: 1
+  recharge:
+    - on: dawn
+      amount: full
+features:
+  - id: srd51.feature.item.brazier-of-commanding-fire-elementals.summon
+    name:
+      en: Summon a fire elemental
+    effects:
+      - kind: add-action
+        action: summon-fire-elemental
+        name:
+          en: Summon a fire elemental
+        activation: action
+        cost:
+          - resource: charges
+            amount: 1
+        requires:
+          condition:
+            resourceAtLeast:
+              resource: charges
+              amount: 1
+        text:
+          en: While a fire burns in the brazier, speak its command word to summon a fire elemental, as if you had cast the conjure elemental spell. The brazier can't be used this way again until the next dawn.
+        onUse:
+          - kind: note
+            text:
+              en: A fire elemental appears as if by conjure elemental (a fire must burn in the brazier); see that spell for control and duration.

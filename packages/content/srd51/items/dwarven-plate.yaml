@@ -15,3 +15,27 @@ rarity: very-rare
 tags:
   - magic-item
   - armor
+category: heavy
+ac:
+  base: 18
+  addDex: false
+strengthMin: 15
+stealthDisadvantage: true
+features:
+  - id: srd51.feature.item.dwarven-plate.bonus
+    name:
+      en: +2 bonus
+    effects:
+      - kind: modify
+        target: ac
+        op: add
+        value: 2
+      - kind: add-action
+        action: dwarven-plate-brace
+        name:
+          en: Resist forced movement
+        activation: reaction
+        trigger:
+          en: when an effect moves you against your will along the ground
+        text:
+          en: Reduce the distance you are moved by up to 10 feet.

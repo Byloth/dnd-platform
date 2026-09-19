@@ -1,0 +1,19 @@
+charges:
+  max: "1d6 + 3"
+  recharge:
+    - on: manual
+      amount: full
+features:
+  - id: srd51.feature.item.necklace-of-fireballs.beads
+    name:
+      en: "Beads"
+    text:
+      en: "This necklace has 1d6 + 3 beads hanging from it. You can use an action to detach a bead and throw it up to 60 feet away. When it reaches the end of its trajectory, the bead detonates as a 3rd-level fireball spell (save DC 15). You can hurl multiple beads, or even the whole necklace, as one action. When you do so, increase the level of the fireball by 1 for each bead beyond the first."
+    effects:
+      - kind: grant-spells
+        spells: [srd51.spell.fireball]
+        as: always-prepared
+        cost: [{ resource: charges, amount: 1 }]
+        level: 3
+        note:
+          en: "Thrown as an action up to 60 feet, save DC 15. The beads (charges) never come back. Hurling several beads as one action raises the fireball's level by 1 per bead beyond the first."

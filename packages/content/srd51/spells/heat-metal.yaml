@@ -36,3 +36,19 @@ scaling:
   from: 3
   add:
     dice: 1d8
+effects:
+  - kind: add-action
+    action: heat-metal
+    name:
+      en: Heat Metal (repeat)
+    activation: bonus-action
+    rolls:
+      - type: damage
+        dice: 2d8
+        damageType: fire
+    text:
+      en: Cause the 2d8 fire damage again to any creature in physical contact with the heated object.
+onCast:
+  - kind: note
+    text:
+      en: No saving throw against the damage. A creature holding or wearing the object that takes the damage must succeed on a Constitution saving throw or drop the object if it can; if it doesn't drop it, it has disadvantage on attack rolls and ability checks until the start of your next turn.

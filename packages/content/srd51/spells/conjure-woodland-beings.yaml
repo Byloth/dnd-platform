@@ -29,3 +29,12 @@ text:
     - Eight fey creatures of challenge rating 1/4 or lower A summoned creature disappears when it drops to 0 hit points or when the spell ends. The summoned creatures are friendly to you and your companions. Roll initiative for the summoned creatures as a group, which have their own turns. They obey any verbal commands that you issue to them (no action required by you). If you don't issue any commands to them, they defend themselves from hostile creatures, but otherwise take no actions. The DM has the creatures' statistics.
 higherLevel:
   en: "When you cast this spell using certain higher-level spell slots, you choose one of the summoning options above, and more creatures appear: twice as many with a 6th-level slot and three times as many with an 8th-level slot."
+effects:
+  - kind: add-text
+    section: features
+    text:
+      en: Summoned fey creatures (one of challenge rating 2 or lower, two of CR 1 or lower, four of CR 1/2 or lower, or eight of CR 1/4 or lower) are friendly to you and your companions, roll initiative as a group and obey your verbal commands (no action required); without commands they only defend themselves. A creature disappears at 0 hit points or when the spell ends.
+onCast:
+  - kind: note
+    text:
+      en: The DM has the creatures' statistics (no stat blocks in v0). Twice as many creatures with a 6th-level slot, three times as many with an 8th-level slot.

@@ -1,0 +1,4 @@
+onUse:
+  - kind: note
+    text:
+      en: "When you drink this potion, you gain a climbing speed equal to your walking speed for 1 hour. During this time, you have advantage on Strength (Athletics) checks you make to climb."

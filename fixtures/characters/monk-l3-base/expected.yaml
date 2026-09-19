@@ -1,0 +1,47 @@
+# Puma feline monk 3 on the SRD excerpt plus the homebrew feline species. The feline species grants no ability
+# bonuses, so the scores are set directly: str 11, dex 17, con 14, int 8, wis 15, cha 8.
+# Modifiers: str 0, dex +3, con +2, int -1, wis +2, cha -1. Proficiency bonus at 3: +2.
+values:
+  ability.str: 11
+  ability.dex: 17
+  ability.con: 14
+  ability.wis: 15
+  proficiencyBonus: 2
+  ac: 15                   # Unarmored Defense: 10 + mod(dex) 3 + mod(wis) 2 (shortbow is not armour)
+  hp.max: 24               # level 1: 8 + 2 = 10; levels 2-3: 2 × (average(d8) 5 + 2) = 14
+  speed.walk: 40           # feline 30 + Unarmored Movement table(monk.unarmored-movement) at class level 3 = 10
+  speed.climb: 20          # feline
+  sense.darkvision: 60     # feline Darkvision (op max 60)
+  initiative: 3
+  attacks.perAction: 1
+  jump.long: 22            # Pounce: set-formula 2 * score(str) = 2 × 11
+  save.str: 2              # mod 0 + proficiency 2
+  save.dex: 5              # mod 3 + 2
+  save.con: 2              # not proficient
+  save.wis: 2              # not proficient
+  skill.stealth: 5         # mod(dex) 3 + 2 (chosen)
+  skill.acrobatics: 5      # mod(dex) 3 + 2 (chosen)
+  skill.perception: 2      # mod(wis) 2, not proficient
+  passive.perception: 12   # 10 + 2
+provenance:
+  ac: ["Base", "Dexterity modifier", "Unarmored Defense"]
+resources:
+  ki: { max: 3, recharge: [short-rest, long-rest] }   # table(monk.ki-points) row 2 = classLevel → 3
+actions:
+  martial-arts-strike: { activation: bonus-action }
+  flurry-of-blows: { activation: bonus-action, cost: { ki: 1 } }
+  patient-defense: { activation: bonus-action, cost: { ki: 1 } }
+  step-of-the-wind: { activation: bonus-action, cost: { ki: 1 } }
+  deflect-missiles: { activation: reaction }
+  claws: { activation: action }                       # feline Claws
+proficiencies:
+  - skill:stealth
+  - skill:acrobatics
+  - save:str
+  - save:dex
+  - weapon:simple
+  - weapon:shortsword
+sections:
+  active: [core, abilities, saves, skills, senses, combat, actions, resources, features]
+  inactive: [spellcasting, spells]
+warnings: [W_UNANSWERED_CHOICE]                       # monastic-tradition (subclass) not chosen

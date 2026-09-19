@@ -20,3 +20,11 @@ duration:
   concentration: true
 text:
   en: Your prayer empowers you with divine radiance. Until the spell ends, your weapon attacks deal an extra 1d4 radiant damage on a hit.
+effects:
+  - kind: modify-attacks
+    set:
+      extraDamage:
+        dice: 1d4
+        damageType: radiant
+    note:
+      en: Weapon attacks only.

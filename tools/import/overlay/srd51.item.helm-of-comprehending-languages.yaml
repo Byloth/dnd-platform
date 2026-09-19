@@ -1,0 +1,12 @@
+features:
+  - id: srd51.feature.item.helm-of-comprehending-languages.comprehend-languages
+    name:
+      en: "Comprehend Languages"
+    text:
+      en: "While wearing this helm, you can use an action to cast the comprehend languages spell from it at will."
+    effects:
+      - kind: grant-spells
+        spells: [srd51.spell.comprehend-languages]
+        as: always-prepared
+        note:
+          en: "Cast at will as an action, without a spell slot."

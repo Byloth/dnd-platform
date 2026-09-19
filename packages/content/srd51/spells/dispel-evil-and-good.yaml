@@ -31,3 +31,31 @@ rolls:
   - type: save
     ability: cha
     onSuccess: none
+effects:
+  - kind: add-text
+    section: combat
+    text:
+      en: Celestials, elementals, fey, fiends and undead have disadvantage on attack rolls against you.
+    note:
+      en: Disadvantage on attacks made against the character is not expressible in v0.
+  - kind: add-action
+    action: break-enchantment
+    name:
+      en: "Dispel Evil and Good: Break Enchantment"
+    activation: action
+    cost: []
+    text:
+      en: "Touch a creature you can reach that is charmed, frightened or possessed by a celestial, an elemental, a fey, a fiend or an undead: it is no longer charmed, frightened or possessed by such creatures. Using this ends the spell."
+  - kind: add-action
+    action: dismissal
+    name:
+      en: "Dispel Evil and Good: Dismissal"
+    activation: action
+    cost: []
+    rolls:
+      - type: attack
+      - type: save
+        ability: cha
+        onSuccess: none
+    text:
+      en: Make a melee spell attack against a celestial, an elemental, a fey, a fiend or an undead you can reach. On a hit, the creature must succeed on a Charisma saving throw or be sent back to its home plane (undead to the Shadowfell, fey to the Feywild). Using this ends the spell.

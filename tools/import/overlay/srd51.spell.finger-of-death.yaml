@@ -1,0 +1,3 @@
+onCast:
+  - kind: note
+    text: { en: "A humanoid killed by this spell rises at the start of your next turn as a zombie permanently under your command, following your verbal orders; the DM has its statistics (no stat blocks in v0)." }

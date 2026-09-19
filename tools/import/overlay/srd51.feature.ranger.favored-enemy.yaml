@@ -1,0 +1,404 @@
+effects:
+  - kind: open-choice
+    choice: favored-enemy-1
+    of: option
+    count: 1
+    options:
+      - id: aberrations
+        name:
+          en: Aberrations
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored enemy: aberrations."
+      - id: beasts
+        name:
+          en: Beasts
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored enemy: beasts."
+      - id: celestials
+        name:
+          en: Celestials
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored enemy: celestials."
+      - id: constructs
+        name:
+          en: Constructs
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored enemy: constructs."
+      - id: dragons
+        name:
+          en: Dragons
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored enemy: dragons."
+      - id: elementals
+        name:
+          en: Elementals
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored enemy: elementals."
+      - id: fey
+        name:
+          en: Fey
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored enemy: fey."
+      - id: fiends
+        name:
+          en: Fiends
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored enemy: fiends."
+      - id: giants
+        name:
+          en: Giants
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored enemy: giants."
+      - id: monstrosities
+        name:
+          en: Monstrosities
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored enemy: monstrosities."
+      - id: oozes
+        name:
+          en: Oozes
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored enemy: oozes."
+      - id: plants
+        name:
+          en: Plants
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored enemy: plants."
+      - id: undead
+        name:
+          en: Undead
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored enemy: undead."
+      - id: two-humanoid-races
+        name:
+          en: Two races of humanoid
+        text:
+          en: Select two races of humanoid (such as gnolls and orcs) as favored enemies.
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored enemy: two races of humanoid of your choice (such as gnolls and orcs)."
+  - kind: open-choice
+    choice: favored-enemy-language-1
+    of: language
+    count: 1
+    note:
+      en: One language of your choice that is spoken by your favored enemies, if they speak one at all.
+  - kind: open-choice
+    choice: favored-enemy-2
+    of: option
+    count: 1
+    when:
+      classLevel:
+        class: srd51.class.ranger
+        min: 6
+    options:
+      - id: aberrations
+        name:
+          en: Aberrations
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored enemy: aberrations."
+      - id: beasts
+        name:
+          en: Beasts
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored enemy: beasts."
+      - id: celestials
+        name:
+          en: Celestials
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored enemy: celestials."
+      - id: constructs
+        name:
+          en: Constructs
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored enemy: constructs."
+      - id: dragons
+        name:
+          en: Dragons
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored enemy: dragons."
+      - id: elementals
+        name:
+          en: Elementals
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored enemy: elementals."
+      - id: fey
+        name:
+          en: Fey
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored enemy: fey."
+      - id: fiends
+        name:
+          en: Fiends
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored enemy: fiends."
+      - id: giants
+        name:
+          en: Giants
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored enemy: giants."
+      - id: monstrosities
+        name:
+          en: Monstrosities
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored enemy: monstrosities."
+      - id: oozes
+        name:
+          en: Oozes
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored enemy: oozes."
+      - id: plants
+        name:
+          en: Plants
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored enemy: plants."
+      - id: undead
+        name:
+          en: Undead
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored enemy: undead."
+      - id: two-humanoid-races
+        name:
+          en: Two races of humanoid
+        text:
+          en: Select two races of humanoid (such as gnolls and orcs) as favored enemies.
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored enemy: two races of humanoid of your choice (such as gnolls and orcs)."
+  - kind: open-choice
+    choice: favored-enemy-language-2
+    of: language
+    count: 1
+    when:
+      classLevel:
+        class: srd51.class.ranger
+        min: 6
+    note:
+      en: One language of your choice that is spoken by your favored enemies, if they speak one at all.
+  - kind: open-choice
+    choice: favored-enemy-3
+    of: option
+    count: 1
+    when:
+      classLevel:
+        class: srd51.class.ranger
+        min: 14
+    options:
+      - id: aberrations
+        name:
+          en: Aberrations
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored enemy: aberrations."
+      - id: beasts
+        name:
+          en: Beasts
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored enemy: beasts."
+      - id: celestials
+        name:
+          en: Celestials
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored enemy: celestials."
+      - id: constructs
+        name:
+          en: Constructs
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored enemy: constructs."
+      - id: dragons
+        name:
+          en: Dragons
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored enemy: dragons."
+      - id: elementals
+        name:
+          en: Elementals
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored enemy: elementals."
+      - id: fey
+        name:
+          en: Fey
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored enemy: fey."
+      - id: fiends
+        name:
+          en: Fiends
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored enemy: fiends."
+      - id: giants
+        name:
+          en: Giants
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored enemy: giants."
+      - id: monstrosities
+        name:
+          en: Monstrosities
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored enemy: monstrosities."
+      - id: oozes
+        name:
+          en: Oozes
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored enemy: oozes."
+      - id: plants
+        name:
+          en: Plants
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored enemy: plants."
+      - id: undead
+        name:
+          en: Undead
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored enemy: undead."
+      - id: two-humanoid-races
+        name:
+          en: Two races of humanoid
+        text:
+          en: Select two races of humanoid (such as gnolls and orcs) as favored enemies.
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "Favored enemy: two races of humanoid of your choice (such as gnolls and orcs)."
+  - kind: open-choice
+    choice: favored-enemy-language-3
+    of: language
+    count: 1
+    when:
+      classLevel:
+        class: srd51.class.ranger
+        min: 14
+    note:
+      en: One language of your choice that is spoken by your favored enemies, if they speak one at all.
+  - kind: roll-advantage
+    on:
+      type: check
+      skill: survival
+      against:
+        - tracking your favored enemies
+  - kind: roll-advantage
+    on:
+      type: check
+      ability: int
+      against:
+        - recalling information about your favored enemies

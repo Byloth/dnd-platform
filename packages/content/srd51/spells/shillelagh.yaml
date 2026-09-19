@@ -20,3 +20,20 @@ duration:
   minutes: 1
 text:
   en: The wood of a club or a quarterstaff you are holding is imbued with nature's power. For the duration, you can use your spellcasting ability instead of Strength for the attack and damage rolls of melee attacks using that weapon, and the weapon's damage die becomes a d8. The weapon also becomes magical, if it isn't already. The spell ends if you cast it again or if you let go of the weapon.
+effects:
+  - kind: modify-attacks
+    filter:
+      item: srd51.item.club
+    set:
+      damageDie: 1d8
+      magical: true
+    note:
+      en: Only the club you were holding when you cast the spell; use your spellcasting ability instead of Strength for its melee attack and damage rolls. Ends if you cast it again or let go of the weapon.
+  - kind: modify-attacks
+    filter:
+      item: srd51.item.quarterstaff
+    set:
+      damageDie: 1d8
+      magical: true
+    note:
+      en: Only the quarterstaff you were holding when you cast the spell; use your spellcasting ability instead of Strength for its melee attack and damage rolls. Ends if you cast it again or let go of the weapon.

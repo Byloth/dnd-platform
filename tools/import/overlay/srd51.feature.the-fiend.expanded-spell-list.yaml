@@ -1,0 +1,14 @@
+effects:
+  - kind: extend-spell-list
+    list: srd51.spell-list.warlock
+    spells:
+      - srd51.spell.burning-hands
+      - srd51.spell.command
+      - srd51.spell.blindnessdeafness
+      - srd51.spell.scorching-ray
+      - srd51.spell.fireball
+      - srd51.spell.stinking-cloud
+      - srd51.spell.fire-shield
+      - srd51.spell.wall-of-fire
+      - srd51.spell.flame-strike
+      - srd51.spell.hallow

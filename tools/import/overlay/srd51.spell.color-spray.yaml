@@ -1,0 +1,6 @@
+onCast:
+  - kind: applyCondition
+    condition: srd51.condition.blinded
+    target: other
+    expires: { rounds: 1 }
+    note: { en: "No saving throw: roll 6d10 (plus 2d10 for each slot level above 1st); creatures in the 15-foot cone are affected in ascending order of current hit points, ignoring unconscious creatures and creatures that can't see, each subtracting its hit points from the total until the remaining total is too low." }

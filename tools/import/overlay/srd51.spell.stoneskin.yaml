@@ -1,0 +1,5 @@
+effects:
+  - kind: defense
+    defense: resistance
+    to: [bludgeoning, piercing, slashing]
+    note: { en: "Nonmagical damage only." }

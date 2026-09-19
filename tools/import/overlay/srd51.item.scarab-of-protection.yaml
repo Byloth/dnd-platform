@@ -1,0 +1,24 @@
+attunement: true
+charges:
+  max: 12
+  recharge: [{ on: manual, amount: 0 }]
+features:
+  - id: srd51.feature.item.scarab-of-protection.spell-ward
+    name: { en: "Spell Ward" }
+    effects:
+      - kind: roll-advantage
+        on: { type: save, against: [spells] }
+        note: { en: "Holding the medallion in your hand for 1 round reveals its magical nature; the benefits apply while it is on your person." }
+  - id: srd51.feature.item.scarab-of-protection.turn-failed-save
+    name: { en: "Turn a Failed Save" }
+    effects:
+      - kind: add-action
+        action: turn-failed-save
+        name: { en: "Turn a failed save" }
+        activation: reaction
+        trigger: { en: "when you fail a saving throw against a necromancy spell or a harmful effect originating from an undead creature" }
+        cost: [{ resource: charges, amount: 1 }]
+        text: { en: "Expend 1 charge to turn the failed save into a successful one. The charges never recharge; the scarab crumbles into powder when its last charge is expended." }
+        onUse:
+          - kind: note
+            text: { en: "The failed saving throw becomes a success." }

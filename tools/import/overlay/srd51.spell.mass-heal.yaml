@@ -1,0 +1,5 @@
+onCast:
+  - kind: heal
+    amount: "700"
+    target: other
+    note: { en: "Up to 700 hit points in total, divided as you choose among any number of creatures you can see within range. Healed creatures are also cured of all diseases and of any effect making them blinded or deafened. No effect on undead or constructs." }

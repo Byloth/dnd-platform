@@ -1,0 +1,10 @@
+effects:
+  - kind: add-action
+    action: retaliation
+    name:
+      en: Retaliation
+    activation: reaction
+    trigger:
+      en: when you take damage from a creature that is within 5 feet of you
+    text:
+      en: "You can use your reaction to make a melee weapon attack against that creature."

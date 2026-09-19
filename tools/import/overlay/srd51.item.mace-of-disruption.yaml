@@ -1,0 +1,31 @@
+baseItem: srd51.item.mace
+category: simple
+damage: 1d6
+damageType: bludgeoning
+monkWeapon: true
+weight: 4
+attunement: true
+features:
+  - id: srd51.feature.item.mace-of-disruption.disruption
+    name:
+      en: "Disruption"
+    text:
+      en: "When you hit a fiend or an undead with this magic weapon, that creature takes an extra 2d6 radiant damage. If the target has 25 hit points or fewer after taking this damage, it must succeed on a DC 15 Wisdom saving throw or be destroyed. On a successful save, the creature becomes frightened of you until the end of your next turn."
+    effects:
+      - kind: modify-attacks
+        filter: { item: srd51.item.mace-of-disruption }
+        set: { magical: true, extraDamage: { dice: 2d6, damageType: radiant } }
+        note:
+          en: "The extra 2d6 radiant damage applies only when you hit a fiend or an undead. If the target then has 25 hit points or fewer, it must succeed on a DC 15 Wisdom saving throw or be destroyed; on a success it is frightened of you until the end of your next turn."
+  - id: srd51.feature.item.mace-of-disruption.light
+    name:
+      en: "Light"
+    text:
+      en: "While you hold this weapon, it sheds bright light in a 20-foot radius and dim light for an additional 20 feet."
+    effects:
+      - kind: add-text
+        section: features
+        text:
+          en: "While you hold this weapon, it sheds bright light in a 20-foot radius and dim light for an additional 20 feet."
+        note:
+          en: "Text only."

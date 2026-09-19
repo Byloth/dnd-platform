@@ -1,0 +1,28 @@
+effects:
+  - kind: declare-resource
+    resource: overchannel
+    name:
+      en: Overchannel uses
+    max: unlimited
+    display: counter
+    recharge:
+      - on: long-rest
+        amount: full
+    note:
+      en: Counts how many times you have used Overchannel since your last long rest; the necrotic damage escalates with each use after the first.
+  - kind: add-action
+    action: overchannel
+    name:
+      en: Overchannel
+    activation: free
+    cost:
+      - resource: overchannel
+        amount: 1
+    text:
+      en: When you cast a wizard spell of 1st through 5th level that deals damage, you can deal maximum damage with that spell. The first time you do so, you suffer no adverse effect. If you use this feature again before you finish a long rest, you take 2d12 necrotic damage for each level of the spell, immediately after you cast it. Each time you use this feature again before finishing a long rest, the necrotic damage per spell level increases by 1d12. This damage ignores resistance and immunity.
+    onUse:
+      - kind: note
+        text:
+          en: "The spell deals maximum damage. If this is not your first use since a long rest, you take necrotic damage immediately after casting: 2d12 per spell level on the second use, 3d12 per level on the third, and so on. This damage ignores resistance and immunity."
+    note:
+      en: The escalating self-damage depends on the number of uses and the spell's level, which a play effect cannot compute yet; roll it by hand from the counter.

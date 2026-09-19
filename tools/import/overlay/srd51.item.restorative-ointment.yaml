@@ -1,0 +1,28 @@
+charges:
+  max: "1d4 + 1"
+  recharge:
+    - on: manual
+      amount: full
+features:
+  - id: srd51.feature.item.restorative-ointment.apply-a-dose
+    name:
+      en: "Apply a Dose"
+    text:
+      en: "This glass jar contains 1d4 + 1 doses of a thick mixture that smells faintly of aloe. As an action, one dose of the ointment can be swallowed or applied to the skin. The creature that receives it regains 2d8 + 2 hit points, ceases to be poisoned, and is cured of any disease."
+    effects:
+      - kind: add-action
+        action: apply-a-dose
+        name:
+          en: "Apply a Dose"
+        activation: action
+        cost: [{ resource: charges, amount: 1 }]
+        onUse:
+          - kind: heal
+            amount: 2d8+2
+            note:
+              en: "The creature that swallows the dose or has it applied to its skin. Doses never come back."
+          - kind: note
+            text:
+              en: "The creature ceases to be poisoned and is cured of any disease."
+        text:
+          en: "Swallow a dose or apply it to the skin. The creature regains 2d8 + 2 hit points, ceases to be poisoned and is cured of any disease."

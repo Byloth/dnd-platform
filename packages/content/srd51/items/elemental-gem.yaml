@@ -27,3 +27,7 @@ rarity: uncommon
 tags:
   - magic-item
   - wondrous-items
+onUse:
+  - kind: note
+    text:
+      en: "Break the gem as an action: an elemental is summoned as if you had cast the conjure elemental spell, and the gem's magic is lost. The gem's type determines the elemental: blue sapphire (air), yellow diamond (earth), red corundum (fire), emerald (water)."

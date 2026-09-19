@@ -20,3 +20,14 @@ attunement: true
 tags:
   - magic-item
   - ring
+features:
+  - id: srd51.feature.item.ring-of-spell-storing.spell-storing
+    name:
+      en: '"Spell Storing"'
+    effects:
+      - kind: add-text
+        section: features
+        text:
+          en: '"The ring stores up to 5 levels worth of spells cast into it by any creature (1st through 5th level, taking space equal to the slot level used). While wearing it, you can cast any stored spell using the slot level, save DC, spell attack bonus and spellcasting ability of the original caster; the spell then leaves the ring."'
+        note:
+          en: "\"Spell storage (spells cast into an item and released later with the original caster's statistics) is not expressible in v0; tracked as text.\""

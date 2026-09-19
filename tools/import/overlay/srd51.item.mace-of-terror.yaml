@@ -1,0 +1,47 @@
+baseItem: srd51.item.mace
+category: simple
+damage: 1d6
+damageType: bludgeoning
+monkWeapon: true
+weight: 4
+attunement: true
+charges:
+  max: 3
+  recharge:
+    - on: dawn
+      amount: 1d3
+features:
+  - id: srd51.feature.item.mace-of-terror.magic-weapon
+    name:
+      en: "Magic Weapon"
+    text:
+      en: "This is a magic weapon."
+    effects:
+      - kind: modify-attacks
+        filter: { item: srd51.item.mace-of-terror }
+        set: { magical: true }
+  - id: srd51.feature.item.mace-of-terror.wave-of-terror
+    name:
+      en: "Wave of Terror"
+    text:
+      en: "While holding it, you can use an action and expend 1 charge to release a wave of terror. Each creature of your choice in a 30-foot radius extending from you must succeed on a DC 15 Wisdom saving throw or become frightened of you for 1 minute. While it is frightened in this way, a creature must spend its turns trying to move as far away from you as it can, and it can't willingly move to a space within 30 feet of you. It also can't take reactions. For its action, it can use only the Dash action or try to escape from an effect that prevents it from moving. If it has nowhere it can move, the creature can use the Dodge action. At the end of each of its turns, a creature can repeat the saving throw, ending the effect on itself on a success."
+    effects:
+      - kind: add-action
+        action: wave-of-terror
+        name:
+          en: "Wave of Terror"
+        activation: action
+        cost: [{ resource: charges, amount: 1 }]
+        dc: "15"
+        range: { type: self, distance: 30 }
+        rolls:
+          - { type: save, ability: wis, dc: "15" }
+        onUse:
+          - kind: applyCondition
+            condition: srd51.condition.frightened
+            target: other
+            expires: { minutes: 1 }
+            note:
+              en: "Each creature of your choice within 30 feet that fails the save. While frightened this way it must move as far from you as it can, can't willingly come within 30 feet of you, can't take reactions and can only Dash (or Dodge if it can't move). It repeats the save at the end of each of its turns."
+        text:
+          en: "Each creature of your choice within 30 feet must succeed on a DC 15 Wisdom saving throw or be frightened of you for 1 minute."

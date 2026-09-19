@@ -1,0 +1,7 @@
+onCast:
+  - kind: applyCondition
+    condition: srd51.condition.frightened
+    target: other
+    expires: { minutes: 1 }
+  - kind: note
+    text: { en: "On a failed Wisdom save. At the start of each of its turns the target must succeed on a Wisdom saving throw or take 4d10 psychic damage (+1d10 per slot level above 4th); on a success the spell ends." }

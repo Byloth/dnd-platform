@@ -16,3 +16,45 @@ attunement: true
 tags:
   - magic-item
   - wondrous-items
+charges:
+  max: 3
+  recharge:
+    - on: dawn
+      amount: 1d3
+features:
+  - id: srd51.feature.item.robe-of-scintillating-colors.scintillating-colors
+    name:
+      en: Scintillating Colors
+    effects:
+      - kind: add-action
+        action: scintillating-colors
+        name:
+          en: Scintillating Colors
+        activation: action
+        cost:
+          - resource: charges
+            amount: 1
+        duration:
+          type: timed
+          rounds: 1
+        toggle:
+          state: scintillating-colors
+          expires:
+            until: next-turn-end
+        dc: "15"
+        rolls:
+          - type: save
+            ability: wis
+        text:
+          en: The robe displays a shifting pattern of dazzling hues until the end of your next turn, shedding bright light in a 30-foot radius and dim light for an additional 30 feet. Creatures that can see you have disadvantage on attack rolls against you. Any creature in the bright light that can see you when the power is activated must succeed on a DC 15 Wisdom saving throw or be stunned until the effect ends.
+        onUse:
+          - kind: applyCondition
+            condition: srd51.condition.stunned
+            target: other
+            expires:
+              until: next-turn-end
+            note:
+              en: Only creatures in the bright light that can see you and fail the DC 15 Wisdom save.
+          - kind: note
+            text:
+              en: While the colors last, creatures that can see you have disadvantage on attack rolls against you.

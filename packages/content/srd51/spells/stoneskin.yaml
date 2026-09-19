@@ -21,3 +21,12 @@ duration:
   concentration: true
 text:
   en: This spell turns the flesh of a willing creature you touch as hard as stone. Until the spell ends, the target has resistance to nonmagical bludgeoning, piercing, and slashing damage.
+effects:
+  - kind: defense
+    defense: resistance
+    to:
+      - bludgeoning
+      - piercing
+      - slashing
+    note:
+      en: Nonmagical damage only.

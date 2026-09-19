@@ -1,0 +1,36 @@
+effects:
+  - kind: declare-resource
+    resource: sorcery-points
+    name:
+      en: Sorcery points
+    max: table(sorcerer.sorcery-points)
+    display: pips
+    recharge:
+      - on: long-rest
+        amount: full
+  - kind: add-action
+    action: create-spell-slot
+    name:
+      en: Create spell slot
+    activation: bonus-action
+    text:
+      en: You can transform unexpended sorcery points into one spell slot as a bonus action on your turn. You can create spell slots no higher in level than 5th. Any spell slot you create with this feature vanishes when you finish a long rest.
+    onUse:
+      - kind: note
+        text:
+          en: "Spend sorcery points for the slot level you want: 2 points for a 1st-level slot, 3 for 2nd, 5 for 3rd, 6 for 4th, 7 for 5th. The created slot vanishes when you finish a long rest."
+    note:
+      en: The cost depends on the slot level chosen on use and the created slot is extra play state; neither is modelled yet, so the points are spent and the slot tracked by hand.
+  - kind: add-action
+    action: convert-spell-slot
+    name:
+      en: Convert spell slot to sorcery points
+    activation: bonus-action
+    text:
+      en: As a bonus action on your turn, you can expend one spell slot and gain a number of sorcery points equal to the slot's level.
+    onUse:
+      - kind: note
+        text:
+          en: Expend one spell slot and regain sorcery points equal to the slot's level (you can never exceed your maximum).
+    note:
+      en: The slot spent is chosen on use; a slot-level-dependent restoreResource is not expressible yet.

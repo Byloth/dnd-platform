@@ -28,3 +28,31 @@ rolls:
   - type: damage
     dice: 3d6
     damageType: fire
+effects:
+  - kind: add-action
+    action: flame-blade-attack
+    name:
+      en: "Flame Blade: attack"
+    activation: action
+    cost: []
+    rolls:
+      - type: attack
+      - type: damage
+        dice: 3d6
+        damageType: fire
+    text:
+      en: Make a melee spell attack with the fiery blade; on a hit the target takes 3d6 fire damage.
+    note:
+      en: Damage increases by 1d6 for every two slot levels above 2nd.
+  - kind: add-action
+    action: evoke-flame-blade
+    name:
+      en: "Flame Blade: evoke again"
+    activation: bonus-action
+    cost: []
+    text:
+      en: If you let go of the blade it disappears; you can evoke it again as a bonus action.
+  - kind: add-text
+    section: features
+    text:
+      en: The flaming blade sheds bright light in a 10-foot radius and dim light for an additional 10 feet.

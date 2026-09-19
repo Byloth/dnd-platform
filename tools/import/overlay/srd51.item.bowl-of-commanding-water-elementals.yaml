@@ -1,0 +1,17 @@
+charges:
+  max: 1
+  recharge: [{ on: dawn, amount: full }]
+features:
+  - id: srd51.feature.item.bowl-of-commanding-water-elementals.summon
+    name: { en: "Summon a water elemental" }
+    effects:
+      - kind: add-action
+        action: summon-water-elemental
+        name: { en: "Summon a water elemental" }
+        activation: action
+        cost: [{ resource: charges, amount: 1 }]
+        requires: { condition: { resourceAtLeast: { resource: charges, amount: 1 } } }
+        text: { en: "While the bowl is filled with water, speak its command word to summon a water elemental, as if you had cast the conjure elemental spell. The bowl can't be used this way again until the next dawn." }
+        onUse:
+          - kind: note
+            text: { en: "A water elemental appears as if by conjure elemental (the bowl must be filled with water); see that spell for control and duration." }

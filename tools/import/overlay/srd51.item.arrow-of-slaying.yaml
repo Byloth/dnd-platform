@@ -1,0 +1,3 @@
+onUse:
+  - kind: note
+    text: { en: "If a creature of the type, race, or group associated with this arrow takes damage from it, the creature must make a DC 17 Constitution saving throw, taking an extra 6d10 piercing damage on a failed save, or half as much on a successful one. Once the arrow deals its extra damage, it becomes a nonmagical arrow." }

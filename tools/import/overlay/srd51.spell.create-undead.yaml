@@ -1,0 +1,3 @@
+onCast:
+  - kind: note
+    text: { en: "Cast only at night. Up to three corpses of Medium or Small humanoids become ghouls under your control for 24 hours; the DM has their statistics (no stat blocks in v0). As a bonus action on each of your turns you can command them within 120 feet. With a 7th-level slot: four ghouls; 8th: five ghouls or two ghasts or wights; 9th: six ghouls, three ghasts or wights, or two mummies. Casting the spell again reasserts control instead of animating new ones." }

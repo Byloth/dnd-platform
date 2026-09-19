@@ -30,3 +30,7 @@ magical: true
 tags:
   - magic-item
   - potion
+onUse:
+  - kind: note
+    text:
+      en: When you drink this potion, your Strength score changes for 1 hour according to the type of giant (hill 21, frost or stone 23, fire 25, cloud 27, storm 29). The potion has no effect on you if your Strength is equal to or greater than that score.

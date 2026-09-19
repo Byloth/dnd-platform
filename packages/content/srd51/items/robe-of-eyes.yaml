@@ -26,3 +26,40 @@ attunement: true
 tags:
   - magic-item
   - wondrous-items
+features:
+  - id: srd51.feature.item.robe-of-eyes.all-around-vision
+    name:
+      en: All-around Vision
+    effects:
+      - kind: roll-advantage
+        on:
+          type: check
+          skill: perception
+        note:
+          en: Checks that rely on sight; the robe lets you see in all directions.
+  - id: srd51.feature.item.robe-of-eyes.darkvision
+    name:
+      en: Darkvision
+    effects:
+      - kind: modify
+        target: sense.darkvision
+        op: max
+        value: 120
+  - id: srd51.feature.item.robe-of-eyes.see-invisible
+    name:
+      en: See Invisible
+    effects:
+      - kind: add-text
+        section: senses
+        text:
+          en: You can see invisible creatures and objects, as well as see into the Ethereal Plane, out to a range of 120 feet.
+  - id: srd51.feature.item.robe-of-eyes.unblinking-eyes
+    name:
+      en: Unblinking Eyes
+    effects:
+      - kind: add-text
+        section: features
+        text:
+          en: The eyes on the robe can't be closed or averted; you are never considered to be closing or averting your eyes while wearing it. A light spell cast on the robe or a daylight spell cast within 5 feet of it blinds you for 1 minute; at the end of each of your turns you can make a Constitution saving throw (DC 11 for light, DC 15 for daylight), ending the blindness on a success.
+        note:
+          en: The blindness and its recurring save are applied at the table.

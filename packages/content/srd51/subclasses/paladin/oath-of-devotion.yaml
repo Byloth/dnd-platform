@@ -23,6 +23,63 @@ levels:
             **Turn the Unholy.** As an action, you present your holy symbol and speak a prayer censuring fiends and undead, using your Channel Divinity. Each fiend or undead that can see or hear you within 30 feet of you must make a Wisdom saving throw. If the creature fails its saving throw, it is turned for 1 minute or until it takes damage.
 
             A turned creature must spend its turns trying to move as far away from you as it can, and it can't willingly move to a space within 30 feet of you. It also can't take reactions. For its action, it can use only the Dash action or try to escape from an effect that prevents it from moving. If there's nowhere to move, the creature can use the Dodge action.
+        effects:
+          - kind: add-action
+            action: sacred-weapon
+            name:
+              en: "Channel Divinity: Sacred Weapon"
+            activation: action
+            cost:
+              - resource: channel-divinity
+                amount: 1
+            duration:
+              type: timed
+              minutes: 1
+            toggle:
+              state: sacred-weapon
+              expires:
+                minutes: 1
+            text:
+              en: Imbue one weapon that you are holding with positive energy. For 1 minute, you add your Charisma modifier to attack rolls made with that weapon (with a minimum bonus of +1). The weapon also emits bright light in a 20-foot radius and dim light 20 feet beyond that. If the weapon is not already magical, it becomes magical for the duration. You can end this effect on your turn as part of any other action. If you are no longer holding or carrying this weapon, or if you fall unconscious, this effect ends.
+            onUse:
+              - kind: note
+                text:
+                  en: Choose the weapon. It sheds bright light in a 20-foot radius and dim light 20 feet beyond. The effect ends early if you stop holding or carrying the weapon or fall unconscious.
+          - kind: modify-attacks
+            set:
+              attackBonus: max(1, mod(cha))
+              magical: true
+            when:
+              toggled: sacred-weapon
+            note:
+              en: Only the one weapon imbued with Sacred Weapon; the engine cannot single out one weapon, so the bonus is shown on every attack while the state is on.
+          - kind: add-action
+            action: turn-the-unholy
+            name:
+              en: "Channel Divinity: Turn the Unholy"
+            activation: action
+            cost:
+              - resource: channel-divinity
+                amount: 1
+            range:
+              type: self
+              distance: 30
+            duration:
+              type: timed
+              minutes: 1
+            dc: 8 + proficiencyBonus + mod(cha)
+            rolls:
+              - type: save
+                ability: wis
+                dc: 8 + proficiencyBonus + mod(cha)
+            text:
+              en: Present your holy symbol and speak a prayer censuring fiends and undead. Each fiend or undead that can see or hear you within 30 feet of you must make a Wisdom saving throw. If the creature fails its saving throw, it is turned for 1 minute or until it takes damage. A turned creature must spend its turns trying to move as far away from you as it can, and it can't willingly move to a space within 30 feet of you. It also can't take reactions. For its action, it can use only the Dash action or try to escape from an effect that prevents it from moving. If there's nowhere to move, the creature can use the Dodge action.
+            onUse:
+              - kind: note
+                text:
+                  en: Each fiend or undead within 30 feet that can see or hear you makes a Wisdom saving throw against your paladin spell save DC; on a failure it is turned for 1 minute or until it takes damage.
+            note:
+              en: The channel-divinity resource (1 use, regained on a short or long rest) is declared by the Sacred Oath feature; the DC is the paladin spell save DC.
       - id: srd51.feature.oath-of-devotion.oath-spells
         name:
           en: Oath Spells
@@ -39,6 +96,55 @@ levels:
             | 9th | beacon of hope, dispel magic |
             | 13th | freedom of movement, guardian of faith |
             | 17th | commune, flame strike |
+        effects:
+          - kind: grant-spells
+            spells:
+              - srd51.spell.protection-from-evil-and-good
+              - srd51.spell.sanctuary
+            as: always-prepared
+            ability: cha
+            note:
+              en: Oath spells are always prepared, don't count against the number of spells you can prepare, and count as paladin spells for you.
+          - kind: grant-spells
+            spells:
+              - srd51.spell.lesser-restoration
+              - srd51.spell.zone-of-truth
+            as: always-prepared
+            ability: cha
+            when:
+              classLevel:
+                class: srd51.class.paladin
+                min: 5
+          - kind: grant-spells
+            spells:
+              - srd51.spell.beacon-of-hope
+              - srd51.spell.dispel-magic
+            as: always-prepared
+            ability: cha
+            when:
+              classLevel:
+                class: srd51.class.paladin
+                min: 9
+          - kind: grant-spells
+            spells:
+              - srd51.spell.freedom-of-movement
+              - srd51.spell.guardian-of-faith
+            as: always-prepared
+            ability: cha
+            when:
+              classLevel:
+                class: srd51.class.paladin
+                min: 13
+          - kind: grant-spells
+            spells:
+              - srd51.spell.commune
+              - srd51.spell.flame-strike
+            as: always-prepared
+            ability: cha
+            when:
+              classLevel:
+                class: srd51.class.paladin
+                min: 17
       - id: srd51.feature.oath-of-devotion.tenets-of-devotion
         name:
           en: Tenets of Devotion
@@ -67,6 +173,19 @@ levels:
             Starting at 7th level, you and friendly creatures within 10 feet of you can't be charmed while you are conscious.
 
             At 18th level, the range of this aura increases to 30 feet.
+        effects:
+          - kind: defense
+            defense: condition-immunity
+            to:
+              - srd51.condition.charmed
+            note:
+              en: Applies while you are conscious.
+          - kind: add-text
+            section: features
+            text:
+              en: Friendly creatures within 10 feet of you (30 feet at 18th level) can't be charmed while you are conscious.
+            note:
+              en: The immunity for allies and the conscious gate are play mode; the range is table(paladin.aura-range).
   "15":
     features:
       - id: srd51.feature.oath-of-devotion.purity-of-spirit
@@ -75,6 +194,13 @@ levels:
         source: srd51
         text:
           en: Beginning at 15th level, you are always under the effects of a *protection from evil and good* spell.
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: You are always under the effects of a protection from evil and good spell.
+            note:
+              en: "Missing capability: applying a spell's ongoing effects to the character permanently (apply-spell-effect); see srd51.spell.protection-from-evil-and-good."
   "20":
     features:
       - id: srd51.feature.oath-of-devotion.holy-nimbus
@@ -90,3 +216,44 @@ levels:
             In addition, for the duration, you have advantage on saving throws against spells cast by fiends or undead.
 
             Once you use this feature, you can't use it again until you finish a long rest.
+        effects:
+          - kind: declare-resource
+            resource: holy-nimbus
+            name:
+              en: Holy Nimbus
+            max: 1
+            recharge:
+              - on: long-rest
+                amount: full
+            display: pips
+          - kind: add-action
+            action: holy-nimbus
+            name:
+              en: Holy Nimbus
+            activation: action
+            cost:
+              - resource: holy-nimbus
+                amount: 1
+            range:
+              type: self
+              distance: 30
+            duration:
+              type: timed
+              minutes: 1
+            toggle:
+              state: holy-nimbus
+              expires:
+                minutes: 1
+            text:
+              en: Emanate an aura of sunlight. For 1 minute, bright light shines from you in a 30-foot radius, and dim light shines 30 feet beyond that. Whenever an enemy creature starts its turn in the bright light, the creature takes 10 radiant damage. In addition, for the duration, you have advantage on saving throws against spells cast by fiends or undead.
+            onUse:
+              - kind: note
+                text:
+                  en: For 1 minute, each enemy that starts its turn in the bright light (30-foot radius) takes 10 radiant damage.
+          - kind: roll-advantage
+            on:
+              type: save
+              against:
+                - spells cast by fiends or undead
+            when:
+              toggled: holy-nimbus

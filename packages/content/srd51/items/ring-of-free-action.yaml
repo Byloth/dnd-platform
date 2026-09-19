@@ -16,3 +16,17 @@ attunement: true
 tags:
   - magic-item
   - ring
+features:
+  - id: srd51.feature.item.ring-of-free-action.free-action
+    name:
+      en: Free Action
+    text:
+      en: While you wear this ring, difficult terrain doesn't cost you extra movement. In addition, magic can neither reduce your speed nor cause you to be paralyzed or restrained.
+    effects:
+      - kind: defense
+        defense: condition-immunity
+        to:
+          - srd51.condition.paralyzed
+          - srd51.condition.restrained
+        note:
+          en: Only against magic. Magic can't reduce your speed either, and difficult terrain doesn't cost you extra movement.

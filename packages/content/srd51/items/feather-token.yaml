@@ -45,3 +45,94 @@ rarity: rare
 tags:
   - magic-item
   - wondrous-items
+features:
+  - id: srd51.feature.item.feather-token.token
+    name:
+      en: Feather token
+    effects:
+      - kind: open-choice
+        choice: variant
+        of: option
+        count: 1
+        note:
+          en: The GM chooses the kind of token or determines it randomly (d100). Each token has a single use.
+        options:
+          - id: anchor
+            name:
+              en: Anchor
+            effects:
+              - kind: add-action
+                action: feather-token-anchor
+                name:
+                  en: Touch the token to a vessel
+                activation: action
+                text:
+                  en: For the next 24 hours, the boat or ship can't be moved by any means. Touching the token to the vessel again ends the effect; when it ends, the token disappears.
+          - id: bird
+            name:
+              en: Bird
+            effects:
+              - kind: add-action
+                action: feather-token-bird
+                name:
+                  en: Toss the token into the air
+                activation: action
+                text:
+                  en: An enormous, multicolored bird with the statistics of a roc takes its place; it obeys your simple commands and can't attack. It carries up to 500 pounds at 16 miles an hour (144 miles per day, with a one-hour rest every 3 hours of flying), or 1,000 pounds at half that speed. It disappears after flying its maximum distance for a day, if it drops to 0 hit points, or when you dismiss it as an action.
+          - id: fan
+            name:
+              en: Fan
+            effects:
+              - kind: add-action
+                action: feather-token-fan
+                name:
+                  en: Toss the token up while on a ship
+                activation: action
+                text:
+                  en: A giant flapping fan takes its place and creates a wind strong enough to fill the sails of one ship, increasing its speed by 5 miles per hour for 8 hours. You can dismiss the fan as an action.
+          - id: swan-boat
+            name:
+              en: Swan boat
+            effects:
+              - kind: add-action
+                action: feather-token-swan-boat
+                name:
+                  en: Touch the token to a body of water
+                activation: action
+                text:
+                  en: On water at least 60 feet in diameter, a 50-foot-long, 20-foot-wide self-propelled swan boat appears, moving at 6 miles per hour; use an action while aboard to command it to move or turn up to 90 degrees. It carries up to thirty-two Medium or smaller creatures and remains for 24 hours or until you dismiss it as an action.
+          - id: tree
+            name:
+              en: Tree
+            effects:
+              - kind: add-action
+                action: feather-token-tree
+                name:
+                  en: Touch the token to the ground outdoors
+                activation: action
+                text:
+                  en: "A nonmagical oak tree springs into existence: 60 feet tall, with a 5-foot-diameter trunk and branches spreading in a 20-foot radius at the top."
+          - id: whip
+            name:
+              en: Whip
+            effects:
+              - kind: add-action
+                action: feather-token-whip
+                name:
+                  en: Throw the token
+                activation: action
+                text:
+                  en: A floating whip takes the token's place at a point within 10 feet of you. It disappears after 1 hour, when you dismiss it as an action, or when you are incapacitated or die.
+              - kind: add-action
+                action: feather-token-whip-attack
+                name:
+                  en: Whip attack
+                activation: bonus-action
+                rolls:
+                  - type: attack
+                    bonus: 9
+                  - type: damage
+                    dice: 1d6+5
+                    damageType: force
+                text:
+                  en: Direct the whip to fly up to 20 feet, then make a melee spell attack with an attack bonus of +9 against a creature within 10 feet of it. On a hit, the target takes 1d6 + 5 force damage.

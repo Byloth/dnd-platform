@@ -26,3 +26,17 @@ rolls:
   - type: save
     ability: cha
     onSuccess: none
+effects:
+  - kind: add-text
+    section: features
+    text:
+      en: Your game statistics are replaced by those of the chosen creature (challenge rating up to your level, not a construct or undead, no class levels or Spellcasting), but you retain your alignment, Intelligence, Wisdom and Charisma scores, your skill and saving throw proficiencies (using the creature's bonus if higher), and your class, race and other features where the form allows. You assume its hit points and Hit Dice; on reverting you return to your previous hit points, with excess damage carrying over. No legendary or lair actions; special senses only if the form has them; speak only if the form can.
+    note:
+      en: "Stat-block replacement is not expressible in v0: track the creature's statistics by hand. No saving throw is required."
+  - kind: add-action
+    action: change-form
+    name:
+      en: Change Form
+    activation: action
+    text:
+      en: Assume a different form under the same restrictions; if the new form has more hit points than the current one, your hit points stay at their current value.

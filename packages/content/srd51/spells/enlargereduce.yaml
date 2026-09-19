@@ -31,3 +31,14 @@ rolls:
   - type: save
     ability: con
     onSuccess: none
+effects:
+  - kind: add-text
+    section: features
+    text:
+      en: "Enlarge: your size doubles in all dimensions (one size category larger, weight times eight), you have advantage on Strength checks and Strength saving throws, and your attacks with enlarged weapons deal 1d4 extra damage. Reduce: your size is halved (one size category smaller, weight one-eighth), you have disadvantage on Strength checks and Strength saving throws, and your attacks with reduced weapons deal 1d4 less damage (not below 1)."
+    note:
+      en: Option-dependent (enlarge or reduce is chosen when cast), so not expressed as roll-advantage, modify-attacks or modify size.
+onCast:
+  - kind: note
+    text:
+      en: An unwilling target makes a Constitution saving throw; on a success the spell has no effect. Everything the creature wears and carries changes size with it; a dropped item returns to normal size.

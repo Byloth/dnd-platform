@@ -20,3 +20,33 @@ attunement: true
 tags:
   - magic-item
   - weapon
+features:
+  - id: srd51.feature.item.frost-brand.frost
+    name:
+      en: Frost
+    effects:
+      - kind: modify-attacks
+        filter:
+          item: srd51.item.frost-brand
+        set:
+          magical: true
+          extraDamage:
+            dice: 1d6
+            damageType: cold
+      - kind: defense
+        defense: resistance
+        to:
+          - fire
+        note:
+          en: While you hold the sword.
+      - kind: add-text
+        section: features
+        text:
+          en: In freezing temperatures, the blade sheds bright light in a 10-foot radius and dim light for an additional 10 feet.
+      - kind: add-action
+        action: frost-brand-extinguish
+        name:
+          en: Extinguish flames on drawing the sword
+        activation: special
+        text:
+          en: When you draw this weapon, you can extinguish all nonmagical flames within 30 feet of you. This property can be used no more than once per hour.

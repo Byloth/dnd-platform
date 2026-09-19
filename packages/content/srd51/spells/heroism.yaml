@@ -20,3 +20,14 @@ duration:
   concentration: true
 text:
   en: A willing creature you touch is imbued with bravery. Until the spell ends, the creature is immune to being frightened and gains temporary hit points equal to your spellcasting ability modifier at the start of each of its turns. When the spell ends, the target loses any remaining temporary hit points from this spell.
+effects:
+  - kind: defense
+    defense: condition-immunity
+    to:
+      - srd51.condition.frightened
+  - kind: add-text
+    section: features
+    text:
+      en: Gains temporary hit points equal to the caster's spellcasting ability modifier at the start of each of its turns; any remaining are lost when the spell ends.
+    note:
+      en: "Temporary hit points each turn cannot be expressed as tempHp: v0 formulas have no spellcasting-ability variable and spells have no onTurnStart."

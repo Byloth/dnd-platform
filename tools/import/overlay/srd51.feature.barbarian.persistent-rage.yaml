@@ -1,0 +1,7 @@
+effects:
+  - kind: add-text
+    section: features
+    text:
+      en: Your rage is so fierce that it ends early only if you fall unconscious or if you choose to end it.
+    note:
+      en: "Gap: changes only the end conditions of the raging toggle, which play mode tracks."

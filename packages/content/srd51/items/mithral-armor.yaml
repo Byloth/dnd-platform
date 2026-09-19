@@ -15,3 +15,16 @@ rarity: uncommon
 tags:
   - magic-item
   - armor
+features:
+  - id: srd51.feature.item.mithral-armor.mithral
+    name:
+      en: Mithral
+    text:
+      en: Mithral is a light, flexible metal. A mithral chain shirt or breastplate can be worn under normal clothes. If the armor normally imposes disadvantage on Dexterity (Stealth) checks or has a Strength requirement, the mithral version of the armor doesn't.
+    effects:
+      - kind: add-text
+        section: features
+        text:
+          en: If the armor normally imposes disadvantage on Dexterity (Stealth) checks or has a Strength requirement, the mithral version of the armor doesn't.
+        note:
+          en: This entry covers any medium or heavy armour, so it cannot declare a single set of armour fields. A concrete variant (mithral chain shirt, mithral plate) should declare its own category, ac and weight without stealthDisadvantage or strengthMin.

@@ -1,0 +1,13 @@
+onCast:
+  - kind: applyCondition
+    condition: srd51.condition.deafened
+    target: other
+    expires: { minutes: 1 }
+    note: { en: "On a failed Charisma saving throw, by current hit points: 50 or fewer, deafened for 1 minute; 40 or fewer, deafened and blinded for 10 minutes; 30 or fewer, blinded, deafened and dazed for 1 hour; 20 or fewer, killed instantly." }
+  - kind: applyCondition
+    condition: srd51.condition.blinded
+    target: other
+    expires: { minutes: 10 }
+    note: { en: "Only at 40 hit points or fewer (10 minutes) or 30 or fewer (1 hour)." }
+  - kind: note
+    text: { en: "'Dazed' is not a standard condition. A celestial, an elemental, a fey or a fiend that fails its save is forced back to its plane of origin and can't return for 24 hours by any means short of a wish spell." }

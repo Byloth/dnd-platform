@@ -1,0 +1,4 @@
+effects:
+  - kind: roll-advantage
+    on: { type: attack, against: ["the pointed-at target"] }
+    note: { en: "Only your first attack roll against the target on your next turn, provided the spell hasn't ended." }

@@ -1,0 +1,12 @@
+effects:
+  - kind: add-action
+    action: fast-hands
+    name:
+      en: Fast Hands
+    activation: bonus-action
+    text:
+      en: Use the bonus action granted by your Cunning Action to make a Dexterity (Sleight of Hand) check, use your thieves' tools to disarm a trap or open a lock, or take the Use an Object action.
+    onUse:
+      - kind: note
+        text:
+          en: Choose a Dexterity (Sleight of Hand) check, using thieves' tools to disarm a trap or open a lock, or the Use an Object action.

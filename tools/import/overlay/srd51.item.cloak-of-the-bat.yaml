@@ -1,0 +1,24 @@
+attunement: true
+features:
+  - id: srd51.feature.item.cloak-of-the-bat.benefits
+    name: { en: "Cloak of the Bat" }
+    effects:
+      - kind: roll-advantage
+        on: { type: check, skill: stealth }
+      - kind: add-action
+        action: grip-cloak-of-the-bat
+        name: { en: "Grip the cloak's edges to fly" }
+        activation: free
+        toggle: { state: cloak-of-the-bat-flying, expires: { manual: true } }
+        text: { en: "In an area of dim light or darkness, you can grip the edges of the cloak with both hands and use it to fly at a speed of 40 feet. If you fail to grip the cloak's edges while flying this way, or if you are no longer in dim light or darkness, you lose this flying speed." }
+      - kind: modify
+        target: speed.fly
+        op: min
+        value: 40
+        when: { toggled: cloak-of-the-bat-flying }
+        note: { en: "Only in dim light or darkness, while gripping the cloak's edges with both hands." }
+      - kind: grant-spells
+        spells: [srd51.spell.polymorph]
+        as: always-prepared
+        uses: { count: 1, recharge: dawn }
+        note: { en: "Cast on yourself as an action, only in dim light or darkness, transforming into a bat; you retain your Intelligence, Wisdom, and Charisma scores." }

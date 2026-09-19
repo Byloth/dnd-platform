@@ -1,0 +1,42 @@
+attunement: true
+baseItem: srd51.item.longsword
+category: martial
+damage: 1d8
+damageType: radiant
+properties: [finesse, versatile]
+versatile: 1d10
+features:
+  - id: srd51.feature.item.sun-blade.radiant-blade
+    name: { en: "Radiant Blade" }
+    effects:
+      - kind: modify-attacks
+        filter: { item: srd51.item.sun-blade }
+        set:
+          attackBonus: 2
+          damageBonus: 2
+          magical: true
+          extraDamage: { dice: "1d8", damageType: radiant }
+        note: { en: "The extra 1d8 radiant damage applies only when you hit an undead. The blade deals radiant damage instead of slashing and has the finesse property while it exists." }
+      - kind: grant-proficiency
+        type: weapon
+        items: [self]
+        when:
+          any:
+            - { proficient: { type: weapon, item: shortsword } }
+            - { proficient: { type: weapon, item: longsword } }
+        note: { en: "If you are proficient with shortswords or longswords, you are proficient with the sun blade." }
+  - id: srd51.feature.item.sun-blade.blade
+    name: { en: "Blade of Radiance" }
+    effects:
+      - kind: add-action
+        action: sun-blade-toggle
+        name: { en: "Summon or dismiss the blade" }
+        activation: bonus-action
+        toggle: { state: sun-blade }
+        text: { en: "While grasping the hilt, cause a blade of pure radiance to spring into existence, or make it disappear. The blade emits bright light in a 15-foot radius and dim light for an additional 15 feet; the light is sunlight." }
+      - kind: add-action
+        action: sun-blade-light
+        name: { en: "Expand or reduce the light" }
+        activation: action
+        requires: { condition: { toggled: sun-blade } }
+        text: { en: "Expand or reduce the blade's radius of bright and dim light by 5 feet each, to a maximum of 30 feet each or a minimum of 10 feet each." }

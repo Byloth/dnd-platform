@@ -19,3 +19,35 @@ rarity: rare
 tags:
   - magic-item
   - wondrous-items
+features:
+  - id: srd51.feature.item.rope-of-entanglement.entangle
+    name:
+      en: Entangle
+    effects:
+      - kind: add-action
+        action: entangle
+        name:
+          en: Entangle
+        activation: action
+        range:
+          type: point
+          distance: 20
+        dc: "15"
+        rolls:
+          - type: save
+            ability: dex
+        text:
+          en: "Hold one end of the 30-foot rope and speak its command word: the other end darts forward to entangle a creature you can see within 20 feet. The target must succeed on a DC 15 Dexterity saving throw or become restrained."
+        onUse:
+          - kind: applyCondition
+            condition: srd51.condition.restrained
+            target: other
+            note:
+              en: Only on a failed DC 15 Dexterity save. The restrained creature can use an action to make a DC 15 Strength or Dexterity check (its choice) to free itself. The rope has AC 20 and 20 hit points, regains 1 hit point every 5 minutes while it has at least 1, and is destroyed at 0.
+      - kind: add-action
+        action: release
+        name:
+          en: Release
+        activation: bonus-action
+        text:
+          en: Speak the second command word to release the entangled creature.

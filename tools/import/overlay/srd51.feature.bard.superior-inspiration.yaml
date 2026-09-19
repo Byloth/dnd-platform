@@ -1,0 +1,7 @@
+effects:
+  - kind: add-text
+    section: features
+    text:
+      en: "When you roll initiative and have no uses of Bardic Inspiration left, you regain one use."
+    note:
+      en: "Gap: no initiative event hook; restore 1 bardic-inspiration when the pool is empty at initiative."

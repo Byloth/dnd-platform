@@ -28,3 +28,7 @@ text:
     The creature is under your control for 24 hours, after which it stops obeying any command you've given it. To maintain control of the creature for another 24 hours, you must cast this spell on the creature again before the current 24-hour period ends. This use of the spell reasserts your control over up to four creatures you have animated with this spell, rather than animating a new one.
 higherLevel:
   en: When you cast this spell using a spell slot of 4th level or higher, you animate or reassert control over two additional undead creatures for each slot level above 3rd. Each of the creatures must come from a different corpse or pile of bones.
+onCast:
+  - kind: note
+    text:
+      en: Raises a skeleton (from bones) or a zombie (from a corpse) under your control for 24 hours; the DM has its statistics (no stat blocks in v0). On each of your turns you can use a bonus action to command creatures made with this spell within 60 feet. Casting the spell again reasserts control over up to four creatures instead; two additional creatures for each slot level above 3rd.

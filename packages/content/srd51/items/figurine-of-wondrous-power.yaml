@@ -64,3 +64,76 @@ magical: true
 tags:
   - magic-item
   - wondrous-items
+features:
+  - id: srd51.feature.item.figurine-of-wondrous-power.animate
+    name:
+      en: Animate the figurine
+    effects:
+      - kind: add-action
+        action: animate-figurine
+        name:
+          en: Speak the command word and throw the figurine
+        activation: action
+        text:
+          en: "Throw the figurine to a point on the ground within 60 feet of you: it becomes a living creature, friendly to you and your companions, that understands your languages and obeys your spoken commands (if the space is occupied or too small, it doesn't transform). It reverts to a figurine at the end of its duration, if it drops to 0 hit points, or if you use an action to speak the command word again while touching it. Once it reverts, the figurine can't be used again until the time specified for it has passed."
+        onUse:
+          - kind: note
+            text:
+              en: Duration and cooldown depend on the figurine; the format has no day-based recharge, so track the cooldown by hand.
+      - kind: open-choice
+        choice: variant
+        of: option
+        count: 1
+        options:
+          - id: bronze-griffon
+            name:
+              en: Bronze griffon (rare)
+            text:
+              en: Becomes a griffon for up to 6 hours. Once used, it can't be used again until 5 days have passed.
+          - id: ebony-fly
+            name:
+              en: Ebony fly (rare)
+            text:
+              en: Becomes a giant fly (Large beast, AC 11, 19 hit points, speed 30 ft. and fly 60 ft., darkvision 60 ft.) for up to 12 hours and can be ridden as a mount. Once used, it can't be used again until 2 days have passed.
+          - id: golden-lions
+            name:
+              en: Golden lions (rare)
+            text:
+              en: "A pair: each can become a lion for up to 1 hour, used singly or together. Once a lion has been used, it can't be used again until 7 days have passed."
+          - id: ivory-goats
+            name:
+              en: Ivory goats (rare)
+            text:
+              en: "A set of three. The goat of traveling becomes a Large goat with the statistics of a riding horse, with 24 charges: each hour or portion thereof in beast form costs 1 charge; when they run out it reverts and regains them after 7 days. The goat of travail becomes a giant goat for up to 3 hours, once every 30 days. The goat of terror becomes a giant goat for up to 3 hours, once every 15 days; it can't attack, but its horns can be removed as an action to become a +1 lance and a +2 longsword, and it radiates a 30-foot aura of terror while you ride it (DC 15 Wisdom save or frightened for 1 minute, repeating at the end of each turn; immune for 24 hours after a success)."
+          - id: marble-elephant
+            name:
+              en: Marble elephant (rare)
+            text:
+              en: Becomes an elephant for up to 24 hours. Once used, it can't be used again until 7 days have passed.
+          - id: obsidian-steed
+            name:
+              en: Obsidian steed (very rare)
+            text:
+              en: Becomes a nightmare for up to 24 hours that fights only to defend itself. Once used, it can't be used again until 5 days have passed. If you have a good alignment, it has a 10 percent chance each use to ignore your orders; mounting it then transports you both to a random location on Hades, where it reverts to a figurine.
+          - id: onyx-dog
+            name:
+              en: Onyx dog (rare)
+            text:
+              en: Becomes a mastiff for up to 6 hours with Intelligence 8, speaking Common, darkvision 60 feet and the ability to see invisible creatures and objects within that range. Once used, it can't be used again until 7 days have passed.
+          - id: serpentine-owl
+            name:
+              en: Serpentine owl (rare)
+            text:
+              en: Becomes a giant owl for up to 8 hours that can communicate telepathically with you at any range on the same plane. Once used, it can't be used again until 2 days have passed.
+          - id: silver-raven
+            name:
+              en: Silver raven (uncommon)
+            text:
+              en: Becomes a raven for up to 12 hours. Once used, it can't be used again until 2 days have passed.
+            effects:
+              - kind: grant-spells
+                spells:
+                  - srd51.spell.animal-messenger
+                as: always-prepared
+                note:
+                  en: While the figurine is in raven form, you can cast animal messenger on it at will.

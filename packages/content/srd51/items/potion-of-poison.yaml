@@ -17,3 +17,14 @@ rarity: uncommon
 tags:
   - magic-item
   - potion
+onUse:
+  - kind: note
+    text:
+      en: This concoction looks, smells, and tastes like a potion of healing or other beneficial potion; an identify spell reveals its true nature. If you drink it, you take 3d6 poison damage.
+  - kind: applyCondition
+    condition: srd51.condition.poisoned
+    target: self
+    expires:
+      manual: true
+    note:
+      en: Unless you succeed on a DC 13 Constitution saving throw. While poisoned this way, you take 3d6 poison damage at the start of each of your turns; at the end of each of your turns you can repeat the save, and on a success the damage on subsequent turns decreases by 1d6. The poison ends when the damage decreases to 0.

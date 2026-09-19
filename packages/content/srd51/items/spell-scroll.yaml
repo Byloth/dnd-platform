@@ -46,3 +46,7 @@ magical: true
 tags:
   - magic-item
   - scroll
+onUse:
+  - kind: note
+    text:
+      en: "If the spell is on your class's spell list, read the scroll to cast its spell (normal casting time, no material components); the scroll then crumbles to dust. If the spell is of a higher level than you can normally cast, first make a check with your spellcasting ability against DC 10 + the spell's level; on a failure the spell is lost. Save DC and attack bonus by spell level: cantrip and 1st 13/+5, 2nd 13/+5, 3rd 15/+7, 4th 15/+7, 5th 17/+9, 6th 17/+9, 7th 18/+10, 8th 18/+10, 9th 19/+11."

@@ -1,0 +1,15 @@
+effects:
+  - kind: modify
+    target: hp.perLevel
+    op: add
+    value: 1
+    note:
+      en: +1 hit point at 1st level and +1 again whenever you gain a level in this class (the bonus follows sorcerer levels, not total levels).
+  - kind: modify
+    target: ac
+    op: set-formula
+    formula: 13 + mod(dex)
+    when:
+      armorCategory: none
+    note:
+      en: When you aren't wearing armor, your AC equals 13 + your Dexterity modifier.

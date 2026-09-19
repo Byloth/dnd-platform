@@ -1,0 +1,29 @@
+attunement: true
+charges:
+  max: 6
+  recharge: [{ on: manual, amount: "1d6" }]
+features:
+  - id: srd51.feature.item.robe-of-stars.saving-throws
+    name: { en: "Robe of Stars" }
+    effects:
+      - { kind: modify, target: save.all, op: add, value: 1 }
+  - id: srd51.feature.item.robe-of-stars.stars
+    name: { en: "Stars" }
+    effects:
+      - kind: grant-spells
+        spells: [srd51.spell.magic-missile]
+        as: always-prepared
+        level: 5
+        cost: [{ resource: charges, amount: 1 }]
+        note: { en: "As an action, pull off one of the six large stars (the item's charges) to cast magic missile as a 5th-level spell. Daily at dusk, 1d6 removed stars reappear: the vocabulary has no dusk recharge, so the 1d6 is restored by hand." }
+  - id: srd51.feature.item.robe-of-stars.astral-plane
+    name: { en: "Astral Plane" }
+    effects:
+      - kind: add-action
+        action: enter-astral-plane
+        name: { en: "Enter or leave the Astral Plane" }
+        activation: action
+        text: { en: "Enter the Astral Plane along with everything you are wearing and carrying. You remain there until you use an action to return to the plane you were on, reappearing in the last space you occupied or the nearest unoccupied space." }
+        onUse:
+          - kind: note
+            text: { en: "Planar travel is resolved at the table." }

@@ -1,0 +1,12 @@
+charges:
+  max: 3
+  recharge: [{ on: dawn, amount: "1d3" }]
+features:
+  - id: srd51.feature.item.wand-of-magic-detection.detect-magic
+    name: { en: "Detect Magic" }
+    effects:
+      - kind: grant-spells
+        spells: [srd51.spell.detect-magic]
+        as: always-prepared
+        cost: [{ resource: charges, amount: 1 }]
+        note: { en: "Cast as an action while holding the wand." }

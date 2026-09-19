@@ -23,6 +23,7 @@ import type {
 export { assertNever, effectKind, playEffectKind } from "./effects.js";
 export { canonicalize, stableStringify } from "./canonical.js";
 export { loadPackages } from "./load/index.js";
+export { validate } from "./validate/index.js";
 export { derive, explain } from "./derive/index.js";
 export { evaluateFormula, formulaReferences } from "./formula/evaluate.js";
 export type { DiceExpression, FormulaEnvironment, FormulaValue } from "./formula/evaluate.js";
@@ -216,6 +217,50 @@ export interface ChoiceView
     readonly answered: boolean;
     readonly level?: number;
 }
+export interface PactSlotsView
+{
+    readonly slots: number;
+    readonly level: number;
+    readonly current: number | null;
+}
+export interface SlotView
+{
+    readonly level: number;
+    readonly max: number;
+    /** Current slots from the character state; null when the state has no entry yet. */
+    readonly current: number | null;
+}
+export interface SpellcastingView
+{
+    readonly class: EntityId;
+    readonly ability: string;
+    readonly dc: DerivedValue;
+    readonly attackBonus: DerivedValue;
+    readonly preparation: "known" | "prepared" | "spellbook";
+    readonly list: EntityId;
+    readonly slots: readonly SlotView[];
+    /** Pact Magic: all slots share one level. */
+    readonly pact?: PactSlotsView;
+    readonly cantripsKnown?: number;
+    readonly spellsKnown?: number;
+    readonly ritual: boolean;
+    readonly source: ContributionSource;
+}
+export type SpellPayment =
+    { readonly slot: true } |
+    { readonly free: true } |
+    { readonly resource: string, readonly amount: number } |
+    { readonly uses: number, readonly recharge: string };
+export interface SpellView
+{
+    readonly id: EntityId;
+    readonly name: LocalizedString;
+    readonly level: number;
+    readonly as: "cantrip" | "known" | "prepared" | "always-prepared";
+    readonly ability?: string;
+    readonly paidWith: SpellPayment;
+    readonly source: ContributionSource;
+}
 export interface SheetMeta
 {
     readonly characterId: string;
@@ -242,6 +287,8 @@ export interface ComputedSheet
     readonly actions: readonly ActionView[];
     readonly rollModifiers: readonly RollModifierView[];
     readonly defenses: readonly DefenseView[];
+    readonly spellcasting: readonly SpellcastingView[];
+    readonly spells: readonly SpellView[];
     readonly choices: readonly ChoiceView[];
     readonly sections: readonly string[];
     readonly warnings: readonly Diagnostic[];
@@ -292,12 +339,6 @@ export interface ApplyResult
 // ---- play contract (M0.7) --------------------------------------------------------------
 
 const NOT_IMPLEMENTED = "Not implemented yet: scheduled for milestone M0.7.";
-
-export function validate(set: PackageSet): Diagnostics
-{
-    // Referential integrity and coherence rules arrive in M0.4; loading already reports structure problems.
-    return set.diagnostics;
-}
 
 export function apply(sheet: ComputedSheet, state: CharacterState, event: PlayEvent): ApplyResult
 {

@@ -1,0 +1,11 @@
+onCast:
+  - kind: applyCondition
+    condition: srd51.condition.blinded
+    target: other
+    expires: { minutes: 1 }
+    note: { en: "Your choice of blinded or deafened on a failed Constitution saving throw (apply only one). At the end of each of its turns the target repeats the save; on a success the spell ends. One additional creature for each slot level above 2nd." }
+  - kind: applyCondition
+    condition: srd51.condition.deafened
+    target: other
+    expires: { minutes: 1 }
+    note: { en: "Your choice of blinded or deafened (apply only one)." }

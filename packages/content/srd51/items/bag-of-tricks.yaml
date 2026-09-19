@@ -87,3 +87,34 @@ rarity: uncommon
 tags:
   - magic-item
   - wondrous-items
+charges:
+  max: 3
+  recharge:
+    - on: dawn
+      amount: full
+features:
+  - id: srd51.feature.item.bag-of-tricks.fuzzy-object
+    name:
+      en: Fuzzy object
+    effects:
+      - kind: add-action
+        action: pull-fuzzy-object
+        name:
+          en: Pull and throw a fuzzy object
+        activation: action
+        cost:
+          - resource: charges
+            amount: 1
+        text:
+          en: Throw the fuzzy object up to 20 feet. When it lands, it transforms into a creature determined by rolling a d8 on the table for the bag's color. The creature is friendly to you and your companions, acts on your turn, and vanishes at the next dawn or when reduced to 0 hit points. Once three objects have been pulled, the bag can't be used again until the next dawn.
+        onUse:
+          - kind: note
+            text:
+              en: Roll a d8 on the table for the bag's color (gray, rust or tan) to determine the creature.
+      - kind: add-action
+        action: command-bag-of-tricks-creature
+        name:
+          en: Command the creature
+        activation: bonus-action
+        text:
+          en: Command how the creature moves and what action it takes on its next turn, or give it general orders such as to attack your enemies.

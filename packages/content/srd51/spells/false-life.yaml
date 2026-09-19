@@ -22,3 +22,8 @@ text:
   en: Bolstering yourself with a necromantic facsimile of life, you gain 1d4 + 4 temporary hit points for the duration.
 higherLevel:
   en: When you cast this spell using a spell slot of 2nd level or higher, you gain 5 additional temporary hit points for each slot level above 1st.
+onCast:
+  - kind: tempHp
+    amount: 1d4+4
+    note:
+      en: Plus 5 for each slot level above 1st.

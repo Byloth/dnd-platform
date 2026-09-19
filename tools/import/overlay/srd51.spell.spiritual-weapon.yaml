@@ -1,0 +1,12 @@
+effects:
+  - kind: add-action
+    action: spiritual-weapon
+    name: { en: "Spiritual Weapon" }
+    activation: bonus-action
+    rolls:
+      - { type: attack }
+      - { type: damage, dice: "1d8", damageType: force }
+    text: { en: "Move the weapon up to 20 feet and make a melee spell attack against a creature within 5 feet of it: 1d8 + your spellcasting ability modifier force damage, +1d8 for every two slot levels above 2nd." }
+onCast:
+  - kind: note
+    text: { en: "The melee spell attack made when casting deals 1d8 + your spellcasting ability modifier force damage (the formula language has no spellcasting-ability variable in v0)." }

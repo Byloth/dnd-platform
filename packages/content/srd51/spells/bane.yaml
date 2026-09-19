@@ -28,3 +28,14 @@ rolls:
   - type: save
     ability: cha
     onSuccess: none
+effects:
+  - kind: add-text
+    section: combat
+    text:
+      en: Whenever you make an attack roll or a saving throw, roll a d4 and subtract the number rolled from the attack roll or saving throw.
+    note:
+      en: A dice-valued penalty (-1d4) cannot be expressed by modify in v0.
+onCast:
+  - kind: note
+    text:
+      en: Up to three creatures make a Charisma saving throw; only those that fail are affected. One additional creature for each slot level above 1st.

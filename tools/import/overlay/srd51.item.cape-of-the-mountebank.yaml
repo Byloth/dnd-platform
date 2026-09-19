@@ -1,0 +1,9 @@
+features:
+  - id: srd51.feature.item.cape-of-the-mountebank.dimension-door
+    name: { en: "Dimension door" }
+    effects:
+      - kind: grant-spells
+        spells: [srd51.spell.dimension-door]
+        as: always-prepared
+        uses: { count: 1, recharge: dawn }
+        note: { en: "Cast as an action. When you disappear, you leave behind a cloud of smoke and appear in a similar cloud at your destination; the smoke lightly obscures both spaces and dissipates at the end of your next turn." }

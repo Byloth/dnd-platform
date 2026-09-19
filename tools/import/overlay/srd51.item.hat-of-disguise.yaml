@@ -1,0 +1,13 @@
+attunement: true
+features:
+  - id: srd51.feature.item.hat-of-disguise.disguise-self
+    name:
+      en: "Disguise Self"
+    text:
+      en: "While wearing this hat, you can use an action to cast the disguise self spell from it at will. The spell ends if the hat is removed."
+    effects:
+      - kind: grant-spells
+        spells: [srd51.spell.disguise-self]
+        as: always-prepared
+        note:
+          en: "Cast at will as an action, without a spell slot. The spell ends if the hat is removed."

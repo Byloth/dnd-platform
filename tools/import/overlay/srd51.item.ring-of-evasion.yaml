@@ -1,0 +1,27 @@
+attunement: true
+charges:
+  max: 3
+  recharge:
+    - on: dawn
+      amount: 1d3
+features:
+  - id: srd51.feature.item.ring-of-evasion.evasion
+    name:
+      en: "Evasion"
+    text:
+      en: "When you fail a Dexterity saving throw while wearing it, you can use your reaction to expend 1 of its charges to succeed on that saving throw instead."
+    effects:
+      - kind: add-action
+        action: evasion
+        name:
+          en: "Evasion"
+        activation: reaction
+        cost: [{ resource: charges, amount: 1 }]
+        trigger:
+          en: "when you fail a Dexterity saving throw"
+        onUse:
+          - kind: note
+            text:
+              en: "You succeed on that Dexterity saving throw instead."
+        text:
+          en: "Expend 1 charge to succeed on the Dexterity saving throw you just failed."

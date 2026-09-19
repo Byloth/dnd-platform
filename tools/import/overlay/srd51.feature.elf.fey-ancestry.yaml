@@ -1,0 +1,12 @@
+effects:
+  - kind: roll-advantage
+    on:
+      type: save
+      against:
+        - charmed
+  - kind: defense
+    defense: condition-immunity
+    to:
+      - magical-sleep
+    note:
+      en: "Magic can't put you to sleep: sleep is not a listed condition, so this uses the descriptive id magical-sleep."

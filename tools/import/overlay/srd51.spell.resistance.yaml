@@ -1,0 +1,6 @@
+effects:
+  - kind: modify
+    target: save.all
+    op: add
+    value: 1d4
+    note: { en: "Once only, on one saving throw of the target's choice, rolled before or after the save; the spell then ends." }

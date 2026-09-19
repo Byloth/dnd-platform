@@ -73,9 +73,45 @@ features:
     source: srd51
     text:
       en: You have advantage on saving throws against being charmed, and magic can't put you to sleep.
+    effects:
+      - kind: roll-advantage
+        on:
+          type: save
+          against:
+            - charmed
+      - kind: defense
+        defense: condition-immunity
+        to:
+          - magical-sleep
+        note:
+          en: "Magic can't put you to sleep: sleep is not a listed condition, so this uses the descriptive id magical-sleep."
   - id: srd51.feature.half-elf.skill-versatility
     name:
       en: Skill Versatility
     source: srd51
     text:
       en: You gain proficiency in two skills of your choice.
+    effects:
+      - kind: grant-proficiency
+        type: skill
+        choose:
+          count: 2
+          from:
+            - acrobatics
+            - animal-handling
+            - arcana
+            - athletics
+            - deception
+            - history
+            - insight
+            - intimidation
+            - investigation
+            - medicine
+            - nature
+            - perception
+            - performance
+            - persuasion
+            - religion
+            - sleight-of-hand
+            - stealth
+            - survival

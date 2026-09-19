@@ -1,0 +1,28 @@
+attunement:
+  by:
+    en: "a cleric, druid, or paladin"
+charges:
+  max: "1d4 + 2"
+  recharge:
+    - on: dawn
+      amount: full
+features:
+  - id: srd51.feature.item.necklace-of-prayer-beads.magic-beads
+    name:
+      en: "Magic Beads"
+    text:
+      en: "This necklace has 1d4 + 2 magic beads. Six types of magic beads exist; the GM decides the type of each bead on the necklace or determines it randomly, and a necklace can have more than one bead of the same type. To use one, you must be wearing the necklace. Each bead contains a spell that you can cast from it as a bonus action (using your spell save DC if a save is necessary). Once a magic bead's spell is cast, that bead can't be used again until the next dawn. Bead of Blessing, bless; Bead of Curing, cure wounds (2nd level) or lesser restoration; Bead of Favor, greater restoration; Bead of Smiting, branding smite; Bead of Summons, planar ally; Bead of Wind walking, wind walk."
+    effects:
+      - kind: grant-spells
+        spells:
+          - srd51.spell.bless
+          - srd51.spell.cure-wounds
+          - srd51.spell.lesser-restoration
+          - srd51.spell.greater-restoration
+          - srd51.spell.branding-smite
+          - srd51.spell.planar-ally
+          - srd51.spell.wind-walk
+        as: always-prepared
+        cost: [{ resource: charges, amount: 1 }]
+        note:
+          en: "Each charge is one bead, and each bead casts only its own spell (blessing, bless; curing, cure wounds at 2nd level or lesser restoration; favor, greater restoration; smiting, branding smite; summons, planar ally; wind walking, wind walk). Cast as a bonus action with your spell save DC."

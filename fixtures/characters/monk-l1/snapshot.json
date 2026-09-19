@@ -574,6 +574,8 @@
     "notes",
     "credits"
   ],
+  "spellcasting": [],
+  "spells": [],
   "values": {
     "ability.cha": {
       "provenance": [

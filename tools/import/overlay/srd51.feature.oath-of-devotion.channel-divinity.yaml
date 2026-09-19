@@ -1,0 +1,57 @@
+effects:
+  - kind: add-action
+    action: sacred-weapon
+    name:
+      en: "Channel Divinity: Sacred Weapon"
+    activation: action
+    cost:
+      - resource: channel-divinity
+        amount: 1
+    duration:
+      type: timed
+      minutes: 1
+    toggle:
+      state: sacred-weapon
+      expires:
+        minutes: 1
+    text:
+      en: Imbue one weapon that you are holding with positive energy. For 1 minute, you add your Charisma modifier to attack rolls made with that weapon (with a minimum bonus of +1). The weapon also emits bright light in a 20-foot radius and dim light 20 feet beyond that. If the weapon is not already magical, it becomes magical for the duration. You can end this effect on your turn as part of any other action. If you are no longer holding or carrying this weapon, or if you fall unconscious, this effect ends.
+    onUse:
+      - kind: note
+        text:
+          en: Choose the weapon. It sheds bright light in a 20-foot radius and dim light 20 feet beyond. The effect ends early if you stop holding or carrying the weapon or fall unconscious.
+  - kind: modify-attacks
+    set:
+      attackBonus: max(1, mod(cha))
+      magical: true
+    when:
+      toggled: sacred-weapon
+    note:
+      en: Only the one weapon imbued with Sacred Weapon; the engine cannot single out one weapon, so the bonus is shown on every attack while the state is on.
+  - kind: add-action
+    action: turn-the-unholy
+    name:
+      en: "Channel Divinity: Turn the Unholy"
+    activation: action
+    cost:
+      - resource: channel-divinity
+        amount: 1
+    range:
+      type: self
+      distance: 30
+    duration:
+      type: timed
+      minutes: 1
+    dc: 8 + proficiencyBonus + mod(cha)
+    rolls:
+      - type: save
+        ability: wis
+        dc: 8 + proficiencyBonus + mod(cha)
+    text:
+      en: Present your holy symbol and speak a prayer censuring fiends and undead. Each fiend or undead that can see or hear you within 30 feet of you must make a Wisdom saving throw. If the creature fails its saving throw, it is turned for 1 minute or until it takes damage. A turned creature must spend its turns trying to move as far away from you as it can, and it can't willingly move to a space within 30 feet of you. It also can't take reactions. For its action, it can use only the Dash action or try to escape from an effect that prevents it from moving. If there's nowhere to move, the creature can use the Dodge action.
+    onUse:
+      - kind: note
+        text:
+          en: Each fiend or undead within 30 feet that can see or hear you makes a Wisdom saving throw against your paladin spell save DC; on a failure it is turned for 1 minute or until it takes damage.
+    note:
+      en: The channel-divinity resource (1 use, regained on a short or long rest) is declared by the Sacred Oath feature; the DC is the paladin spell save DC.

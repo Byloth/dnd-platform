@@ -1,0 +1,14 @@
+attunement: true
+features:
+  - id: srd51.feature.item.ring-of-regeneration.regeneration
+    name:
+      en: "Regeneration"
+    text:
+      en: "While wearing this ring, you regain 1d6 hit points every 10 minutes, provided that you have at least 1 hit point. If you lose a body part, the ring causes the missing part to regrow and return to full functionality after 1d6 + 1 days if you have at least 1 hit point the whole time."
+    effects:
+      - kind: add-text
+        section: features
+        text:
+          en: "You regain 1d6 hit points every 10 minutes, provided that you have at least 1 hit point. A lost body part regrows after 1d6 + 1 days if you have at least 1 hit point the whole time."
+        note:
+          en: "Periodic healing outside rests has no kind."

@@ -70,12 +70,6 @@ levels:
             ### Domain Spells
             Each domain has a list of spells—its domain spells—that you gain at the cleric levels noted in the domain  description. Once you gain a domain spell, you always have it prepared, and it doesn’t count against the number of spells you can prepare each day. 
             If you have a domain spell that doesn’t appear on the cleric spell list, the spell is nonetheless a cleric spell for you.
-        effects:
-          - kind: open-choice
-            choice: divine-domain
-            of: subclass
-            count: 1
-            level: 1
       - id: srd51.feature.cleric.spellcasting
         name:
           en: Spellcasting
@@ -122,6 +116,9 @@ levels:
             cantrips:
               table: srd51.table.cleric.cantrips-known
             ritual: true
+    choices:
+      - id: divine-domain
+        of: subclass
   "2":
     features:
       - id: srd51.feature.cleric.channel-divinity
@@ -143,6 +140,41 @@ levels:
             As an action, you present your holy symbol and speak a prayer censuring the undead. Each undead that can see or hear you within 30 feet of you must make a Wisdom saving throw. If the creature fails its saving throw, it is turned for 1 minute or until it takes any damage.
 
             A turned creature must spend its turns trying to move as far away from you as it can, and it can't willingly move to a space within 30 feet of you. It also can't take reactions. For its action, it can use only the Dash action or try to escape from an effect that prevents it from moving. If there's nowhere to move, the creature can use the Dodge action.
+        effects:
+          - kind: declare-resource
+            resource: channel-divinity
+            name:
+              en: Channel Divinity
+            max: table(cleric.channel-divinity-charges)
+            recharge:
+              - on: short-rest
+                amount: full
+              - on: long-rest
+                amount: full
+            display: pips
+            note:
+              en: Channel Divinity save DC = your cleric spell save DC (8 + your proficiency bonus + your Wisdom modifier).
+          - kind: add-action
+            action: turn-undead
+            name:
+              en: "Channel Divinity: Turn Undead"
+            activation: action
+            cost:
+              - resource: channel-divinity
+                amount: 1
+            dc: 8 + proficiencyBonus + mod(wis)
+            range:
+              type: point
+              distance: 30
+            duration:
+              type: timed
+              minutes: 1
+            text:
+              en: You present your holy symbol and speak a prayer censuring the undead. Each undead that can see or hear you within 30 feet of you must make a Wisdom saving throw. If the creature fails its saving throw, it is turned for 1 minute or until it takes any damage.
+            onUse:
+              - kind: note
+                text:
+                  en: A turned creature must spend its turns trying to move as far away from you as it can, and it can't willingly move to a space within 30 feet of you. It also can't take reactions. For its action, it can use only the Dash action or try to escape from an effect that prevents it from moving. If there's nowhere to move, the creature can use the Dodge action.
   "4":
     features:
       - id: srd51.feature.cleric.ability-score-improvement
@@ -173,6 +205,13 @@ levels:
             | 11th | 2 or lower |
             | 14th | 3 or lower | 
             | 17th | 4 or lower |
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: "When an undead fails its saving throw against your Turn Undead feature, the creature is instantly destroyed if its challenge rating is at or below a threshold: 1/2 at 5th level, 1 at 8th, 2 at 11th, 3 at 14th, 4 at 17th."
+            note:
+              en: "Gap: rider on the turn-undead action resolved in play; the CR threshold is table(cleric.destroy-undead-cr)."
   "8":
     choices:
       - id: asi-8
@@ -192,6 +231,32 @@ levels:
             If your deity intervenes, you can't use this feature again for 7 days. Otherwise, you can use it again after you finish a long rest.
 
             At 20th level, your call for intervention succeeds automatically, no roll required.
+        effects:
+          - kind: declare-resource
+            resource: divine-intervention
+            name:
+              en: Divine Intervention
+            max: 1
+            recharge:
+              - on: long-rest
+                amount: full
+            display: pips
+            note:
+              en: "Gap: if your deity intervenes, you can't use this feature again for 7 days; a 7-day lockout is not a recharge the catalogue has, so the long-rest recharge must be withheld by hand in that case."
+          - kind: add-action
+            action: divine-intervention
+            name:
+              en: Divine Intervention
+            activation: action
+            cost:
+              - resource: divine-intervention
+                amount: 1
+            text:
+              en: Describe the assistance you seek, and roll percentile dice. If you roll a number equal to or lower than your cleric level, your deity intervenes. The GM chooses the nature of the intervention; the effect of any cleric spell or cleric domain spell would be appropriate. If your deity intervenes, you can't use this feature again for 7 days. Otherwise, you can use it again after you finish a long rest. At 20th level, your call for intervention succeeds automatically, no roll required.
+            onUse:
+              - kind: note
+                text:
+                  en: "Roll d100: success on a result equal to or lower than classLevel(cleric); automatic at 20th level. On success, no further use for 7 days."
   "16":
     choices:
       - id: asi-16

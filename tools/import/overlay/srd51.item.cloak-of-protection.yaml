@@ -1,0 +1,13 @@
+attunement: true
+features:
+  - id: srd51.feature.item.cloak-of-protection.protection
+    name: { en: "Protection" }
+    effects:
+      - kind: modify
+        target: ac
+        op: add
+        value: 1
+      - kind: modify
+        target: save.all
+        op: add
+        value: 1

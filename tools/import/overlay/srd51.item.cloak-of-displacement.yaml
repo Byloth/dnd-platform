@@ -1,0 +1,9 @@
+attunement: true
+features:
+  - id: srd51.feature.item.cloak-of-displacement.displacement
+    name: { en: "Displacement" }
+    effects:
+      - kind: add-text
+        section: combat
+        text: { en: "Any creature has disadvantage on attack rolls against you. If you take damage, the property ceases to function until the start of your next turn. This property is suppressed while you are incapacitated, restrained, or otherwise unable to move." }
+        note: { en: "Disadvantage on attacks against you is applied by the attacker; the sheet only reminds you." }

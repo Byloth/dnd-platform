@@ -16,3 +16,21 @@ attunement: true
 tags:
   - magic-item
   - armor
+baseItem: srd51.item.shield
+ac:
+  bonus: 2
+features:
+  - id: srd51.feature.item.spellguard-shield.spellguard
+    name:
+      en: Spellguard
+    effects:
+      - kind: roll-advantage
+        on:
+          type: save
+          against:
+            - spells
+            - other magical effects
+      - kind: add-text
+        section: combat
+        text:
+          en: Spell attacks have disadvantage against you while you hold this shield.

@@ -9,10 +9,30 @@ text:
     Armor (shield), very rare (requires attunement)
 
     While holding this shield, you can speak its command word as a bonus action to cause it to animate. The shield leaps into the air and hovers in your space to protect you as if you were wielding it, leaving your hands free. The shield remains animated for 1 minute, until you use a bonus action to end this effect, or until you are incapacitated or die, at which point the shield falls to the ground or into your hand if you have one free.
-type: armor
+type: shield
 magical: true
 rarity: very-rare
 attunement: true
 tags:
   - magic-item
   - armor
+ac:
+  bonus: 2
+features:
+  - id: srd51.feature.item.animated-shield.animate
+    name:
+      en: Animate
+    effects:
+      - kind: add-action
+        action: animate-shield
+        name:
+          en: Animate the shield
+        activation: bonus-action
+        toggle:
+          state: animated-shield
+          expires:
+            minutes: 1
+        text:
+          en: Speak the command word to make the shield hover in your space and protect you as if you were wielding it, leaving your hands free. It remains animated for 1 minute, until you use a bonus action to end the effect, or until you are incapacitated or die.
+        note:
+          en: While animated the shield's normal AC bonus applies with your hands free; the engine cannot tell a hovering shield from a wielded one, so keep it equipped.

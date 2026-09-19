@@ -1,0 +1,37 @@
+charges:
+  max: 1
+  recharge:
+    - on: dawn
+      amount: full
+features:
+  - id: srd51.feature.item.iron-bands-of-binding.throw-the-sphere
+    name:
+      en: "Throw the Sphere"
+    text:
+      en: "You can use an action to speak the command word and throw the sphere at a Huge or smaller creature you can see within 60 feet of you. Make a ranged attack roll with an attack bonus equal to your Dexterity modifier plus your proficiency bonus. On a hit, the target is restrained until you take a bonus action to speak the command word again to release it. A creature, including the one restrained, can use an action to make a DC 20 Strength check to break the iron bands. Once the bands are used, they can't be used again until the next dawn."
+    effects:
+      - kind: add-action
+        action: throw-the-sphere
+        name:
+          en: "Throw the Sphere"
+        activation: action
+        cost: [{ resource: charges, amount: 1 }]
+        range: { type: point, distance: 60 }
+        rolls:
+          - { type: attack, ability: dex, proficient: true }
+        onHit:
+          - kind: applyCondition
+            condition: srd51.condition.restrained
+            target: other
+            expires: { manual: true }
+            note:
+              en: "Until you use a bonus action to speak the command word again, or until a creature breaks the bands with a DC 20 Strength check (destroying the item). A creature that fails the check can't try again for 24 hours."
+        text:
+          en: "Ranged attack (Dexterity modifier plus proficiency bonus) against a Huge or smaller creature within 60 feet. On a hit, the target is restrained until released."
+      - kind: add-action
+        action: release
+        name:
+          en: "Release"
+        activation: bonus-action
+        text:
+          en: "Speak the command word again to release the restrained creature; the bands contract into a sphere again."

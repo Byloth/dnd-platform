@@ -16,3 +16,40 @@ attunement: true
 tags:
   - magic-item
   - armor
+baseItem: srd51.item.plate-armor
+category: heavy
+ac:
+  base: 18
+  addDex: false
+strengthMin: 15
+stealthDisadvantage: true
+weight: 65
+charges:
+  max: 1
+  recharge:
+    - on: dawn
+      amount: full
+features:
+  - id: srd51.feature.item.plate-armor-of-etherealness.etherealness
+    name:
+      en: Etherealness
+    text:
+      en: While you're wearing this armor, you can speak its command word as an action to gain the effect of the etherealness spell, which lasts for 10 minutes or until you remove the armor or use an action to speak the command word again. This property of the armor can't be used again until the next dawn.
+    effects:
+      - kind: add-action
+        action: etherealness
+        name:
+          en: Etherealness
+        activation: action
+        cost:
+          - resource: charges
+            amount: 1
+        duration:
+          type: timed
+          minutes: 10
+        onUse:
+          - kind: note
+            text:
+              en: You gain the effect of the etherealness spell for 10 minutes, or until you remove the armor or use an action to speak the command word again.
+        text:
+          en: Speak the command word to gain the effect of the etherealness spell for 10 minutes.

@@ -1,0 +1,20 @@
+effects:
+  - kind: add-action
+    action: preserve-life
+    name:
+      en: "Channel Divinity: Preserve Life"
+    activation: action
+    cost:
+      - resource: channel-divinity
+        amount: 1
+    range:
+      type: point
+      distance: 30
+    text:
+      en: "You present your holy symbol and evoke healing energy that can restore a number of hit points equal to five times your cleric level. Choose any creatures within 30 feet of you, and divide those hit points among them. This feature can restore a creature to no more than half of its hit point maximum. You can't use this feature on an undead or a construct."
+    onUse:
+      - kind: heal
+        amount: 5 * classLevel(cleric)
+        target: other
+        note:
+          en: "Divide the hit points among any creatures within 30 feet; no creature above half its hit point maximum; not undead or constructs."

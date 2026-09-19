@@ -19,3 +19,10 @@ duration:
   hours: 1
 text:
   en: Until the spell ends, when you make a Charisma check, you can replace the number you roll with a 15. Additionally, no matter what you say, magic that would determine if you are telling the truth indicates that you are being truthful.
+effects:
+  - kind: add-text
+    section: skills
+    text:
+      en: When you make a Charisma check, you can replace the number you roll with a 15. Magic that would determine whether you are telling the truth indicates that you are being truthful.
+    note:
+      en: Replacing the d20 result is not expressible by modify in v0.

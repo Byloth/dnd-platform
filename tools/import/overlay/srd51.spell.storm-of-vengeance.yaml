@@ -1,0 +1,8 @@
+onCast:
+  - kind: applyCondition
+    condition: srd51.condition.deafened
+    target: other
+    expires: { minutes: 5 }
+    note: { en: "Each creature under the cloud that fails the Constitution save when the storm appears." }
+  - kind: note
+    text: { en: "While you maintain concentration, on your turn: round 2, 1d6 acid damage to each creature and object under the cloud; round 3, six lightning bolts on creatures or objects of your choice, 10d6 lightning each (Dexterity save for half); round 4, 2d6 bludgeoning to each creature; rounds 5-10, 1d6 cold to each creature, the area is difficult terrain and heavily obscured, ranged weapon attacks are impossible and the wind counts as a severe distraction for concentration." }

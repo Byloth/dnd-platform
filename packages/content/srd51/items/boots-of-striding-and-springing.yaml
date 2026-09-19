@@ -16,3 +16,30 @@ attunement: true
 tags:
   - magic-item
   - wondrous-items
+features:
+  - id: srd51.feature.item.boots-of-striding-and-springing.striding
+    name:
+      en: Striding and springing
+    effects:
+      - kind: modify
+        target: speed.walk
+        op: min
+        value: 30
+        note:
+          en: Your walking speed becomes 30 feet unless it is higher, and it isn't reduced if you are encumbered or wearing heavy armor.
+      - kind: modify
+        target: jump.long
+        op: mul
+        value: 3
+        note:
+          en: You can't jump farther than your remaining movement would allow.
+      - kind: modify
+        target: jump.high
+        op: mul
+        value: 3
+        note:
+          en: You can't jump farther than your remaining movement would allow.
+      - kind: add-text
+        section: core
+        text:
+          en: Your speed isn't reduced if you are encumbered or wearing heavy armor.

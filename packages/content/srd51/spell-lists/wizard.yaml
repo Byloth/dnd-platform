@@ -12,7 +12,6 @@ spells:
   - srd51.spell.animate-dead
   - srd51.spell.animate-objects
   - srd51.spell.antimagic-field
-  - srd51.spell.antipathysympathy
   - srd51.spell.arcane-eye
   - srd51.spell.arcane-hand
   - srd51.spell.arcane-lock
@@ -23,7 +22,6 @@ spells:
   - srd51.spell.bestow-curse
   - srd51.spell.black-tentacles
   - srd51.spell.blight
-  - srd51.spell.blindnessdeafness
   - srd51.spell.blink
   - srd51.spell.blur
   - srd51.spell.burning-hands
@@ -62,7 +60,6 @@ spells:
   - srd51.spell.dominate-monster
   - srd51.spell.dominate-person
   - srd51.spell.dream
-  - srd51.spell.enlargereduce
   - srd51.spell.etherealness
   - srd51.spell.expeditious-retreat
   - srd51.spell.eyebite

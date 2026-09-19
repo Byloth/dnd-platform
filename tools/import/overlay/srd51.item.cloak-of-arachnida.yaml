@@ -1,0 +1,20 @@
+attunement: true
+features:
+  - id: srd51.feature.item.cloak-of-arachnida.benefits
+    name: { en: "Cloak of Arachnida" }
+    effects:
+      - kind: defense
+        defense: resistance
+        to: [poison]
+      - kind: add-text
+        section: core
+        text: { en: "You have a climbing speed equal to your walking speed. You can move up, down, and across vertical surfaces and upside down along ceilings, while leaving your hands free." }
+        note: { en: "The formula language has no walking-speed variable, so the climbing speed is not derived; set it equal to your walking speed." }
+      - kind: add-text
+        section: features
+        text: { en: "You can't be caught in webs of any sort and can move through webs as if they were difficult terrain." }
+      - kind: grant-spells
+        spells: [srd51.spell.web]
+        as: always-prepared
+        uses: { count: 1, recharge: dawn }
+        note: { en: "Cast as an action with save DC 13; the web fills twice its normal area." }

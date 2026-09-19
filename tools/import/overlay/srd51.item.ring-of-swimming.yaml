@@ -1,0 +1,6 @@
+features:
+  - id: srd51.feature.item.ring-of-swimming.swimming
+    name:
+      en: "\"Swimming\""
+    effects:
+      - { kind: modify, target: speed.swim, op: max, value: 40 }

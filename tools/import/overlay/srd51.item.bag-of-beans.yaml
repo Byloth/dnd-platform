@@ -1,0 +1,20 @@
+features:
+  - id: srd51.feature.item.bag-of-beans.beans
+    name: { en: "Beans" }
+    effects:
+      - kind: add-action
+        action: dump-bag-of-beans
+        name: { en: "Dump the bag" }
+        activation: special
+        text: { en: "The beans explode in a 10-foot radius. Each creature in the area, including you, must make a DC 15 Dexterity saving throw, taking 5d4 fire damage on a failed save, or half as much on a successful one. The fire ignites flammable objects in the area that aren't being worn or carried." }
+        onUse:
+          - kind: note
+            text: { en: "DC 15 Dexterity save for each creature within 10 feet, including you: 5d4 fire damage, half on a success." }
+      - kind: add-action
+        action: plant-bean
+        name: { en: "Plant a bean" }
+        activation: special
+        text: { en: "Remove a bean from the bag, plant it in dirt or sand and water it: 1 minute later it produces an effect from the ground where it was planted. The GM chooses an effect from the item's d100 table, determines it randomly, or creates one." }
+        onUse:
+          - kind: note
+            text: { en: "The GM rolls or chooses on the bag's d100 table; the bag holds 3d4 beans when found." }

@@ -1,0 +1,11 @@
+effects:
+  - kind: add-text
+    section: features
+    text:
+      en: At the end of a long rest, you gain the effect of a sanctuary spell that lasts until the start of your next long rest (the spell can end early as normal). The saving throw DC for the spell equals 8 + your Wisdom modifier + your proficiency bonus.
+    note:
+      en: "Gap: applying a spell's effect to yourself on a rest trigger with a DC override (8 + mod(wis) + proficiencyBonus) has no catalogue kind; tracked in play."
+onRest:
+  - kind: note
+    text:
+      en: "At the end of a long rest: you gain the effect of sanctuary until the start of your next long rest, save DC 8 + your Wisdom modifier + your proficiency bonus."

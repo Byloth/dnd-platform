@@ -1,0 +1,7 @@
+effects:
+  - kind: modify-attacks
+    set:
+      magical: true
+      attackBonus: 1
+      damageBonus: 1
+    note: { en: "The touched nonmagical weapon only. The bonus is +2 with a 4th-level or higher slot and +3 with a 6th-level or higher slot." }

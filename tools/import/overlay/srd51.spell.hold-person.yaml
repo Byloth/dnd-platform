@@ -1,0 +1,7 @@
+onCast:
+  - kind: applyCondition
+    condition: srd51.condition.paralyzed
+    target: other
+    expires: { minutes: 1 }
+  - kind: note
+    text: { en: "Humanoids only, on a failed Wisdom save. At the end of each of its turns the target repeats the saving throw; on a success the spell ends on it. Each slot level above 2nd targets one additional humanoid (within 30 feet of each other)." }

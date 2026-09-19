@@ -14,12 +14,24 @@ levels:
         source: srd51
         text:
           en: When you choose this domain at 1st level, you gain proficiency with heavy armor.
+        effects:
+          - kind: grant-proficiency
+            type: armor
+            items:
+              - heavy
       - id: srd51.feature.life-domain.disciple-of-life
         name:
           en: Disciple of Life
         source: srd51
         text:
           en: Also starting at 1st level, your healing spells are more effective. Whenever you use a spell of 1st level or higher to restore hit points to a creature, the creature regains additional hit points equal to 2 + the spell's level.
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: Whenever you use a spell of 1st level or higher to restore hit points to a creature, the creature regains additional hit points equal to 2 + the spell's level.
+            note:
+              en: "Gap: no cast-event hook for healing spells; add 2 + the slot level to the healing in play."
       - id: srd51.feature.life-domain.life-domain-spells-table
         name:
           en: Life Domain Spells (table)
@@ -33,6 +45,48 @@ levels:
             | 5th | beacon of hope, revivify |
             | 7th | death ward, guardian of faith |
             | 9th | mass cure wounds, raise dead |
+        effects:
+          - kind: grant-spells
+            as: always-prepared
+            spells:
+              - srd51.spell.bless
+              - srd51.spell.cure-wounds
+          - kind: grant-spells
+            as: always-prepared
+            spells:
+              - srd51.spell.lesser-restoration
+              - srd51.spell.spiritual-weapon
+            when:
+              classLevel:
+                class: srd51.class.cleric
+                min: 3
+          - kind: grant-spells
+            as: always-prepared
+            spells:
+              - srd51.spell.beacon-of-hope
+              - srd51.spell.revivify
+            when:
+              classLevel:
+                class: srd51.class.cleric
+                min: 5
+          - kind: grant-spells
+            as: always-prepared
+            spells:
+              - srd51.spell.death-ward
+              - srd51.spell.guardian-of-faith
+            when:
+              classLevel:
+                class: srd51.class.cleric
+                min: 7
+          - kind: grant-spells
+            as: always-prepared
+            spells:
+              - srd51.spell.mass-cure-wounds
+              - srd51.spell.raise-dead
+            when:
+              classLevel:
+                class: srd51.class.cleric
+                min: 9
   "2":
     features:
       - id: srd51.feature.life-domain.channel-divinity-preserve-life
@@ -44,6 +98,26 @@ levels:
             Starting at 2nd level, you can use your Channel Divinity to heal the badly injured.
 
             As an action, you present your holy symbol and evoke healing energy that can restore a number of hit points equal to five times your cleric level. Choose any creatures within 30 feet of you, and divide those hit points among them. This feature can restore a creature to no more than half of its hit point maximum. You can't use this feature on an undead or a construct.
+        effects:
+          - kind: add-action
+            action: preserve-life
+            name:
+              en: "Channel Divinity: Preserve Life"
+            activation: action
+            cost:
+              - resource: channel-divinity
+                amount: 1
+            range:
+              type: point
+              distance: 30
+            text:
+              en: You present your holy symbol and evoke healing energy that can restore a number of hit points equal to five times your cleric level. Choose any creatures within 30 feet of you, and divide those hit points among them. This feature can restore a creature to no more than half of its hit point maximum. You can't use this feature on an undead or a construct.
+            onUse:
+              - kind: heal
+                amount: 5 * classLevel(cleric)
+                target: other
+                note:
+                  en: Divide the hit points among any creatures within 30 feet; no creature above half its hit point maximum; not undead or constructs.
   "6":
     features:
       - id: srd51.feature.life-domain.blessed-healer
@@ -52,6 +126,13 @@ levels:
         source: srd51
         text:
           en: Beginning at 6th level, the healing spells you cast on others heal you as well. When you cast a spell of 1st level or higher that restores hit points to a creature other than you, you regain hit points equal to 2 + the spell's level.
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: When you cast a spell of 1st level or higher that restores hit points to a creature other than you, you regain hit points equal to 2 + the spell's level.
+            note:
+              en: "Gap: no cast-event hook for healing spells; heal yourself 2 + the slot level in play."
   "8":
     features:
       - id: srd51.feature.life-domain.divine-strike
@@ -60,6 +141,39 @@ levels:
         source: srd51
         text:
           en: At 8th level, you gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra 1d8 radiant damage to the target. When you reach 14th level, the extra damage increases to 2d8.
+        effects:
+          - kind: add-action
+            action: divine-strike
+            name:
+              en: Divine Strike
+            activation: free
+            text:
+              en: Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra 1d8 radiant damage to the target.
+            onHit:
+              - kind: extraDamage
+                dice: 1d8
+                damageType: radiant
+                once: per-turn
+            when:
+              classLevel:
+                class: srd51.class.cleric
+                max: 13
+          - kind: add-action
+            action: divine-strike
+            name:
+              en: Divine Strike
+            activation: free
+            text:
+              en: Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra 2d8 radiant damage to the target.
+            onHit:
+              - kind: extraDamage
+                dice: 2d8
+                damageType: radiant
+                once: per-turn
+            when:
+              classLevel:
+                class: srd51.class.cleric
+                min: 14
   "17":
     features:
       - id: srd51.feature.life-domain.supreme-healing
@@ -68,3 +182,10 @@ levels:
         source: srd51
         text:
           en: Starting at 17th level, when you would normally roll one or more dice to restore hit points with a spell, you instead use the highest number possible for each die. For example, instead of restoring 2d6 hit points to a creature, you restore 12.
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: When you would normally roll one or more dice to restore hit points with a spell, you instead use the highest number possible for each die.
+            note:
+              en: "Gap: maximising healing dice is applied at roll time in play."

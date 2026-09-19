@@ -1,0 +1,26 @@
+effects:
+  - kind: declare-resource
+    resource: cleansing-touch
+    name:
+      en: Cleansing Touch
+    max: max(1, mod(cha))
+    recharge:
+      - on: long-rest
+        amount: full
+    display: pips
+  - kind: add-action
+    action: cleansing-touch
+    name:
+      en: Cleansing Touch
+    activation: action
+    cost:
+      - resource: cleansing-touch
+        amount: 1
+    range:
+      type: touch
+    text:
+      en: Use your action to end one spell on yourself or on one willing creature that you touch.
+    onUse:
+      - kind: note
+        text:
+          en: End one spell on yourself or on one willing creature you touch.

@@ -20,3 +20,63 @@ attunement: true
 tags:
   - magic-item
   - weapon
+baseItem: srd51.item.longbow
+category: martial
+damage: 1d8
+damageType: piercing
+properties:
+  - ammunition
+  - heavy
+  - two-handed
+range:
+  normal: 150
+  long: 600
+ranged: true
+weight: 2
+features:
+  - id: srd51.feature.item.oathbow.sworn-enemy
+    name:
+      en: Sworn Enemy
+    text:
+      en: When you use this weapon to make a ranged attack, you can, as a command phrase, say, "Swift death to you who have wronged me." The target of your attack becomes your sworn enemy until it dies or until dawn seven days later. You can have only one such sworn enemy at a time. When your sworn enemy dies, you can choose a new one after the next dawn. When you make a ranged attack roll with this weapon against your sworn enemy, you have advantage on the roll. In addition, your target gains no benefit from cover, other than total cover, and you suffer no disadvantage due to long range. If the attack hits, your sworn enemy takes an extra 3d6 piercing damage. While your sworn enemy lives, you have disadvantage on attack rolls with all other weapons.
+    effects:
+      - kind: add-action
+        action: swear-an-enemy
+        name:
+          en: Swear an Enemy
+        activation: free
+        requires:
+          afterAction: attack
+        toggle:
+          state: oathbow-sworn-enemy
+          expires:
+            manual: true
+        text:
+          en: As a command phrase when you make a ranged attack with the bow, the target becomes your sworn enemy until it dies or until dawn seven days later. Only one sworn enemy at a time; after it dies, you can choose a new one after the next dawn.
+      - kind: roll-advantage
+        on:
+          type: attack
+          against:
+            - your sworn enemy
+        when:
+          toggled: oathbow-sworn-enemy
+        note:
+          en: Ranged attack rolls with this bow against your sworn enemy. The target gains no benefit from cover other than total cover, and you suffer no disadvantage due to long range.
+      - kind: modify-attacks
+        filter:
+          item: srd51.item.oathbow
+        set:
+          extraDamage:
+            dice: 3d6
+            damageType: piercing
+        when:
+          toggled: oathbow-sworn-enemy
+        note:
+          en: Only when the attack hits your sworn enemy.
+      - kind: roll-disadvantage
+        on:
+          type: attack
+        when:
+          toggled: oathbow-sworn-enemy
+        note:
+          en: Only on attack rolls with weapons other than the oathbow, while your sworn enemy lives.

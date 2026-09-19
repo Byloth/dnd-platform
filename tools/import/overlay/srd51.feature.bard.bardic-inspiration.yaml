@@ -1,0 +1,32 @@
+effects:
+  - kind: declare-resource
+    resource: bardic-inspiration
+    name:
+      en: Bardic Inspiration
+    max: max(1, mod(cha))
+    recharge:
+      - on: long-rest
+        amount: full
+    display: pips
+    note:
+      en: "Bardic Inspiration die: d6, d8 at 5th level, d10 at 10th, d12 at 15th (table(bard.bardic-inspiration-die))."
+  - kind: add-action
+    action: bardic-inspiration
+    name:
+      en: Bardic Inspiration
+    activation: bonus-action
+    cost:
+      - resource: bardic-inspiration
+        amount: 1
+    range:
+      type: point
+      distance: 60
+    duration:
+      type: timed
+      minutes: 10
+    text:
+      en: "Choose one creature other than yourself within 60 feet of you who can hear you. That creature gains one Bardic Inspiration die. Once within the next 10 minutes, the creature can roll the die and add the number rolled to one ability check, attack roll, or saving throw it makes, deciding after the d20 roll but before the GM says whether it succeeds. A creature can have only one Bardic Inspiration die at a time."
+    onUse:
+      - kind: note
+        text:
+          en: "The target gains a Bardic Inspiration die of size table(bard.bardic-inspiration-die); it is lost once rolled or after 10 minutes."

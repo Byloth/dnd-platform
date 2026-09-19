@@ -29,3 +29,17 @@ rolls:
   - type: save
     ability: wis
     onSuccess: none
+onCast:
+  - kind: applyCondition
+    condition: srd51.condition.charmed
+    target: other
+    expires:
+      minutes: 1
+  - kind: applyCondition
+    condition: srd51.condition.incapacitated
+    target: other
+    expires:
+      minutes: 1
+  - kind: note
+    text:
+      en: Each creature in the 30-foot cube that sees the pattern, on a failed Wisdom save. While charmed it is incapacitated and has a speed of 0. The spell ends for a creature that takes any damage or is shaken out of its stupor by someone using an action.

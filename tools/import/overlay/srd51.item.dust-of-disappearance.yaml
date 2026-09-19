@@ -1,0 +1,3 @@
+onUse:
+  - kind: note
+    text: { en: "Throw the dust into the air as an action: you and each creature and object within 10 feet of you become invisible for 2d4 minutes (the same duration for all). The dust is consumed. If an affected creature attacks or casts a spell, the invisibility ends for that creature." }

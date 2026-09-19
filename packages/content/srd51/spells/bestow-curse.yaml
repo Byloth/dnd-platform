@@ -31,3 +31,14 @@ rolls:
   - type: save
     ability: wis
     onSuccess: none
+effects:
+  - kind: add-text
+    section: features
+    text:
+      en: "Cursed (one option chosen when cast): disadvantage on ability checks and saving throws made with one chosen ability score; or disadvantage on attack rolls against the caster; or a Wisdom saving throw at the start of each of your turns, wasting your action on a failure; or the caster's attacks and spells deal an extra 1d8 necrotic damage to you."
+    note:
+      en: "Option-dependent, so not expressed as roll-disadvantage; 'cursed' is not a standard condition. Higher slots extend the duration: concentration up to 10 minutes at 4th level, 8 hours at 5th, 24 hours at 7th, until dispelled at 9th (no concentration from 5th level)."
+onCast:
+  - kind: note
+    text:
+      en: Wisdom saving throw negates. A remove curse spell ends the effect; the DM may allow an alternative curse of similar power.

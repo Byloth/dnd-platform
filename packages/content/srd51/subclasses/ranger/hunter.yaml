@@ -21,6 +21,71 @@ levels:
             ***Giant Killer.*** When a Large or larger creature within 5 feet of you hits or misses you with an attack, you can use your reaction to attack that creature immediately after its attack, provided that you can see the creature.
 
             ***Horde Breaker.*** Once on each of your turns when you make a weapon attack, you can make another attack with the same weapon against a different creature that is within 5 feet of the original target and within range of your weapon.
+        effects:
+          - kind: open-choice
+            choice: hunters-prey
+            of: option
+            count: 1
+            options:
+              - id: colossus-slayer
+                name:
+                  en: Colossus Slayer
+                text:
+                  en: Your tenacity can wear down the most potent foes. When you hit a creature with a weapon attack, the creature takes an extra 1d8 damage if it's below its hit point maximum. You can deal this extra damage only once per turn.
+                effects:
+                  - kind: add-action
+                    action: colossus-slayer
+                    name:
+                      en: Colossus Slayer
+                    activation: special
+                    trigger:
+                      en: when you hit a creature that is below its hit point maximum with a weapon attack
+                    text:
+                      en: The creature takes an extra 1d8 damage. Once per turn.
+                    onHit:
+                      - kind: extraDamage
+                        dice: 1d8
+                        once: per-turn
+                        note:
+                          en: Only if the target is below its hit point maximum; the extra damage is of the weapon's damage type.
+              - id: giant-killer
+                name:
+                  en: Giant Killer
+                text:
+                  en: When a Large or larger creature within 5 feet of you hits or misses you with an attack, you can use your reaction to attack that creature immediately after its attack, provided that you can see the creature.
+                effects:
+                  - kind: add-action
+                    action: giant-killer
+                    name:
+                      en: Giant Killer
+                    activation: reaction
+                    trigger:
+                      en: when a Large or larger creature within 5 feet of you hits or misses you with an attack and you can see it
+                    text:
+                      en: Attack that creature immediately after its attack.
+                    onUse:
+                      - kind: note
+                        text:
+                          en: Make one weapon attack against the triggering creature.
+              - id: horde-breaker
+                name:
+                  en: Horde Breaker
+                text:
+                  en: Once on each of your turns when you make a weapon attack, you can make another attack with the same weapon against a different creature that is within 5 feet of the original target and within range of your weapon.
+                effects:
+                  - kind: add-action
+                    action: horde-breaker
+                    name:
+                      en: Horde Breaker
+                    activation: free
+                    requires:
+                      afterAction: attack
+                    text:
+                      en: Once on each of your turns when you make a weapon attack, make another attack with the same weapon against a different creature that is within 5 feet of the original target and within range of your weapon.
+                    onUse:
+                      - kind: note
+                        text:
+                          en: One additional attack with the same weapon against a different creature within 5 feet of the original target; once per turn.
   "7":
     features:
       - id: srd51.feature.hunter.defensive-tactics
@@ -36,6 +101,47 @@ levels:
             ***Multiattack Defense.*** When a creature hits you with an attack, you gain a +4 bonus to AC against all subsequent attacks made by that creature for the rest of the turn.
 
             ***Steel Will.*** You have advantage on saving throws against being frightened.
+        effects:
+          - kind: open-choice
+            choice: defensive-tactics
+            of: option
+            count: 1
+            options:
+              - id: escape-the-horde
+                name:
+                  en: Escape the Horde
+                text:
+                  en: Opportunity attacks against you are made with disadvantage.
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: Opportunity attacks against you are made with disadvantage.
+                    note:
+                      en: Disadvantage on incoming rolls (the attacker's) has no catalogue kind; applied in play.
+              - id: multiattack-defense
+                name:
+                  en: Multiattack Defense
+                text:
+                  en: When a creature hits you with an attack, you gain a +4 bonus to AC against all subsequent attacks made by that creature for the rest of the turn.
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: When a creature hits you with an attack, you gain a +4 bonus to AC against all subsequent attacks made by that creature for the rest of the turn.
+                    note:
+                      en: A per-attacker AC bonus for the rest of a turn has no catalogue kind; applied in play.
+              - id: steel-will
+                name:
+                  en: Steel Will
+                text:
+                  en: You have advantage on saving throws against being frightened.
+                effects:
+                  - kind: roll-advantage
+                    on:
+                      type: save
+                      against:
+                        - being frightened
   "11":
     features:
       - id: srd51.feature.hunter.multiattack
@@ -49,6 +155,54 @@ levels:
             ***Volley.*** You can use your action to make a ranged attack against any number of creatures within 10 feet of a point you can see within your weapon's range. You must have ammunition for each target, as normal, and you make a separate attack roll for each target.
 
             ***Whirlwind Attack.*** You can use your action to make a melee attack against any number of creatures within 5 feet of you, with a separate attack roll for each target.
+        effects:
+          - kind: open-choice
+            choice: multiattack
+            of: option
+            count: 1
+            options:
+              - id: volley
+                name:
+                  en: Volley
+                text:
+                  en: You can use your action to make a ranged attack against any number of creatures within 10 feet of a point you can see within your weapon's range. You must have ammunition for each target, as normal, and you make a separate attack roll for each target.
+                effects:
+                  - kind: add-action
+                    action: volley
+                    name:
+                      en: Volley
+                    activation: action
+                    requires:
+                      condition:
+                        wielding:
+                          ranged: true
+                    text:
+                      en: Make a ranged attack against any number of creatures within 10 feet of a point you can see within your weapon's range. You must have ammunition for each target, as normal, and you make a separate attack roll for each target.
+                    onUse:
+                      - kind: note
+                        text:
+                          en: One separate ranged attack roll per target within 10 feet of the chosen point; one piece of ammunition per target.
+              - id: whirlwind-attack
+                name:
+                  en: Whirlwind Attack
+                text:
+                  en: You can use your action to make a melee attack against any number of creatures within 5 feet of you, with a separate attack roll for each target.
+                effects:
+                  - kind: add-action
+                    action: whirlwind-attack
+                    name:
+                      en: Whirlwind Attack
+                    activation: action
+                    requires:
+                      condition:
+                        wielding:
+                          melee: true
+                    text:
+                      en: Make a melee attack against any number of creatures within 5 feet of you, with a separate attack roll for each target.
+                    onUse:
+                      - kind: note
+                        text:
+                          en: One separate melee attack roll per creature within 5 feet of you.
   "15":
     features:
       - id: srd51.feature.hunter.superior-hunters-defense
@@ -64,3 +218,59 @@ levels:
             ***Stand Against the Tide.*** When a hostile creature misses you with a melee attack, you can use your reaction to force that creature to repeat the same attack against another creature (other than itself) of your choice.
 
             ***Uncanny Dodge.*** When an attacker that you can see hits you with an attack, you can use your reaction to halve the attack's damage against you.
+        effects:
+          - kind: open-choice
+            choice: superior-hunters-defense
+            of: option
+            count: 1
+            options:
+              - id: evasion
+                name:
+                  en: Evasion
+                text:
+                  en: When you are subjected to an effect, such as a red dragon's fiery breath or a lightning bolt spell, that allows you to make a Dexterity saving throw to take only half damage, you instead take no damage if you succeed on the saving throw, and only half damage if you fail.
+                effects:
+                  - kind: add-text
+                    section: features
+                    text:
+                      en: When you are subjected to an effect that allows you to make a Dexterity saving throw to take only half damage, you instead take no damage if you succeed on the saving throw, and only half damage if you fail.
+                    note:
+                      en: Save-outcome rule resolved in play; no catalogue kind.
+              - id: stand-against-the-tide
+                name:
+                  en: Stand Against the Tide
+                text:
+                  en: When a hostile creature misses you with a melee attack, you can use your reaction to force that creature to repeat the same attack against another creature (other than itself) of your choice.
+                effects:
+                  - kind: add-action
+                    action: stand-against-the-tide
+                    name:
+                      en: Stand Against the Tide
+                    activation: reaction
+                    trigger:
+                      en: when a hostile creature misses you with a melee attack
+                    text:
+                      en: Force that creature to repeat the same attack against another creature (other than itself) of your choice.
+                    onUse:
+                      - kind: note
+                        text:
+                          en: The attacker repeats the same attack against another creature of your choice (not itself).
+              - id: uncanny-dodge
+                name:
+                  en: Uncanny Dodge
+                text:
+                  en: When an attacker that you can see hits you with an attack, you can use your reaction to halve the attack's damage against you.
+                effects:
+                  - kind: add-action
+                    action: uncanny-dodge
+                    name:
+                      en: Uncanny Dodge
+                    activation: reaction
+                    trigger:
+                      en: when an attacker that you can see hits you with an attack
+                    text:
+                      en: Halve the attack's damage against you.
+                    onUse:
+                      - kind: note
+                        text:
+                          en: The damage of the triggering attack is halved.

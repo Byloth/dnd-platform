@@ -16,3 +16,32 @@ attunement: true
 tags:
   - magic-item
   - ring
+features:
+  - id: srd51.feature.item.ring-of-invisibility.turn-invisible
+    name:
+      en: Turn Invisible
+    text:
+      en: While wearing this ring, you can turn invisible as an action. Anything you are wearing or carrying is invisible with you. You remain invisible until the ring is removed, until you attack or cast a spell, or until you use a bonus action to become visible again.
+    effects:
+      - kind: add-action
+        action: turn-invisible
+        name:
+          en: Turn Invisible
+        activation: action
+        onUse:
+          - kind: applyCondition
+            condition: srd51.condition.invisible
+            target: self
+            expires:
+              manual: true
+            note:
+              en: Anything you wear or carry is invisible with you. It ends when the ring is removed, when you attack or cast a spell, or when you use a bonus action to become visible again.
+        text:
+          en: Turn invisible until the ring is removed, you attack or cast a spell, or you use a bonus action to become visible.
+      - kind: add-action
+        action: become-visible
+        name:
+          en: Become Visible
+        activation: bonus-action
+        text:
+          en: End the ring's invisibility.

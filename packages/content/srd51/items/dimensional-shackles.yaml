@@ -17,3 +17,15 @@ rarity: rare
 tags:
   - magic-item
   - wondrous-items
+features:
+  - id: srd51.feature.item.dimensional-shackles.shackle
+    name:
+      en: Shackle
+    effects:
+      - kind: add-action
+        action: dimensional-shackles
+        name:
+          en: Place the shackles on an incapacitated creature
+        activation: action
+        text:
+          en: The shackles fit a creature of Small to Large size. Besides serving as mundane manacles, they prevent the bound creature from using any method of extradimensional movement, including teleportation or travel to a different plane (but not passing through an interdimensional portal). You and any creature you designate can use an action to remove them. Once every 30 days, the bound creature can make a DC 30 Strength (Athletics) check; on a success it breaks free and destroys the shackles.

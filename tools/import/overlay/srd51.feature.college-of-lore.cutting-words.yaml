@@ -1,0 +1,20 @@
+effects:
+  - kind: add-action
+    action: cutting-words
+    name:
+      en: Cutting Words
+    activation: reaction
+    trigger:
+      en: "when a creature that you can see within 60 feet of you makes an attack roll, an ability check, or a damage roll"
+    cost:
+      - resource: bardic-inspiration
+        amount: 1
+    range:
+      type: point
+      distance: 60
+    text:
+      en: "Expend one use of Bardic Inspiration, rolling a Bardic Inspiration die and subtracting the number rolled from the creature's roll. You can do so after the creature makes its roll, but before the GM determines whether the attack roll or ability check succeeds or fails, or before the creature deals its damage. The creature is immune if it can't hear you or if it's immune to being charmed."
+    onUse:
+      - kind: note
+        text:
+          en: "Roll a Bardic Inspiration die (size table(bard.bardic-inspiration-die)) and subtract it from the creature's roll."

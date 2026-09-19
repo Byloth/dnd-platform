@@ -25,3 +25,17 @@ rolls:
   - type: save
     ability: wis
     onSuccess: none
+effects:
+  - kind: roll-advantage
+    on:
+      type: save
+      ability: wis
+  - kind: roll-advantage
+    on:
+      type: death-save
+  - kind: add-text
+    section: features
+    text:
+      en: You regain the maximum number of hit points possible from any healing.
+    note:
+      en: Maximised healing is not expressible in v0.

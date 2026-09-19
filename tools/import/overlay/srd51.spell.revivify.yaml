@@ -1,0 +1,5 @@
+onCast:
+  - kind: heal
+    amount: "1"
+    target: other
+    note: { en: "A creature that died within the last minute returns to life with 1 hit point; not one that died of old age, and missing body parts aren't restored." }

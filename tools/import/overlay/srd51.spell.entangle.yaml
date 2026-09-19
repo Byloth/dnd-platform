@@ -1,0 +1,6 @@
+onCast:
+  - kind: applyCondition
+    condition: srd51.condition.restrained
+    target: other
+    expires: { minutes: 1 }
+    note: { en: "On a failed Strength saving throw by a creature in the area when the spell is cast; the area is difficult terrain. A restrained creature can use its action to make a Strength check against your spell save DC to free itself." }

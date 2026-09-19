@@ -1,0 +1,26 @@
+effects:
+  - kind: declare-resource
+    resource: second-wind
+    name:
+      en: Second Wind
+    max: 1
+    display: pips
+    recharge:
+      - on: short-rest
+        amount: full
+      - on: long-rest
+        amount: full
+  - kind: add-action
+    action: second-wind
+    name:
+      en: Second Wind
+    activation: bonus-action
+    cost:
+      - resource: second-wind
+        amount: 1
+    text:
+      en: On your turn, you can use a bonus action to regain hit points equal to 1d10 + your fighter level.
+    onUse:
+      - kind: heal
+        amount: 1d10 + classLevel(fighter)
+        target: self

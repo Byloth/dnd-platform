@@ -1,0 +1,8 @@
+effects:
+  - kind: add-text
+    section: features
+    text: { en: "Can't regain hit points until the start of the caster's next turn." }
+    note: { en: "Blocking healing is not expressible in v0." }
+  - kind: roll-disadvantage
+    on: { type: attack, against: ["the caster"] }
+    note: { en: "Undead targets only, until the end of the caster's next turn." }

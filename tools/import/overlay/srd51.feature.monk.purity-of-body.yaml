@@ -1,0 +1,10 @@
+effects:
+  - kind: defense
+    defense: immunity
+    to:
+      - poison
+      - disease
+  - kind: defense
+    defense: condition-immunity
+    to:
+      - srd51.condition.poisoned

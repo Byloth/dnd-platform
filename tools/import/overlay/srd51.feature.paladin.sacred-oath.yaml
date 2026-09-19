@@ -1,0 +1,14 @@
+effects:
+  - kind: declare-resource
+    resource: channel-divinity
+    name:
+      en: Channel Divinity
+    max: 1
+    recharge:
+      - on: short-rest
+        amount: full
+      - on: long-rest
+        amount: full
+    display: pips
+    note:
+      en: "Declared here because every Sacred Oath's Channel Divinity options spend this pool; the oath features add the options."

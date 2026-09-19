@@ -20,3 +20,62 @@ attunement: true
 tags:
   - magic-item
   - wondrous-items
+charges:
+  max: 3
+  recharge:
+    - on: dawn
+      amount: 1d3
+features:
+  - id: srd51.feature.item.pipes-of-the-sewers.rat-friend
+    name:
+      en: Rat Friend
+    text:
+      en: You must be proficient with wind instruments to use these pipes. While you are attuned to the pipes, ordinary rats and giant rats are indifferent toward you and will not attack you unless you threaten or harm them.
+    effects:
+      - kind: add-text
+        section: features
+        text:
+          en: While you are attuned to the pipes, ordinary rats and giant rats are indifferent toward you and will not attack you unless you threaten or harm them.
+        note:
+          en: Text only.
+  - id: srd51.feature.item.pipes-of-the-sewers.call-rats
+    name:
+      en: Call Rats
+    text:
+      en: If you play the pipes as an action, you can use a bonus action to expend 1 to 3 charges, calling forth one swarm of rats with each expended charge, provided that enough rats are within half a mile of you to be called in this fashion (as determined by the GM). If there aren't enough rats to form a swarm, the charge is wasted. Called swarms move toward the music by the shortest available route but aren't under your control otherwise.
+    effects:
+      - kind: add-action
+        action: play-the-pipes
+        name:
+          en: Play the Pipes
+        activation: action
+        text:
+          en: Play the pipes (requires proficiency with wind instruments). While you play each round as an action, swayed swarms of rats stay friendly to you.
+      - kind: add-action
+        action: call-rats
+        name:
+          en: Call Rats
+        activation: bonus-action
+        cost:
+          - resource: charges
+            amount: 1
+        requires:
+          afterAction: play-the-pipes
+        onUse:
+          - kind: note
+            text:
+              en: Expend 1 to 3 charges, calling one swarm of rats per charge if enough rats are within half a mile (GM's call); otherwise the charge is wasted. Called swarms move toward the music but aren't under your control.
+        text:
+          en: After playing the pipes as an action, expend 1 to 3 charges to call one swarm of rats per charge.
+  - id: srd51.feature.item.pipes-of-the-sewers.sway-a-swarm
+    name:
+      en: Sway a Swarm
+    text:
+      en: Whenever a swarm of rats that isn't under another creature's control comes within 30 feet of you while you are playing the pipes, you can make a Charisma check contested by the swarm's Wisdom check. If you lose the contest, the swarm behaves as it normally would and can't be swayed by the pipes' music for the next 24 hours. If you win the contest, the swarm is swayed by the pipes' music and becomes friendly to you and your companions for as long as you continue to play the pipes each round as an action. A friendly swarm obeys your commands. If a friendly swarm starts its turn and can't hear the pipes' music, your control over that swarm ends.
+    effects:
+      - kind: add-text
+        section: features
+        text:
+          en: When an uncontrolled swarm of rats comes within 30 feet while you play, make a Charisma check contested by the swarm's Wisdom check. On a win the swarm is friendly and obeys you while you keep playing each round as an action; on a loss it can't be swayed for 24 hours.
+        note:
+          en: A contested check with no kind.

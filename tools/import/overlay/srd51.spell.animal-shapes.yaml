@@ -1,0 +1,14 @@
+effects:
+  - kind: add-action
+    action: animal-shapes-change-form
+    name: { en: "Animal Shapes: change forms" }
+    activation: action
+    cost: []
+    text: { en: "Transform affected creatures into new forms (Large or smaller beasts of challenge rating 4 or lower)." }
+  - kind: add-text
+    section: features
+    text: { en: "Each target's game statistics are replaced by those of the chosen beast (it keeps its alignment and Intelligence, Wisdom and Charisma scores); it takes the beast's hit points and reverts at 0 hit points with excess damage carrying over; it can't speak or cast spells; its gear melds into the new form." }
+    note: { en: "Replacing a creature's statistics with a stat block is not supported in v0." }
+onCast:
+  - kind: note
+    text: { en: "Willing targets take the statistics of a beast of your choice; the DM provides the statistics (no stat blocks in v0)." }

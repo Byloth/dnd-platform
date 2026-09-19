@@ -12,7 +12,6 @@ spells:
   - srd51.spell.awaken
   - srd51.spell.bane
   - srd51.spell.bestow-curse
-  - srd51.spell.blindnessdeafness
   - srd51.spell.calm-emotions
   - srd51.spell.charm-person
   - srd51.spell.clairvoyance
@@ -33,7 +32,6 @@ spells:
   - srd51.spell.enthrall
   - srd51.spell.etherealness
   - srd51.spell.eyebite
-  - srd51.spell.faerie-fire
   - srd51.spell.fear
   - srd51.spell.feather-fall
   - srd51.spell.feeblemind

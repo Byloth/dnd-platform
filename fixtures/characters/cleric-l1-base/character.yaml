@@ -1,0 +1,33 @@
+formatVersion: 0
+id: fixture-cleric-l1-base
+name: Quiet Lantern
+ruleset: { id: srd51, version: 0.1.0 }
+packages:
+  - { id: srd51, version: 0.1.0 }
+choices:
+  species: srd51.species.human
+  classes:
+    - { class: srd51.class.cleric, subclass: srd51.subclass.cleric.life-domain, levels: 1 }
+  background: srd51.background.acolyte
+  abilityScores:
+    method: manual
+    # human: +1 to every score (generated from the species trait)
+    base: { str: 12, dex: 11, con: 13, int: 9, wis: 15, cha: 9 }
+  answers:
+    "srd51.class.cleric#skills": [insight, religion]
+    "srd51.class.cleric#divine-domain": [srd51.subclass.cleric.life-domain]
+    "srd51.class.cleric#cantrips": [srd51.spell.sacred-flame, srd51.spell.guidance, srd51.spell.light]
+    # prepared: cleric level 1 + WIS modifier 3 = 4 spells
+    "srd51.class.cleric#spells": [srd51.spell.cure-wounds, srd51.spell.bless, srd51.spell.guiding-bolt, srd51.spell.healing-word]
+    "srd51.background.acolyte#languages": [celestial, elvish]
+    "srd51.species.human#languages": [dwarvish]
+  equipment:
+    - { item: srd51.item.mace, quantity: 1, equipped: true }
+state:
+  hp: { current: 10, temporary: 0 }
+  hitDice: { spent: 0 }
+  resources: {}
+  spellSlots: { "1": 2 }
+  conditions: []
+  deathSaves: { successes: 0, failures: 0 }
+  inspiration: false

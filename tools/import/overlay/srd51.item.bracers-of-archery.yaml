@@ -1,0 +1,16 @@
+attunement: true
+features:
+  - id: srd51.feature.item.bracers-of-archery.archery
+    name: { en: "Archery" }
+    effects:
+      - kind: grant-proficiency
+        type: weapon
+        items: [longbow, shortbow]
+      - kind: modify-attacks
+        filter: { item: srd51.item.longbow }
+        set: { damageBonus: 2 }
+        note: { en: "+2 to damage rolls on ranged attacks made with a longbow." }
+      - kind: modify-attacks
+        filter: { item: srd51.item.shortbow }
+        set: { damageBonus: 2 }
+        note: { en: "+2 to damage rolls on ranged attacks made with a shortbow." }

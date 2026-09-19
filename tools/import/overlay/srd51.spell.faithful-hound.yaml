@@ -1,0 +1,14 @@
+effects:
+  - kind: add-action
+    action: faithful-hound-bite
+    name: { en: "Faithful Hound: bite" }
+    activation: special
+    cost: []
+    rolls:
+      - { type: attack, bonus: proficiencyBonus }
+      - { type: damage, dice: 4d8, damageType: piercing }
+    text: { en: "At the start of each of your turns, the hound attempts to bite one creature within 5 feet of it that is hostile to you." }
+    note: { en: "The hound's attack bonus is your spellcasting ability modifier + your proficiency bonus; only the proficiency bonus is in the roll (no spellcasting-ability variable in v0)." }
+  - kind: add-text
+    section: features
+    text: { en: "The phantom watchdog is invisible to all creatures except you and can't be harmed; it barks loudly when a Small or larger creature comes within 30 feet without first speaking the password; it sees invisible creatures and into the Ethereal Plane and ignores illusions. It remains until the spell ends, until you dismiss it as an action, or until you move more than 100 feet away from it." }

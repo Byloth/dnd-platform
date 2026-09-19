@@ -1,0 +1,8 @@
+onCast:
+  - kind: applyCondition
+    condition: srd51.condition.prone
+    target: other
+    expires: { manual: true }
+    note: { en: "Grovel command only: the target falls prone and then ends its turn." }
+  - kind: note
+    text: { en: "On a failed Wisdom saving throw the target follows your one-word command on its next turn (Approach, Drop, Flee, Grovel, Halt, or another the DM adjudicates); no effect on undead, on creatures that don't understand your language, or if the command is directly harmful. One additional creature (within 30 feet of the others) for each slot level above 1st." }

@@ -1,0 +1,46 @@
+effects:
+  - kind: declare-resource
+    resource: lay-on-hands
+    name:
+      en: Lay on Hands pool
+    max: 5 * classLevel(paladin)
+    recharge:
+      - on: long-rest
+        amount: full
+    display: counter
+  - kind: add-action
+    action: lay-on-hands
+    name:
+      en: Lay on Hands
+    activation: action
+    cost:
+      - resource: lay-on-hands
+        amount: 1
+    range:
+      type: touch
+    text:
+      en: Touch a creature and draw power from your pool to restore a number of hit points to that creature, up to the maximum amount remaining in your pool. This feature has no effect on undead and constructs.
+    onUse:
+      - kind: heal
+        amount: "1"
+        target: other
+        note:
+          en: You choose how many points to spend; each point spent from the pool restores 1 hit point, up to the amount remaining in the pool. The cost of 1 is the minimum, not the amount.
+    note:
+      en: The amount healed is chosen by the player at the moment of use; the engine has no variable resource cost yet.
+  - kind: add-action
+    action: lay-on-hands-cure
+    name:
+      en: Lay on Hands (cure disease or poison)
+    activation: action
+    cost:
+      - resource: lay-on-hands
+        amount: 5
+    range:
+      type: touch
+    text:
+      en: Expend 5 hit points from your pool of healing to cure the target of one disease or neutralize one poison affecting it. You can cure multiple diseases and neutralize multiple poisons with a single use of Lay on Hands, expending hit points separately for each one. This feature has no effect on undead and constructs.
+    onUse:
+      - kind: note
+        text:
+          en: Cure one disease or neutralize one poison affecting the touched creature (5 points each; repeat within the same action for additional diseases or poisons).

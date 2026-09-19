@@ -1,0 +1,5 @@
+effects:
+  - kind: add-text
+    section: senses
+    text: { en: "Climbing speed equal to its walking speed; can move up, down and across vertical surfaces and upside down along ceilings with its hands free." }
+    note: { en: "speed.climb can't be set equal to the walking speed: v0 formulas have no speed variable." }

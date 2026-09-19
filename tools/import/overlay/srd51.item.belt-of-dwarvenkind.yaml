@@ -1,0 +1,35 @@
+attunement: true
+features:
+  - id: srd51.feature.item.belt-of-dwarvenkind.benefits
+    name: { en: "Belt of Dwarvenkind" }
+    effects:
+      - kind: modify
+        target: ability.con
+        op: add
+        value: 2
+        note: { en: "Your Constitution score increases by 2, to a maximum of 20." }
+      - kind: modify
+        target: ability.con
+        op: max
+        value: 20
+        note: { en: "The belt's increase can't raise the score above 20; ignore this clamp if your Constitution was already higher without the belt." }
+      - kind: roll-advantage
+        on: { type: check, skill: persuasion, against: [dwarves] }
+        note: { en: "Advantage on Charisma (Persuasion) checks made to interact with dwarves." }
+      - kind: add-text
+        section: features
+        text: { en: "While attuned to the belt, you have a 50 percent chance each day at dawn of growing a full beard if you're capable of growing one, or a visibly thicker beard if you already have one." }
+  - id: srd51.feature.item.belt-of-dwarvenkind.non-dwarf-benefits
+    name: { en: "Benefits for non-dwarves" }
+    effects:
+      - kind: roll-advantage
+        on: { type: save, against: [poison] }
+        when: { not: { species: srd51.species.dwarf } }
+      - kind: defense
+        defense: resistance
+        to: [poison]
+        when: { not: { species: srd51.species.dwarf } }
+      - kind: grant-proficiency
+        type: language
+        items: [dwarvish]
+        when: { not: { species: srd51.species.dwarf } }

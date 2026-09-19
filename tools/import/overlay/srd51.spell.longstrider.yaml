@@ -1,0 +1,6 @@
+effects:
+  - kind: modify
+    target: speed.walk
+    op: add
+    value: 10
+    note: { en: "Each slot level above 1st targets one additional creature." }

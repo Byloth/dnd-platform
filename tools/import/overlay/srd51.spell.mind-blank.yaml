@@ -1,0 +1,10 @@
+effects:
+  - kind: defense
+    defense: immunity
+    to: [psychic]
+  - kind: defense
+    defense: condition-immunity
+    to: [srd51.condition.charmed]
+  - kind: add-text
+    section: features
+    text: { en: "Immune to any effect that would sense its emotions or read its thoughts and to divination spells, even wish and effects of similar power aimed at its mind or at information about it." }

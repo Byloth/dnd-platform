@@ -1,0 +1,10 @@
+attunement: true
+features:
+  - id: srd51.feature.item.bracers-of-defense.defense
+    name: { en: "Defense" }
+    effects:
+      - kind: modify
+        target: ac
+        op: add
+        value: 2
+        when: { armorCategory: none, shield: false }

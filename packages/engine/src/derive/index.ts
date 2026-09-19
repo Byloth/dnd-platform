@@ -5,15 +5,17 @@
 
 import { parseFormula } from "@byloth/dnd-platform-schema";
 import type {
-    Background, Character, Class, Effect, LocalizedString, ProficiencyGrants, Species, Table
+    Background, Character, Class, Effect, LocalizedString, ProficiencyGrants, Species, Spell, Table
 } from "@byloth/dnd-platform-schema";
 
 import { evaluateWhen, ConditionError } from "../conditions/evaluate.js";
 import type { Facts } from "../conditions/evaluate.js";
 import { evaluateFormula, formatValue } from "../formula/evaluate.js";
 import type {
-    ActionView, ChoiceView, ComputedSheet, ContributionSource, DefenseView, DeriveOptions, DerivedValue, Diagnostic,
-    FeatureView, PackageSet, ProficiencyView, Provenance, ResolvedRoll, ResourceView, RollModifierView, ValuePath
+    ActionView, ChoiceView, ComputedSheet, Contribution, ContributionSource, DefenseView, DeriveOptions, DerivedValue,
+    Diagnostic,
+    FeatureView, PackageSet, ProficiencyView, Provenance, ResolvedRoll, ResourceView, RollModifierView, SlotView,
+    SpellcastingView, SpellView, ValuePath
 } from "../index.js";
 import { baseAbilityScores, buildFacts, classLevelsOf, equippedItems, totalLevel } from "./facts.js";
 import { collectFeatures } from "./features.js";
@@ -190,6 +192,8 @@ function whenHolds(when: Effect["when"], facts: Facts, featureId: string, warnin
     }
 }
 
+interface RechargeEntry { on: string, amount: string | number }
+
 interface EffectContext
 {
     readonly feature: ActiveFeature;
@@ -253,10 +257,11 @@ export function derive(character: Character, set: PackageSet, options: DeriveOpt
             }
             if (effect.choose)
             {
+                const chooseId = effect.choose.id ?? effect.type;
                 const chosen = registerChoice(col, answers, {
-                    key: `${feature.id}#${effect.type}`,
+                    key: `${feature.id}#${chooseId}`,
                     owner: feature.id,
-                    choice: effect.type,
+                    choice: chooseId,
                     of: effect.type === "save" ? "option" : effect.type,
                     count: effect.choose.count,
                     options: effect.choose.from
@@ -414,7 +419,80 @@ export function derive(character: Character, set: PackageSet, options: DeriveOpt
     const actions: ActionView[] = [];
     const rollModifiers: RollModifierView[] = [];
     const defenses: DefenseView[] = [];
+    const spellcasting: SpellcastingView[] = [];
+    /** A `modify resource.<id>.recharge set <rest>` contribution (Font of Inspiration) replaces the declared one. */
+    const rechargeOf = (resource: string, declared: RechargeEntry[]): RechargeEntry[] =>
+    {
+        const path = `resource.${resource}.recharge`;
+        if (!contributions.some((c) => c.target === path && c.applied)) { return declared; }
+        const value = graph.get(path).value;
+
+        return typeof value === "string" && value !== "0" ? [{ on: value, amount: "full" }] : declared;
+    };
+    const spells: SpellView[] = [];
     const sections = new Set<string>(ALWAYS_SECTIONS);
+    const spellEntity = (spellId: string): Spell | undefined =>
+    {
+        const resolved = set.entities.get(spellId);
+
+        return (resolved && resolved.type === "spell") ? resolved.data as Spell : undefined;
+    };
+    const addSpell = (
+        spellId: string,
+        as: SpellView["as"],
+        paidWith: SpellView["paidWith"],
+        source: ContributionSource,
+        ability?: string
+    ): void =>
+    {
+        const spell = spellEntity(spellId);
+        if (spell === undefined)
+        {
+            warnings.push({
+                severity: "warning",
+                code: "W_MISSING_ENTITY",
+                entity: spellId,
+                message: `spell "${spellId}" is not loaded`
+            });
+
+            return;
+        }
+        const cantrip = spell.level === 0;
+        spells.push({
+            id: spellId,
+            name: spell.name,
+            level: spell.level,
+            as: cantrip ? "cantrip" : as,
+            ...(ability ? { ability: ability } : {}),
+            paidWith: cantrip && "slot" in paidWith ? { free: true } : paidWith,
+            source: source
+        });
+    };
+    /** The row of a global table with the highest key ≤ `key` (step function). */
+    const tableRow = (tableId: string, key: number): number | string | number[] | undefined =>
+    {
+        const resolved = set.entities.get(tableId);
+        if (!resolved || resolved.type !== "table") { return undefined; }
+        const rows = (resolved.data as Table).rows;
+        const keys = Object.keys(rows)
+            .map(Number)
+            .filter((k) => k <= key)
+            .sort((a, b) => b - a);
+
+        return keys[0] === undefined ? undefined : rows[String(keys[0])];
+    };
+    const globalTable = (tableId: string, key: number): number =>
+    {
+        const raw = tableRow(tableId, key);
+
+        return typeof raw === "number" ? raw : 0;
+    };
+    const slotRow = (tableId: string, key: number): number[] =>
+    {
+        const raw = tableRow(tableId, key);
+
+        return Array.isArray(raw) ? raw : [];
+    };
     const evaluateDc = (formula: string | undefined, ownerClass: string | undefined): DerivedValue | undefined =>
     {
         if (formula === undefined) { return undefined; }
@@ -452,7 +530,7 @@ export function derive(character: Character, set: PackageSet, options: DeriveOpt
                     name: e.name ?? ctx.feature.data.name,
                     max: graph.get(`resource.${e.resource}.max`),
                     current: character.state.resources[e.resource] ?? null,
-                    recharge: e.recharge.map((r) => ({ on: r.on, amount: r.amount })),
+                    recharge: rechargeOf(e.resource, e.recharge.map((r) => ({ on: r.on, amount: r.amount }))),
                     display: e.display ?? "pips",
                     source: ctx.source
                 });
@@ -542,12 +620,116 @@ export function derive(character: Character, set: PackageSet, options: DeriveOpt
                 if (ctx.applied) { sections.add(e.section); }
                 break;
             case "grant-spellcasting":
+            {
+                if (!ctx.applied) { break; }
+                const classId = ownerClass ?? ctx.feature.owner;
+                const classLevel = facts.classLevels[classId] ?? facts.level;
+                const prof = graph.number("proficiencyBonus");
+                const mod = graph.number(`mod.${e.ability}`);
+                const part = (kind: "base" | "add", value: number, label: string): Contribution => ({
+                    kind: kind,
+                    value: value,
+                    label: { en: label },
+                    source: ctx.source,
+                    applied: true
+                });
+                const dcProvenance = [
+                    part("base", 8, "Base"),
+                    part("add", prof, "Proficiency bonus"),
+                    part("add", mod, `${e.ability.toUpperCase()} modifier`)
+                ];
+                const casters = contexts.filter((c) => c.effect.kind === "grant-spellcasting" && c.applied);
+                const spellSlots = set.ruleset.spellSlots as Record<string, { table: string } | undefined> | undefined;
+                let slotLevels: number[] = [];
+                let pact: SpellcastingView["pact"];
+                if ("progression" in e.slots)
+                {
+                    const tableId = spellSlots?.[e.slots.progression]?.table;
+                    if (e.slots.progression === "pact")
+                    {
+                        const row = tableId ? slotRow(tableId, classLevel) : [];
+                        const current = character.state.spellSlots?.["pact"] ?? null;
+                        pact = { slots: row[0] ?? 0, level: row[1] ?? 0, current: current };
+                    }
+                    else if (casters.length > 1 && spellSlots?.["multiclass"])
+                    {
+                        const casterLevel = Math.floor(casters.reduce((sum, c) =>
+                        {
+                            const cls = classes.find((k) => k.id === (c.feature.ownerClass ?? c.feature.owner));
+
+                            return sum + (cls ? cls.levels * (cls.data.casterWeight ?? 0) : 0);
+
+                        }, 0));
+                        slotLevels = slotRow(spellSlots["multiclass"].table, casterLevel);
+                    }
+                    else if (tableId)
+                    {
+                        slotLevels = slotRow(tableId, classLevel);
+                    }
+                }
+                else
+                {
+                    slotLevels = slotRow(e.slots.table, classLevel);
+                }
+                const slotViews: SlotView[] = slotLevels
+                    .map((max, index) => ({
+                        level: index + 1,
+                        max: max,
+                        current: character.state.spellSlots?.[String(index + 1)] ?? null
+                    }))
+                    .filter((s) => s.max > 0);
+                const cantripsKnown = e.cantrips ? globalTable(e.cantrips.table, classLevel) : undefined;
+                const spellsKnown = e.known ? globalTable(e.known.table, classLevel) : undefined;
+                spellcasting.push({
+                    class: classId,
+                    ability: e.ability,
+                    dc: { value: 8 + prof + mod, provenance: dcProvenance },
+                    attackBonus: { value: prof + mod, provenance: dcProvenance.slice(1) },
+                    preparation: e.preparation,
+                    list: e.list,
+                    slots: slotViews,
+                    ...(pact ? { pact: pact } : {}),
+                    ...(cantripsKnown !== undefined ? { cantripsKnown: cantripsKnown } : {}),
+                    ...(spellsKnown !== undefined ? { spellsKnown: spellsKnown } : {}),
+                    ritual: e.ritual === true,
+                    source: ctx.source
+                });
+                // Chosen cantrips and spells live in the answers: `<class id>#cantrips`, `<class id>#spells`.
+                const preparedCount = e.preparation === "known" ? (spellsKnown ?? 0) : Math.max(1, classLevel + mod);
+                const cantrips = registerChoice(col, answers, {
+                    key: `${classId}#cantrips`,
+                    owner: classId,
+                    choice: "cantrips",
+                    of: "spell",
+                    count: cantripsKnown ?? 0,
+                    options: []
+                });
+                const chosen = registerChoice(col, answers, {
+                    key: `${classId}#spells`,
+                    owner: classId,
+                    choice: "spells",
+                    of: "spell",
+                    count: preparedCount,
+                    options: []
+                });
+                const chosenAs = e.preparation === "known" ? "known" : "prepared";
+                for (const spellId of cantrips) { addSpell(spellId, "known", { free: true }, ctx.source, e.ability); }
+                for (const spellId of chosen) { addSpell(spellId, chosenAs, { slot: true }, ctx.source, e.ability); }
                 sections.add("spellcasting");
                 sections.add("spells");
                 break;
+            }
             case "grant-spells":
+            {
+                if (!ctx.applied) { break; }
+                const cost = e.cost?.[0];
+                let paidWith: SpellView["paidWith"] = { slot: true };
+                if (cost && "amount" in cost) { paidWith = { resource: cost.resource, amount: cost.amount }; }
+                else if (e.uses) { paidWith = { uses: e.uses.count, recharge: e.uses.recharge }; }
+                for (const spellId of e.spells) { addSpell(spellId, e.as, paidWith, ctx.source, e.ability); }
                 sections.add("spells");
                 break;
+            }
             default:
                 break;
         }
@@ -602,6 +784,8 @@ export function derive(character: Character, set: PackageSet, options: DeriveOpt
         actions: actions,
         rollModifiers: rollModifiers,
         defenses: defenses,
+        spellcasting: spellcasting,
+        spells: spells,
         choices: col.choices,
         sections: orderedSections,
         warnings: [...set.diagnostics.entries.filter((d) => d.severity !== "info"), ...warnings]

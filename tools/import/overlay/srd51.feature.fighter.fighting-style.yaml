@@ -1,0 +1,86 @@
+effects:
+  - kind: open-choice
+    choice: fighting-style
+    of: fighting-style
+    count: 1
+    options:
+      - id: archery
+        name:
+          en: Archery
+        text:
+          en: You gain a +2 bonus to attack rolls you make with ranged weapons.
+        effects:
+          - kind: modify
+            target: attack.ranged.bonus
+            op: add
+            value: 2
+      - id: defense
+        name:
+          en: Defense
+        text:
+          en: While you are wearing armor, you gain a +1 bonus to AC.
+        effects:
+          - kind: modify
+            target: ac
+            op: add
+            value: 1
+            when:
+              not:
+                armorCategory: none
+      - id: dueling
+        name:
+          en: Dueling
+        text:
+          en: When you are wielding a melee weapon in one hand and no other weapons, you gain a +2 bonus to damage rolls with that weapon.
+        effects:
+          - kind: modify-attacks
+            filter:
+              melee: true
+            set:
+              damageBonus: 2
+            when:
+              wieldingOnly:
+                melee: true
+                count: 1
+      - id: great-weapon-fighting
+        name:
+          en: Great Weapon Fighting
+        text:
+          en: When you roll a 1 or 2 on a damage die for an attack you make with a melee weapon that you are wielding with two hands, you can reroll the die and must use the new roll, even if the new roll is a 1 or a 2. The weapon must have the two-handed or versatile property for you to gain this benefit.
+        effects:
+          - kind: add-text
+            section: attacks
+            text:
+              en: "Great Weapon Fighting: when you roll a 1 or 2 on a damage die with a melee weapon wielded in two hands (two-handed or versatile), reroll the die and use the new roll."
+            note:
+              en: "Play mode: rerolling individual damage dice of 1 or 2 is not executed by the engine."
+      - id: protection
+        name:
+          en: Protection
+        text:
+          en: When a creature you can see attacks a target other than you that is within 5 feet of you, you can use your reaction to impose disadvantage on the attack roll. You must be wielding a shield.
+        effects:
+          - kind: add-action
+            action: protection
+            name:
+              en: Protection
+            activation: reaction
+            trigger:
+              en: when a creature you can see attacks a target other than you that is within 5 feet of you
+            requires:
+              condition:
+                shield: true
+            text:
+              en: Impose disadvantage on the attack roll. You must be wielding a shield.
+      - id: two-weapon-fighting
+        name:
+          en: Two-Weapon Fighting
+        text:
+          en: When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack.
+        effects:
+          - kind: add-text
+            section: attacks
+            text:
+              en: "Two-Weapon Fighting: when you engage in two-weapon fighting, add your ability modifier to the damage of the second attack."
+            note:
+              en: "Play mode: the off-hand attack's damage modifier is not derived by the engine."

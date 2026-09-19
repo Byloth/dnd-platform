@@ -1,0 +1,7 @@
+effects:
+  - kind: add-text
+    section: features
+    text: { en: "Up to ten centipedes, three spiders, five wasps or one scorpion become giant versions of themselves (giant centipede, giant spider, giant wasp, giant scorpion) that obey your verbal commands and act on your turn each round; a creature reverts at 0 hit points or if you use an action to dismiss the effect on it." }
+onCast:
+  - kind: note
+    text: { en: "The DM has the giant creatures' statistics and resolves their actions and movement (no stat blocks in v0)." }

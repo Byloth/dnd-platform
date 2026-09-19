@@ -26,3 +26,14 @@ rolls:
   - type: save
     ability: wis
     onSuccess: none
+effects:
+  - kind: add-text
+    section: features
+    text:
+      en: Game statistics (including mental ability scores) replaced by those of a beast of challenge rating no higher than the target's (or its level); alignment and personality are retained. The target has the beast's hit points, can't speak, cast spells or take actions requiring hands or speech, and its gear melds into the new form and can't be used.
+    note:
+      en: "Stat-block replacement is not expressible in v0: track the beast's statistics by hand."
+onCast:
+  - kind: note
+    text:
+      en: An unwilling creature makes a Wisdom saving throw to avoid the effect; a shapechanger automatically succeeds. The transformation ends at 0 hit points, when the creature returns to its previous hit points; excess damage carries over to its normal form.

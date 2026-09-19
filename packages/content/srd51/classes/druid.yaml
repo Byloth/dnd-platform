@@ -73,6 +73,13 @@ levels:
         source: srd51
         text:
           en: You know Druidic, the secret language of druids. You can speak the language and use it to leave hidden messages. You and others who know this language automatically spot such a message. Others spot the message's presence with a successful DC 15 Wisdom (Perception) check but can't decipher it without magic.
+        effects:
+          - kind: grant-proficiency
+            type: language
+            items:
+              - druidic
+            note:
+              en: Hidden messages in Druidic are spotted automatically by those who know the language; others notice them with a DC 15 Wisdom (Perception) check but cannot decipher them without magic.
       - id: srd51.feature.druid.spellcasting
         name:
           en: Spellcasting
@@ -134,12 +141,6 @@ levels:
         source: srd51
         text:
           en: At 2nd level, you choose to identify with a circle of druids such as the Circle of the Land. Your choice grants you features at 2nd level and again at 6th, 10th, and 14th level.
-        effects:
-          - kind: open-choice
-            choice: druid-circle
-            of: subclass
-            count: 1
-            level: 2
       - id: srd51.feature.druid.wild-shape
         name:
           en: Wild Shape
@@ -168,6 +169,55 @@ levels:
             You retain the benefit of any features from your class, race, or other source and can use them if the new form is physically capable of doing so. However, you can't use any of your special senses, such as darkvision, unless your new form also has that sense.
 
             You choose whether your equipment falls to the ground in your space, merges into your new form, or is worn by it. Worn equipment functions as normal, but the GM decides whether it is practical for the new form to wear a piece of equipment, based on the creature's shape and size. Your equipment doesn't change size or shape to match the new form, and any equipment that the new form can't wear must either fall to the ground or merge with it. Equipment that merges with the form has no effect until you leave the form.
+        effects:
+          - kind: declare-resource
+            resource: wild-shape
+            name:
+              en: Wild Shape uses
+            max: 2
+            display: pips
+            recharge:
+              - on: short-rest
+                amount: full
+              - on: long-rest
+                amount: full
+          - kind: add-action
+            action: wild-shape
+            name:
+              en: Wild Shape
+            activation: action
+            cost:
+              - resource: wild-shape
+                amount: 1
+            toggle:
+              state: wild-shape
+              expires:
+                manual: true
+            text:
+              en: Magically assume the shape of a beast that you have seen before, with a challenge rating no higher than the Beast Shapes table allows for your druid level (no flying or swimming speed before 4th level, no flying speed before 8th level). You can stay in a beast shape for a number of hours equal to half your druid level (rounded down).
+            onUse:
+              - kind: note
+                text:
+                  en: "Maximum CR: table(druid.wild-shape-max-cr). Your game statistics are replaced by the beast's, but you keep your alignment, personality, Intelligence, Wisdom and Charisma scores, and all your skill and saving throw proficiencies (use the beast's bonus if it is higher). You assume the beast's hit points and Hit Dice; when you revert you return to the hit points you had before, and excess damage from dropping to 0 carries over. You can't cast spells while transformed."
+          - kind: add-action
+            action: wild-shape-revert
+            name:
+              en: Revert from Wild Shape
+            activation: bonus-action
+            requires:
+              condition:
+                toggled: wild-shape
+            text:
+              en: Revert to your normal form. You automatically revert if you fall unconscious, drop to 0 hit points, or die.
+          - kind: add-text
+            section: features
+            text:
+              en: While transformed by Wild Shape your game statistics are replaced by the statistics of the beast; you retain your alignment, personality, Intelligence, Wisdom and Charisma scores, your skill and saving throw proficiencies, and the benefit of your class, race and other features if the new form is physically capable of using them. You can't use your special senses unless the form has them, and you can't cast spells. Your equipment falls to the ground, merges into the form, or is worn by it.
+            note:
+              en: "Gap: replacing the sheet with a beast stat block while keeping mental scores and proficiencies needs an alternate-form capability the engine does not have; the duration (half your druid level in hours), hit point carry-over and the spellcasting restriction are tracked in play. The max-CR table is the class table druid.wild-shape-max-cr."
+    choices:
+      - id: druid-circle
+        of: subclass
   "4":
     features:
       - id: srd51.feature.druid.ability-score-improvement
@@ -199,6 +249,13 @@ levels:
         source: srd51
         text:
           en: Beginning at 18th level, you can cast many of your druid spells in any shape you assume using Wild Shape. You can perform the somatic and verbal components of a druid spell while in a beast shape, but you aren't able to provide material components.
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: You can cast many of your druid spells in any shape you assume using Wild Shape. You can perform the somatic and verbal components of a druid spell while in a beast shape, but you aren't able to provide material components.
+            note:
+              en: "Gap: lifts the no-spellcasting restriction of the Wild Shape state for druid spells without material components; the engine does not enforce that restriction."
   "19":
     choices:
       - id: asi-19
@@ -214,6 +271,19 @@ levels:
             At 20th level, you can use your Wild Shape an unlimited number of times.
 
             Additionally, you can ignore the verbal and somatic components of your druid spells, as well as any material components that lack a cost and aren't consumed by a spell. You gain this benefit in both your normal shape and your beast shape from Wild Shape.
+        effects:
+          - kind: modify
+            target: resource.wild-shape.max
+            op: set
+            value: unlimited
+            note:
+              en: You can use your Wild Shape an unlimited number of times.
+          - kind: add-text
+            section: features
+            text:
+              en: You can ignore the verbal and somatic components of your druid spells, as well as any material components that lack a cost and aren't consumed by a spell. You gain this benefit in both your normal shape and your beast shape from Wild Shape.
+            note:
+              en: "Gap: spell components are not modelled by the engine."
 tables:
   wild-shape-max-cr:
     by: classLevel

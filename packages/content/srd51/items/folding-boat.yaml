@@ -23,3 +23,29 @@ rarity: rare
 tags:
   - magic-item
   - wondrous-items
+features:
+  - id: srd51.feature.item.folding-boat.command-words
+    name:
+      en: Command words
+    effects:
+      - kind: add-action
+        action: folding-boat-boat
+        name:
+          en: Unfold into a boat
+        activation: action
+        text:
+          en: The box unfolds into a boat 10 feet long, 4 feet wide, and 2 feet deep, with one pair of oars, an anchor, a mast, and a lateen sail. It holds up to four Medium creatures comfortably. Anything stored in the box remains in the boat.
+      - kind: add-action
+        action: folding-boat-ship
+        name:
+          en: Unfold into a ship
+        activation: action
+        text:
+          en: The box unfolds into a ship 24 feet long, 8 feet wide, and 6 feet deep, with a deck, rowing seats, five sets of oars, a steering oar, an anchor, a deck cabin, and a mast with a square sail. It holds fifteen Medium creatures comfortably.
+      - kind: add-action
+        action: folding-boat-fold
+        name:
+          en: Fold back into a box
+        activation: action
+        text:
+          en: The vessel folds back into a box, provided that no creatures are aboard. Objects that can fit inside the box do so; the rest remain outside.

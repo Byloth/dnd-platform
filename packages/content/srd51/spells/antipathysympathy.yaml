@@ -36,3 +36,14 @@ rolls:
   - type: save
     ability: wis
     onSuccess: none
+onCast:
+  - kind: applyCondition
+    condition: srd51.condition.frightened
+    target: other
+    expires:
+      manual: true
+    note:
+      en: "Antipathy only: a creature of the designated kind that fails its Wisdom saving throw is frightened while it can see the target or is within 60 feet of it, and must move to the nearest safe spot from which it can't see the target; it stops being frightened once more than 60 feet away and unable to see the target."
+  - kind: note
+    text:
+      en: "Sympathy: on a failed Wisdom saving throw the creature must use its movement on each of its turns to approach the target and can't willingly move away. An affected creature repeats the save when it ends its turn out of sight and beyond 60 feet, and every 24 hours; a successful save grants immunity for 1 minute."

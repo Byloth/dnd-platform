@@ -1,0 +1,4 @@
+onUse:
+  - kind: note
+    text:
+      en: "Applying the oil takes 10 minutes and covers a Medium or smaller creature with its equipment (one additional vial per size category above Medium). The affected creature gains the effect of a freedom of movement spell for 8 hours. Alternatively, pour it on the ground as an action to cover a 10-foot square with the effect of the grease spell for 8 hours."

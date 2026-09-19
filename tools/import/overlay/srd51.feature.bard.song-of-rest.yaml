@@ -1,0 +1,4 @@
+onRest:
+  - kind: note
+    text:
+      en: "Short rest: if you or any friendly creatures who can hear your performance regain hit points at the end of the rest by spending one or more Hit Dice, each of those creatures regains extra hit points: 1d6, 1d8 at 9th level, 1d10 at 13th, 1d12 at 17th (die size table(bard.song-of-rest-die))."

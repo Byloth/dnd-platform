@@ -1,0 +1,6 @@
+onCast:
+  - kind: applyCondition
+    condition: srd51.condition.charmed
+    target: other
+    expires: { hours: 24 }
+    note: { en: "On a failed Wisdom saving throw (per the text); a beast with Intelligence 4 or higher is unaffected. Ends if you or one of your companions harms the target. One additional beast for each slot level above 1st." }

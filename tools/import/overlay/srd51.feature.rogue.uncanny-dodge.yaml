@@ -1,0 +1,14 @@
+effects:
+  - kind: add-action
+    action: uncanny-dodge
+    name:
+      en: Uncanny Dodge
+    activation: reaction
+    trigger:
+      en: when an attacker that you can see hits you with an attack
+    text:
+      en: Halve the attack's damage against you.
+    onUse:
+      - kind: note
+        text:
+          en: The damage of the triggering attack is halved.

@@ -30,3 +30,11 @@ rolls:
     onSuccess: none
 tags:
   - area
+onCast:
+  - kind: applyCondition
+    condition: srd51.condition.frightened
+    target: other
+    expires:
+      minutes: 1
+    note:
+      en: On a failed Wisdom saving throw the creature drops whatever it is holding and is frightened; on each of its turns it must take the Dash action and move away from you by the safest available route unless there is nowhere to move. A creature that ends its turn without line of sight to you can repeat the save, ending the spell for it on a success.

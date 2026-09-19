@@ -1,0 +1,5 @@
+effects:
+  - kind: add-text
+    section: combat
+    text: { en: "Any creature has disadvantage on attack rolls against you, unless it doesn't rely on sight (as with blindsight) or can see through illusions (as with truesight)." }
+    note: { en: "Disadvantage on attacks made against the character is not expressible in v0." }

@@ -1,0 +1,16 @@
+attunement: true
+features:
+  - id: srd51.feature.item.ring-of-protection.protection
+    name:
+      en: "Protection"
+    text:
+      en: "You gain a +1 bonus to AC and saving throws while wearing this ring."
+    effects:
+      - kind: modify
+        target: ac
+        op: add
+        value: 1
+      - kind: modify
+        target: save.all
+        op: add
+        value: 1

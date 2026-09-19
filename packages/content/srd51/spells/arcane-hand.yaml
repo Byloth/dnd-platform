@@ -38,3 +38,37 @@ rolls:
   - type: damage
     dice: 4d8
     damageType: force
+effects:
+  - kind: add-action
+    action: arcane-hand
+    name:
+      en: Arcane Hand
+    activation: bonus-action
+    cost: []
+    rolls:
+      - type: attack
+      - type: damage
+        dice: 4d8
+        damageType: force
+    text:
+      en: "Move the hand up to 60 feet, then choose an effect: Clenched Fist (melee spell attack against a creature or object within 5 feet of the hand, 4d8 force damage on a hit); Forceful Hand (Strength check of the hand contested by the target's Strength (Athletics), pushing it up to 5 feet plus five times your spellcasting ability modifier); Grasping Hand (grapple a Huge or smaller creature using the hand's Strength); Interposing Hand (the hand stays between you and a creature, giving you half cover; the creature can't move through the hand's space unless its Strength is higher, and then that space is difficult terrain). You have advantage on the contested checks against Medium or smaller targets."
+    note:
+      en: The rolls belong to Clenched Fist; its damage increases by 2d8 for each slot level above 5th.
+  - kind: add-action
+    action: arcane-hand-crush
+    name:
+      en: "Arcane Hand: crush"
+    activation: bonus-action
+    cost: []
+    rolls:
+      - type: damage
+        dice: 2d6
+        damageType: bludgeoning
+    text:
+      en: While the hand is grappling a target, have it crush the target for 2d6 + your spellcasting ability modifier bludgeoning damage.
+    note:
+      en: Plus your spellcasting ability modifier (no variable for it in v0); increases by 2d6 for each slot level above 5th.
+  - kind: add-text
+    section: features
+    text:
+      en: The hand is a Large object with AC 20, hit points equal to your hit point maximum, Strength 26 (+8) and Dexterity 10 (+0); if it drops to 0 hit points the spell ends.

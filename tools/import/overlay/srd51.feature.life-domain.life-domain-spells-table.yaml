@@ -1,0 +1,42 @@
+effects:
+  - kind: grant-spells
+    as: always-prepared
+    spells:
+      - srd51.spell.bless
+      - srd51.spell.cure-wounds
+  - kind: grant-spells
+    as: always-prepared
+    spells:
+      - srd51.spell.lesser-restoration
+      - srd51.spell.spiritual-weapon
+    when:
+      classLevel:
+        class: srd51.class.cleric
+        min: 3
+  - kind: grant-spells
+    as: always-prepared
+    spells:
+      - srd51.spell.beacon-of-hope
+      - srd51.spell.revivify
+    when:
+      classLevel:
+        class: srd51.class.cleric
+        min: 5
+  - kind: grant-spells
+    as: always-prepared
+    spells:
+      - srd51.spell.death-ward
+      - srd51.spell.guardian-of-faith
+    when:
+      classLevel:
+        class: srd51.class.cleric
+        min: 7
+  - kind: grant-spells
+    as: always-prepared
+    spells:
+      - srd51.spell.mass-cure-wounds
+      - srd51.spell.raise-dead
+    when:
+      classLevel:
+        class: srd51.class.cleric
+        min: 9

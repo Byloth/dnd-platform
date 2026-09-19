@@ -10,7 +10,6 @@ spells:
   - srd51.spell.animate-objects
   - srd51.spell.banishment
   - srd51.spell.blight
-  - srd51.spell.blindnessdeafness
   - srd51.spell.blink
   - srd51.spell.blur
   - srd51.spell.burning-hands
@@ -42,7 +41,6 @@ spells:
   - srd51.spell.dominate-person
   - srd51.spell.earthquake
   - srd51.spell.enhance-ability
-  - srd51.spell.enlargereduce
   - srd51.spell.etherealness
   - srd51.spell.expeditious-retreat
   - srd51.spell.eyebite

@@ -16,3 +16,21 @@ attunement: true
 tags:
   - magic-item
   - wondrous-items
+features:
+  - id: srd51.feature.item.gloves-of-missile-snaring.snare
+    name:
+      en: Missile snaring
+    effects:
+      - kind: add-action
+        action: gloves-of-missile-snaring
+        name:
+          en: Snare a missile
+        activation: reaction
+        trigger:
+          en: when a ranged weapon attack hits you, provided that you have a free hand
+        text:
+          en: Reduce the damage by 1d10 + your Dexterity modifier. If you reduce the damage to 0, you can catch the missile if it is small enough for you to hold in that hand.
+        onUse:
+          - kind: note
+            text:
+              en: "Damage reduction: 1d10 + mod(dex)."

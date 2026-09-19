@@ -1,0 +1,6 @@
+onCast:
+  - kind: applyCondition
+    condition: srd51.condition.unconscious
+    target: other
+    expires: { minutes: 1 }
+    note: { en: "No saving throw. Roll 5d8 (+2d8 per slot level above 1st): creatures within 20 feet of the point are affected in ascending order of current hit points, each subtracting its hit points from the total, as long as its hit points are at or below what remains. Undead and creatures immune to being charmed aren't affected. A sleeper wakes if it takes damage or someone uses an action to shake or slap it." }

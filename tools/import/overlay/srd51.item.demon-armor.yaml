@@ -1,0 +1,32 @@
+type: armor
+category: heavy
+ac: { base: 18, addDex: false }
+strengthMin: 15
+stealthDisadvantage: true
+attunement: true
+features:
+  - id: srd51.feature.item.demon-armor.benefits
+    name: { en: "Demon Armor" }
+    effects:
+      - kind: modify
+        target: ac
+        op: add
+        value: 1
+      - kind: grant-proficiency
+        type: language
+        items: [abyssal]
+        note: { en: "You can understand and speak Abyssal while wearing the armor." }
+      - kind: modify-attacks
+        filter: { unarmed: true }
+        set: { damageDie: 1d8, damageType: slashing, attackBonus: 1, damageBonus: 1, magical: true }
+        note: { en: "The armor's clawed gauntlets turn unarmed strikes with your hands into magic weapons." }
+  - id: srd51.feature.item.demon-armor.curse
+    name: { en: "Curse" }
+    effects:
+      - kind: roll-disadvantage
+        on: { type: attack, against: [demons] }
+      - kind: roll-disadvantage
+        on: { type: save, against: ["spells and special abilities of demons"] }
+      - kind: add-text
+        section: features
+        text: { en: "Curse. Once you don this cursed armor, you can't doff it unless you are targeted by the remove curse spell or similar magic." }

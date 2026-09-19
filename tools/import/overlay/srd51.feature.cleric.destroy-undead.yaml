@@ -1,0 +1,7 @@
+effects:
+  - kind: add-text
+    section: features
+    text:
+      en: "When an undead fails its saving throw against your Turn Undead feature, the creature is instantly destroyed if its challenge rating is at or below a threshold: 1/2 at 5th level, 1 at 8th, 2 at 11th, 3 at 14th, 4 at 17th."
+    note:
+      en: "Gap: rider on the turn-undead action resolved in play; the CR threshold is table(cleric.destroy-undead-cr)."

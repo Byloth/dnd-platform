@@ -1,0 +1,21 @@
+effects:
+  - kind: modify
+    target: hp.max
+    op: add
+    value: 2d10
+    note: { en: "Rolled once when the feast is consumed; the target also gains the same number of hit points." }
+  - kind: defense
+    defense: immunity
+    to: [poison]
+  - kind: defense
+    defense: condition-immunity
+    to: [srd51.condition.frightened]
+  - kind: roll-advantage
+    on: { type: save, ability: wis }
+onCast:
+  - kind: heal
+    amount: 2d10
+    target: other
+    note: { en: "The same number rolled for the hit point maximum increase." }
+  - kind: note
+    text: { en: "The feast takes 1 hour to consume and the benefits set in only afterwards, lasting 24 hours, for up to twelve other creatures. Each partaker is also cured of all diseases and poison." }

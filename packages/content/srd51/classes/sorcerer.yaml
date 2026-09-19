@@ -60,12 +60,6 @@ levels:
             Choose a sorcerous origin, which describes the source of your innate magical power: Draconic Bloodline or Wild Magic, both detailed at the end of the class description.
 
             Your choice grants you features when you choose it at 1st level and again at 6th, 14th, and 18th level.
-        effects:
-          - kind: open-choice
-            choice: sorcerous-origin
-            of: subclass
-            count: 1
-            level: 1
       - id: srd51.feature.sorcerer.spellcasting
         name:
           en: Spellcasting
@@ -114,6 +108,9 @@ levels:
             known:
               table: srd51.table.sorcerer.spells-known
             ritual: false
+    choices:
+      - id: sorcerous-origin
+        of: subclass
   "2":
     features:
       - id: srd51.feature.sorcerer.font-of-magic
@@ -146,6 +143,42 @@ levels:
             | 5th | 7|
 
             ***Converting a Spell Slot to Sorcery Points.*** As a bonus action on your turn, you can expend one spell slot and gain a number of sorcery points equal to the slot's level.
+        effects:
+          - kind: declare-resource
+            resource: sorcery-points
+            name:
+              en: Sorcery points
+            max: table(sorcerer.sorcery-points)
+            display: pips
+            recharge:
+              - on: long-rest
+                amount: full
+          - kind: add-action
+            action: create-spell-slot
+            name:
+              en: Create spell slot
+            activation: bonus-action
+            text:
+              en: You can transform unexpended sorcery points into one spell slot as a bonus action on your turn. You can create spell slots no higher in level than 5th. Any spell slot you create with this feature vanishes when you finish a long rest.
+            onUse:
+              - kind: note
+                text:
+                  en: "Spend sorcery points for the slot level you want: 2 points for a 1st-level slot, 3 for 2nd, 5 for 3rd, 6 for 4th, 7 for 5th. The created slot vanishes when you finish a long rest."
+            note:
+              en: The cost depends on the slot level chosen on use and the created slot is extra play state; neither is modelled yet, so the points are spent and the slot tracked by hand.
+          - kind: add-action
+            action: convert-spell-slot
+            name:
+              en: Convert spell slot to sorcery points
+            activation: bonus-action
+            text:
+              en: As a bonus action on your turn, you can expend one spell slot and gain a number of sorcery points equal to the slot's level.
+            onUse:
+              - kind: note
+                text:
+                  en: Expend one spell slot and regain sorcery points equal to the slot's level (you can never exceed your maximum).
+            note:
+              en: The slot spent is chosen on use; a slot-level-dependent restoreResource is not expressible yet.
   "3":
     features:
       - id: srd51.feature.sorcerer.metamagic
@@ -195,6 +228,151 @@ levels:
             When you cast a spell that targets only one creature and doesn't have a range of self, you can spend a number of sorcery points equal to the spell's level to target a second creature in range with the same spell (1 sorcery point if the spell is a cantrip).
 
             To be eligible, a spell must be incapable of targeting more than one creature at the spell's current level. For example, magic missile and scorching ray aren't eligible, but ray of frost and chromatic orb are.
+        effects:
+          - kind: open-choice
+            choice: metamagic
+            of: option
+            count: 2
+            note:
+              en: You gain another Metamagic option at 10th and 17th level (Metamagic Known column, table(sorcerer.metamagic-known)); the count of a choice cannot follow a table yet. You can use only one Metamagic option on a spell when you cast it, unless otherwise noted.
+            options:
+              - id: careful-spell
+                name:
+                  en: Careful Spell
+                text:
+                  en: When you cast a spell that forces other creatures to make a saving throw, you can protect some of those creatures from the spell's full force. To do so, you spend 1 sorcery point and choose a number of those creatures up to your Charisma modifier (minimum of one creature). A chosen creature automatically succeeds on its saving throw against the spell.
+                effects:
+                  - kind: add-action
+                    action: careful-spell
+                    name:
+                      en: Careful Spell
+                    activation: free
+                    cost:
+                      - resource: sorcery-points
+                        amount: 1
+                    text:
+                      en: When you cast a spell that forces other creatures to make a saving throw, spend 1 sorcery point and choose up to your Charisma modifier (minimum one) of those creatures; they automatically succeed on their saving throw against the spell.
+              - id: distant-spell
+                name:
+                  en: Distant Spell
+                text:
+                  en: When you cast a spell that has a range of 5 feet or greater, you can spend 1 sorcery point to double the range of the spell. When you cast a spell that has a range of touch, you can spend 1 sorcery point to make the range of the spell 30 feet.
+                effects:
+                  - kind: add-action
+                    action: distant-spell
+                    name:
+                      en: Distant Spell
+                    activation: free
+                    cost:
+                      - resource: sorcery-points
+                        amount: 1
+                    text:
+                      en: When you cast a spell with a range of 5 feet or greater, spend 1 sorcery point to double its range; a spell with a range of touch gets a range of 30 feet instead.
+              - id: empowered-spell
+                name:
+                  en: Empowered Spell
+                text:
+                  en: When you roll damage for a spell, you can spend 1 sorcery point to reroll a number of the damage dice up to your Charisma modifier (minimum of one). You must use the new rolls. You can use Empowered Spell even if you have already used a different Metamagic option during the casting of the spell.
+                effects:
+                  - kind: add-action
+                    action: empowered-spell
+                    name:
+                      en: Empowered Spell
+                    activation: free
+                    cost:
+                      - resource: sorcery-points
+                        amount: 1
+                    text:
+                      en: When you roll damage for a spell, spend 1 sorcery point to reroll up to your Charisma modifier (minimum one) of the damage dice; you must use the new rolls. Usable even if you already used another Metamagic option on the spell.
+                    onUse:
+                      - kind: reroll
+                        roll: damage
+                        keep: new
+                        note:
+                          en: Reroll up to your Charisma modifier (minimum one) of the damage dice.
+              - id: extended-spell
+                name:
+                  en: Extended Spell
+                text:
+                  en: When you cast a spell that has a duration of 1 minute or longer, you can spend 1 sorcery point to double its duration, to a maximum duration of 24 hours.
+                effects:
+                  - kind: add-action
+                    action: extended-spell
+                    name:
+                      en: Extended Spell
+                    activation: free
+                    cost:
+                      - resource: sorcery-points
+                        amount: 1
+                    text:
+                      en: When you cast a spell with a duration of 1 minute or longer, spend 1 sorcery point to double its duration, to a maximum of 24 hours.
+              - id: heightened-spell
+                name:
+                  en: Heightened Spell
+                text:
+                  en: When you cast a spell that forces a creature to make a saving throw to resist its effects, you can spend 3 sorcery points to give one target of the spell disadvantage on its first saving throw made against the spell.
+                effects:
+                  - kind: add-action
+                    action: heightened-spell
+                    name:
+                      en: Heightened Spell
+                    activation: free
+                    cost:
+                      - resource: sorcery-points
+                        amount: 3
+                    text:
+                      en: When you cast a spell that forces a creature to make a saving throw, spend 3 sorcery points to give one target disadvantage on its first saving throw against the spell.
+              - id: quickened-spell
+                name:
+                  en: Quickened Spell
+                text:
+                  en: When you cast a spell that has a casting time of 1 action, you can spend 2 sorcery points to change the casting time to 1 bonus action for this casting.
+                effects:
+                  - kind: add-action
+                    action: quickened-spell
+                    name:
+                      en: Quickened Spell
+                    activation: free
+                    cost:
+                      - resource: sorcery-points
+                        amount: 2
+                    text:
+                      en: When you cast a spell with a casting time of 1 action, spend 2 sorcery points to cast it as a bonus action instead.
+              - id: subtle-spell
+                name:
+                  en: Subtle Spell
+                text:
+                  en: When you cast a spell, you can spend 1 sorcery point to cast it without any somatic or verbal components.
+                effects:
+                  - kind: add-action
+                    action: subtle-spell
+                    name:
+                      en: Subtle Spell
+                    activation: free
+                    cost:
+                      - resource: sorcery-points
+                        amount: 1
+                    text:
+                      en: When you cast a spell, spend 1 sorcery point to cast it without any somatic or verbal components.
+              - id: twinned-spell
+                name:
+                  en: Twinned Spell
+                text:
+                  en: When you cast a spell that targets only one creature and doesn't have a range of self, you can spend a number of sorcery points equal to the spell's level to target a second creature in range with the same spell (1 sorcery point if the spell is a cantrip). To be eligible, a spell must be incapable of targeting more than one creature at the spell's current level.
+                effects:
+                  - kind: add-action
+                    action: twinned-spell
+                    name:
+                      en: Twinned Spell
+                    activation: free
+                    text:
+                      en: When you cast a spell that targets only one creature and doesn't have a range of self, spend sorcery points equal to the spell's level (1 for a cantrip) to target a second creature in range with the same spell. The spell must be incapable of targeting more than one creature at the level it is cast.
+                    onUse:
+                      - kind: note
+                        text:
+                          en: Spend sorcery points equal to the spell's level (1 for a cantrip).
+                    note:
+                      en: The cost equals the level of the spell being cast, which a fixed cost cannot express; deduct the points by hand.
   "4":
     features:
       - id: srd51.feature.sorcerer.ability-score-improvement
@@ -230,6 +408,12 @@ levels:
         source: srd51
         text:
           en: At 20th level, you regain 4 expended sorcery points whenever you finish a short rest.
+        onRest:
+          - kind: restoreResource
+            resource: sorcery-points
+            amount: 4
+            note:
+              en: You regain 4 expended sorcery points whenever you finish a short rest (a long rest already restores them all).
 tables:
   sorcery-points:
     by: classLevel

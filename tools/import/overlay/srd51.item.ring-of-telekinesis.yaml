@@ -1,0 +1,11 @@
+attunement: true
+features:
+  - id: srd51.feature.item.ring-of-telekinesis.telekinesis
+    name:
+      en: "\"Telekinesis at will\""
+    effects:
+      - kind: grant-spells
+        spells: [srd51.spell.telekinesis]
+        as: always-prepared
+        note:
+          en: "\"At will; you can target only objects that aren't being worn or carried.\""

@@ -1,0 +1,11 @@
+effects:
+  - kind: open-choice
+    choice: bonus-cantrip
+    of: spell
+    count: 1
+    filter:
+      type: spell
+      list: srd51.spell-list.druid
+      level: 0
+    note:
+      en: One additional druid cantrip, in addition to the Cantrips Known column of the Druid table.

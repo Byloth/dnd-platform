@@ -45,3 +45,7 @@ scaling:
     "18": 4d8
     "19": 4d8
     "20": 4d8
+onCast:
+  - kind: note
+    text:
+      en: On a hit, the target's speed is reduced by 10 feet until the start of your next turn.

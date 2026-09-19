@@ -1,0 +1,33 @@
+effects:
+  - kind: declare-resource
+    resource: arcane-recovery
+    name:
+      en: Arcane Recovery
+    max: 1
+    display: pips
+    recharge:
+      - on: dawn
+        amount: full
+    note:
+      en: Once per day.
+  - kind: add-action
+    action: arcane-recovery
+    name:
+      en: Arcane Recovery
+    activation: special
+    cost:
+      - resource: arcane-recovery
+        amount: 1
+    text:
+      en: Once per day when you finish a short rest, you can choose expended spell slots to recover. The spell slots can have a combined level that is equal to or less than half your wizard level (rounded up), and none of the slots can be 6th level or higher.
+    onUse:
+      - kind: restoreResource
+        resource: spell-slots
+        amount: full
+        budget: ceil(classLevel(wizard) / 2)
+        note:
+          en: Recover expended spell slots whose combined level is at most half your wizard level (rounded up); none of the slots can be 6th level or higher.
+onRest:
+  - kind: note
+    text:
+      en: If this is a short rest and you have not used Arcane Recovery today, you may use it now to recover expended spell slots (combined level up to half your wizard level, rounded up; no slot of 6th level or higher).

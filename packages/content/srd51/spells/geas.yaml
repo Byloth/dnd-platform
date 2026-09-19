@@ -30,3 +30,11 @@ rolls:
   - type: damage
     dice: 5d10
     damageType: psychic
+onCast:
+  - kind: applyCondition
+    condition: srd51.condition.charmed
+    target: other
+    expires:
+      hours: 720
+    note:
+      en: On a failed Wisdom saving throw (a creature that can't understand you is unaffected). While charmed the creature takes 5d10 psychic damage each time it acts in a manner directly counter to your instructions, but no more than once each day. Duration 1 year with a 7th- or 8th-level slot, until ended with a 9th-level slot; you can dismiss the spell as an action, a suicidal command ends it, and remove curse, greater restoration or wish ends it.

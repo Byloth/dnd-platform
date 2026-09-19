@@ -40,3 +40,95 @@ attunement: true
 tags:
   - magic-item
   - ring
+features:
+  - id: srd51.feature.item.ring-of-resistance.resistance
+    name:
+      en: Resistance
+    text:
+      en: You have resistance to one damage type while wearing this ring. The gem in the ring indicates the type, which the GM chooses or determines randomly.
+    effects:
+      - kind: open-choice
+        choice: damage-type
+        of: option
+        count: 1
+        options:
+          - id: acid
+            name:
+              en: Acid (pearl)
+            effects:
+              - kind: defense
+                defense: resistance
+                to:
+                  - acid
+          - id: cold
+            name:
+              en: Cold (tourmaline)
+            effects:
+              - kind: defense
+                defense: resistance
+                to:
+                  - cold
+          - id: fire
+            name:
+              en: Fire (garnet)
+            effects:
+              - kind: defense
+                defense: resistance
+                to:
+                  - fire
+          - id: force
+            name:
+              en: Force (sapphire)
+            effects:
+              - kind: defense
+                defense: resistance
+                to:
+                  - force
+          - id: lightning
+            name:
+              en: Lightning (citrine)
+            effects:
+              - kind: defense
+                defense: resistance
+                to:
+                  - lightning
+          - id: necrotic
+            name:
+              en: Necrotic (jet)
+            effects:
+              - kind: defense
+                defense: resistance
+                to:
+                  - necrotic
+          - id: poison
+            name:
+              en: Poison (amethyst)
+            effects:
+              - kind: defense
+                defense: resistance
+                to:
+                  - poison
+          - id: psychic
+            name:
+              en: Psychic (jade)
+            effects:
+              - kind: defense
+                defense: resistance
+                to:
+                  - psychic
+          - id: radiant
+            name:
+              en: Radiant (topaz)
+            effects:
+              - kind: defense
+                defense: resistance
+                to:
+                  - radiant
+          - id: thunder
+            name:
+              en: Thunder (spinel)
+            effects:
+              - kind: defense
+                defense: resistance
+                to:
+                  - thunder

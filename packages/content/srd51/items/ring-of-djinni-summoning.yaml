@@ -20,3 +20,37 @@ attunement: true
 tags:
   - magic-item
   - ring
+charges:
+  max: 1
+  recharge:
+    - on: manual
+      amount: full
+features:
+  - id: srd51.feature.item.ring-of-djinni-summoning.summon-the-djinni
+    name:
+      en: Summon the Djinni
+    text:
+      en: While wearing this ring, you can speak its command word as an action to summon a particular djinni from the Elemental Plane of Air. The djinni appears in an unoccupied space you choose within 120 feet of you. It remains as long as you concentrate (as if concentrating on a spell), to a maximum of 1 hour, or until it drops to 0 hit points. It then returns to its home plane. While summoned, the djinni is friendly to you and your companions. It obeys any commands you give it, no matter what language you use. If you fail to command it, the djinni defends itself against attackers but takes no other actions. After the djinni departs, it can't be summoned again for 24 hours, and the ring becomes nonmagical if the djinni dies.
+    effects:
+      - kind: add-action
+        action: summon-the-djinni
+        name:
+          en: Summon the Djinni
+        activation: action
+        cost:
+          - resource: charges
+            amount: 1
+        range:
+          type: point
+          distance: 120
+        duration:
+          type: timed
+          hours: 1
+          concentration: true
+        concentration: true
+        onUse:
+          - kind: note
+            text:
+              en: A djinni (stat block) appears within 120 feet and obeys your commands while you concentrate, up to 1 hour or until it drops to 0 hit points. It can't be summoned again for 24 hours (restore the charge by hand); the ring becomes nonmagical if the djinni dies.
+        text:
+          en: Speak the command word to summon a djinni for up to 1 hour of concentration. Once per 24 hours.

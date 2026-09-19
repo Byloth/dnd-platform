@@ -1,0 +1,41 @@
+effects:
+  - kind: defense
+    defense: resistance
+    to: [acid]
+    when: { answer: { choice: draconic-ancestry, is: black } }
+  - kind: defense
+    defense: resistance
+    to: [lightning]
+    when: { answer: { choice: draconic-ancestry, is: blue } }
+  - kind: defense
+    defense: resistance
+    to: [fire]
+    when: { answer: { choice: draconic-ancestry, is: brass } }
+  - kind: defense
+    defense: resistance
+    to: [lightning]
+    when: { answer: { choice: draconic-ancestry, is: bronze } }
+  - kind: defense
+    defense: resistance
+    to: [acid]
+    when: { answer: { choice: draconic-ancestry, is: copper } }
+  - kind: defense
+    defense: resistance
+    to: [fire]
+    when: { answer: { choice: draconic-ancestry, is: gold } }
+  - kind: defense
+    defense: resistance
+    to: [poison]
+    when: { answer: { choice: draconic-ancestry, is: green } }
+  - kind: defense
+    defense: resistance
+    to: [fire]
+    when: { answer: { choice: draconic-ancestry, is: red } }
+  - kind: defense
+    defense: resistance
+    to: [cold]
+    when: { answer: { choice: draconic-ancestry, is: silver } }
+  - kind: defense
+    defense: resistance
+    to: [cold]
+    when: { answer: { choice: draconic-ancestry, is: white } }

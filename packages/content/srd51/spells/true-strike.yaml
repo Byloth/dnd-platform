@@ -21,3 +21,11 @@ duration:
   concentration: true
 text:
   en: You extend your hand and point a finger at a target in range. Your magic grants you a brief insight into the target's defenses. On your next turn, you gain advantage on your first attack roll against the target, provided that this spell hasn't ended.
+effects:
+  - kind: roll-advantage
+    on:
+      type: attack
+      against:
+        - the pointed-at target
+    note:
+      en: Only your first attack roll against the target on your next turn, provided the spell hasn't ended.

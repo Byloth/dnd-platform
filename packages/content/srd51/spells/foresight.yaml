@@ -21,3 +21,19 @@ duration:
   hours: 8
 text:
   en: You touch a willing creature and bestow a limited ability to see into the immediate future. For the duration, the target can't be surprised and has advantage on attack rolls, ability checks, and saving throws. Additionally, other creatures have disadvantage on attack rolls against the target for the duration. This spell immediately ends if you cast it again before its duration ends.
+effects:
+  - kind: roll-advantage
+    on:
+      type: attack
+  - kind: roll-advantage
+    on:
+      type: check
+  - kind: roll-advantage
+    on:
+      type: save
+  - kind: add-text
+    section: combat
+    text:
+      en: You can't be surprised, and other creatures have disadvantage on attack rolls against you.
+    note:
+      en: Disadvantage on attacks made against the character is not expressible in v0. The spell ends immediately if you cast it again before its duration ends.

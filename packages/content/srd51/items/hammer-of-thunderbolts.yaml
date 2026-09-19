@@ -16,7 +16,97 @@ text:
 type: weapon
 magical: true
 rarity: legendary
-attunement: true
+attunement:
+  by:
+    en: a creature wearing a belt of giant strength (any variety) and gauntlets of ogre power; the attunement ends if you take off either item
 tags:
   - magic-item
   - weapon
+baseItem: srd51.item.maul
+category: martial
+damage: 2d6
+damageType: bludgeoning
+properties:
+  - heavy
+  - two-handed
+weight: 10
+charges:
+  max: 5
+  recharge:
+    - on: dawn
+      amount: 1d4 + 1
+features:
+  - id: srd51.feature.item.hammer-of-thunderbolts.magic-weapon
+    name:
+      en: Magic Weapon
+    text:
+      en: You gain a +1 bonus to attack and damage rolls made with this magic weapon.
+    effects:
+      - kind: modify-attacks
+        filter:
+          item: srd51.item.hammer-of-thunderbolts
+        set:
+          attackBonus: 1
+          damageBonus: 1
+          magical: true
+  - id: srd51.feature.item.hammer-of-thunderbolts.giants-bane
+    name:
+      en: Giant's Bane
+    text:
+      en: While you are attuned to this weapon and holding it, your Strength score increases by 4 and can exceed 20, but not 30. When you roll a 20 on an attack roll made with this weapon against a giant, the giant must succeed on a DC 17 Constitution saving throw or die.
+    effects:
+      - kind: modify
+        target: ability.str
+        op: add
+        value: 4
+        note:
+          en: Only while attuned and holding the hammer.
+      - kind: modify
+        target: ability.str.max
+        op: min
+        value: 30
+        note:
+          en: The Strength score can exceed 20 but not 30.
+      - kind: add-text
+        section: features
+        text:
+          en: When you roll a 20 on an attack roll made with this weapon against a giant, the giant must succeed on a DC 17 Constitution saving throw or die.
+        note:
+          en: A critical-hit save-or-die against giants; no kind expresses it.
+  - id: srd51.feature.item.hammer-of-thunderbolts.thunderclap
+    name:
+      en: Thunderclap
+    text:
+      en: While attuned to it, you can expend 1 charge and make a ranged weapon attack with the hammer, hurling it as if it had the thrown property with a normal range of 20 feet and a long range of 60 feet. If the attack hits, the hammer unleashes a thunderclap audible out to 300 feet. The target and every creature within 30 feet of it must succeed on a DC 17 Constitution saving throw or be stunned until the end of your next turn.
+    effects:
+      - kind: add-action
+        action: hurl-hammer
+        name:
+          en: Hurl the Hammer
+        activation: action
+        cost:
+          - resource: charges
+            amount: 1
+        range:
+          type: point
+          distance: 20
+          long: 60
+        dc: "17"
+        rolls:
+          - type: attack
+            ability: str
+            proficient: true
+          - type: damage
+            dice: 2d6
+            damageType: bludgeoning
+            bonus: 1
+        onHit:
+          - kind: applyCondition
+            condition: srd51.condition.stunned
+            target: other
+            expires:
+              until: next-turn-end
+            note:
+              en: The target and every creature within 30 feet of it must succeed on a DC 17 Constitution saving throw or be stunned until the end of your next turn.
+        text:
+          en: Make a ranged weapon attack with the hammer as if it had the thrown property (range 20/60). On a hit, the target and every creature within 30 feet of it must succeed on a DC 17 Constitution saving throw or be stunned until the end of your next turn.

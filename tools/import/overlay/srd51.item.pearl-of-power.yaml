@@ -1,0 +1,29 @@
+attunement:
+  by:
+    en: "a spellcaster"
+charges:
+  max: 1
+  recharge:
+    - on: dawn
+      amount: full
+features:
+  - id: srd51.feature.item.pearl-of-power.regain-a-spell-slot
+    name:
+      en: "Regain a Spell Slot"
+    text:
+      en: "While this pearl is on your person, you can use an action to speak its command word and regain one expended spell slot. If the expended slot was of 4th level or higher, the new slot is 3rd level. Once you use the pearl, it can't be used again until the next dawn."
+    effects:
+      - kind: add-action
+        action: regain-a-spell-slot
+        name:
+          en: "Regain a Spell Slot"
+        activation: action
+        cost: [{ resource: charges, amount: 1 }]
+        onUse:
+          - kind: restoreResource
+            resource: spell-slots
+            amount: 1
+            note:
+              en: "One expended spell slot. If the expended slot was of 4th level or higher, the new slot is 3rd level."
+        text:
+          en: "Speak the command word to regain one expended spell slot (3rd level if the expended slot was 4th level or higher)."

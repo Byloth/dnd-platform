@@ -1,0 +1,23 @@
+effects:
+  - kind: add-action
+    action: sneak-attack
+    name:
+      en: Sneak Attack
+    activation: special
+    requires:
+      condition:
+        any:
+          - wielding:
+              property: finesse
+          - wielding:
+              ranged: true
+    trigger:
+      en: when you hit a creature with an attack using a finesse or a ranged weapon and you have advantage on the attack roll, or another enemy of the target is within 5 feet of it, that enemy isn't incapacitated, and you don't have disadvantage on the attack roll
+    text:
+      en: Once per turn, you can deal extra damage to one creature you hit with an attack if you have advantage on the attack roll. The attack must use a finesse or a ranged weapon. You don't need advantage on the attack roll if another enemy of the target is within 5 feet of it, that enemy isn't incapacitated, and you don't have disadvantage on the attack roll.
+    onHit:
+      - kind: extraDamage
+        formula: table(rogue.sneak-attack)
+        once: per-turn
+        note:
+          en: The extra damage is of the weapon's damage type. Requires advantage on the attack roll, or an enemy of the target within 5 feet of it that isn't incapacitated while you don't have disadvantage.

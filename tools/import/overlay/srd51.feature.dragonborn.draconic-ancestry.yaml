@@ -1,0 +1,38 @@
+effects:
+  - kind: open-choice
+    choice: draconic-ancestry
+    of: option
+    count: 1
+    options:
+      - id: black
+        name: { en: Black }
+        text: { en: "Acid damage. Breath weapon: 5 by 30 ft. line (Dex. save)." }
+      - id: blue
+        name: { en: Blue }
+        text: { en: "Lightning damage. Breath weapon: 5 by 30 ft. line (Dex. save)." }
+      - id: brass
+        name: { en: Brass }
+        text: { en: "Fire damage. Breath weapon: 5 by 30 ft. line (Dex. save)." }
+      - id: bronze
+        name: { en: Bronze }
+        text: { en: "Lightning damage. Breath weapon: 5 by 30 ft. line (Dex. save)." }
+      - id: copper
+        name: { en: Copper }
+        text: { en: "Acid damage. Breath weapon: 5 by 30 ft. line (Dex. save)." }
+      - id: gold
+        name: { en: Gold }
+        text: { en: "Fire damage. Breath weapon: 15 ft. cone (Dex. save)." }
+      - id: green
+        name: { en: Green }
+        text: { en: "Poison damage. Breath weapon: 15 ft. cone (Con. save)." }
+      - id: red
+        name: { en: Red }
+        text: { en: "Fire damage. Breath weapon: 15 ft. cone (Dex. save)." }
+      - id: silver
+        name: { en: Silver }
+        text: { en: "Cold damage. Breath weapon: 15 ft. cone (Con. save)." }
+      - id: white
+        name: { en: White }
+        text: { en: "Cold damage. Breath weapon: 15 ft. cone (Con. save)." }
+    note:
+      en: The damage resistance and the breath weapon of the chosen dragon are applied by the Damage Resistance and Breath Weapon traits.

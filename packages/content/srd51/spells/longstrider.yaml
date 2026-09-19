@@ -22,3 +22,10 @@ text:
   en: You touch a creature. The target's speed increases by 10 feet until the spell ends.
 higherLevel:
   en: When you cast this spell using a spell slot of 2nd level or higher, you can target one additional creature for each spell slot above 1st.
+effects:
+  - kind: modify
+    target: speed.walk
+    op: add
+    value: 10
+    note:
+      en: Each slot level above 1st targets one additional creature.

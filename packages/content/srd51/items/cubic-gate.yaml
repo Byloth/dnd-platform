@@ -19,3 +19,23 @@ rarity: legendary
 tags:
   - magic-item
   - wondrous-items
+charges:
+  max: 3
+  recharge:
+    - on: dawn
+      amount: 1d3
+features:
+  - id: srd51.feature.item.cubic-gate.gate
+    name:
+      en: Planar gate
+    effects:
+      - kind: grant-spells
+        spells:
+          - srd51.spell.gate
+          - srd51.spell.plane-shift
+        as: always-prepared
+        cost:
+          - resource: charges
+            amount: 1
+        note:
+          en: As an action, press one side of the cube to cast gate, opening a portal to the plane keyed to that side; press a side twice to cast plane shift (save DC 17) and transport the targets to that plane. Each use expends 1 charge.

@@ -1,0 +1,6 @@
+onCast:
+  - kind: applyCondition
+    condition: srd51.condition.prone
+    target: other
+    expires: { manual: true }
+    note: { en: "Each creature standing in the area when the grease appears, and any creature that enters the area or ends its turn there, falls prone on a failed Dexterity saving throw. The area is difficult terrain for the duration." }

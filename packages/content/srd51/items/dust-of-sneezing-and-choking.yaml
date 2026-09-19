@@ -17,3 +17,7 @@ rarity: uncommon
 tags:
   - magic-item
   - wondrous-items
+onUse:
+  - kind: note
+    text:
+      en: "Throw a handful of the dust into the air as an action: you and each creature that needs to breathe within 30 feet must succeed on a DC 15 Constitution saving throw or become unable to breathe while sneezing uncontrollably (incapacitated and suffocating). A conscious creature repeats the save at the end of each of its turns, ending the effect on a success; lesser restoration also ends it. There is enough dust for one use."

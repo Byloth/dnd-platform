@@ -21,3 +21,10 @@ duration:
   concentration: true
 text:
   en: Until the spell ends, one willing creature you touch gains the ability to move up, down, and across vertical surfaces and upside down along ceilings, while leaving its hands free. The target also gains a climbing speed equal to its walking speed.
+effects:
+  - kind: add-text
+    section: senses
+    text:
+      en: Climbing speed equal to its walking speed; can move up, down and across vertical surfaces and upside down along ceilings with its hands free.
+    note:
+      en: "speed.climb can't be set equal to the walking speed: v0 formulas have no speed variable."

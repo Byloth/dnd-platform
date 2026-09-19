@@ -16,7 +16,57 @@ text:
 type: wondrous
 magical: true
 rarity: rare
-attunement: true
+attunement:
+  by:
+    en: a spellcaster
 tags:
   - magic-item
   - wand
+charges:
+  max: 7
+  recharge:
+    - on: dawn
+      amount: 1d6 + 1
+features:
+  - id: srd51.feature.item.wand-of-binding.spells
+    name:
+      en: Spells
+    effects:
+      - kind: grant-spells
+        spells:
+          - srd51.spell.hold-person
+        as: always-prepared
+        cost:
+          - resource: charges
+            amount: 2
+        note:
+          en: "Save DC 17; cast as an action while holding the wand. If you expend the last charge, roll a d20: on a 1 the wand crumbles into ashes and is destroyed."
+      - kind: grant-spells
+        spells:
+          - srd51.spell.hold-monster
+        as: always-prepared
+        cost:
+          - resource: charges
+            amount: 5
+        note:
+          en: Save DC 17.
+  - id: srd51.feature.item.wand-of-binding.assisted-escape
+    name:
+      en: Assisted Escape
+    effects:
+      - kind: add-action
+        action: assisted-escape
+        name:
+          en: Assisted Escape
+        activation: reaction
+        trigger:
+          en: when you make a saving throw to avoid being paralyzed or restrained, or a check to escape a grapple
+        cost:
+          - resource: charges
+            amount: 1
+        text:
+          en: Gain advantage on a saving throw you make to avoid being paralyzed or restrained, or on any check you make to escape a grapple.
+        onUse:
+          - kind: note
+            text:
+              en: Advantage on that saving throw or check.

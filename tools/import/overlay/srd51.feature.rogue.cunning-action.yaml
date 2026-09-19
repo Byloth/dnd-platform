@@ -1,0 +1,12 @@
+effects:
+  - kind: add-action
+    action: cunning-action
+    name:
+      en: Cunning Action
+    activation: bonus-action
+    text:
+      en: You can take a bonus action on each of your turns in combat. This action can be used only to take the Dash, Disengage, or Hide action.
+    onUse:
+      - kind: note
+        text:
+          en: Choose Dash, Disengage or Hide.

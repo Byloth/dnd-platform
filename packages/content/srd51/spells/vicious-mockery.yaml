@@ -44,3 +44,7 @@ scaling:
     "18": 4d4
     "19": 4d4
     "20": 4d4
+onCast:
+  - kind: note
+    text:
+      en: Only if the target can hear you. On a failed save it also has disadvantage on the next attack roll it makes before the end of its next turn.

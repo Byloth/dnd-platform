@@ -1,0 +1,7 @@
+effects:
+  - kind: add-text
+    section: features
+    text:
+      en: "When you cast a spell of 1st level or higher that restores hit points to a creature other than you, you regain hit points equal to 2 + the spell's level."
+    note:
+      en: "Gap: no cast-event hook for healing spells; heal yourself 2 + the slot level in play."

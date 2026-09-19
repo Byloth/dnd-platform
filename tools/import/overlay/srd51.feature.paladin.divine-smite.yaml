@@ -1,0 +1,25 @@
+effects:
+  - kind: add-action
+    action: divine-smite
+    name:
+      en: Divine Smite
+    activation: special
+    cost:
+      - resource: spell-slot
+        level: 1
+    requires:
+      condition:
+        wielding:
+          melee: true
+    trigger:
+      en: when you hit a creature with a melee weapon attack
+    text:
+      en: When you hit a creature with a melee weapon attack, you can expend one spell slot to deal radiant damage to the target, in addition to the weapon's damage. The extra damage is 2d8 for a 1st-level spell slot, plus 1d8 for each spell level higher than 1st, to a maximum of 5d8. The damage increases by 1d8 if the target is an undead or a fiend.
+    onHit:
+      - kind: extraDamage
+        dice: 2d8
+        damageType: radiant
+        note:
+          en: 2d8 for a 1st-level slot, plus 1d8 per slot level above 1st (maximum 5d8); +1d8 if the target is an undead or a fiend.
+    note:
+      en: The cost is fixed at a 1st-level slot; spending a higher-level slot for more dice is not expressible yet (no slot-level cost variable).

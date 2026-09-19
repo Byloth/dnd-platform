@@ -1,0 +1,41 @@
+attunement: true
+features:
+  - id: srd51.feature.item.crystal-ball.scrying
+    name: { en: "Scrying" }
+    effects:
+      - kind: grant-spells
+        spells: [srd51.spell.scrying]
+        as: always-prepared
+        note: { en: "Cast while touching the crystal ball, save DC 17." }
+      - kind: open-choice
+        choice: variant
+        of: option
+        count: 1
+        note: { en: "The typical crystal ball is very rare; the three variants are legendary and have an additional property." }
+        options:
+          - id: typical
+            name: { en: "Typical crystal ball (very rare)" }
+          - id: mind-reading
+            name: { en: "Crystal ball of mind reading (legendary)" }
+            effects:
+              - kind: grant-spells
+                spells: [srd51.spell.detect-thoughts]
+                as: always-prepared
+                note: { en: "Cast as an action (save DC 17) while you are scrying with the crystal ball, targeting creatures you can see within 30 feet of the spell's sensor. No concentration is needed, but it ends if scrying ends." }
+          - id: telepathy
+            name: { en: "Crystal ball of telepathy (legendary)" }
+            effects:
+              - kind: add-text
+                section: features
+                text: { en: "While scrying with the crystal ball, you can communicate telepathically with creatures you can see within 30 feet of the spell's sensor." }
+              - kind: grant-spells
+                spells: [srd51.spell.suggestion]
+                as: always-prepared
+                uses: { count: 1, recharge: dawn }
+                note: { en: "Cast as an action (save DC 17) through the sensor on a creature you can see within 30 feet of it, while scrying. No concentration is needed, but it ends if scrying ends." }
+          - id: true-seeing
+            name: { en: "Crystal ball of true seeing (legendary)" }
+            effects:
+              - kind: add-text
+                section: senses
+                text: { en: "While scrying with the crystal ball, you have truesight with a radius of 120 feet centered on the spell's sensor." }

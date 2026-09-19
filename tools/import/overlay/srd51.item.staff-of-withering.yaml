@@ -1,0 +1,37 @@
+attunement: { by: { en: "a cleric, druid, or warlock" } }
+baseItem: srd51.item.quarterstaff
+category: simple
+damage: 1d6
+damageType: bludgeoning
+properties: [versatile]
+versatile: 1d8
+monkWeapon: true
+charges:
+  max: 3
+  recharge: [{ on: dawn, amount: "1d3" }]
+features:
+  - id: srd51.feature.item.staff-of-withering.magic-quarterstaff
+    name: { en: "Magic Quarterstaff" }
+    effects:
+      - kind: modify-attacks
+        filter: { item: srd51.item.staff-of-withering }
+        set: { magical: true }
+  - id: srd51.feature.item.staff-of-withering.withering
+    name: { en: "Withering" }
+    effects:
+      - kind: add-action
+        action: withering
+        name: { en: "Withering" }
+        activation: special
+        trigger: { en: "when you hit with the staff" }
+        cost: [{ resource: charges, amount: 1 }]
+        dc: "15"
+        rolls:
+          - { type: save, ability: con }
+        text: { en: "Expend 1 charge to deal an extra 2d10 necrotic damage to the target. In addition, the target must succeed on a DC 15 Constitution saving throw or have disadvantage for 1 hour on any ability check or saving throw that uses Strength or Constitution." }
+        onHit:
+          - kind: extraDamage
+            dice: "2d10"
+            damageType: necrotic
+          - kind: note
+            text: { en: "DC 15 Constitution save or disadvantage for 1 hour on Strength and Constitution checks and saving throws." }

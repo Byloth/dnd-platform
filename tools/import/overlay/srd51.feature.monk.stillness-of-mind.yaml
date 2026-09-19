@@ -1,0 +1,17 @@
+effects:
+  - kind: add-action
+    action: stillness-of-mind
+    name:
+      en: Stillness of Mind
+    activation: action
+    requires:
+      condition:
+        any:
+          - conditionActive: srd51.condition.charmed
+          - conditionActive: srd51.condition.frightened
+    text:
+      en: You can use your action to end one effect on yourself that is causing you to be charmed or frightened.
+    onUse:
+      - kind: note
+        text:
+          en: End one effect on yourself that is causing you to be charmed or frightened.

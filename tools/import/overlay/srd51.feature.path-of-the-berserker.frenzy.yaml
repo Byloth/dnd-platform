@@ -1,0 +1,27 @@
+toggle:
+  state: frenzy
+  expires:
+    minutes: 1
+effects:
+  - kind: add-action
+    action: frenzy-attack
+    name:
+      en: Frenzy attack
+    activation: bonus-action
+    requires:
+      condition:
+        all:
+          - toggled: raging
+          - toggled: frenzy
+    text:
+      en: "When you rage, you can go into a frenzy. If you do so, for the duration of your rage you can make a single melee weapon attack as a bonus action on each of your turns after this one. When your rage ends, you suffer one level of exhaustion."
+    onUse:
+      - kind: note
+        text:
+          en: Make a single melee weapon attack.
+  - kind: add-text
+    section: features
+    text:
+      en: "When your rage ends after a frenzy, you suffer one level of exhaustion."
+    note:
+      en: "Gap: no hook for a toggle ending; apply one level of srd51.condition.exhaustion by hand when the rage ends."

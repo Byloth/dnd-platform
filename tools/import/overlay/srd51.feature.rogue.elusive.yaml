@@ -1,0 +1,7 @@
+effects:
+  - kind: add-text
+    section: features
+    text:
+      en: No attack roll has advantage against you while you aren't incapacitated.
+    note:
+      en: Negating advantage on incoming attack rolls has no catalogue kind; applied in play.

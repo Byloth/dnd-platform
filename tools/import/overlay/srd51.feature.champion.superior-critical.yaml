@@ -1,0 +1,6 @@
+effects:
+  - kind: modify-attacks
+    set:
+      critRange: 18
+    note:
+      en: Your weapon attacks score a critical hit on a roll of 18-20. Supersedes Improved Critical.

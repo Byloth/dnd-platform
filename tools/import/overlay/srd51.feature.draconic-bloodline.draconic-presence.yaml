@@ -1,0 +1,25 @@
+effects:
+  - kind: add-action
+    action: draconic-presence
+    name:
+      en: Draconic Presence
+    activation: action
+    cost:
+      - resource: sorcery-points
+        amount: 5
+    range:
+      type: self
+      distance: 60
+    duration:
+      type: timed
+      minutes: 1
+      concentration: true
+    concentration: true
+    text:
+      en: As an action, you can spend 5 sorcery points to exude an aura of awe or fear (your choice) to a distance of 60 feet. For 1 minute or until you lose your concentration (as if you were casting a concentration spell), each hostile creature that starts its turn in this aura must succeed on a Wisdom saving throw or be charmed (if you chose awe) or frightened (if you chose fear) until the aura ends. A creature that succeeds on this saving throw is immune to your aura for 24 hours.
+    onUse:
+      - kind: note
+        text:
+          en: Choose awe (charmed) or fear (frightened). Each hostile creature that starts its turn within 60 feet makes a Wisdom saving throw; on a failure it is charmed or frightened until the aura ends, on a success it is immune to your aura for 24 hours.
+    note:
+      en: The text does not state the saving throw DC, so none is declared; the condition is imposed on other creatures at the start of their turns, which the play engine does not track.

@@ -1,0 +1,34 @@
+attunement: true
+features:
+  - id: srd51.feature.item.sword-of-sharpness.magic-weapon
+    name: { en: "Magic Weapon" }
+    effects:
+      - kind: modify-attacks
+        filter: { item: srd51.item.sword-of-sharpness }
+        set: { magical: true }
+        note: { en: "Any sword that deals slashing damage; this item carries no base weapon properties of its own. When you hit an object with it, maximize your weapon damage dice against the target." }
+  - id: srd51.feature.item.sword-of-sharpness.sharpness
+    name: { en: "Sharpness" }
+    effects:
+      - kind: add-action
+        action: sharpness
+        name: { en: "Sharpness" }
+        activation: special
+        trigger: { en: "when you roll a 20 on an attack roll with this weapon against a creature" }
+        text: { en: "The target takes an extra 4d6 slashing damage. Then roll another d20: on a 20 you lop off one of the target's limbs, with the effect determined by the GM; a creature with no limb loses a portion of its body instead." }
+        onHit:
+          - kind: extraDamage
+            dice: "4d6"
+            damageType: slashing
+          - kind: note
+            text: { en: "Roll another d20; on a 20, sever a limb (GM decides the effect)." }
+  - id: srd51.feature.item.sword-of-sharpness.light
+    name: { en: "Light" }
+    effects:
+      - kind: add-action
+        action: sword-of-sharpness-light
+        name: { en: "Shed light" }
+        activation: special
+        toggle: { state: sword-of-sharpness-light }
+        text: { en: "Speak the command word to make the blade shed bright light in a 10-foot radius and dim light for an additional 10 feet. Speaking the command word again or sheathing the sword puts out the light." }
+        note: { en: "The text states no action type for speaking the command word." }

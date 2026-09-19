@@ -31,3 +31,11 @@ rolls:
     damageType: bludgeoning
 tags:
   - area
+onCast:
+  - kind: applyCondition
+    condition: srd51.condition.restrained
+    target: other
+    expires:
+      minutes: 1
+    note:
+      en: On a failed Dexterity saving throw when a creature enters the area for the first time on a turn or starts its turn there, together with 3d6 bludgeoning damage; a creature that starts its turn restrained takes 3d6 bludgeoning damage again, and can use its action to make a Strength or Dexterity check against your spell save DC to free itself. The area is difficult terrain.

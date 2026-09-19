@@ -1,0 +1,6 @@
+effects:
+  - kind: roll-advantage
+    on:
+      type: save
+      against:
+        - frightened

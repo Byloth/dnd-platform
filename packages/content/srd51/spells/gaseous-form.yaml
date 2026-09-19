@@ -25,3 +25,44 @@ rolls:
   - type: save
     ability: con
     onSuccess: none
+effects:
+  - kind: modify
+    target: speed.fly
+    op: set
+    value: 10
+    note:
+      en: Your only method of movement while in this form.
+  - kind: defense
+    defense: resistance
+    to:
+      - acid
+      - bludgeoning
+      - cold
+      - fire
+      - force
+      - lightning
+      - necrotic
+      - piercing
+      - poison
+      - psychic
+      - radiant
+      - slashing
+      - thunder
+    note:
+      en: Nonmagical damage only.
+  - kind: roll-advantage
+    on:
+      type: save
+      ability: str
+  - kind: roll-advantage
+    on:
+      type: save
+      ability: dex
+  - kind: roll-advantage
+    on:
+      type: save
+      ability: con
+  - kind: add-text
+    section: features
+    text:
+      en: "Misty cloud: you can enter and occupy another creature's space and pass through small holes, narrow openings and mere cracks (liquids count as solid surfaces); you can't fall and remain hovering even when stunned or otherwise incapacitated; you can't talk, manipulate or use objects, attack or cast spells. The spell ends if you drop to 0 hit points."

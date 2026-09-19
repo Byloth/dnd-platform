@@ -15,3 +15,17 @@ rarity: uncommon
 tags:
   - magic-item
   - wondrous-items
+features:
+  - id: srd51.feature.item.circlet-of-blasting.scorching-ray
+    name:
+      en: Scorching ray
+    effects:
+      - kind: grant-spells
+        spells:
+          - srd51.spell.scorching-ray
+        as: always-prepared
+        uses:
+          count: 1
+          recharge: dawn
+        note:
+          en: Cast as an action; the spell's attacks are made with an attack bonus of +5.

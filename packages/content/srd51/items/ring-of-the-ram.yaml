@@ -18,3 +18,59 @@ attunement: true
 tags:
   - magic-item
   - ring
+charges:
+  max: 3
+  recharge:
+    - on: dawn
+      amount: 1d3
+features:
+  - id: srd51.feature.item.ring-of-the-ram.ram-attack
+    name:
+      en: '"Spectral Ram"'
+    effects:
+      - kind: add-action
+        action: ram-attack
+        name:
+          en: '"Spectral Ram"'
+        activation: action
+        cost:
+          - resource: charges
+            amount: 1
+        range:
+          type: point
+          distance: 60
+        rolls:
+          - type: attack
+            bonus: 7
+          - type: damage
+            dice: 2d10
+            damageType: force
+        text:
+          en: '"Expend 1 to 3 charges to attack one creature you can see within 60 feet. The ring makes its attack roll with a +7 bonus. On a hit, for each charge spent, the target takes 2d10 force damage and is pushed 5 feet away from you."'
+        note:
+          en: '"The attack roll is a flat +7 (no ability modifier or proficiency). Damage and push scale with the charges spent: 1 to 3."'
+        onHit:
+          - kind: note
+            text:
+              en: '"2d10 force damage and a 5-foot push per charge spent."'
+  - id: srd51.feature.item.ring-of-the-ram.break-object
+    name:
+      en: '"Break Object"'
+    effects:
+      - kind: add-action
+        action: break-object
+        name:
+          en: '"Break Object"'
+        activation: action
+        cost:
+          - resource: charges
+            amount: 1
+        range:
+          type: point
+          distance: 60
+        text:
+          en: "\"Expend 1 to 3 charges to try to break an object you can see within 60 feet that isn't being worn or carried. The ring makes a Strength check with a +5 bonus for each charge you spend.\""
+        onUse:
+          - kind: note
+            text:
+              en: '"Strength check at +5 per charge spent (1 to 3 charges)."'

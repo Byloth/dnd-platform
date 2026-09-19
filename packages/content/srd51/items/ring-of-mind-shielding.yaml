@@ -20,3 +20,33 @@ attunement: true
 tags:
   - magic-item
   - ring
+features:
+  - id: srd51.feature.item.ring-of-mind-shielding.mind-shielding
+    name:
+      en: Mind Shielding
+    text:
+      en: While wearing this ring, you are immune to magic that allows other creatures to read your thoughts, determine whether you are lying, know your alignment, or know your creature type. Creatures can telepathically communicate with you only if you allow it.
+    effects:
+      - kind: add-text
+        section: features
+        text:
+          en: You are immune to magic that allows other creatures to read your thoughts, determine whether you are lying, know your alignment, or know your creature type. Creatures can telepathically communicate with you only if you allow it.
+        note:
+          en: Immunity to divination effects has no defense entry.
+  - id: srd51.feature.item.ring-of-mind-shielding.hide-the-ring
+    name:
+      en: Hide the Ring
+    text:
+      en: You can use an action to cause the ring to become invisible until you use another action to make it visible, until you remove the ring, or until you die. If you die while wearing the ring, your soul enters it, unless it already houses a soul.
+    effects:
+      - kind: add-action
+        action: hide-the-ring
+        name:
+          en: Hide the Ring
+        activation: action
+        toggle:
+          state: ring-of-mind-shielding-invisible
+          expires:
+            manual: true
+        text:
+          en: The ring becomes invisible until you use another action to make it visible, until you remove it, or until you die.

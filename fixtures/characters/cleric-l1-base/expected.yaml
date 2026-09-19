@@ -1,0 +1,29 @@
+# Human Cleric 1 (Life Domain) on the real base package. Scores after the human +1: STR 13, DEX 12, CON 14, INT 10, WIS 16, CHA 10.
+values:
+  ability.wis: 16            # 15 + 1 (human)
+  mod.wis: 3
+  proficiencyBonus: 2
+  hp.max: 10                 # 8 + CON 2
+  ac: 11                     # 10 + DEX 1 (no armour equipped)
+  save.wis: 5                # 3 + 2 proficient
+  save.cha: 2                # 0 + 2 proficient
+  save.str: 1                # not proficient
+  skill.insight: 5           # WIS 3 + 2
+  skill.religion: 2          # INT 0 + 2
+  skill.medicine: 3          # WIS 3, not proficient
+  speed.walk: 30
+spellcasting:
+  srd51.class.cleric:
+    dc: 13                   # 8 + 2 + 3
+    attackBonus: 5           # 2 + 3
+    slots: { 1: 2 }          # full-caster table, level 1
+    cantripsKnown: 3
+spells:
+  srd51.spell.sacred-flame: free
+  srd51.spell.guidance: free
+  srd51.spell.cure-wounds: slot
+  srd51.spell.healing-word: slot
+proficiencies: [save:wis, save:cha, skill:insight, skill:religion, armor:light, armor:medium, armor:shield, weapon:simple]
+sections:
+  active: [spellcasting, spells, features]
+  inactive: [senses, resources]

@@ -16,3 +16,33 @@ attunement: true
 tags:
   - magic-item
   - weapon
+baseItem: srd51.item.scimitar
+category: martial
+damage: 1d6
+damageType: slashing
+properties:
+  - finesse
+  - light
+features:
+  - id: srd51.feature.item.scimitar-of-speed.bonus
+    name:
+      en: Scimitar of Speed
+    effects:
+      - kind: modify-attacks
+        filter:
+          item: srd51.item.scimitar-of-speed
+        set:
+          attackBonus: 2
+          damageBonus: 2
+          magical: true
+  - id: srd51.feature.item.scimitar-of-speed.speed
+    name:
+      en: Speed
+    effects:
+      - kind: add-action
+        action: scimitar-of-speed-attack
+        name:
+          en: Scimitar of Speed attack
+        activation: bonus-action
+        text:
+          en: Make one attack with the scimitar of speed as a bonus action on each of your turns.

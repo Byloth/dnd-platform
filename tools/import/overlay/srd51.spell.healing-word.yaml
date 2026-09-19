@@ -1,0 +1,5 @@
+onCast:
+  - kind: heal
+    amount: 1d4
+    target: other
+    note: { en: "Plus your spellcasting ability modifier (the formula language has no spellcasting-ability variable in v0). No effect on undead or constructs." }

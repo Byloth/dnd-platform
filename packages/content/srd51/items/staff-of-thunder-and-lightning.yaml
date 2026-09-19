@@ -26,3 +26,192 @@ attunement: true
 tags:
   - magic-item
   - staff
+baseItem: srd51.item.quarterstaff
+category: simple
+damage: 1d6
+damageType: bludgeoning
+properties:
+  - versatile
+versatile: 1d8
+monkWeapon: true
+features:
+  - id: srd51.feature.item.staff-of-thunder-and-lightning.magic-quarterstaff
+    name:
+      en: Magic Quarterstaff
+    effects:
+      - kind: modify-attacks
+        filter:
+          item: srd51.item.staff-of-thunder-and-lightning
+        set:
+          attackBonus: 2
+          damageBonus: 2
+          magical: true
+  - id: srd51.feature.item.staff-of-thunder-and-lightning.lightning
+    name:
+      en: Lightning
+    effects:
+      - kind: declare-resource
+        resource: lightning
+        name:
+          en: Lightning
+        max: 1
+        recharge:
+          - on: dawn
+            amount: full
+        display: pips
+      - kind: add-action
+        action: lightning
+        name:
+          en: Lightning
+        activation: special
+        trigger:
+          en: when you hit with a melee attack using the staff
+        cost:
+          - resource: lightning
+            amount: 1
+        text:
+          en: The target takes an extra 2d6 lightning damage.
+        onHit:
+          - kind: extraDamage
+            dice: 2d6
+            damageType: lightning
+  - id: srd51.feature.item.staff-of-thunder-and-lightning.thunder
+    name:
+      en: Thunder
+    effects:
+      - kind: declare-resource
+        resource: thunder
+        name:
+          en: Thunder
+        max: 1
+        recharge:
+          - on: dawn
+            amount: full
+        display: pips
+      - kind: add-action
+        action: thunder
+        name:
+          en: Thunder
+        activation: special
+        trigger:
+          en: when you hit with a melee attack using the staff
+        cost:
+          - resource: thunder
+            amount: 1
+        dc: "17"
+        rolls:
+          - type: save
+            ability: con
+        text:
+          en: The staff emits a crack of thunder audible out to 300 feet. The target must succeed on a DC 17 Constitution saving throw or become stunned until the end of your next turn.
+        onHit:
+          - kind: applyCondition
+            condition: srd51.condition.stunned
+            target: other
+            expires:
+              until: next-turn-end
+            note:
+              en: Only on a failed DC 17 Constitution save.
+  - id: srd51.feature.item.staff-of-thunder-and-lightning.lightning-strike
+    name:
+      en: Lightning Strike
+    effects:
+      - kind: declare-resource
+        resource: lightning-strike
+        name:
+          en: Lightning Strike
+        max: 1
+        recharge:
+          - on: dawn
+            amount: full
+        display: pips
+      - kind: add-action
+        action: lightning-strike
+        name:
+          en: Lightning Strike
+        activation: action
+        cost:
+          - resource: lightning-strike
+            amount: 1
+        range:
+          type: self
+          distance: 120
+        dc: "17"
+        rolls:
+          - type: save
+            ability: dex
+            onSuccess: half
+          - type: damage
+            dice: 9d6
+            damageType: lightning
+        text:
+          en: A bolt of lightning leaps from the staff's tip in a line 5 feet wide and 120 feet long. Each creature in the line makes a DC 17 Dexterity saving throw, taking 9d6 lightning damage on a failure or half as much on a success.
+  - id: srd51.feature.item.staff-of-thunder-and-lightning.thunderclap
+    name:
+      en: Thunderclap
+    effects:
+      - kind: declare-resource
+        resource: thunderclap
+        name:
+          en: Thunderclap
+        max: 1
+        recharge:
+          - on: dawn
+            amount: full
+        display: pips
+      - kind: add-action
+        action: thunderclap
+        name:
+          en: Thunderclap
+        activation: action
+        cost:
+          - resource: thunderclap
+            amount: 1
+        range:
+          type: self
+          distance: 60
+        dc: "17"
+        rolls:
+          - type: save
+            ability: con
+            onSuccess: half
+          - type: damage
+            dice: 2d6
+            damageType: thunder
+        text:
+          en: "A deafening thunderclap audible out to 600 feet. Each creature within 60 feet of you (not including you) makes a DC 17 Constitution saving throw: on a failure it takes 2d6 thunder damage and is deafened for 1 minute; on a success it takes half damage and isn't deafened."
+        onUse:
+          - kind: applyCondition
+            condition: srd51.condition.deafened
+            target: other
+            expires:
+              minutes: 1
+            note:
+              en: Only creatures that fail the save.
+  - id: srd51.feature.item.staff-of-thunder-and-lightning.thunder-and-lightning
+    name:
+      en: Thunder and Lightning
+    effects:
+      - kind: declare-resource
+        resource: thunder-and-lightning
+        name:
+          en: Thunder and Lightning
+        max: 1
+        recharge:
+          - on: dawn
+            amount: full
+        display: pips
+      - kind: add-action
+        action: thunder-and-lightning
+        name:
+          en: Thunder and Lightning
+        activation: action
+        cost:
+          - resource: thunder-and-lightning
+            amount: 1
+        text:
+          en: Use the Lightning Strike and Thunderclap properties at the same time. Doing so doesn't expend the daily use of those properties, only the use of this one.
+        onUse:
+          - kind: note
+            text:
+              en: Resolve Lightning Strike (9d6 lightning, DC 17 Dexterity, 120-foot line) and Thunderclap (2d6 thunder and deafened, DC 17 Constitution, 60-foot radius) together without spending their own uses.

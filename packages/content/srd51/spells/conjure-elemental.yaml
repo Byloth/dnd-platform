@@ -30,3 +30,12 @@ higherLevel:
   en: When you cast this spell using a spell slot of 6th level or higher, the challenge rating increases by 1 for each slot level above 5th.
 tags:
   - area
+effects:
+  - kind: add-text
+    section: features
+    text:
+      en: The summoned elemental (challenge rating 5 or lower, matching the chosen area of air, earth, fire or water) is friendly to you and your companions, rolls its own initiative and obeys your verbal commands (no action required); without commands it only defends itself. It disappears at 0 hit points or when the spell ends. If your concentration is broken, the elemental stays, becomes hostile, can't be dismissed and disappears 1 hour after being summoned.
+onCast:
+  - kind: note
+    text:
+      en: The DM has the elemental's statistics (no stat blocks in v0). The challenge rating increases by 1 for each slot level above 5th.
