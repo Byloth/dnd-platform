@@ -259,7 +259,7 @@ export interface Modify {
     note?: LocalizedString;
     target: string;
     op: "add" | "set" | "set-formula" | "min" | "max" | "mul";
-    value?: number | string | "unlimited";
+    value?: number | string | "unlimited" | ("short-rest" | "long-rest" | "dawn" | "manual");
     formula?: string;
 }
 /**

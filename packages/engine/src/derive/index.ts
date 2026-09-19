@@ -10,6 +10,7 @@ import type {
 
 import { evaluateWhen, ConditionError } from "../conditions/evaluate.js";
 import type { Facts } from "../conditions/evaluate.js";
+import { stableStringify } from "../canonical.js";
 import { evaluateFormula, formatValue } from "../formula/evaluate.js";
 import type {
     ActionView, ChoiceView, ComputedSheet, Contribution, ContributionSource, DefenseView, DeriveOptions, DerivedValue,
@@ -18,6 +19,8 @@ import type {
     SpellcastingView, SpellView, ValuePath
 } from "../index.js";
 import { baseAbilityScores, buildFacts, classLevelsOf, equippedItems, totalLevel } from "./facts.js";
+import { assembleAttacks } from "./attacks.js";
+import type { AttackModifier } from "./attacks.js";
 import { collectFeatures } from "./features.js";
 import type { ActiveFeature, PendingChoice } from "./features.js";
 import { ValueGraph } from "./values.js";
@@ -227,12 +230,20 @@ export function derive(character: Character, set: PackageSet, options: DeriveOpt
     const background = set.entities.get(character.choices.background ?? "")?.data as Background | undefined;
 
     // ---- pass 1: proficiencies and choices from entity blocks and effects ----
-    for (const cls of classes)
+    classes.forEach((cls, index) =>
     {
         const source = { package: cls.package, entity: cls.id };
-        for (const save of cls.data.savingThrows) { addProficiency(col, "save", save, source); }
-        grantsOf(cls.id, cls.data.proficiencies, source, col, answers);
-    }
+        if (index === 0)
+        {
+            for (const save of cls.data.savingThrows) { addProficiency(col, "save", save, source); }
+            grantsOf(cls.id, cls.data.proficiencies, source, col, answers);
+        }
+        else
+        {
+            // Multiclassing: later classes grant only their multiclass proficiencies, never saves.
+            grantsOf(cls.id, cls.data.multiclass?.proficiencies, source, col, answers);
+        }
+    });
     if (species && character.choices.species)
     {
         const source = { package: set.entities.get(character.choices.species)?.package ?? "", entity: species.id };
@@ -343,11 +354,19 @@ export function derive(character: Character, set: PackageSet, options: DeriveOpt
             });
         }
     }
+    /** Spells chosen through feature choices (High Elf cantrip, Bonus Cantrip); added after spellcasting. */
+    interface ChosenSpell { readonly id: string, readonly source: ContributionSource, readonly ownerClass?: string }
+    const chosenSpells: ChosenSpell[] = [];
     for (const ctx of contexts)
     {
         if ((ctx.effect.kind === "open-choice") && !ctx.effect.options)
         {
-            registerChoice(col, answers, {
+            const gate = ctx.effect.level;
+            const reached = ctx.feature.ownerClass !== undefined ?
+                (facts.classLevels[ctx.feature.ownerClass] ?? 0) :
+                facts.level;
+            if (!ctx.applied || ((gate !== undefined) && (reached < gate))) { continue; }
+            const given = registerChoice(col, answers, {
                 key: `${ctx.feature.id}#${ctx.effect.choice}`,
                 owner: ctx.feature.id,
                 choice: ctx.effect.choice,
@@ -355,6 +374,19 @@ export function derive(character: Character, set: PackageSet, options: DeriveOpt
                 count: ctx.effect.count ?? 1,
                 options: ctx.effect.from ?? []
             });
+            if ((ctx.effect.of === "skill") || (ctx.effect.of === "tool") || (ctx.effect.of === "language"))
+            {
+                for (const item of given) { addProficiency(col, ctx.effect.of, item, ctx.source); }
+            }
+            if (ctx.effect.of === "spell")
+            {
+                for (const id of given)
+                {
+                    const ownerClass = ctx.feature.ownerClass;
+                    const scope = ownerClass ? { ownerClass: ownerClass } : {};
+                    chosenSpells.push({ id: id, source: ctx.source, ...scope });
+                }
+            }
         }
     }
 
@@ -417,6 +449,7 @@ export function derive(character: Character, set: PackageSet, options: DeriveOpt
     // ---- views ----
     const resources: ResourceView[] = [];
     const actions: ActionView[] = [];
+    const attackModifiers: AttackModifier[] = [];
     const rollModifiers: RollModifierView[] = [];
     const defenses: DefenseView[] = [];
     const spellcasting: SpellcastingView[] = [];
@@ -427,7 +460,12 @@ export function derive(character: Character, set: PackageSet, options: DeriveOpt
         if (!contributions.some((c) => c.target === path && c.applied)) { return declared; }
         const value = graph.get(path).value;
 
-        return typeof value === "string" && value !== "0" ? [{ on: value, amount: "full" }] : declared;
+        if (typeof value !== "string" || value === "0") { return declared; }
+
+        // A short-rest recharge is also regained on a long rest.
+        return value === "short-rest" ?
+            [{ on: "short-rest", amount: "full" }, { on: "long-rest", amount: "full" }] :
+            [{ on: value, amount: "full" }];
     };
     const spells: SpellView[] = [];
     const sections = new Set<string>(ALWAYS_SECTIONS);
@@ -595,6 +633,15 @@ export function derive(character: Character, set: PackageSet, options: DeriveOpt
                 if (rolls?.some((r) => r.type === "attack")) { sections.add("attacks"); }
                 break;
             }
+            case "modify-attacks":
+                attackModifiers.push({
+                    effect: e,
+                    applied: ctx.applied,
+                    source: ctx.source,
+                    label: ctx.feature.data.name,
+                    ...(ownerClass ? { ownerClass: ownerClass } : {})
+                });
+                break;
             case "roll-advantage":
             case "roll-disadvantage":
                 rollModifiers.push({
@@ -695,15 +742,22 @@ export function derive(character: Character, set: PackageSet, options: DeriveOpt
                     source: ctx.source
                 });
                 // Chosen cantrips and spells live in the answers: `<class id>#cantrips`, `<class id>#spells`.
-                const preparedCount = e.preparation === "known" ? (spellsKnown ?? 0) : Math.max(1, classLevel + mod);
-                const cantrips = registerChoice(col, answers, {
-                    key: `${classId}#cantrips`,
-                    owner: classId,
-                    choice: "cantrips",
-                    of: "spell",
-                    count: cantripsKnown ?? 0,
-                    options: []
-                });
+                const progression = "progression" in e.slots ? e.slots.progression : "full";
+                const divisor = progression === "half" ? 2 : progression === "third" ? 3 : 1;
+                const levelsForPreparation = Math.floor(classLevel / divisor);
+                const preparedCount = e.preparation === "known" ?
+                    (spellsKnown ?? 0) :
+                    Math.max(1, levelsForPreparation + mod);
+                const cantrips = (cantripsKnown ?? 0) > 0 ?
+                    registerChoice(col, answers, {
+                        key: `${classId}#cantrips`,
+                        owner: classId,
+                        choice: "cantrips",
+                        of: "spell",
+                        count: cantripsKnown ?? 0,
+                        options: []
+                    }) :
+                    (answers[`${classId}#cantrips`] ?? []);
                 const chosen = registerChoice(col, answers, {
                     key: `${classId}#spells`,
                     owner: classId,
@@ -734,7 +788,52 @@ export function derive(character: Character, set: PackageSet, options: DeriveOpt
                 break;
         }
     }
-    if (facts.weapons.length > 0) { sections.add("attacks"); }
+    for (const chosen of chosenSpells)
+    {
+        const caster = spellcasting.find((s) => s.class === chosen.ownerClass) ?? spellcasting[0];
+        addSpell(chosen.id, "known", { slot: true }, chosen.source, caster?.ability);
+        sections.add("spells");
+    }
+    const attacks = assembleAttacks(
+        equippedItems(character, set),
+        proficiencySet,
+        graph,
+        attackModifiers,
+        { package: set.rulesetPackage, entity: set.ruleset.id }
+    );
+    if (attacks.length > 0) { sections.add("attacks"); }
+    // Identical actions declared twice (Rogue and Hunter both have Uncanny Dodge) collapse into one row.
+    const seenActions = new Map<string, ActionView>();
+    for (const action of actions)
+    {
+        const first = seenActions.get(action.id);
+        if (first === undefined)
+        {
+            seenActions.set(action.id, action);
+
+            continue;
+        }
+        if (!first.available && action.available)
+        {
+            // Variants gated by `when` (Divine Strike 1d8 / 2d8): the one that applies wins silently.
+            seenActions.set(action.id, action);
+
+            continue;
+        }
+        if (first.available && !action.available) { continue; }
+        const comparable = (a: ActionView): string => stableStringify({ ...a, source: null, available: null });
+        const same = comparable(first) === comparable(action);
+        if (!same)
+        {
+            const entity = action.source.feature ?? action.source.entity;
+            warnings.push({
+                severity: "warning",
+                code: "W_DUPLICATE_ACTION",
+                ...(entity !== undefined ? { entity: entity } : {}),
+                message: `action "${action.id}" is declared twice with different content; the first declaration wins`
+            });
+        }
+    }
 
     const values: Record<ValuePath, DerivedValue> = {};
     for (const path of graph.paths()) { values[path] = graph.get(path); }
@@ -781,7 +880,8 @@ export function derive(character: Character, set: PackageSet, options: DeriveOpt
         proficiencies: [...col.proficiencies.values()]
             .sort((a, b) => `${a.type}:${a.item}`.localeCompare(`${b.type}:${b.item}`)),
         resources: resources,
-        actions: actions,
+        actions: [...seenActions.values()],
+        attacks: attacks,
         rollModifiers: rollModifiers,
         defenses: defenses,
         spellcasting: spellcasting,

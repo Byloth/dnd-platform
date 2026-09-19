@@ -309,7 +309,21 @@ export class ValueGraph
         }
         if ((head === "check") && tail && (tail !== "all"))
         {
-            return base(this.number(`mod.${tail}`), `${ABILITY_NAMES[tail] ?? tail} modifier`);
+            const result = base(this.number(`mod.${tail}`), `${ABILITY_NAMES[tail] ?? tail} modifier`);
+            const all = this.number("check.all");
+            if (all !== 0)
+            {
+                result.contributions.push({
+                    kind: "add",
+                    value: all,
+                    label: label("Bonus to all ability checks"),
+                    source: rulesetSource,
+                    applied: true
+                });
+                result.value = (result.value as number) + all;
+            }
+
+            return result;
         }
         if ((head === "passive") && tail)
         {
@@ -325,7 +339,24 @@ export class ValueGraph
 
             return result;
         }
-        if (path === "initiative") { return base(this.number("mod.dex"), "Dexterity modifier"); }
+        if (path === "initiative")
+        {
+            const result = base(this.number("mod.dex"), "Dexterity modifier");
+            const all = this.number("check.all");
+            if (all !== 0)
+            {
+                result.contributions.push({
+                    kind: "add",
+                    value: all,
+                    label: label("Bonus to all ability checks"),
+                    source: rulesetSource,
+                    applied: true
+                });
+                result.value = (result.value as number) + all;
+            }
+
+            return result;
+        }
         if (path === "ac") { return this._armorClass(rulesetSource); }
         if (path === "hp.max") { return this._hitPoints(rulesetSource); }
         if ((head === "speed") && tail)
@@ -387,6 +418,18 @@ export class ValueGraph
                 applied: true
             });
         }
+        const shield = this._input.equipment.shield;
+        if (shield?.item.ac?.bonus !== undefined)
+        {
+            contributions.push({
+                kind: "add",
+                value: shield.item.ac.bonus,
+                label: shield.item.name,
+                source: { package: "", entity: shield.id },
+                applied: true
+            });
+            value += shield.item.ac.bonus;
+        }
 
         return { value: value, contributions: contributions };
     }
@@ -430,11 +473,14 @@ export class ValueGraph
         for (const c of this._byTarget.get("hp.perLevel") ?? [])
         {
             const per = typeof c.value === "number" ? c.value : 0;
-            const value = per * this._input.level;
+            const classLevels = c.ownerClass !== undefined ? this._input.classLevels[c.ownerClass] : undefined;
+            const levels = classLevels ?? this._input.level;
+            const scope = c.ownerClass !== undefined ? `${c.ownerClass.split(".").pop()} level` : "level";
+            const value = per * levels;
             contributions.push({
                 kind: "add",
                 value: value,
-                formula: `${per} × level`,
+                formula: `${per} × ${scope}`,
                 label: c.label,
                 source: c.source,
                 applied: c.applied
@@ -443,6 +489,12 @@ export class ValueGraph
         }
 
         return { value: total, contributions: contributions };
+    }
+
+    /** Evaluate a formula in the context of a class (for tables and bare classLevel). */
+    public evaluate(formula: string, ownerClass?: string): FormulaValue
+    {
+        return this._evaluate(formula, this.environment(ownerClass));
     }
 
     private _evaluate(formula: string, env: FormulaEnvironment): FormulaValue
@@ -515,6 +567,7 @@ export class ValueGraph
                 {
                     const previous = (c.op === "add") ? dice : undefined;
                     dice = previous ? { dice: [...previous.dice, ...v.dice], bonus: previous.bonus + v.bonus } : v;
+                    if (c.op !== "add") { numeric = 0; }
                 }
 
                 continue;
@@ -526,7 +579,6 @@ export class ValueGraph
                 case "mul": numeric = (numeric ?? 0) * v; break;
                 case "add": numeric = (numeric ?? 0) + v; break;
                 case "min": numeric = Math.max(numeric ?? 0, v); break; // "at least v"
-                case "max": numeric = Math.min(numeric ?? 0, v); break; // re-applied as a floor below
                 default: break;
             }
         }

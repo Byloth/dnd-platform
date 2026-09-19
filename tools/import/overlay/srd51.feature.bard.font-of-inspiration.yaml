@@ -1,7 +1,7 @@
 effects:
-  - kind: add-text
-    section: features
-    text:
-      en: You regain all of your expended uses of Bardic Inspiration when you finish a short or long rest.
+  - kind: modify
+    target: resource.bardic-inspiration.recharge
+    op: set
+    value: short-rest
     note:
-      en: "Gap (needs-new-kind: modify-resource): the recharge of bardic-inspiration should change from long-rest to short-rest; modify has no op/value for a recharge target."
+      en: You regain all expended uses of Bardic Inspiration when you finish a short or long rest.

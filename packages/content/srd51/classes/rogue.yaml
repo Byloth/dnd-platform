@@ -93,6 +93,7 @@ levels:
           - kind: grant-proficiency
             type: skill
             choose:
+              id: expertise-1
               count: 2
               from:
                 - acrobatics
@@ -119,6 +120,7 @@ levels:
           - kind: grant-proficiency
             type: skill
             choose:
+              id: expertise-6
               count: 2
               from:
                 - acrobatics

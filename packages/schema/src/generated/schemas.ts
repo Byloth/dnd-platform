@@ -427,7 +427,7 @@ export const SCHEMAS = {
                     "spellSlots": {
                         "type": "object",
                         "propertyNames": {
-                            "pattern": "^[1-9]$"
+                            "pattern": "^(?:[1-9]|pact)$"
                         },
                         "additionalProperties": {
                             "type": "integer",
@@ -2234,6 +2234,16 @@ export const SCHEMAS = {
                             },
                             {
                                 "const": "unlimited"
+                            },
+                            {
+                                "type": "string",
+                                "enum": [
+                                    "short-rest",
+                                    "long-rest",
+                                    "dawn",
+                                    "manual"
+                                ],
+                                "description": "A rest name, for `resource.<id>.recharge` targets."
                             }
                         ]
                     },

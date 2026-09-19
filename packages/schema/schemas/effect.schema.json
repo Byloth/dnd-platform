@@ -87,6 +87,16 @@
             },
             {
               "const": "unlimited"
+            },
+            {
+              "type": "string",
+              "enum": [
+                "short-rest",
+                "long-rest",
+                "dawn",
+                "manual"
+              ],
+              "description": "A rest name, for `resource.<id>.recharge` targets."
             }
           ]
         },

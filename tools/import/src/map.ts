@@ -45,6 +45,7 @@ const dbFeats = new Map(db.rows<db.DbFeat>("Feats").map((f) => [f.index, f]));
 const dbEquipment = new Map(db.rows<db.DbEquipment>("Equipment").map((e) => [e.index, e]));
 const dbMagic = db.rows<db.DbMagicItem>("Magic-Items").filter((m) => !m.variant);
 const dbSpells = new Map(db.rows<db.DbSpell>("Spells").map((s) => [s.index, s]));
+const dbFeatures = db.rows<{ index: string, name: string, level: number, class: db.Ref }>("Features");
 
 const classes = o5e.rows<o5e.CharacterClass>("CharacterClass");
 const features = o5e.rows<o5e.ClassFeature>("ClassFeature");
@@ -375,12 +376,20 @@ function levelsBlock(ownerPk: string, ownerSlug: string, classIndex: string | un
     {
         const rows = itemsByFeature.get(feature.pk) ?? [];
         if (isTableColumn(feature.fields.desc) || STRUCTURAL_FEATURES.has(feature.fields.name)) { continue; }
-        const minLevel = rows.length ? Math.min(...rows.map((r) => r.level)) : 1;
+        const dbFeatureLevel = dbFeatures.find((x) => x.name === feature.fields.name && x.class.index === (classIndex ?? ""))?.level;
+        const minLevel = rows.length ? Math.min(...rows.map((r) => r.level)) : (dbFeatureLevel ?? 1);
         const featureSlug = featureSlugOf(ownerSlug, feature.pk);
         if (feature.fields.name === "Ability Score Improvement")
         {
-            push(minLevel, "features", featureEntity(ownerSlug, feature.pk, feature.fields));
-            for (const row of rows) { push(row.level, "choices", { id: `asi-${row.level}`, of: "asi-or-feat" }); }
+            // Levels with an ASI come from 5e-database (Open5e misses some rows, e.g. the Cleric's 12th).
+            const dbAsiLevels = dbLevels
+                .filter((l) => l.class.index === classIndex && !l.subclass)
+                .sort((a, b) => a.level - b.level)
+                .filter((l, i, all) => l.ability_score_bonuses > (all[i - 1]?.ability_score_bonuses ?? 0))
+                .map((l) => l.level);
+            const asiLevels = classIndex ? dbAsiLevels : rows.map((r) => r.level);
+            push(Math.min(...asiLevels, minLevel), "features", featureEntity(ownerSlug, feature.pk, feature.fields));
+            for (const level of asiLevels) { push(level, "choices", { id: `asi-${level}`, of: "asi-or-feat" }); }
 
             continue;
         }
@@ -834,6 +843,11 @@ for (const item of items)
             ranged: ranged || undefined,
             monkWeapon: monkWeapon || undefined
         });
+    }
+    else if ((f.category === "shield") && !armor)
+    {
+        const dbShield = dbEquipment.get(index);
+        entity = compact({ ...base, type: "shield", ac: { bonus: dbShield?.armor_class?.base ?? 2 } });
     }
     else if (armor)
     {

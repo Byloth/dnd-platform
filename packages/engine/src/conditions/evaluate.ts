@@ -98,8 +98,8 @@ function evaluateKey(key: string, value: unknown, facts: Facts): boolean
         {
             const filter = value as WeaponFilter;
             const wielded = facts.weapons;
-            if (filter.unarmed && (wielded.length === 0)) { return true; }
-            if (wielded.length === 0) { return false; }
+            // "Unarmed or wielding only X": with nothing wielded the condition holds (Martial Arts).
+            if (wielded.length === 0) { return true; }
             if ((filter.count !== undefined) && (wielded.length !== filter.count)) { return false; }
 
             return wielded.every((w) => weaponMatches(w, filter));

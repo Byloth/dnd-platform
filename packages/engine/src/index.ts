@@ -261,6 +261,32 @@ export interface SpellView
     readonly paidWith: SpellPayment;
     readonly source: ContributionSource;
 }
+export interface ExtraDamageView
+{
+    readonly dice?: string;
+    readonly formula?: string;
+    readonly damageType?: string;
+    readonly source: ContributionSource;
+}
+export interface AttackView
+{
+    readonly id: string;
+    readonly name: LocalizedString;
+    readonly item?: EntityId;
+    readonly unarmed: boolean;
+    readonly ranged: boolean;
+    readonly ability: string;
+    readonly proficient: boolean;
+    readonly attackBonus: DerivedValue;
+    /** Ready to print: `1d8 + 3`. */
+    readonly damage: string;
+    readonly damageDice: string;
+    readonly damageBonus: DerivedValue;
+    readonly damageType: string;
+    readonly magical: boolean;
+    readonly critRange: number;
+    readonly extraDamage: readonly ExtraDamageView[];
+}
 export interface SheetMeta
 {
     readonly characterId: string;
@@ -285,6 +311,7 @@ export interface ComputedSheet
     readonly proficiencies: readonly ProficiencyView[];
     readonly resources: readonly ResourceView[];
     readonly actions: readonly ActionView[];
+    readonly attacks: readonly AttackView[];
     readonly rollModifiers: readonly RollModifierView[];
     readonly defenses: readonly DefenseView[];
     readonly spellcasting: readonly SpellcastingView[];

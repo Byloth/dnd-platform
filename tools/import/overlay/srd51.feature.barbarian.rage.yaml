@@ -65,3 +65,13 @@ effects:
       toggled: raging
       not:
         armorCategory: heavy
+  - kind: modify
+    target: resource.rage.max
+    op: set
+    value: unlimited
+    when:
+      classLevel:
+        class: srd51.class.barbarian
+        min: 20
+    note:
+      en: At 20th level you can rage an unlimited number of times.

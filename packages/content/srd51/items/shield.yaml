@@ -10,6 +10,6 @@ cost:
   amount: 10
   currency: gp
 weight: 6
-type: gear
-tags:
-  - shield
+type: shield
+ac:
+  bonus: 2

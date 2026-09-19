@@ -1051,6 +1051,10 @@ levels:
     choices:
       - id: asi-12
         of: asi-or-feat
+  "16":
+    choices:
+      - id: asi-16
+        of: asi-or-feat
   "19":
     choices:
       - id: asi-19

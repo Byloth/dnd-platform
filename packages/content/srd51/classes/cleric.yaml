@@ -257,6 +257,10 @@ levels:
               - kind: note
                 text:
                   en: "Roll d100: success on a result equal to or lower than classLevel(cleric); automatic at 20th level. On success, no further use for 7 days."
+  "12":
+    choices:
+      - id: asi-12
+        of: asi-or-feat
   "16":
     choices:
       - id: asi-16

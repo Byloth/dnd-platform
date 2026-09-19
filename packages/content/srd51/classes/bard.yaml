@@ -421,19 +421,64 @@ levels:
 
             At 10th level, you can choose another two skill proficiencies to gain this benefit.
         effects:
-          - kind: open-choice
-            choice: expertise-3
-            of: skill
-            count: 2
+          - kind: grant-proficiency
+            type: skill
+            choose:
+              id: expertise-3
+              count: 2
+              from:
+                - acrobatics
+                - animal-handling
+                - arcana
+                - athletics
+                - deception
+                - history
+                - insight
+                - intimidation
+                - investigation
+                - medicine
+                - nature
+                - perception
+                - performance
+                - persuasion
+                - religion
+                - sleight-of-hand
+                - stealth
+                - survival
+            expertise: true
             note:
-              en: "Choose two of your skill proficiencies; your proficiency bonus is doubled for ability checks using them. Gap: the choice cannot be filtered to held proficiencies and open-choice carries no expertise flag, so the doubling is not applied."
-          - kind: open-choice
-            choice: expertise-10
-            of: skill
-            count: 2
-            level: 10
+              en: Choose two of your skill proficiencies; your proficiency bonus is doubled for any ability check you make that uses either of them. The choice cannot yet be restricted to skills you are already proficient in.
+          - kind: grant-proficiency
+            type: skill
+            choose:
+              id: expertise-10
+              count: 2
+              from:
+                - acrobatics
+                - animal-handling
+                - arcana
+                - athletics
+                - deception
+                - history
+                - insight
+                - intimidation
+                - investigation
+                - medicine
+                - nature
+                - perception
+                - performance
+                - persuasion
+                - religion
+                - sleight-of-hand
+                - stealth
+                - survival
+            expertise: true
+            when:
+              classLevel:
+                class: srd51.class.bard
+                min: 10
             note:
-              en: "At 10th level, choose another two skill proficiencies to gain this benefit. Gap: as above, the doubling is not applied."
+              en: At 10th level, choose another two skill proficiencies to gain this benefit. The choice cannot yet be restricted to skills you are already proficient in.
     choices:
       - id: bard-college
         of: subclass
@@ -457,12 +502,12 @@ levels:
         text:
           en: Beginning when you reach 5th level, you regain all of your expended uses of Bardic Inspiration when you finish a short or long rest.
         effects:
-          - kind: add-text
-            section: features
-            text:
-              en: You regain all of your expended uses of Bardic Inspiration when you finish a short or long rest.
+          - kind: modify
+            target: resource.bardic-inspiration.recharge
+            op: set
+            value: short-rest
             note:
-              en: "Gap (needs-new-kind: modify-resource): the recharge of bardic-inspiration should change from long-rest to short-rest; modify has no op/value for a recharge target."
+              en: You regain all expended uses of Bardic Inspiration when you finish a short or long rest.
   "6":
     features:
       - id: srd51.feature.bard.countercharm

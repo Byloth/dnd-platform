@@ -6,130 +6,18 @@
  * keeps zero runtime dependencies while its tests read the disk.
  */
 
-import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
-import { basename, join, relative, resolve } from "node:path";
+import { join, resolve } from "node:path";
 
-import { parse } from "yaml";
 import { describe, expect, it } from "vitest";
 
-import { ENTITY_TYPE_FOR_DIRECTORY } from "@byloth/dnd-platform-schema";
-import type { Character, EntityType, PackageManifest, Ruleset } from "@byloth/dnd-platform-schema";
+import type { Character } from "@byloth/dnd-platform-schema";
 
 import { canonicalize, derive, explain, loadPackages, stableStringify } from "../src/index.js";
-import type { PackageSource, SourceEntity } from "../src/index.js";
+import type { PackageSource } from "../src/index.js";
+import { makeManifest, readPackage, seeded, shuffled } from "./helpers.js";
 
 const ROOT = resolve(import.meta.dirname, "..", "..", "..");
 const FIXTURES = resolve(ROOT, "fixtures", "packages");
-
-// ---- helpers -------------------------------------------------------------------
-
-function* walk(dir: string): Generator<string>
-{
-    for (const entry of readdirSync(dir).sort())
-    {
-        const path = join(dir, entry);
-        if (statSync(path).isDirectory()) { yield* walk(path); }
-        else if (/\.ya?ml$/.test(entry)) { yield path; }
-    }
-}
-
-function readYaml(path: string): unknown
-{
-    return parse(readFileSync(path, "utf8")) as unknown;
-}
-
-function readPackage(dir: string): PackageSource
-{
-    const manifest = readYaml(join(dir, "package.yaml")) as PackageManifest;
-    const rulesetPath = join(dir, "ruleset.yaml");
-    const entities: SourceEntity[] = [];
-
-    for (const directory of readdirSync(dir).sort())
-    {
-        const path = join(dir, directory);
-        if (!statSync(path).isDirectory()) { continue; }
-
-        if (directory === "translations")
-        {
-            for (const file of walk(path))
-            {
-                const [language] = relative(path, file).split("/");
-                const id = basename(file).replace(/\.ya?ml$/, "");
-                entities.push({
-                    type: "translation",
-                    id: id,
-                    data: { language: language, strings: readYaml(file) },
-                    file: relative(dir, file)
-                });
-            }
-
-            continue;
-        }
-
-        const type = (ENTITY_TYPE_FOR_DIRECTORY as Record<string, EntityType | undefined>)[directory];
-        if (type === undefined) { continue; }
-
-        for (const file of walk(path))
-        {
-            const data = readYaml(file) as { id: string };
-            entities.push({ type: type, id: data.id, data: data, file: relative(dir, file) });
-        }
-    }
-
-    return {
-        manifest: manifest,
-        ...(existsSync(rulesetPath) ? { ruleset: readYaml(rulesetPath) as Ruleset } : {}),
-        entities: entities
-    };
-}
-
-/** Deterministic pseudo-random generator (mulberry32), so shuffles are reproducible. */
-function seeded(seed: number): () => number
-{
-    let state = seed >>> 0;
-
-    return () =>
-    {
-        state = (state + 0x6D2B79F5) >>> 0;
-        let t = state;
-        t = Math.imul(t ^ (t >>> 15), t | 1);
-        t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
-
-        return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-    };
-}
-
-function shuffled<T>(items: readonly T[], random: () => number): T[]
-{
-    const copy = [...items];
-    for (let index = copy.length - 1; index > 0; index -= 1)
-    {
-        const other = Math.floor(random() * (index + 1));
-        [copy[index], copy[other]] = [copy[other]!, copy[index]!];
-    }
-
-    return copy;
-}
-
-interface Dependency { readonly id: string, readonly version: string }
-
-function makeManifest(id: string, kind: "base" | "extension", dependencies: readonly Dependency[]): PackageManifest
-{
-    return {
-        formatVersion: 0,
-        id: id,
-        name: { en: id },
-        version: "0.1.0",
-        kind: kind,
-        defaultLanguage: "en",
-        languages: ["en"],
-        visibility: "public",
-        redistributable: true,
-        dependencies: [...dependencies],
-        sources: [{ id: id, title: id, license: "CC0", attribution: "test" }]
-
-    } as PackageManifest;
-}
 
 // ---- fixtures ------------------------------------------------------------------
 

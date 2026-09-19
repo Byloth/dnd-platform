@@ -255,7 +255,7 @@
         "spellSlots": {
           "type": "object",
           "propertyNames": {
-            "pattern": "^[1-9]$"
+            "pattern": "^(?:[1-9]|pact)$"
           },
           "additionalProperties": {
             "type": "integer",

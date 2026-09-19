@@ -187,6 +187,9 @@ export interface FormulaReferences
 }
 
 /** What a formula reads: used to build the dependency graph of derived values. */
+/** Functions whose first argument is a name, not a value. */
+const NAME_ARGUMENT = new Set(["mod", "score", "classLevel", "table"]);
+
 export function formulaReferences(ast: FormulaNode): FormulaReferences
 {
     const abilities = new Set<string>();
@@ -217,9 +220,12 @@ export function formulaReferences(ast: FormulaNode): FormulaReferences
                     else if (node.name === "classLevel") { classes.add(identifierName(first, node.name)); }
                     else if (node.name === "table") { tables.add(identifierName(first, node.name)); }
                 }
-                for (const arg of node.args)
+                for (const arg of node.args.slice(NAME_ARGUMENT.has(node.name) ? 1 : 0))
                 {
-                    if (arg.type !== "identifier") { visit(arg); }
+                    const names = FORMULA_VARIABLES as readonly string[];
+                    const variable = (arg.type === "identifier") && names.includes(arg.name);
+                    if (variable) { variables.add(arg.name as FormulaVariable); }
+                    else if (arg.type !== "identifier") { visit(arg); }
                 }
                 break;
             }
