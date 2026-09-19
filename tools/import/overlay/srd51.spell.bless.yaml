@@ -1,0 +1,17 @@
+effects:
+  - kind: modify
+    target: save.all
+    op: add
+    value: 1d4
+  - kind: modify
+    target: attack.melee.bonus
+    op: add
+    value: 1d4
+  - kind: modify
+    target: attack.ranged.bonus
+    op: add
+    value: 1d4
+  - kind: modify
+    target: attack.spell.bonus
+    op: add
+    value: 1d4

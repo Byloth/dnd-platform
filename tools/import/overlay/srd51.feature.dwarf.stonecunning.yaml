@@ -1,0 +1,7 @@
+effects:
+  - kind: add-text
+    section: features
+    text:
+      en: Double proficiency bonus on Intelligence (History) checks about the origin of stonework.
+    note:
+      en: "Situational: the player asserts the check is about stonework; not derived."

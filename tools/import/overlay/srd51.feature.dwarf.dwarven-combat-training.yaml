@@ -1,0 +1,8 @@
+effects:
+  - kind: grant-proficiency
+    type: weapon
+    items:
+      - battleaxe
+      - handaxe
+      - light-hammer
+      - warhammer

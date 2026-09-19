@@ -1,0 +1,10 @@
+effects:
+  - kind: roll-advantage
+    on:
+      type: attack
+  - kind: add-text
+    section: conditions
+    text:
+      en: Attack rolls against you have disadvantage; you are heavily obscured for hiding.
+    note:
+      en: Rolls made against you are not modelled by the engine; shown as a reminder.

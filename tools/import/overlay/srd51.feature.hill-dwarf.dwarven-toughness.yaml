@@ -1,0 +1,7 @@
+effects:
+  - kind: modify
+    target: hp.perLevel
+    op: add
+    value: 1
+    note:
+      en: +1 hit point per level, including the first.

@@ -1,0 +1,11 @@
+effects:
+  - kind: defense
+    defense: immunity
+    to:
+      - thunder
+    note:
+      en: While entirely inside the sphere.
+  - kind: add-text
+    section: features
+    text:
+      en: Deafened while entirely inside; spells with verbal components cannot be cast inside.

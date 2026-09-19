@@ -1,0 +1,9 @@
+effects:
+  - kind: modify
+    target: ac
+    op: add
+    value: 5
+  - kind: add-text
+    section: features
+    text:
+      en: You take no damage from magic missile.

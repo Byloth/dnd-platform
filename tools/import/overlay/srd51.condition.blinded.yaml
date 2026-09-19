@@ -1,0 +1,10 @@
+effects:
+  - kind: roll-disadvantage
+    on:
+      type: attack
+  - kind: add-text
+    section: conditions
+    text:
+      en: Attack rolls against you have advantage; you automatically fail checks that require sight.
+    note:
+      en: Rolls made against you are not modelled by the engine; shown as a reminder.

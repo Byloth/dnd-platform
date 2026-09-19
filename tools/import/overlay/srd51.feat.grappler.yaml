@@ -1,0 +1,4 @@
+prerequisites:
+  ability:
+    ability: str
+    min: 13

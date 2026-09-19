@@ -1,0 +1,5 @@
+effects:
+  - kind: modify
+    target: ability.con
+    op: add
+    value: 2

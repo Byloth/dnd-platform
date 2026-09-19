@@ -1,0 +1,8 @@
+effects:
+  - kind: modify
+    target: ac
+    op: set-formula
+    formula: 10 + mod(dex) + mod(wis)
+    when:
+      armorCategory: none
+      shield: false

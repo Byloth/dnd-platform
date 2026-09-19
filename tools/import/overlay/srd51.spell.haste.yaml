@@ -1,0 +1,24 @@
+effects:
+  - kind: modify
+    target: speed.walk
+    op: mul
+    value: 2
+  - kind: modify
+    target: ac
+    op: add
+    value: 2
+  - kind: roll-advantage
+    on:
+      type: save
+      ability: dex
+  - kind: add-action
+    action: hasted-action
+    name:
+      en: Hasted action
+    activation: action
+    text:
+      en: "One additional action: Attack (one weapon attack only), Dash, Disengage, Hide, or Use an Object."
+  - kind: add-text
+    section: features
+    text:
+      en: When the spell ends, you can't move or take actions until after your next turn.

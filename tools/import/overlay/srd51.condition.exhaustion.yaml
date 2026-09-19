@@ -1,0 +1,64 @@
+effects: []
+levels:
+  "1":
+    text:
+      en: Disadvantage on ability checks
+    effects:
+      - kind: roll-disadvantage
+        on:
+          type: check
+  "2":
+    text:
+      en: Speed halved
+    effects:
+      - kind: modify
+        target: speed.walk
+        op: mul
+        value: 0.5
+  "3":
+    text:
+      en: Disadvantage on attack rolls and saving throws
+    effects:
+      - kind: roll-disadvantage
+        on:
+          type: attack
+      - kind: roll-disadvantage
+        on:
+          type: save
+  "4":
+    text:
+      en: Hit point maximum halved
+    effects:
+      - kind: modify
+        target: hp.max
+        op: mul
+        value: 0.5
+  "5":
+    text:
+      en: Speed reduced to 0
+    effects:
+      - kind: modify
+        target: speed.walk
+        op: set
+        value: 0
+      - kind: modify
+        target: speed.climb
+        op: set
+        value: 0
+      - kind: modify
+        target: speed.fly
+        op: set
+        value: 0
+      - kind: modify
+        target: speed.swim
+        op: set
+        value: 0
+      - kind: modify
+        target: speed.burrow
+        op: set
+        value: 0
+  "6":
+    text:
+      en: Death
+    effects: []
+cumulative: true

@@ -1,0 +1,9 @@
+effects:
+  - kind: grant-proficiency
+    type: tool
+    choose:
+      count: 1
+      from:
+        - smiths-tools
+        - brewers-supplies
+        - masons-tools

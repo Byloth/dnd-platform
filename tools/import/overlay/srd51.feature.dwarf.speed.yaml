@@ -1,0 +1,9 @@
+effects:
+  - kind: add-text
+    section: features
+    text:
+      en: Your speed is not reduced by wearing heavy armor.
+    when:
+      armorStrengthUnmet: true
+    note:
+      en: The heavy-armour speed penalty is a play-mode reminder; no derived value models it in v0.

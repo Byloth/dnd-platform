@@ -1,0 +1,11 @@
+effects:
+  - kind: roll-disadvantage
+    on:
+      type: attack
+    note:
+      en: While the source of your fear is within line of sight.
+  - kind: roll-disadvantage
+    on:
+      type: check
+    note:
+      en: While the source of your fear is within line of sight.

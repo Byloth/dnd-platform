@@ -1,0 +1,10 @@
+effects:
+  - kind: roll-advantage
+    on:
+      type: save
+      against:
+        - poison
+  - kind: defense
+    defense: resistance
+    to:
+      - poison

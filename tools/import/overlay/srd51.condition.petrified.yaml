@@ -1,0 +1,52 @@
+effects:
+  - kind: modify
+    target: speed.walk
+    op: set
+    value: 0
+  - kind: modify
+    target: speed.climb
+    op: set
+    value: 0
+  - kind: modify
+    target: speed.fly
+    op: set
+    value: 0
+  - kind: modify
+    target: speed.swim
+    op: set
+    value: 0
+  - kind: modify
+    target: speed.burrow
+    op: set
+    value: 0
+  - kind: defense
+    defense: resistance
+    to:
+      - acid
+      - bludgeoning
+      - cold
+      - fire
+      - force
+      - lightning
+      - necrotic
+      - piercing
+      - poison
+      - psychic
+      - radiant
+      - slashing
+      - thunder
+  - kind: defense
+    defense: immunity
+    to:
+      - poison
+      - disease
+  - kind: defense
+    defense: condition-immunity
+    to:
+      - srd51.condition.poisoned
+  - kind: add-text
+    section: conditions
+    text:
+      en: Incapacitated, unaware of your surroundings; you automatically fail Strength and Dexterity saves; attacks against you have advantage.
+    note:
+      en: Rolls made against you are not modelled by the engine; shown as a reminder.

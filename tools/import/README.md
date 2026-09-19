@@ -21,3 +21,23 @@ Pinned by commit in `sources.lock.yaml`:
 
 No upstream code is copied. Content that reaches `packages/content/srd51`
 carries the SRD 5.1 attribution (see `NOTICE`).
+
+## Map stage
+
+`node tools/import/src/map.ts` regenerates `packages/content/srd51/` (every
+entity directory; `package.yaml`, `ruleset.yaml` and `README.md` are kept):
+classes with level tables and structured proficiencies and equipment,
+subclasses, species with subspecies, backgrounds, feats, spells with spell
+lists, items (mundane and the 239 base magic items), conditions, rules,
+tables. Generated files carry a header comment and must not be edited by
+hand.
+
+Mechanics live in `tools/import/overlay/<entity-id>.yaml` and are merged onto
+the generated entities (objects merge, arrays replace, `null` deletes).
+`node tools/import/src/seed-overlay.ts` seeds the overlay from the mechanics
+authored in `fixtures/packages/srd51-excerpt`.
+
+Generated on their own, without an overlay: species ability score increases
+and Darkvision, the subclass choice, ASI/feat choices at the class' ASI
+levels, spellcasting grants (ability, list, preparation, slot progression,
+cantrips/spells known tables) for the eight SRD caster classes.

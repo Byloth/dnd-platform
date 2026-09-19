@@ -1,0 +1,92 @@
+effects:
+  - kind: declare-resource
+    resource: ki
+    name:
+      en: Ki points
+    max: table(monk.ki-points)
+    display: pips
+    recharge:
+      - on: short-rest
+        amount: full
+      - on: long-rest
+        amount: full
+    note:
+      en: Ki save DC = 8 + your proficiency bonus + your Wisdom modifier; declared on the actions that call for a save.
+  - kind: add-action
+    action: flurry-of-blows
+    name:
+      en: Flurry of Blows
+    activation: bonus-action
+    cost:
+      - resource: ki
+        amount: 1
+    requires:
+      afterAction: attack
+    rolls:
+      - type: attack
+        ability: dex
+        proficient: true
+      - type: damage
+        dice: table(monk.martial-arts)
+        ability: dex
+        damageType: bludgeoning
+    text:
+      en: Immediately after you take the Attack action on your turn, you can spend 1 ki point to make two unarmed strikes as a bonus action.
+    onUse:
+      - kind: note
+        text:
+          en: Make two unarmed strikes (roll the attack twice).
+  - kind: add-action
+    action: patient-defense
+    name:
+      en: Patient Defense
+    activation: bonus-action
+    cost:
+      - resource: ki
+        amount: 1
+    toggle:
+      state: patient-defense
+      expires:
+        turns: 1
+    text:
+      en: You can spend 1 ki point to take the Dodge action as a bonus action on your turn.
+    onUse:
+      - kind: note
+        text:
+          en: "Dodge: until the start of your next turn, attacks against you have disadvantage and you have advantage on Dexterity saving throws."
+  - kind: roll-advantage
+    on:
+      type: save
+      ability: dex
+    when:
+      toggled: patient-defense
+  - kind: add-action
+    action: step-of-the-wind
+    name:
+      en: Step of the Wind
+    activation: bonus-action
+    cost:
+      - resource: ki
+        amount: 1
+    toggle:
+      state: step-of-the-wind
+      expires:
+        turns: 1
+    text:
+      en: You can spend 1 ki point to take the Disengage or Dash action as a bonus action on your turn, and your jump distance is doubled for the turn.
+    onUse:
+      - kind: note
+        text:
+          en: Choose Disengage or Dash.
+  - kind: modify
+    target: jump.long
+    op: mul
+    value: 2
+    when:
+      toggled: step-of-the-wind
+  - kind: modify
+    target: jump.high
+    op: mul
+    value: 2
+    when:
+      toggled: step-of-the-wind

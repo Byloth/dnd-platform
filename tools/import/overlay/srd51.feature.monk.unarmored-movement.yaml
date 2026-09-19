@@ -1,0 +1,8 @@
+effects:
+  - kind: modify
+    target: speed.walk
+    op: add
+    formula: table(monk.unarmored-movement)
+    when:
+      armorCategory: none
+      shield: false

@@ -1,0 +1,6 @@
+effects:
+  - kind: grant-proficiency
+    type: language
+    items:
+      - common
+      - dwarvish

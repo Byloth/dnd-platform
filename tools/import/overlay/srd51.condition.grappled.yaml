@@ -1,0 +1,21 @@
+effects:
+  - kind: modify
+    target: speed.walk
+    op: set
+    value: 0
+  - kind: modify
+    target: speed.climb
+    op: set
+    value: 0
+  - kind: modify
+    target: speed.fly
+    op: set
+    value: 0
+  - kind: modify
+    target: speed.swim
+    op: set
+    value: 0
+  - kind: modify
+    target: speed.burrow
+    op: set
+    value: 0

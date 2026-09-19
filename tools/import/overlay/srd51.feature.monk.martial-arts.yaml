@@ -1,0 +1,49 @@
+effects:
+  - kind: modify-attacks
+    filter:
+      unarmed: true
+    set:
+      ability: dex
+      damageDie: table(monk.martial-arts)
+    when:
+      wieldingOnly:
+        monkWeapon: true
+      armorCategory: none
+      shield: false
+    note:
+      en: Dexterity may be used instead of Strength; the die replaces the normal damage of the attack.
+  - kind: modify-attacks
+    filter:
+      monkWeapon: true
+    set:
+      ability: dex
+      damageDie: table(monk.martial-arts)
+    when:
+      wieldingOnly:
+        monkWeapon: true
+      armorCategory: none
+      shield: false
+    note:
+      en: Dexterity may be used instead of Strength; the die replaces the normal damage of the attack.
+  - kind: add-action
+    action: martial-arts-strike
+    name:
+      en: Martial Arts unarmed strike
+    activation: bonus-action
+    requires:
+      afterAction: attack
+    when:
+      wieldingOnly:
+        monkWeapon: true
+      armorCategory: none
+      shield: false
+    rolls:
+      - type: attack
+        ability: dex
+        proficient: true
+      - type: damage
+        dice: table(monk.martial-arts)
+        ability: dex
+        damageType: bludgeoning
+    text:
+      en: When you use the Attack action with an unarmed strike or a monk weapon on your turn, you can make one unarmed strike as a bonus action.

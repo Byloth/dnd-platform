@@ -1,0 +1,7 @@
+effects:
+  - kind: add-text
+    section: conditions
+    text:
+      en: You can't attack the charmer; the charmer has advantage on social checks against you.
+    note:
+      en: Rolls made against you are not modelled by the engine; shown as a reminder.

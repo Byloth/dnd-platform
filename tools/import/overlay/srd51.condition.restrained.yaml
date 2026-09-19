@@ -1,0 +1,34 @@
+effects:
+  - kind: modify
+    target: speed.walk
+    op: set
+    value: 0
+  - kind: modify
+    target: speed.climb
+    op: set
+    value: 0
+  - kind: modify
+    target: speed.fly
+    op: set
+    value: 0
+  - kind: modify
+    target: speed.swim
+    op: set
+    value: 0
+  - kind: modify
+    target: speed.burrow
+    op: set
+    value: 0
+  - kind: roll-disadvantage
+    on:
+      type: attack
+  - kind: roll-disadvantage
+    on:
+      type: save
+      ability: dex
+  - kind: add-text
+    section: conditions
+    text:
+      en: Attack rolls against you have advantage.
+    note:
+      en: Rolls made against you are not modelled by the engine; shown as a reminder.

@@ -1,0 +1,5 @@
+effects:
+  - kind: add-text
+    section: features
+    text:
+      en: You and your companions can expect free healing and care at temples of your faith.

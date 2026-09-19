@@ -1,0 +1,14 @@
+effects:
+  - kind: add-action
+    action: deflect-missiles
+    name:
+      en: Deflect Missiles
+    activation: reaction
+    trigger:
+      en: when you are hit by a ranged weapon attack
+    text:
+      en: Reduce the damage you take from the attack by 1d10 + your Dexterity modifier + your monk level. If you reduce it to 0 and can hold the missile, you may spend 1 ki point to throw it back as part of the same reaction.
+    onUse:
+      - kind: note
+        text:
+          en: "Damage reduction: 1d10 + mod(dex) + classLevel(monk). Throwing the missile back costs 1 ki and is a ranged attack with proficiency, range 20/60, using the Martial Arts die."

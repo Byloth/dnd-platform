@@ -1,0 +1,9 @@
+effects:
+  - kind: modify
+    target: skill.stealth
+    op: add
+    value: 10
+  - kind: add-text
+    section: features
+    text:
+      en: Can't be tracked except by magical means; leaves no tracks.

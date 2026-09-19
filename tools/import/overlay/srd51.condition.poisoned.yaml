@@ -1,0 +1,7 @@
+effects:
+  - kind: roll-disadvantage
+    on:
+      type: attack
+  - kind: roll-disadvantage
+    on:
+      type: check
