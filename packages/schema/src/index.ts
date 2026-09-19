@@ -8,10 +8,17 @@
  * `schemas/common.schema.json`.
  */
 
-export { checkFormula, FORMULA_FUNCTIONS, FORMULA_VARIABLES } from "./formula.js";
+export { checkFormula, parseFormula, FORMULA_FUNCTIONS, FORMULA_VARIABLES } from "./formula.js";
 export { SCHEMAS } from "./generated/schemas.js";
 export type * from "./generated/types.js";
-export type { FormulaCheck, FormulaFunction, FormulaVariable } from "./formula.js";
+export type {
+    BinaryOperator,
+    FormulaCheck,
+    FormulaFunction,
+    FormulaNode,
+    FormulaParse,
+    FormulaVariable
+} from "./formula.js";
 
 export const FORMAT_VERSION = 0 as const;
 

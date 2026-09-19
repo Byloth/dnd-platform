@@ -1,8 +1,9 @@
 /**
- * Grammar check of the formula language (docs/phase-0/02-content-format.md).
+ * Parser of the formula language (docs/phase-0/02-content-format.md).
  *
- * This is the `formula` format used by the JSON Schemas: it accepts or
- * rejects a formula without evaluating it. The evaluator lives in the engine.
+ * `parseFormula` turns a formula into an AST or an error; `checkFormula` is
+ * the `formula` format used by the JSON Schemas (accept/reject, no
+ * evaluation). The evaluator lives in the engine.
  *
  *   formula := expr
  *   expr    := term (("+" | "-") term)*
@@ -41,12 +42,26 @@ export const FORMULA_FUNCTIONS = [
 ] as const;
 export type FormulaFunction = (typeof FORMULA_FUNCTIONS)[number];
 
+export type BinaryOperator = "+" | "-" | "*" | "/";
+
+export type FormulaNode =
+    { readonly type: "number", readonly value: number } |
+    { readonly type: "dice", readonly count: number, readonly sides: number, readonly bonus: number } |
+    { readonly type: "variable", readonly name: FormulaVariable } |
+    { readonly type: "identifier", readonly name: string } |
+    { readonly type: "call", readonly name: FormulaFunction, readonly args: readonly FormulaNode[] } |
+    { readonly type: "unary", readonly operand: FormulaNode } |
+    { readonly type: "binary", readonly op: BinaryOperator, readonly left: FormulaNode, readonly right: FormulaNode };
+
+export type FormulaParse =
+    { readonly ok: true, readonly ast: FormulaNode } |
+    { readonly ok: false, readonly message: string };
 export type FormulaCheck = { readonly ok: true } | { readonly ok: false, readonly message: string };
 
 type TokenType = "number" | "dice" | "identifier" | "operator" | "lparen" | "rparen" | "comma" | "end";
 interface Token { readonly type: TokenType, readonly value: string, readonly at: number }
 
-const DICE = /^\d+d\d+(?:\+\d+)?/;
+const DICE = /^(\d+)d(\d+)(?:\+(\d+))?/;
 const NUMBER = /^\d+(?:\.\d+)?/;
 const IDENTIFIER = /^[A-Za-z_][A-Za-z0-9_]*(?:[.-][A-Za-z0-9_]+)*/;
 
@@ -106,19 +121,28 @@ function tokenize(source: string): Token[]
     return tokens;
 }
 
+function parseDice(value: string): FormulaNode
+{
+    const match = DICE.exec(value)!;
+
+    return { type: "dice", count: Number(match[1]), sides: Number(match[2]), bonus: Number(match[3] ?? 0) };
+}
+
 class Parser
 {
     private _position = 0;
 
     public constructor(private readonly _tokens: readonly Token[]) { }
 
-    public parse(): void
+    public parse(): FormulaNode
     {
-        this._expr();
+        const ast = this._expr();
         if (this._peek().type !== "end")
         {
             throw new FormulaError(`unexpected "${this._peek().value}" at ${this._peek().at}`);
         }
+
+        return ast;
     }
 
     private _peek(offset = 0): Token
@@ -145,66 +169,70 @@ class Parser
         return token;
     }
 
-    private _expr(): void
+    private _expr(): FormulaNode
     {
-        this._term();
+        let left = this._term();
         while ((this._peek().type === "operator") && ((this._peek().value === "+") || (this._peek().value === "-")))
         {
-            this._next();
-            this._term();
+            const op = this._next().value as BinaryOperator;
+            left = { type: "binary", op: op, left: left, right: this._term() };
         }
+
+        return left;
     }
-    private _term(): void
+    private _term(): FormulaNode
     {
-        this._factor();
+        let left = this._factor();
         while ((this._peek().type === "operator") && ((this._peek().value === "*") || (this._peek().value === "/")))
         {
-            this._next();
-            this._factor();
+            const op = this._next().value as BinaryOperator;
+            left = { type: "binary", op: op, left: left, right: this._factor() };
         }
+
+        return left;
     }
-    private _factor(): void
+    private _factor(): FormulaNode
     {
         const token = this._peek();
         switch (token.type)
         {
             case "number":
+                this._next();
+
+                return { type: "number", value: Number(token.value) };
+
             case "dice":
                 this._next();
 
-                return;
+                return parseDice(token.value);
 
             case "lparen":
+            {
                 this._next();
-                this._expr();
+                const inner = this._expr();
                 this._expect("rparen");
 
-                return;
+                return inner;
+            }
 
             case "operator":
                 if (token.value === "-")
                 {
                     this._next();
-                    this._factor();
 
-                    return;
+                    return { type: "unary", operand: this._factor() };
                 }
                 break;
 
             case "identifier":
                 this._next();
-                if (this._peek().type === "lparen")
-                {
-                    this._call(token);
-
-                    return;
-                }
+                if (this._peek().type === "lparen") { return this._call(token); }
                 if (!(FORMULA_VARIABLES as readonly string[]).includes(token.value))
                 {
                     throw new FormulaError(`unknown variable "${token.value}" at ${token.at}`);
                 }
 
-                return;
+                return { type: "variable", name: token.value as FormulaVariable };
 
             default:
                 break;
@@ -214,25 +242,28 @@ class Parser
 
         throw new FormulaError(`expected a value but found ${shown} at ${token.at}`);
     }
-    private _call(name: Token): void
+    private _call(name: Token): FormulaNode
     {
         if (!(FORMULA_FUNCTIONS as readonly string[]).includes(name.value))
         {
             throw new FormulaError(`unknown function "${name.value}" at ${name.at}`);
         }
         this._expect("lparen");
+        const args: FormulaNode[] = [];
         if (this._peek().type !== "rparen")
         {
-            this._arg();
+            args.push(this._arg());
             while (this._peek().type === "comma")
             {
                 this._next();
-                this._arg();
+                args.push(this._arg());
             }
         }
         this._expect("rparen");
+
+        return { type: "call", name: name.value as FormulaFunction, args: args };
     }
-    private _arg(): void
+    private _arg(): FormulaNode
     {
         // A bare identifier (ability, class or table name) is an argument on its own.
         const token = this._peek();
@@ -242,19 +273,18 @@ class Parser
         {
             this._next();
 
-            return;
+            return { type: "identifier", name: token.value };
         }
-        this._expr();
+
+        return this._expr();
     }
 }
 
-export function checkFormula(source: string): FormulaCheck
+export function parseFormula(source: string): FormulaParse
 {
     try
     {
-        new Parser(tokenize(source)).parse();
-
-        return { ok: true };
+        return { ok: true, ast: new Parser(tokenize(source)).parse() };
     }
     catch (error)
     {
@@ -262,4 +292,11 @@ export function checkFormula(source: string): FormulaCheck
 
         throw error;
     }
+}
+
+export function checkFormula(source: string): FormulaCheck
+{
+    const parsed = parseFormula(source);
+
+    return parsed.ok ? { ok: true } : parsed;
 }
