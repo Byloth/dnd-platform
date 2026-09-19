@@ -34,15 +34,20 @@ export function undo(state: CharacterState, entry: LogEntry): CharacterState;
 export function explain(sheet: ComputedSheet, path: ValuePath): Provenance;
 ```
 
-### Types (abridged; the full definitions live in the `engine` package and are generated where they mirror schemas)
+### Types (abridged; the full definitions live in `packages/engine/src/index.ts`, content types are generated from the schemas)
 
 ```ts
+// One entity as read from a package directory; translations and patches are entities too.
+interface SourceEntity {
+  type: EntityType | 'translation';
+  id: string;
+  data: unknown;
+  file?: string;                       // path inside the package, for diagnostics
+}
 interface PackageSource {
   manifest: PackageManifest;           // package.yaml
   ruleset?: Ruleset;                   // base packages only
-  entities: Entity[];                  // every file under the type directories
-  patches: Patch[];
-  translations: TranslationFile[];
+  entities: SourceEntity[];            // every file under the type directories
 }
 
 interface LoadOptions {
@@ -50,10 +55,18 @@ interface LoadOptions {
   language?: string;                   // default language for resolved text
 }
 
+interface ResolvedEntity {
+  type: EntityType;
+  id: EntityId;
+  data: unknown;                       // after patches and translations
+  package: string;
+  patchedBy: EntityId[];               // ids of the patches applied, in order
+}
 interface PackageSet {
   order: PackageManifest[];            // topological order, base first; deterministic tie-break by id
   ruleset: Ruleset;                    // the single base ruleset in the set
-  entities: Map<EntityId, ResolvedEntity>;   // after patches, with provenance of patched fields
+  rulesetPackage: string;              // id of the base package
+  entities: ReadonlyMap<EntityId, ResolvedEntity>;
   diagnostics: Diagnostics;            // load-time problems (missing dependency → error)
 }
 
@@ -63,7 +76,7 @@ interface Diagnostics {
 }
 interface Diagnostic {
   severity: 'error' | 'warning' | 'info';
-  code: string;                        // e.g. 'E_UNKNOWN_EFFECT_KIND', 'W_UNANSWERED_CHOICE'
+  code: string;                        // see "Diagnostic codes" below
   message: string;
   package?: string;
   entity?: EntityId;
@@ -71,6 +84,7 @@ interface Diagnostic {
 }
 
 interface Character { /* as in 02-content-format.md: id, name, ruleset, packages, choices, state, snapshots */ }
+type CharacterState = Character['state'];
 
 interface DeriveOptions {
   language?: string;
@@ -78,23 +92,21 @@ interface DeriveOptions {
 }
 
 interface ComputedSheet {
-  meta: { characterId: string; packages: PackageRef[]; ruleset: string; formatVersion: number; language: string };
+  meta: { characterId: string; name: string; ruleset: string; packages: PackageRef[]; formatVersion: number; language: string };
   level: number;
   classes: { class: EntityId; subclass?: EntityId; levels: number }[];
   values: Record<ValuePath, DerivedValue>;     // 'ac', 'skill.stealth', 'speed.walk', ...
-  proficiencies: { type: ProficiencyType; item: string; expertise: boolean; provenance: Provenance }[];
-  resources: ResourceView[];           // id, name, max (DerivedValue), current (from state), recharge, display
-  actions: ActionView[];               // id, name, activation, cost, rolls with resolved bonuses, requires, source
-  spellcasting?: SpellcastingView;     // ability, dc, attackBonus, slots per level (max + current), lists
-  spells: SpellView[];                 // id, name, level, ability, paidWith: { slot: true } | { resource, amount } | { free: true }
-  features: FeatureView[];             // active features with resolved text and source
-  rollModifiers: RollModifierView[];   // advantage/disadvantage rules, conditional
+  features: FeatureView[];             // active features: id, name, text, origin, owner, level, source
+  proficiencies: ProficiencyView[];    // type, item, expertise, source
+  resources: ResourceView[];           // id, name, max (DerivedValue), current (from state), recharge, display, source
+  actions: ActionView[];               // id, name, activation, cost, requires, dc, rolls with resolved bonuses, toggle, onUse/onHit, source, available
+  rollModifiers: RollModifierView[];   // advantage/disadvantage rules, conditional (applied flag)
   defenses: DefenseView[];
-  senses: SenseView[];
-  choices: ChoiceView[];               // open choices with options and current answers
-  sections: SectionId[];               // active sections in display order (docs/08)
+  choices: ChoiceView[];               // key '<owner id>#<choice id>', owner, choice, of, count, options, answers, answered, level
+  sections: string[];                  // active sections in display order (docs/08)
   warnings: Diagnostic[];
 }
+// M0.4 adds: spellcasting (ability, dc, attackBonus, slots), spells (paidWith: slot | resource | free), senses as views.
 
 interface DerivedValue {
   value: number | string;              // number, or dice string for table-driven dice
@@ -111,20 +123,9 @@ interface Contribution {
   applied: boolean;                    // false when a `when` condition made it inactive but it is still shown
 }
 
-interface CharacterState {
-  hp: { current: number; temporary: number };
-  hitDice: { spent: number };
-  resources: Record<string, number>;
-  conditions: { condition: EntityId; level?: number; expires?: Expiry }[];   // level for leveled conditions (exhaustion)
-  deathSaves: { successes: number; failures: number };
-  inspiration: boolean;
-  concentration: { spell: EntityId; since: string } | null;
-  customEffects: CustomEffect[];
-  toggles: { state: string; since: string; expires?: Expiry }[];
-  activeSpells: { spell: EntityId; caster: string; slotLevel?: number; expires?: Expiry }[];
-  turn: { used: ActivationType[]; actionsTaken: string[]; movementUsed: number };
-}
-type Expiry = { turns: number } | { rest: 'short-rest' | 'long-rest' } | { manual: true };
+// CharacterState is the character document's `state` (02-content-format.md): hp, hitDice, resources,
+// spellSlots, conditions (with level and expiry), deathSaves, inspiration, concentration, customEffects,
+// toggles, activeSpells, turn.
 
 type PlayEvent =
   | { type: 'damage'; amount: number; damageType?: string }
@@ -132,13 +133,12 @@ type PlayEvent =
   | { type: 'temp-hp'; amount: number }
   | { type: 'spend-resource'; resource: string; amount: number }
   | { type: 'restore-resource'; resource: string; amount: number }
-  | { type: 'cast-spell'; spell: EntityId; slotLevel?: number; cost?: { resource: string; amount: number } }
+  | { type: 'cast-spell'; spell: EntityId; slotLevel?: number }
   | { type: 'end-concentration' }
-  | { type: 'toggle'; state: string; on: boolean }
   | { type: 'end-spell'; spell: EntityId }
-  | { type: 'apply-condition'; condition: EntityId; expires?: Expiry }
+  | { type: 'toggle'; state: string; on: boolean }
+  | { type: 'apply-condition'; condition: EntityId }
   | { type: 'remove-condition'; condition: EntityId }
-  | { type: 'custom-effect'; op: 'add' | 'remove'; effect: CustomEffect }
   | { type: 'short-rest'; hitDice: { die: number; rolls: number[] }[] }   // rolls supplied by the caller
   | { type: 'long-rest' }
   | { type: 'death-save'; roll: number }
@@ -147,10 +147,31 @@ type PlayEvent =
   | { type: 'use-action'; action: string }         // marks activation used this turn, pays cost
   | { type: 'end-turn' }
   | { type: 'note'; text: string };
+// Expiry on apply-condition and a custom-effect event are added with the play engine (M0.7).
 
 interface ApplyResult { state: CharacterState; entry: LogEntry; warnings: Diagnostic[] }
-interface LogEntry { id: string; event: PlayEvent; before: Partial<CharacterState>; after: Partial<CharacterState>; summary: LocalisedString }
+interface LogEntry { id: string; event: PlayEvent; before: Partial<CharacterState>; after: Partial<CharacterState> }
 ```
+
+### Diagnostic codes
+
+Stable identifiers, never reworded into other codes once published.
+
+| Stage | Code | Severity | Meaning |
+|---|---|---|---|
+| load | `E_DUPLICATE_PACKAGE` | error | two sources declare the same package id |
+| load | `E_MISSING_DEPENDENCY` | error | a dependency is not in the set |
+| load | `E_DEPENDENCY_CYCLE` | error | the dependency graph has a cycle |
+| load | `E_NO_BASE` | error | no `base` package in the set |
+| load | `E_MULTIPLE_BASE` | error | more than one `base` package in the set |
+| load | `E_DUPLICATE_ID` | error | the same entity id appears in two packages |
+| load | `W_VERSION_MISMATCH` | warning | a pinned version differs from the loaded one |
+| load | `E_PATCH_TARGET` | error | a patch targets a missing entity or path |
+| derive | `W_UNANSWERED_CHOICE` | warning | a required choice has no answer; the sheet still renders |
+| derive | `W_MISSING_ENTITY` | warning | the character references an entity that is not in the set |
+| derive | `E_VALUE_CYCLE` | error | formulas reference each other in a cycle; the nodes fall back to their base value |
+| derive | `E_FORMULA` | error | a formula failed to parse or evaluate |
+| derive | `E_UNKNOWN_CONDITION_KEY` | error | a `when` uses a key outside the condition language |
 
 ### Derivation algorithm (`derive`)
 
@@ -176,6 +197,8 @@ Complexity is linear in the number of active effects plus the topological sort; 
 - `end-turn` resets the turn tracker (action, bonus action, reaction, movement, free interaction) and decrements `expires: turns` counters.
 
 ### Validation rules (`validate`)
+
+Status: in M0.3 `validate(set)` returns the loading diagnostics of the set; the rules below (referential integrity and coherence) are implemented in M0.4. Schema conformance is checked before loading by `dnd validate` (CLI).
 
 Beyond schema conformance:
 - every referenced id resolves within the set and points at the expected type;
