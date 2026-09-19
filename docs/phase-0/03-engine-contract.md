@@ -91,6 +91,12 @@ interface DeriveOptions {
   includeText?: boolean;               // resolve feature/spell text into the sheet (default true)
 }
 
+interface AttackView {
+  id: string; name: LocalisedString; item?: EntityId; unarmed: boolean; ranged: boolean; ability: string; proficient: boolean;
+  attackBonus: DerivedValue; damage: string; damageDice: string; damageBonus: DerivedValue; damageType: string;
+  magical: boolean; critRange: number; extraDamage: { dice?: string; formula?: string; damageType?: string; source: ContributionSource }[];
+}
+
 interface ComputedSheet {
   meta: { characterId: string; name: string; ruleset: string; packages: PackageRef[]; formatVersion: number; language: string };
   level: number;
@@ -99,7 +105,8 @@ interface ComputedSheet {
   features: FeatureView[];             // active features: id, name, text, origin, owner, level, source
   proficiencies: ProficiencyView[];    // type, item, expertise, source
   resources: ResourceView[];           // id, name, max (DerivedValue), current (from state), recharge, display, source
-  actions: ActionView[];               // id, name, activation, cost, requires, dc, rolls with resolved bonuses, toggle, onUse/onHit, source, available
+  actions: ActionView[];
+  attacks: AttackView[];                // one row per equipped weapon (plus versatile), one unarmed strike, shaped by modify-attacks               // id, name, activation, cost, requires, dc, rolls with resolved bonuses, toggle, onUse/onHit, source, available
   rollModifiers: RollModifierView[];   // advantage/disadvantage rules, conditional (applied flag)
   defenses: DefenseView[];
   choices: ChoiceView[];               // key '<owner id>#<choice id>', owner, choice, of, count, options, answers, answered, level
@@ -167,7 +174,9 @@ Stable identifiers, never reworded into other codes once published.
 | load | `E_DUPLICATE_ID` | error | the same entity id appears in two packages |
 | load | `W_VERSION_MISMATCH` | warning | a pinned version differs from the loaded one |
 | load | `E_PATCH_TARGET` | error | a patch targets a missing entity or path |
-| derive | `W_UNANSWERED_CHOICE` | warning | a required choice has no answer; the sheet still renders |
+| derive | `W_DUPLICATE_ACTION` | derive | the same action id is declared twice with different content; the first wins |
+| `E_MISSING_REFERENCE` | validate | an entity id or `table(<id>)` reference does not resolve |
+| `W_UNANSWERED_CHOICE` | warning | a required choice has no answer; the sheet still renders |
 | derive | `W_MISSING_ENTITY` | warning | the character references an entity that is not in the set |
 | derive | `E_VALUE_CYCLE` | error | formulas reference each other in a cycle; the nodes fall back to their base value |
 | derive | `E_FORMULA` | error | a formula failed to parse or evaluate |

@@ -2,7 +2,7 @@
 
 ## Purpose
 
-> Revised on 2026-09-19 with the decisions D1–D9 of [inventory/README.md](inventory/README.md), taken after classifying the complete SRD 5.1 against the first draft of the catalogue.
+> Revised on 2026-09-19 with the decisions D1–D9 of [inventory/README.md](inventory/README.md), taken after classifying the complete SRD 5.1 against the first draft of the catalogue. **Frozen as `formatVersion: 0`** at the end of M0.5: the whole SRD 5.1 is authored in it. Changes go through a version bump and a migration; candidates are listed in [inventory/authoring-review.md](inventory/authoring-review.md).
 
 This document specifies the first version of the content format: the files a package is made of, the entities they contain, the effect catalogue that gives content its mechanics, the small languages for conditions and formulas, and how text is localised. It is the reference for the `schema` package (JSON Schema is the source of truth; TypeScript types are derived from it) and for every author of content, official or homebrew.
 
@@ -357,6 +357,16 @@ Every effect has `kind`, optional `when` (condition), optional `note` (localised
 | `define-table` | `table`, `by`, `rows` | A table addressable in formulas (alternative to `tables:` on a class). Duplicate keys are a validation error. |
 
 A feature (not only an action) may also declare `toggle`, `onRest` and `onTurnStart` (see below).
+
+### Conventions confirmed by authoring the SRD
+
+- `trigger` is used on `special` actions to carry "when you hit" / "when you are reduced to 0 hit points"; `activation: special` means the action is not spent from the turn's economy.
+- `answer.choice` may be the bare choice id; the engine also accepts the prefixed `<owner>#<choice>` form.
+- Counters that only track uses (Relentless Rage, Overchannel) are resources with `max: unlimited` and `display: counter`.
+- Charges that never come back use `recharge: [{ on: manual, amount: 0 }]`; day-based and dusk recharges are `manual` with a `note` until v1 adds triggers.
+- A `modify` on `resource.<id>.recharge` with `op: set` and a rest name replaces the declared recharge (Font of Inspiration).
+- Items with rarity variants (+1/+2/+3 weapons, Belt of Giant Strength) are one entity with an `open-choice` of `option`, each option carrying its effects.
+- Option-dependent conditions of a spell are all listed as `applyCondition` with a `note`; the play engine must offer them as a choice.
 
 ### Play effects
 

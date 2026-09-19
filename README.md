@@ -12,7 +12,7 @@ rules engine) is described in [`docs/phase-0/`](docs/phase-0/00-README.md).
 
 ## Status
 
-Phase 0, milestone M0.4 done: the whole SRD 5.1 is generated into the base package with authored mechanics (572 overlay files), loads in the engine with every reference resolved, and golden fixtures pass on it. Next: one golden fixture per class and the review pass (M0.5). Nothing playable yet.
+Phase 0, milestone M0.5 done: the base package covers the whole SRD 5.1 with authored mechanics, the engine derives every class at every tier with provenance, and 59 golden fixtures with hand-computed expectations plus unit tests for every effect kind guard it. Content format frozen at v0. Next: private and homebrew packages (M0.6), the play engine (M0.7). Nothing playable yet.
 
 ## Development
 

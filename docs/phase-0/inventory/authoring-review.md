@@ -59,6 +59,26 @@ Outcome after regeneration: 572 overlay files applied; class features with mecha
 - Devil's Sight as darkvision 120 with a note. Keep.
 - Draconic Resilience counts character levels, text says sorcerer levels: `hp.perLevel` should be class-scoped; engine change in M0.5 (multiply by the owning class level when `ownerClass` is set).
 
+## Bugs found by the golden fixtures (M0.5) and their fixes
+
+Fifty-nine fixtures with hand-computed expectations (one per class at levels 1, 5, 11, 20, plus multiclass, items, conditions, species and subspecies coverage) surfaced these defects, all fixed with the test kept:
+
+- Shields added no Armour Class: the generator typed them as gear and the engine had no shield term. Both fixed.
+- The Cleric lacked its 12th-level Ability Score Improvement and the Warlock its 16th: Open5e misses those rows; ASI levels now come from 5e-database's per-level bonus counts.
+- Features without level rows upstream (Druid's Timeless Body) landed at level 1; the level now falls back to 5e-database.
+- Spells and languages chosen through feature choices (High Elf cantrip, Bonus Cantrip, Extra Language) never reached the sheet; answered `open-choice` of spell, skill, tool or language now produce spells and proficiencies.
+- `open-choice.level` was ignored (Mystic Arcanum, Magical Secrets, Expertise at 10 registered early); choices now open at their level.
+- Half casters prepared `level + modifier` spells instead of `⌊level/2⌋ + modifier`.
+- Multiclass characters received saving throws and full proficiencies from every class; only the first class grants them, later classes grant their multiclass proficiencies.
+- `wieldingOnly` was false with nothing wielded, so Martial Arts never applied to a bare-handed Monk; an empty hand now satisfies "unarmed or wielding only".
+- Initiative ignored bonuses to all ability checks (Jack of All Trades); it is an ability check.
+- Two `grant-proficiency` picks on one feature collided on the same answer key (Rogue and Bard Expertise): `choose.id` added and both overlays rewritten; expertise now doubles.
+- Font of Inspiration was text only: modelled as a recharge override; a short-rest recharge now also lists the long rest.
+- Duplicate action ids with `when` variants (Divine Strike 1d8/2d8) warned instead of picking the applicable one.
+- Rage at 20th level is unlimited (override on the resource maximum).
+
+Still open, recorded for v1: attunement limit not enforced; option prerequisites on inline options not checked; choice counts fixed at the level gained (Metamagic, Invocations); pact slots cannot be stored in the character state schema (now allowed as `pact`); `always-prepared` at-will spells display as slot-paid; spell-typed choices (Spell Mastery, Signature Spells) list the spell but not its free casting.
+
 ## Fixes applied during the wave
 
 - Lightfoot ability score increase not generated: subrace matching by name added to the generator.
