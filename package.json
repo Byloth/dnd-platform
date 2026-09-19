@@ -23,7 +23,8 @@
     "prepare": "husky",
     "generate:types": "node packages/schema/scripts/generate.ts",
     "generate:types:check": "node packages/schema/scripts/generate.ts --check",
-    "validate:content": "node packages/cli/dist/index.js validate packages/content/srd51 fixtures/packages/srd51-excerpt fixtures/packages/homebrew-feline fixtures/packages/phb14-stub fixtures/packages/mini-ruleset-b content-private/* --allow-missing"
+    "validate:content": "node packages/cli/dist/index.js validate packages/content/srd51 fixtures/packages/srd51-excerpt fixtures/packages/homebrew-feline fixtures/packages/phb14-stub fixtures/packages/mini-ruleset-b content-private/* --allow-missing",
+    "fixtures": "node packages/cli/dist/index.js fixtures"
   },
   "devDependencies": {
     "@byloth/dnd-platform-schema": "workspace:*",

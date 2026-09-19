@@ -1,0 +1,30 @@
+formatVersion: 0
+id: fixture-monk-l3-feline
+name: Silent Paw
+ruleset: { id: srd51, version: 0.1.0 }
+packages:
+  - { id: srd51, version: 0.1.0 }
+  - { id: homebrew.byloth, version: 0.1.0 }
+choices:
+  species: homebrew.byloth.species.feline
+  subspecies: homebrew.byloth.species.feline.puma
+  classes:
+    - { class: srd51.class.monk, levels: 3 }
+  abilityScores:
+    method: manual
+    base: { str: 11, dex: 17, con: 14, int: 8, wis: 15, cha: 8 }
+  answers:
+    "srd51.class.monk#skills": [stealth, acrobatics]
+    "srd51.class.monk#tools": [musical-instrument]
+    # "srd51.class.monk#monastic-tradition" deliberately unanswered → W_UNANSWERED_CHOICE
+  equipment:
+    - { item: srd51.item.dart, quantity: 10 }
+    - { item: srd51.item.shortbow, quantity: 1, equipped: true }
+    - { item: srd51.item.arrow, quantity: 20 }
+state:
+  hp: { current: 24, temporary: 0 }
+  hitDice: { spent: 0 }
+  resources: { ki: 3 }
+  conditions: []
+  deathSaves: { successes: 0, failures: 0 }
+  inspiration: false

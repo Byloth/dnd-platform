@@ -1,0 +1,45 @@
+# Hill dwarf monk 1 on the SRD excerpt. Every number computed by hand from the fixture texts.
+# Scores: base str 12, dex 16, con 14, int 8, wis 15, cha 10; dwarf +2 con → 16; hill dwarf +1 wis → 16.
+# Modifiers floor((score - 10) / 2): str +1, dex +3, con +3, int -1, wis +3, cha 0. Proficiency bonus at 1: +2.
+values:
+  ability.str: 12
+  ability.dex: 16
+  ability.con: 16          # 14 + 2 (Ability Score Increase, dwarf)
+  ability.int: 8
+  ability.wis: 16          # 15 + 1 (Ability Score Increase, hill dwarf)
+  ability.cha: 10
+  proficiencyBonus: 2      # table proficiency-bonus, level 1
+  ac: 16                   # Unarmored Defense: 10 + mod(dex) 3 + mod(wis) 3 (no armour: the shortsword is not armour)
+  hp.max: 12               # hitDie 8 + mod(con) 3 + Dwarven Toughness (hp.perLevel 1 × level 1)
+  speed.walk: 25           # dwarf; no Unarmored Movement before monk 2
+  sense.darkvision: 60
+  initiative: 3            # mod(dex)
+  attacks.perAction: 1
+  save.str: 3              # mod 1 + proficiency 2 (monk saving throw)
+  save.dex: 5              # mod 3 + 2
+  save.con: 3              # mod 3, not proficient
+  save.int: -1
+  save.wis: 3
+  save.cha: 0
+  skill.stealth: 5         # mod(dex) 3 + 2 (chosen)
+  skill.acrobatics: 5      # mod(dex) 3 + 2 (chosen)
+  skill.athletics: 1       # mod(str) 1, not proficient
+  skill.perception: 3      # mod(wis) 3, not proficient
+  passive.perception: 13   # 10 + skill.perception
+proficiencies:
+  - skill:stealth
+  - skill:acrobatics
+  - save:str
+  - save:dex
+  - weapon:simple
+  - weapon:shortsword
+  - weapon:battleaxe        # Dwarven Combat Training
+  - weapon:warhammer
+  - tool:smiths-tools       # Tool Proficiency (dwarf), answered
+  - language:common
+  - language:dwarvish
+actions:
+  martial-arts-strike: { activation: bonus-action }   # Martial Arts, no cost
+sections:
+  active: [core, abilities, saves, skills, senses, combat, actions, features]
+  inactive: [resources, spellcasting, spells]         # no Ki before monk 2, no spellcasting

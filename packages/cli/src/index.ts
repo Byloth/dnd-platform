@@ -12,6 +12,7 @@
 
 import { FORMAT_VERSION } from "@byloth/dnd-platform-schema";
 
+import { runFixturesCommand } from "./commands/fixtures.js";
 import { runValidate } from "./commands/validate.js";
 
 const HELP = `dnd — dnd-platform command-line tools (content format v${FORMAT_VERSION})
@@ -23,7 +24,8 @@ Commands:
              validate content package directories against the schemas
   build      convert YAML packages to canonical JSON      (M0.8)
   derive     compute a character sheet                    (M0.8)
-  fixtures   run golden and session fixtures              (M0.3)
+  fixtures [dirs…] [--update] [--filter <name>] [--json]
+             run the golden character fixtures (default fixtures/characters)
 `;
 
 export function main(argv: readonly string[]): number
@@ -37,6 +39,7 @@ export function main(argv: readonly string[]): number
         return 0;
     }
     if (command === "validate") { return runValidate(rest); }
+    if (command === "fixtures") { return runFixturesCommand(rest); }
 
     process.stderr.write(`dnd: unknown or not yet implemented command "${command}"\n\n${HELP}`);
 

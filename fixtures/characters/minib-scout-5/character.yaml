@@ -1,0 +1,23 @@
+formatVersion: 0
+id: fixture-minib-scout-5
+name: Test Scout
+ruleset: { id: minib, version: 0.1.0 }
+packages:
+  - { id: minib, version: 0.1.0 }
+choices:
+  classes:
+    - { class: minib.class.scout, levels: 5 }
+  abilityScores:
+    method: manual
+    base: { str: 10, dex: 16, con: 14, int: 10, wis: 14, cha: 8 }
+  answers:
+    "minib.class.scout#skills": [stealth, athletics]
+    # "minib.class.scout#scout-path" deliberately unanswered → W_UNANSWERED_CHOICE
+  equipment: []
+state:
+  hp: { current: 40, temporary: 0 }
+  hitDice: { spent: 0 }
+  resources: {}
+  conditions: []
+  deathSaves: { successes: 0, failures: 0 }
+  inspiration: false

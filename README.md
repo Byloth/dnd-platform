@@ -12,7 +12,7 @@ rules engine) is described in [`docs/phase-0/`](docs/phase-0/00-README.md).
 
 ## Status
 
-Phase 0, milestone M0.2 done: content format v0 (JSON Schemas, generated types, example packages) and `dnd validate`. The rules engine (M0.3) is next. Nothing playable yet.
+Phase 0, milestone M0.3 done: the rules engine derives a computed sheet with provenance from a character and its content packages; golden fixtures pass. Next: the full effect catalogue against the whole SRD (M0.4). Nothing playable yet.
 
 ## Development
 
@@ -25,6 +25,7 @@ pnpm typecheck
 pnpm build
 pnpm test
 pnpm validate:content        # validate every content package directory against the schemas
+pnpm fixtures                # run the golden character fixtures (add --update to refresh snapshots after review)
 pnpm generate:types          # regenerate packages/schema/src/generated from the JSON Schemas
 ```
 

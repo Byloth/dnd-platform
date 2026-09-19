@@ -1,0 +1,28 @@
+formatVersion: 0
+id: fixture-monk-l1
+name: Brenna Stonefist
+ruleset: { id: srd51, version: 0.1.0 }
+packages:
+  - { id: srd51, version: 0.1.0 }
+choices:
+  species: srd51.species.dwarf
+  subspecies: srd51.species.dwarf.hill-dwarf
+  classes:
+    - { class: srd51.class.monk, levels: 1 }
+  abilityScores:
+    method: manual
+    base: { str: 12, dex: 16, con: 14, int: 8, wis: 15, cha: 10 }
+  answers:
+    "srd51.class.monk#skills": [stealth, acrobatics]
+    "srd51.class.monk#tools": [artisans-tools]
+    "srd51.feature.dwarf.tool-proficiency#tool": [smiths-tools]
+  equipment:
+    - { item: srd51.item.dart, quantity: 10 }
+    - { item: srd51.item.shortsword, quantity: 1, equipped: true }
+state:
+  hp: { current: 12, temporary: 0 }
+  hitDice: { spent: 0 }
+  resources: {}
+  conditions: []
+  deathSaves: { successes: 0, failures: 0 }
+  inspiration: false

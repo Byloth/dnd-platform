@@ -1,0 +1,277 @@
+/**
+ * `dnd fixtures [dirs…] [--update] [--filter <name>] [--json]`
+ *
+ * Golden fixtures (docs/phase-0/04-testing-strategy.md): every
+ * `<dir>/<name>/` with a `character.yaml` is loaded with the packages listed
+ * in its `packages.yaml`, derived, compared with the hand-written
+ * `expected.yaml` and with `snapshot.json` (canonical JSON of the whole
+ * sheet). A fixture whose packages are missing is skipped, never failed.
+ */
+
+import { existsSync, readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
+import { dirname, join, resolve } from "node:path";
+
+import { parse } from "yaml";
+
+import { derive, loadPackages, stableStringify } from "@byloth/dnd-platform-engine";
+import type { Character, ComputedSheet } from "@byloth/dnd-platform-engine";
+
+import { toPackageSource } from "../io/to-package-source.js";
+
+export type FixtureStatus = "pass" | "fail" | "skip" | "updated";
+
+export interface FixtureReport
+{
+    readonly name: string;
+    readonly directory: string;
+    readonly status: FixtureStatus;
+    /** Failure lines, or the single skip reason. */
+    readonly details: readonly string[];
+}
+
+export interface FixturesOptions
+{
+    readonly dirs?: readonly string[];
+    readonly update?: boolean;
+    readonly filter?: string;
+    readonly root?: string;
+}
+
+interface PackagesFile
+{
+    readonly packages: readonly string[];
+    readonly requires?: readonly string[];
+}
+
+interface ExpectedResource
+{
+    readonly max: number | string;
+    readonly recharge?: readonly string[];
+}
+interface ExpectedAction
+{
+    readonly activation: string;
+    readonly cost?: Readonly<Record<string, number>>;
+}
+interface Expected
+{
+    readonly values?: Readonly<Record<string, number | string>>;
+    readonly provenance?: Readonly<Record<string, readonly string[]>>;
+    readonly resources?: Readonly<Record<string, ExpectedResource>>;
+    readonly actions?: Readonly<Record<string, ExpectedAction>>;
+    readonly proficiencies?: readonly string[];
+    readonly sections?: { readonly active?: readonly string[], readonly inactive?: readonly string[] };
+    readonly warnings?: readonly string[];
+}
+
+/** Walk up from `from` to the directory holding `pnpm-workspace.yaml`. */
+export function findRepositoryRoot(from: string = process.cwd()): string
+{
+    let dir = resolve(from);
+    for (;;)
+    {
+        if (existsSync(join(dir, "pnpm-workspace.yaml"))) { return dir; }
+
+        const parent = dirname(dir);
+        if (parent === dir) { throw new Error(`repository root (pnpm-workspace.yaml) not found above ${from}`); }
+        dir = parent;
+    }
+}
+
+function readYaml<T>(path: string): T
+{
+    return parse(readFileSync(path, "utf8")) as T;
+}
+
+function show(value: unknown): string
+{
+    return JSON.stringify(value);
+}
+
+function compareExpected(sheet: ComputedSheet, expected: Expected, name: string): string[]
+{
+    const failures: string[] = [];
+    const fail = (what: string, wanted: unknown, got: unknown): void =>
+    {
+        failures.push(`${name}: ${what} expected ${show(wanted)} got ${show(got)}`);
+    };
+
+    for (const [path, wanted] of Object.entries(expected.values ?? {}))
+    {
+        const got = sheet.values[path]?.value;
+        if (got !== wanted) { fail(`values.${path}`, wanted, got); }
+    }
+    for (const [path, wanted] of Object.entries(expected.provenance ?? {}))
+    {
+        const got = (sheet.values[path]?.provenance ?? [])
+            .filter((c) => c.applied)
+            .map((c) => c.label["en"] ?? Object.values(c.label)[0] ?? "");
+        if (show(got) !== show(wanted)) { fail(`provenance.${path}`, wanted, got); }
+    }
+    for (const [id, wanted] of Object.entries(expected.resources ?? {}))
+    {
+        const resource = sheet.resources.find((r) => r.id === id);
+        if (resource === undefined)
+        {
+            fail(`resources.${id}`, wanted, undefined);
+
+            continue;
+        }
+        if (resource.max.value !== wanted.max) { fail(`resources.${id}.max`, wanted.max, resource.max.value); }
+        if (wanted.recharge !== undefined)
+        {
+            const got = resource.recharge.map((r) => r.on);
+            if (show(got) !== show(wanted.recharge)) { fail(`resources.${id}.recharge`, wanted.recharge, got); }
+        }
+    }
+    for (const [id, wanted] of Object.entries(expected.actions ?? {}))
+    {
+        const action = sheet.actions.find((a) => a.id === id);
+        if (action === undefined)
+        {
+            fail(`actions.${id}`, wanted, undefined);
+
+            continue;
+        }
+        if (action.activation !== wanted.activation) { fail(`actions.${id}.activation`, wanted.activation, action.activation); }
+        if (wanted.cost !== undefined)
+        {
+            const got: Record<string, number> = {};
+            for (const cost of action.cost)
+            {
+                if ("amount" in cost) { got[cost.resource] = cost.amount; }
+                else { got[cost.resource] = cost.level; }
+            }
+            if (show(got) !== show(wanted.cost)) { fail(`actions.${id}.cost`, wanted.cost, got); }
+        }
+    }
+    const held = new Set(sheet.proficiencies.map((p) => `${p.type}:${p.item}`));
+    for (const wanted of expected.proficiencies ?? [])
+    {
+        if (!held.has(wanted)) { fail("proficiencies", wanted, [...held].sort()); }
+    }
+    const sections = new Set(sheet.sections);
+    for (const wanted of expected.sections?.active ?? [])
+    {
+        if (!sections.has(wanted)) { fail("sections.active", wanted, sheet.sections); }
+    }
+    for (const unwanted of expected.sections?.inactive ?? [])
+    {
+        if (sections.has(unwanted)) { fail("sections.inactive", unwanted, sheet.sections); }
+    }
+    const codes = new Set(sheet.warnings.map((w) => w.code));
+    for (const wanted of expected.warnings ?? [])
+    {
+        if (!codes.has(wanted)) { fail("warnings", wanted, [...codes].sort()); }
+    }
+
+    return failures;
+}
+
+function runOne(root: string, directory: string, name: string, update: boolean): FixtureReport
+{
+    const packagesFile = readYaml<PackagesFile>(join(directory, "packages.yaml"));
+    const missing = packagesFile.packages.filter((path) => !existsSync(resolve(root, path)));
+    if (missing.length > 0)
+    {
+        return { name: name, directory: directory, status: "skip", details: [`missing package directories: ${missing.join(", ")}`] };
+    }
+
+    const sources = packagesFile.packages.map((path) => toPackageSource(resolve(root, path)));
+    const character = readYaml<Character>(join(directory, "character.yaml"));
+    const pins = Object.fromEntries(character.packages.map((p) => [p.id, p.version]));
+    const set = loadPackages(sources, { pins: pins });
+    const sheet = derive(character, set);
+
+    const expectedPath = join(directory, "expected.yaml");
+    const failures = existsSync(expectedPath) ? compareExpected(sheet, readYaml<Expected>(expectedPath), name) : [];
+
+    const canonical = `${stableStringify(sheet)}\n`;
+    const snapshotPath = join(directory, "snapshot.json");
+    let updated = false;
+    if (update)
+    {
+        if (!existsSync(snapshotPath) || readFileSync(snapshotPath, "utf8") !== canonical)
+        {
+            writeFileSync(snapshotPath, canonical);
+            updated = true;
+        }
+    }
+    else if (!existsSync(snapshotPath))
+    {
+        failures.push(`${name}: snapshot.json missing (run with --update after reviewing the sheet)`);
+    }
+    else if (readFileSync(snapshotPath, "utf8") !== canonical)
+    {
+        failures.push(`${name}: snapshot.json differs from the derived sheet (review, then --update)`);
+    }
+
+    if (failures.length > 0) { return { name: name, directory: directory, status: "fail", details: failures }; }
+
+    return { name: name, directory: directory, status: updated ? "updated" : "pass", details: [] };
+}
+
+/** Run every fixture under the given directories (default `fixtures/characters`). */
+export function runFixtures(options: FixturesOptions = {}): FixtureReport[]
+{
+    const root = options.root ?? findRepositoryRoot();
+    const dirs = (options.dirs?.length ? options.dirs : ["fixtures/characters"]).map((d) => resolve(root, d));
+    const reports: FixtureReport[] = [];
+
+    for (const dir of dirs)
+    {
+        if (!existsSync(dir)) { continue; }
+        for (const name of readdirSync(dir).sort())
+        {
+            const directory = join(dir, name);
+            if (!statSync(directory).isDirectory() || !existsSync(join(directory, "character.yaml"))) { continue; }
+            if (options.filter !== undefined && !name.includes(options.filter)) { continue; }
+
+            try
+            {
+                reports.push(runOne(root, directory, name, options.update === true));
+            }
+            catch (error)
+            {
+                reports.push({ name: name, directory: directory, status: "fail", details: [`${name}: ${(error as Error).message}`] });
+            }
+        }
+    }
+
+    return reports;
+}
+
+export function runFixturesCommand(argv: readonly string[]): number
+{
+    const json = argv.includes("--json");
+    const update = argv.includes("--update");
+    const filterIndex = argv.indexOf("--filter");
+    const filter = filterIndex >= 0 ? argv[filterIndex + 1] : undefined;
+    const dirs = argv.filter((arg, index) => !arg.startsWith("--") && index !== filterIndex + 1);
+
+    const reports = runFixtures({ dirs: dirs, update: update, ...(filter !== undefined ? { filter: filter } : {}) });
+    const failed = reports.filter((r) => r.status === "fail").length;
+
+    if (json)
+    {
+        process.stdout.write(`${JSON.stringify({ ok: failed === 0, fixtures: reports }, null, 2)}\n`);
+    }
+    else
+    {
+        for (const report of reports)
+        {
+            const label = report.status.toUpperCase().padEnd(7);
+            process.stdout.write(`${label} ${report.name}${report.status === "skip" ? ` (${report.details[0]})` : ""}\n`);
+            if (report.status === "fail")
+            {
+                for (const line of report.details) { process.stdout.write(`        ${line}\n`); }
+            }
+        }
+        const counts = (["pass", "fail", "skip", "updated"] as const)
+            .map((s) => `${reports.filter((r) => r.status === s).length} ${s}`)
+            .join(", ");
+        process.stdout.write(`${reports.length} fixture(s): ${counts}\n`);
+    }
+
+    return failed === 0 ? 0 : 1;
+}

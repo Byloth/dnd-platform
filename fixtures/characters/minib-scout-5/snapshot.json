@@ -1,0 +1,1145 @@
+{
+  "actions": [],
+  "choices": [
+    {
+      "answered": true,
+      "answers": [
+        "stealth",
+        "athletics"
+      ],
+      "choice": "skills",
+      "count": 2,
+      "key": "minib.class.scout#skills",
+      "of": "skill",
+      "options": [
+        "perception",
+        "stealth",
+        "athletics",
+        "survival"
+      ],
+      "owner": "minib.class.scout"
+    },
+    {
+      "answered": false,
+      "answers": [],
+      "choice": "scout-path",
+      "count": 1,
+      "key": "minib.class.scout#scout-path",
+      "level": 3,
+      "of": "subclass",
+      "options": [],
+      "owner": "minib.class.scout"
+    }
+  ],
+  "classes": [
+    {
+      "class": "minib.class.scout",
+      "levels": 5
+    }
+  ],
+  "defenses": [],
+  "features": [
+    {
+      "id": "minib.feature.scout.keen-eye",
+      "level": 1,
+      "name": {
+        "en": "Keen Eye"
+      },
+      "origin": "class",
+      "owner": "minib.class.scout",
+      "source": {
+        "entity": "minib.class.scout",
+        "feature": "minib.feature.scout.keen-eye",
+        "package": "minib"
+      },
+      "text": {
+        "en": "You add 2 to your Wisdom (Perception) checks."
+      }
+    },
+    {
+      "id": "minib.feature.scout.quick-step",
+      "level": 2,
+      "name": {
+        "en": "Quick Step"
+      },
+      "origin": "class",
+      "owner": "minib.class.scout",
+      "source": {
+        "entity": "minib.class.scout",
+        "feature": "minib.feature.scout.quick-step",
+        "package": "minib"
+      },
+      "text": {
+        "en": "Your walking speed increases by 5 feet."
+      }
+    },
+    {
+      "id": "minib.feature.scout.extra-attack",
+      "level": 5,
+      "name": {
+        "en": "Extra Attack"
+      },
+      "origin": "class",
+      "owner": "minib.class.scout",
+      "source": {
+        "entity": "minib.class.scout",
+        "feature": "minib.feature.scout.extra-attack",
+        "package": "minib"
+      },
+      "text": {
+        "en": "You can attack twice, instead of once, whenever you take the Attack action on your turn."
+      }
+    }
+  ],
+  "level": 5,
+  "meta": {
+    "characterId": "fixture-minib-scout-5",
+    "formatVersion": 0,
+    "language": "en",
+    "name": "Test Scout",
+    "packages": [
+      {
+        "id": "minib",
+        "version": "0.1.0"
+      }
+    ],
+    "ruleset": "minib"
+  },
+  "proficiencies": [
+    {
+      "expertise": false,
+      "item": "light",
+      "source": {
+        "entity": "minib.class.scout",
+        "package": "minib"
+      },
+      "type": "armor"
+    },
+    {
+      "expertise": false,
+      "item": "dex",
+      "source": {
+        "entity": "minib.class.scout",
+        "package": "minib"
+      },
+      "type": "save"
+    },
+    {
+      "expertise": false,
+      "item": "wis",
+      "source": {
+        "entity": "minib.class.scout",
+        "package": "minib"
+      },
+      "type": "save"
+    },
+    {
+      "expertise": false,
+      "item": "athletics",
+      "source": {
+        "entity": "minib.class.scout",
+        "package": "minib"
+      },
+      "type": "skill"
+    },
+    {
+      "expertise": false,
+      "item": "stealth",
+      "source": {
+        "entity": "minib.class.scout",
+        "package": "minib"
+      },
+      "type": "skill"
+    },
+    {
+      "expertise": false,
+      "item": "simple",
+      "source": {
+        "entity": "minib.class.scout",
+        "package": "minib"
+      },
+      "type": "weapon"
+    }
+  ],
+  "resources": [],
+  "rollModifiers": [],
+  "sections": [
+    "identity",
+    "core",
+    "abilities",
+    "saves",
+    "skills",
+    "combat",
+    "features",
+    "equipment",
+    "personality",
+    "conditions",
+    "notes",
+    "credits"
+  ],
+  "values": {
+    "ability.cha": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 8
+        }
+      ],
+      "value": 8
+    },
+    "ability.con": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 14
+        }
+      ],
+      "value": 14
+    },
+    "ability.dex": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 16
+        }
+      ],
+      "value": 16
+    },
+    "ability.int": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 10
+        }
+      ],
+      "value": 10
+    },
+    "ability.str": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 10
+        }
+      ],
+      "value": 10
+    },
+    "ability.wis": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 14
+        }
+      ],
+      "value": 14
+    },
+    "ac": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 3
+        }
+      ],
+      "value": 13
+    },
+    "attacks.perAction": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "One attack per Attack action"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 1
+        },
+        {
+          "applied": true,
+          "kind": "set",
+          "label": {
+            "en": "Extra Attack"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "minib.class.scout",
+            "feature": "minib.feature.scout.extra-attack",
+            "package": "minib"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "carry.capacity": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength score × 15"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 150
+        }
+      ],
+      "value": 150
+    },
+    "check.cha": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": -1
+        }
+      ],
+      "value": -1
+    },
+    "check.con": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Constitution modifier"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "check.dex": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 3
+        }
+      ],
+      "value": 3
+    },
+    "check.int": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "check.str": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength modifier"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "check.wis": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "hp.max": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "hitDie + mod(con) + 2",
+          "kind": "base",
+          "label": {
+            "en": "Level 1 (Scout)"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 12
+        },
+        {
+          "applied": true,
+          "formula": "4 × (average(hitDie) + mod(con))",
+          "kind": "add",
+          "label": {
+            "en": "4 more levels (Scout)"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 28
+        }
+      ],
+      "value": 40
+    },
+    "initiative": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 3
+        }
+      ],
+      "value": 3
+    },
+    "jump.high": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "3 + Strength modifier"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 3
+        }
+      ],
+      "value": 3
+    },
+    "jump.long": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength score in feet"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 10
+        }
+      ],
+      "value": 10
+    },
+    "mod.cha": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": -1
+        }
+      ],
+      "value": -1
+    },
+    "mod.con": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Constitution modifier"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "mod.dex": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 3
+        }
+      ],
+      "value": 3
+    },
+    "mod.int": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "mod.str": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Strength modifier"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "mod.wis": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "passive.arcana": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "arcana bonus"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 0
+        }
+      ],
+      "value": 10
+    },
+    "passive.athletics": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "athletics bonus"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 4
+        }
+      ],
+      "value": 14
+    },
+    "passive.medicine": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "medicine bonus"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 2
+        }
+      ],
+      "value": 12
+    },
+    "passive.perception": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "perception bonus"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 4
+        }
+      ],
+      "value": 14
+    },
+    "passive.stealth": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "stealth bonus"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 7
+        }
+      ],
+      "value": 17
+    },
+    "passive.survival": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "survival bonus"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 2
+        }
+      ],
+      "value": 12
+    },
+    "proficiencyBonus": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Proficiency bonus by level"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 4
+        }
+      ],
+      "value": 4
+    },
+    "save.cha": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": -1
+        }
+      ],
+      "value": -1
+    },
+    "save.con": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Constitution modifier"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "save.dex": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 3
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 4
+        }
+      ],
+      "value": 7
+    },
+    "save.int": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "save.str": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength modifier"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "save.wis": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 2
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 4
+        }
+      ],
+      "value": 6
+    },
+    "skill.arcana": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "skill.athletics": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength modifier"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 0
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 4
+        }
+      ],
+      "value": 4
+    },
+    "skill.medicine": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "skill.perception": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 2
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Keen Eye"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "minib.class.scout",
+            "feature": "minib.feature.scout.keen-eye",
+            "package": "minib"
+          },
+          "value": 2
+        }
+      ],
+      "value": 4
+    },
+    "skill.stealth": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 3
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 4
+        }
+      ],
+      "value": 7
+    },
+    "skill.survival": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "speed.walk": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Default speed"
+          },
+          "source": {
+            "entity": "minib.ruleset",
+            "package": "minib"
+          },
+          "value": 30
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Quick Step"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "minib.class.scout",
+            "feature": "minib.feature.scout.quick-step",
+            "package": "minib"
+          },
+          "value": 5
+        }
+      ],
+      "value": 35
+    }
+  },
+  "warnings": [
+    {
+      "code": "W_UNANSWERED_CHOICE",
+      "entity": "minib.class.scout",
+      "message": "choice \"minib.class.scout#scout-path\" (subclass) has 0 of 1 answers",
+      "path": "minib.class.scout#scout-path",
+      "severity": "warning"
+    }
+  ]
+}
+
