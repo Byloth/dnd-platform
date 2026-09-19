@@ -1,0 +1,4 @@
+packages:
+  - packages/content/srd51
+  - fixtures/packages/homebrew-feline
+requires: [srd51, homebrew.byloth]

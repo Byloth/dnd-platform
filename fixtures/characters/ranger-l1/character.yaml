@@ -1,0 +1,33 @@
+formatVersion: 0
+id: fixture-ranger-l1
+name: Quiet Fern
+ruleset: { id: srd51, version: 0.1.0 }
+packages:
+  - { id: srd51, version: 0.1.0 }
+choices:
+  species: srd51.species.halfling
+  subspecies: srd51.species.halfling.lightfoot
+  classes:
+    - { class: srd51.class.ranger, levels: 1 }
+  abilityScores:
+    method: manual
+    # halfling: +2 dex; lightfoot: +1 cha (generated from the species traits)
+    base: { str: 10, dex: 15, con: 14, int: 10, wis: 15, cha: 8 }
+  answers:
+    "srd51.class.ranger#skills": [perception, stealth, survival]
+    "srd51.feature.ranger.favored-enemy#favored-enemy-1": [fiends]
+    "srd51.feature.ranger.favored-enemy#favored-enemy-language-1": [abyssal]
+    "srd51.feature.ranger.natural-explorer#favored-terrain-1": [forest]
+  equipment:
+    - { item: srd51.item.leather-armor, quantity: 1, equipped: true }
+    - { item: srd51.item.longbow, quantity: 1, equipped: true }
+    - { item: srd51.item.arrow, quantity: 20 }
+    - { item: srd51.item.shortsword, quantity: 2 }
+    - { item: srd51.item.explorers-pack, quantity: 1 }
+state:
+  hp: { current: 12, temporary: 0 }
+  hitDice: { spent: 0 }
+  resources: {}
+  conditions: []
+  deathSaves: { successes: 0, failures: 0 }
+  inspiration: false

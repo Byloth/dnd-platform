@@ -1,0 +1,36 @@
+formatVersion: 0
+id: fixture-barbarian-l20
+name: Grey Tusk
+ruleset: { id: srd51, version: 0.1.0 }
+packages:
+  - { id: srd51, version: 0.1.0 }
+choices:
+  species: srd51.species.half-orc
+  classes:
+    - { class: srd51.class.barbarian, subclass: srd51.subclass.barbarian.path-of-the-berserker, levels: 20 }
+  abilityScores:
+    method: manual
+    # half-orc: +2 STR, +1 CON generated from the species traits → STR 17, CON 15 before the ASIs
+    base: { str: 15, dex: 14, con: 14, int: 8, wis: 10, cha: 12 }
+    # ASI 4: +2 STR (19). ASI 8: +1 STR +1 CON (20, 16). ASI 12: +2 CON (18). ASI 16: +2 CON (20). ASI 19: +2 DEX (16).
+    # Primal Champion (level 20) then adds +4 STR and +4 CON from the class feature (not recorded here).
+    bonuses: { str: 3, con: 5, dex: 2 }
+  answers:
+    "srd51.class.barbarian#skills": [athletics, survival]
+    "srd51.class.barbarian#primal-path": [srd51.subclass.barbarian.path-of-the-berserker]
+    "srd51.class.barbarian#asi-4": [asi]
+    "srd51.class.barbarian#asi-8": [asi]
+    "srd51.class.barbarian#asi-12": [asi]
+    "srd51.class.barbarian#asi-16": [asi]
+    "srd51.class.barbarian#asi-19": [asi]
+  equipment:
+    - { item: srd51.item.greataxe, quantity: 1, equipped: true }
+    - { item: srd51.item.javelin, quantity: 4, equipped: true }
+    - { item: srd51.item.explorers-pack, quantity: 1 }
+state:
+  hp: { current: 285, temporary: 0 }
+  hitDice: { spent: 0 }
+  resources: { rage: 9999, relentless-endurance: 1, relentless-rage: 0 }
+  conditions: []
+  deathSaves: { successes: 0, failures: 0 }
+  inspiration: false

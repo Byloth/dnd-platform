@@ -1,0 +1,65 @@
+# Rock gnome Rogue 20 (Thief) on the SRD 5.1 base package.
+# Scores: base str 8, dex 16, con 13, int 12, wis 13, cha 10; gnome +2 int; rock gnome +1 con;
+# ASIs: 4 +2 dex, 8 +2 dex, 10 +2 int, 12 +2 con, 16 +2 wis, 19 +2 cha.
+# Final: str 8, dex 20, con 16, int 16, wis 15, cha 12 → mods str -1, dex +5, con +3, int +3, wis +2, cha +1.
+# Proficiency bonus at 20: +6. Slippery Mind (15): Wisdom saves proficient.
+values:
+  ability.dex: 20          # 16 + 4
+  ability.con: 16          # 13 + 1 (rock gnome) + 2 (ASI 12)
+  ability.int: 16          # 12 + 2 (gnome) + 2 (ASI 10)
+  ability.wis: 15          # 13 + 2 (ASI 16)
+  ability.cha: 12          # 10 + 2 (ASI 19)
+  proficiencyBonus: 6
+  hp.max: 163              # level 1: 8 + 3 = 11; levels 2-20: 19 × (5 + 3) = 152
+  ac: 16                   # leather 11 + mod(dex) 5
+  initiative: 5
+  speed.walk: 25
+  sense.darkvision: 60
+  attacks.perAction: 1
+  jump.long: 13            # 8 + Second-Story Work 5
+  save.dex: 11             # mod 5 + 6
+  save.int: 9              # mod 3 + 6
+  save.wis: 8              # mod 2 + 6 (Slippery Mind)
+  save.con: 3              # not proficient
+  save.str: -1
+  save.cha: 1
+  skill.stealth: 17        # mod(dex) 5 + 2 × 6 (Expertise)
+  skill.sleight-of-hand: 17
+  skill.perception: 14     # mod(wis) 2 + 2 × 6 (Expertise at 6)
+                           # ENGINE MISMATCH: got 8 (second Expertise pair cannot be answered, see rogue-l11)
+  skill.investigation: 15  # mod(int) 3 + 12 (Expertise at 6)
+                           # ENGINE MISMATCH: got 9 (same cause)
+  skill.persuasion: 1      # mod(cha) 1, not proficient
+  passive.perception: 24   # 10 + 14
+                           # ENGINE MISMATCH: got 18 (follows skill.perception)
+attacks:
+  rapier: { toHit: 11, damage: "1d8 + 5", type: piercing }        # mod(dex) 5 + 6
+  shortbow: { toHit: 11, damage: "1d6 + 5", type: piercing }
+  unarmed-strike: { toHit: 5, damage: "0", type: bludgeoning }    # mod(str) -1 + 6
+resources:
+  stroke-of-luck: { max: 1, recharge: [short-rest, long-rest] }
+actions:
+  sneak-attack: { activation: special }                           # 10d6 at rogue 20
+  cunning-action: { activation: bonus-action }
+  fast-hands: { activation: bonus-action }
+  uncanny-dodge: { activation: reaction }
+  stroke-of-luck: { activation: free, cost: { stroke-of-luck: 1 } }
+features:
+  - srd51.feature.rogue.sneak-attack
+  - srd51.feature.rogue.reliable-talent
+  - srd51.feature.rogue.blindsense
+  - srd51.feature.rogue.slippery-mind
+  - srd51.feature.rogue.elusive
+  - srd51.feature.rogue.stroke-of-luck
+  - srd51.feature.thief.use-magic-device
+  - srd51.feature.thief.thiefs-reflexes
+choices:
+  "srd51.class.rogue#roguish-archetype": answered
+  "srd51.class.rogue#asi-12": answered
+  "srd51.class.rogue#asi-16": answered
+  "srd51.class.rogue#asi-19": answered
+  "srd51.feature.rogue.expertise#expertise-1": answered
+proficiencies: [save:dex, save:int, save:wis, skill:stealth, skill:sleight-of-hand, armor:light, weapon:rapier, tool:thieves-tools, tool:tinkers-tools]
+sections:
+  active: [core, abilities, saves, skills, senses, combat, attacks, actions, resources, features]
+  inactive: [spellcasting, spells]

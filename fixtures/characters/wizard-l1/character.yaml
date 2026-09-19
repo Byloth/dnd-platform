@@ -1,0 +1,33 @@
+formatVersion: 0
+id: fixture-wizard-l1
+name: Cog Whisper
+ruleset: { id: srd51, version: 0.1.0 }
+packages:
+  - { id: srd51, version: 0.1.0 }
+choices:
+  species: srd51.species.gnome
+  subspecies: srd51.species.gnome.rock-gnome
+  classes:
+    - { class: srd51.class.wizard, levels: 1 }   # Arcane Tradition is chosen at level 2
+  abilityScores:
+    method: manual
+    # gnome +2 INT, rock gnome +1 CON (generated) → str 8, dex 14, con 14, int 17, wis 12, cha 10
+    base: { str: 8, dex: 14, con: 13, int: 15, wis: 12, cha: 10 }
+  answers:
+    "srd51.class.wizard#skills": [arcana, investigation]
+    # cantrips known at 1: 3 (table wizard.cantrips-known)
+    "srd51.class.wizard#cantrips": [srd51.spell.fire-bolt, srd51.spell.mage-hand, srd51.spell.light]
+    # prepared: wizard level 1 + INT modifier 3 = 4
+    "srd51.class.wizard#spells": [srd51.spell.magic-missile, srd51.spell.shield, srd51.spell.mage-armor, srd51.spell.sleep]
+  equipment:
+    - { item: srd51.item.quarterstaff, quantity: 1, equipped: true }
+    - { item: srd51.item.spellbook, quantity: 1 }
+    - { item: srd51.item.component-pouch, quantity: 1 }
+state:
+  hp: { current: 8, temporary: 0 }
+  hitDice: { spent: 0 }
+  resources: { arcane-recovery: 1 }
+  spellSlots: { "1": 2 }
+  conditions: []
+  deathSaves: { successes: 0, failures: 0 }
+  inspiration: false

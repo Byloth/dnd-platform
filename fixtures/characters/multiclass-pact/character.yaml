@@ -1,0 +1,48 @@
+formatVersion: 0
+id: fixture-multiclass-pact
+name: Ember Whisper
+ruleset: { id: srd51, version: 0.1.0 }
+packages:
+  - { id: srd51, version: 0.1.0 }
+choices:
+  species: srd51.species.half-elf
+  # First class listed = the class taken at level 1 (its hit die is the level-1 hit points, its saves are the only ones).
+  classes:
+    - { class: srd51.class.warlock, subclass: srd51.subclass.warlock.the-fiend, levels: 3 }
+    - { class: srd51.class.sorcerer, subclass: srd51.subclass.sorcerer.draconic-bloodline, levels: 2 }
+  abilityScores:
+    method: manual
+    # half-elf: +2 CHA generated from the species trait; the two +1 of choice (DEX, CON) are not a choice the
+    # engine can register, so they go into `bonuses` → STR 8, DEX 15, CON 15, INT 10, WIS 12, CHA 17
+    base: { str: 8, dex: 14, con: 14, int: 10, wis: 12, cha: 15 }
+    bonuses: { dex: 1, con: 1 }
+  answers:
+    "srd51.class.warlock#skills": [arcana, deception]
+    "srd51.class.warlock#otherworldly-patron": [srd51.subclass.warlock.the-fiend]
+    # warlock cantrips known at class level 3: table row 1 → 2
+    "srd51.class.warlock#cantrips": [srd51.spell.eldritch-blast, srd51.spell.minor-illusion]
+    # warlock spells known at class level 3: table row 3 → 4 (burning hands and scorching ray come from the Fiend list)
+    "srd51.class.warlock#spells": [srd51.spell.hellish-rebuke, srd51.spell.charm-person, srd51.spell.burning-hands, srd51.spell.scorching-ray]
+    "srd51.feature.warlock.eldritch-invocations#eldritch-invocations": [devils-sight, armor-of-shadows]
+    "srd51.feature.warlock.pact-boon#pact-boon": [pact-of-the-blade]
+    "srd51.class.sorcerer#sorcerous-origin": [srd51.subclass.sorcerer.draconic-bloodline]
+    # sorcerer cantrips known at class level 2: table row 1 → 4
+    "srd51.class.sorcerer#cantrips": [srd51.spell.fire-bolt, srd51.spell.ray-of-frost, srd51.spell.shocking-grasp, srd51.spell.light]
+    # sorcerer spells known at class level 2: table row 2 → 3
+    "srd51.class.sorcerer#spells": [srd51.spell.magic-missile, srd51.spell.shield, srd51.spell.sleep]
+    "srd51.feature.draconic-bloodline.dragon-ancestor#dragon-ancestor": [red]
+    # "srd51.class.sorcerer#skills" deliberately unanswered: multiclassing into sorcerer grants no skills (SRD, Multiclassing
+    # Proficiencies); the engine still registers the first-class skill choice of every class → W_UNANSWERED_CHOICE.
+    "srd51.species.half-elf#languages": [infernal]
+    "srd51.feature.half-elf.skill-versatility#skill": [persuasion, insight]
+  equipment:
+    - { item: srd51.item.dagger, quantity: 2, equipped: true }
+state:
+  hp: { current: 38, temporary: 0 }
+  hitDice: { spent: 0 }
+  resources: { sorcery-points: 2 }
+  # only the sorcerer slots are listed here; the two level-2 pact slots are tracked under `pact`, which the state schema does not expose yet
+  spellSlots: { "1": 3 }
+  conditions: []
+  deathSaves: { successes: 0, failures: 0 }
+  inspiration: false

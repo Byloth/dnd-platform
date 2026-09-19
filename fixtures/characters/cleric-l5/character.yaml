@@ -1,0 +1,49 @@
+formatVersion: 0
+id: fixture-cleric-l5
+name: Stone Lantern
+ruleset: { id: srd51, version: 0.1.0 }
+packages:
+  - { id: srd51, version: 0.1.0 }
+choices:
+  species: srd51.species.dwarf
+  subspecies: srd51.species.dwarf.hill-dwarf
+  classes:
+    - { class: srd51.class.cleric, subclass: srd51.subclass.cleric.life-domain, levels: 5 }
+  background: srd51.background.acolyte
+  abilityScores:
+    method: manual
+    # dwarf +2 CON and hill dwarf +1 WIS generated from the species traits → CON 15, WIS 16 before the ASI
+    base: { str: 14, dex: 10, con: 13, int: 10, wis: 15, cha: 12 }
+    # ASI 4: +2 WIS → 18
+    bonuses: { wis: 2 }
+  answers:
+    "srd51.class.cleric#skills": [medicine, history]
+    "srd51.class.cleric#divine-domain": [srd51.subclass.cleric.life-domain]
+    "srd51.class.cleric#asi-4": [asi]
+    "srd51.feature.dwarf.tool-proficiency#tool": [smiths-tools]
+    "srd51.background.acolyte#languages": [celestial, elvish]
+    "srd51.class.cleric#cantrips": [srd51.spell.sacred-flame, srd51.spell.guidance, srd51.spell.light, srd51.spell.thaumaturgy]
+    # prepared: cleric level 5 + WIS modifier 4 = 9 (domain spells are always prepared on top of these)
+    "srd51.class.cleric#spells":
+      - srd51.spell.healing-word
+      - srd51.spell.guiding-bolt
+      - srd51.spell.shield-of-faith
+      - srd51.spell.sanctuary
+      - srd51.spell.aid
+      - srd51.spell.hold-person
+      - srd51.spell.silence
+      - srd51.spell.spirit-guardians
+      - srd51.spell.dispel-magic
+  equipment:
+    - { item: srd51.item.warhammer, quantity: 1, equipped: true }
+    - { item: srd51.item.chain-mail, quantity: 1, equipped: true }
+    - { item: srd51.item.shield, quantity: 1, equipped: true }
+    - { item: srd51.item.priests-pack, quantity: 1 }
+state:
+  hp: { current: 43, temporary: 0 }
+  hitDice: { spent: 0 }
+  resources: { channel-divinity: 1 }
+  spellSlots: { "1": 4, "2": 3, "3": 2 }
+  conditions: []
+  deathSaves: { successes: 0, failures: 0 }
+  inspiration: false

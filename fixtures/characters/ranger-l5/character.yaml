@@ -1,0 +1,42 @@
+formatVersion: 0
+id: fixture-ranger-l5
+name: Quiet Fern
+ruleset: { id: srd51, version: 0.1.0 }
+packages:
+  - { id: srd51, version: 0.1.0 }
+choices:
+  species: srd51.species.halfling
+  subspecies: srd51.species.halfling.lightfoot
+  classes:
+    - { class: srd51.class.ranger, subclass: srd51.subclass.ranger.hunter, levels: 5 }
+  abilityScores:
+    method: manual
+    # halfling: +2 dex; lightfoot: +1 cha (generated from the species traits)
+    base: { str: 10, dex: 15, con: 14, int: 10, wis: 15, cha: 8 }
+    # Ability Score Improvement at 4: +2 dex
+    bonuses: { dex: 2 }
+  answers:
+    "srd51.class.ranger#skills": [perception, stealth, survival]
+    "srd51.class.ranger#ranger-archetype": [srd51.subclass.ranger.hunter]
+    "srd51.class.ranger#asi-4": [asi]
+    "srd51.feature.ranger.favored-enemy#favored-enemy-1": [fiends]
+    "srd51.feature.ranger.favored-enemy#favored-enemy-language-1": [abyssal]
+    "srd51.feature.ranger.natural-explorer#favored-terrain-1": [forest]
+    "srd51.feature.ranger.fighting-style#fighting-style": [archery]
+    "srd51.feature.hunter.hunters-prey#hunters-prey": [colossus-slayer]
+    # known: table ranger.spells-known at 5 → 4 (levels 1-2, slots 4/2)
+    "srd51.class.ranger#spells": [srd51.spell.hunters-mark, srd51.spell.cure-wounds, srd51.spell.goodberry, srd51.spell.pass-without-trace]
+  equipment:
+    - { item: srd51.item.leather-armor, quantity: 1, equipped: true }
+    - { item: srd51.item.longbow, quantity: 1, equipped: true }
+    - { item: srd51.item.arrow, quantity: 20 }
+    - { item: srd51.item.shortsword, quantity: 2 }
+    - { item: srd51.item.explorers-pack, quantity: 1 }
+state:
+  hp: { current: 44, temporary: 0 }
+  hitDice: { spent: 0 }
+  resources: {}
+  spellSlots: { "1": 4, "2": 2 }
+  conditions: []
+  deathSaves: { successes: 0, failures: 0 }
+  inspiration: false

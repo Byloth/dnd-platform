@@ -1,0 +1,69 @@
+formatVersion: 0
+id: fixture-cleric-l20
+name: Stone Lantern
+ruleset: { id: srd51, version: 0.1.0 }
+packages:
+  - { id: srd51, version: 0.1.0 }
+choices:
+  species: srd51.species.dwarf
+  subspecies: srd51.species.dwarf.hill-dwarf
+  classes:
+    - { class: srd51.class.cleric, subclass: srd51.subclass.cleric.life-domain, levels: 20 }
+  background: srd51.background.acolyte
+  abilityScores:
+    method: manual
+    # dwarf +2 CON and hill dwarf +1 WIS generated from the species traits → CON 15, WIS 16 before the ASIs
+    base: { str: 14, dex: 10, con: 13, int: 10, wis: 15, cha: 12 }
+    # ASI 4: +2 WIS (18); ASI 8: +2 WIS (20); ASI 12: +2 CON (17); ASI 16: +2 CON (19); ASI 19: +1 CON +1 STR (20, 15)
+    bonuses: { wis: 4, con: 5, str: 1 }
+  answers:
+    "srd51.class.cleric#skills": [medicine, history]
+    "srd51.class.cleric#divine-domain": [srd51.subclass.cleric.life-domain]
+    "srd51.class.cleric#asi-4": [asi]
+    "srd51.class.cleric#asi-8": [asi]
+    "srd51.class.cleric#asi-12": [asi]
+    "srd51.class.cleric#asi-16": [asi]
+    "srd51.class.cleric#asi-19": [asi]
+    "srd51.feature.dwarf.tool-proficiency#tool": [smiths-tools]
+    "srd51.background.acolyte#languages": [celestial, elvish]
+    "srd51.class.cleric#cantrips": [srd51.spell.sacred-flame, srd51.spell.guidance, srd51.spell.light, srd51.spell.thaumaturgy, srd51.spell.spare-the-dying]
+    # prepared: cleric level 20 + WIS modifier 5 = 25
+    "srd51.class.cleric#spells":
+      - srd51.spell.healing-word
+      - srd51.spell.guiding-bolt
+      - srd51.spell.shield-of-faith
+      - srd51.spell.sanctuary
+      - srd51.spell.aid
+      - srd51.spell.hold-person
+      - srd51.spell.silence
+      - srd51.spell.spirit-guardians
+      - srd51.spell.dispel-magic
+      - srd51.spell.banishment
+      - srd51.spell.freedom-of-movement
+      - srd51.spell.flame-strike
+      - srd51.spell.greater-restoration
+      - srd51.spell.heal
+      - srd51.spell.harm
+      - srd51.spell.commune
+      - srd51.spell.fire-storm
+      - srd51.spell.regenerate
+      - srd51.spell.resurrection
+      - srd51.spell.holy-aura
+      - srd51.spell.earthquake
+      - srd51.spell.mass-heal
+      - srd51.spell.gate
+      - srd51.spell.true-resurrection
+      - srd51.spell.plane-shift
+  equipment:
+    - { item: srd51.item.warhammer, quantity: 1, equipped: true }
+    - { item: srd51.item.chain-mail, quantity: 1, equipped: true }
+    - { item: srd51.item.shield, quantity: 1, equipped: true }
+    - { item: srd51.item.priests-pack, quantity: 1 }
+state:
+  hp: { current: 223, temporary: 0 }
+  hitDice: { spent: 0 }
+  resources: { channel-divinity: 3, divine-intervention: 1 }
+  spellSlots: { "1": 4, "2": 3, "3": 3, "4": 3, "5": 3, "6": 2, "7": 2, "8": 1, "9": 1 }
+  conditions: []
+  deathSaves: { successes: 0, failures: 0 }
+  inspiration: false

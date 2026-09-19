@@ -1,0 +1,36 @@
+formatVersion: 0
+id: fixture-items-attuned
+name: Gilded Oak
+ruleset: { id: srd51, version: 0.1.0 }
+packages:
+  - { id: srd51, version: 0.1.0 }
+choices:
+  species: srd51.species.human
+  classes:
+    - { class: srd51.class.fighter, subclass: srd51.subclass.fighter.champion, levels: 5 }
+  abilityScores:
+    method: manual
+    # human: +1 to every score (generated from the species trait) → STR 14, DEX 14, CON 14, INT 10, WIS 12, CHA 10
+    base: { str: 13, dex: 13, con: 13, int: 9, wis: 11, cha: 9 }
+  answers:
+    "srd51.class.fighter#skills": [athletics, perception]
+    # Archery: no effect on melee rows, so the longsword numbers stay a pure STR + proficiency check
+    "srd51.feature.fighter.fighting-style#fighting-style": [archery]
+    "srd51.class.fighter#martial-archetype": [srd51.subclass.fighter.champion]
+    "srd51.species.human#languages": [dwarvish]
+  equipment:
+    # No armour, no shield: Bracers of Defense apply only then.
+    - { item: srd51.item.longsword, quantity: 1, equipped: true }
+    # All four magic items require attunement and a character can attune to at most three (SRD, Attunement):
+    # the Ring of Protection is worn but NOT attuned, so its +1 AC / +1 saves must not apply.
+    - { item: srd51.item.cloak-of-protection, quantity: 1, equipped: true, attuned: true }
+    - { item: srd51.item.gauntlets-of-ogre-power, quantity: 1, equipped: true, attuned: true }
+    - { item: srd51.item.bracers-of-defense, quantity: 1, equipped: true, attuned: true }
+    - { item: srd51.item.ring-of-protection, quantity: 1, equipped: true, attuned: false }
+state:
+  hp: { current: 44, temporary: 0 }
+  hitDice: { spent: 0 }
+  resources: { second-wind: 1, action-surge: 1 }
+  conditions: []
+  deathSaves: { successes: 0, failures: 0 }
+  inspiration: false

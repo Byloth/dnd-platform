@@ -1,0 +1,54 @@
+formatVersion: 0
+id: fixture-warlock-l11
+name: Hollow Pact
+ruleset: { id: srd51, version: 0.1.0 }
+packages:
+  - { id: srd51, version: 0.1.0 }
+choices:
+  species: srd51.species.human
+  classes:
+    - { class: srd51.class.warlock, subclass: srd51.subclass.warlock.the-fiend, levels: 11 }
+  abilityScores:
+    method: manual
+    # human: +1 all (generated) → cha 16; ASI 4 +2 CHA (18); ASI 8 +2 CHA (20)
+    base: { str: 9, dex: 13, con: 13, int: 10, wis: 11, cha: 15 }
+    bonuses: { cha: 4 }
+  answers:
+    "srd51.class.warlock#skills": [arcana, deception]
+    "srd51.class.warlock#otherworldly-patron": [srd51.subclass.warlock.the-fiend]
+    # cantrips known at 11: 4
+    "srd51.class.warlock#cantrips": [srd51.spell.eldritch-blast, srd51.spell.minor-illusion, srd51.spell.chill-touch, srd51.spell.mage-hand]
+    # spells known at 11: 11 (fireball, wall-of-fire from the Fiend's expanded list)
+    "srd51.class.warlock#spells":
+      - srd51.spell.charm-person
+      - srd51.spell.hellish-rebuke
+      - srd51.spell.hold-person
+      - srd51.spell.misty-step
+      - srd51.spell.counterspell
+      - srd51.spell.fireball
+      - srd51.spell.dimension-door
+      - srd51.spell.banishment
+      - srd51.spell.hold-monster
+      - srd51.spell.scrying
+      - srd51.spell.wall-of-fire
+    "srd51.species.human#languages": [infernal]
+    # invocations known at 11: 5 (table row 9)
+    "srd51.feature.warlock.eldritch-invocations#eldritch-invocations": [agonizing-blast, devils-sight, thirsting-blade, fiendish-vigor, mire-the-mind]
+    "srd51.feature.warlock.pact-boon#pact-boon": [pact-of-the-blade]
+    "srd51.class.warlock#asi-4": [asi]
+    "srd51.class.warlock#asi-8": [asi]
+    # Fiendish Resilience (level 10): damage type chosen after a rest
+    "srd51.feature.the-fiend.fiendish-resilience#fiendish-resilience": [fire]
+    # Mystic Arcanum: only the 6th-level arcanum is available at 11 (7th at 13, 8th at 15, 9th at 17)
+    "srd51.feature.warlock.mystic-arcanum#mystic-arcanum-6": [srd51.spell.true-seeing]
+  equipment:
+    - { item: srd51.item.leather-armor, quantity: 1, equipped: true }
+    - { item: srd51.item.dagger, quantity: 2, equipped: true }
+    - { item: srd51.item.component-pouch, quantity: 1 }
+state:
+  hp: { current: 80, temporary: 0 }
+  hitDice: { spent: 0 }
+  resources: { dark-ones-own-luck: 1, mystic-arcanum-6: 1 }
+  conditions: []
+  deathSaves: { successes: 0, failures: 0 }
+  inspiration: false

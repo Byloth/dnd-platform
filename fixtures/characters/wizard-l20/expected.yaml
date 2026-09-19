@@ -1,0 +1,69 @@
+# Rock gnome Wizard 20 (School of Evocation). Base str 8, dex 14, con 13, int 15, wis 12, cha 10; gnome +2 INT,
+# rock gnome +1 CON; ASIs 4 +2 INT, 8 +1 INT +1 CON, 12 +2 CON, 16 +2 DEX, 19 +2 WIS
+# → str 8, dex 16, con 17, int 20, wis 14, cha 10. Modifiers: str -1, dex +3, con +3, int +5, wis +2, cha 0.
+# Proficiency bonus at level 20: +6.
+values:
+  ability.str: 8
+  ability.dex: 16               # 14 + 2 (ASI 16)
+  ability.con: 17               # 13 + 1 (rock gnome) + 1 (ASI 8) + 2 (ASI 12)
+  ability.int: 20               # 15 + 2 (gnome) + 2 (ASI 4) + 1 (ASI 8)
+  ability.wis: 14               # 12 + 2 (ASI 19)
+  ability.cha: 10
+  proficiencyBonus: 6
+  hp.max: 142                   # level 1: 6 + 3 = 9; levels 2-20: 19 × (4 + 3) = 133
+  ac: 13                        # 10 + DEX 3
+  initiative: 3
+  speed.walk: 25
+  sense.darkvision: 60
+  damage.spell.bonus: 5         # Empowered Evocation
+  save.int: 11                  # 5 + 6
+  save.wis: 8                   # 2 + 6
+  save.dex: 3                   # not proficient
+  save.con: 3                   # not proficient
+  skill.arcana: 11              # INT 5 + 6
+  skill.investigation: 11       # INT 5 + 6
+  skill.history: 5              # INT 5, not proficient
+  skill.perception: 2           # WIS 2, not proficient
+  passive.perception: 12
+spellcasting:
+  srd51.class.wizard:
+    dc: 19                      # 8 + 6 + 5
+    attackBonus: 11             # 6 + 5
+    slots: { 1: 4, 2: 3, 3: 3, 4: 3, 5: 3, 6: 2, 7: 2, 8: 1, 9: 1 }   # full-caster table, level 20
+    cantripsKnown: 5
+spells:
+  srd51.spell.fire-bolt: free
+  srd51.spell.magic-missile: slot   # Spell Mastery is not modelled as free casting (see the feature note)
+  srd51.spell.wish: slot
+resources:
+  arcane-recovery: { max: 1, recharge: [dawn] }
+  signature-spells: { max: 2, recharge: [short-rest, long-rest] }   # one use per signature spell
+  overchannel: { max: .inf, recharge: [long-rest] }   # declared `unlimited` (uses counted since the last long rest, level 14); the engine carries it as Infinity
+actions:
+  arcane-recovery: { activation: special, cost: { arcane-recovery: 1 } }
+  overchannel: { activation: free, cost: { overchannel: 1 } }
+attacks:
+  quarterstaff: { toHit: 5, damage: "1d6 - 1", type: bludgeoning }              # STR -1 + 6
+  quarterstaff-two-handed: { toHit: 5, damage: "1d8 - 1", type: bludgeoning }
+features:
+  - srd51.feature.wizard.arcane-recovery
+  - srd51.feature.wizard.spell-mastery
+  - srd51.feature.wizard.signature-spells
+  - srd51.feature.school-of-evocation.sculpt-spells
+  - srd51.feature.school-of-evocation.potent-cantrip
+  - srd51.feature.school-of-evocation.empowered-evocation
+  - srd51.feature.school-of-evocation.overchannel
+choices:
+  "srd51.class.wizard#arcane-tradition": answered
+  "srd51.class.wizard#cantrips": answered
+  "srd51.class.wizard#spells": answered
+  "srd51.class.wizard#asi-4": answered
+  "srd51.class.wizard#asi-8": answered
+  "srd51.class.wizard#asi-12": answered
+  "srd51.class.wizard#asi-16": answered
+  "srd51.class.wizard#asi-19": answered
+  "srd51.feature.wizard.spell-mastery#spell-mastery-1": answered
+  "srd51.feature.wizard.spell-mastery#spell-mastery-2": answered
+  "srd51.feature.wizard.signature-spells#signature-spells": answered
+sections:
+  active: [senses, attacks, actions, resources, spellcasting, spells, features]

@@ -1,0 +1,43 @@
+formatVersion: 0
+id: fixture-rogue-l20
+name: Small Cog
+ruleset: { id: srd51, version: 0.1.0 }
+packages:
+  - { id: srd51, version: 0.1.0 }
+choices:
+  species: srd51.species.gnome
+  subspecies: srd51.species.gnome.rock-gnome
+  classes:
+    - { class: srd51.class.rogue, subclass: srd51.subclass.rogue.thief, levels: 20 }
+  abilityScores:
+    method: manual
+    # gnome: +2 int; rock gnome: +1 con (generated from the species traits)
+    base: { str: 8, dex: 16, con: 13, int: 12, wis: 13, cha: 10 }
+    # Ability Score Improvements: 4 → +2 dex; 8 → +2 dex; 10 → +2 int; 12 → +2 con; 16 → +2 wis; 19 → +2 cha
+    bonuses: { dex: 4, int: 2, con: 2, wis: 2, cha: 2 }
+  answers:
+    "srd51.class.rogue#skills": [stealth, sleight-of-hand, perception, investigation]
+    "srd51.class.rogue#roguish-archetype": [srd51.subclass.rogue.thief]
+    "srd51.class.rogue#asi-4": [asi]
+    "srd51.class.rogue#asi-8": [asi]
+    "srd51.class.rogue#asi-10": [asi]
+    "srd51.class.rogue#asi-12": [asi]
+    "srd51.class.rogue#asi-16": [asi]
+    "srd51.class.rogue#asi-19": [asi]
+    # Expertise at 1: stealth, sleight of hand. The 6th-level pair (perception, investigation) shares the key, see rogue-l11.
+    "srd51.feature.rogue.expertise#expertise-1": [stealth, sleight-of-hand]
+    "srd51.feature.rogue.expertise#expertise-6": [perception, investigation]
+  equipment:
+    - { item: srd51.item.leather-armor, quantity: 1, equipped: true }
+    - { item: srd51.item.rapier, quantity: 1, equipped: true }
+    - { item: srd51.item.shortbow, quantity: 1, equipped: true }
+    - { item: srd51.item.arrow, quantity: 20 }
+    - { item: srd51.item.dagger, quantity: 2 }
+    - { item: srd51.item.thieves-tools, quantity: 1 }
+state:
+  hp: { current: 163, temporary: 0 }
+  hitDice: { spent: 0 }
+  resources: { stroke-of-luck: 1 }
+  conditions: []
+  deathSaves: { successes: 0, failures: 0 }
+  inspiration: false

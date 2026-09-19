@@ -1,0 +1,43 @@
+formatVersion: 0
+id: fixture-conditions-all
+name: Battered Reed
+ruleset: { id: srd51, version: 0.1.0 }
+packages:
+  - { id: srd51, version: 0.1.0 }
+choices:
+  species: srd51.species.human
+  classes:
+    - { class: srd51.class.fighter, subclass: srd51.subclass.fighter.champion, levels: 3 }
+  abilityScores:
+    method: manual
+    # human: +1 to every score (generated from the species trait) → STR 16, DEX 14, CON 15, INT 10, WIS 12, CHA 10
+    base: { str: 15, dex: 13, con: 14, int: 9, wis: 11, cha: 9 }
+  answers:
+    "srd51.class.fighter#skills": [athletics, perception]
+    "srd51.feature.fighter.fighting-style#fighting-style": [defense]
+    "srd51.class.fighter#martial-archetype": [srd51.subclass.fighter.champion]
+    "srd51.species.human#languages": [dwarvish]
+  equipment: []
+state:
+  hp: { current: 5, temporary: 0 }
+  hitDice: { spent: 0 }
+  resources: { second-wind: 0, action-surge: 0 }
+  # every standard condition of the ruleset at once, plus exhaustion at level 3 (levels 1-3 apply: it is cumulative)
+  conditions:
+    - { condition: srd51.condition.blinded }
+    - { condition: srd51.condition.charmed }
+    - { condition: srd51.condition.deafened }
+    - { condition: srd51.condition.frightened }
+    - { condition: srd51.condition.grappled }
+    - { condition: srd51.condition.incapacitated }
+    - { condition: srd51.condition.invisible }
+    - { condition: srd51.condition.paralyzed }
+    - { condition: srd51.condition.petrified }
+    - { condition: srd51.condition.poisoned }
+    - { condition: srd51.condition.prone }
+    - { condition: srd51.condition.restrained }
+    - { condition: srd51.condition.stunned }
+    - { condition: srd51.condition.unconscious }
+    - { condition: srd51.condition.exhaustion, level: 3 }
+  deathSaves: { successes: 0, failures: 0 }
+  inspiration: false

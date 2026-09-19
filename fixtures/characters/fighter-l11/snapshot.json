@@ -1,0 +1,2912 @@
+{
+  "actions": [
+    {
+      "activation": "bonus-action",
+      "available": true,
+      "cost": [
+        {
+          "amount": 1,
+          "resource": "second-wind"
+        }
+      ],
+      "id": "second-wind",
+      "name": {
+        "en": "Second Wind"
+      },
+      "onUse": [
+        {
+          "amount": "1d10 + classLevel(fighter)",
+          "kind": "heal",
+          "target": "self"
+        }
+      ],
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.class.fighter",
+        "feature": "srd51.feature.fighter.second-wind",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "On your turn, you can use a bonus action to regain hit points equal to 1d10 + your fighter level."
+      }
+    },
+    {
+      "activation": "free",
+      "available": true,
+      "cost": [
+        {
+          "amount": 1,
+          "resource": "action-surge"
+        }
+      ],
+      "id": "action-surge",
+      "name": {
+        "en": "Action Surge"
+      },
+      "onUse": [
+        {
+          "kind": "note",
+          "text": {
+            "en": "Take one additional action this turn. Only one use per turn."
+          }
+        }
+      ],
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.class.fighter",
+        "feature": "srd51.feature.fighter.action-surge",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "On your turn, you can take one additional action on top of your regular action and a possible bonus action. Starting at 17th level, you can use it twice before a rest, but only once on the same turn."
+      }
+    },
+    {
+      "activation": "free",
+      "available": true,
+      "cost": [
+        {
+          "amount": 1,
+          "resource": "indomitable"
+        }
+      ],
+      "id": "indomitable",
+      "name": {
+        "en": "Indomitable"
+      },
+      "onUse": [
+        {
+          "keep": "new",
+          "kind": "reroll",
+          "roll": "save"
+        }
+      ],
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.class.fighter",
+        "feature": "srd51.feature.fighter.indomitable",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Reroll a saving throw that you fail. You must use the new roll."
+      }
+    }
+  ],
+  "attacks": [
+    {
+      "ability": "str",
+      "attackBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Strength modifier"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 5
+          },
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "Proficiency bonus"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 4
+          }
+        ],
+        "value": 9
+      },
+      "critRange": 19,
+      "damage": "1d8 + 5",
+      "damageBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Strength modifier"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 5
+          }
+        ],
+        "value": 5
+      },
+      "damageDice": "1d8",
+      "damageType": "slashing",
+      "extraDamage": [],
+      "id": "longsword",
+      "item": "srd51.item.longsword",
+      "magical": false,
+      "name": {
+        "en": "Longsword"
+      },
+      "proficient": true,
+      "ranged": false,
+      "unarmed": false
+    },
+    {
+      "ability": "str",
+      "attackBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Strength modifier"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 5
+          },
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "Proficiency bonus"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 4
+          }
+        ],
+        "value": 9
+      },
+      "critRange": 19,
+      "damage": "1d10 + 5",
+      "damageBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Strength modifier"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 5
+          }
+        ],
+        "value": 5
+      },
+      "damageDice": "1d10",
+      "damageType": "slashing",
+      "extraDamage": [],
+      "id": "longsword-two-handed",
+      "item": "srd51.item.longsword",
+      "magical": false,
+      "name": {
+        "en": "Longsword (two-handed)"
+      },
+      "proficient": true,
+      "ranged": false,
+      "unarmed": false
+    },
+    {
+      "ability": "dex",
+      "attackBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Dexterity modifier"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 2
+          },
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "Proficiency bonus"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 4
+          },
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "Bonus to ranged attacks"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 2
+          }
+        ],
+        "value": 8
+      },
+      "critRange": 19,
+      "damage": "1d8 + 2",
+      "damageBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Dexterity modifier"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 2
+          }
+        ],
+        "value": 2
+      },
+      "damageDice": "1d8",
+      "damageType": "piercing",
+      "extraDamage": [],
+      "id": "longbow",
+      "item": "srd51.item.longbow",
+      "magical": false,
+      "name": {
+        "en": "Longbow"
+      },
+      "proficient": true,
+      "ranged": true,
+      "unarmed": false
+    },
+    {
+      "ability": "str",
+      "attackBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Strength modifier"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 5
+          },
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "Proficiency bonus"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 4
+          }
+        ],
+        "value": 9
+      },
+      "critRange": 19,
+      "damage": "6",
+      "damageBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Strength modifier"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 5
+          }
+        ],
+        "value": 5
+      },
+      "damageDice": "1",
+      "damageType": "bludgeoning",
+      "extraDamage": [],
+      "id": "unarmed-strike",
+      "magical": false,
+      "name": {
+        "en": "Unarmed strike"
+      },
+      "proficient": true,
+      "ranged": false,
+      "unarmed": true
+    }
+  ],
+  "choices": [
+    {
+      "answered": true,
+      "answers": [
+        "athletics",
+        "perception"
+      ],
+      "choice": "skills",
+      "count": 2,
+      "key": "srd51.class.fighter#skills",
+      "of": "skill",
+      "options": [
+        "acrobatics",
+        "animal-handling",
+        "athletics",
+        "history",
+        "insight",
+        "intimidation",
+        "perception",
+        "survival"
+      ],
+      "owner": "srd51.class.fighter"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "elvish"
+      ],
+      "choice": "languages",
+      "count": 1,
+      "key": "srd51.species.human#languages",
+      "of": "language",
+      "options": [],
+      "owner": "srd51.species.human"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "srd51.subclass.fighter.champion"
+      ],
+      "choice": "martial-archetype",
+      "count": 1,
+      "key": "srd51.class.fighter#martial-archetype",
+      "level": 3,
+      "of": "subclass",
+      "options": [],
+      "owner": "srd51.class.fighter"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "asi"
+      ],
+      "choice": "asi-4",
+      "count": 1,
+      "key": "srd51.class.fighter#asi-4",
+      "level": 4,
+      "of": "asi-or-feat",
+      "options": [],
+      "owner": "srd51.class.fighter"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "asi"
+      ],
+      "choice": "asi-6",
+      "count": 1,
+      "key": "srd51.class.fighter#asi-6",
+      "level": 6,
+      "of": "asi-or-feat",
+      "options": [],
+      "owner": "srd51.class.fighter"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "asi"
+      ],
+      "choice": "asi-8",
+      "count": 1,
+      "key": "srd51.class.fighter#asi-8",
+      "level": 8,
+      "of": "asi-or-feat",
+      "options": [],
+      "owner": "srd51.class.fighter"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "defense"
+      ],
+      "choice": "fighting-style",
+      "count": 1,
+      "key": "srd51.feature.fighter.fighting-style#fighting-style",
+      "of": "fighting-style",
+      "options": [
+        "archery",
+        "defense",
+        "dueling",
+        "great-weapon-fighting",
+        "protection",
+        "two-weapon-fighting"
+      ],
+      "owner": "srd51.feature.fighter.fighting-style"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "archery"
+      ],
+      "choice": "additional-fighting-style",
+      "count": 1,
+      "key": "srd51.feature.champion.additional-fighting-style#additional-fighting-style",
+      "of": "fighting-style",
+      "options": [
+        "archery",
+        "defense",
+        "dueling",
+        "great-weapon-fighting",
+        "protection",
+        "two-weapon-fighting"
+      ],
+      "owner": "srd51.feature.champion.additional-fighting-style"
+    }
+  ],
+  "classes": [
+    {
+      "class": "srd51.class.fighter",
+      "levels": 11,
+      "subclass": "srd51.subclass.fighter.champion"
+    }
+  ],
+  "defenses": [],
+  "features": [
+    {
+      "id": "srd51.feature.human.ability-score-increase",
+      "name": {
+        "en": "Ability Score Increase"
+      },
+      "origin": "species",
+      "owner": "srd51.species.human",
+      "source": {
+        "entity": "srd51.species.human",
+        "feature": "srd51.feature.human.ability-score-increase",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Your ability scores each increase by 1."
+      }
+    },
+    {
+      "id": "srd51.feature.human.speed",
+      "name": {
+        "en": "Speed"
+      },
+      "origin": "species",
+      "owner": "srd51.species.human",
+      "source": {
+        "entity": "srd51.species.human",
+        "feature": "srd51.feature.human.speed",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Your base walking speed is 30 feet."
+      }
+    },
+    {
+      "id": "srd51.feature.human.age",
+      "name": {
+        "en": "Age"
+      },
+      "origin": "species",
+      "owner": "srd51.species.human",
+      "source": {
+        "entity": "srd51.species.human",
+        "feature": "srd51.feature.human.age",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Humans reach adulthood in their late teens and live less than a century."
+      }
+    },
+    {
+      "id": "srd51.feature.human.alignment",
+      "name": {
+        "en": "Alignment"
+      },
+      "origin": "species",
+      "owner": "srd51.species.human",
+      "source": {
+        "entity": "srd51.species.human",
+        "feature": "srd51.feature.human.alignment",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Humans tend toward no particular alignment. The best and the worst are found among them."
+      }
+    },
+    {
+      "id": "srd51.feature.human.size",
+      "name": {
+        "en": "Size"
+      },
+      "origin": "species",
+      "owner": "srd51.species.human",
+      "source": {
+        "entity": "srd51.species.human",
+        "feature": "srd51.feature.human.size",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Humans vary widely in height and build, from barely 5 feet to well over 6 feet tall. Regardless of your position in that range, your size is Medium."
+      }
+    },
+    {
+      "id": "srd51.feature.human.languages",
+      "name": {
+        "en": "Languages"
+      },
+      "origin": "species",
+      "owner": "srd51.species.human",
+      "source": {
+        "entity": "srd51.species.human",
+        "feature": "srd51.feature.human.languages",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You can speak, read, and write Common and one extra language of your choice. Humans typically learn the languages of other peoples they deal with, including obscure dialects. They are fond of sprinkling their speech with words borrowed from other tongues: Orc curses, Elvish musical expressions, Dwarvish military phrases, and so on."
+      }
+    },
+    {
+      "id": "srd51.feature.fighter.fighting-style",
+      "level": 1,
+      "name": {
+        "en": "Fighting Style"
+      },
+      "origin": "class",
+      "owner": "srd51.class.fighter",
+      "source": {
+        "entity": "srd51.class.fighter",
+        "feature": "srd51.feature.fighter.fighting-style",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You adopt a particular style of fighting as your specialty. Choose one of the following options. You can't take a Fighting Style option more than once, even if you later get to choose again.\n\n###Archery\n\nYou gain a +2 bonus to attack rolls you make with ranged weapons.\n\n###Defense\n\nWhile you are wearing armor, you gain a +1 bonus to AC.\n\n###Dueling\n\nWhen you are wielding a melee weapon in one hand and no other weapons, you gain a +2 bonus to damage rolls with that weapon.\n\n###Great Weapon Fighting\n\nWhen you roll a 1 or 2 on a damage die for an attack you make with a melee weapon that you are wielding with two hands, you can reroll the die and must use the new roll, even if the new roll is a 1 or a 2. The weapon must have the two-handed or versatile property for you to gain this benefit.\n\n###Protection\n\nWhen a creature you can see attacks a target other than you that is within 5 feet of you, you can use your reaction to impose disadvantage on the attack roll. You must be wielding a shield.\n\n###Two-Weapon Fighting\n\nWhen you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack."
+      }
+    },
+    {
+      "id": "srd51.feature.fighter.second-wind",
+      "level": 1,
+      "name": {
+        "en": "Second Wind"
+      },
+      "origin": "class",
+      "owner": "srd51.class.fighter",
+      "source": {
+        "entity": "srd51.class.fighter",
+        "feature": "srd51.feature.fighter.second-wind",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You have a limited well of stamina that you can draw on to protect yourself from harm. On your turn, you can use a bonus action to regain hit points equal to 1d10 + your fighter level. Once you use this feature, you must finish a short or long rest before you can use it again."
+      }
+    },
+    {
+      "id": "srd51.feature.fighter.action-surge",
+      "level": 2,
+      "name": {
+        "en": "Action Surge"
+      },
+      "origin": "class",
+      "owner": "srd51.class.fighter",
+      "source": {
+        "entity": "srd51.class.fighter",
+        "feature": "srd51.feature.fighter.action-surge",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Starting at 2nd level, you can push yourself beyond your normal limits for a moment. On your turn, you can take one additional action on top of your regular action and a possible bonus action.\n\nOnce you use this feature, you must finish a short or long rest before you can use it again. Starting at 17th level, you can use it twice before a rest, but only once on the same turn."
+      }
+    },
+    {
+      "id": "srd51.feature.fighter.martial-archetype",
+      "level": 3,
+      "name": {
+        "en": "Martial Archetype"
+      },
+      "origin": "class",
+      "owner": "srd51.class.fighter",
+      "source": {
+        "entity": "srd51.class.fighter",
+        "feature": "srd51.feature.fighter.martial-archetype",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "At 3rd level, you choose an archetype that you strive to emulate in your combat styles and techniques, such as Champion. The archetype you choose grants you features at 3rd level and again at 7th, 10th, 15th, and 18th level."
+      }
+    },
+    {
+      "id": "srd51.feature.fighter.ability-score-improvement",
+      "level": 4,
+      "name": {
+        "en": "Ability Score Improvement"
+      },
+      "origin": "class",
+      "owner": "srd51.class.fighter",
+      "source": {
+        "entity": "srd51.class.fighter",
+        "feature": "srd51.feature.fighter.ability-score-improvement",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "When you reach 4th level, and again at 6th, 8th, 12th, 14th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature."
+      }
+    },
+    {
+      "id": "srd51.feature.fighter.extra-attack",
+      "level": 5,
+      "name": {
+        "en": "Extra Attack"
+      },
+      "origin": "class",
+      "owner": "srd51.class.fighter",
+      "source": {
+        "entity": "srd51.class.fighter",
+        "feature": "srd51.feature.fighter.extra-attack",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Beginning at 5th level, you can attack twice, instead of once, whenever you take the Attack action on your turn.\n\nThe number of attacks increases to three when you reach 11th level in this class and to four when you reach 20th level in this class."
+      }
+    },
+    {
+      "id": "srd51.feature.fighter.indomitable",
+      "level": 9,
+      "name": {
+        "en": "Indomitable"
+      },
+      "origin": "class",
+      "owner": "srd51.class.fighter",
+      "source": {
+        "entity": "srd51.class.fighter",
+        "feature": "srd51.feature.fighter.indomitable",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Beginning at 9th level, you can reroll a saving throw that you fail. If you do so, you must use the new roll, and you can't use this feature again until you finish a long rest.\n\nYou can use this feature twice between long rests starting at 13th level and three times between long rests starting at 17th level."
+      }
+    },
+    {
+      "id": "srd51.feature.champion.improved-critical",
+      "level": 3,
+      "name": {
+        "en": "Improved Critical"
+      },
+      "origin": "subclass",
+      "owner": "srd51.subclass.fighter.champion",
+      "source": {
+        "entity": "srd51.subclass.fighter.champion",
+        "feature": "srd51.feature.champion.improved-critical",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Beginning when you choose this archetype at 3rd level, your weapon attacks score a critical hit on a roll of 19 or 20."
+      }
+    },
+    {
+      "id": "srd51.feature.champion.remarkable-athlete",
+      "level": 7,
+      "name": {
+        "en": "Remarkable Athlete"
+      },
+      "origin": "subclass",
+      "owner": "srd51.subclass.fighter.champion",
+      "source": {
+        "entity": "srd51.subclass.fighter.champion",
+        "feature": "srd51.feature.champion.remarkable-athlete",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Starting at 7th level, you can add half your proficiency bonus (round up) to any Strength, Dexterity, or Constitution check you make that doesn't already use your proficiency bonus.\n\nIn addition, when you make a running long jump, the distance you can cover increases by a number of feet equal to your Strength modifier."
+      }
+    },
+    {
+      "id": "srd51.feature.champion.additional-fighting-style",
+      "level": 10,
+      "name": {
+        "en": "Additional Fighting Style"
+      },
+      "origin": "subclass",
+      "owner": "srd51.subclass.fighter.champion",
+      "source": {
+        "entity": "srd51.subclass.fighter.champion",
+        "feature": "srd51.feature.champion.additional-fighting-style",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "At 10th level, you can choose a second option from the Fighting Style class feature."
+      }
+    }
+  ],
+  "level": 11,
+  "meta": {
+    "characterId": "fixture-fighter-l11",
+    "formatVersion": 0,
+    "language": "en",
+    "name": "Steady Oak",
+    "packages": [
+      {
+        "id": "srd51",
+        "version": "0.1.0"
+      }
+    ],
+    "ruleset": "srd51"
+  },
+  "proficiencies": [
+    {
+      "expertise": false,
+      "item": "heavy",
+      "source": {
+        "entity": "srd51.class.fighter",
+        "package": "srd51"
+      },
+      "type": "armor"
+    },
+    {
+      "expertise": false,
+      "item": "light",
+      "source": {
+        "entity": "srd51.class.fighter",
+        "package": "srd51"
+      },
+      "type": "armor"
+    },
+    {
+      "expertise": false,
+      "item": "medium",
+      "source": {
+        "entity": "srd51.class.fighter",
+        "package": "srd51"
+      },
+      "type": "armor"
+    },
+    {
+      "expertise": false,
+      "item": "shield",
+      "source": {
+        "entity": "srd51.class.fighter",
+        "package": "srd51"
+      },
+      "type": "armor"
+    },
+    {
+      "expertise": false,
+      "item": "common",
+      "source": {
+        "entity": "srd51.species.human",
+        "package": "srd51"
+      },
+      "type": "language"
+    },
+    {
+      "expertise": false,
+      "item": "elvish",
+      "source": {
+        "entity": "srd51.species.human",
+        "package": "srd51"
+      },
+      "type": "language"
+    },
+    {
+      "expertise": false,
+      "item": "con",
+      "source": {
+        "entity": "srd51.class.fighter",
+        "package": "srd51"
+      },
+      "type": "save"
+    },
+    {
+      "expertise": false,
+      "item": "str",
+      "source": {
+        "entity": "srd51.class.fighter",
+        "package": "srd51"
+      },
+      "type": "save"
+    },
+    {
+      "expertise": false,
+      "item": "athletics",
+      "source": {
+        "entity": "srd51.class.fighter",
+        "package": "srd51"
+      },
+      "type": "skill"
+    },
+    {
+      "expertise": false,
+      "item": "perception",
+      "source": {
+        "entity": "srd51.class.fighter",
+        "package": "srd51"
+      },
+      "type": "skill"
+    },
+    {
+      "expertise": false,
+      "item": "martial",
+      "source": {
+        "entity": "srd51.class.fighter",
+        "package": "srd51"
+      },
+      "type": "weapon"
+    },
+    {
+      "expertise": false,
+      "item": "simple",
+      "source": {
+        "entity": "srd51.class.fighter",
+        "package": "srd51"
+      },
+      "type": "weapon"
+    }
+  ],
+  "resources": [
+    {
+      "current": 1,
+      "display": "pips",
+      "id": "second-wind",
+      "max": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "None"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 0
+          },
+          {
+            "applied": true,
+            "kind": "set",
+            "label": {
+              "en": "Second Wind"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.class.fighter",
+              "feature": "srd51.feature.fighter.second-wind",
+              "package": "srd51"
+            },
+            "value": 1
+          }
+        ],
+        "value": 1
+      },
+      "name": {
+        "en": "Second Wind"
+      },
+      "recharge": [
+        {
+          "amount": "full",
+          "on": "short-rest"
+        },
+        {
+          "amount": "full",
+          "on": "long-rest"
+        }
+      ],
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.fighter",
+        "feature": "srd51.feature.fighter.second-wind",
+        "package": "srd51"
+      }
+    },
+    {
+      "current": 1,
+      "display": "pips",
+      "id": "action-surge",
+      "max": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "None"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 0
+          },
+          {
+            "applied": true,
+            "formula": "table(fighter.action-surges)",
+            "kind": "set",
+            "label": {
+              "en": "Action Surge"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.class.fighter",
+              "feature": "srd51.feature.fighter.action-surge",
+              "package": "srd51"
+            },
+            "value": 1
+          }
+        ],
+        "value": 1
+      },
+      "name": {
+        "en": "Action Surge"
+      },
+      "recharge": [
+        {
+          "amount": "full",
+          "on": "short-rest"
+        },
+        {
+          "amount": "full",
+          "on": "long-rest"
+        }
+      ],
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.fighter",
+        "feature": "srd51.feature.fighter.action-surge",
+        "package": "srd51"
+      }
+    },
+    {
+      "current": 1,
+      "display": "pips",
+      "id": "indomitable",
+      "max": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "None"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 0
+          },
+          {
+            "applied": true,
+            "formula": "table(fighter.indomitable-uses)",
+            "kind": "set",
+            "label": {
+              "en": "Indomitable"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.class.fighter",
+              "feature": "srd51.feature.fighter.indomitable",
+              "package": "srd51"
+            },
+            "value": 1
+          }
+        ],
+        "value": 1
+      },
+      "name": {
+        "en": "Indomitable"
+      },
+      "recharge": [
+        {
+          "amount": "full",
+          "on": "long-rest"
+        }
+      ],
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.fighter",
+        "feature": "srd51.feature.fighter.indomitable",
+        "package": "srd51"
+      }
+    }
+  ],
+  "rollModifiers": [],
+  "sections": [
+    "identity",
+    "core",
+    "abilities",
+    "saves",
+    "skills",
+    "combat",
+    "attacks",
+    "actions",
+    "resources",
+    "features",
+    "equipment",
+    "personality",
+    "conditions",
+    "notes",
+    "credits"
+  ],
+  "spellcasting": [],
+  "spells": [],
+  "values": {
+    "ability.cha": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 9
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Ability Score Increase"
+          },
+          "source": {
+            "effectIndex": 5,
+            "entity": "srd51.species.human",
+            "feature": "srd51.feature.human.ability-score-increase",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 10
+    },
+    "ability.con": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 16
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Ability Score Increase"
+          },
+          "source": {
+            "effectIndex": 2,
+            "entity": "srd51.species.human",
+            "feature": "srd51.feature.human.ability-score-increase",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 17
+    },
+    "ability.dex": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 13
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Ability Score Increase"
+          },
+          "source": {
+            "effectIndex": 1,
+            "entity": "srd51.species.human",
+            "feature": "srd51.feature.human.ability-score-increase",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 14
+    },
+    "ability.int": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 9
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Ability Score Increase"
+          },
+          "source": {
+            "effectIndex": 3,
+            "entity": "srd51.species.human",
+            "feature": "srd51.feature.human.ability-score-increase",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 10
+    },
+    "ability.str": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 19
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Ability Score Increase"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.species.human",
+            "feature": "srd51.feature.human.ability-score-increase",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 20
+    },
+    "ability.wis": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 11
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Ability Score Increase"
+          },
+          "source": {
+            "effectIndex": 4,
+            "entity": "srd51.species.human",
+            "feature": "srd51.feature.human.ability-score-increase",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 12
+    },
+    "ac": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Chain mail"
+          },
+          "source": {
+            "entity": "srd51.item.chain-mail",
+            "package": ""
+          },
+          "value": 16
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Shield"
+          },
+          "source": {
+            "entity": "srd51.item.shield",
+            "package": ""
+          },
+          "value": 2
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Defense"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.class.fighter",
+            "feature": "defense",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 19
+    },
+    "attack.ranged.bonus": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "None"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Archery"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.subclass.fighter.champion",
+            "feature": "archery",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "attacks.perAction": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "One attack per Attack action"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        },
+        {
+          "applied": true,
+          "formula": "1 + table(fighter.extra-attacks)",
+          "kind": "set",
+          "label": {
+            "en": "Extra Attack"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.class.fighter",
+            "feature": "srd51.feature.fighter.extra-attack",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 3
+    },
+    "carry.capacity": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength score × 15"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 300
+        }
+      ],
+      "value": 300
+    },
+    "check.cha": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "check.con": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Constitution modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        },
+        {
+          "applied": true,
+          "formula": "ceil(proficiencyBonus / 2)",
+          "kind": "add",
+          "label": {
+            "en": "Remarkable Athlete"
+          },
+          "source": {
+            "effectIndex": 2,
+            "entity": "srd51.subclass.fighter.champion",
+            "feature": "srd51.feature.champion.remarkable-athlete",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 5
+    },
+    "check.dex": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        },
+        {
+          "applied": true,
+          "formula": "ceil(proficiencyBonus / 2)",
+          "kind": "add",
+          "label": {
+            "en": "Remarkable Athlete"
+          },
+          "source": {
+            "effectIndex": 1,
+            "entity": "srd51.subclass.fighter.champion",
+            "feature": "srd51.feature.champion.remarkable-athlete",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 4
+    },
+    "check.int": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "check.str": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        },
+        {
+          "applied": true,
+          "formula": "ceil(proficiencyBonus / 2)",
+          "kind": "add",
+          "label": {
+            "en": "Remarkable Athlete"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.subclass.fighter.champion",
+            "feature": "srd51.feature.champion.remarkable-athlete",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 7
+    },
+    "check.wis": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "hp.max": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "hitDie + mod(con)",
+          "kind": "base",
+          "label": {
+            "en": "Level 1 (Fighter)"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 13
+        },
+        {
+          "applied": true,
+          "formula": "10 × (average(hitDie) + mod(con))",
+          "kind": "add",
+          "label": {
+            "en": "10 more levels (Fighter)"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 90
+        }
+      ],
+      "value": 103
+    },
+    "initiative": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        },
+        {
+          "applied": true,
+          "formula": "ceil(proficiencyBonus / 2)",
+          "kind": "add",
+          "label": {
+            "en": "Remarkable Athlete"
+          },
+          "source": {
+            "effectIndex": 3,
+            "entity": "srd51.subclass.fighter.champion",
+            "feature": "srd51.feature.champion.remarkable-athlete",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 4
+    },
+    "jump.high": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "3 + Strength modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 8
+        }
+      ],
+      "value": 8
+    },
+    "jump.long": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength score in feet"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 20
+        },
+        {
+          "applied": true,
+          "formula": "mod(str)",
+          "kind": "add",
+          "label": {
+            "en": "Remarkable Athlete"
+          },
+          "source": {
+            "effectIndex": 8,
+            "entity": "srd51.subclass.fighter.champion",
+            "feature": "srd51.feature.champion.remarkable-athlete",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 25
+    },
+    "mod.cha": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "mod.con": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Constitution modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 3
+    },
+    "mod.dex": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "mod.int": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "mod.str": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Strength modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 5
+    },
+    "mod.wis": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "passive.acrobatics": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "acrobatics bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 4
+        }
+      ],
+      "value": 14
+    },
+    "passive.animal-handling": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "animal-handling bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 11
+    },
+    "passive.arcana": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "arcana bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 10
+    },
+    "passive.athletics": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "athletics bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 9
+        }
+      ],
+      "value": 19
+    },
+    "passive.deception": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "deception bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 10
+    },
+    "passive.history": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "history bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 10
+    },
+    "passive.insight": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "insight bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 11
+    },
+    "passive.intimidation": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "intimidation bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 10
+    },
+    "passive.investigation": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "investigation bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 10
+    },
+    "passive.medicine": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "medicine bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 11
+    },
+    "passive.nature": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "nature bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 10
+    },
+    "passive.perception": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "perception bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 15
+    },
+    "passive.performance": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "performance bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 10
+    },
+    "passive.persuasion": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "persuasion bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 10
+    },
+    "passive.religion": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "religion bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 10
+    },
+    "passive.sleight-of-hand": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "sleight-of-hand bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 4
+        }
+      ],
+      "value": 14
+    },
+    "passive.stealth": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "stealth bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 4
+        }
+      ],
+      "value": 14
+    },
+    "passive.survival": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "survival bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 11
+    },
+    "proficiencyBonus": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Proficiency bonus by level"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 4
+        }
+      ],
+      "value": 4
+    },
+    "resource.action-surge.max": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "None"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        },
+        {
+          "applied": true,
+          "formula": "table(fighter.action-surges)",
+          "kind": "set",
+          "label": {
+            "en": "Action Surge"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.class.fighter",
+            "feature": "srd51.feature.fighter.action-surge",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "resource.indomitable.max": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "None"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        },
+        {
+          "applied": true,
+          "formula": "table(fighter.indomitable-uses)",
+          "kind": "set",
+          "label": {
+            "en": "Indomitable"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.class.fighter",
+            "feature": "srd51.feature.fighter.indomitable",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "resource.second-wind.max": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "None"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        },
+        {
+          "applied": true,
+          "kind": "set",
+          "label": {
+            "en": "Second Wind"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.class.fighter",
+            "feature": "srd51.feature.fighter.second-wind",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "save.cha": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "save.con": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Constitution modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 4
+        }
+      ],
+      "value": 7
+    },
+    "save.dex": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "save.int": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "save.str": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 4
+        }
+      ],
+      "value": 9
+    },
+    "save.wis": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "skill.acrobatics": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        },
+        {
+          "applied": true,
+          "formula": "ceil(proficiencyBonus / 2)",
+          "kind": "add",
+          "label": {
+            "en": "Remarkable Athlete"
+          },
+          "source": {
+            "effectIndex": 5,
+            "entity": "srd51.subclass.fighter.champion",
+            "feature": "srd51.feature.champion.remarkable-athlete",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 4
+    },
+    "skill.animal-handling": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "skill.arcana": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "skill.athletics": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 4
+        },
+        {
+          "applied": false,
+          "formula": "ceil(proficiencyBonus / 2)",
+          "kind": "add",
+          "label": {
+            "en": "Remarkable Athlete"
+          },
+          "source": {
+            "effectIndex": 4,
+            "entity": "srd51.subclass.fighter.champion",
+            "feature": "srd51.feature.champion.remarkable-athlete",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 9
+    },
+    "skill.deception": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "skill.history": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "skill.insight": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "skill.intimidation": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "skill.investigation": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "skill.medicine": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "skill.nature": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "skill.perception": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 4
+        }
+      ],
+      "value": 5
+    },
+    "skill.performance": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "skill.persuasion": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "skill.religion": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "skill.sleight-of-hand": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        },
+        {
+          "applied": true,
+          "formula": "ceil(proficiencyBonus / 2)",
+          "kind": "add",
+          "label": {
+            "en": "Remarkable Athlete"
+          },
+          "source": {
+            "effectIndex": 6,
+            "entity": "srd51.subclass.fighter.champion",
+            "feature": "srd51.feature.champion.remarkable-athlete",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 4
+    },
+    "skill.stealth": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        },
+        {
+          "applied": true,
+          "formula": "ceil(proficiencyBonus / 2)",
+          "kind": "add",
+          "label": {
+            "en": "Remarkable Athlete"
+          },
+          "source": {
+            "effectIndex": 7,
+            "entity": "srd51.subclass.fighter.champion",
+            "feature": "srd51.feature.champion.remarkable-athlete",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 4
+    },
+    "skill.survival": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "speed.walk": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Species speed"
+          },
+          "source": {
+            "entity": "srd51.species.human",
+            "package": ""
+          },
+          "value": 30
+        }
+      ],
+      "value": 30
+    }
+  },
+  "warnings": []
+}
+

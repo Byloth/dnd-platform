@@ -1,0 +1,39 @@
+# Human Fighter 3 (Champion) under all 15 standard conditions, exhaustion at level 3.
+# Scores after the human +1: STR 16, DEX 14, CON 15, INT 10, WIS 12, CHA 10. Modifiers: str +3, dex +2, con +2.
+# Proficiency bonus at 3: +2. No equipment, so the Defense fighting style (needs armour) is inactive.
+# Conditions are listed as features of origin `condition`; their roll (dis)advantages are `rollModifiers`, which
+# expected.yaml cannot compare: blinded/frightened/poisoned/prone/restrained and exhaustion 3 → disadvantage on
+# attacks, frightened/poisoned and exhaustion 1 → disadvantage on checks, restrained → disadvantage on DEX saves,
+# exhaustion 3 → disadvantage on saves, invisible → advantage on attacks.
+values:
+  proficiencyBonus: 2
+  hp.max: 28                 # level 1: 10 + CON 2 = 12; levels 2-3: 2 × (6 + 2) = 16. Exhaustion 4 (max hp halved) is not reached.
+  ac: 12                     # 10 + DEX 2 (no armour; Defense inactive)
+  speed.walk: 0              # 30, set 0 by grappled/paralyzed/petrified/restrained/stunned/unconscious; exhaustion 2 halves it (× 0.5) → still 0
+  speed.climb: 0
+  speed.swim: 0
+  save.str: 5                # numbers unchanged: 3 + 2 proficient
+  save.dex: 2
+features:
+  - srd51.condition.blinded
+  - srd51.condition.charmed
+  - srd51.condition.deafened
+  - srd51.condition.frightened
+  - srd51.condition.grappled
+  - srd51.condition.incapacitated
+  - srd51.condition.invisible
+  - srd51.condition.paralyzed
+  - srd51.condition.petrified
+  - srd51.condition.poisoned
+  - srd51.condition.prone
+  - srd51.condition.restrained
+  - srd51.condition.stunned
+  - srd51.condition.unconscious
+  - srd51.condition.exhaustion
+resources:
+  second-wind: { max: 1 }
+  action-surge: { max: 1 }
+sections:
+  active: [conditions, resources, actions]
+  inactive: [spellcasting, spells, senses]
+warnings: []                 # every choice answered, every entity present: nothing to report

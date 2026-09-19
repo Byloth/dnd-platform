@@ -1,0 +1,66 @@
+# Human Warlock 1 (The Fiend). Base str 9, dex 13, con 13, int 10, wis 11, cha 15; human +1 all
+# → str 10, dex 14, con 14, int 11, wis 12, cha 16. Modifiers: str 0, dex +2, con +2, int 0, wis +1, cha +3.
+# Proficiency bonus at level 1: +2.
+values:
+  ability.str: 10
+  ability.dex: 14
+  ability.con: 14
+  ability.int: 11
+  ability.wis: 12
+  ability.cha: 16
+  proficiencyBonus: 2
+  hp.max: 10                    # d8 8 + CON 2
+  ac: 13                        # leather armour 11 + DEX 2
+  initiative: 2
+  speed.walk: 30                # human
+  save.wis: 3                   # 1 + 2 proficient
+  save.cha: 5                   # 3 + 2 proficient
+  save.con: 2                   # not proficient
+  save.dex: 2                   # not proficient
+  skill.arcana: 2               # INT 0 + 2 (chosen)
+  skill.deception: 5            # CHA 3 + 2 (chosen)
+  skill.intimidation: 3         # CHA 3, not proficient
+  skill.perception: 1           # WIS 1, not proficient
+  skill.athletics: 0
+  passive.perception: 11        # 10 + 1
+spellcasting:
+  # Pact Magic (table spell-slots.pact row 1): 1 slot of 1st level; the snapshot carries pact: { slots: 1, level: 1 }.
+  # No level-indexed slots, so `slots` is not asserted.
+  srd51.class.warlock:
+    dc: 13                      # 8 + 2 + CHA 3
+    attackBonus: 5              # 2 + 3
+    cantripsKnown: 2            # table warlock.cantrips-known row 1
+    spellsKnown: 2              # table warlock.spells-known row 1
+spells:
+  srd51.spell.eldritch-blast: free
+  srd51.spell.minor-illusion: free
+  srd51.spell.charm-person: slot
+  srd51.spell.hellish-rebuke: slot
+actions:
+  dark-ones-blessing: { activation: free, cost: {} }   # temp hp = CHA 3 + warlock level 1 = 4 on use
+attacks:
+  dagger: { toHit: 4, damage: "1d4 + 2", type: piercing }   # finesse: DEX 2 (> STR 0) + proficiency 2 (simple weapons)
+  unarmed-strike: { toHit: 2, damage: "1" }                 # STR 0 + 2; 1 + 0
+features:
+  - srd51.feature.warlock.pact-magic
+  - srd51.feature.warlock.otherworldly-patron
+  - srd51.feature.the-fiend.dark-ones-blessing
+  - srd51.feature.the-fiend.expanded-spell-list
+choices:
+  "srd51.class.warlock#skills": answered
+  "srd51.class.warlock#otherworldly-patron": answered
+  "srd51.class.warlock#cantrips": answered
+  "srd51.class.warlock#spells": answered
+  "srd51.species.human#languages": answered
+proficiencies:
+  - save:wis
+  - save:cha
+  - skill:arcana
+  - skill:deception
+  - armor:light
+  - weapon:simple
+  - language:common
+  - language:infernal
+sections:
+  active: [core, abilities, saves, skills, combat, attacks, actions, spellcasting, spells, features]
+  inactive: [resources, senses]

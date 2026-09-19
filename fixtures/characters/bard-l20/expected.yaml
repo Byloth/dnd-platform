@@ -1,0 +1,75 @@
+# Half-elf Bard 20, College of Lore. Base str 8, dex 14, con 13, int 10, wis 12, cha 15; half-elf +2 CHA, +1 DEX +1 CON;
+# ASIs +3 CHA, +5 DEX, +2 CON (see character.yaml) → STR 8, DEX 20, CON 16, INT 10, WIS 12, CHA 20.
+# Modifiers: str -1, dex +5, con +3, int 0, wis +1, cha +5. Proficiency bonus +6; Jack of All Trades floor(6 / 2) = 3.
+values:
+  ability.str: 8
+  ability.dex: 20          # 14 + 1 (half-elf) + 1 (ASI 8) + 2 (ASI 12) + 2 (ASI 19)
+  ability.con: 16          # 13 + 1 (half-elf) + 2 (ASI 16)
+  ability.int: 10
+  ability.wis: 12
+  ability.cha: 20          # 15 + 2 (half-elf) + 2 (ASI 4) + 1 (ASI 8)
+  proficiencyBonus: 6
+  hp.max: 163              # level 1: 8 + 3 = 11; levels 2-20: 19 × (5 + 3) = 152
+  ac: 16                   # leather 11 + DEX 5
+  initiative: 8            # DEX 5 + Jack of All Trades 3  # ENGINE MISMATCH: got 5
+  speed.walk: 30
+  sense.darkvision: 60
+  save.dex: 11             # 5 + 6
+  save.cha: 11             # 5 + 6
+  save.str: -1
+  save.con: 3
+  save.int: 0
+  save.wis: 1
+  skill.performance: 17    # CHA 5 + 2 × 6 (Expertise)  # ENGINE MISMATCH: got 11
+  skill.persuasion: 17     # ENGINE MISMATCH: got 11
+  skill.insight: 13        # WIS 1 + 2 × 6 (Expertise 10)  # ENGINE MISMATCH: got 7
+  skill.perception: 13     # ENGINE MISMATCH: got 7
+  skill.deception: 11      # CHA 5 + 6
+  skill.arcana: 6          # INT 0 + 6
+  skill.stealth: 8         # DEX 5 + Jack of All Trades 3
+  skill.athletics: 2       # STR -1 + 3
+  passive.perception: 23   # 10 + 13  # ENGINE MISMATCH: got 17
+resources:
+  bardic-inspiration: { max: 5, recharge: [short-rest, long-rest] }   # max(1, CHA 5); Font of Inspiration  # ENGINE MISMATCH: got [long-rest]
+actions:
+  bardic-inspiration: { activation: bonus-action, cost: { bardic-inspiration: 1 } }
+  cutting-words: { activation: reaction, cost: { bardic-inspiration: 1 } }
+  countercharm: { activation: action }
+  peerless-skill: { activation: free, cost: { bardic-inspiration: 1 } }   # Lore 14
+attacks:
+  rapier: { toHit: 11, damage: "1d8 + 5", type: piercing } # DEX 5 + prof 6
+spellcasting:
+  srd51.class.bard:
+    dc: 19                 # 8 + 6 + 5
+    attackBonus: 11        # 6 + 5
+    slots: { 1: 4, 2: 3, 3: 3, 4: 3, 5: 3, 6: 2, 7: 2, 8: 1, 9: 1 }   # full-caster table, level 20
+    cantripsKnown: 4       # table bard.cantrips-known row 10
+    spellsKnown: 22        # table bard.spells-known row 18
+spells:
+  srd51.spell.vicious-mockery: free
+  srd51.spell.healing-word: slot
+  srd51.spell.power-word-kill: slot
+  srd51.spell.wish: slot              # Magical Secrets 18
+  srd51.spell.teleport: slot          # Magical Secrets 14
+  srd51.spell.haste: slot             # Additional Magical Secrets  # ENGINE MISMATCH: got absent
+features:
+  - srd51.feature.bard.superior-inspiration
+  - srd51.feature.bard.magical-secrets
+  - srd51.feature.college-of-lore.peerless-skill
+choices:
+  "srd51.class.bard#asi-4": answered
+  "srd51.class.bard#asi-8": answered
+  "srd51.class.bard#asi-12": answered
+  "srd51.class.bard#asi-16": answered
+  "srd51.class.bard#asi-19": answered
+  "srd51.class.bard#cantrips": answered
+  "srd51.class.bard#spells": answered
+  "srd51.feature.bard.expertise#expertise-3": answered
+  "srd51.feature.bard.expertise#expertise-10": answered
+  "srd51.feature.bard.magical-secrets#magical-secrets-10": answered
+  "srd51.feature.bard.magical-secrets#magical-secrets-14": answered
+  "srd51.feature.bard.magical-secrets#magical-secrets-18": answered
+proficiencies: [save:dex, save:cha, armor:light, weapon:rapier, skill:performance, skill:persuasion, skill:insight, skill:perception, skill:arcana, tool:lute]
+sections:
+  active: [core, abilities, saves, skills, senses, combat, attacks, actions, resources, spellcasting, spells, features]
+warnings: []

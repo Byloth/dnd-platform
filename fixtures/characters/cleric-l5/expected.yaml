@@ -1,0 +1,99 @@
+# Hill dwarf Cleric 5, Life Domain, acolyte. Base str 14, dex 10, con 13, int 10, wis 15, cha 12; dwarf +2 CON, hill dwarf +1 WIS;
+# ASI 4 +2 WIS → STR 14, DEX 10, CON 15, INT 10, WIS 18, CHA 12. Modifiers: str +2, dex 0, con +2, int 0, wis +4, cha +1.
+# Proficiency bonus +3. Chain mail (heavy, Life Domain proficiency; STR 14 ≥ 13) and a shield; a dwarf's speed is not
+# reduced by heavy armour.
+values:
+  ability.str: 14
+  ability.dex: 10
+  ability.con: 15          # 13 + 2 (dwarf)
+  ability.int: 10
+  ability.wis: 18          # 15 + 1 (hill dwarf) + 2 (ASI 4)
+  ability.cha: 12
+  mod.wis: 4
+  proficiencyBonus: 3
+  hp.max: 43               # level 1: 8 + 2 = 10; levels 2-5: 4 × (average(d8) 5 + 2) = 28; Dwarven Toughness 1 × 5 = 5
+  ac: 18                   # chain mail 16 (no DEX) + shield 2  # ENGINE MISMATCH: got 16 (srd51.item.shield is type gear, the engine adds no shield bonus)
+  initiative: 0
+  speed.walk: 25           # dwarf
+  sense.darkvision: 60     # dwarf Darkvision
+  save.wis: 7              # 4 + 3
+  save.cha: 4              # 1 + 3
+  save.str: 2
+  save.dex: 0
+  save.con: 2
+  save.int: 0
+  skill.insight: 7         # WIS 4 + 3 (acolyte)
+  skill.religion: 3        # INT 0 + 3 (acolyte)
+  skill.medicine: 7        # WIS 4 + 3 (class pick)
+  skill.history: 3         # INT 0 + 3 (class pick)
+  skill.perception: 4      # WIS 4, not proficient
+  skill.persuasion: 1      # CHA 1, not proficient
+  passive.perception: 14   # 10 + 4
+resources:
+  channel-divinity: { max: 1, recharge: [short-rest, long-rest] }   # table(cleric.channel-divinity-charges) row 2 = 1 (row 6 is 2)
+actions:
+  turn-undead: { activation: action, cost: { channel-divinity: 1 } }
+  preserve-life: { activation: action, cost: { channel-divinity: 1 } }   # Life Domain 2
+attacks:
+  warhammer: { toHit: 5, damage: "1d8 + 2", type: bludgeoning }   # STR 2 + prof 3 (Dwarven Combat Training); 1d8 + STR 2
+spellcasting:
+  srd51.class.cleric:
+    dc: 15                 # 8 + 3 + 4
+    attackBonus: 7         # 3 + 4
+    slots: { 1: 4, 2: 3, 3: 2 }   # full-caster table, level 5
+    cantripsKnown: 4       # table cleric.cantrips-known row 4
+spells:
+  srd51.spell.sacred-flame: free
+  srd51.spell.thaumaturgy: free
+  srd51.spell.healing-word: slot
+  srd51.spell.spirit-guardians: slot
+  srd51.spell.bless: slot            # Life Domain spell, always prepared
+  srd51.spell.cure-wounds: slot
+  srd51.spell.lesser-restoration: slot
+  srd51.spell.spiritual-weapon: slot
+  srd51.spell.beacon-of-hope: slot   # Life Domain 5
+  srd51.spell.revivify: slot
+features:
+  - srd51.feature.cleric.spellcasting
+  - srd51.feature.cleric.channel-divinity
+  - srd51.feature.cleric.destroy-undead
+  - srd51.feature.life-domain.bonus-proficiency
+  - srd51.feature.life-domain.disciple-of-life
+  - srd51.feature.life-domain.channel-divinity-preserve-life
+  - srd51.feature.dwarf.darkvision
+  - srd51.feature.dwarf.dwarven-resilience
+  - srd51.feature.dwarf.dwarven-combat-training
+  - srd51.feature.hill-dwarf.dwarven-toughness
+  - srd51.feature.acolyte.shelter-of-the-faithful
+choices:
+  "srd51.class.cleric#skills": answered
+  "srd51.class.cleric#divine-domain": answered
+  "srd51.class.cleric#asi-4": answered
+  "srd51.class.cleric#cantrips": answered
+  "srd51.class.cleric#spells": answered
+  "srd51.feature.dwarf.tool-proficiency#tool": answered
+  "srd51.background.acolyte#languages": answered
+proficiencies:
+  - save:wis
+  - save:cha
+  - armor:light
+  - armor:medium
+  - armor:heavy
+  - armor:shield
+  - weapon:simple
+  - weapon:battleaxe
+  - weapon:handaxe
+  - weapon:light-hammer
+  - weapon:warhammer
+  - tool:smiths-tools
+  - skill:insight
+  - skill:religion
+  - skill:medicine
+  - skill:history
+  - language:common
+  - language:dwarvish
+  - language:celestial
+  - language:elvish
+sections:
+  active: [core, abilities, saves, skills, senses, combat, attacks, actions, resources, spellcasting, spells, features]
+warnings: []

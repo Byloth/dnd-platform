@@ -1,0 +1,31 @@
+formatVersion: 0
+id: fixture-plain-fighter-l1
+name: Iron Sparrow
+ruleset: { id: srd51, version: 0.1.0 }
+packages:
+  - { id: srd51, version: 0.1.0 }
+choices:
+  species: srd51.species.human
+  # Martial Archetype comes at fighter 3: no subclass yet, and no subclass choice is registered before then.
+  classes:
+    - { class: srd51.class.fighter, levels: 1 }
+  abilityScores:
+    method: manual
+    # human: +1 to every score (generated from the species trait) → STR 16, DEX 14, CON 15, INT 10, WIS 12, CHA 10
+    base: { str: 15, dex: 13, con: 14, int: 9, wis: 11, cha: 9 }
+  answers:
+    "srd51.class.fighter#skills": [athletics, perception]
+    "srd51.feature.fighter.fighting-style#fighting-style": [defense]
+    "srd51.species.human#languages": [dwarvish]
+  equipment:
+    - { item: srd51.item.chain-mail, quantity: 1, equipped: true }
+    - { item: srd51.item.longsword, quantity: 1, equipped: true }
+    # Carried, not equipped: the SRD shield is `type: gear` with a `shield` tag and the engine reads no AC from it yet.
+    - { item: srd51.item.shield, quantity: 1 }
+state:
+  hp: { current: 12, temporary: 0 }
+  hitDice: { spent: 0 }
+  resources: { second-wind: 1 }
+  conditions: []
+  deathSaves: { successes: 0, failures: 0 }
+  inspiration: false

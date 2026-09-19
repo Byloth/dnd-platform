@@ -1,0 +1,79 @@
+# Half-elf Bard 5, College of Lore. Base str 8, dex 14, con 13, int 10, wis 12, cha 15; half-elf +2 CHA, +1 DEX +1 CON;
+# ASI 4 +2 CHA → STR 8, DEX 15, CON 14, INT 10, WIS 12, CHA 19. Modifiers: str -1, dex +2, con +2, int 0, wis +1, cha +4.
+# Proficiency bonus +3; Jack of All Trades adds floor(3 / 2) = 1 to checks without proficiency.
+# Expertise (level 3) on Performance and Persuasion doubles the proficiency bonus on those checks.
+values:
+  ability.str: 8
+  ability.dex: 15
+  ability.con: 14
+  ability.int: 10
+  ability.wis: 12
+  ability.cha: 19          # 15 + 2 (half-elf) + 2 (ASI 4)
+  mod.cha: 4
+  proficiencyBonus: 3
+  hp.max: 38               # level 1: 8 + 2 = 10; levels 2-5: 4 × (average(d8) 5 + 2) = 28
+  ac: 13                   # leather 11 + DEX 2
+  initiative: 3            # DEX 2 + Jack of All Trades 1 (initiative is a Dexterity check without proficiency)  # ENGINE MISMATCH: got 2
+  speed.walk: 30
+  sense.darkvision: 60
+  save.dex: 5              # 2 + 3
+  save.cha: 7              # 4 + 3
+  save.str: -1
+  save.con: 2
+  save.wis: 1
+  skill.performance: 10    # CHA 4 + 2 × 3 (Expertise)  # ENGINE MISMATCH: got 7 (Expertise doubling is a documented content gap)
+  skill.persuasion: 10     # CHA 4 + 2 × 3 (Expertise)  # ENGINE MISMATCH: got 7
+  skill.deception: 7       # CHA 4 + 3
+  skill.insight: 4         # WIS 1 + 3 (Skill Versatility)
+  skill.perception: 4      # WIS 1 + 3 (Skill Versatility)
+  skill.arcana: 3          # INT 0 + 3 (Lore Bonus Proficiencies)
+  skill.history: 3         # INT 0 + 3 (Lore)
+  skill.investigation: 3   # INT 0 + 3 (Lore)
+  skill.stealth: 3         # DEX 2 + Jack of All Trades 1
+  skill.athletics: 0       # STR -1 + 1 (Jack of All Trades)
+  skill.medicine: 2        # WIS 1 + 1
+  passive.perception: 14   # 10 + 4
+resources:
+  # SRD Font of Inspiration (5th): uses come back on a short or long rest  # ENGINE MISMATCH: got [long-rest] (add-text gap in the content)
+  bardic-inspiration: { max: 4, recharge: [short-rest, long-rest] }   # max(1, CHA 4)
+actions:
+  bardic-inspiration: { activation: bonus-action, cost: { bardic-inspiration: 1 } }
+  cutting-words: { activation: reaction, cost: { bardic-inspiration: 1 } }   # Lore 3
+attacks:
+  rapier: { toHit: 5, damage: "1d8 + 2", type: piercing }  # DEX 2 + prof 3
+spellcasting:
+  srd51.class.bard:
+    dc: 15                 # 8 + 3 + 4
+    attackBonus: 7         # 3 + 4
+    slots: { 1: 4, 2: 3, 3: 2 }   # full-caster table, level 5
+    cantripsKnown: 3       # table bard.cantrips-known row 4
+    spellsKnown: 8         # table bard.spells-known row 5
+spells:
+  srd51.spell.vicious-mockery: free
+  srd51.spell.mage-hand: free
+  srd51.spell.healing-word: slot
+  srd51.spell.hypnotic-pattern: slot
+  srd51.spell.dispel-magic: slot
+features:
+  - srd51.feature.bard.jack-of-all-trades
+  - srd51.feature.bard.song-of-rest
+  - srd51.feature.bard.expertise
+  - srd51.feature.bard.font-of-inspiration
+  - srd51.feature.college-of-lore.bonus-proficiencies
+  - srd51.feature.college-of-lore.cutting-words
+choices:
+  "srd51.class.bard#skills": answered
+  "srd51.class.bard#tools": answered
+  "srd51.class.bard#bard-college": answered
+  "srd51.class.bard#asi-4": answered
+  "srd51.class.bard#cantrips": answered
+  "srd51.class.bard#spells": answered
+  "srd51.feature.bard.expertise#expertise-3": answered
+  "srd51.feature.college-of-lore.bonus-proficiencies#skill": answered
+  "srd51.feature.half-elf.skill-versatility#skill": answered
+  "srd51.species.half-elf#languages": answered
+proficiencies: [save:dex, save:cha, armor:light, weapon:rapier, skill:performance, skill:persuasion, skill:deception, skill:insight, skill:perception, skill:arcana, skill:history, skill:investigation, tool:lute, language:dwarvish]
+sections:
+  active: [core, abilities, saves, skills, senses, combat, attacks, actions, resources, spellcasting, spells, features]
+# Every choice that exists at level 5 is answered. (expertise-10 belongs to level 10 and is not a choice yet.)
+warnings: []

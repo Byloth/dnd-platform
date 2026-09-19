@@ -1,0 +1,71 @@
+# Rock gnome Rogue 1 on the SRD 5.1 base package. No archetype before 3.
+# Scores: base str 8, dex 16, con 13, int 12, wis 13, cha 10; gnome +2 int → 14; rock gnome +1 con → 14.
+# Modifiers: str -1, dex +3, con +2, int +2, wis +1, cha 0. Proficiency bonus at 1: +2.
+values:
+  ability.str: 8
+  ability.dex: 16
+  ability.con: 14          # 13 + 1 (Ability Score Increase, rock gnome)
+  ability.int: 14          # 12 + 2 (Ability Score Increase, gnome)
+  ability.wis: 13
+  ability.cha: 10
+  proficiencyBonus: 2
+  hp.max: 10               # hitDie 8 + mod(con) 2
+  ac: 14                   # leather armour 11 + mod(dex) 3
+  initiative: 3
+  speed.walk: 25           # gnome
+  sense.darkvision: 60     # gnome Darkvision (op max 60)
+  attacks.perAction: 1
+  jump.long: 8             # Strength score 8 (no Second-Story Work before 3)
+  save.dex: 5              # mod 3 + proficiency 2 (rogue saving throw)
+  save.int: 4              # mod 2 + 2
+  save.str: -1             # not proficient
+  save.con: 2
+  save.wis: 1
+  save.cha: 0
+  skill.stealth: 7         # mod(dex) 3 + 2 × 2 (Expertise)
+  skill.sleight-of-hand: 7 # mod(dex) 3 + 4 (Expertise)
+  skill.perception: 3      # mod(wis) 1 + 2 (chosen)
+  skill.investigation: 4   # mod(int) 2 + 2 (chosen)
+  skill.acrobatics: 3      # mod(dex) 3, not proficient
+  skill.history: 2         # mod(int) 2, not proficient
+  passive.perception: 13   # 10 + 3
+provenance:
+  skill.stealth: ["Dexterity modifier", "Expertise"]
+  skill.perception: ["Wisdom modifier", "Proficiency bonus"]
+attacks:
+  rapier: { toHit: 5, damage: "1d8 + 3", type: piercing }         # finesse: mod(dex) 3 > mod(str) -1; + proficiency 2 (rapier)
+  shortbow: { toHit: 5, damage: "1d6 + 3", type: piercing }       # ranged: mod(dex) 3 + 2 (simple)
+  unarmed-strike: { toHit: 1, damage: "0", type: bludgeoning }    # mod(str) -1 + 2; 1 + (-1) = 0
+actions:
+  sneak-attack: { activation: special }                           # 1d6 at rogue 1 (table rogue.sneak-attack)
+features:
+  - srd51.feature.rogue.expertise
+  - srd51.feature.rogue.sneak-attack
+  - srd51.feature.rogue.thieves-cant
+  - srd51.feature.gnome.darkvision
+  - srd51.feature.gnome.gnome-cunning
+  - srd51.feature.rock-gnome.artificers-lore
+  - srd51.feature.rock-gnome.tinker
+choices:
+  "srd51.class.rogue#skills": answered
+  "srd51.feature.rogue.expertise#expertise-1": answered
+proficiencies:
+  - save:dex
+  - save:int
+  - skill:stealth
+  - skill:sleight-of-hand
+  - skill:perception
+  - skill:investigation
+  - armor:light
+  - weapon:simple
+  - weapon:longsword
+  - weapon:rapier
+  - weapon:shortsword
+  - tool:thieves-tools
+  - tool:tinkers-tools        # rock gnome Tinker
+  - language:common
+  - language:gnomish
+  - language:thieves-cant     # Thieves' Cant is modelled as a language
+sections:
+  active: [core, abilities, saves, skills, senses, combat, attacks, actions, features]
+  inactive: [resources, spellcasting, spells]

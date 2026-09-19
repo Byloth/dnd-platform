@@ -17,6 +17,7 @@ import { derive, loadPackages, stableStringify } from "@byloth/dnd-platform-engi
 import type { Character, ComputedSheet, SpellView } from "@byloth/dnd-platform-engine";
 
 import { toPackageSource } from "../io/to-package-source.js";
+import { computeCoverage, writeCoverageReport } from "./coverage.js";
 
 export type FixtureStatus = "pass" | "fail" | "skip" | "updated";
 
@@ -61,9 +62,21 @@ interface ExpectedSpellcasting
     readonly cantripsKnown?: number;
     readonly spellsKnown?: number;
 }
+interface ExpectedAttack
+{
+    readonly toHit?: number;
+    readonly damage?: string;
+    readonly type?: string;
+}
 interface Expected
 {
     readonly values?: Readonly<Record<string, number | string>>;
+    /** Attack row id → to-hit bonus, printable damage, damage type. */
+    readonly attacks?: Readonly<Record<string, ExpectedAttack>>;
+    /** Feature ids that must be active. */
+    readonly features?: readonly string[];
+    /** Choice key → `answered` or `unanswered`. */
+    readonly choices?: Readonly<Record<string, "answered" | "unanswered">>;
     /** Class id → expected spellcasting numbers. */
     readonly spellcasting?: Readonly<Record<string, ExpectedSpellcasting>>;
     /** Spell id → how it is paid: `free`, `slot`, `<resource>:<amount>` or `uses:<n>`. */
@@ -192,6 +205,30 @@ function compareExpected(sheet: ComputedSheet, expected: Expected, name: string)
         if (got === undefined) { fail(`spells.${spellId}`, wanted, "absent"); }
         else if (payment(got.paidWith) !== wanted) { fail(`spells.${spellId}`, wanted, payment(got.paidWith)); }
     }
+    for (const [id, wanted] of Object.entries(expected.attacks ?? {}))
+    {
+        const got = sheet.attacks.find((a) => a.id === id);
+        if (got === undefined)
+        {
+            fail(`attacks.${id}`, "present", sheet.attacks.map((a) => a.id));
+
+            continue;
+        }
+        if ((wanted.toHit !== undefined) && (got.attackBonus.value !== wanted.toHit)) { fail(`attacks.${id}.toHit`, wanted.toHit, got.attackBonus.value); }
+        if ((wanted.damage !== undefined) && (got.damage !== wanted.damage)) { fail(`attacks.${id}.damage`, wanted.damage, got.damage); }
+        if ((wanted.type !== undefined) && (got.damageType !== wanted.type)) { fail(`attacks.${id}.type`, wanted.type, got.damageType); }
+    }
+    const activeFeatures = new Set(sheet.features.map((x) => x.id));
+    for (const wanted of expected.features ?? [])
+    {
+        if (!activeFeatures.has(wanted)) { fail("features", wanted, "absent"); }
+    }
+    for (const [key, wanted] of Object.entries(expected.choices ?? {}))
+    {
+        const got = sheet.choices.find((c) => c.key === key);
+        const state = got === undefined ? "absent" : got.answered ? "answered" : "unanswered";
+        if (state !== wanted) { fail(`choices.${key}`, wanted, state); }
+    }
     const held = new Set(sheet.proficiencies.map((p) => `${p.type}:${p.item}`));
     for (const wanted of expected.proficiencies ?? [])
     {
@@ -290,6 +327,23 @@ export function runFixtures(options: FixturesOptions = {}): FixtureReport[]
 
 export function runFixturesCommand(argv: readonly string[]): number
 {
+    if (argv.includes("--coverage"))
+    {
+        const root = findRepositoryRoot();
+        const report = computeCoverage(root, resolve(root, "fixtures/characters"), resolve(root, "packages/content/srd51"));
+        writeCoverageReport(report, resolve(root, "fixtures/coverage.md"));
+        for (const [type, b] of Object.entries(report.byType))
+        {
+            const shortIds = b.missing.map((id) => id.split(".")
+                .slice(2)
+                .join("."));
+            const missing = (b.missing.length && b.total <= 60) ? ` (missing: ${shortIds.join(", ")})` : "";
+            process.stdout.write(`${type}: ${b.covered}/${b.total}${missing}\n`);
+        }
+        process.stdout.write(report.ok ? "coverage OK for gated types\n" : "coverage below 100 % for a gated type\n");
+
+        return report.ok ? 0 : 1;
+    }
     const json = argv.includes("--json");
     const update = argv.includes("--update");
     const filterIndex = argv.indexOf("--filter");

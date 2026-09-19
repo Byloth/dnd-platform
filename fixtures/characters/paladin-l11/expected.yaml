@@ -1,0 +1,78 @@
+# Gold dragonborn Paladin 11 (Oath of Devotion, Defense style) on the SRD 5.1 base package.
+# Scores: base str 15, dex 10, con 14, int 8, wis 12, cha 13; dragonborn +2 str, +1 cha; ASI 4 +2 str; ASI 8 +2 cha.
+# Final: str 19, dex 10, con 14, int 8, wis 12, cha 16 → mods str +4, dex 0, con +2, int -1, wis +1, cha +3.
+# Proficiency bonus at 11: +4. Aura of Protection (6+): every saving throw + max(1, mod(cha)) = +3.
+values:
+  ability.str: 19          # 15 + 2 (dragonborn) + 2 (ASI 4)
+  ability.cha: 16          # 13 + 1 (dragonborn) + 2 (ASI 8)
+  ability.con: 14
+  ability.wis: 12
+  proficiencyBonus: 4      # table proficiency-bonus, level 11 (9 → 4)
+  hp.max: 92               # level 1: 10 + 2 = 12; levels 2-11: 10 × (6 + 2) = 80
+  ac: 19                   # chain mail 16 + shield 2 + Defense 1
+                           # ENGINE MISMATCH: got 17 (no shield bonus, see paladin-l1)
+  initiative: 0
+  speed.walk: 30
+  attacks.perAction: 2
+  save.wis: 8              # mod 1 + proficiency 4 + aura 3
+  save.cha: 10             # mod 3 + 4 + 3
+  save.str: 7              # mod 4 + aura 3 (not proficient)
+  save.dex: 3              # 0 + 3
+  save.con: 5              # 2 + 3
+  save.int: 2              # -1 + 3
+  skill.athletics: 8       # mod(str) 4 + 4
+  skill.persuasion: 7      # mod(cha) 3 + 4
+  skill.intimidation: 3    # mod(cha) 3, not proficient
+  skill.perception: 1
+  passive.perception: 11
+provenance:
+  save.str: ["Strength modifier", "Bonus to all saving throws"]
+resources:
+  divine-sense: { max: 4, recharge: [long-rest] }               # 1 + mod(cha) 3
+  lay-on-hands: { max: 55, recharge: [long-rest] }              # 5 × 11
+  channel-divinity: { max: 1, recharge: [short-rest, long-rest] }
+  breath-weapon: { max: 1, recharge: [short-rest, long-rest] }
+actions:
+  divine-sense: { activation: action, cost: { divine-sense: 1 } }
+  lay-on-hands: { activation: action, cost: { lay-on-hands: 1 } }
+  divine-smite: { activation: special, cost: { spell-slot: 1 } }
+  sacred-weapon: { activation: action, cost: { channel-divinity: 1 } }
+  turn-the-unholy: { activation: action, cost: { channel-divinity: 1 } }
+  breath-weapon: { activation: action, cost: { breath-weapon: 1 } }
+attacks:
+  longsword: { toHit: 8, damage: "1d8 + 4", type: slashing }             # mod(str) 4 + proficiency 4; Improved Divine Smite adds 1d8 radiant as extra damage
+  longsword-two-handed: { toHit: 8, damage: "1d10 + 4", type: slashing }
+  unarmed-strike: { toHit: 8, damage: "5", type: bludgeoning }
+spellcasting:
+  srd51.class.paladin:
+    dc: 15                 # 8 + 4 + mod(cha) 3
+    attackBonus: 7         # 4 + 3
+    slots: { 1: 4, 2: 3, 3: 3 }   # half-caster table, paladin level 11
+spells:
+  srd51.spell.bless: slot
+  srd51.spell.revivify: slot
+  srd51.spell.magic-weapon: slot
+  srd51.spell.protection-from-evil-and-good: slot   # oath spell (3rd)
+  srd51.spell.zone-of-truth: slot                   # oath spell (5th)
+  srd51.spell.beacon-of-hope: slot                  # oath spell (9th)
+  srd51.spell.dispel-magic: slot                    # oath spell (9th)
+features:
+  - srd51.feature.paladin.divine-smite
+  - srd51.feature.paladin.aura-of-protection
+  - srd51.feature.paladin.aura-of-courage
+  - srd51.feature.paladin.improved-divine-smite
+  - srd51.feature.paladin.extra-attack
+  - srd51.feature.oath-of-devotion.channel-divinity
+  - srd51.feature.oath-of-devotion.aura-of-devotion
+  - srd51.feature.dragonborn.damage-resistance
+choices:
+  "srd51.class.paladin#sacred-oath": answered
+  "srd51.class.paladin#asi-4": answered
+  "srd51.class.paladin#asi-8": answered
+  "srd51.feature.paladin.fighting-style#fighting-style": answered
+  "srd51.class.paladin#spells": answered            # 8 prepared = floor(11 / 2) + mod(cha) 3
+                                                    # ENGINE MISMATCH: got unanswered (engine expects classLevel + mod = 14, see paladin-l5)
+proficiencies: [save:wis, save:cha, skill:athletics, skill:persuasion, armor:heavy, armor:shield, weapon:martial]
+sections:
+  active: [core, abilities, saves, skills, combat, attacks, actions, resources, spellcasting, spells, features]
+  inactive: [senses]

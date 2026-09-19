@@ -1,0 +1,63 @@
+# Lightfoot halfling Ranger 1 on the SRD 5.1 base package. No archetype before 3, no spellcasting before 2.
+# Scores: base str 10, dex 15, con 14, int 10, wis 15, cha 8; halfling +2 dex → 17; lightfoot +1 cha → 9.
+# Modifiers: str 0, dex +3, con +2, int 0, wis +2, cha -1. Proficiency bonus at 1: +2.
+values:
+  ability.str: 10
+  ability.dex: 17          # 15 + 2 (Ability Score Increase, halfling)
+  ability.con: 14
+  ability.int: 10
+  ability.wis: 15
+  ability.cha: 9           # 8 + 1 (Ability Score Increase, lightfoot)
+  proficiencyBonus: 2
+  hp.max: 12               # hitDie 10 + mod(con) 2
+  ac: 14                   # leather armour 11 + mod(dex) 3
+  initiative: 3            # mod(dex)
+  speed.walk: 25           # halfling
+  attacks.perAction: 1
+  save.str: 2              # mod 0 + proficiency 2 (ranger saving throw)
+  save.dex: 5              # mod 3 + 2
+  save.con: 2              # not proficient
+  save.int: 0
+  save.wis: 2
+  save.cha: -1
+  skill.perception: 4      # mod(wis) 2 + 2 (chosen)
+  skill.stealth: 5         # mod(dex) 3 + 2 (chosen)
+  skill.survival: 4        # mod(wis) 2 + 2 (chosen)
+  skill.athletics: 0       # mod(str) 0, not proficient
+  skill.nature: 0          # mod(int) 0, not proficient
+  passive.perception: 14   # 10 + skill.perception
+provenance:
+  ac: ["Leather Armor", "Dexterity modifier"]
+attacks:
+  longbow: { toHit: 5, damage: "1d8 + 3", type: piercing }        # ranged → mod(dex) 3 + proficiency 2 (martial); no Archery before 2
+  unarmed-strike: { toHit: 2, damage: "1", type: bludgeoning }    # mod(str) 0 + 2; 1 + 0
+actions:
+  lucky: { activation: special }                                  # halfling Lucky
+features:
+  - srd51.feature.ranger.favored-enemy
+  - srd51.feature.ranger.natural-explorer
+  - srd51.feature.halfling.lucky
+  - srd51.feature.halfling.brave
+  - srd51.feature.halfling.halfling-nimbleness
+  - srd51.feature.lightfoot.naturally-stealthy
+choices:
+  "srd51.class.ranger#skills": answered
+  "srd51.feature.ranger.favored-enemy#favored-enemy-1": answered
+  "srd51.feature.ranger.favored-enemy#favored-enemy-language-1": answered
+  "srd51.feature.ranger.natural-explorer#favored-terrain-1": answered
+proficiencies:
+  - save:str
+  - save:dex
+  - skill:perception
+  - skill:stealth
+  - skill:survival
+  - armor:light
+  - armor:medium
+  - armor:shield
+  - weapon:simple
+  - weapon:martial
+  - language:common
+  - language:halfling
+sections:
+  active: [core, abilities, saves, skills, combat, attacks, actions, features]
+  inactive: [senses, resources, spellcasting, spells]   # halflings have no darkvision; spellcasting starts at 2

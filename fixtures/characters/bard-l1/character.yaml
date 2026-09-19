@@ -1,0 +1,38 @@
+formatVersion: 0
+id: fixture-bard-l1
+name: Willow Verse
+ruleset: { id: srd51, version: 0.1.0 }
+packages:
+  - { id: srd51, version: 0.1.0 }
+choices:
+  species: srd51.species.half-elf
+  classes:
+    - { class: srd51.class.bard, levels: 1 }
+  abilityScores:
+    method: manual
+    # half-elf: +2 CHA generated from the species trait → CHA 17
+    base: { str: 8, dex: 14, con: 13, int: 10, wis: 12, cha: 15 }
+    # half-elf: "two other ability scores of your choice increase by 1" — the engine does not model this choice yet,
+    # so the two +1 (DEX, CON) are recorded here by hand → DEX 15, CON 14
+    bonuses: { dex: 1, con: 1 }
+  answers:
+    "srd51.class.bard#skills": [performance, persuasion, deception]
+    "srd51.class.bard#tools": [lute, flute, drum]
+    "srd51.feature.half-elf.skill-versatility#skill": [insight, perception]
+    "srd51.species.half-elf#languages": [dwarvish]
+    "srd51.class.bard#cantrips": [srd51.spell.vicious-mockery, srd51.spell.minor-illusion]
+    # spells known at bard level 1: 4 (table bard.spells-known)
+    "srd51.class.bard#spells": [srd51.spell.healing-word, srd51.spell.charm-person, srd51.spell.sleep, srd51.spell.hideous-laughter]
+  equipment:
+    - { item: srd51.item.leather-armor, quantity: 1, equipped: true }
+    - { item: srd51.item.rapier, quantity: 1, equipped: true }
+    - { item: srd51.item.dagger, quantity: 1 }
+    - { item: srd51.item.lute, quantity: 1 }
+state:
+  hp: { current: 10, temporary: 0 }
+  hitDice: { spent: 0 }
+  resources: { bardic-inspiration: 3 }
+  spellSlots: { "1": 2 }
+  conditions: []
+  deathSaves: { successes: 0, failures: 0 }
+  inspiration: false

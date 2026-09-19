@@ -1,5 +1,69 @@
 {
   "actions": [],
+  "attacks": [
+    {
+      "ability": "str",
+      "attackBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Strength modifier"
+            },
+            "source": {
+              "entity": "minib.ruleset",
+              "package": "minib"
+            },
+            "value": 0
+          },
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "Proficiency bonus"
+            },
+            "source": {
+              "entity": "minib.ruleset",
+              "package": "minib"
+            },
+            "value": 4
+          }
+        ],
+        "value": 4
+      },
+      "critRange": 20,
+      "damage": "1",
+      "damageBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Strength modifier"
+            },
+            "source": {
+              "entity": "minib.ruleset",
+              "package": "minib"
+            },
+            "value": 0
+          }
+        ],
+        "value": 0
+      },
+      "damageDice": "1",
+      "damageType": "bludgeoning",
+      "extraDamage": [],
+      "id": "unarmed-strike",
+      "magical": false,
+      "name": {
+        "en": "Unarmed strike"
+      },
+      "proficient": true,
+      "ranged": false,
+      "unarmed": true
+    }
+  ],
   "choices": [
     {
       "answered": true,
@@ -170,6 +234,7 @@
     "saves",
     "skills",
     "combat",
+    "attacks",
     "features",
     "equipment",
     "personality",

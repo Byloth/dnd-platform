@@ -1,0 +1,33 @@
+formatVersion: 0
+id: fixture-high-elf-cantrip
+name: Silver Needle
+ruleset: { id: srd51, version: 0.1.0 }
+packages:
+  - { id: srd51, version: 0.1.0 }
+choices:
+  species: srd51.species.elf
+  subspecies: srd51.species.elf.high-elf
+  # Roguish Archetype comes at rogue 3: no subclass yet.
+  classes:
+    - { class: srd51.class.rogue, levels: 1 }
+  abilityScores:
+    method: manual
+    # elf: +2 DEX; high elf: +1 INT (generated from the species and subspecies traits) → STR 8, DEX 17, CON 13, INT 14, WIS 12, CHA 10
+    base: { str: 8, dex: 15, con: 13, int: 13, wis: 12, cha: 10 }
+  answers:
+    "srd51.class.rogue#skills": [stealth, sleight-of-hand, acrobatics, investigation]
+    # Expertise: the grant-proficiency choice has no id, so the key falls back to the proficiency type (`skill`)
+    "srd51.feature.rogue.expertise#expertise-1": [stealth, sleight-of-hand]
+    # High Elf cantrip: one wizard cantrip; the engine does not turn feature spell choices into spells yet
+    "srd51.feature.high-elf.cantrip#cantrip": [srd51.spell.fire-bolt]
+    "srd51.feature.high-elf.extra-language#extra-language": [dwarvish]
+  equipment:
+    - { item: srd51.item.leather-armor, quantity: 1, equipped: true }
+    - { item: srd51.item.rapier, quantity: 1, equipped: true }
+state:
+  hp: { current: 9, temporary: 0 }
+  hitDice: { spent: 0 }
+  resources: {}
+  conditions: []
+  deathSaves: { successes: 0, failures: 0 }
+  inspiration: false

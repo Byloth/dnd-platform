@@ -1,0 +1,38 @@
+formatVersion: 0
+id: fixture-paladin-l5
+name: Steady Ember
+ruleset: { id: srd51, version: 0.1.0 }
+packages:
+  - { id: srd51, version: 0.1.0 }
+choices:
+  species: srd51.species.dragonborn
+  classes:
+    - { class: srd51.class.paladin, subclass: srd51.subclass.paladin.oath-of-devotion, levels: 5 }
+  abilityScores:
+    method: manual
+    # dragonborn: +2 str, +1 cha (generated from the species traits)
+    base: { str: 15, dex: 10, con: 14, int: 8, wis: 12, cha: 13 }
+    # Ability Score Improvement at 4: +2 str
+    bonuses: { str: 2 }
+  answers:
+    "srd51.class.paladin#skills": [athletics, persuasion]
+    "srd51.class.paladin#sacred-oath": [srd51.subclass.paladin.oath-of-devotion]
+    "srd51.class.paladin#asi-4": [asi]
+    "srd51.feature.paladin.fighting-style#fighting-style": [defense]
+    "srd51.feature.dragonborn.draconic-ancestry#draconic-ancestry": [gold]
+    # prepared: half paladin level (5 ÷ 2 = 2) + CHA modifier 2 = 4 spells (oath spells do not count)
+    "srd51.class.paladin#spells": [srd51.spell.bless, srd51.spell.cure-wounds, srd51.spell.divine-favor, srd51.spell.shield-of-faith]
+  equipment:
+    - { item: srd51.item.chain-mail, quantity: 1, equipped: true }
+    - { item: srd51.item.shield, quantity: 1, equipped: true }
+    - { item: srd51.item.longsword, quantity: 1, equipped: true }
+    - { item: srd51.item.javelin, quantity: 5 }
+    - { item: srd51.item.explorers-pack, quantity: 1 }
+state:
+  hp: { current: 44, temporary: 0 }
+  hitDice: { spent: 0 }
+  resources: { divine-sense: 3, lay-on-hands: 25, channel-divinity: 1, breath-weapon: 1 }
+  spellSlots: { "1": 4, "2": 2 }
+  conditions: []
+  deathSaves: { successes: 0, failures: 0 }
+  inspiration: false

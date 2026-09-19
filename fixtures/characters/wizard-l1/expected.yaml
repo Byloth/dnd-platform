@@ -1,0 +1,68 @@
+# Rock gnome Wizard 1 (no tradition yet: Arcane Tradition is chosen at 2). Base str 8, dex 14, con 13, int 15, wis 12,
+# cha 10; gnome +2 INT, rock gnome +1 CON → str 8, dex 14, con 14, int 17, wis 12, cha 10.
+# Modifiers: str -1, dex +2, con +2, int +3, wis +1, cha 0. Proficiency bonus at level 1: +2.
+values:
+  ability.str: 8
+  ability.dex: 14
+  ability.con: 14               # 13 + 1 (rock gnome)
+  ability.int: 17               # 15 + 2 (gnome)
+  ability.wis: 12
+  ability.cha: 10
+  proficiencyBonus: 2
+  hp.max: 8                     # d6 6 + CON 2
+  ac: 12                        # 10 + DEX 2 (no armour)
+  initiative: 2
+  speed.walk: 25                # gnome
+  sense.darkvision: 60          # gnome Darkvision
+  save.int: 5                   # 3 + 2 proficient
+  save.wis: 3                   # 1 + 2 proficient
+  save.con: 2                   # not proficient
+  save.dex: 2                   # not proficient
+  skill.arcana: 5               # INT 3 + 2 (chosen)
+  skill.investigation: 5        # INT 3 + 2 (chosen)
+  skill.history: 3              # INT 3, not proficient
+  skill.perception: 1           # WIS 1, not proficient
+  skill.athletics: -1
+  passive.perception: 11
+spellcasting:
+  srd51.class.wizard:
+    dc: 13                      # 8 + 2 + INT 3
+    attackBonus: 5              # 2 + 3
+    slots: { 1: 2 }             # full-caster table, level 1
+    cantripsKnown: 3            # table wizard.cantrips-known row 1
+spells:
+  srd51.spell.fire-bolt: free
+  srd51.spell.light: free
+  srd51.spell.magic-missile: slot
+  srd51.spell.sleep: slot
+resources:
+  arcane-recovery: { max: 1, recharge: [dawn] }   # once per day
+actions:
+  arcane-recovery: { activation: special, cost: { arcane-recovery: 1 } }
+attacks:
+  quarterstaff: { toHit: 1, damage: "1d6 - 1", type: bludgeoning }              # STR -1 + proficiency 2 (wizard weapon)
+  quarterstaff-two-handed: { toHit: 1, damage: "1d8 - 1", type: bludgeoning }   # versatile
+  unarmed-strike: { toHit: 1, damage: "0" }                                     # 1 + STR -1
+features:
+  - srd51.feature.wizard.arcane-recovery
+  - srd51.feature.wizard.spellcasting
+  - srd51.feature.gnome.gnome-cunning
+  - srd51.feature.gnome.darkvision
+  - srd51.feature.rock-gnome.artificers-lore
+  - srd51.feature.rock-gnome.tinker
+choices:
+  "srd51.class.wizard#skills": answered
+  "srd51.class.wizard#cantrips": answered
+  "srd51.class.wizard#spells": answered
+proficiencies:
+  - save:int
+  - save:wis
+  - skill:arcana
+  - skill:investigation
+  - weapon:dagger
+  - weapon:quarterstaff
+  - tool:tinkers-tools          # Tinker
+  - language:common
+  - language:gnomish
+sections:
+  active: [core, abilities, saves, skills, senses, combat, attacks, actions, resources, spellcasting, spells, features]

@@ -1,0 +1,4168 @@
+{
+  "actions": [
+    {
+      "activation": "bonus-action",
+      "available": true,
+      "cost": [
+        {
+          "amount": 1,
+          "resource": "bardic-inspiration"
+        }
+      ],
+      "id": "bardic-inspiration",
+      "name": {
+        "en": "Bardic Inspiration"
+      },
+      "onUse": [
+        {
+          "kind": "note",
+          "text": {
+            "en": "The target gains a Bardic Inspiration die of size table(bard.bardic-inspiration-die); it is lost once rolled or after 10 minutes."
+          }
+        }
+      ],
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.bardic-inspiration",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Choose one creature other than yourself within 60 feet of you who can hear you. That creature gains one Bardic Inspiration die. Once within the next 10 minutes, the creature can roll the die and add the number rolled to one ability check, attack roll, or saving throw it makes, deciding after the d20 roll but before the GM says whether it succeeds. A creature can have only one Bardic Inspiration die at a time."
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "countercharm",
+      "name": {
+        "en": "Countercharm"
+      },
+      "onUse": [
+        {
+          "kind": "note",
+          "text": {
+            "en": "Friendly creatures within 30 feet who can hear you share the advantage."
+          }
+        }
+      ],
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.countercharm",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "As an action, you can start a performance that lasts until the end of your next turn. During that time, you and any friendly creatures within 30 feet of you have advantage on saving throws against being frightened or charmed. A creature must be able to hear you to gain this benefit. The performance ends early if you are incapacitated or silenced or if you voluntarily end it (no action required)."
+      },
+      "toggle": "countercharm"
+    },
+    {
+      "activation": "reaction",
+      "available": true,
+      "cost": [
+        {
+          "amount": 1,
+          "resource": "bardic-inspiration"
+        }
+      ],
+      "id": "cutting-words",
+      "name": {
+        "en": "Cutting Words"
+      },
+      "onUse": [
+        {
+          "kind": "note",
+          "text": {
+            "en": "Roll a Bardic Inspiration die (size table(bard.bardic-inspiration-die)) and subtract it from the creature's roll."
+          }
+        }
+      ],
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.subclass.bard.college-of-lore",
+        "feature": "srd51.feature.college-of-lore.cutting-words",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Expend one use of Bardic Inspiration, rolling a Bardic Inspiration die and subtracting the number rolled from the creature's roll. You can do so after the creature makes its roll, but before the GM determines whether the attack roll or ability check succeeds or fails, or before the creature deals its damage. The creature is immune if it can't hear you or if it's immune to being charmed."
+      }
+    },
+    {
+      "activation": "free",
+      "available": true,
+      "cost": [
+        {
+          "amount": 1,
+          "resource": "bardic-inspiration"
+        }
+      ],
+      "id": "peerless-skill",
+      "name": {
+        "en": "Peerless Skill"
+      },
+      "onUse": [
+        {
+          "kind": "note",
+          "text": {
+            "en": "Add a Bardic Inspiration die (size table(bard.bardic-inspiration-die)) to your ability check."
+          }
+        }
+      ],
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.subclass.bard.college-of-lore",
+        "feature": "srd51.feature.college-of-lore.peerless-skill",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "When you make an ability check, you can expend one use of Bardic Inspiration. Roll a Bardic Inspiration die and add the number rolled to your ability check. You can choose to do so after you roll the die for the ability check, but before the GM tells you whether you succeed or fail."
+      }
+    }
+  ],
+  "attacks": [
+    {
+      "ability": "dex",
+      "attackBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Dexterity modifier"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 5
+          },
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "Proficiency bonus"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 6
+          }
+        ],
+        "value": 11
+      },
+      "critRange": 20,
+      "damage": "1d8 + 5",
+      "damageBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Dexterity modifier"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 5
+          }
+        ],
+        "value": 5
+      },
+      "damageDice": "1d8",
+      "damageType": "piercing",
+      "extraDamage": [],
+      "id": "rapier",
+      "item": "srd51.item.rapier",
+      "magical": false,
+      "name": {
+        "en": "Rapier"
+      },
+      "proficient": true,
+      "ranged": false,
+      "unarmed": false
+    },
+    {
+      "ability": "str",
+      "attackBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Strength modifier"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": -1
+          },
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "Proficiency bonus"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 6
+          }
+        ],
+        "value": 5
+      },
+      "critRange": 20,
+      "damage": "0",
+      "damageBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Strength modifier"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": -1
+          }
+        ],
+        "value": -1
+      },
+      "damageDice": "1",
+      "damageType": "bludgeoning",
+      "extraDamage": [],
+      "id": "unarmed-strike",
+      "magical": false,
+      "name": {
+        "en": "Unarmed strike"
+      },
+      "proficient": true,
+      "ranged": false,
+      "unarmed": true
+    }
+  ],
+  "choices": [
+    {
+      "answered": true,
+      "answers": [
+        "performance",
+        "persuasion",
+        "deception"
+      ],
+      "choice": "skills",
+      "count": 3,
+      "key": "srd51.class.bard#skills",
+      "of": "skill",
+      "options": [
+        "acrobatics",
+        "animal-handling",
+        "arcana",
+        "athletics",
+        "deception",
+        "history",
+        "insight",
+        "intimidation",
+        "investigation",
+        "medicine",
+        "nature",
+        "perception",
+        "performance",
+        "persuasion",
+        "religion",
+        "sleight-of-hand",
+        "stealth",
+        "survival"
+      ],
+      "owner": "srd51.class.bard"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "lute",
+        "flute",
+        "drum"
+      ],
+      "choice": "tools",
+      "count": 3,
+      "key": "srd51.class.bard#tools",
+      "of": "tool",
+      "options": [
+        "bagpipes",
+        "drum",
+        "dulcimer",
+        "flute",
+        "lute",
+        "lyre",
+        "horn",
+        "pan-flute",
+        "shawm",
+        "viol"
+      ],
+      "owner": "srd51.class.bard"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "dwarvish"
+      ],
+      "choice": "languages",
+      "count": 1,
+      "key": "srd51.species.half-elf#languages",
+      "of": "language",
+      "options": [],
+      "owner": "srd51.species.half-elf"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "insight",
+        "perception"
+      ],
+      "choice": "skill",
+      "count": 2,
+      "key": "srd51.feature.half-elf.skill-versatility#skill",
+      "of": "skill",
+      "options": [
+        "acrobatics",
+        "animal-handling",
+        "arcana",
+        "athletics",
+        "deception",
+        "history",
+        "insight",
+        "intimidation",
+        "investigation",
+        "medicine",
+        "nature",
+        "perception",
+        "performance",
+        "persuasion",
+        "religion",
+        "sleight-of-hand",
+        "stealth",
+        "survival"
+      ],
+      "owner": "srd51.feature.half-elf.skill-versatility"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "performance",
+        "persuasion"
+      ],
+      "choice": "expertise-3",
+      "count": 2,
+      "key": "srd51.feature.bard.expertise#expertise-3",
+      "of": "skill",
+      "options": [
+        "acrobatics",
+        "animal-handling",
+        "arcana",
+        "athletics",
+        "deception",
+        "history",
+        "insight",
+        "intimidation",
+        "investigation",
+        "medicine",
+        "nature",
+        "perception",
+        "performance",
+        "persuasion",
+        "religion",
+        "sleight-of-hand",
+        "stealth",
+        "survival"
+      ],
+      "owner": "srd51.feature.bard.expertise"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "insight",
+        "perception"
+      ],
+      "choice": "expertise-10",
+      "count": 2,
+      "key": "srd51.feature.bard.expertise#expertise-10",
+      "of": "skill",
+      "options": [
+        "acrobatics",
+        "animal-handling",
+        "arcana",
+        "athletics",
+        "deception",
+        "history",
+        "insight",
+        "intimidation",
+        "investigation",
+        "medicine",
+        "nature",
+        "perception",
+        "performance",
+        "persuasion",
+        "religion",
+        "sleight-of-hand",
+        "stealth",
+        "survival"
+      ],
+      "owner": "srd51.feature.bard.expertise"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "arcana",
+        "history",
+        "investigation"
+      ],
+      "choice": "skill",
+      "count": 3,
+      "key": "srd51.feature.college-of-lore.bonus-proficiencies#skill",
+      "of": "skill",
+      "options": [
+        "acrobatics",
+        "animal-handling",
+        "arcana",
+        "athletics",
+        "deception",
+        "history",
+        "insight",
+        "intimidation",
+        "investigation",
+        "medicine",
+        "nature",
+        "perception",
+        "performance",
+        "persuasion",
+        "religion",
+        "sleight-of-hand",
+        "stealth",
+        "survival"
+      ],
+      "owner": "srd51.feature.college-of-lore.bonus-proficiencies"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "srd51.subclass.bard.college-of-lore"
+      ],
+      "choice": "bard-college",
+      "count": 1,
+      "key": "srd51.class.bard#bard-college",
+      "level": 3,
+      "of": "subclass",
+      "options": [],
+      "owner": "srd51.class.bard"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "asi"
+      ],
+      "choice": "asi-4",
+      "count": 1,
+      "key": "srd51.class.bard#asi-4",
+      "level": 4,
+      "of": "asi-or-feat",
+      "options": [],
+      "owner": "srd51.class.bard"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "asi"
+      ],
+      "choice": "asi-8",
+      "count": 1,
+      "key": "srd51.class.bard#asi-8",
+      "level": 8,
+      "of": "asi-or-feat",
+      "options": [],
+      "owner": "srd51.class.bard"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "asi"
+      ],
+      "choice": "asi-12",
+      "count": 1,
+      "key": "srd51.class.bard#asi-12",
+      "level": 12,
+      "of": "asi-or-feat",
+      "options": [],
+      "owner": "srd51.class.bard"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "asi"
+      ],
+      "choice": "asi-16",
+      "count": 1,
+      "key": "srd51.class.bard#asi-16",
+      "level": 16,
+      "of": "asi-or-feat",
+      "options": [],
+      "owner": "srd51.class.bard"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "asi"
+      ],
+      "choice": "asi-19",
+      "count": 1,
+      "key": "srd51.class.bard#asi-19",
+      "level": 19,
+      "of": "asi-or-feat",
+      "options": [],
+      "owner": "srd51.class.bard"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "srd51.spell.fireball",
+        "srd51.spell.counterspell"
+      ],
+      "choice": "magical-secrets-10",
+      "count": 2,
+      "key": "srd51.feature.bard.magical-secrets#magical-secrets-10",
+      "of": "spell",
+      "options": [],
+      "owner": "srd51.feature.bard.magical-secrets"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "srd51.spell.wall-of-force",
+        "srd51.spell.teleport"
+      ],
+      "choice": "magical-secrets-14",
+      "count": 2,
+      "key": "srd51.feature.bard.magical-secrets#magical-secrets-14",
+      "of": "spell",
+      "options": [],
+      "owner": "srd51.feature.bard.magical-secrets"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "srd51.spell.wish",
+        "srd51.spell.meteor-swarm"
+      ],
+      "choice": "magical-secrets-18",
+      "count": 2,
+      "key": "srd51.feature.bard.magical-secrets#magical-secrets-18",
+      "of": "spell",
+      "options": [],
+      "owner": "srd51.feature.bard.magical-secrets"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "srd51.spell.misty-step",
+        "srd51.spell.haste"
+      ],
+      "choice": "additional-magical-secrets",
+      "count": 2,
+      "key": "srd51.feature.college-of-lore.additional-magical-secrets#additional-magical-secrets",
+      "of": "spell",
+      "options": [],
+      "owner": "srd51.feature.college-of-lore.additional-magical-secrets"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "srd51.spell.vicious-mockery",
+        "srd51.spell.minor-illusion",
+        "srd51.spell.mage-hand",
+        "srd51.spell.prestidigitation"
+      ],
+      "choice": "cantrips",
+      "count": 4,
+      "key": "srd51.class.bard#cantrips",
+      "of": "spell",
+      "options": [],
+      "owner": "srd51.class.bard"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "srd51.spell.healing-word",
+        "srd51.spell.charm-person",
+        "srd51.spell.sleep",
+        "srd51.spell.hideous-laughter",
+        "srd51.spell.invisibility",
+        "srd51.spell.shatter",
+        "srd51.spell.hypnotic-pattern",
+        "srd51.spell.dispel-magic",
+        "srd51.spell.dimension-door",
+        "srd51.spell.greater-invisibility",
+        "srd51.spell.hold-monster",
+        "srd51.spell.dominate-person",
+        "srd51.spell.mass-suggestion",
+        "srd51.spell.forcecage",
+        "srd51.spell.foresight",
+        "srd51.spell.power-word-kill",
+        "srd51.spell.fireball",
+        "srd51.spell.counterspell",
+        "srd51.spell.wall-of-force",
+        "srd51.spell.teleport",
+        "srd51.spell.wish",
+        "srd51.spell.meteor-swarm"
+      ],
+      "choice": "spells",
+      "count": 22,
+      "key": "srd51.class.bard#spells",
+      "of": "spell",
+      "options": [],
+      "owner": "srd51.class.bard"
+    }
+  ],
+  "classes": [
+    {
+      "class": "srd51.class.bard",
+      "levels": 20,
+      "subclass": "srd51.subclass.bard.college-of-lore"
+    }
+  ],
+  "defenses": [
+    {
+      "defense": "condition-immunity",
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.species.half-elf",
+        "feature": "srd51.feature.half-elf.fey-ancestry",
+        "package": "srd51"
+      },
+      "to": [
+        "magical-sleep"
+      ]
+    }
+  ],
+  "features": [
+    {
+      "id": "srd51.feature.half-elf.ability-score-increase",
+      "name": {
+        "en": "Ability Score Increase"
+      },
+      "origin": "species",
+      "owner": "srd51.species.half-elf",
+      "source": {
+        "entity": "srd51.species.half-elf",
+        "feature": "srd51.feature.half-elf.ability-score-increase",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Your Charisma score increases by 2, and two other ability scores of your choice increase by 1."
+      }
+    },
+    {
+      "id": "srd51.feature.half-elf.speed",
+      "name": {
+        "en": "Speed"
+      },
+      "origin": "species",
+      "owner": "srd51.species.half-elf",
+      "source": {
+        "entity": "srd51.species.half-elf",
+        "feature": "srd51.feature.half-elf.speed",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Your base walking speed is 30 feet."
+      }
+    },
+    {
+      "id": "srd51.feature.half-elf.darkvision",
+      "name": {
+        "en": "Darkvision"
+      },
+      "origin": "species",
+      "owner": "srd51.species.half-elf",
+      "source": {
+        "entity": "srd51.species.half-elf",
+        "feature": "srd51.feature.half-elf.darkvision",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Thanks to your elf blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+      }
+    },
+    {
+      "id": "srd51.feature.half-elf.age",
+      "name": {
+        "en": "Age"
+      },
+      "origin": "species",
+      "owner": "srd51.species.half-elf",
+      "source": {
+        "entity": "srd51.species.half-elf",
+        "feature": "srd51.feature.half-elf.age",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Half-elves mature at the same rate humans do and reach adulthood around the age of 20. They live much longer than humans, however, often exceeding 180 years."
+      }
+    },
+    {
+      "id": "srd51.feature.half-elf.alignment",
+      "name": {
+        "en": "Alignment"
+      },
+      "origin": "species",
+      "owner": "srd51.species.half-elf",
+      "source": {
+        "entity": "srd51.species.half-elf",
+        "feature": "srd51.feature.half-elf.alignment",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Half-elves share the chaotic bent of their elven heritage. They value both personal freedom and creative expression, demonstrating neither love of leaders nor desire for followers. They chafe at rules, resent others' demands, and sometimes prove unreliable, or at least unpredictable."
+      }
+    },
+    {
+      "id": "srd51.feature.half-elf.size",
+      "name": {
+        "en": "Size"
+      },
+      "origin": "species",
+      "owner": "srd51.species.half-elf",
+      "source": {
+        "entity": "srd51.species.half-elf",
+        "feature": "srd51.feature.half-elf.size",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Half-elves are about the same size as humans, ranging from 5 to 6 feet tall. Your size is Medium."
+      }
+    },
+    {
+      "id": "srd51.feature.half-elf.languages",
+      "name": {
+        "en": "Languages"
+      },
+      "origin": "species",
+      "owner": "srd51.species.half-elf",
+      "source": {
+        "entity": "srd51.species.half-elf",
+        "feature": "srd51.feature.half-elf.languages",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You can speak, read, and write Common, Elvish, and one extra language of your choice."
+      }
+    },
+    {
+      "id": "srd51.feature.half-elf.fey-ancestry",
+      "name": {
+        "en": "Fey Ancestry"
+      },
+      "origin": "species",
+      "owner": "srd51.species.half-elf",
+      "source": {
+        "entity": "srd51.species.half-elf",
+        "feature": "srd51.feature.half-elf.fey-ancestry",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You have advantage on saving throws against being charmed, and magic can't put you to sleep."
+      }
+    },
+    {
+      "id": "srd51.feature.half-elf.skill-versatility",
+      "name": {
+        "en": "Skill Versatility"
+      },
+      "origin": "species",
+      "owner": "srd51.species.half-elf",
+      "source": {
+        "entity": "srd51.species.half-elf",
+        "feature": "srd51.feature.half-elf.skill-versatility",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You gain proficiency in two skills of your choice."
+      }
+    },
+    {
+      "id": "srd51.feature.bard.bardic-inspiration",
+      "level": 1,
+      "name": {
+        "en": "Bardic Inspiration"
+      },
+      "origin": "class",
+      "owner": "srd51.class.bard",
+      "source": {
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.bardic-inspiration",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You can inspire others through stirring words or music. To do so, you use a bonus action on your turn to choose one creature other than yourself within 60 feet of you who can hear you. That creature gains one Bardic Inspiration die, a d6.\n\nOnce within the next 10 minutes, the creature can roll the die and add the number rolled to one ability check, attack roll, or saving throw it makes. The creature can wait until after it rolls the d20 before deciding to use the Bardic Inspiration die, but must decide before the GM says whether the roll succeeds or fails. Once the Bardic Inspiration die is rolled, it is lost. A creature can have only one Bardic Inspiration die at a time.\n\nYou can use this feature a number of times equal to your Charisma modifier (a minimum of once). You regain any expended uses when you finish a long rest.\n\nYour Bardic Inspiration die changes when you reach certain levels in this class. The die becomes a d8 at 5th level, a d10 at 10th level, and a d12 at 15th level."
+      }
+    },
+    {
+      "id": "srd51.feature.bard.spellcasting",
+      "level": 1,
+      "name": {
+        "en": "Spellcasting"
+      },
+      "origin": "class",
+      "owner": "srd51.class.bard",
+      "source": {
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.spellcasting",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You have learned to untangle and reshape the fabric of reality in harmony with your wishes and music.\n\nYour spells are part of your vast repertoire, magic that you can tune to different situations.\n\n###Cantrips\n\nYou know two cantrips of your choice from the bard spell list. You learn additional bard cantrips of your choice at higher levels, as shown in the Cantrips Known column of the Bard table.\n\n###Spell Slots\n\nThe Bard table shows how many spell slots you have to cast your spells of 1st level and higher. To cast one of these spells, you must expend a slot of the spell's level or higher. You regain all expended spell slots when you finish a long rest.\n\nFor example, if you know the 1st-level spell cure wounds and have a 1st-level and a 2nd-level spell slot available, you can cast cure wounds using either slot.\n\n###Spells Known of 1st Level and Higher\n\nYou know four 1st-level spells of your choice from the bard spell list.\n\nThe Spells Known column of the Bard table shows when you learn more bard spells of your choice. Each of these spells must be of a level for which you have spell slots, as shown on the table. For instance, when you reach 3rd level in this class, you can learn one new spell of 1st or 2nd level.\n\nAdditionally, when you gain a level in this class, you can choose one of the bard spells you know and replace it with another spell from the bard spell list, which also must be of a level for which you have spell slots.\n\n###Spellcasting Ability\n\nCharisma is your spellcasting ability for your bard spells. Your magic comes from the heart and soul you pour into the performance of your music or oration. You use your Charisma whenever a spell refers to your spellcasting ability. In addition, you use your Charisma modifier when setting the saving throw DC for a bard spell you cast and when making an attack roll with one.\n\n*Spell save DC* = 8 + your proficiency bonus + your Charisma modifier\n\n*Spell attack modifier* = your proficiency bonus + your Charisma modifier\n\n###Ritual Casting\n\nYou can cast any bard spell you know as a ritual if that spell has the ritual tag.\n\n###Spellcasting Focus\n\nYou can use a musical instrument (see chapter 5, “Equipment”) as a spellcasting focus for your bard spells."
+      }
+    },
+    {
+      "id": "srd51.feature.bard.jack-of-all-trades",
+      "level": 2,
+      "name": {
+        "en": "Jack of All Trades"
+      },
+      "origin": "class",
+      "owner": "srd51.class.bard",
+      "source": {
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.jack-of-all-trades",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Starting at 2nd level, you can add half your proficiency bonus, rounded down, to any ability check you make that doesn't already include your proficiency bonus."
+      }
+    },
+    {
+      "id": "srd51.feature.bard.song-of-rest",
+      "level": 2,
+      "name": {
+        "en": "Song of Rest"
+      },
+      "origin": "class",
+      "owner": "srd51.class.bard",
+      "source": {
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.song-of-rest",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Beginning at 2nd level, you can use soothing music or oration to help revitalize your wounded allies during a short rest. If you or any friendly creatures who can hear your performance regain hit points at the end of the short rest by spending one or more Hit Dice, each of those creatures regains an extra 1d6 hit points.\n\nThe extra hit points increase when you reach certain levels in this class: to 1d8 at 9th level, to 1d10 at 13th level, and to 1d12 at 17th level."
+      }
+    },
+    {
+      "id": "srd51.feature.bard.bard-college",
+      "level": 3,
+      "name": {
+        "en": "Bard College"
+      },
+      "origin": "class",
+      "owner": "srd51.class.bard",
+      "source": {
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.bard-college",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "At 3rd level, you delve into the advanced techniques of a bard college of your choice: the College of Lore or the College of Valor, both detailed at the end of the class description. Your choice grants you features at 3rd level and again at 6th and 14th level."
+      }
+    },
+    {
+      "id": "srd51.feature.bard.expertise",
+      "level": 3,
+      "name": {
+        "en": "Expertise"
+      },
+      "origin": "class",
+      "owner": "srd51.class.bard",
+      "source": {
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.expertise",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "At 3rd level, choose two of your skill proficiencies. Your proficiency bonus is doubled for any ability check you make that uses either of the chosen proficiencies.\n\nAt 10th level, you can choose another two skill proficiencies to gain this benefit."
+      }
+    },
+    {
+      "id": "srd51.feature.bard.ability-score-improvement",
+      "level": 4,
+      "name": {
+        "en": "Ability Score Improvement"
+      },
+      "origin": "class",
+      "owner": "srd51.class.bard",
+      "source": {
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.ability-score-improvement",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "When you reach 4th level, and again at 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature."
+      }
+    },
+    {
+      "id": "srd51.feature.bard.font-of-inspiration",
+      "level": 5,
+      "name": {
+        "en": "Font of Inspiration"
+      },
+      "origin": "class",
+      "owner": "srd51.class.bard",
+      "source": {
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.font-of-inspiration",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Beginning when you reach 5th level, you regain all of your expended uses of Bardic Inspiration when you finish a short or long rest."
+      }
+    },
+    {
+      "id": "srd51.feature.bard.countercharm",
+      "level": 6,
+      "name": {
+        "en": "Countercharm"
+      },
+      "origin": "class",
+      "owner": "srd51.class.bard",
+      "source": {
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.countercharm",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "At 6th level, you gain the ability to use musical notes or words of power to disrupt mind-influencing effects. As an action, you can start a performance that lasts until the end of your next turn. During that time, you and any friendly creatures within 30 feet of you have advantage on saving throws against being frightened or charmed. A creature must be able to hear you to gain this benefit. The performance ends early if you are incapacitated or silenced or if you voluntarily end it (no action required)."
+      }
+    },
+    {
+      "id": "srd51.feature.bard.magical-secrets",
+      "level": 10,
+      "name": {
+        "en": "Magical Secrets"
+      },
+      "origin": "class",
+      "owner": "srd51.class.bard",
+      "source": {
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.magical-secrets",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "By 10th level, you have plundered magical knowledge from a wide spectrum of disciplines. Choose two spells from any class, including this one. A spell you choose must be of a level you can cast, as shown on the Bard table, or a cantrip.\n\nThe chosen spells count as bard spells for you and are included in the number in the Spells Known column of the Bard table.\n\nYou learn two additional spells from any class at 14th level and again at 18th level."
+      }
+    },
+    {
+      "id": "srd51.feature.bard.superior-inspiration",
+      "level": 20,
+      "name": {
+        "en": "Superior Inspiration"
+      },
+      "origin": "class",
+      "owner": "srd51.class.bard",
+      "source": {
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.superior-inspiration",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "At 20th level, when you roll initiative and have no uses of Bardic Inspiration left, you regain one use."
+      }
+    },
+    {
+      "id": "srd51.feature.college-of-lore.bonus-proficiencies",
+      "level": 3,
+      "name": {
+        "en": "Bonus Proficiencies"
+      },
+      "origin": "subclass",
+      "owner": "srd51.subclass.bard.college-of-lore",
+      "source": {
+        "entity": "srd51.subclass.bard.college-of-lore",
+        "feature": "srd51.feature.college-of-lore.bonus-proficiencies",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "When you join the College of Lore at 3rd level, you gain proficiency with three skills of your choice."
+      }
+    },
+    {
+      "id": "srd51.feature.college-of-lore.cutting-words",
+      "level": 3,
+      "name": {
+        "en": "Cutting Words"
+      },
+      "origin": "subclass",
+      "owner": "srd51.subclass.bard.college-of-lore",
+      "source": {
+        "entity": "srd51.subclass.bard.college-of-lore",
+        "feature": "srd51.feature.college-of-lore.cutting-words",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Also at 3rd level, you learn how to use your wit to distract, confuse, and otherwise sap the confidence and competence of others. When a creature that you can see within 60 feet of you makes an attack roll, an ability check, or a damage roll, you can use your reaction to expend one of your uses of Bardic Inspiration, rolling a Bardic Inspiration die and subtracting the number rolled from the creature's roll. You can choose to use this feature after the creature makes its roll, but before the GM determines whether the attack roll or ability check succeeds or fails, or before the creature deals its damage. The creature is immune if it can't hear you or if it's immune to being charmed."
+      }
+    },
+    {
+      "id": "srd51.feature.college-of-lore.additional-magical-secrets",
+      "level": 6,
+      "name": {
+        "en": "Additional Magical Secrets"
+      },
+      "origin": "subclass",
+      "owner": "srd51.subclass.bard.college-of-lore",
+      "source": {
+        "entity": "srd51.subclass.bard.college-of-lore",
+        "feature": "srd51.feature.college-of-lore.additional-magical-secrets",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "At 6th level, you learn two spells of your choice from any class. A spell you choose must be of a level you can cast, as shown on the Bard table, or a cantrip. The chosen spells count as bard spells for you but don't count against the number of bard spells you know."
+      }
+    },
+    {
+      "id": "srd51.feature.college-of-lore.peerless-skill",
+      "level": 14,
+      "name": {
+        "en": "Peerless Skill"
+      },
+      "origin": "subclass",
+      "owner": "srd51.subclass.bard.college-of-lore",
+      "source": {
+        "entity": "srd51.subclass.bard.college-of-lore",
+        "feature": "srd51.feature.college-of-lore.peerless-skill",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Starting at 14th level, when you make an ability check, you can expend one use of Bardic Inspiration. Roll a Bardic Inspiration die and add the number rolled to your ability check. You can choose to do so after you roll the die for the ability check, but before the GM tells you whether you succeed or fail."
+      }
+    }
+  ],
+  "level": 20,
+  "meta": {
+    "characterId": "fixture-bard-l20",
+    "formatVersion": 0,
+    "language": "en",
+    "name": "Willow Verse",
+    "packages": [
+      {
+        "id": "srd51",
+        "version": "0.1.0"
+      }
+    ],
+    "ruleset": "srd51"
+  },
+  "proficiencies": [
+    {
+      "expertise": false,
+      "item": "light",
+      "source": {
+        "entity": "srd51.class.bard",
+        "package": "srd51"
+      },
+      "type": "armor"
+    },
+    {
+      "expertise": false,
+      "item": "common",
+      "source": {
+        "entity": "srd51.species.half-elf",
+        "package": "srd51"
+      },
+      "type": "language"
+    },
+    {
+      "expertise": false,
+      "item": "dwarvish",
+      "source": {
+        "entity": "srd51.species.half-elf",
+        "package": "srd51"
+      },
+      "type": "language"
+    },
+    {
+      "expertise": false,
+      "item": "elvish",
+      "source": {
+        "entity": "srd51.species.half-elf",
+        "package": "srd51"
+      },
+      "type": "language"
+    },
+    {
+      "expertise": false,
+      "item": "cha",
+      "source": {
+        "entity": "srd51.class.bard",
+        "package": "srd51"
+      },
+      "type": "save"
+    },
+    {
+      "expertise": false,
+      "item": "dex",
+      "source": {
+        "entity": "srd51.class.bard",
+        "package": "srd51"
+      },
+      "type": "save"
+    },
+    {
+      "expertise": false,
+      "item": "arcana",
+      "source": {
+        "entity": "srd51.subclass.bard.college-of-lore",
+        "feature": "srd51.feature.college-of-lore.bonus-proficiencies",
+        "package": "srd51"
+      },
+      "type": "skill"
+    },
+    {
+      "expertise": false,
+      "item": "deception",
+      "source": {
+        "entity": "srd51.class.bard",
+        "package": "srd51"
+      },
+      "type": "skill"
+    },
+    {
+      "expertise": false,
+      "item": "history",
+      "source": {
+        "entity": "srd51.subclass.bard.college-of-lore",
+        "feature": "srd51.feature.college-of-lore.bonus-proficiencies",
+        "package": "srd51"
+      },
+      "type": "skill"
+    },
+    {
+      "expertise": true,
+      "item": "insight",
+      "source": {
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.expertise",
+        "package": "srd51"
+      },
+      "type": "skill"
+    },
+    {
+      "expertise": false,
+      "item": "investigation",
+      "source": {
+        "entity": "srd51.subclass.bard.college-of-lore",
+        "feature": "srd51.feature.college-of-lore.bonus-proficiencies",
+        "package": "srd51"
+      },
+      "type": "skill"
+    },
+    {
+      "expertise": true,
+      "item": "perception",
+      "source": {
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.expertise",
+        "package": "srd51"
+      },
+      "type": "skill"
+    },
+    {
+      "expertise": true,
+      "item": "performance",
+      "source": {
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.expertise",
+        "package": "srd51"
+      },
+      "type": "skill"
+    },
+    {
+      "expertise": true,
+      "item": "persuasion",
+      "source": {
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.expertise",
+        "package": "srd51"
+      },
+      "type": "skill"
+    },
+    {
+      "expertise": false,
+      "item": "drum",
+      "source": {
+        "entity": "srd51.class.bard",
+        "package": "srd51"
+      },
+      "type": "tool"
+    },
+    {
+      "expertise": false,
+      "item": "flute",
+      "source": {
+        "entity": "srd51.class.bard",
+        "package": "srd51"
+      },
+      "type": "tool"
+    },
+    {
+      "expertise": false,
+      "item": "lute",
+      "source": {
+        "entity": "srd51.class.bard",
+        "package": "srd51"
+      },
+      "type": "tool"
+    },
+    {
+      "expertise": false,
+      "item": "longsword",
+      "source": {
+        "entity": "srd51.class.bard",
+        "package": "srd51"
+      },
+      "type": "weapon"
+    },
+    {
+      "expertise": false,
+      "item": "rapier",
+      "source": {
+        "entity": "srd51.class.bard",
+        "package": "srd51"
+      },
+      "type": "weapon"
+    },
+    {
+      "expertise": false,
+      "item": "shortsword",
+      "source": {
+        "entity": "srd51.class.bard",
+        "package": "srd51"
+      },
+      "type": "weapon"
+    },
+    {
+      "expertise": false,
+      "item": "simple",
+      "source": {
+        "entity": "srd51.class.bard",
+        "package": "srd51"
+      },
+      "type": "weapon"
+    }
+  ],
+  "resources": [
+    {
+      "current": 5,
+      "display": "pips",
+      "id": "bardic-inspiration",
+      "max": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "None"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 0
+          },
+          {
+            "applied": true,
+            "formula": "max(1, mod(cha))",
+            "kind": "set",
+            "label": {
+              "en": "Bardic Inspiration"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.class.bard",
+              "feature": "srd51.feature.bard.bardic-inspiration",
+              "package": "srd51"
+            },
+            "value": 5
+          }
+        ],
+        "value": 5
+      },
+      "name": {
+        "en": "Bardic Inspiration"
+      },
+      "recharge": [
+        {
+          "amount": "full",
+          "on": "short-rest"
+        },
+        {
+          "amount": "full",
+          "on": "long-rest"
+        }
+      ],
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.bardic-inspiration",
+        "package": "srd51"
+      }
+    }
+  ],
+  "rollModifiers": [
+    {
+      "applied": true,
+      "kind": "advantage",
+      "on": {
+        "against": [
+          "charmed"
+        ],
+        "type": "save"
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.species.half-elf",
+        "feature": "srd51.feature.half-elf.fey-ancestry",
+        "package": "srd51"
+      }
+    },
+    {
+      "applied": false,
+      "kind": "advantage",
+      "on": {
+        "against": [
+          "being charmed",
+          "being frightened"
+        ],
+        "type": "save"
+      },
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.countercharm",
+        "package": "srd51"
+      }
+    }
+  ],
+  "sections": [
+    "identity",
+    "core",
+    "abilities",
+    "saves",
+    "skills",
+    "senses",
+    "combat",
+    "attacks",
+    "actions",
+    "resources",
+    "spellcasting",
+    "spells",
+    "features",
+    "equipment",
+    "personality",
+    "conditions",
+    "notes",
+    "credits"
+  ],
+  "spellcasting": [
+    {
+      "ability": "cha",
+      "attackBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "Proficiency bonus"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.class.bard",
+              "feature": "srd51.feature.bard.spellcasting",
+              "package": "srd51"
+            },
+            "value": 6
+          },
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "CHA modifier"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.class.bard",
+              "feature": "srd51.feature.bard.spellcasting",
+              "package": "srd51"
+            },
+            "value": 5
+          }
+        ],
+        "value": 11
+      },
+      "cantripsKnown": 4,
+      "class": "srd51.class.bard",
+      "dc": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Base"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.class.bard",
+              "feature": "srd51.feature.bard.spellcasting",
+              "package": "srd51"
+            },
+            "value": 8
+          },
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "Proficiency bonus"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.class.bard",
+              "feature": "srd51.feature.bard.spellcasting",
+              "package": "srd51"
+            },
+            "value": 6
+          },
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "CHA modifier"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.class.bard",
+              "feature": "srd51.feature.bard.spellcasting",
+              "package": "srd51"
+            },
+            "value": 5
+          }
+        ],
+        "value": 19
+      },
+      "list": "srd51.spell-list.bard",
+      "preparation": "known",
+      "ritual": true,
+      "slots": [
+        {
+          "current": 4,
+          "level": 1,
+          "max": 4
+        },
+        {
+          "current": 3,
+          "level": 2,
+          "max": 3
+        },
+        {
+          "current": 3,
+          "level": 3,
+          "max": 3
+        },
+        {
+          "current": 3,
+          "level": 4,
+          "max": 3
+        },
+        {
+          "current": 3,
+          "level": 5,
+          "max": 3
+        },
+        {
+          "current": 2,
+          "level": 6,
+          "max": 2
+        },
+        {
+          "current": 2,
+          "level": 7,
+          "max": 2
+        },
+        {
+          "current": 1,
+          "level": 8,
+          "max": 1
+        },
+        {
+          "current": 1,
+          "level": 9,
+          "max": 1
+        }
+      ],
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.spellcasting",
+        "package": "srd51"
+      },
+      "spellsKnown": 22
+    }
+  ],
+  "spells": [
+    {
+      "ability": "cha",
+      "as": "cantrip",
+      "id": "srd51.spell.vicious-mockery",
+      "level": 0,
+      "name": {
+        "en": "Vicious Mockery"
+      },
+      "paidWith": {
+        "free": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "cantrip",
+      "id": "srd51.spell.minor-illusion",
+      "level": 0,
+      "name": {
+        "en": "Minor Illusion"
+      },
+      "paidWith": {
+        "free": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "cantrip",
+      "id": "srd51.spell.mage-hand",
+      "level": 0,
+      "name": {
+        "en": "Mage Hand"
+      },
+      "paidWith": {
+        "free": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "cantrip",
+      "id": "srd51.spell.prestidigitation",
+      "level": 0,
+      "name": {
+        "en": "Prestidigitation"
+      },
+      "paidWith": {
+        "free": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "known",
+      "id": "srd51.spell.healing-word",
+      "level": 1,
+      "name": {
+        "en": "Healing Word"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "known",
+      "id": "srd51.spell.charm-person",
+      "level": 1,
+      "name": {
+        "en": "Charm Person"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "known",
+      "id": "srd51.spell.sleep",
+      "level": 1,
+      "name": {
+        "en": "Sleep"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "known",
+      "id": "srd51.spell.hideous-laughter",
+      "level": 1,
+      "name": {
+        "en": "Hideous Laughter"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "known",
+      "id": "srd51.spell.invisibility",
+      "level": 2,
+      "name": {
+        "en": "Invisibility"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "known",
+      "id": "srd51.spell.shatter",
+      "level": 2,
+      "name": {
+        "en": "Shatter"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "known",
+      "id": "srd51.spell.hypnotic-pattern",
+      "level": 3,
+      "name": {
+        "en": "Hypnotic Pattern"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "known",
+      "id": "srd51.spell.dispel-magic",
+      "level": 3,
+      "name": {
+        "en": "Dispel Magic"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "known",
+      "id": "srd51.spell.dimension-door",
+      "level": 4,
+      "name": {
+        "en": "Dimension Door"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "known",
+      "id": "srd51.spell.greater-invisibility",
+      "level": 4,
+      "name": {
+        "en": "Greater Invisibility"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "known",
+      "id": "srd51.spell.hold-monster",
+      "level": 5,
+      "name": {
+        "en": "Hold Monster"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "known",
+      "id": "srd51.spell.dominate-person",
+      "level": 5,
+      "name": {
+        "en": "Dominate Person"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "known",
+      "id": "srd51.spell.mass-suggestion",
+      "level": 6,
+      "name": {
+        "en": "Mass Suggestion"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "known",
+      "id": "srd51.spell.forcecage",
+      "level": 7,
+      "name": {
+        "en": "Forcecage"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "known",
+      "id": "srd51.spell.foresight",
+      "level": 9,
+      "name": {
+        "en": "Foresight"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "known",
+      "id": "srd51.spell.power-word-kill",
+      "level": 9,
+      "name": {
+        "en": "Power Word Kill"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "known",
+      "id": "srd51.spell.fireball",
+      "level": 3,
+      "name": {
+        "en": "Fireball"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "known",
+      "id": "srd51.spell.counterspell",
+      "level": 3,
+      "name": {
+        "en": "Counterspell"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "known",
+      "id": "srd51.spell.wall-of-force",
+      "level": 5,
+      "name": {
+        "en": "Wall of Force"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "known",
+      "id": "srd51.spell.teleport",
+      "level": 7,
+      "name": {
+        "en": "Teleport"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "known",
+      "id": "srd51.spell.wish",
+      "level": 9,
+      "name": {
+        "en": "Wish"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "known",
+      "id": "srd51.spell.meteor-swarm",
+      "level": 9,
+      "name": {
+        "en": "Meteor Swarm"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "known",
+      "id": "srd51.spell.fireball",
+      "level": 3,
+      "name": {
+        "en": "Fireball"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.magical-secrets",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "known",
+      "id": "srd51.spell.counterspell",
+      "level": 3,
+      "name": {
+        "en": "Counterspell"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.magical-secrets",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "known",
+      "id": "srd51.spell.wall-of-force",
+      "level": 5,
+      "name": {
+        "en": "Wall of Force"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.magical-secrets",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "known",
+      "id": "srd51.spell.teleport",
+      "level": 7,
+      "name": {
+        "en": "Teleport"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.magical-secrets",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "known",
+      "id": "srd51.spell.wish",
+      "level": 9,
+      "name": {
+        "en": "Wish"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 2,
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.magical-secrets",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "known",
+      "id": "srd51.spell.meteor-swarm",
+      "level": 9,
+      "name": {
+        "en": "Meteor Swarm"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 2,
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.magical-secrets",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "known",
+      "id": "srd51.spell.misty-step",
+      "level": 2,
+      "name": {
+        "en": "Misty Step"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.subclass.bard.college-of-lore",
+        "feature": "srd51.feature.college-of-lore.additional-magical-secrets",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "known",
+      "id": "srd51.spell.haste",
+      "level": 3,
+      "name": {
+        "en": "Haste"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.subclass.bard.college-of-lore",
+        "feature": "srd51.feature.college-of-lore.additional-magical-secrets",
+        "package": "srd51"
+      }
+    }
+  ],
+  "values": {
+    "ability.cha": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 18
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Ability Score Increase"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.species.half-elf",
+            "feature": "srd51.feature.half-elf.ability-score-increase",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 20
+    },
+    "ability.con": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 16
+        }
+      ],
+      "value": 16
+    },
+    "ability.dex": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 20
+        }
+      ],
+      "value": 20
+    },
+    "ability.int": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 10
+        }
+      ],
+      "value": 10
+    },
+    "ability.str": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 8
+        }
+      ],
+      "value": 8
+    },
+    "ability.wis": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 12
+        }
+      ],
+      "value": 12
+    },
+    "ac": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Leather Armor"
+          },
+          "source": {
+            "entity": "srd51.item.leather-armor",
+            "package": ""
+          },
+          "value": 11
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 16
+    },
+    "attacks.perAction": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "One attack per Attack action"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "carry.capacity": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength score × 15"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 120
+        }
+      ],
+      "value": 120
+    },
+    "check.all": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "None"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        },
+        {
+          "applied": true,
+          "formula": "floor(proficiencyBonus / 2)",
+          "kind": "add",
+          "label": {
+            "en": "Jack of All Trades"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.class.bard",
+            "feature": "srd51.feature.bard.jack-of-all-trades",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 3
+    },
+    "check.cha": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Bonus to all ability checks"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 8
+    },
+    "check.con": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Constitution modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Bonus to all ability checks"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 6
+    },
+    "check.dex": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Bonus to all ability checks"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 8
+    },
+    "check.int": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Bonus to all ability checks"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 3
+    },
+    "check.str": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Bonus to all ability checks"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 2
+    },
+    "check.wis": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Bonus to all ability checks"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 4
+    },
+    "hp.max": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "hitDie + mod(con)",
+          "kind": "base",
+          "label": {
+            "en": "Level 1 (Bard)"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 11
+        },
+        {
+          "applied": true,
+          "formula": "19 × (average(hitDie) + mod(con))",
+          "kind": "add",
+          "label": {
+            "en": "19 more levels (Bard)"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 152
+        }
+      ],
+      "value": 163
+    },
+    "initiative": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Bonus to all ability checks"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 8
+    },
+    "jump.high": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "3 + Strength modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "jump.long": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength score in feet"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 8
+        }
+      ],
+      "value": 8
+    },
+    "mod.cha": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 5
+    },
+    "mod.con": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Constitution modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 3
+    },
+    "mod.dex": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 5
+    },
+    "mod.int": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "mod.str": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Strength modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        }
+      ],
+      "value": -1
+    },
+    "mod.wis": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "passive.acrobatics": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "acrobatics bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 8
+        }
+      ],
+      "value": 18
+    },
+    "passive.animal-handling": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "animal-handling bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 4
+        }
+      ],
+      "value": 14
+    },
+    "passive.arcana": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "arcana bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 6
+        }
+      ],
+      "value": 16
+    },
+    "passive.athletics": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "athletics bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 12
+    },
+    "passive.deception": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "deception bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 11
+        }
+      ],
+      "value": 21
+    },
+    "passive.history": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "history bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 6
+        }
+      ],
+      "value": 16
+    },
+    "passive.insight": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "insight bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 13
+        }
+      ],
+      "value": 23
+    },
+    "passive.intimidation": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "intimidation bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 8
+        }
+      ],
+      "value": 18
+    },
+    "passive.investigation": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "investigation bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 6
+        }
+      ],
+      "value": 16
+    },
+    "passive.medicine": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "medicine bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 4
+        }
+      ],
+      "value": 14
+    },
+    "passive.nature": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "nature bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 13
+    },
+    "passive.perception": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "perception bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 13
+        }
+      ],
+      "value": 23
+    },
+    "passive.performance": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "performance bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 17
+        }
+      ],
+      "value": 27
+    },
+    "passive.persuasion": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "persuasion bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 17
+        }
+      ],
+      "value": 27
+    },
+    "passive.religion": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "religion bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 13
+    },
+    "passive.sleight-of-hand": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "sleight-of-hand bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 8
+        }
+      ],
+      "value": 18
+    },
+    "passive.stealth": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "stealth bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 8
+        }
+      ],
+      "value": 18
+    },
+    "passive.survival": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "survival bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 4
+        }
+      ],
+      "value": 14
+    },
+    "proficiencyBonus": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Proficiency bonus by level"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 6
+        }
+      ],
+      "value": 6
+    },
+    "resource.bardic-inspiration.max": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "None"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        },
+        {
+          "applied": true,
+          "formula": "max(1, mod(cha))",
+          "kind": "set",
+          "label": {
+            "en": "Bardic Inspiration"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.class.bard",
+            "feature": "srd51.feature.bard.bardic-inspiration",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 5
+    },
+    "resource.bardic-inspiration.recharge": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "None"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        },
+        {
+          "applied": true,
+          "kind": "set",
+          "label": {
+            "en": "Font of Inspiration"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.class.bard",
+            "feature": "srd51.feature.bard.font-of-inspiration",
+            "package": "srd51"
+          },
+          "value": "short-rest"
+        }
+      ],
+      "value": "short-rest"
+    },
+    "save.cha": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 6
+        }
+      ],
+      "value": 11
+    },
+    "save.con": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Constitution modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 3
+    },
+    "save.dex": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 6
+        }
+      ],
+      "value": 11
+    },
+    "save.int": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "save.str": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        }
+      ],
+      "value": -1
+    },
+    "save.wis": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "sense.darkvision": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "None"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        },
+        {
+          "applied": true,
+          "kind": "max",
+          "label": {
+            "en": "Darkvision"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.species.half-elf",
+            "feature": "srd51.feature.half-elf.darkvision",
+            "package": "srd51"
+          },
+          "value": 60
+        }
+      ],
+      "value": 60
+    },
+    "skill.acrobatics": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        },
+        {
+          "applied": true,
+          "formula": "floor(proficiencyBonus / 2)",
+          "kind": "add",
+          "label": {
+            "en": "Jack of All Trades"
+          },
+          "source": {
+            "effectIndex": 1,
+            "entity": "srd51.class.bard",
+            "feature": "srd51.feature.bard.jack-of-all-trades",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 8
+    },
+    "skill.animal-handling": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        },
+        {
+          "applied": true,
+          "formula": "floor(proficiencyBonus / 2)",
+          "kind": "add",
+          "label": {
+            "en": "Jack of All Trades"
+          },
+          "source": {
+            "effectIndex": 2,
+            "entity": "srd51.class.bard",
+            "feature": "srd51.feature.bard.jack-of-all-trades",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 4
+    },
+    "skill.arcana": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 6
+        },
+        {
+          "applied": false,
+          "formula": "floor(proficiencyBonus / 2)",
+          "kind": "add",
+          "label": {
+            "en": "Jack of All Trades"
+          },
+          "source": {
+            "effectIndex": 3,
+            "entity": "srd51.class.bard",
+            "feature": "srd51.feature.bard.jack-of-all-trades",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 6
+    },
+    "skill.athletics": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        },
+        {
+          "applied": true,
+          "formula": "floor(proficiencyBonus / 2)",
+          "kind": "add",
+          "label": {
+            "en": "Jack of All Trades"
+          },
+          "source": {
+            "effectIndex": 4,
+            "entity": "srd51.class.bard",
+            "feature": "srd51.feature.bard.jack-of-all-trades",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 2
+    },
+    "skill.deception": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 6
+        },
+        {
+          "applied": false,
+          "formula": "floor(proficiencyBonus / 2)",
+          "kind": "add",
+          "label": {
+            "en": "Jack of All Trades"
+          },
+          "source": {
+            "effectIndex": 5,
+            "entity": "srd51.class.bard",
+            "feature": "srd51.feature.bard.jack-of-all-trades",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 11
+    },
+    "skill.history": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 6
+        },
+        {
+          "applied": false,
+          "formula": "floor(proficiencyBonus / 2)",
+          "kind": "add",
+          "label": {
+            "en": "Jack of All Trades"
+          },
+          "source": {
+            "effectIndex": 6,
+            "entity": "srd51.class.bard",
+            "feature": "srd51.feature.bard.jack-of-all-trades",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 6
+    },
+    "skill.insight": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Expertise"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 12
+        },
+        {
+          "applied": false,
+          "formula": "floor(proficiencyBonus / 2)",
+          "kind": "add",
+          "label": {
+            "en": "Jack of All Trades"
+          },
+          "source": {
+            "effectIndex": 7,
+            "entity": "srd51.class.bard",
+            "feature": "srd51.feature.bard.jack-of-all-trades",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 13
+    },
+    "skill.intimidation": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        },
+        {
+          "applied": true,
+          "formula": "floor(proficiencyBonus / 2)",
+          "kind": "add",
+          "label": {
+            "en": "Jack of All Trades"
+          },
+          "source": {
+            "effectIndex": 8,
+            "entity": "srd51.class.bard",
+            "feature": "srd51.feature.bard.jack-of-all-trades",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 8
+    },
+    "skill.investigation": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 6
+        },
+        {
+          "applied": false,
+          "formula": "floor(proficiencyBonus / 2)",
+          "kind": "add",
+          "label": {
+            "en": "Jack of All Trades"
+          },
+          "source": {
+            "effectIndex": 9,
+            "entity": "srd51.class.bard",
+            "feature": "srd51.feature.bard.jack-of-all-trades",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 6
+    },
+    "skill.medicine": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        },
+        {
+          "applied": true,
+          "formula": "floor(proficiencyBonus / 2)",
+          "kind": "add",
+          "label": {
+            "en": "Jack of All Trades"
+          },
+          "source": {
+            "effectIndex": 10,
+            "entity": "srd51.class.bard",
+            "feature": "srd51.feature.bard.jack-of-all-trades",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 4
+    },
+    "skill.nature": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        },
+        {
+          "applied": true,
+          "formula": "floor(proficiencyBonus / 2)",
+          "kind": "add",
+          "label": {
+            "en": "Jack of All Trades"
+          },
+          "source": {
+            "effectIndex": 11,
+            "entity": "srd51.class.bard",
+            "feature": "srd51.feature.bard.jack-of-all-trades",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 3
+    },
+    "skill.perception": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Expertise"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 12
+        },
+        {
+          "applied": false,
+          "formula": "floor(proficiencyBonus / 2)",
+          "kind": "add",
+          "label": {
+            "en": "Jack of All Trades"
+          },
+          "source": {
+            "effectIndex": 12,
+            "entity": "srd51.class.bard",
+            "feature": "srd51.feature.bard.jack-of-all-trades",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 13
+    },
+    "skill.performance": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Expertise"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 12
+        },
+        {
+          "applied": false,
+          "formula": "floor(proficiencyBonus / 2)",
+          "kind": "add",
+          "label": {
+            "en": "Jack of All Trades"
+          },
+          "source": {
+            "effectIndex": 13,
+            "entity": "srd51.class.bard",
+            "feature": "srd51.feature.bard.jack-of-all-trades",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 17
+    },
+    "skill.persuasion": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Expertise"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 12
+        },
+        {
+          "applied": false,
+          "formula": "floor(proficiencyBonus / 2)",
+          "kind": "add",
+          "label": {
+            "en": "Jack of All Trades"
+          },
+          "source": {
+            "effectIndex": 14,
+            "entity": "srd51.class.bard",
+            "feature": "srd51.feature.bard.jack-of-all-trades",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 17
+    },
+    "skill.religion": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        },
+        {
+          "applied": true,
+          "formula": "floor(proficiencyBonus / 2)",
+          "kind": "add",
+          "label": {
+            "en": "Jack of All Trades"
+          },
+          "source": {
+            "effectIndex": 15,
+            "entity": "srd51.class.bard",
+            "feature": "srd51.feature.bard.jack-of-all-trades",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 3
+    },
+    "skill.sleight-of-hand": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        },
+        {
+          "applied": true,
+          "formula": "floor(proficiencyBonus / 2)",
+          "kind": "add",
+          "label": {
+            "en": "Jack of All Trades"
+          },
+          "source": {
+            "effectIndex": 16,
+            "entity": "srd51.class.bard",
+            "feature": "srd51.feature.bard.jack-of-all-trades",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 8
+    },
+    "skill.stealth": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        },
+        {
+          "applied": true,
+          "formula": "floor(proficiencyBonus / 2)",
+          "kind": "add",
+          "label": {
+            "en": "Jack of All Trades"
+          },
+          "source": {
+            "effectIndex": 17,
+            "entity": "srd51.class.bard",
+            "feature": "srd51.feature.bard.jack-of-all-trades",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 8
+    },
+    "skill.survival": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        },
+        {
+          "applied": true,
+          "formula": "floor(proficiencyBonus / 2)",
+          "kind": "add",
+          "label": {
+            "en": "Jack of All Trades"
+          },
+          "source": {
+            "effectIndex": 18,
+            "entity": "srd51.class.bard",
+            "feature": "srd51.feature.bard.jack-of-all-trades",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 4
+    },
+    "speed.walk": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Species speed"
+          },
+          "source": {
+            "entity": "srd51.species.half-elf",
+            "package": ""
+          },
+          "value": 30
+        }
+      ],
+      "value": 30
+    }
+  },
+  "warnings": []
+}
+

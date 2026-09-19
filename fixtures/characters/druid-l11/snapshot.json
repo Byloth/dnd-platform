@@ -1,0 +1,3522 @@
+{
+  "actions": [
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [
+        {
+          "amount": 1,
+          "resource": "wild-shape"
+        }
+      ],
+      "id": "wild-shape",
+      "name": {
+        "en": "Wild Shape"
+      },
+      "onUse": [
+        {
+          "kind": "note",
+          "text": {
+            "en": "Maximum CR: table(druid.wild-shape-max-cr). Your game statistics are replaced by the beast's, but you keep your alignment, personality, Intelligence, Wisdom and Charisma scores, and all your skill and saving throw proficiencies (use the beast's bonus if it is higher). You assume the beast's hit points and Hit Dice; when you revert you return to the hit points you had before, and excess damage from dropping to 0 carries over. You can't cast spells while transformed."
+          }
+        }
+      ],
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.class.druid",
+        "feature": "srd51.feature.druid.wild-shape",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Magically assume the shape of a beast that you have seen before, with a challenge rating no higher than the Beast Shapes table allows for your druid level (no flying or swimming speed before 4th level, no flying speed before 8th level). You can stay in a beast shape for a number of hours equal to half your druid level (rounded down)."
+      },
+      "toggle": "wild-shape"
+    },
+    {
+      "activation": "bonus-action",
+      "available": true,
+      "cost": [],
+      "id": "wild-shape-revert",
+      "name": {
+        "en": "Revert from Wild Shape"
+      },
+      "requires": {
+        "condition": {
+          "toggled": "wild-shape"
+        }
+      },
+      "source": {
+        "effectIndex": 2,
+        "entity": "srd51.class.druid",
+        "feature": "srd51.feature.druid.wild-shape",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Revert to your normal form. You automatically revert if you fall unconscious, drop to 0 hit points, or die."
+      }
+    },
+    {
+      "activation": "special",
+      "available": true,
+      "cost": [
+        {
+          "amount": 1,
+          "resource": "natural-recovery"
+        }
+      ],
+      "id": "natural-recovery",
+      "name": {
+        "en": "Natural Recovery"
+      },
+      "onUse": [
+        {
+          "amount": "ceil(classLevel(druid) / 2)",
+          "budget": "ceil(classLevel(druid) / 2)",
+          "kind": "restoreResource",
+          "note": {
+            "en": "Combined slot level up to half your druid level (rounded up); no slot of 6th level or higher."
+          },
+          "resource": "spell-slots"
+        }
+      ],
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.subclass.druid.circle-of-the-land",
+        "feature": "srd51.feature.circle-of-the-land.natural-recovery",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "During a short rest, you choose expended spell slots to recover. The spell slots can have a combined level that is equal to or less than half your druid level (rounded up), and none of the slots can be 6th level or higher."
+      }
+    }
+  ],
+  "attacks": [
+    {
+      "ability": "dex",
+      "attackBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Dexterity modifier"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 3
+          },
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "Proficiency bonus"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 4
+          }
+        ],
+        "value": 7
+      },
+      "critRange": 20,
+      "damage": "1d6 + 3",
+      "damageBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Dexterity modifier"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 3
+          }
+        ],
+        "value": 3
+      },
+      "damageDice": "1d6",
+      "damageType": "slashing",
+      "extraDamage": [],
+      "id": "scimitar",
+      "item": "srd51.item.scimitar",
+      "magical": false,
+      "name": {
+        "en": "Scimitar"
+      },
+      "proficient": true,
+      "ranged": false,
+      "unarmed": false
+    },
+    {
+      "ability": "str",
+      "attackBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Strength modifier"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": -1
+          },
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "Proficiency bonus"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 4
+          }
+        ],
+        "value": 3
+      },
+      "critRange": 20,
+      "damage": "0",
+      "damageBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Strength modifier"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": -1
+          }
+        ],
+        "value": -1
+      },
+      "damageDice": "1",
+      "damageType": "bludgeoning",
+      "extraDamage": [],
+      "id": "unarmed-strike",
+      "magical": false,
+      "name": {
+        "en": "Unarmed strike"
+      },
+      "proficient": true,
+      "ranged": false,
+      "unarmed": true
+    }
+  ],
+  "choices": [
+    {
+      "answered": true,
+      "answers": [
+        "nature",
+        "survival"
+      ],
+      "choice": "skills",
+      "count": 2,
+      "key": "srd51.class.druid#skills",
+      "of": "skill",
+      "options": [
+        "arcana",
+        "animal-handling",
+        "insight",
+        "medicine",
+        "nature",
+        "perception",
+        "religion",
+        "survival"
+      ],
+      "owner": "srd51.class.druid"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "srd51.subclass.druid.circle-of-the-land"
+      ],
+      "choice": "druid-circle",
+      "count": 1,
+      "key": "srd51.class.druid#druid-circle",
+      "level": 2,
+      "of": "subclass",
+      "options": [],
+      "owner": "srd51.class.druid"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "asi"
+      ],
+      "choice": "asi-4",
+      "count": 1,
+      "key": "srd51.class.druid#asi-4",
+      "level": 4,
+      "of": "asi-or-feat",
+      "options": [],
+      "owner": "srd51.class.druid"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "asi"
+      ],
+      "choice": "asi-8",
+      "count": 1,
+      "key": "srd51.class.druid#asi-8",
+      "level": 8,
+      "of": "asi-or-feat",
+      "options": [],
+      "owner": "srd51.class.druid"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "forest"
+      ],
+      "choice": "land",
+      "count": 1,
+      "key": "srd51.feature.circle-of-the-land.circle-spells#land",
+      "of": "option",
+      "options": [
+        "arctic",
+        "coast",
+        "desert",
+        "forest",
+        "grassland",
+        "mountain",
+        "swamp"
+      ],
+      "owner": "srd51.feature.circle-of-the-land.circle-spells"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "srd51.spell.fire-bolt"
+      ],
+      "choice": "cantrip",
+      "count": 1,
+      "key": "srd51.feature.high-elf.cantrip#cantrip",
+      "of": "spell",
+      "options": [],
+      "owner": "srd51.feature.high-elf.cantrip"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "sylvan"
+      ],
+      "choice": "extra-language",
+      "count": 1,
+      "key": "srd51.feature.high-elf.extra-language#extra-language",
+      "of": "language",
+      "options": [],
+      "owner": "srd51.feature.high-elf.extra-language"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "srd51.spell.guidance"
+      ],
+      "choice": "bonus-cantrip",
+      "count": 1,
+      "key": "srd51.feature.circle-of-the-land.bonus-cantrip#bonus-cantrip",
+      "of": "spell",
+      "options": [],
+      "owner": "srd51.feature.circle-of-the-land.bonus-cantrip"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "srd51.spell.druidcraft",
+        "srd51.spell.produce-flame",
+        "srd51.spell.shillelagh",
+        "srd51.spell.mending"
+      ],
+      "choice": "cantrips",
+      "count": 4,
+      "key": "srd51.class.druid#cantrips",
+      "of": "spell",
+      "options": [],
+      "owner": "srd51.class.druid"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "srd51.spell.cure-wounds",
+        "srd51.spell.entangle",
+        "srd51.spell.healing-word",
+        "srd51.spell.faerie-fire",
+        "srd51.spell.goodberry",
+        "srd51.spell.thunderwave",
+        "srd51.spell.longstrider",
+        "srd51.spell.moonbeam",
+        "srd51.spell.flaming-sphere",
+        "srd51.spell.lesser-restoration",
+        "srd51.spell.heat-metal",
+        "srd51.spell.dispel-magic",
+        "srd51.spell.conjure-animals",
+        "srd51.spell.daylight",
+        "srd51.spell.polymorph",
+        "srd51.spell.wall-of-fire"
+      ],
+      "choice": "spells",
+      "count": 16,
+      "key": "srd51.class.druid#spells",
+      "of": "spell",
+      "options": [],
+      "owner": "srd51.class.druid"
+    }
+  ],
+  "classes": [
+    {
+      "class": "srd51.class.druid",
+      "levels": 11,
+      "subclass": "srd51.subclass.druid.circle-of-the-land"
+    }
+  ],
+  "defenses": [
+    {
+      "defense": "condition-immunity",
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.species.elf",
+        "feature": "srd51.feature.elf.fey-ancestry",
+        "package": "srd51"
+      },
+      "to": [
+        "magical-sleep"
+      ]
+    },
+    {
+      "defense": "immunity",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.subclass.druid.circle-of-the-land",
+        "feature": "srd51.feature.circle-of-the-land.natures-ward",
+        "package": "srd51"
+      },
+      "to": [
+        "poison",
+        "disease"
+      ]
+    },
+    {
+      "defense": "condition-immunity",
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.subclass.druid.circle-of-the-land",
+        "feature": "srd51.feature.circle-of-the-land.natures-ward",
+        "package": "srd51"
+      },
+      "to": [
+        "srd51.condition.poisoned"
+      ]
+    }
+  ],
+  "features": [
+    {
+      "id": "srd51.feature.elf.ability-score-increase",
+      "name": {
+        "en": "Ability Score Increase"
+      },
+      "origin": "species",
+      "owner": "srd51.species.elf",
+      "source": {
+        "entity": "srd51.species.elf",
+        "feature": "srd51.feature.elf.ability-score-increase",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Your Dexterity score increases by 2."
+      }
+    },
+    {
+      "id": "srd51.feature.elf.speed",
+      "name": {
+        "en": "Speed"
+      },
+      "origin": "species",
+      "owner": "srd51.species.elf",
+      "source": {
+        "entity": "srd51.species.elf",
+        "feature": "srd51.feature.elf.speed",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Your base walking speed is 30 feet."
+      }
+    },
+    {
+      "id": "srd51.feature.elf.darkvision",
+      "name": {
+        "en": "Darkvision"
+      },
+      "origin": "species",
+      "owner": "srd51.species.elf",
+      "source": {
+        "entity": "srd51.species.elf",
+        "feature": "srd51.feature.elf.darkvision",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Accustomed to twilit forests and the night sky, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+      }
+    },
+    {
+      "id": "srd51.feature.elf.age",
+      "name": {
+        "en": "Age"
+      },
+      "origin": "species",
+      "owner": "srd51.species.elf",
+      "source": {
+        "entity": "srd51.species.elf",
+        "feature": "srd51.feature.elf.age",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Although elves reach physical maturity at about the same age as humans, the elven understanding of adulthood goes beyond physical growth to encompass worldly experience. An elf typically claims adulthood and an adult name around the age of 100 and can live to be 750 years old."
+      }
+    },
+    {
+      "id": "srd51.feature.elf.alignment",
+      "name": {
+        "en": "Alignment"
+      },
+      "origin": "species",
+      "owner": "srd51.species.elf",
+      "source": {
+        "entity": "srd51.species.elf",
+        "feature": "srd51.feature.elf.alignment",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Elves love freedom, variety, and self-­expression, so they lean strongly toward the gentler aspects of chaos. They value and protect others’ freedom as well as their own, and they are more often good than not."
+      }
+    },
+    {
+      "id": "srd51.feature.elf.size",
+      "name": {
+        "en": "Size"
+      },
+      "origin": "species",
+      "owner": "srd51.species.elf",
+      "source": {
+        "entity": "srd51.species.elf",
+        "feature": "srd51.feature.elf.size",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Elves range from under 5 to over 6 feet tall and have slender builds. Your size is Medium."
+      }
+    },
+    {
+      "id": "srd51.feature.elf.languages",
+      "name": {
+        "en": "Languages"
+      },
+      "origin": "species",
+      "owner": "srd51.species.elf",
+      "source": {
+        "entity": "srd51.species.elf",
+        "feature": "srd51.feature.elf.languages",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You can speak, read, and write Common and Elvish. Elvish is fluid, with subtle intonations and intricate grammar. Elven literature is rich and varied, and their songs and poems are famous among other races. Many bards learn their language so they can add Elvish ballads to their repertoires."
+      }
+    },
+    {
+      "id": "srd51.feature.elf.keen-senses",
+      "name": {
+        "en": "Keen Senses"
+      },
+      "origin": "species",
+      "owner": "srd51.species.elf",
+      "source": {
+        "entity": "srd51.species.elf",
+        "feature": "srd51.feature.elf.keen-senses",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You have proficiency in the Perception skill."
+      }
+    },
+    {
+      "id": "srd51.feature.elf.fey-ancestry",
+      "name": {
+        "en": "Fey Ancestry"
+      },
+      "origin": "species",
+      "owner": "srd51.species.elf",
+      "source": {
+        "entity": "srd51.species.elf",
+        "feature": "srd51.feature.elf.fey-ancestry",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You have advantage on saving throws against being charmed, and magic can't put you to sleep."
+      }
+    },
+    {
+      "id": "srd51.feature.elf.trance",
+      "name": {
+        "en": "Trance"
+      },
+      "origin": "species",
+      "owner": "srd51.species.elf",
+      "source": {
+        "entity": "srd51.species.elf",
+        "feature": "srd51.feature.elf.trance",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Elves don't need to sleep. Instead, they meditate deeply, remaining semiconscious, for 4 hours a day. (The Common word for such meditation is “trance.”) While meditating, you can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, you gain the same benefit that a human does from 8 hours of sleep."
+      }
+    },
+    {
+      "id": "srd51.feature.high-elf.ability-score-increase",
+      "name": {
+        "en": "Ability Score Increase"
+      },
+      "origin": "subspecies",
+      "owner": "srd51.species.elf.high-elf",
+      "source": {
+        "entity": "srd51.species.elf.high-elf",
+        "feature": "srd51.feature.high-elf.ability-score-increase",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Your Intelligence score increases by 1."
+      }
+    },
+    {
+      "id": "srd51.feature.high-elf.elf-weapon-training",
+      "name": {
+        "en": "Elf Weapon Training"
+      },
+      "origin": "subspecies",
+      "owner": "srd51.species.elf.high-elf",
+      "source": {
+        "entity": "srd51.species.elf.high-elf",
+        "feature": "srd51.feature.high-elf.elf-weapon-training",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You have proficiency with the longsword, shortsword, shortbow, and longbow."
+      }
+    },
+    {
+      "id": "srd51.feature.high-elf.cantrip",
+      "name": {
+        "en": "Cantrip"
+      },
+      "origin": "subspecies",
+      "owner": "srd51.species.elf.high-elf",
+      "source": {
+        "entity": "srd51.species.elf.high-elf",
+        "feature": "srd51.feature.high-elf.cantrip",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You know one cantrip of your choice from the wizard spell list. Intelligence is your spellcasting ability for it."
+      }
+    },
+    {
+      "id": "srd51.feature.high-elf.extra-language",
+      "name": {
+        "en": "Extra Language"
+      },
+      "origin": "subspecies",
+      "owner": "srd51.species.elf.high-elf",
+      "source": {
+        "entity": "srd51.species.elf.high-elf",
+        "feature": "srd51.feature.high-elf.extra-language",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You can speak, read, and write one extra language of your choice."
+      }
+    },
+    {
+      "id": "srd51.feature.druid.druidic",
+      "level": 1,
+      "name": {
+        "en": "Druidic"
+      },
+      "origin": "class",
+      "owner": "srd51.class.druid",
+      "source": {
+        "entity": "srd51.class.druid",
+        "feature": "srd51.feature.druid.druidic",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You know Druidic, the secret language of druids. You can speak the language and use it to leave hidden messages. You and others who know this language automatically spot such a message. Others spot the message's presence with a successful DC 15 Wisdom (Perception) check but can't decipher it without magic."
+      }
+    },
+    {
+      "id": "srd51.feature.druid.spellcasting",
+      "level": 1,
+      "name": {
+        "en": "Spellcasting"
+      },
+      "origin": "class",
+      "owner": "srd51.class.druid",
+      "source": {
+        "entity": "srd51.class.druid",
+        "feature": "srd51.feature.druid.spellcasting",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Drawing on the divine essence of nature itself, you can cast spells to shape that essence to your will.\n\n###Cantrips\n\nAt 1st level, you know two cantrips of your choice from the druid spell list. You learn additional druid cantrips of your choice at higher levels, as shown in the Cantrips Known column of the Druid table.\n\n###Preparing and Casting Spells\n\nThe Druid table shows how many spell slots you have to cast your spells of 1st level and higher. To cast one of these druid spells, you must expend a slot of the spell's level or higher. You regain all expended spell slots when you finish a long rest.\n\nYou prepare the list of druid spells that are available for you to cast, choosing from the druid spell list. When you do so, choose a number of druid spells equal to your Wisdom modifier + your druid level (minimum of one spell). The spells must be of a level for which you have spell slots.\n\nFor example, if you are a 3rd-level druid, you have four 1st-level and two 2nd-level spell slots. With a Wisdom of 16, your list of prepared spells can include six spells of 1st or 2nd level, in any combination. If you prepare the 1st-level spell cure wounds, you can cast it using a 1st-level or 2nd-level slot. Casting the spell doesn't remove it from your list of prepared spells.\n\nYou can also change your list of prepared spells when you finish a long rest. Preparing a new list of druid spells requires time spent in prayer and meditation: at least 1 minute per spell level for each spell on your list.\n\n###Spellcasting Ability\n\nWisdom is your spellcasting ability for your druid spells, since your magic draws upon your devotion and attunement to nature. You use your Wisdom whenever a spell refers to your spellcasting ability. In addition, you use your Wisdom modifier when setting the saving throw DC for a druid spell you cast and when making an attack roll with one.\n\n**Spell save DC** = 8 + your proficiency bonus + your Wisdom modifier\n\n**Spell attack modifier** = your proficiency bonus + your Wisdom modifier\n\n###Ritual Casting\n\nYou can cast a druid spell as a ritual if that spell has the ritual tag and you have the spell prepared.\n\n###Spellcasting Focus\n\nYou can use a druidic focus (see chapter 5, “Equipment”) as a spellcasting focus for your druid spells."
+      }
+    },
+    {
+      "id": "srd51.feature.druid.druid-circle",
+      "level": 2,
+      "name": {
+        "en": "Druid Circle"
+      },
+      "origin": "class",
+      "owner": "srd51.class.druid",
+      "source": {
+        "entity": "srd51.class.druid",
+        "feature": "srd51.feature.druid.druid-circle",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "At 2nd level, you choose to identify with a circle of druids such as the Circle of the Land. Your choice grants you features at 2nd level and again at 6th, 10th, and 14th level."
+      }
+    },
+    {
+      "id": "srd51.feature.druid.wild-shape",
+      "level": 2,
+      "name": {
+        "en": "Wild Shape"
+      },
+      "origin": "class",
+      "owner": "srd51.class.druid",
+      "source": {
+        "entity": "srd51.class.druid",
+        "feature": "srd51.feature.druid.wild-shape",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Starting at 2nd level, you can use your action to magically assume the shape of a beast that you have seen before. You can use this feature twice. You regain expended uses when you finish a short or long rest.\n\nYour druid level determines the beasts you can transform into, as shown in the Beast Shapes table. At 2nd level, for example, you can transform into any beast that has a challenge rating of 1/4 or lower that doesn't have a flying or swimming speed.\n\n| Level | Max. CR | Limitations | Example |\n| --- | --- | --- | --- |\n| 2nd | 1/4 | No flying or swimming speed | Wolf |\n| 4th | 1/2 | No flying speed | Crocodile |\n| 8th | 1 | - | Giant Eagle |\n\nYou can stay in a beast shape for a number of hours equal to half your druid level (rounded down). You then revert to your normal form unless you expend another use of this feature. You can revert to your normal form earlier by using a bonus action on your turn. You automatically revert if you fall unconscious, drop to 0 hit points, or die.\n\nWhile you are transformed, the following rules apply:\nYour game statistics are replaced by the statistics of the beast, but you retain your alignment, personality, and Intelligence, Wisdom, and Charisma scores. You also retain all of your skill and saving throw proficiencies, in addition to gaining those of the creature. If the creature has the same proficiency as you and the bonus in its stat block is higher than yours, use the creature's bonus instead of yours. If the creature has any legendary or lair actions, you can't use them.\n\nWhen you transform, you assume the beast's hit points and Hit Dice. When you revert to your normal form, you return to the number of hit points you had before you transformed. However, if you revert as a result of dropping to 0 hit points, any excess damage carries over to your normal form. For example, if you take 10 damage in animal form and have only 1 hit point left, you revert and take 9 damage. As long as the excess damage doesn't reduce your normal form to 0 hit points, you aren't knocked unconscious.\n\nYou can't cast spells, and your ability to speak or take any action that requires hands is limited to the capabilities of your beast form. Transforming doesn't break your concentration on a spell you've already cast, however, or prevent you from taking actions that are part of a spell, such as call lightning, that you've already cast.\n\nYou retain the benefit of any features from your class, race, or other source and can use them if the new form is physically capable of doing so. However, you can't use any of your special senses, such as darkvision, unless your new form also has that sense.\n\nYou choose whether your equipment falls to the ground in your space, merges into your new form, or is worn by it. Worn equipment functions as normal, but the GM decides whether it is practical for the new form to wear a piece of equipment, based on the creature's shape and size. Your equipment doesn't change size or shape to match the new form, and any equipment that the new form can't wear must either fall to the ground or merge with it. Equipment that merges with the form has no effect until you leave the form."
+      }
+    },
+    {
+      "id": "srd51.feature.druid.ability-score-improvement",
+      "level": 4,
+      "name": {
+        "en": "Ability Score Improvement"
+      },
+      "origin": "class",
+      "owner": "srd51.class.druid",
+      "source": {
+        "entity": "srd51.class.druid",
+        "feature": "srd51.feature.druid.ability-score-improvement",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "When you reach 4th level, and again at 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature."
+      }
+    },
+    {
+      "id": "srd51.feature.circle-of-the-land.bonus-cantrip",
+      "level": 2,
+      "name": {
+        "en": "Bonus Cantrip"
+      },
+      "origin": "subclass",
+      "owner": "srd51.subclass.druid.circle-of-the-land",
+      "source": {
+        "entity": "srd51.subclass.druid.circle-of-the-land",
+        "feature": "srd51.feature.circle-of-the-land.bonus-cantrip",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "When you choose this circle at 2nd level, you learn one additional druid cantrip of your choice."
+      }
+    },
+    {
+      "id": "srd51.feature.circle-of-the-land.natural-recovery",
+      "level": 2,
+      "name": {
+        "en": "Natural Recovery"
+      },
+      "origin": "subclass",
+      "owner": "srd51.subclass.druid.circle-of-the-land",
+      "source": {
+        "entity": "srd51.subclass.druid.circle-of-the-land",
+        "feature": "srd51.feature.circle-of-the-land.natural-recovery",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Starting at 2nd level, you can regain some of your magical energy by sitting in meditation and communing with nature. During a short rest, you choose expended spell slots to recover. The spell slots can have a combined level that is equal to or less than half your druid level (rounded up), and none of the slots can be 6th level or higher. You can't use this feature again until you finish a long rest.\n\nFor example, when you are a 4th-level druid, you can recover up to two levels worth of spell slots. You can recover either a 2nd-level slot or two 1st-level slots."
+      }
+    },
+    {
+      "id": "srd51.feature.circle-of-the-land.circle-spells",
+      "level": 3,
+      "name": {
+        "en": "Circle Spells"
+      },
+      "origin": "subclass",
+      "owner": "srd51.subclass.druid.circle-of-the-land",
+      "source": {
+        "entity": "srd51.subclass.druid.circle-of-the-land",
+        "feature": "srd51.feature.circle-of-the-land.circle-spells",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Your mystical connection to the land infuses you with the ability to cast certain spells. At 3rd, 5th, 7th, and 9th level you gain access to circle spells connected to the land where you became a druid. Choose that land-arctic, coast, desert, forest, grassland, mountain, or swamp-and consult the associated list of spells. \n\nOnce you gain access to a circle spell, you always have it prepared, and it doesn't count against the number of spells you can prepare each day. If you gain access to a spell that doesn't appear on the druid spell list, the spell is nonetheless a druid spell for you.\n\n**Arctic (table)**\n| Druid Level | Circle Spells  | \n|---|---| \n| 3rd | hold person, spike growth | \n| 5th | sleet storm, slow | \n| 7th | freedom of movement, ice storm  | \n| 9th | commune with nature, cone of cold | \n \n**Coast (table)** \n \n| Druid Level | Circle Spells  | \n|---|---| \n| 3rd | mirror image, misty step | \n| 5th | water breathing, water walk  | \n| 7th | control water, freedom of movement | \n| 9th | conjure elemental, scrying | \n \n**Desert (table)** \n \n| Druid Level | Circle Spells | \n|---|---| \n| 3rd | blur, silence | \n| 5th | create food and water, protection from energy | \n| 7th | blight, hallucinatory terrain | \n| 9th | insect plague, wall of stone  | \n \n**Forest (table)** \n \n| Druid Level | Circle Spells  | \n|---|---| \n| 3rd | barkskin, spider climb | \n| 5th | call lightning, plant growth | \n| 7th | divination, freedom of movement  | \n| 9th | commune with nature, tree stride | \n \n**Grassland (table)** \n \n| Druid Level | Circle Spells  | \n|---|---| \n| 3rd | invisibility, pass without trace | \n| 5th | daylight, haste  | \n| 7th | divination, freedom of movement  | \n| 9th | dream, insect plague | \n \n**Mountain (table)** \n \n| Druid Level | Circle Spells | \n|---|---| \n| 3rd | spider climb, spike growth  | \n| 5th | lightning bolt, meld into stone | \n| 7th | stone shape, stoneskin  | \n| 9th | passwall, wall of stone | \n \n**Swamp (table)** \n \n| Druid Level | Circle Spells  | \n|---|---| \n| 3rd | acid arrow, darkness | \n| 5th | water walk, stinking cloud | \n| 7th | freedom of movement, locate creature | \n| 9th | insect plague, scrying |"
+      }
+    },
+    {
+      "id": "srd51.feature.circle-of-the-land.lands-stride",
+      "level": 6,
+      "name": {
+        "en": "Land's Stride"
+      },
+      "origin": "subclass",
+      "owner": "srd51.subclass.druid.circle-of-the-land",
+      "source": {
+        "entity": "srd51.subclass.druid.circle-of-the-land",
+        "feature": "srd51.feature.circle-of-the-land.lands-stride",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Starting at 6th level, moving through nonmagical difficult terrain costs you no extra movement. You can also pass through nonmagical plants without being slowed by them and without taking damage from them if they have thorns, spines, or a similar hazard.\n\nIn addition, you have advantage on saving throws against plants that are magically created or manipulated to impede movement, such those created by the entangle spell."
+      }
+    },
+    {
+      "id": "srd51.feature.circle-of-the-land.natures-ward",
+      "level": 10,
+      "name": {
+        "en": "Nature's Ward"
+      },
+      "origin": "subclass",
+      "owner": "srd51.subclass.druid.circle-of-the-land",
+      "source": {
+        "entity": "srd51.subclass.druid.circle-of-the-land",
+        "feature": "srd51.feature.circle-of-the-land.natures-ward",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "When you reach 10th level, you can't be charmed or frightened by elementals or fey, and you are immune to poison and disease."
+      }
+    }
+  ],
+  "level": 11,
+  "meta": {
+    "characterId": "fixture-druid-l11",
+    "formatVersion": 0,
+    "language": "en",
+    "name": "Green Hollow",
+    "packages": [
+      {
+        "id": "srd51",
+        "version": "0.1.0"
+      }
+    ],
+    "ruleset": "srd51"
+  },
+  "proficiencies": [
+    {
+      "expertise": false,
+      "item": "light",
+      "source": {
+        "entity": "srd51.class.druid",
+        "package": "srd51"
+      },
+      "type": "armor"
+    },
+    {
+      "expertise": false,
+      "item": "medium",
+      "source": {
+        "entity": "srd51.class.druid",
+        "package": "srd51"
+      },
+      "type": "armor"
+    },
+    {
+      "expertise": false,
+      "item": "shield",
+      "source": {
+        "entity": "srd51.class.druid",
+        "package": "srd51"
+      },
+      "type": "armor"
+    },
+    {
+      "expertise": false,
+      "item": "common",
+      "source": {
+        "entity": "srd51.species.elf",
+        "package": "srd51"
+      },
+      "type": "language"
+    },
+    {
+      "expertise": false,
+      "item": "druidic",
+      "source": {
+        "entity": "srd51.class.druid",
+        "feature": "srd51.feature.druid.druidic",
+        "package": "srd51"
+      },
+      "type": "language"
+    },
+    {
+      "expertise": false,
+      "item": "elvish",
+      "source": {
+        "entity": "srd51.species.elf",
+        "package": "srd51"
+      },
+      "type": "language"
+    },
+    {
+      "expertise": false,
+      "item": "sylvan",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.species.elf.high-elf",
+        "feature": "srd51.feature.high-elf.extra-language",
+        "package": "srd51"
+      },
+      "type": "language"
+    },
+    {
+      "expertise": false,
+      "item": "int",
+      "source": {
+        "entity": "srd51.class.druid",
+        "package": "srd51"
+      },
+      "type": "save"
+    },
+    {
+      "expertise": false,
+      "item": "wis",
+      "source": {
+        "entity": "srd51.class.druid",
+        "package": "srd51"
+      },
+      "type": "save"
+    },
+    {
+      "expertise": false,
+      "item": "nature",
+      "source": {
+        "entity": "srd51.class.druid",
+        "package": "srd51"
+      },
+      "type": "skill"
+    },
+    {
+      "expertise": false,
+      "item": "perception",
+      "source": {
+        "entity": "srd51.species.elf",
+        "feature": "srd51.feature.elf.keen-senses",
+        "package": "srd51"
+      },
+      "type": "skill"
+    },
+    {
+      "expertise": false,
+      "item": "survival",
+      "source": {
+        "entity": "srd51.class.druid",
+        "package": "srd51"
+      },
+      "type": "skill"
+    },
+    {
+      "expertise": false,
+      "item": "herbalism-kit",
+      "source": {
+        "entity": "srd51.class.druid",
+        "package": "srd51"
+      },
+      "type": "tool"
+    },
+    {
+      "expertise": false,
+      "item": "club",
+      "source": {
+        "entity": "srd51.class.druid",
+        "package": "srd51"
+      },
+      "type": "weapon"
+    },
+    {
+      "expertise": false,
+      "item": "dagger",
+      "source": {
+        "entity": "srd51.class.druid",
+        "package": "srd51"
+      },
+      "type": "weapon"
+    },
+    {
+      "expertise": false,
+      "item": "dart",
+      "source": {
+        "entity": "srd51.class.druid",
+        "package": "srd51"
+      },
+      "type": "weapon"
+    },
+    {
+      "expertise": false,
+      "item": "javelin",
+      "source": {
+        "entity": "srd51.class.druid",
+        "package": "srd51"
+      },
+      "type": "weapon"
+    },
+    {
+      "expertise": false,
+      "item": "longbow",
+      "source": {
+        "entity": "srd51.species.elf.high-elf",
+        "feature": "srd51.feature.high-elf.elf-weapon-training",
+        "package": "srd51"
+      },
+      "type": "weapon"
+    },
+    {
+      "expertise": false,
+      "item": "longsword",
+      "source": {
+        "entity": "srd51.species.elf.high-elf",
+        "feature": "srd51.feature.high-elf.elf-weapon-training",
+        "package": "srd51"
+      },
+      "type": "weapon"
+    },
+    {
+      "expertise": false,
+      "item": "mace",
+      "source": {
+        "entity": "srd51.class.druid",
+        "package": "srd51"
+      },
+      "type": "weapon"
+    },
+    {
+      "expertise": false,
+      "item": "quarterstaff",
+      "source": {
+        "entity": "srd51.class.druid",
+        "package": "srd51"
+      },
+      "type": "weapon"
+    },
+    {
+      "expertise": false,
+      "item": "scimitar",
+      "source": {
+        "entity": "srd51.class.druid",
+        "package": "srd51"
+      },
+      "type": "weapon"
+    },
+    {
+      "expertise": false,
+      "item": "shortbow",
+      "source": {
+        "entity": "srd51.species.elf.high-elf",
+        "feature": "srd51.feature.high-elf.elf-weapon-training",
+        "package": "srd51"
+      },
+      "type": "weapon"
+    },
+    {
+      "expertise": false,
+      "item": "shortsword",
+      "source": {
+        "entity": "srd51.species.elf.high-elf",
+        "feature": "srd51.feature.high-elf.elf-weapon-training",
+        "package": "srd51"
+      },
+      "type": "weapon"
+    },
+    {
+      "expertise": false,
+      "item": "sickle",
+      "source": {
+        "entity": "srd51.class.druid",
+        "package": "srd51"
+      },
+      "type": "weapon"
+    },
+    {
+      "expertise": false,
+      "item": "sling",
+      "source": {
+        "entity": "srd51.class.druid",
+        "package": "srd51"
+      },
+      "type": "weapon"
+    },
+    {
+      "expertise": false,
+      "item": "spear",
+      "source": {
+        "entity": "srd51.class.druid",
+        "package": "srd51"
+      },
+      "type": "weapon"
+    }
+  ],
+  "resources": [
+    {
+      "current": 2,
+      "display": "pips",
+      "id": "wild-shape",
+      "max": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "None"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 0
+          },
+          {
+            "applied": true,
+            "kind": "set",
+            "label": {
+              "en": "Wild Shape"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.class.druid",
+              "feature": "srd51.feature.druid.wild-shape",
+              "package": "srd51"
+            },
+            "value": 2
+          }
+        ],
+        "value": 2
+      },
+      "name": {
+        "en": "Wild Shape uses"
+      },
+      "recharge": [
+        {
+          "amount": "full",
+          "on": "short-rest"
+        },
+        {
+          "amount": "full",
+          "on": "long-rest"
+        }
+      ],
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.druid",
+        "feature": "srd51.feature.druid.wild-shape",
+        "package": "srd51"
+      }
+    },
+    {
+      "current": 1,
+      "display": "pips",
+      "id": "natural-recovery",
+      "max": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "None"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 0
+          },
+          {
+            "applied": true,
+            "kind": "set",
+            "label": {
+              "en": "Natural Recovery"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.subclass.druid.circle-of-the-land",
+              "feature": "srd51.feature.circle-of-the-land.natural-recovery",
+              "package": "srd51"
+            },
+            "value": 1
+          }
+        ],
+        "value": 1
+      },
+      "name": {
+        "en": "Natural Recovery"
+      },
+      "recharge": [
+        {
+          "amount": "full",
+          "on": "long-rest"
+        }
+      ],
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.subclass.druid.circle-of-the-land",
+        "feature": "srd51.feature.circle-of-the-land.natural-recovery",
+        "package": "srd51"
+      }
+    }
+  ],
+  "rollModifiers": [
+    {
+      "applied": true,
+      "kind": "advantage",
+      "on": {
+        "against": [
+          "charmed"
+        ],
+        "type": "save"
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.species.elf",
+        "feature": "srd51.feature.elf.fey-ancestry",
+        "package": "srd51"
+      }
+    },
+    {
+      "applied": true,
+      "kind": "advantage",
+      "on": {
+        "against": [
+          "plants that are magically created or manipulated to impede movement"
+        ],
+        "type": "save"
+      },
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.subclass.druid.circle-of-the-land",
+        "feature": "srd51.feature.circle-of-the-land.lands-stride",
+        "package": "srd51"
+      }
+    }
+  ],
+  "sections": [
+    "identity",
+    "core",
+    "abilities",
+    "saves",
+    "skills",
+    "senses",
+    "combat",
+    "attacks",
+    "actions",
+    "resources",
+    "spellcasting",
+    "spells",
+    "features",
+    "equipment",
+    "personality",
+    "conditions",
+    "notes",
+    "credits"
+  ],
+  "spellcasting": [
+    {
+      "ability": "wis",
+      "attackBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "Proficiency bonus"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.class.druid",
+              "feature": "srd51.feature.druid.spellcasting",
+              "package": "srd51"
+            },
+            "value": 4
+          },
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "WIS modifier"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.class.druid",
+              "feature": "srd51.feature.druid.spellcasting",
+              "package": "srd51"
+            },
+            "value": 5
+          }
+        ],
+        "value": 9
+      },
+      "cantripsKnown": 4,
+      "class": "srd51.class.druid",
+      "dc": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Base"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.class.druid",
+              "feature": "srd51.feature.druid.spellcasting",
+              "package": "srd51"
+            },
+            "value": 8
+          },
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "Proficiency bonus"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.class.druid",
+              "feature": "srd51.feature.druid.spellcasting",
+              "package": "srd51"
+            },
+            "value": 4
+          },
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "WIS modifier"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.class.druid",
+              "feature": "srd51.feature.druid.spellcasting",
+              "package": "srd51"
+            },
+            "value": 5
+          }
+        ],
+        "value": 17
+      },
+      "list": "srd51.spell-list.druid",
+      "preparation": "prepared",
+      "ritual": true,
+      "slots": [
+        {
+          "current": 4,
+          "level": 1,
+          "max": 4
+        },
+        {
+          "current": 3,
+          "level": 2,
+          "max": 3
+        },
+        {
+          "current": 3,
+          "level": 3,
+          "max": 3
+        },
+        {
+          "current": 3,
+          "level": 4,
+          "max": 3
+        },
+        {
+          "current": 2,
+          "level": 5,
+          "max": 2
+        },
+        {
+          "current": 1,
+          "level": 6,
+          "max": 1
+        }
+      ],
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.druid",
+        "feature": "srd51.feature.druid.spellcasting",
+        "package": "srd51"
+      }
+    }
+  ],
+  "spells": [
+    {
+      "ability": "wis",
+      "as": "cantrip",
+      "id": "srd51.spell.druidcraft",
+      "level": 0,
+      "name": {
+        "en": "Druidcraft"
+      },
+      "paidWith": {
+        "free": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.druid",
+        "feature": "srd51.feature.druid.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "wis",
+      "as": "cantrip",
+      "id": "srd51.spell.produce-flame",
+      "level": 0,
+      "name": {
+        "en": "Produce Flame"
+      },
+      "paidWith": {
+        "free": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.druid",
+        "feature": "srd51.feature.druid.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "wis",
+      "as": "cantrip",
+      "id": "srd51.spell.shillelagh",
+      "level": 0,
+      "name": {
+        "en": "Shillelagh"
+      },
+      "paidWith": {
+        "free": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.druid",
+        "feature": "srd51.feature.druid.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "wis",
+      "as": "cantrip",
+      "id": "srd51.spell.mending",
+      "level": 0,
+      "name": {
+        "en": "Mending"
+      },
+      "paidWith": {
+        "free": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.druid",
+        "feature": "srd51.feature.druid.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "wis",
+      "as": "prepared",
+      "id": "srd51.spell.cure-wounds",
+      "level": 1,
+      "name": {
+        "en": "Cure Wounds"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.druid",
+        "feature": "srd51.feature.druid.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "wis",
+      "as": "prepared",
+      "id": "srd51.spell.entangle",
+      "level": 1,
+      "name": {
+        "en": "Entangle"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.druid",
+        "feature": "srd51.feature.druid.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "wis",
+      "as": "prepared",
+      "id": "srd51.spell.healing-word",
+      "level": 1,
+      "name": {
+        "en": "Healing Word"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.druid",
+        "feature": "srd51.feature.druid.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "wis",
+      "as": "prepared",
+      "id": "srd51.spell.faerie-fire",
+      "level": 1,
+      "name": {
+        "en": "Faerie Fire"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.druid",
+        "feature": "srd51.feature.druid.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "wis",
+      "as": "prepared",
+      "id": "srd51.spell.goodberry",
+      "level": 1,
+      "name": {
+        "en": "Goodberry"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.druid",
+        "feature": "srd51.feature.druid.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "wis",
+      "as": "prepared",
+      "id": "srd51.spell.thunderwave",
+      "level": 1,
+      "name": {
+        "en": "Thunderwave"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.druid",
+        "feature": "srd51.feature.druid.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "wis",
+      "as": "prepared",
+      "id": "srd51.spell.longstrider",
+      "level": 1,
+      "name": {
+        "en": "Longstrider"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.druid",
+        "feature": "srd51.feature.druid.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "wis",
+      "as": "prepared",
+      "id": "srd51.spell.moonbeam",
+      "level": 2,
+      "name": {
+        "en": "Moonbeam"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.druid",
+        "feature": "srd51.feature.druid.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "wis",
+      "as": "prepared",
+      "id": "srd51.spell.flaming-sphere",
+      "level": 2,
+      "name": {
+        "en": "Flaming Sphere"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.druid",
+        "feature": "srd51.feature.druid.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "wis",
+      "as": "prepared",
+      "id": "srd51.spell.lesser-restoration",
+      "level": 2,
+      "name": {
+        "en": "Lesser Restoration"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.druid",
+        "feature": "srd51.feature.druid.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "wis",
+      "as": "prepared",
+      "id": "srd51.spell.heat-metal",
+      "level": 2,
+      "name": {
+        "en": "Heat Metal"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.druid",
+        "feature": "srd51.feature.druid.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "wis",
+      "as": "prepared",
+      "id": "srd51.spell.dispel-magic",
+      "level": 3,
+      "name": {
+        "en": "Dispel Magic"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.druid",
+        "feature": "srd51.feature.druid.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "wis",
+      "as": "prepared",
+      "id": "srd51.spell.conjure-animals",
+      "level": 3,
+      "name": {
+        "en": "Conjure Animals"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.druid",
+        "feature": "srd51.feature.druid.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "wis",
+      "as": "prepared",
+      "id": "srd51.spell.daylight",
+      "level": 3,
+      "name": {
+        "en": "Daylight"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.druid",
+        "feature": "srd51.feature.druid.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "wis",
+      "as": "prepared",
+      "id": "srd51.spell.polymorph",
+      "level": 4,
+      "name": {
+        "en": "Polymorph"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.druid",
+        "feature": "srd51.feature.druid.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "wis",
+      "as": "prepared",
+      "id": "srd51.spell.wall-of-fire",
+      "level": 4,
+      "name": {
+        "en": "Wall of Fire"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.druid",
+        "feature": "srd51.feature.druid.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "wis",
+      "as": "always-prepared",
+      "id": "srd51.spell.barkskin",
+      "level": 2,
+      "name": {
+        "en": "Barkskin"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.subclass.druid.circle-of-the-land",
+        "feature": "forest",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "wis",
+      "as": "always-prepared",
+      "id": "srd51.spell.spider-climb",
+      "level": 2,
+      "name": {
+        "en": "Spider Climb"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.subclass.druid.circle-of-the-land",
+        "feature": "forest",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "wis",
+      "as": "always-prepared",
+      "id": "srd51.spell.call-lightning",
+      "level": 3,
+      "name": {
+        "en": "Call Lightning"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.subclass.druid.circle-of-the-land",
+        "feature": "forest",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "wis",
+      "as": "always-prepared",
+      "id": "srd51.spell.plant-growth",
+      "level": 3,
+      "name": {
+        "en": "Plant Growth"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.subclass.druid.circle-of-the-land",
+        "feature": "forest",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "wis",
+      "as": "always-prepared",
+      "id": "srd51.spell.divination",
+      "level": 4,
+      "name": {
+        "en": "Divination"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 2,
+        "entity": "srd51.subclass.druid.circle-of-the-land",
+        "feature": "forest",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "wis",
+      "as": "always-prepared",
+      "id": "srd51.spell.freedom-of-movement",
+      "level": 4,
+      "name": {
+        "en": "Freedom of Movement"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 2,
+        "entity": "srd51.subclass.druid.circle-of-the-land",
+        "feature": "forest",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "wis",
+      "as": "always-prepared",
+      "id": "srd51.spell.commune-with-nature",
+      "level": 5,
+      "name": {
+        "en": "Commune with Nature"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 3,
+        "entity": "srd51.subclass.druid.circle-of-the-land",
+        "feature": "forest",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "wis",
+      "as": "always-prepared",
+      "id": "srd51.spell.tree-stride",
+      "level": 5,
+      "name": {
+        "en": "Tree Stride"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 3,
+        "entity": "srd51.subclass.druid.circle-of-the-land",
+        "feature": "forest",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "wis",
+      "as": "cantrip",
+      "id": "srd51.spell.fire-bolt",
+      "level": 0,
+      "name": {
+        "en": "Fire Bolt"
+      },
+      "paidWith": {
+        "free": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.species.elf.high-elf",
+        "feature": "srd51.feature.high-elf.cantrip",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "wis",
+      "as": "cantrip",
+      "id": "srd51.spell.guidance",
+      "level": 0,
+      "name": {
+        "en": "Guidance"
+      },
+      "paidWith": {
+        "free": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.subclass.druid.circle-of-the-land",
+        "feature": "srd51.feature.circle-of-the-land.bonus-cantrip",
+        "package": "srd51"
+      }
+    }
+  ],
+  "values": {
+    "ability.cha": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 10
+        }
+      ],
+      "value": 10
+    },
+    "ability.con": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 14
+        }
+      ],
+      "value": 14
+    },
+    "ability.dex": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 14
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Ability Score Increase"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.species.elf",
+            "feature": "srd51.feature.elf.ability-score-increase",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 16
+    },
+    "ability.int": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 11
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Ability Score Increase"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.species.elf.high-elf",
+            "feature": "srd51.feature.high-elf.ability-score-increase",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 12
+    },
+    "ability.str": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 8
+        }
+      ],
+      "value": 8
+    },
+    "ability.wis": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 20
+        }
+      ],
+      "value": 20
+    },
+    "ac": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Leather Armor"
+          },
+          "source": {
+            "entity": "srd51.item.leather-armor",
+            "package": ""
+          },
+          "value": 11
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 14
+    },
+    "attacks.perAction": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "One attack per Attack action"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "carry.capacity": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength score × 15"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 120
+        }
+      ],
+      "value": 120
+    },
+    "check.cha": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "check.con": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Constitution modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "check.dex": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 3
+    },
+    "check.int": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "check.str": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        }
+      ],
+      "value": -1
+    },
+    "check.wis": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 5
+    },
+    "hp.max": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "hitDie + mod(con)",
+          "kind": "base",
+          "label": {
+            "en": "Level 1 (Druid)"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "formula": "10 × (average(hitDie) + mod(con))",
+          "kind": "add",
+          "label": {
+            "en": "10 more levels (Druid)"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 70
+        }
+      ],
+      "value": 80
+    },
+    "initiative": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 3
+    },
+    "jump.high": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "3 + Strength modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "jump.long": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength score in feet"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 8
+        }
+      ],
+      "value": 8
+    },
+    "mod.cha": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "mod.con": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Constitution modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "mod.dex": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 3
+    },
+    "mod.int": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "mod.str": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Strength modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        }
+      ],
+      "value": -1
+    },
+    "mod.wis": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 5
+    },
+    "passive.acrobatics": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "acrobatics bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 13
+    },
+    "passive.animal-handling": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "animal-handling bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 15
+    },
+    "passive.arcana": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "arcana bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 11
+    },
+    "passive.athletics": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "athletics bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        }
+      ],
+      "value": 9
+    },
+    "passive.deception": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "deception bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 10
+    },
+    "passive.history": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "history bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 11
+    },
+    "passive.insight": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "insight bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 15
+    },
+    "passive.intimidation": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "intimidation bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 10
+    },
+    "passive.investigation": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "investigation bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 11
+    },
+    "passive.medicine": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "medicine bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 15
+    },
+    "passive.nature": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "nature bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 15
+    },
+    "passive.perception": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "perception bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 9
+        }
+      ],
+      "value": 19
+    },
+    "passive.performance": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "performance bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 10
+    },
+    "passive.persuasion": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "persuasion bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 10
+    },
+    "passive.religion": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "religion bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 11
+    },
+    "passive.sleight-of-hand": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "sleight-of-hand bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 13
+    },
+    "passive.stealth": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "stealth bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 13
+    },
+    "passive.survival": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "survival bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 9
+        }
+      ],
+      "value": 19
+    },
+    "proficiencyBonus": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Proficiency bonus by level"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 4
+        }
+      ],
+      "value": 4
+    },
+    "resource.natural-recovery.max": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "None"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        },
+        {
+          "applied": true,
+          "kind": "set",
+          "label": {
+            "en": "Natural Recovery"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.subclass.druid.circle-of-the-land",
+            "feature": "srd51.feature.circle-of-the-land.natural-recovery",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "resource.wild-shape.max": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "None"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        },
+        {
+          "applied": true,
+          "kind": "set",
+          "label": {
+            "en": "Wild Shape"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.class.druid",
+            "feature": "srd51.feature.druid.wild-shape",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "save.cha": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "save.con": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Constitution modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "save.dex": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 3
+    },
+    "save.int": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 4
+        }
+      ],
+      "value": 5
+    },
+    "save.str": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        }
+      ],
+      "value": -1
+    },
+    "save.wis": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 4
+        }
+      ],
+      "value": 9
+    },
+    "sense.darkvision": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "None"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        },
+        {
+          "applied": true,
+          "kind": "max",
+          "label": {
+            "en": "Darkvision"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.species.elf",
+            "feature": "srd51.feature.elf.darkvision",
+            "package": "srd51"
+          },
+          "value": 60
+        }
+      ],
+      "value": 60
+    },
+    "skill.acrobatics": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 3
+    },
+    "skill.animal-handling": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 5
+    },
+    "skill.arcana": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "skill.athletics": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        }
+      ],
+      "value": -1
+    },
+    "skill.deception": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "skill.history": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "skill.insight": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 5
+    },
+    "skill.intimidation": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "skill.investigation": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "skill.medicine": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 5
+    },
+    "skill.nature": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 4
+        }
+      ],
+      "value": 5
+    },
+    "skill.perception": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 4
+        }
+      ],
+      "value": 9
+    },
+    "skill.performance": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "skill.persuasion": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "skill.religion": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "skill.sleight-of-hand": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 3
+    },
+    "skill.stealth": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 3
+    },
+    "skill.survival": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 4
+        }
+      ],
+      "value": 9
+    },
+    "speed.walk": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Species speed"
+          },
+          "source": {
+            "entity": "srd51.species.elf",
+            "package": ""
+          },
+          "value": 30
+        }
+      ],
+      "value": 30
+    }
+  },
+  "warnings": []
+}
+

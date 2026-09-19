@@ -1,0 +1,62 @@
+# Half-orc Barbarian 11, Path of the Berserker, raging. Base str 15, dex 14, con 14, int 8, wis 10, cha 12;
+# half-orc +2 STR +1 CON; ASI 4 +2 STR; ASI 8 spent on the Grappler feat → STR 19, DEX 14, CON 15, INT 8, WIS 10, CHA 12.
+# Modifiers: str +4, dex +2, con +2, int -1, wis 0, cha +1. Proficiency bonus at level 11: +4.
+values:
+  ability.str: 19          # 15 + 2 (half-orc) + 2 (ASI 4); ASI 8 is the feat
+  ability.dex: 14
+  ability.con: 15
+  ability.int: 8
+  ability.wis: 10
+  ability.cha: 12
+  proficiencyBonus: 4
+  hp.max: 104              # level 1: 12 + 2 = 14; levels 2-11: 10 × (7 + 2) = 90
+  ac: 14                   # Unarmored Defense: 10 + DEX 2 + CON 2
+  initiative: 2
+  speed.walk: 40           # 30 + Fast Movement 10
+  sense.darkvision: 60
+  attacks.perAction: 2
+  save.str: 8              # 4 + 4
+  save.dex: 2
+  save.con: 6              # 2 + 4
+  save.int: -1
+  save.wis: 0
+  save.cha: 1
+  skill.athletics: 8       # 4 + 4
+  skill.survival: 4        # 0 + 4
+  skill.intimidation: 5    # 1 + 4
+  skill.perception: 0
+  passive.perception: 10
+  damage.melee.bonus: 3    # Rage Damage while raging: table(barbarian.rage-damage-bonus) row 9 = 3
+resources:
+  rage: { max: 4, recharge: [long-rest] }                   # table(barbarian.rage-count) row 6 = 4 (row 12 is 5)
+  relentless-rage: { max: .inf, recharge: [short-rest, long-rest] }  # counter of uses since the last rest
+  relentless-endurance: { max: 1, recharge: [long-rest] }
+actions:
+  rage: { activation: bonus-action, cost: { rage: 1 } }
+  reckless-attack: { activation: free }
+  frenzy-attack: { activation: bonus-action }
+  intimidating-presence: { activation: action }             # Berserker 10
+  relentless-endurance: { activation: special, cost: { relentless-endurance: 1 } }
+attacks:
+  greataxe: { toHit: 8, damage: "1d12 + 7", type: slashing }   # STR 4 + prof 4; 1d12 + STR 4 + Rage 3
+  javelin: { toHit: 8, damage: "1d6 + 7", type: piercing }     # melee weapon attack with STR: rage bonus applies
+  unarmed-strike: { toHit: 8, damage: "8", type: bludgeoning } # 1 + 4 + 3 (an unarmed strike is a melee weapon attack)
+features:
+  - srd51.feature.barbarian.extra-attack
+  - srd51.feature.barbarian.feral-instinct
+  - srd51.feature.barbarian.brutal-critical
+  - srd51.feature.barbarian.relentless-rage
+  - srd51.feature.path-of-the-berserker.frenzy
+  - srd51.feature.path-of-the-berserker.mindless-rage
+  - srd51.feature.path-of-the-berserker.intimidating-presence
+  - srd51.feat.grappler
+choices:
+  "srd51.class.barbarian#skills": answered
+  "srd51.class.barbarian#primal-path": answered
+  "srd51.class.barbarian#asi-4": answered
+  "srd51.class.barbarian#asi-8": answered
+proficiencies: [save:str, save:con, skill:athletics, skill:survival, skill:intimidation, weapon:simple, weapon:martial]
+sections:
+  active: [core, abilities, saves, skills, senses, combat, attacks, actions, resources, features]
+  inactive: [spellcasting, spells]
+warnings: []

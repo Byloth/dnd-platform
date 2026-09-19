@@ -1,0 +1,4247 @@
+{
+  "actions": [
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [
+        {
+          "amount": 1,
+          "resource": "breath-weapon"
+        }
+      ],
+      "dc": {
+        "provenance": [
+          {
+            "applied": true,
+            "formula": "8 + mod(con) + proficiencyBonus",
+            "kind": "base",
+            "label": {
+              "en": "Save DC"
+            },
+            "source": {
+              "package": "srd51"
+            },
+            "value": 16
+          }
+        ],
+        "value": 16
+      },
+      "id": "breath-weapon",
+      "name": {
+        "en": "Breath Weapon"
+      },
+      "onUse": [
+        {
+          "kind": "note",
+          "text": {
+            "en": "Area, save ability and damage type follow your Draconic Ancestry: black/blue/brass/bronze/copper 5 by 30 ft. line (Dex. save); gold/red 15 ft. cone (Dex. save); green/silver/white 15 ft. cone (Con. save). Damage: 2d6, 3d6 at 6th level, 4d6 at 11th, 5d6 at 16th."
+          }
+        }
+      ],
+      "rolls": [
+        {
+          "bonus": {
+            "provenance": [
+              {
+                "applied": true,
+                "formula": "0",
+                "kind": "base",
+                "label": {
+                  "en": "Roll bonus"
+                },
+                "source": {
+                  "effectIndex": 1,
+                  "entity": "srd51.species.dragonborn",
+                  "feature": "srd51.feature.dragonborn.breath-weapon",
+                  "package": "srd51"
+                },
+                "value": 0
+              }
+            ],
+            "value": 0
+          },
+          "onSuccess": "half",
+          "type": "save"
+        },
+        {
+          "bonus": {
+            "provenance": [
+              {
+                "applied": true,
+                "formula": "0",
+                "kind": "base",
+                "label": {
+                  "en": "Roll bonus"
+                },
+                "source": {
+                  "effectIndex": 1,
+                  "entity": "srd51.species.dragonborn",
+                  "feature": "srd51.feature.dragonborn.breath-weapon",
+                  "package": "srd51"
+                },
+                "value": 0
+              }
+            ],
+            "value": 0
+          },
+          "dice": "2d6",
+          "type": "damage"
+        }
+      ],
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.species.dragonborn",
+        "feature": "srd51.feature.dragonborn.breath-weapon",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You exhale destructive energy in the area determined by your draconic ancestry. Each creature in the area must make a saving throw (DC 8 + your Constitution modifier + your proficiency bonus), taking 2d6 damage on a failed save and half as much on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level."
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [
+        {
+          "amount": 1,
+          "resource": "divine-sense"
+        }
+      ],
+      "id": "divine-sense",
+      "name": {
+        "en": "Divine Sense"
+      },
+      "onUse": [
+        {
+          "kind": "note",
+          "text": {
+            "en": "Until the end of your next turn, sense celestials, fiends and undead within 60 feet (not behind total cover) and consecrated or desecrated places or objects."
+          }
+        }
+      ],
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.class.paladin",
+        "feature": "srd51.feature.paladin.divine-sense",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "As an action, you open your awareness. Until the end of your next turn, you know the location of any celestial, fiend, or undead within 60 feet of you that is not behind total cover, and its type (celestial, fiend, or undead) but not its identity. Within the same radius, you also detect any place or object that has been consecrated or desecrated, as with the hallow spell."
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [
+        {
+          "amount": 1,
+          "resource": "lay-on-hands"
+        }
+      ],
+      "id": "lay-on-hands",
+      "name": {
+        "en": "Lay on Hands"
+      },
+      "onUse": [
+        {
+          "amount": "1",
+          "kind": "heal",
+          "note": {
+            "en": "You choose how many points to spend; each point spent from the pool restores 1 hit point, up to the amount remaining in the pool. The cost of 1 is the minimum, not the amount."
+          },
+          "target": "other"
+        }
+      ],
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.class.paladin",
+        "feature": "srd51.feature.paladin.lay-on-hands",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Touch a creature and draw power from your pool to restore a number of hit points to that creature, up to the maximum amount remaining in your pool. This feature has no effect on undead and constructs."
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [
+        {
+          "amount": 5,
+          "resource": "lay-on-hands"
+        }
+      ],
+      "id": "lay-on-hands-cure",
+      "name": {
+        "en": "Lay on Hands (cure disease or poison)"
+      },
+      "onUse": [
+        {
+          "kind": "note",
+          "text": {
+            "en": "Cure one disease or neutralize one poison affecting the touched creature (5 points each; repeat within the same action for additional diseases or poisons)."
+          }
+        }
+      ],
+      "source": {
+        "effectIndex": 2,
+        "entity": "srd51.class.paladin",
+        "feature": "srd51.feature.paladin.lay-on-hands",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Expend 5 hit points from your pool of healing to cure the target of one disease or neutralize one poison affecting it. You can cure multiple diseases and neutralize multiple poisons with a single use of Lay on Hands, expending hit points separately for each one. This feature has no effect on undead and constructs."
+      }
+    },
+    {
+      "activation": "special",
+      "available": true,
+      "cost": [
+        {
+          "level": 1,
+          "resource": "spell-slot"
+        }
+      ],
+      "id": "divine-smite",
+      "name": {
+        "en": "Divine Smite"
+      },
+      "onHit": [
+        {
+          "damageType": "radiant",
+          "dice": "2d8",
+          "kind": "extraDamage",
+          "note": {
+            "en": "2d8 for a 1st-level slot, plus 1d8 per slot level above 1st (maximum 5d8); +1d8 if the target is an undead or a fiend."
+          }
+        }
+      ],
+      "requires": {
+        "condition": {
+          "wielding": {
+            "melee": true
+          }
+        }
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.paladin",
+        "feature": "srd51.feature.paladin.divine-smite",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "When you hit a creature with a melee weapon attack, you can expend one spell slot to deal radiant damage to the target, in addition to the weapon's damage. The extra damage is 2d8 for a 1st-level spell slot, plus 1d8 for each spell level higher than 1st, to a maximum of 5d8. The damage increases by 1d8 if the target is an undead or a fiend."
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [
+        {
+          "amount": 1,
+          "resource": "cleansing-touch"
+        }
+      ],
+      "id": "cleansing-touch",
+      "name": {
+        "en": "Cleansing Touch"
+      },
+      "onUse": [
+        {
+          "kind": "note",
+          "text": {
+            "en": "End one spell on yourself or on one willing creature you touch."
+          }
+        }
+      ],
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.class.paladin",
+        "feature": "srd51.feature.paladin.cleansing-touch",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Use your action to end one spell on yourself or on one willing creature that you touch."
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [
+        {
+          "amount": 1,
+          "resource": "channel-divinity"
+        }
+      ],
+      "id": "sacred-weapon",
+      "name": {
+        "en": "Channel Divinity: Sacred Weapon"
+      },
+      "onUse": [
+        {
+          "kind": "note",
+          "text": {
+            "en": "Choose the weapon. It sheds bright light in a 20-foot radius and dim light 20 feet beyond. The effect ends early if you stop holding or carrying the weapon or fall unconscious."
+          }
+        }
+      ],
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.subclass.paladin.oath-of-devotion",
+        "feature": "srd51.feature.oath-of-devotion.channel-divinity",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Imbue one weapon that you are holding with positive energy. For 1 minute, you add your Charisma modifier to attack rolls made with that weapon (with a minimum bonus of +1). The weapon also emits bright light in a 20-foot radius and dim light 20 feet beyond that. If the weapon is not already magical, it becomes magical for the duration. You can end this effect on your turn as part of any other action. If you are no longer holding or carrying this weapon, or if you fall unconscious, this effect ends."
+      },
+      "toggle": "sacred-weapon"
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [
+        {
+          "amount": 1,
+          "resource": "channel-divinity"
+        }
+      ],
+      "dc": {
+        "provenance": [
+          {
+            "applied": true,
+            "formula": "8 + proficiencyBonus + mod(cha)",
+            "kind": "base",
+            "label": {
+              "en": "Save DC"
+            },
+            "source": {
+              "package": "srd51"
+            },
+            "value": 18
+          }
+        ],
+        "value": 18
+      },
+      "id": "turn-the-unholy",
+      "name": {
+        "en": "Channel Divinity: Turn the Unholy"
+      },
+      "onUse": [
+        {
+          "kind": "note",
+          "text": {
+            "en": "Each fiend or undead within 30 feet that can see or hear you makes a Wisdom saving throw against your paladin spell save DC; on a failure it is turned for 1 minute or until it takes damage."
+          }
+        }
+      ],
+      "rolls": [
+        {
+          "ability": "wis",
+          "bonus": {
+            "provenance": [
+              {
+                "applied": true,
+                "formula": "mod(wis)",
+                "kind": "base",
+                "label": {
+                  "en": "Roll bonus"
+                },
+                "source": {
+                  "effectIndex": 2,
+                  "entity": "srd51.subclass.paladin.oath-of-devotion",
+                  "feature": "srd51.feature.oath-of-devotion.channel-divinity",
+                  "package": "srd51"
+                },
+                "value": 2
+              }
+            ],
+            "value": 2
+          },
+          "dc": {
+            "provenance": [
+              {
+                "applied": true,
+                "formula": "8 + proficiencyBonus + mod(cha)",
+                "kind": "base",
+                "label": {
+                  "en": "Save DC"
+                },
+                "source": {
+                  "package": "srd51"
+                },
+                "value": 18
+              }
+            ],
+            "value": 18
+          },
+          "type": "save"
+        }
+      ],
+      "source": {
+        "effectIndex": 2,
+        "entity": "srd51.subclass.paladin.oath-of-devotion",
+        "feature": "srd51.feature.oath-of-devotion.channel-divinity",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Present your holy symbol and speak a prayer censuring fiends and undead. Each fiend or undead that can see or hear you within 30 feet of you must make a Wisdom saving throw. If the creature fails its saving throw, it is turned for 1 minute or until it takes damage. A turned creature must spend its turns trying to move as far away from you as it can, and it can't willingly move to a space within 30 feet of you. It also can't take reactions. For its action, it can use only the Dash action or try to escape from an effect that prevents it from moving. If there's nowhere to move, the creature can use the Dodge action."
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [
+        {
+          "amount": 1,
+          "resource": "holy-nimbus"
+        }
+      ],
+      "id": "holy-nimbus",
+      "name": {
+        "en": "Holy Nimbus"
+      },
+      "onUse": [
+        {
+          "kind": "note",
+          "text": {
+            "en": "For 1 minute, each enemy that starts its turn in the bright light (30-foot radius) takes 10 radiant damage."
+          }
+        }
+      ],
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.subclass.paladin.oath-of-devotion",
+        "feature": "srd51.feature.oath-of-devotion.holy-nimbus",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Emanate an aura of sunlight. For 1 minute, bright light shines from you in a 30-foot radius, and dim light shines 30 feet beyond that. Whenever an enemy creature starts its turn in the bright light, the creature takes 10 radiant damage. In addition, for the duration, you have advantage on saving throws against spells cast by fiends or undead."
+      },
+      "toggle": "holy-nimbus"
+    }
+  ],
+  "attacks": [
+    {
+      "ability": "str",
+      "attackBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Strength modifier"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 5
+          },
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "Proficiency bonus"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 6
+          },
+          {
+            "applied": false,
+            "kind": "add",
+            "label": {
+              "en": "Channel Divinity"
+            },
+            "source": {
+              "effectIndex": 1,
+              "entity": "srd51.subclass.paladin.oath-of-devotion",
+              "feature": "srd51.feature.oath-of-devotion.channel-divinity",
+              "package": "srd51"
+            },
+            "value": 0
+          }
+        ],
+        "value": 11
+      },
+      "critRange": 20,
+      "damage": "1d8 + 5",
+      "damageBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Strength modifier"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 5
+          }
+        ],
+        "value": 5
+      },
+      "damageDice": "1d8",
+      "damageType": "slashing",
+      "extraDamage": [
+        {
+          "damageType": "radiant",
+          "dice": "1d8",
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.class.paladin",
+            "feature": "srd51.feature.paladin.improved-divine-smite",
+            "package": "srd51"
+          }
+        }
+      ],
+      "id": "longsword",
+      "item": "srd51.item.longsword",
+      "magical": false,
+      "name": {
+        "en": "Longsword"
+      },
+      "proficient": true,
+      "ranged": false,
+      "unarmed": false
+    },
+    {
+      "ability": "str",
+      "attackBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Strength modifier"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 5
+          },
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "Proficiency bonus"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 6
+          },
+          {
+            "applied": false,
+            "kind": "add",
+            "label": {
+              "en": "Channel Divinity"
+            },
+            "source": {
+              "effectIndex": 1,
+              "entity": "srd51.subclass.paladin.oath-of-devotion",
+              "feature": "srd51.feature.oath-of-devotion.channel-divinity",
+              "package": "srd51"
+            },
+            "value": 0
+          }
+        ],
+        "value": 11
+      },
+      "critRange": 20,
+      "damage": "1d10 + 5",
+      "damageBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Strength modifier"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 5
+          }
+        ],
+        "value": 5
+      },
+      "damageDice": "1d10",
+      "damageType": "slashing",
+      "extraDamage": [
+        {
+          "damageType": "radiant",
+          "dice": "1d8",
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.class.paladin",
+            "feature": "srd51.feature.paladin.improved-divine-smite",
+            "package": "srd51"
+          }
+        }
+      ],
+      "id": "longsword-two-handed",
+      "item": "srd51.item.longsword",
+      "magical": false,
+      "name": {
+        "en": "Longsword (two-handed)"
+      },
+      "proficient": true,
+      "ranged": false,
+      "unarmed": false
+    },
+    {
+      "ability": "str",
+      "attackBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Strength modifier"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 5
+          },
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "Proficiency bonus"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 6
+          },
+          {
+            "applied": false,
+            "kind": "add",
+            "label": {
+              "en": "Channel Divinity"
+            },
+            "source": {
+              "effectIndex": 1,
+              "entity": "srd51.subclass.paladin.oath-of-devotion",
+              "feature": "srd51.feature.oath-of-devotion.channel-divinity",
+              "package": "srd51"
+            },
+            "value": 0
+          }
+        ],
+        "value": 11
+      },
+      "critRange": 20,
+      "damage": "6",
+      "damageBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Strength modifier"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 5
+          }
+        ],
+        "value": 5
+      },
+      "damageDice": "1",
+      "damageType": "bludgeoning",
+      "extraDamage": [
+        {
+          "damageType": "radiant",
+          "dice": "1d8",
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.class.paladin",
+            "feature": "srd51.feature.paladin.improved-divine-smite",
+            "package": "srd51"
+          }
+        }
+      ],
+      "id": "unarmed-strike",
+      "magical": false,
+      "name": {
+        "en": "Unarmed strike"
+      },
+      "proficient": true,
+      "ranged": false,
+      "unarmed": true
+    }
+  ],
+  "choices": [
+    {
+      "answered": true,
+      "answers": [
+        "athletics",
+        "persuasion"
+      ],
+      "choice": "skills",
+      "count": 2,
+      "key": "srd51.class.paladin#skills",
+      "of": "skill",
+      "options": [
+        "athletics",
+        "insight",
+        "intimidation",
+        "medicine",
+        "persuasion",
+        "religion"
+      ],
+      "owner": "srd51.class.paladin"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "srd51.subclass.paladin.oath-of-devotion"
+      ],
+      "choice": "sacred-oath",
+      "count": 1,
+      "key": "srd51.class.paladin#sacred-oath",
+      "level": 3,
+      "of": "subclass",
+      "options": [],
+      "owner": "srd51.class.paladin"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "asi"
+      ],
+      "choice": "asi-4",
+      "count": 1,
+      "key": "srd51.class.paladin#asi-4",
+      "level": 4,
+      "of": "asi-or-feat",
+      "options": [],
+      "owner": "srd51.class.paladin"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "asi"
+      ],
+      "choice": "asi-8",
+      "count": 1,
+      "key": "srd51.class.paladin#asi-8",
+      "level": 8,
+      "of": "asi-or-feat",
+      "options": [],
+      "owner": "srd51.class.paladin"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "asi"
+      ],
+      "choice": "asi-12",
+      "count": 1,
+      "key": "srd51.class.paladin#asi-12",
+      "level": 12,
+      "of": "asi-or-feat",
+      "options": [],
+      "owner": "srd51.class.paladin"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "asi"
+      ],
+      "choice": "asi-16",
+      "count": 1,
+      "key": "srd51.class.paladin#asi-16",
+      "level": 16,
+      "of": "asi-or-feat",
+      "options": [],
+      "owner": "srd51.class.paladin"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "asi"
+      ],
+      "choice": "asi-19",
+      "count": 1,
+      "key": "srd51.class.paladin#asi-19",
+      "level": 19,
+      "of": "asi-or-feat",
+      "options": [],
+      "owner": "srd51.class.paladin"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "gold"
+      ],
+      "choice": "draconic-ancestry",
+      "count": 1,
+      "key": "srd51.feature.dragonborn.draconic-ancestry#draconic-ancestry",
+      "of": "option",
+      "options": [
+        "black",
+        "blue",
+        "brass",
+        "bronze",
+        "copper",
+        "gold",
+        "green",
+        "red",
+        "silver",
+        "white"
+      ],
+      "owner": "srd51.feature.dragonborn.draconic-ancestry"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "defense"
+      ],
+      "choice": "fighting-style",
+      "count": 1,
+      "key": "srd51.feature.paladin.fighting-style#fighting-style",
+      "of": "fighting-style",
+      "options": [
+        "defense",
+        "dueling",
+        "great-weapon-fighting",
+        "protection"
+      ],
+      "owner": "srd51.feature.paladin.fighting-style"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "srd51.spell.bless",
+        "srd51.spell.cure-wounds",
+        "srd51.spell.divine-favor",
+        "srd51.spell.shield-of-faith",
+        "srd51.spell.command",
+        "srd51.spell.heroism",
+        "srd51.spell.magic-weapon",
+        "srd51.spell.aid",
+        "srd51.spell.branding-smite",
+        "srd51.spell.revivify",
+        "srd51.spell.daylight",
+        "srd51.spell.death-ward",
+        "srd51.spell.banishment",
+        "srd51.spell.raise-dead"
+      ],
+      "choice": "spells",
+      "count": 14,
+      "key": "srd51.class.paladin#spells",
+      "of": "spell",
+      "options": [],
+      "owner": "srd51.class.paladin"
+    }
+  ],
+  "classes": [
+    {
+      "class": "srd51.class.paladin",
+      "levels": 20,
+      "subclass": "srd51.subclass.paladin.oath-of-devotion"
+    }
+  ],
+  "defenses": [
+    {
+      "defense": "resistance",
+      "source": {
+        "effectIndex": 5,
+        "entity": "srd51.species.dragonborn",
+        "feature": "srd51.feature.dragonborn.damage-resistance",
+        "package": "srd51"
+      },
+      "to": [
+        "fire"
+      ]
+    },
+    {
+      "defense": "immunity",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.paladin",
+        "feature": "srd51.feature.paladin.divine-health",
+        "package": "srd51"
+      },
+      "to": [
+        "disease"
+      ]
+    },
+    {
+      "defense": "condition-immunity",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.paladin",
+        "feature": "srd51.feature.paladin.aura-of-courage",
+        "package": "srd51"
+      },
+      "to": [
+        "srd51.condition.frightened"
+      ]
+    },
+    {
+      "defense": "condition-immunity",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.subclass.paladin.oath-of-devotion",
+        "feature": "srd51.feature.oath-of-devotion.aura-of-devotion",
+        "package": "srd51"
+      },
+      "to": [
+        "srd51.condition.charmed"
+      ]
+    }
+  ],
+  "features": [
+    {
+      "id": "srd51.feature.dragonborn.ability-score-increase",
+      "name": {
+        "en": "Ability Score Increase"
+      },
+      "origin": "species",
+      "owner": "srd51.species.dragonborn",
+      "source": {
+        "entity": "srd51.species.dragonborn",
+        "feature": "srd51.feature.dragonborn.ability-score-increase",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Your Strength score increases by 2, and your Charisma score increases by 1."
+      }
+    },
+    {
+      "id": "srd51.feature.dragonborn.speed",
+      "name": {
+        "en": "Speed"
+      },
+      "origin": "species",
+      "owner": "srd51.species.dragonborn",
+      "source": {
+        "entity": "srd51.species.dragonborn",
+        "feature": "srd51.feature.dragonborn.speed",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Your base walking speed is 30 feet."
+      }
+    },
+    {
+      "id": "srd51.feature.dragonborn.age",
+      "name": {
+        "en": "Age"
+      },
+      "origin": "species",
+      "owner": "srd51.species.dragonborn",
+      "source": {
+        "entity": "srd51.species.dragonborn",
+        "feature": "srd51.feature.dragonborn.age",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Young dragonborn grow quickly. They walk hours after hatching, attain the size and development of a 10-year-old human child by the age of 3, and reach adulthood by 15. They live to be around 80."
+      }
+    },
+    {
+      "id": "srd51.feature.dragonborn.alignment",
+      "name": {
+        "en": "Alignment"
+      },
+      "origin": "species",
+      "owner": "srd51.species.dragonborn",
+      "source": {
+        "entity": "srd51.species.dragonborn",
+        "feature": "srd51.feature.dragonborn.alignment",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Dragonborn tend to extremes, making a conscious choice for one side or the other in the cosmic war between good and evil. Most dragonborn are good, but those who side with evil can be terrible villains."
+      }
+    },
+    {
+      "id": "srd51.feature.dragonborn.size",
+      "name": {
+        "en": "Size"
+      },
+      "origin": "species",
+      "owner": "srd51.species.dragonborn",
+      "source": {
+        "entity": "srd51.species.dragonborn",
+        "feature": "srd51.feature.dragonborn.size",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Dragonborn are taller and heavier than humans, standing well over 6 feet tall and averaging almost 250 pounds. Your size is Medium."
+      }
+    },
+    {
+      "id": "srd51.feature.dragonborn.languages",
+      "name": {
+        "en": "Languages"
+      },
+      "origin": "species",
+      "owner": "srd51.species.dragonborn",
+      "source": {
+        "entity": "srd51.species.dragonborn",
+        "feature": "srd51.feature.dragonborn.languages",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You can speak, read, and write Common and Draconic. Draconic is thought to be one of the oldest languages and is often used in the study of magic. The language sounds harsh to most other creatures and includes numerous hard consonants and sibilants."
+      }
+    },
+    {
+      "id": "srd51.feature.dragonborn.draconic-ancestry-table",
+      "name": {
+        "en": "Draconic Ancestry table"
+      },
+      "origin": "species",
+      "owner": "srd51.species.dragonborn",
+      "source": {
+        "entity": "srd51.species.dragonborn",
+        "feature": "srd51.feature.dragonborn.draconic-ancestry-table",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "| Dragon       | Damage Type       | Breath Weapon                |\n|--------------|-------------------|------------------------------|\n| Black        | Acid              | 5 by 30 ft. line (Dex. save) |\n| Blue         | Lightning         | 5 by 30 ft. line (Dex. save) |\n| Brass        | Fire              | 5 by 30 ft. line (Dex. save) |\n| Bronze       | Lightning         | 5 by 30 ft. line (Dex. save) |\n| Copper       | Acid              | 5 by 30 ft. line (Dex. save) |\n| Gold         | Fire              | 15 ft. cone (Dex. save)      |\n| Green        | Poison            | 15 ft. cone (Con. save)      |\n| Red          | Fire              | 15 ft. cone (Dex. save)      |\n| Silver       | Cold              | 15 ft. cone (Con. save)      |\n| White        | Cold              | 15 ft. cone (Con. save)      |"
+      }
+    },
+    {
+      "id": "srd51.feature.dragonborn.draconic-ancestry",
+      "name": {
+        "en": "Draconic Ancestry"
+      },
+      "origin": "species",
+      "owner": "srd51.species.dragonborn",
+      "source": {
+        "entity": "srd51.species.dragonborn",
+        "feature": "srd51.feature.dragonborn.draconic-ancestry",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You have draconic ancestry. Choose one type of dragon from the Draconic Ancestry table. Your breath weapon and damage resistance are determined by the dragon type, as shown in the table."
+      }
+    },
+    {
+      "id": "srd51.feature.dragonborn.breath-weapon",
+      "name": {
+        "en": "Breath Weapon"
+      },
+      "origin": "species",
+      "owner": "srd51.species.dragonborn",
+      "source": {
+        "entity": "srd51.species.dragonborn",
+        "feature": "srd51.feature.dragonborn.breath-weapon",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You can use your action to exhale destructive energy. Your draconic ancestry determines the size, shape, and damage type of the exhalation.\nWhen you use your breath weapon, each creature in the area of the exhalation must make a saving throw, the type of which is determined by your draconic ancestry. The DC for this saving throw equals 8 + your Constitution modifier + your proficiency bonus. A creature takes 2d6 damage on a failed save, and half as much damage on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level."
+      }
+    },
+    {
+      "id": "srd51.feature.dragonborn.damage-resistance",
+      "name": {
+        "en": "Damage Resistance"
+      },
+      "origin": "species",
+      "owner": "srd51.species.dragonborn",
+      "source": {
+        "entity": "srd51.species.dragonborn",
+        "feature": "srd51.feature.dragonborn.damage-resistance",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You have resistance to the damage type associated with your draconic ancestry."
+      }
+    },
+    {
+      "id": "srd51.feature.paladin.divine-sense",
+      "level": 1,
+      "name": {
+        "en": "Divine Sense"
+      },
+      "origin": "class",
+      "owner": "srd51.class.paladin",
+      "source": {
+        "entity": "srd51.class.paladin",
+        "feature": "srd51.feature.paladin.divine-sense",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "The presence of strong evil registers on your senses like a noxious odor, and powerful good rings like heavenly music in your ears. As an action, you can open your awareness to detect such forces. Until the end of your next turn, you know the location of any celestial, fiend, or undead within 60 feet of you that is not behind total cover. You know the type (celestial, fiend, or undead) of any being whose presence you sense, but not its identity (the vampire Count Strahd von Zarovich, for instance). Within the same radius, you also detect the presence of any place or object that has been consecrated or desecrated, as with the hallow spell.\n\nYou can use this feature a number of times equal to 1 + your Charisma modifier. When you finish a long rest, you regain all expended uses."
+      }
+    },
+    {
+      "id": "srd51.feature.paladin.lay-on-hands",
+      "level": 1,
+      "name": {
+        "en": "Lay on Hands"
+      },
+      "origin": "class",
+      "owner": "srd51.class.paladin",
+      "source": {
+        "entity": "srd51.class.paladin",
+        "feature": "srd51.feature.paladin.lay-on-hands",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Your blessed touch can heal wounds. You have a pool of healing power that replenishes when you take a long rest. With that pool, you can restore a total number of hit points equal to your paladin level × 5.\n\nAs an action, you can touch a creature and draw power from the pool to restore a number of hit points to that creature, up to the maximum amount remaining in your pool.\n\nAlternatively, you can expend 5 hit points from your pool of healing to cure the target of one disease or neutralize one poison affecting it. You can cure multiple diseases and neutralize multiple poisons with a single use of Lay on Hands, expending hit points separately for each one.\n\nThis feature has no effect on undead and constructs."
+      }
+    },
+    {
+      "id": "srd51.feature.paladin.divine-smite",
+      "level": 2,
+      "name": {
+        "en": "Divine Smite"
+      },
+      "origin": "class",
+      "owner": "srd51.class.paladin",
+      "source": {
+        "entity": "srd51.class.paladin",
+        "feature": "srd51.feature.paladin.divine-smite",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Starting at 2nd level, when you hit a creature with a melee weapon attack, you can expend one spell slot to deal radiant damage to the target, in addition to the weapon's damage. The extra damage is 2d8 for a 1st-level spell slot, plus 1d8 for each spell level higher than 1st, to a maximum of 5d8. The damage increases by 1d8 if the target is an undead or a fiend."
+      }
+    },
+    {
+      "id": "srd51.feature.paladin.fighting-style",
+      "level": 2,
+      "name": {
+        "en": "Fighting Style"
+      },
+      "origin": "class",
+      "owner": "srd51.class.paladin",
+      "source": {
+        "entity": "srd51.class.paladin",
+        "feature": "srd51.feature.paladin.fighting-style",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "At 2nd level, you adopt a style of fighting as your specialty. Choose one of the following options. You can't take a Fighting Style option more than once, even if you later get to choose again.\n\n### Defense\n\nWhile you are wearing armor, you gain a +1 bonus to AC.\n\n### Dueling\n\nWhen you are wielding a melee weapon in one hand and no other weapons, you gain a +2 bonus to damage rolls with that weapon.\n\n### Great Weapon Fighting\n\nWhen you roll a 1 or 2 on a damage die for an attack you make with a melee weapon that you are wielding with two hands, you can reroll the die and must use the new roll. The weapon must have the two-handed or versatile property for you to gain this benefit.\n\n### Protection\n\nWhen a creature you can see attacks a target other than you that is within 5 feet of you, you can use your reaction to impose disadvantage on the attack roll. You must be wielding a shield."
+      }
+    },
+    {
+      "id": "srd51.feature.paladin.spellcasting",
+      "level": 2,
+      "name": {
+        "en": "Spellcasting"
+      },
+      "origin": "class",
+      "owner": "srd51.class.paladin",
+      "source": {
+        "entity": "srd51.class.paladin",
+        "feature": "srd51.feature.paladin.spellcasting",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "By 2nd level, you have learned to draw on divine magic through meditation and prayer to cast spells as a cleric does.\n\n### Preparing and Casting Spells\n\nThe Paladin table shows how many spell slots you have to cast your spells. To cast one of your paladin spells of 1st level or higher, you must expend a slot of the spell's level or higher. You regain all expended spell slots when you finish a long rest.\n\nYou prepare the list of paladin spells that are available for you to cast, choosing from the paladin spell list. When you do so, choose a number of paladin spells equal to your Charisma modifier + half your paladin level, rounded down (minimum of one spell). The spells must be of a level for which you have spell slots.\n\nFor example, if you are a 5th-level paladin, you have four 1st-level and two 2nd-level spell slots. With a Charisma of 14, your list of prepared spells can include four spells of 1st or 2nd level, in any combination. If you prepare the 1st-level spell cure wounds, you can cast it using a 1st-level or a 2nd- level slot. Casting the spell doesn't remove it from your list of prepared spells.\n\nYou can change your list of prepared spells when you finish a long rest. Preparing a new list of paladin spells requires time spent in prayer and meditation: at least 1 minute per spell level for each spell on your list.\n\n### Spellcasting Ability\n\nCharisma is your spellcasting ability for your paladin spells, since their power derives from the strength of your convictions. You use your Charisma whenever a spell refers to your spellcasting ability. In addition, you use your Charisma modifier when setting the saving throw DC for a paladin spell you cast and when making an attack roll with one.\n\n**Spell save DC** = 8 + your proficiency bonus + your Charisma modifier\n\n**Spell attack modifier** = your proficiency bonus + your Charisma modifier\nSpellcasting Focus\n\nYou can use a holy symbol as a spellcasting focus for your paladin spells."
+      }
+    },
+    {
+      "id": "srd51.feature.paladin.divine-health",
+      "level": 3,
+      "name": {
+        "en": "Divine Health"
+      },
+      "origin": "class",
+      "owner": "srd51.class.paladin",
+      "source": {
+        "entity": "srd51.class.paladin",
+        "feature": "srd51.feature.paladin.divine-health",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "By 3rd level, the divine magic flowing through you makes you immune to disease."
+      }
+    },
+    {
+      "id": "srd51.feature.paladin.sacred-oath",
+      "level": 3,
+      "name": {
+        "en": "Sacred Oath"
+      },
+      "origin": "class",
+      "owner": "srd51.class.paladin",
+      "source": {
+        "entity": "srd51.class.paladin",
+        "feature": "srd51.feature.paladin.sacred-oath",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "When you reach 3rd level, you swear the oath that binds you as a paladin forever. Up to this time you have been in a preparatory stage, committed to the path but not yet sworn to it. Now you choose the Oath of Devotion, the Oath of the Ancients, or the Oath of Vengeance, all detailed at the end of the class description.\n\nYour choice grants you features at 3rd level and again at 7th, 15th, and 20th level. Those features include oath spells and the Channel Divinity feature.\n\n### Oath Spells\n\nEach oath has a list of associated spells. You gain access to these spells at the levels specified in the oath description. Once you gain access to an oath spell, you always have it prepared. Oath spells don't count against the number of spells you can prepare each day.\n\nIf you gain an oath spell that doesn't appear on the paladin spell list, the spell is nonetheless a paladin spell for you.\n\n### Channel Divinity\n\nYour oath allows you to channel divine energy to fuel magical effects. Each Channel Divinity option provided by your oath explains how to use it.\n\nWhen you use your Channel Divinity, you choose which option to use. You must then finish a short or long rest to use your Channel Divinity again.\n\nSome Channel Divinity effects require saving throws. When you use such an effect from this class, the DC equals your paladin spell save DC."
+      }
+    },
+    {
+      "id": "srd51.feature.paladin.ability-score-improvement",
+      "level": 4,
+      "name": {
+        "en": "Ability Score Improvement"
+      },
+      "origin": "class",
+      "owner": "srd51.class.paladin",
+      "source": {
+        "entity": "srd51.class.paladin",
+        "feature": "srd51.feature.paladin.ability-score-improvement",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "When you reach 4th level, and again at 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature."
+      }
+    },
+    {
+      "id": "srd51.feature.paladin.extra-attack",
+      "level": 5,
+      "name": {
+        "en": "Extra Attack"
+      },
+      "origin": "class",
+      "owner": "srd51.class.paladin",
+      "source": {
+        "entity": "srd51.class.paladin",
+        "feature": "srd51.feature.paladin.extra-attack",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Beginning at 5th level, you can attack twice, instead of once, whenever you take the Attack action on your turn."
+      }
+    },
+    {
+      "id": "srd51.feature.paladin.aura-of-protection",
+      "level": 6,
+      "name": {
+        "en": "Aura of Protection"
+      },
+      "origin": "class",
+      "owner": "srd51.class.paladin",
+      "source": {
+        "entity": "srd51.class.paladin",
+        "feature": "srd51.feature.paladin.aura-of-protection",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Starting at 6th level, whenever you or a friendly creature within 10 feet of you must make a saving throw, the creature gains a bonus to the saving throw equal to your Charisma modifier (with a minimum bonus of +1). You must be conscious to grant this bonus.\n\nAt 18th level, the range of this aura increases to 30 feet."
+      }
+    },
+    {
+      "id": "srd51.feature.paladin.aura-of-courage",
+      "level": 10,
+      "name": {
+        "en": "Aura of Courage"
+      },
+      "origin": "class",
+      "owner": "srd51.class.paladin",
+      "source": {
+        "entity": "srd51.class.paladin",
+        "feature": "srd51.feature.paladin.aura-of-courage",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Starting at 10th level, you and friendly creatures within 10 feet of you can't be frightened while you are conscious.\n\nAt 18th level, the range of this aura increases to 30 feet."
+      }
+    },
+    {
+      "id": "srd51.feature.paladin.improved-divine-smite",
+      "level": 11,
+      "name": {
+        "en": "Improved Divine Smite"
+      },
+      "origin": "class",
+      "owner": "srd51.class.paladin",
+      "source": {
+        "entity": "srd51.class.paladin",
+        "feature": "srd51.feature.paladin.improved-divine-smite",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "By 11th level, you are so suffused with righteous might that all your melee weapon strikes carry divine power with them. Whenever you hit a creature with a melee weapon, the creature takes an extra 1d8 radiant damage. If you also use your Divine Smite with an attack, you add this damage to the extra damage of your Divine Smite."
+      }
+    },
+    {
+      "id": "srd51.feature.paladin.cleansing-touch",
+      "level": 14,
+      "name": {
+        "en": "Cleansing Touch"
+      },
+      "origin": "class",
+      "owner": "srd51.class.paladin",
+      "source": {
+        "entity": "srd51.class.paladin",
+        "feature": "srd51.feature.paladin.cleansing-touch",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Beginning at 14th level, you can use your action to end one spell on yourself or on one willing creature that you touch.\n\nYou can use this feature a number of times equal to your Charisma modifier (a minimum of once). You regain expended uses when you finish a long rest."
+      }
+    },
+    {
+      "id": "srd51.feature.oath-of-devotion.channel-divinity",
+      "level": 3,
+      "name": {
+        "en": "Channel Divinity"
+      },
+      "origin": "subclass",
+      "owner": "srd51.subclass.paladin.oath-of-devotion",
+      "source": {
+        "entity": "srd51.subclass.paladin.oath-of-devotion",
+        "feature": "srd51.feature.oath-of-devotion.channel-divinity",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "When you take this oath at 3rd level, you gain the following two Channel Divinity options.\n\n**Sacred Weapon.** As an action, you can imbue one weapon that you are holding with positive energy, using your Channel Divinity. For 1 minute, you add your Charisma modifier to attack rolls made with that weapon (with a minimum bonus of +1). The weapon also emits bright light in a 20-foot radius and dim light 20 feet beyond that. If the weapon is not already magical, it becomes magical for the duration.\n\nYou can end this effect on your turn as part of any other action. If you are no longer holding or carrying this weapon, or if you fall unconscious, this effect ends.\n\n**Turn the Unholy.** As an action, you present your holy symbol and speak a prayer censuring fiends and undead, using your Channel Divinity. Each fiend or undead that can see or hear you within 30 feet of you must make a Wisdom saving throw. If the creature fails its saving throw, it is turned for 1 minute or until it takes damage.\n\nA turned creature must spend its turns trying to move as far away from you as it can, and it can't willingly move to a space within 30 feet of you. It also can't take reactions. For its action, it can use only the Dash action or try to escape from an effect that prevents it from moving. If there's nowhere to move, the creature can use the Dodge action."
+      }
+    },
+    {
+      "id": "srd51.feature.oath-of-devotion.oath-spells",
+      "level": 3,
+      "name": {
+        "en": "Oath Spells"
+      },
+      "origin": "subclass",
+      "owner": "srd51.subclass.paladin.oath-of-devotion",
+      "source": {
+        "entity": "srd51.subclass.paladin.oath-of-devotion",
+        "feature": "srd51.feature.oath-of-devotion.oath-spells",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You gain oath spells at the paladin levels listed.\n\n### Oath of Devotion Spells\n| Paladin Level | Spells |\n| --- | --- |\n| 3rd | protection from evil and good, sanctuary |\n| 5th | lesser restoration, zone of truth |\n| 9th | beacon of hope, dispel magic |\n| 13th | freedom of movement, guardian of faith |\n| 17th | commune, flame strike |"
+      }
+    },
+    {
+      "id": "srd51.feature.oath-of-devotion.tenets-of-devotion",
+      "level": 3,
+      "name": {
+        "en": "Tenets of Devotion"
+      },
+      "origin": "subclass",
+      "owner": "srd51.subclass.paladin.oath-of-devotion",
+      "source": {
+        "entity": "srd51.subclass.paladin.oath-of-devotion",
+        "feature": "srd51.feature.oath-of-devotion.tenets-of-devotion",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Though the exact words and strictures of the Oath of Devotion vary, paladins of this oath share these tenets.\n\n*Honesty.* Don't lie or cheat. Let your word be your promise.\n\n*Courage.* Never fear to act, though caution is wise.\n\n*Compassion.* Aid others, protect the weak, and punish those who threaten them. Show mercy to your foes, but temper it with wisdom.\n\n*Honor.* Treat others with fairness, and let your honorable deeds be an example to them. Do as much good as possible while causing the least amount of harm.\n\n*Duty.* Be responsible for your actions and their consequences, protect those entrusted to your care, and obey those who have just authority over you."
+      }
+    },
+    {
+      "id": "srd51.feature.oath-of-devotion.aura-of-devotion",
+      "level": 7,
+      "name": {
+        "en": "Aura of Devotion"
+      },
+      "origin": "subclass",
+      "owner": "srd51.subclass.paladin.oath-of-devotion",
+      "source": {
+        "entity": "srd51.subclass.paladin.oath-of-devotion",
+        "feature": "srd51.feature.oath-of-devotion.aura-of-devotion",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Starting at 7th level, you and friendly creatures within 10 feet of you can't be charmed while you are conscious.\n\nAt 18th level, the range of this aura increases to 30 feet."
+      }
+    },
+    {
+      "id": "srd51.feature.oath-of-devotion.purity-of-spirit",
+      "level": 15,
+      "name": {
+        "en": "Purity of Spirit"
+      },
+      "origin": "subclass",
+      "owner": "srd51.subclass.paladin.oath-of-devotion",
+      "source": {
+        "entity": "srd51.subclass.paladin.oath-of-devotion",
+        "feature": "srd51.feature.oath-of-devotion.purity-of-spirit",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Beginning at 15th level, you are always under the effects of a *protection from evil and good* spell."
+      }
+    },
+    {
+      "id": "srd51.feature.oath-of-devotion.holy-nimbus",
+      "level": 20,
+      "name": {
+        "en": "Holy Nimbus"
+      },
+      "origin": "subclass",
+      "owner": "srd51.subclass.paladin.oath-of-devotion",
+      "source": {
+        "entity": "srd51.subclass.paladin.oath-of-devotion",
+        "feature": "srd51.feature.oath-of-devotion.holy-nimbus",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "At 20th level, as an action, you can emanate an aura of sunlight. For 1 minute, bright light shines from you in a 30-foot radius, and dim light shines 30 feet beyond that.\n\nWhenever an enemy creature starts its turn in the bright light, the creature takes 10 radiant damage.\n\nIn addition, for the duration, you have advantage on saving throws against spells cast by fiends or undead.\n\nOnce you use this feature, you can't use it again until you finish a long rest."
+      }
+    }
+  ],
+  "level": 20,
+  "meta": {
+    "characterId": "fixture-paladin-l20",
+    "formatVersion": 0,
+    "language": "en",
+    "name": "Steady Ember",
+    "packages": [
+      {
+        "id": "srd51",
+        "version": "0.1.0"
+      }
+    ],
+    "ruleset": "srd51"
+  },
+  "proficiencies": [
+    {
+      "expertise": false,
+      "item": "heavy",
+      "source": {
+        "entity": "srd51.class.paladin",
+        "package": "srd51"
+      },
+      "type": "armor"
+    },
+    {
+      "expertise": false,
+      "item": "light",
+      "source": {
+        "entity": "srd51.class.paladin",
+        "package": "srd51"
+      },
+      "type": "armor"
+    },
+    {
+      "expertise": false,
+      "item": "medium",
+      "source": {
+        "entity": "srd51.class.paladin",
+        "package": "srd51"
+      },
+      "type": "armor"
+    },
+    {
+      "expertise": false,
+      "item": "shield",
+      "source": {
+        "entity": "srd51.class.paladin",
+        "package": "srd51"
+      },
+      "type": "armor"
+    },
+    {
+      "expertise": false,
+      "item": "common",
+      "source": {
+        "entity": "srd51.species.dragonborn",
+        "package": "srd51"
+      },
+      "type": "language"
+    },
+    {
+      "expertise": false,
+      "item": "draconic",
+      "source": {
+        "entity": "srd51.species.dragonborn",
+        "package": "srd51"
+      },
+      "type": "language"
+    },
+    {
+      "expertise": false,
+      "item": "cha",
+      "source": {
+        "entity": "srd51.class.paladin",
+        "package": "srd51"
+      },
+      "type": "save"
+    },
+    {
+      "expertise": false,
+      "item": "wis",
+      "source": {
+        "entity": "srd51.class.paladin",
+        "package": "srd51"
+      },
+      "type": "save"
+    },
+    {
+      "expertise": false,
+      "item": "athletics",
+      "source": {
+        "entity": "srd51.class.paladin",
+        "package": "srd51"
+      },
+      "type": "skill"
+    },
+    {
+      "expertise": false,
+      "item": "persuasion",
+      "source": {
+        "entity": "srd51.class.paladin",
+        "package": "srd51"
+      },
+      "type": "skill"
+    },
+    {
+      "expertise": false,
+      "item": "martial",
+      "source": {
+        "entity": "srd51.class.paladin",
+        "package": "srd51"
+      },
+      "type": "weapon"
+    },
+    {
+      "expertise": false,
+      "item": "simple",
+      "source": {
+        "entity": "srd51.class.paladin",
+        "package": "srd51"
+      },
+      "type": "weapon"
+    }
+  ],
+  "resources": [
+    {
+      "current": 1,
+      "display": "pips",
+      "id": "breath-weapon",
+      "max": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "None"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 0
+          },
+          {
+            "applied": true,
+            "kind": "set",
+            "label": {
+              "en": "Breath Weapon"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.species.dragonborn",
+              "feature": "srd51.feature.dragonborn.breath-weapon",
+              "package": "srd51"
+            },
+            "value": 1
+          }
+        ],
+        "value": 1
+      },
+      "name": {
+        "en": "Breath Weapon"
+      },
+      "recharge": [
+        {
+          "amount": "full",
+          "on": "short-rest"
+        },
+        {
+          "amount": "full",
+          "on": "long-rest"
+        }
+      ],
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.species.dragonborn",
+        "feature": "srd51.feature.dragonborn.breath-weapon",
+        "package": "srd51"
+      }
+    },
+    {
+      "current": 5,
+      "display": "pips",
+      "id": "divine-sense",
+      "max": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "None"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 0
+          },
+          {
+            "applied": true,
+            "formula": "1 + mod(cha)",
+            "kind": "set",
+            "label": {
+              "en": "Divine Sense"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.class.paladin",
+              "feature": "srd51.feature.paladin.divine-sense",
+              "package": "srd51"
+            },
+            "value": 5
+          }
+        ],
+        "value": 5
+      },
+      "name": {
+        "en": "Divine Sense"
+      },
+      "recharge": [
+        {
+          "amount": "full",
+          "on": "long-rest"
+        }
+      ],
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.paladin",
+        "feature": "srd51.feature.paladin.divine-sense",
+        "package": "srd51"
+      }
+    },
+    {
+      "current": 100,
+      "display": "counter",
+      "id": "lay-on-hands",
+      "max": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "None"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 0
+          },
+          {
+            "applied": true,
+            "formula": "5 * classLevel(paladin)",
+            "kind": "set",
+            "label": {
+              "en": "Lay on Hands"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.class.paladin",
+              "feature": "srd51.feature.paladin.lay-on-hands",
+              "package": "srd51"
+            },
+            "value": 100
+          }
+        ],
+        "value": 100
+      },
+      "name": {
+        "en": "Lay on Hands pool"
+      },
+      "recharge": [
+        {
+          "amount": "full",
+          "on": "long-rest"
+        }
+      ],
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.paladin",
+        "feature": "srd51.feature.paladin.lay-on-hands",
+        "package": "srd51"
+      }
+    },
+    {
+      "current": 1,
+      "display": "pips",
+      "id": "channel-divinity",
+      "max": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "None"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 0
+          },
+          {
+            "applied": true,
+            "kind": "set",
+            "label": {
+              "en": "Sacred Oath"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.class.paladin",
+              "feature": "srd51.feature.paladin.sacred-oath",
+              "package": "srd51"
+            },
+            "value": 1
+          }
+        ],
+        "value": 1
+      },
+      "name": {
+        "en": "Channel Divinity"
+      },
+      "recharge": [
+        {
+          "amount": "full",
+          "on": "short-rest"
+        },
+        {
+          "amount": "full",
+          "on": "long-rest"
+        }
+      ],
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.paladin",
+        "feature": "srd51.feature.paladin.sacred-oath",
+        "package": "srd51"
+      }
+    },
+    {
+      "current": 4,
+      "display": "pips",
+      "id": "cleansing-touch",
+      "max": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "None"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 0
+          },
+          {
+            "applied": true,
+            "formula": "max(1, mod(cha))",
+            "kind": "set",
+            "label": {
+              "en": "Cleansing Touch"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.class.paladin",
+              "feature": "srd51.feature.paladin.cleansing-touch",
+              "package": "srd51"
+            },
+            "value": 4
+          }
+        ],
+        "value": 4
+      },
+      "name": {
+        "en": "Cleansing Touch"
+      },
+      "recharge": [
+        {
+          "amount": "full",
+          "on": "long-rest"
+        }
+      ],
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.paladin",
+        "feature": "srd51.feature.paladin.cleansing-touch",
+        "package": "srd51"
+      }
+    },
+    {
+      "current": 1,
+      "display": "pips",
+      "id": "holy-nimbus",
+      "max": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "None"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 0
+          },
+          {
+            "applied": true,
+            "kind": "set",
+            "label": {
+              "en": "Holy Nimbus"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.subclass.paladin.oath-of-devotion",
+              "feature": "srd51.feature.oath-of-devotion.holy-nimbus",
+              "package": "srd51"
+            },
+            "value": 1
+          }
+        ],
+        "value": 1
+      },
+      "name": {
+        "en": "Holy Nimbus"
+      },
+      "recharge": [
+        {
+          "amount": "full",
+          "on": "long-rest"
+        }
+      ],
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.subclass.paladin.oath-of-devotion",
+        "feature": "srd51.feature.oath-of-devotion.holy-nimbus",
+        "package": "srd51"
+      }
+    }
+  ],
+  "rollModifiers": [
+    {
+      "applied": false,
+      "kind": "advantage",
+      "on": {
+        "against": [
+          "spells cast by fiends or undead"
+        ],
+        "type": "save"
+      },
+      "source": {
+        "effectIndex": 2,
+        "entity": "srd51.subclass.paladin.oath-of-devotion",
+        "feature": "srd51.feature.oath-of-devotion.holy-nimbus",
+        "package": "srd51"
+      }
+    }
+  ],
+  "sections": [
+    "identity",
+    "core",
+    "abilities",
+    "saves",
+    "skills",
+    "combat",
+    "attacks",
+    "actions",
+    "resources",
+    "spellcasting",
+    "spells",
+    "features",
+    "equipment",
+    "personality",
+    "conditions",
+    "notes",
+    "credits"
+  ],
+  "spellcasting": [
+    {
+      "ability": "cha",
+      "attackBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "Proficiency bonus"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.class.paladin",
+              "feature": "srd51.feature.paladin.spellcasting",
+              "package": "srd51"
+            },
+            "value": 6
+          },
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "CHA modifier"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.class.paladin",
+              "feature": "srd51.feature.paladin.spellcasting",
+              "package": "srd51"
+            },
+            "value": 4
+          }
+        ],
+        "value": 10
+      },
+      "class": "srd51.class.paladin",
+      "dc": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Base"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.class.paladin",
+              "feature": "srd51.feature.paladin.spellcasting",
+              "package": "srd51"
+            },
+            "value": 8
+          },
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "Proficiency bonus"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.class.paladin",
+              "feature": "srd51.feature.paladin.spellcasting",
+              "package": "srd51"
+            },
+            "value": 6
+          },
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "CHA modifier"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.class.paladin",
+              "feature": "srd51.feature.paladin.spellcasting",
+              "package": "srd51"
+            },
+            "value": 4
+          }
+        ],
+        "value": 18
+      },
+      "list": "srd51.spell-list.paladin",
+      "preparation": "prepared",
+      "ritual": false,
+      "slots": [
+        {
+          "current": 4,
+          "level": 1,
+          "max": 4
+        },
+        {
+          "current": 3,
+          "level": 2,
+          "max": 3
+        },
+        {
+          "current": 3,
+          "level": 3,
+          "max": 3
+        },
+        {
+          "current": 3,
+          "level": 4,
+          "max": 3
+        },
+        {
+          "current": 2,
+          "level": 5,
+          "max": 2
+        }
+      ],
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.paladin",
+        "feature": "srd51.feature.paladin.spellcasting",
+        "package": "srd51"
+      }
+    }
+  ],
+  "spells": [
+    {
+      "ability": "cha",
+      "as": "prepared",
+      "id": "srd51.spell.bless",
+      "level": 1,
+      "name": {
+        "en": "Bless"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.paladin",
+        "feature": "srd51.feature.paladin.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "prepared",
+      "id": "srd51.spell.cure-wounds",
+      "level": 1,
+      "name": {
+        "en": "Cure Wounds"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.paladin",
+        "feature": "srd51.feature.paladin.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "prepared",
+      "id": "srd51.spell.divine-favor",
+      "level": 1,
+      "name": {
+        "en": "Divine Favor"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.paladin",
+        "feature": "srd51.feature.paladin.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "prepared",
+      "id": "srd51.spell.shield-of-faith",
+      "level": 1,
+      "name": {
+        "en": "Shield of Faith"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.paladin",
+        "feature": "srd51.feature.paladin.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "prepared",
+      "id": "srd51.spell.command",
+      "level": 1,
+      "name": {
+        "en": "Command"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.paladin",
+        "feature": "srd51.feature.paladin.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "prepared",
+      "id": "srd51.spell.heroism",
+      "level": 1,
+      "name": {
+        "en": "Heroism"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.paladin",
+        "feature": "srd51.feature.paladin.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "prepared",
+      "id": "srd51.spell.magic-weapon",
+      "level": 2,
+      "name": {
+        "en": "Magic Weapon"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.paladin",
+        "feature": "srd51.feature.paladin.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "prepared",
+      "id": "srd51.spell.aid",
+      "level": 2,
+      "name": {
+        "en": "Aid"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.paladin",
+        "feature": "srd51.feature.paladin.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "prepared",
+      "id": "srd51.spell.branding-smite",
+      "level": 2,
+      "name": {
+        "en": "Branding Smite"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.paladin",
+        "feature": "srd51.feature.paladin.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "prepared",
+      "id": "srd51.spell.revivify",
+      "level": 3,
+      "name": {
+        "en": "Revivify"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.paladin",
+        "feature": "srd51.feature.paladin.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "prepared",
+      "id": "srd51.spell.daylight",
+      "level": 3,
+      "name": {
+        "en": "Daylight"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.paladin",
+        "feature": "srd51.feature.paladin.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "prepared",
+      "id": "srd51.spell.death-ward",
+      "level": 4,
+      "name": {
+        "en": "Death Ward"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.paladin",
+        "feature": "srd51.feature.paladin.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "prepared",
+      "id": "srd51.spell.banishment",
+      "level": 4,
+      "name": {
+        "en": "Banishment"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.paladin",
+        "feature": "srd51.feature.paladin.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "prepared",
+      "id": "srd51.spell.raise-dead",
+      "level": 5,
+      "name": {
+        "en": "Raise Dead"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.paladin",
+        "feature": "srd51.feature.paladin.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "always-prepared",
+      "id": "srd51.spell.protection-from-evil-and-good",
+      "level": 1,
+      "name": {
+        "en": "Protection from Evil and Good"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.subclass.paladin.oath-of-devotion",
+        "feature": "srd51.feature.oath-of-devotion.oath-spells",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "always-prepared",
+      "id": "srd51.spell.sanctuary",
+      "level": 1,
+      "name": {
+        "en": "Sanctuary"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.subclass.paladin.oath-of-devotion",
+        "feature": "srd51.feature.oath-of-devotion.oath-spells",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "always-prepared",
+      "id": "srd51.spell.lesser-restoration",
+      "level": 2,
+      "name": {
+        "en": "Lesser Restoration"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.subclass.paladin.oath-of-devotion",
+        "feature": "srd51.feature.oath-of-devotion.oath-spells",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "always-prepared",
+      "id": "srd51.spell.zone-of-truth",
+      "level": 2,
+      "name": {
+        "en": "Zone of Truth"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.subclass.paladin.oath-of-devotion",
+        "feature": "srd51.feature.oath-of-devotion.oath-spells",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "always-prepared",
+      "id": "srd51.spell.beacon-of-hope",
+      "level": 3,
+      "name": {
+        "en": "Beacon of Hope"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 2,
+        "entity": "srd51.subclass.paladin.oath-of-devotion",
+        "feature": "srd51.feature.oath-of-devotion.oath-spells",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "always-prepared",
+      "id": "srd51.spell.dispel-magic",
+      "level": 3,
+      "name": {
+        "en": "Dispel Magic"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 2,
+        "entity": "srd51.subclass.paladin.oath-of-devotion",
+        "feature": "srd51.feature.oath-of-devotion.oath-spells",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "always-prepared",
+      "id": "srd51.spell.freedom-of-movement",
+      "level": 4,
+      "name": {
+        "en": "Freedom of Movement"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 3,
+        "entity": "srd51.subclass.paladin.oath-of-devotion",
+        "feature": "srd51.feature.oath-of-devotion.oath-spells",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "always-prepared",
+      "id": "srd51.spell.guardian-of-faith",
+      "level": 4,
+      "name": {
+        "en": "Guardian of Faith"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 3,
+        "entity": "srd51.subclass.paladin.oath-of-devotion",
+        "feature": "srd51.feature.oath-of-devotion.oath-spells",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "always-prepared",
+      "id": "srd51.spell.commune",
+      "level": 5,
+      "name": {
+        "en": "Commune"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 4,
+        "entity": "srd51.subclass.paladin.oath-of-devotion",
+        "feature": "srd51.feature.oath-of-devotion.oath-spells",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "always-prepared",
+      "id": "srd51.spell.flame-strike",
+      "level": 5,
+      "name": {
+        "en": "Flame Strike"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 4,
+        "entity": "srd51.subclass.paladin.oath-of-devotion",
+        "feature": "srd51.feature.oath-of-devotion.oath-spells",
+        "package": "srd51"
+      }
+    }
+  ],
+  "values": {
+    "ability.cha": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 18
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Ability Score Increase"
+          },
+          "source": {
+            "effectIndex": 1,
+            "entity": "srd51.species.dragonborn",
+            "feature": "srd51.feature.dragonborn.ability-score-increase",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 19
+    },
+    "ability.con": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 14
+        }
+      ],
+      "value": 14
+    },
+    "ability.dex": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 10
+        }
+      ],
+      "value": 10
+    },
+    "ability.int": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 8
+        }
+      ],
+      "value": 8
+    },
+    "ability.str": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 18
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Ability Score Increase"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.species.dragonborn",
+            "feature": "srd51.feature.dragonborn.ability-score-increase",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 20
+    },
+    "ability.wis": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 14
+        }
+      ],
+      "value": 14
+    },
+    "ac": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Chain mail"
+          },
+          "source": {
+            "entity": "srd51.item.chain-mail",
+            "package": ""
+          },
+          "value": 16
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Shield"
+          },
+          "source": {
+            "entity": "srd51.item.shield",
+            "package": ""
+          },
+          "value": 2
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Defense"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.class.paladin",
+            "feature": "defense",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 19
+    },
+    "attacks.perAction": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "One attack per Attack action"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        },
+        {
+          "applied": true,
+          "kind": "set",
+          "label": {
+            "en": "Extra Attack"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.class.paladin",
+            "feature": "srd51.feature.paladin.extra-attack",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "carry.capacity": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength score × 15"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 300
+        }
+      ],
+      "value": 300
+    },
+    "check.cha": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 4
+        }
+      ],
+      "value": 4
+    },
+    "check.con": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Constitution modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "check.dex": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "check.int": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        }
+      ],
+      "value": -1
+    },
+    "check.str": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 5
+    },
+    "check.wis": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "hp.max": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "hitDie + mod(con)",
+          "kind": "base",
+          "label": {
+            "en": "Level 1 (Paladin)"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 12
+        },
+        {
+          "applied": true,
+          "formula": "19 × (average(hitDie) + mod(con))",
+          "kind": "add",
+          "label": {
+            "en": "19 more levels (Paladin)"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 152
+        }
+      ],
+      "value": 164
+    },
+    "initiative": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "jump.high": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "3 + Strength modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 8
+        }
+      ],
+      "value": 8
+    },
+    "jump.long": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength score in feet"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 20
+        }
+      ],
+      "value": 20
+    },
+    "mod.cha": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 4
+        }
+      ],
+      "value": 4
+    },
+    "mod.con": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Constitution modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "mod.dex": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "mod.int": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        }
+      ],
+      "value": -1
+    },
+    "mod.str": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Strength modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 5
+    },
+    "mod.wis": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "passive.acrobatics": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "acrobatics bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 10
+    },
+    "passive.animal-handling": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "animal-handling bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 12
+    },
+    "passive.arcana": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "arcana bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        }
+      ],
+      "value": 9
+    },
+    "passive.athletics": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "athletics bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 11
+        }
+      ],
+      "value": 21
+    },
+    "passive.deception": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "deception bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 4
+        }
+      ],
+      "value": 14
+    },
+    "passive.history": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "history bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        }
+      ],
+      "value": 9
+    },
+    "passive.insight": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "insight bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 12
+    },
+    "passive.intimidation": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "intimidation bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 4
+        }
+      ],
+      "value": 14
+    },
+    "passive.investigation": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "investigation bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        }
+      ],
+      "value": 9
+    },
+    "passive.medicine": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "medicine bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 12
+    },
+    "passive.nature": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "nature bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        }
+      ],
+      "value": 9
+    },
+    "passive.perception": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "perception bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 12
+    },
+    "passive.performance": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "performance bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 4
+        }
+      ],
+      "value": 14
+    },
+    "passive.persuasion": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "persuasion bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        }
+      ],
+      "value": 20
+    },
+    "passive.religion": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "religion bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        }
+      ],
+      "value": 9
+    },
+    "passive.sleight-of-hand": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "sleight-of-hand bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 10
+    },
+    "passive.stealth": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "stealth bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 10
+    },
+    "passive.survival": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "survival bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 12
+    },
+    "proficiencyBonus": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Proficiency bonus by level"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 6
+        }
+      ],
+      "value": 6
+    },
+    "resource.breath-weapon.max": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "None"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        },
+        {
+          "applied": true,
+          "kind": "set",
+          "label": {
+            "en": "Breath Weapon"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.species.dragonborn",
+            "feature": "srd51.feature.dragonborn.breath-weapon",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "resource.channel-divinity.max": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "None"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        },
+        {
+          "applied": true,
+          "kind": "set",
+          "label": {
+            "en": "Sacred Oath"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.class.paladin",
+            "feature": "srd51.feature.paladin.sacred-oath",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "resource.cleansing-touch.max": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "None"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        },
+        {
+          "applied": true,
+          "formula": "max(1, mod(cha))",
+          "kind": "set",
+          "label": {
+            "en": "Cleansing Touch"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.class.paladin",
+            "feature": "srd51.feature.paladin.cleansing-touch",
+            "package": "srd51"
+          },
+          "value": 4
+        }
+      ],
+      "value": 4
+    },
+    "resource.divine-sense.max": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "None"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        },
+        {
+          "applied": true,
+          "formula": "1 + mod(cha)",
+          "kind": "set",
+          "label": {
+            "en": "Divine Sense"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.class.paladin",
+            "feature": "srd51.feature.paladin.divine-sense",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 5
+    },
+    "resource.holy-nimbus.max": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "None"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        },
+        {
+          "applied": true,
+          "kind": "set",
+          "label": {
+            "en": "Holy Nimbus"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.subclass.paladin.oath-of-devotion",
+            "feature": "srd51.feature.oath-of-devotion.holy-nimbus",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "resource.lay-on-hands.max": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "None"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        },
+        {
+          "applied": true,
+          "formula": "5 * classLevel(paladin)",
+          "kind": "set",
+          "label": {
+            "en": "Lay on Hands"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.class.paladin",
+            "feature": "srd51.feature.paladin.lay-on-hands",
+            "package": "srd51"
+          },
+          "value": 100
+        }
+      ],
+      "value": 100
+    },
+    "save.all": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "None"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        },
+        {
+          "applied": true,
+          "formula": "max(1, mod(cha))",
+          "kind": "add",
+          "label": {
+            "en": "Aura of Protection"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.class.paladin",
+            "feature": "srd51.feature.paladin.aura-of-protection",
+            "package": "srd51"
+          },
+          "value": 4
+        }
+      ],
+      "value": 4
+    },
+    "save.cha": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 4
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 6
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Bonus to all saving throws"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 4
+        }
+      ],
+      "value": 14
+    },
+    "save.con": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Constitution modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Bonus to all saving throws"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 4
+        }
+      ],
+      "value": 6
+    },
+    "save.dex": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Bonus to all saving throws"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 4
+        }
+      ],
+      "value": 4
+    },
+    "save.int": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Bonus to all saving throws"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 4
+        }
+      ],
+      "value": 3
+    },
+    "save.str": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Bonus to all saving throws"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 4
+        }
+      ],
+      "value": 9
+    },
+    "save.wis": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 6
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Bonus to all saving throws"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 4
+        }
+      ],
+      "value": 12
+    },
+    "skill.acrobatics": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "skill.animal-handling": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "skill.arcana": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        }
+      ],
+      "value": -1
+    },
+    "skill.athletics": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 6
+        }
+      ],
+      "value": 11
+    },
+    "skill.deception": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 4
+        }
+      ],
+      "value": 4
+    },
+    "skill.history": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        }
+      ],
+      "value": -1
+    },
+    "skill.insight": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "skill.intimidation": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 4
+        }
+      ],
+      "value": 4
+    },
+    "skill.investigation": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        }
+      ],
+      "value": -1
+    },
+    "skill.medicine": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "skill.nature": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        }
+      ],
+      "value": -1
+    },
+    "skill.perception": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "skill.performance": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 4
+        }
+      ],
+      "value": 4
+    },
+    "skill.persuasion": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 4
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 6
+        }
+      ],
+      "value": 10
+    },
+    "skill.religion": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        }
+      ],
+      "value": -1
+    },
+    "skill.sleight-of-hand": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "skill.stealth": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "skill.survival": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "speed.walk": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Species speed"
+          },
+          "source": {
+            "entity": "srd51.species.dragonborn",
+            "package": ""
+          },
+          "value": 30
+        }
+      ],
+      "value": 30
+    }
+  },
+  "warnings": []
+}
+

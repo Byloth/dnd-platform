@@ -1,0 +1,59 @@
+# Human Fighter 20 (Champion; Defense + Archery styles) in chain mail with shield, longsword and longbow.
+# Scores: base + human 1 + seven ASIs (STR +4, CON +4, DEX +4, WIS +2): STR 20, DEX 18, CON 19, INT 10, WIS 14, CHA 10.
+# Modifiers: STR +5, DEX +4, CON +4, INT 0, WIS +2, CHA 0. Proficiency bonus at level 20: +6.
+# Remarkable Athlete: ceil(6 / 2) = +3.
+values:
+  ability.str: 20            # 15 + 1 + 4
+  ability.dex: 18            # 13 + 1 + 4
+  ability.con: 19            # 14 + 1 + 4
+  ability.wis: 14            # 11 + 1 + 2
+  proficiencyBonus: 6        # level 20
+  hp.max: 204                # level 1: 10 + 4 = 14; levels 2-20: 19 × (6 + 4) = 190
+  ac: 19                     # chain mail 16 (no DEX) + shield 2 + Defense 1 (wearing armour). ENGINE MISMATCH: got 17 (srd51.item.shield is type gear/tag shield, the engine only reads type shield and adds no shield AC)
+  initiative: 7              # DEX 4 + Remarkable Athlete 3
+  jump.long: 25              # STR 20 + STR modifier 5
+  attacks.perAction: 4       # 1 + table(fighter.extra-attacks) row 20 = 3
+  save.str: 11               # 5 + 6
+  save.con: 10               # 4 + 6
+  save.dex: 4
+  save.wis: 2
+  skill.athletics: 11        # STR 5 + 6
+  skill.perception: 8        # WIS 2 + 6
+  skill.acrobatics: 7        # DEX 4 + Remarkable Athlete 3
+  skill.stealth: 7           # DEX 4 + 3
+  passive.perception: 18     # 10 + 8
+resources:
+  second-wind: { max: 1, recharge: [short-rest, long-rest] }
+  action-surge: { max: 2, recharge: [short-rest, long-rest] }  # table(fighter.action-surges) row 17 = 2
+  indomitable: { max: 3, recharge: [long-rest] }               # table(fighter.indomitable-uses) row 17 = 3
+actions:
+  second-wind: { activation: bonus-action, cost: { second-wind: 1 } }
+  action-surge: { activation: free, cost: { action-surge: 1 } }
+  indomitable: { activation: free, cost: { indomitable: 1 } }
+attacks:
+  longsword: { toHit: 11, damage: "1d8 + 5", type: slashing }            # STR 5 + prof 6
+  longsword-two-handed: { toHit: 11, damage: "1d10 + 5", type: slashing }
+  longbow: { toHit: 12, damage: "1d8 + 4", type: piercing }              # DEX 4 + prof 6 + Archery 2; 1d8 + DEX 4
+  unarmed-strike: { toHit: 11, damage: "6", type: bludgeoning }          # 1 + STR 5
+features:
+  - srd51.feature.fighter.extra-attack
+  - srd51.feature.fighter.indomitable
+  - srd51.feature.champion.improved-critical
+  - srd51.feature.champion.remarkable-athlete
+  - srd51.feature.champion.additional-fighting-style
+  - srd51.feature.champion.superior-critical
+  - srd51.feature.champion.survivor
+choices:
+  "srd51.class.fighter#asi-4": answered
+  "srd51.class.fighter#asi-6": answered
+  "srd51.class.fighter#asi-8": answered
+  "srd51.class.fighter#asi-12": answered
+  "srd51.class.fighter#asi-14": answered
+  "srd51.class.fighter#asi-16": answered
+  "srd51.class.fighter#asi-19": answered
+  "srd51.feature.champion.additional-fighting-style#additional-fighting-style": answered
+proficiencies: [save:str, save:con, skill:athletics, skill:perception, armor:heavy, weapon:martial]
+sections:
+  active: [core, abilities, saves, skills, combat, attacks, actions, resources, features]
+  inactive: [senses, spellcasting, spells]
+warnings: []

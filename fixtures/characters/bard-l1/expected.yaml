@@ -1,0 +1,86 @@
+# Half-elf Bard 1 (no college yet: chosen at 3rd level). Base str 8, dex 14, con 13, int 10, wis 12, cha 15;
+# half-elf +2 CHA (species) and +1 DEX +1 CON (the two +1 of choice, in bonuses) → STR 8, DEX 15, CON 14, INT 10, WIS 12, CHA 17.
+# Modifiers: str -1, dex +2, con +2, int 0, wis +1, cha +3. Proficiency bonus +2.
+values:
+  ability.str: 8
+  ability.dex: 15          # 14 + 1 (half-elf +1 of choice)
+  ability.con: 14          # 13 + 1 (half-elf +1 of choice)
+  ability.int: 10
+  ability.wis: 12
+  ability.cha: 17          # 15 + 2 (half-elf)
+  mod.cha: 3
+  proficiencyBonus: 2
+  hp.max: 10               # d8 8 + CON 2
+  ac: 13                   # leather armour 11 + DEX 2
+  initiative: 2
+  speed.walk: 30           # half-elf
+  sense.darkvision: 60     # half-elf Darkvision
+  save.str: -1
+  save.dex: 4              # 2 + 2 proficient
+  save.con: 2
+  save.int: 0
+  save.wis: 1
+  save.cha: 5              # 3 + 2 proficient
+  skill.performance: 5     # CHA 3 + 2 (class pick)
+  skill.persuasion: 5      # CHA 3 + 2 (class pick)
+  skill.deception: 5       # CHA 3 + 2 (class pick)
+  skill.insight: 3         # WIS 1 + 2 (Skill Versatility)
+  skill.perception: 3      # WIS 1 + 2 (Skill Versatility)
+  skill.stealth: 2         # DEX 2, not proficient (no Jack of All Trades before level 2)
+  skill.athletics: -1      # STR -1, not proficient
+  passive.perception: 13   # 10 + 3
+resources:
+  bardic-inspiration: { max: 3, recharge: [long-rest] }    # max(1, CHA 3)
+actions:
+  bardic-inspiration: { activation: bonus-action, cost: { bardic-inspiration: 1 } }
+attacks:
+  rapier: { toHit: 4, damage: "1d8 + 2", type: piercing }  # finesse: DEX 2 (> STR -1) + prof 2 (bard rapier proficiency)
+spellcasting:
+  srd51.class.bard:
+    dc: 13                 # 8 + 2 + 3
+    attackBonus: 5         # 2 + 3
+    slots: { 1: 2 }        # full-caster table, level 1
+    cantripsKnown: 2       # table bard.cantrips-known row 1
+    spellsKnown: 4         # table bard.spells-known row 1
+spells:
+  srd51.spell.vicious-mockery: free
+  srd51.spell.minor-illusion: free
+  srd51.spell.healing-word: slot
+  srd51.spell.charm-person: slot
+  srd51.spell.sleep: slot
+  srd51.spell.hideous-laughter: slot
+features:
+  - srd51.feature.bard.bardic-inspiration
+  - srd51.feature.bard.spellcasting
+  - srd51.feature.half-elf.darkvision
+  - srd51.feature.half-elf.fey-ancestry
+  - srd51.feature.half-elf.skill-versatility
+choices:
+  "srd51.class.bard#skills": answered
+  "srd51.class.bard#tools": answered
+  "srd51.class.bard#cantrips": answered
+  "srd51.class.bard#spells": answered
+  "srd51.feature.half-elf.skill-versatility#skill": answered
+  "srd51.species.half-elf#languages": answered
+proficiencies:
+  - save:dex
+  - save:cha
+  - armor:light
+  - weapon:simple
+  - weapon:longsword
+  - weapon:rapier
+  - weapon:shortsword
+  - tool:lute
+  - tool:flute
+  - tool:drum
+  - skill:performance
+  - skill:persuasion
+  - skill:deception
+  - skill:insight
+  - skill:perception
+  - language:common
+  - language:elvish
+  - language:dwarvish
+sections:
+  active: [core, abilities, saves, skills, senses, combat, attacks, actions, resources, spellcasting, spells, features]
+warnings: []

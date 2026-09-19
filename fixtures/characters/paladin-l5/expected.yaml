@@ -1,0 +1,91 @@
+# Gold dragonborn Paladin 5 (Oath of Devotion, Defense style) on the SRD 5.1 base package.
+# Scores: base str 15, dex 10, con 14, int 8, wis 12, cha 13; dragonborn +2 str, +1 cha; ASI at 4 +2 str.
+# Final: str 19, dex 10, con 14, int 8, wis 12, cha 14 → mods str +4, dex 0, con +2, int -1, wis +1, cha +2.
+# Proficiency bonus at 5: +3.
+values:
+  ability.str: 19          # 15 + 2 (dragonborn) + 2 (ASI 4)
+  ability.dex: 10
+  ability.con: 14
+  ability.int: 8
+  ability.wis: 12
+  ability.cha: 14          # 13 + 1 (dragonborn)
+  proficiencyBonus: 3      # table proficiency-bonus, level 5
+  hp.max: 44               # level 1: 10 + 2 = 12; levels 2-5: 4 × (average(d10) 6 + 2) = 32
+  ac: 19                   # chain mail 16 + shield 2 + Defense 1 (wearing armour)
+                           # ENGINE MISMATCH: got 17 (shield item is `type: gear`, no shield bonus; Defense +1 applies)
+  initiative: 0
+  speed.walk: 30
+  attacks.perAction: 2     # Extra Attack at paladin 5
+  save.wis: 4              # mod 1 + proficiency 3
+  save.cha: 5              # mod 2 + 3
+  save.str: 4              # not proficient; no Aura of Protection before 6
+  save.dex: 0
+  save.con: 2
+  save.int: -1
+  skill.athletics: 7       # mod(str) 4 + 3
+  skill.persuasion: 5      # mod(cha) 2 + 3
+  skill.religion: -1
+  skill.perception: 1
+  passive.perception: 11
+resources:
+  divine-sense: { max: 3, recharge: [long-rest] }               # 1 + mod(cha) 2
+  lay-on-hands: { max: 25, recharge: [long-rest] }              # 5 × paladin level 5
+  channel-divinity: { max: 1, recharge: [short-rest, long-rest] }
+  breath-weapon: { max: 1, recharge: [short-rest, long-rest] }
+actions:
+  divine-sense: { activation: action, cost: { divine-sense: 1 } }
+  lay-on-hands: { activation: action, cost: { lay-on-hands: 1 } }
+  divine-smite: { activation: special, cost: { spell-slot: 1 } }  # spends a spell slot (fixed at 1st level)
+  sacred-weapon: { activation: action, cost: { channel-divinity: 1 } }
+  turn-the-unholy: { activation: action, cost: { channel-divinity: 1 } }
+  breath-weapon: { activation: action, cost: { breath-weapon: 1 } }
+attacks:
+  longsword: { toHit: 7, damage: "1d8 + 4", type: slashing }             # mod(str) 4 + proficiency 3
+  longsword-two-handed: { toHit: 7, damage: "1d10 + 4", type: slashing }
+  unarmed-strike: { toHit: 7, damage: "5", type: bludgeoning }           # 1 + 4
+spellcasting:
+  srd51.class.paladin:
+    dc: 13                 # 8 + proficiency 3 + mod(cha) 2
+    attackBonus: 5         # 3 + 2
+    slots: { 1: 4, 2: 2 }  # half-caster table, paladin level 5
+spells:
+  srd51.spell.bless: slot
+  srd51.spell.cure-wounds: slot
+  srd51.spell.divine-favor: slot
+  srd51.spell.shield-of-faith: slot
+  srd51.spell.protection-from-evil-and-good: slot   # oath spell (3rd), always prepared
+  srd51.spell.sanctuary: slot                       # oath spell (3rd)
+  srd51.spell.lesser-restoration: slot              # oath spell (5th)
+  srd51.spell.zone-of-truth: slot                   # oath spell (5th)
+features:
+  - srd51.feature.paladin.divine-sense
+  - srd51.feature.paladin.lay-on-hands
+  - srd51.feature.paladin.divine-smite
+  - srd51.feature.paladin.fighting-style
+  - srd51.feature.paladin.spellcasting
+  - srd51.feature.paladin.divine-health
+  - srd51.feature.paladin.sacred-oath
+  - srd51.feature.paladin.extra-attack
+  - srd51.feature.oath-of-devotion.channel-divinity
+  - srd51.feature.oath-of-devotion.oath-spells
+  - srd51.feature.oath-of-devotion.tenets-of-devotion
+  - srd51.feature.dragonborn.breath-weapon
+choices:
+  "srd51.class.paladin#skills": answered
+  "srd51.class.paladin#sacred-oath": answered
+  "srd51.class.paladin#asi-4": answered
+  "srd51.feature.paladin.fighting-style#fighting-style": answered
+  "srd51.feature.dragonborn.draconic-ancestry#draconic-ancestry": answered
+  "srd51.class.paladin#spells": answered            # 4 prepared = floor(5 / 2) + mod(cha) 2
+                                                    # ENGINE MISMATCH: got unanswered (engine counts classLevel + mod = 7 for every prepared caster; the half-caster formula is paladin level ÷ 2 + CHA)
+proficiencies:
+  - save:wis
+  - save:cha
+  - skill:athletics
+  - skill:persuasion
+  - armor:heavy
+  - armor:shield
+  - weapon:martial
+sections:
+  active: [core, abilities, saves, skills, combat, attacks, actions, resources, spellcasting, spells, features]
+  inactive: [senses]

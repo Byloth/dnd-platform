@@ -1,0 +1,79 @@
+# Puma feline Monk 5 (Way of the Open Hand), unarmed and unarmoured, on the real base package plus the homebrew feline.
+# Scores: base (no species bonus) + ASI 4 (DEX +2): STR 11, DEX 18, CON 14, INT 8, WIS 16, CHA 8.
+# Modifiers: STR 0, DEX +4, CON +2, INT -1, WIS +3, CHA -1. Proficiency bonus at level 5: +3.
+values:
+  ability.str: 11
+  ability.dex: 18            # 16 + 2 (ASI 4)
+  ability.con: 14
+  ability.int: 8
+  ability.wis: 16
+  ability.cha: 8
+  proficiencyBonus: 3
+  hp.max: 38                 # level 1: 8 + 2 = 10; levels 2-5: 4 × (average(d8) 5 + 2) = 28
+  ac: 17                     # Unarmored Defense: 10 + DEX 4 + WIS 3
+  initiative: 4
+  speed.walk: 40             # feline 30 + Unarmored Movement table(monk.unarmored-movement) row 2 = 10
+  speed.climb: 20            # feline
+  sense.darkvision: 60       # feline Darkvision (op max 60)
+  jump.long: 22              # Pounce: 2 × STR score 11
+  attacks.perAction: 2       # Extra Attack (monk 5, set 2)
+  save.str: 3                # 0 + 3 proficient
+  save.dex: 7                # 4 + 3 proficient
+  save.con: 2                # not proficient
+  save.wis: 3                # not proficient
+  skill.stealth: 7           # DEX 4 + 3 (chosen)
+  skill.acrobatics: 7        # DEX 4 + 3 (chosen)
+  skill.athletics: 0         # STR 0, not proficient
+  skill.perception: 3        # WIS 3, not proficient
+  passive.perception: 13
+provenance:
+  ac: ["Base", "Dexterity modifier", "Unarmored Defense"]
+resources:
+  ki: { max: 5, recharge: [short-rest, long-rest] }   # table(monk.ki-points) row 5 = 5
+actions:
+  martial-arts-strike: { activation: bonus-action }
+  flurry-of-blows: { activation: bonus-action, cost: { ki: 1 } }
+  patient-defense: { activation: bonus-action, cost: { ki: 1 } }
+  step-of-the-wind: { activation: bonus-action, cost: { ki: 1 } }
+  deflect-missiles: { activation: reaction }
+  slow-fall: { activation: reaction }
+  stunning-strike: { activation: special, cost: { ki: 1 } }
+  open-hand-technique: { activation: special }
+  claws: { activation: action }                       # feline Claws
+attacks:
+  # Martial Arts (unarmed, no armour, no shield): DEX instead of STR, die table(monk.martial-arts) row 5 = 1d6
+  unarmed-strike: { toHit: 7, damage: "1d6 + 4", type: bludgeoning }   # DEX 4 + prof 3; 1d6 + DEX 4. ENGINE MISMATCH: got toHit 3, damage "1" (wieldingOnly: monkWeapon is false when no weapon is wielded, so Martial Arts stays inactive while unarmed)
+features:
+  - srd51.feature.monk.martial-arts
+  - srd51.feature.monk.unarmored-defense
+  - srd51.feature.monk.ki
+  - srd51.feature.monk.unarmored-movement
+  - srd51.feature.monk.deflect-missiles
+  - srd51.feature.monk.slow-fall
+  - srd51.feature.monk.extra-attack
+  - srd51.feature.monk.stunning-strike
+  - srd51.feature.way-of-the-open-hand.open-hand-technique
+  - homebrew.byloth.feature.feline.claws
+  - homebrew.byloth.feature.feline.darkvision
+  - homebrew.byloth.feature.feline.cats-grace
+  - homebrew.byloth.feature.feline.puma.pounce
+choices:
+  "srd51.class.monk#skills": answered
+  "srd51.class.monk#tools": answered
+  "srd51.class.monk#monastic-tradition": answered
+  "srd51.class.monk#asi-4": answered
+  "homebrew.byloth.species.feline#languages": answered
+proficiencies:
+  - skill:stealth
+  - skill:acrobatics
+  - save:str
+  - save:dex
+  - weapon:simple
+  - weapon:shortsword
+  - tool:flute
+  - language:common
+  - language:elvish            # feline extra language, answered
+sections:
+  active: [core, abilities, saves, skills, senses, combat, attacks, actions, resources, features]
+  inactive: [spellcasting, spells]
+warnings: []

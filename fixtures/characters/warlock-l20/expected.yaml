@@ -1,0 +1,77 @@
+# Human Warlock 20 (The Fiend, Pact of the Blade). Base str 9, dex 13, con 13, int 10, wis 11, cha 15; human +1 all;
+# ASIs 4 +2 CHA, 8 +2 CHA, 12 +2 CON, 16 +2 WIS, 19 +2 DEX → str 10, dex 16, con 16, int 11, wis 14, cha 20.
+# Modifiers: str 0, dex +3, con +3, int 0, wis +2, cha +5. Proficiency bonus at level 20: +6.
+values:
+  ability.str: 10
+  ability.dex: 16               # 13 + 1 (human) + 2 (ASI 19)
+  ability.con: 16               # 13 + 1 + 2 (ASI 12)
+  ability.int: 11
+  ability.wis: 14               # 11 + 1 + 2 (ASI 16)
+  ability.cha: 20               # 15 + 1 + 2 (ASI 4) + 2 (ASI 8)
+  proficiencyBonus: 6
+  hp.max: 163                   # level 1: 8 + 3 = 11; levels 2-20: 19 × (5 + 3) = 152
+  ac: 14                        # leather 11 + DEX 3
+  initiative: 3
+  speed.walk: 30
+  sense.darkvision: 120         # Devil's Sight
+  attacks.perAction: 2          # Thirsting Blade
+  save.wis: 8                   # 2 + 6
+  save.cha: 11                  # 5 + 6
+  save.dex: 3                   # not proficient
+  save.con: 3                   # not proficient
+  skill.arcana: 6               # INT 0 + 6
+  skill.deception: 11           # CHA 5 + 6
+  skill.perception: 2           # WIS 2, not proficient
+  skill.stealth: 3              # DEX 3, not proficient
+  passive.perception: 12        # 10 + 2
+spellcasting:
+  # Pact Magic row 17+: 4 slots of 5th level → snapshot pact: { slots: 4, level: 5 }
+  srd51.class.warlock:
+    dc: 19                      # 8 + 6 + 5
+    attackBonus: 11             # 6 + 5
+    cantripsKnown: 4
+    spellsKnown: 15             # table row 19
+spells:
+  srd51.spell.eldritch-blast: free
+  srd51.spell.dream: slot
+  srd51.spell.false-life: slot  # Fiendish Vigor
+  srd51.spell.slow: uses:1      # Mire the Mind
+  srd51.spell.alter-self: slot  # Master of Myriad Forms (at will in the SRD; no cost modelled)
+resources:
+  dark-ones-own-luck: { max: 1, recharge: [short-rest, long-rest] }
+  hurl-through-hell: { max: 1, recharge: [long-rest] }                # level 14
+  eldritch-master: { max: 1, recharge: [long-rest] }                  # level 20
+  mystic-arcanum-6: { max: 1, recharge: [long-rest] }
+  mystic-arcanum-7: { max: 1, recharge: [long-rest] }                 # table row 13
+  mystic-arcanum-8: { max: 1, recharge: [long-rest] }                 # table row 15
+  mystic-arcanum-9: { max: 1, recharge: [long-rest] }                 # table row 17
+actions:
+  dark-ones-blessing: { activation: free }
+  create-pact-weapon: { activation: action }
+  dark-ones-own-luck: { activation: free, cost: { dark-ones-own-luck: 1 } }
+  hurl-through-hell: { activation: free, cost: { hurl-through-hell: 1 } }
+  eldritch-master: { activation: special, cost: { eldritch-master: 1 } }
+attacks:
+  dagger: { toHit: 9, damage: "1d4 + 3", type: piercing }   # DEX 3 + 6
+features:
+  - srd51.feature.warlock.mystic-arcanum
+  - srd51.feature.warlock.eldritch-master
+  - srd51.feature.the-fiend.dark-ones-own-luck
+  - srd51.feature.the-fiend.fiendish-resilience
+  - srd51.feature.the-fiend.hurl-through-hell
+choices:
+  "srd51.class.warlock#asi-4": answered
+  "srd51.class.warlock#asi-8": answered
+  "srd51.class.warlock#asi-12": answered
+  # SRD warlock ASIs: 4, 8, 12, 16, 19. ENGINE MISMATCH (content): classes/warlock.yaml has no `asi-16` choice, got absent.
+  "srd51.class.warlock#asi-16": answered
+  "srd51.class.warlock#asi-19": answered
+  "srd51.feature.warlock.eldritch-invocations#eldritch-invocations": answered
+  "srd51.feature.warlock.pact-boon#pact-boon": answered
+  "srd51.feature.the-fiend.fiendish-resilience#fiendish-resilience": answered
+  "srd51.feature.warlock.mystic-arcanum#mystic-arcanum-6": answered
+  "srd51.feature.warlock.mystic-arcanum#mystic-arcanum-7": answered
+  "srd51.feature.warlock.mystic-arcanum#mystic-arcanum-8": answered
+  "srd51.feature.warlock.mystic-arcanum#mystic-arcanum-9": answered
+sections:
+  active: [senses, attacks, actions, resources, spellcasting, spells, features]

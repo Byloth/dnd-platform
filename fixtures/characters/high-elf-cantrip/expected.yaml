@@ -1,0 +1,63 @@
+# High elf Rogue 1 with the High Elf cantrip choice answered (fire bolt).
+# Scores after elf +2 DEX and high elf +1 INT: STR 8, DEX 17, CON 13, INT 14, WIS 12, CHA 10.
+# Modifiers: str -1, dex +3, con +1, int +2, wis +1, cha 0. Proficiency bonus at 1: +2.
+values:
+  ability.dex: 17            # 15 + 2 (elf)
+  ability.int: 14            # 13 + 1 (high elf)
+  mod.dex: 3
+  proficiencyBonus: 2
+  hp.max: 9                  # 8 + CON 1
+  ac: 14                     # leather armour 11 + DEX 3
+  initiative: 3
+  speed.walk: 30
+  sense.darkvision: 60       # elf Darkvision (op max 60)
+  save.dex: 5                # 3 + 2 proficient
+  save.int: 4                # 2 + 2 proficient
+  save.wis: 1                # not proficient
+  skill.stealth: 7           # DEX 3 + 2 × 2 (Expertise)
+  skill.sleight-of-hand: 7   # DEX 3 + 2 × 2 (Expertise)
+  skill.acrobatics: 5        # DEX 3 + 2
+  skill.investigation: 4     # INT 2 + 2
+  skill.perception: 3        # WIS 1 + 2 (Keen Senses)
+  passive.perception: 13     # 10 + 3
+attacks:
+  rapier: { toHit: 5, damage: "1d8 + 3", type: piercing }   # finesse: DEX 3 (> STR -1) + proficiency 2 (rapier proficiency)
+actions:
+  sneak-attack: { activation: special }
+features:
+  - srd51.feature.elf.keen-senses
+  - srd51.feature.elf.fey-ancestry
+  - srd51.feature.high-elf.ability-score-increase
+  - srd51.feature.high-elf.elf-weapon-training
+  - srd51.feature.high-elf.cantrip
+  - srd51.feature.rogue.expertise
+  - srd51.feature.rogue.sneak-attack
+choices:
+  "srd51.feature.high-elf.cantrip#cantrip": answered
+  "srd51.feature.high-elf.extra-language#extra-language": answered
+  "srd51.feature.rogue.expertise#expertise-1": answered
+  "srd51.class.rogue#skills": answered
+spells:
+  srd51.spell.fire-bolt: free   # High Elf cantrip chosen through the feature's open-choice
+proficiencies:
+  - save:dex
+  - save:int
+  - skill:stealth
+  - skill:sleight-of-hand
+  - skill:acrobatics
+  - skill:investigation
+  - skill:perception
+  - armor:light
+  - weapon:simple
+  - weapon:rapier
+  - weapon:longsword          # rogue and Elf Weapon Training
+  - weapon:longbow            # Elf Weapon Training
+  - tool:thieves-tools
+  - language:common
+  - language:elvish
+  - language:dwarvish         # Extra Language (open-choice of language, answered)
+                              # ENGINE MISMATCH: got absent (a feature `open-choice` of `language` records the answer but grants no proficiency)
+  - language:thieves-cant
+sections:
+  active: [attacks, actions, senses, features]
+  inactive: [spellcasting, resources]

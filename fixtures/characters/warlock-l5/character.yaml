@@ -1,0 +1,38 @@
+formatVersion: 0
+id: fixture-warlock-l5
+name: Hollow Pact
+ruleset: { id: srd51, version: 0.1.0 }
+packages:
+  - { id: srd51, version: 0.1.0 }
+choices:
+  species: srd51.species.human
+  classes:
+    - { class: srd51.class.warlock, subclass: srd51.subclass.warlock.the-fiend, levels: 5 }
+  abilityScores:
+    method: manual
+    # human: +1 all (generated) → cha 16; ASI 4: +2 CHA → 18
+    base: { str: 9, dex: 13, con: 13, int: 10, wis: 11, cha: 15 }
+    bonuses: { cha: 2 }
+  answers:
+    "srd51.class.warlock#skills": [arcana, deception]
+    "srd51.class.warlock#otherworldly-patron": [srd51.subclass.warlock.the-fiend]
+    # cantrips known at 5: 3
+    "srd51.class.warlock#cantrips": [srd51.spell.eldritch-blast, srd51.spell.minor-illusion, srd51.spell.chill-touch]
+    # spells known at 5: 6 (fireball from the Fiend's expanded list)
+    "srd51.class.warlock#spells": [srd51.spell.charm-person, srd51.spell.hellish-rebuke, srd51.spell.hold-person, srd51.spell.misty-step, srd51.spell.counterspell, srd51.spell.fireball]
+    "srd51.species.human#languages": [infernal]
+    # invocations known at 5: 3 (table warlock.invocations-known); Thirsting Blade needs level 5 + Pact of the Blade
+    "srd51.feature.warlock.eldritch-invocations#eldritch-invocations": [agonizing-blast, devils-sight, thirsting-blade]
+    "srd51.feature.warlock.pact-boon#pact-boon": [pact-of-the-blade]
+    "srd51.class.warlock#asi-4": [asi]
+  equipment:
+    - { item: srd51.item.leather-armor, quantity: 1, equipped: true }
+    - { item: srd51.item.dagger, quantity: 2, equipped: true }
+    - { item: srd51.item.component-pouch, quantity: 1 }
+state:
+  hp: { current: 38, temporary: 0 }
+  hitDice: { spent: 0 }
+  resources: {}
+  conditions: []
+  deathSaves: { successes: 0, failures: 0 }
+  inspiration: false

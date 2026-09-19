@@ -1,0 +1,3283 @@
+{
+  "actions": [
+    {
+      "activation": "free",
+      "available": true,
+      "cost": [],
+      "id": "dark-ones-blessing",
+      "name": {
+        "en": "Dark One's Blessing"
+      },
+      "onUse": [
+        {
+          "amount": "max(1, mod(cha) + classLevel(warlock))",
+          "kind": "tempHp"
+        }
+      ],
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.subclass.warlock.the-fiend",
+        "feature": "srd51.feature.the-fiend.dark-ones-blessing",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "When you reduce a hostile creature to 0 hit points, you gain temporary hit points equal to your Charisma modifier + your warlock level (minimum of 1)."
+      }
+    },
+    {
+      "activation": "free",
+      "available": true,
+      "cost": [
+        {
+          "amount": 1,
+          "resource": "dark-ones-own-luck"
+        }
+      ],
+      "id": "dark-ones-own-luck",
+      "name": {
+        "en": "Dark One's Own Luck"
+      },
+      "onUse": [
+        {
+          "kind": "note",
+          "text": {
+            "en": "Add 1d10 to the ability check or saving throw you just rolled."
+          }
+        }
+      ],
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.subclass.warlock.the-fiend",
+        "feature": "srd51.feature.the-fiend.dark-ones-own-luck",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "When you make an ability check or a saving throw, you can use this feature to add a d10 to your roll. You can do so after seeing the initial roll but before any of the roll's effects occur."
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "create-pact-weapon",
+      "name": {
+        "en": "Create pact weapon"
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.warlock",
+        "feature": "pact-of-the-blade",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You create a pact weapon in your empty hand, choosing the form this melee weapon takes each time. You are proficient with it while you wield it, and it counts as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage. It disappears if it is more than 5 feet away from you for 1 minute or more, if you use this feature again, if you dismiss it (no action required), or if you die."
+      }
+    }
+  ],
+  "attacks": [
+    {
+      "ability": "dex",
+      "attackBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Dexterity modifier"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 2
+          },
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "Proficiency bonus"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 4
+          }
+        ],
+        "value": 6
+      },
+      "critRange": 20,
+      "damage": "1d4 + 2",
+      "damageBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Dexterity modifier"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 2
+          }
+        ],
+        "value": 2
+      },
+      "damageDice": "1d4",
+      "damageType": "piercing",
+      "extraDamage": [],
+      "id": "dagger",
+      "item": "srd51.item.dagger",
+      "magical": false,
+      "name": {
+        "en": "Dagger"
+      },
+      "proficient": true,
+      "ranged": false,
+      "unarmed": false
+    },
+    {
+      "ability": "str",
+      "attackBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Strength modifier"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 0
+          },
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "Proficiency bonus"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 4
+          }
+        ],
+        "value": 4
+      },
+      "critRange": 20,
+      "damage": "1",
+      "damageBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Strength modifier"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 0
+          }
+        ],
+        "value": 0
+      },
+      "damageDice": "1",
+      "damageType": "bludgeoning",
+      "extraDamage": [],
+      "id": "unarmed-strike",
+      "magical": false,
+      "name": {
+        "en": "Unarmed strike"
+      },
+      "proficient": true,
+      "ranged": false,
+      "unarmed": true
+    }
+  ],
+  "choices": [
+    {
+      "answered": true,
+      "answers": [
+        "arcana",
+        "deception"
+      ],
+      "choice": "skills",
+      "count": 2,
+      "key": "srd51.class.warlock#skills",
+      "of": "skill",
+      "options": [
+        "arcana",
+        "deception",
+        "history",
+        "intimidation",
+        "investigation",
+        "nature",
+        "religion"
+      ],
+      "owner": "srd51.class.warlock"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "infernal"
+      ],
+      "choice": "languages",
+      "count": 1,
+      "key": "srd51.species.human#languages",
+      "of": "language",
+      "options": [],
+      "owner": "srd51.species.human"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "srd51.subclass.warlock.the-fiend"
+      ],
+      "choice": "otherworldly-patron",
+      "count": 1,
+      "key": "srd51.class.warlock#otherworldly-patron",
+      "level": 1,
+      "of": "subclass",
+      "options": [],
+      "owner": "srd51.class.warlock"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "asi"
+      ],
+      "choice": "asi-4",
+      "count": 1,
+      "key": "srd51.class.warlock#asi-4",
+      "level": 4,
+      "of": "asi-or-feat",
+      "options": [],
+      "owner": "srd51.class.warlock"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "asi"
+      ],
+      "choice": "asi-8",
+      "count": 1,
+      "key": "srd51.class.warlock#asi-8",
+      "level": 8,
+      "of": "asi-or-feat",
+      "options": [],
+      "owner": "srd51.class.warlock"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "agonizing-blast",
+        "devils-sight",
+        "thirsting-blade",
+        "fiendish-vigor",
+        "mire-the-mind"
+      ],
+      "choice": "eldritch-invocations",
+      "count": 2,
+      "key": "srd51.feature.warlock.eldritch-invocations#eldritch-invocations",
+      "of": "option",
+      "options": [
+        "agonizing-blast",
+        "armor-of-shadows",
+        "ascendant-step",
+        "beast-speech",
+        "beguiling-influence",
+        "bewitching-whispers",
+        "book-of-ancient-secrets",
+        "chains-of-carceri",
+        "devils-sight",
+        "dreadful-word",
+        "eldritch-sight",
+        "eldritch-spear",
+        "eyes-of-the-rune-keeper",
+        "fiendish-vigor",
+        "gaze-of-two-minds",
+        "lifedrinker",
+        "mask-of-many-faces",
+        "master-of-myriad-forms",
+        "minions-of-chaos",
+        "mire-the-mind",
+        "misty-visions",
+        "one-with-shadows",
+        "otherworldly-leap",
+        "repelling-blast",
+        "sculptor-of-flesh",
+        "sign-of-ill-omen",
+        "thief-of-five-fates",
+        "thirsting-blade",
+        "visions-of-distant-realms",
+        "voice-of-the-chain-master",
+        "whispers-of-the-grave",
+        "witch-sight"
+      ],
+      "owner": "srd51.feature.warlock.eldritch-invocations"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "pact-of-the-blade"
+      ],
+      "choice": "pact-boon",
+      "count": 1,
+      "key": "srd51.feature.warlock.pact-boon#pact-boon",
+      "of": "option",
+      "options": [
+        "pact-of-the-chain",
+        "pact-of-the-blade",
+        "pact-of-the-tome"
+      ],
+      "owner": "srd51.feature.warlock.pact-boon"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "fire"
+      ],
+      "choice": "fiendish-resilience",
+      "count": 1,
+      "key": "srd51.feature.the-fiend.fiendish-resilience#fiendish-resilience",
+      "of": "option",
+      "options": [
+        "acid",
+        "bludgeoning",
+        "cold",
+        "fire",
+        "force",
+        "lightning",
+        "necrotic",
+        "piercing",
+        "poison",
+        "psychic",
+        "radiant",
+        "slashing",
+        "thunder"
+      ],
+      "owner": "srd51.feature.the-fiend.fiendish-resilience"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "srd51.spell.true-seeing"
+      ],
+      "choice": "mystic-arcanum-6",
+      "count": 1,
+      "key": "srd51.feature.warlock.mystic-arcanum#mystic-arcanum-6",
+      "of": "spell",
+      "options": [],
+      "owner": "srd51.feature.warlock.mystic-arcanum"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "srd51.spell.eldritch-blast",
+        "srd51.spell.minor-illusion",
+        "srd51.spell.chill-touch",
+        "srd51.spell.mage-hand"
+      ],
+      "choice": "cantrips",
+      "count": 4,
+      "key": "srd51.class.warlock#cantrips",
+      "of": "spell",
+      "options": [],
+      "owner": "srd51.class.warlock"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "srd51.spell.charm-person",
+        "srd51.spell.hellish-rebuke",
+        "srd51.spell.hold-person",
+        "srd51.spell.misty-step",
+        "srd51.spell.counterspell",
+        "srd51.spell.fireball",
+        "srd51.spell.dimension-door",
+        "srd51.spell.banishment",
+        "srd51.spell.hold-monster",
+        "srd51.spell.scrying",
+        "srd51.spell.wall-of-fire"
+      ],
+      "choice": "spells",
+      "count": 11,
+      "key": "srd51.class.warlock#spells",
+      "of": "spell",
+      "options": [],
+      "owner": "srd51.class.warlock"
+    }
+  ],
+  "classes": [
+    {
+      "class": "srd51.class.warlock",
+      "levels": 11,
+      "subclass": "srd51.subclass.warlock.the-fiend"
+    }
+  ],
+  "defenses": [
+    {
+      "defense": "resistance",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.subclass.warlock.the-fiend",
+        "feature": "fire",
+        "package": "srd51"
+      },
+      "to": [
+        "fire"
+      ]
+    }
+  ],
+  "features": [
+    {
+      "id": "srd51.feature.human.ability-score-increase",
+      "name": {
+        "en": "Ability Score Increase"
+      },
+      "origin": "species",
+      "owner": "srd51.species.human",
+      "source": {
+        "entity": "srd51.species.human",
+        "feature": "srd51.feature.human.ability-score-increase",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Your ability scores each increase by 1."
+      }
+    },
+    {
+      "id": "srd51.feature.human.speed",
+      "name": {
+        "en": "Speed"
+      },
+      "origin": "species",
+      "owner": "srd51.species.human",
+      "source": {
+        "entity": "srd51.species.human",
+        "feature": "srd51.feature.human.speed",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Your base walking speed is 30 feet."
+      }
+    },
+    {
+      "id": "srd51.feature.human.age",
+      "name": {
+        "en": "Age"
+      },
+      "origin": "species",
+      "owner": "srd51.species.human",
+      "source": {
+        "entity": "srd51.species.human",
+        "feature": "srd51.feature.human.age",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Humans reach adulthood in their late teens and live less than a century."
+      }
+    },
+    {
+      "id": "srd51.feature.human.alignment",
+      "name": {
+        "en": "Alignment"
+      },
+      "origin": "species",
+      "owner": "srd51.species.human",
+      "source": {
+        "entity": "srd51.species.human",
+        "feature": "srd51.feature.human.alignment",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Humans tend toward no particular alignment. The best and the worst are found among them."
+      }
+    },
+    {
+      "id": "srd51.feature.human.size",
+      "name": {
+        "en": "Size"
+      },
+      "origin": "species",
+      "owner": "srd51.species.human",
+      "source": {
+        "entity": "srd51.species.human",
+        "feature": "srd51.feature.human.size",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Humans vary widely in height and build, from barely 5 feet to well over 6 feet tall. Regardless of your position in that range, your size is Medium."
+      }
+    },
+    {
+      "id": "srd51.feature.human.languages",
+      "name": {
+        "en": "Languages"
+      },
+      "origin": "species",
+      "owner": "srd51.species.human",
+      "source": {
+        "entity": "srd51.species.human",
+        "feature": "srd51.feature.human.languages",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You can speak, read, and write Common and one extra language of your choice. Humans typically learn the languages of other peoples they deal with, including obscure dialects. They are fond of sprinkling their speech with words borrowed from other tongues: Orc curses, Elvish musical expressions, Dwarvish military phrases, and so on."
+      }
+    },
+    {
+      "id": "srd51.feature.warlock.eldritch-invocation-list",
+      "level": 1,
+      "name": {
+        "en": "Eldritch Invocation List"
+      },
+      "origin": "class",
+      "owner": "srd51.class.warlock",
+      "source": {
+        "entity": "srd51.class.warlock",
+        "feature": "srd51.feature.warlock.eldritch-invocation-list",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "If an eldritch invocation has prerequisites, you must meet them to learn it. You can learn the invocation at the same time that you meet its prerequisites. A level prerequisite refers to your level in this class.\n\n### Agonizing Blast\n\nPrerequisite: eldritch blast cantrip\n\nWhen you cast eldritch blast, add your Charisma modifier to the damage it deals on a hit.\nArmor of Shadows\n\nYou can cast mage armor on yourself at will, without expending a spell slot or material components.\n\n### Ascendant Step\n\nPrerequisite: 9th level\n\nYou can cast levitate on yourself at will, without expending a spell slot or material components.\n\n### Beast Speech\n\nYou can cast speak with animals at will, without expending a spell slot.\n\n### Beguiling Influence\n\nYou gain proficiency in the Deception and Persuasion skills.\n\n### Bewitching Whispers\n\nPrerequisite: 7th level\n\nYou can cast compulsion once using a warlock spell slot. You can't do so again until you finish a long rest.\n\n### Book of Ancient Secrets\n\nPrerequisite: Pact of the Tome feature\n\nYou can now inscribe magical rituals in your Book of Shadows. Choose two 1st-level spells that have the ritual tag from any class's spell list (the two needn't be from the same list). The spells appear in the book and don't count against the number of spells you know. With your Book of Shadows in hand, you can cast the chosen spells as rituals. You can't cast the spells except as rituals, unless you've learned them by some other means. You can also cast a warlock spell you know as a ritual if it has the ritual tag.\n\nOn your adventures, you can add other ritual spells to your Book of Shadows. When you find such a spell, you can add it to the book if the spell's level is equal to or less than half your warlock level (rounded up) and if you can spare the time to transcribe the spell. For each level of the spell, the transcription process takes 2 hours and costs 50 gp for the rare inks needed to inscribe it.\n\n### Chains of Carceri\n\nPrerequisite: 15th level, Pact of the Chain feature\n\nYou can cast hold monster at will-targeting a celestial, fiend, or elemental-without expending a spell slot or material components. You must finish a long rest before you can use this invocation on the same creature again.\n\n### Devil's Sight\n\nYou can see normally in darkness, both magical and nonmagical, to a distance of 120 feet.\n\n### Dreadful Word\n\nPrerequisite: 7th level\n\nYou can cast confusion once using a warlock spell slot. You can't do so again until you finish a long rest.\n\n### Eldritch Sight\n\nYou can cast detect magic at will, without expending a spell slot.\n\n### Eldritch Spear\n\nPrerequisite: eldritch blast cantrip\n\nWhen you cast eldritch blast, its range is 300 feet.\n\n### Eyes of the Rune Keeper\n\nYou can read all writing.\n\n### Fiendish Vigor\n\nYou can cast false life on yourself at will as a 1st-level spell, without expending a spell slot or material components.\n\n### Gaze of Two Minds\n\nYou can use your action to touch a willing humanoid and perceive through its senses until the end of your next turn. As long as the creature is on the same plane of existence as you, you can use your action on subsequent turns to maintain this connection, extending the duration until the end of your next turn. While perceiving through the other creature's senses, you benefit from any special senses possessed by that creature, and you are blinded and deafened to your own surroundings.\n\n### Lifedrinker\n\nPrerequisite: 12th level, Pact of the Blade feature\n\nWhen you hit a creature with your pact weapon, the creature takes extra necrotic damage equal to your Charisma modifier (minimum 1).\n\n### Mask of Many Faces\n\nYou can cast disguise self at will, without expending a spell slot.\n\n### Master of Myriad Forms\n\nPrerequisite: 15th level\n\nYou can cast alter self at will, without expending a spell slot.\n\n### Minions of Chaos\n\nPrerequisite: 9th level\n\nYou can cast conjure elemental once using a warlock spell slot. You can't do so again until you finish a long rest.\n\n### Mire the Mind\n\nPrerequisite: 5th level\n\nYou can cast slow once using a warlock spell slot. You can't do so again until you finish a long rest.\n\n### Misty Visions\n\nYou can cast silent image at will, without expending a spell slot or material components.\n\n### One with Shadows\n\nPrerequisite: 5th level\n\nWhen you are in an area of dim light or darkness, you can use your action to become invisible until you move or take an action or a reaction.\n\n### Otherworldly Leap\n\nPrerequisite: 9th level\n\nYou can cast jump on yourself at will, without expending a spell slot or material components.\n\n### Repelling Blast\n\nPrerequisite: eldritch blast cantrip\n\nWhen you hit a creature with eldritch blast, you can push the creature up to 10 feet away from you in a straight line.\n\n### Sculptor of Flesh\n\nPrerequisite: 7th level\n\nYou can cast polymorph once using a warlock spell slot. You can't do so again until you finish a long rest.\n\n### Sign of Ill Omen\n\nPrerequisite: 5th level\n\nYou can cast bestow curse once using a warlock spell slot. You can't do so again until you finish a long rest.\n\n### Thief of Five Fates\n\nYou can cast bane once using a warlock spell slot. You can't do so again until you finish a long rest.\n\n### Thirsting Blade\n\nPrerequisite: 5th level, Pact of the Blade feature\n\nYou can attack with your pact weapon twice, instead of once, whenever you take the Attack action on your turn.\n\n### Visions of Distant Realms\n\nPrerequisite: 15th level\n\nYou can cast arcane eye at will, without expending a spell slot.\n\n### Voice of the Chain Master\n\nPrerequisite: Pact of the Chain feature\n\nYou can communicate telepathically with your familiar and perceive through your familiar's senses as long as you are on the same plane of existence. Additionally, while perceiving through your familiar's senses, you can also speak through your familiar in your own voice, even if your familiar is normally incapable of speech.\n\n### Whispers of the Grave\n\nPrerequisite: 9th level\n\nYou can cast speak with dead at will, without expending a spell slot.\n\n### Witch Sight\n\nPrerequisite: 15th level\n\nYou can see the true form of any shapechanger or creature concealed by illusion or transmutation magic while the creature is within 30 feet of you and within line of sight."
+      }
+    },
+    {
+      "id": "srd51.feature.warlock.otherworldly-patron",
+      "level": 1,
+      "name": {
+        "en": "Otherworldly Patron"
+      },
+      "origin": "class",
+      "owner": "srd51.class.warlock",
+      "source": {
+        "entity": "srd51.class.warlock",
+        "feature": "srd51.feature.warlock.otherworldly-patron",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "At 1st level, you have struck a bargain with an otherworldly being of your choice: the Archfey, the Fiend, or the Great Old One, each of which is detailed at the end of the class description. Your choice grants you features at 1st level and again at 6th, 10th, and 14th level."
+      }
+    },
+    {
+      "id": "srd51.feature.warlock.pact-magic",
+      "level": 1,
+      "name": {
+        "en": "Pact Magic"
+      },
+      "origin": "class",
+      "owner": "srd51.class.warlock",
+      "source": {
+        "entity": "srd51.class.warlock",
+        "feature": "srd51.feature.warlock.pact-magic",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Your arcane research and the magic bestowed on you by your patron have given you facility with spells.\n\n### Cantrips\n\nYou know two cantrips of your choice from the warlock spell list. You learn additional warlock cantrips of your choice at higher levels, as shown in the Cantrips Known column of the Warlock table.\nSpell Slots\n\nThe Warlock table shows how many spell slots you have. The table also shows what the level of those slots is; all of your spell slots are the same level. To cast one of your warlock spells of 1st level or higher, you must expend a spell slot. You regain all expended spell slots when you finish a short or long rest.\n\nFor example, when you are 5th level, you have two 3rd-level spell slots. To cast the 1st-level spell thunderwave, you must spend one of those slots, and you cast it as a 3rd-level spell.\n\n### Spells Known of 1st Level and Higher\n\nAt 1st level, you know two 1st-level spells of your choice from the warlock spell list.\n\nThe Spells Known column of the Warlock table shows when you learn more warlock spells of your choice of 1st level and higher. A spell you choose must be of a level no higher than what's shown in the table's Slot Level column for your level. When you reach 6th level, for example, you learn a new warlock spell, which can be 1st, 2nd, or 3rd level.\n\nAdditionally, when you gain a level in this class, you can choose one of the warlock spells you know and replace it with another spell from the warlock spell list, which also must be of a level for which you have spell slots.\n\n### Spellcasting Ability\n\nCharisma is your spellcasting ability for your warlock spells, so you use your Charisma whenever a spell refers to your spellcasting ability. In addition, you use your Charisma modifier when setting the saving throw DC for a warlock spell you cast and when making an attack roll with one.\n\n**Spell save DC** = 8 + your proficiency bonus + your Charisma modifier\n\n**Spell attack modifier** = your proficiency bonus + your Charisma modifier\n\n### Spellcasting Focus\n\nYou can use an arcane focus as a spellcasting focus for your warlock spells."
+      }
+    },
+    {
+      "id": "srd51.feature.warlock.eldritch-invocations",
+      "level": 2,
+      "name": {
+        "en": "Eldritch Invocations"
+      },
+      "origin": "class",
+      "owner": "srd51.class.warlock",
+      "source": {
+        "entity": "srd51.class.warlock",
+        "feature": "srd51.feature.warlock.eldritch-invocations",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "In your study of occult lore, you have unearthed eldritch invocations, fragments of forbidden knowledge that imbue you with an abiding magical ability.\n\nAt 2nd level, you gain two eldritch invocations of your choice. Your invocation options are detailed at the end of the class description. When you gain certain warlock levels, you gain additional invocations of your choice, as shown in the Invocations Known column of the Warlock table.\n\nAdditionally, when you gain a level in this class, you can choose one of the invocations you know and replace it with another invocation that you could learn at that level."
+      }
+    },
+    {
+      "id": "srd51.feature.warlock.pact-boon",
+      "level": 3,
+      "name": {
+        "en": "Pact Boon"
+      },
+      "origin": "class",
+      "owner": "srd51.class.warlock",
+      "source": {
+        "entity": "srd51.class.warlock",
+        "feature": "srd51.feature.warlock.pact-boon",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "At 3rd level, your otherworldly patron bestows a gift upon you for your loyal service. You gain one of the following features of your choice.\n\n### Pact of the Chain\n\nYou learn the find familiar spell and can cast it as a ritual. The spell doesn't count against your number of spells known.\n\nWhen you cast the spell, you can choose one of the normal forms for your familiar or one of the following special forms: imp, pseudodragon, quasit, or sprite.\n\nAdditionally, when you take the Attack action, you can forgo one of your own attacks to allow your familiar to make one attack of its own with its reaction.\n\n### Pact of the Blade\n\nYou can use your action to create a pact weapon in your empty hand. You can choose the form that this melee weapon takes each time you create it. You are proficient with it while you wield it. This weapon counts as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage.\n\nYour pact weapon disappears if it is more than 5 feet away from you for 1 minute or more. It also disappears if you use this feature again, if you dismiss the weapon (no action required), or if you die.\n\nYou can transform one magic weapon into your pact weapon by performing a special ritual while you hold the weapon. You perform the ritual over the course of 1 hour, which can be done during a short rest. You can then dismiss the weapon, shunting it into an extradimensional space, and it appears whenever you create your pact weapon thereafter. You can't affect an artifact or a sentient weapon in this way. The weapon ceases being your pact weapon if you die, if you perform the 1-hour ritual on a different weapon, or if you use a 1-hour ritual to break your bond to it. The weapon appears at your feet if it is in the extradimensional space when the bond breaks.\n\n### Pact of the Tome\n\nYour patron gives you a grimoire called a Book of Shadows. When you gain this feature, choose three cantrips from any class's spell list (the three needn't be from the same list). While the book is on your person, you can cast those cantrips at will. They don't count against your number of cantrips known. If they don't appear on the warlock spell list, they are nonetheless warlock spells for you.\n\nIf you lose your Book of Shadows, you can perform a 1-hour ceremony to receive a replacement from your patron. This ceremony can be performed during a short or long rest, and it destroys the previous book. The book turns to ash when you die."
+      }
+    },
+    {
+      "id": "srd51.feature.warlock.ability-score-improvement",
+      "level": 4,
+      "name": {
+        "en": "Ability Score Improvement"
+      },
+      "origin": "class",
+      "owner": "srd51.class.warlock",
+      "source": {
+        "entity": "srd51.class.warlock",
+        "feature": "srd51.feature.warlock.ability-score-improvement",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "When you reach 4th level, and again at 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature."
+      }
+    },
+    {
+      "id": "srd51.feature.warlock.mystic-arcanum",
+      "level": 11,
+      "name": {
+        "en": "Mystic Arcanum"
+      },
+      "origin": "class",
+      "owner": "srd51.class.warlock",
+      "source": {
+        "entity": "srd51.class.warlock",
+        "feature": "srd51.feature.warlock.mystic-arcanum",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "At 11th level, your patron bestows upon you a magical secret called an arcanum. Choose one 6th- level spell from the warlock spell list as this arcanum.\n\nYou can cast your arcanum spell once without expending a spell slot. You must finish a long rest before you can do so again.\n\nAt higher levels, you gain more warlock spells of your choice that can be cast in this way: one 7th- level spell at 13th level, one 8th-level spell at 15th level, and one 9th-level spell at 17th level. You regain all uses of your Mystic Arcanum when you finish a long rest."
+      }
+    },
+    {
+      "id": "srd51.feature.the-fiend.dark-ones-blessing",
+      "level": 1,
+      "name": {
+        "en": "Dark One's Blessing"
+      },
+      "origin": "subclass",
+      "owner": "srd51.subclass.warlock.the-fiend",
+      "source": {
+        "entity": "srd51.subclass.warlock.the-fiend",
+        "feature": "srd51.feature.the-fiend.dark-ones-blessing",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Starting at 1st level, when you reduce a hostile creature to 0 hit points, you gain temporary hit points equal to your Charisma modifier + your warlock level (minimum of 1)."
+      }
+    },
+    {
+      "id": "srd51.feature.the-fiend.expanded-spell-list",
+      "level": 1,
+      "name": {
+        "en": "Expanded Spell List"
+      },
+      "origin": "subclass",
+      "owner": "srd51.subclass.warlock.the-fiend",
+      "source": {
+        "entity": "srd51.subclass.warlock.the-fiend",
+        "feature": "srd51.feature.the-fiend.expanded-spell-list",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "The Fiend lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you.\n\n### Fiend Expanded Spells (table)\n| Spell Level | Spells |\n| --- | --- |\n| 1st | burning hands, command |\n| 2nd | blindness/deafness, scorching ray |\n| 3rd | fireball, stinking cloud |\n| 4th | fire shield, wall of fire |\n| 5th | flame strike, hallow |"
+      }
+    },
+    {
+      "id": "srd51.feature.the-fiend.dark-ones-own-luck",
+      "level": 6,
+      "name": {
+        "en": "Dark One's Own Luck"
+      },
+      "origin": "subclass",
+      "owner": "srd51.subclass.warlock.the-fiend",
+      "source": {
+        "entity": "srd51.subclass.warlock.the-fiend",
+        "feature": "srd51.feature.the-fiend.dark-ones-own-luck",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Starting at 6th level, you can call on your patron to alter fate in your favor. When you make an ability check or a saving throw, you can use this feature to add a d10 to your roll. You can do so after seeing the initial roll but before any of the roll's effects occur.\n\nOnce you use this feature, you can't use it again until you finish a short or long rest."
+      }
+    },
+    {
+      "id": "srd51.feature.the-fiend.fiendish-resilience",
+      "level": 10,
+      "name": {
+        "en": "Fiendish Resilience"
+      },
+      "origin": "subclass",
+      "owner": "srd51.subclass.warlock.the-fiend",
+      "source": {
+        "entity": "srd51.subclass.warlock.the-fiend",
+        "feature": "srd51.feature.the-fiend.fiendish-resilience",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Starting at 10th level, you can choose one damage type when you finish a short or long rest. You gain resistance to that damage type until you choose a different one with this feature. Damage from magical weapons or silver weapons ignores this resistance."
+      }
+    }
+  ],
+  "level": 11,
+  "meta": {
+    "characterId": "fixture-warlock-l11",
+    "formatVersion": 0,
+    "language": "en",
+    "name": "Hollow Pact",
+    "packages": [
+      {
+        "id": "srd51",
+        "version": "0.1.0"
+      }
+    ],
+    "ruleset": "srd51"
+  },
+  "proficiencies": [
+    {
+      "expertise": false,
+      "item": "light",
+      "source": {
+        "entity": "srd51.class.warlock",
+        "package": "srd51"
+      },
+      "type": "armor"
+    },
+    {
+      "expertise": false,
+      "item": "common",
+      "source": {
+        "entity": "srd51.species.human",
+        "package": "srd51"
+      },
+      "type": "language"
+    },
+    {
+      "expertise": false,
+      "item": "infernal",
+      "source": {
+        "entity": "srd51.species.human",
+        "package": "srd51"
+      },
+      "type": "language"
+    },
+    {
+      "expertise": false,
+      "item": "cha",
+      "source": {
+        "entity": "srd51.class.warlock",
+        "package": "srd51"
+      },
+      "type": "save"
+    },
+    {
+      "expertise": false,
+      "item": "wis",
+      "source": {
+        "entity": "srd51.class.warlock",
+        "package": "srd51"
+      },
+      "type": "save"
+    },
+    {
+      "expertise": false,
+      "item": "arcana",
+      "source": {
+        "entity": "srd51.class.warlock",
+        "package": "srd51"
+      },
+      "type": "skill"
+    },
+    {
+      "expertise": false,
+      "item": "deception",
+      "source": {
+        "entity": "srd51.class.warlock",
+        "package": "srd51"
+      },
+      "type": "skill"
+    },
+    {
+      "expertise": false,
+      "item": "simple",
+      "source": {
+        "entity": "srd51.class.warlock",
+        "package": "srd51"
+      },
+      "type": "weapon"
+    }
+  ],
+  "resources": [
+    {
+      "current": 1,
+      "display": "pips",
+      "id": "mystic-arcanum-6",
+      "max": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "None"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 0
+          },
+          {
+            "applied": true,
+            "formula": "table(warlock.mystic-arcanum-level-6)",
+            "kind": "set",
+            "label": {
+              "en": "Mystic Arcanum"
+            },
+            "source": {
+              "effectIndex": 4,
+              "entity": "srd51.class.warlock",
+              "feature": "srd51.feature.warlock.mystic-arcanum",
+              "package": "srd51"
+            },
+            "value": 1
+          }
+        ],
+        "value": 1
+      },
+      "name": {
+        "en": "Mystic Arcanum (6th level)"
+      },
+      "recharge": [
+        {
+          "amount": "full",
+          "on": "long-rest"
+        }
+      ],
+      "source": {
+        "effectIndex": 4,
+        "entity": "srd51.class.warlock",
+        "feature": "srd51.feature.warlock.mystic-arcanum",
+        "package": "srd51"
+      }
+    },
+    {
+      "current": null,
+      "display": "pips",
+      "id": "mystic-arcanum-7",
+      "max": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "None"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 0
+          },
+          {
+            "applied": true,
+            "formula": "table(warlock.mystic-arcanum-level-7)",
+            "kind": "set",
+            "label": {
+              "en": "Mystic Arcanum"
+            },
+            "source": {
+              "effectIndex": 5,
+              "entity": "srd51.class.warlock",
+              "feature": "srd51.feature.warlock.mystic-arcanum",
+              "package": "srd51"
+            },
+            "value": 0
+          }
+        ],
+        "value": 0
+      },
+      "name": {
+        "en": "Mystic Arcanum (7th level)"
+      },
+      "recharge": [
+        {
+          "amount": "full",
+          "on": "long-rest"
+        }
+      ],
+      "source": {
+        "effectIndex": 5,
+        "entity": "srd51.class.warlock",
+        "feature": "srd51.feature.warlock.mystic-arcanum",
+        "package": "srd51"
+      }
+    },
+    {
+      "current": null,
+      "display": "pips",
+      "id": "mystic-arcanum-8",
+      "max": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "None"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 0
+          },
+          {
+            "applied": true,
+            "formula": "table(warlock.mystic-arcanum-level-8)",
+            "kind": "set",
+            "label": {
+              "en": "Mystic Arcanum"
+            },
+            "source": {
+              "effectIndex": 6,
+              "entity": "srd51.class.warlock",
+              "feature": "srd51.feature.warlock.mystic-arcanum",
+              "package": "srd51"
+            },
+            "value": 0
+          }
+        ],
+        "value": 0
+      },
+      "name": {
+        "en": "Mystic Arcanum (8th level)"
+      },
+      "recharge": [
+        {
+          "amount": "full",
+          "on": "long-rest"
+        }
+      ],
+      "source": {
+        "effectIndex": 6,
+        "entity": "srd51.class.warlock",
+        "feature": "srd51.feature.warlock.mystic-arcanum",
+        "package": "srd51"
+      }
+    },
+    {
+      "current": null,
+      "display": "pips",
+      "id": "mystic-arcanum-9",
+      "max": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "None"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 0
+          },
+          {
+            "applied": true,
+            "formula": "table(warlock.mystic-arcanum-level-9)",
+            "kind": "set",
+            "label": {
+              "en": "Mystic Arcanum"
+            },
+            "source": {
+              "effectIndex": 7,
+              "entity": "srd51.class.warlock",
+              "feature": "srd51.feature.warlock.mystic-arcanum",
+              "package": "srd51"
+            },
+            "value": 0
+          }
+        ],
+        "value": 0
+      },
+      "name": {
+        "en": "Mystic Arcanum (9th level)"
+      },
+      "recharge": [
+        {
+          "amount": "full",
+          "on": "long-rest"
+        }
+      ],
+      "source": {
+        "effectIndex": 7,
+        "entity": "srd51.class.warlock",
+        "feature": "srd51.feature.warlock.mystic-arcanum",
+        "package": "srd51"
+      }
+    },
+    {
+      "current": 1,
+      "display": "pips",
+      "id": "dark-ones-own-luck",
+      "max": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "None"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 0
+          },
+          {
+            "applied": true,
+            "kind": "set",
+            "label": {
+              "en": "Dark One's Own Luck"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.subclass.warlock.the-fiend",
+              "feature": "srd51.feature.the-fiend.dark-ones-own-luck",
+              "package": "srd51"
+            },
+            "value": 1
+          }
+        ],
+        "value": 1
+      },
+      "name": {
+        "en": "Dark One's Own Luck"
+      },
+      "recharge": [
+        {
+          "amount": "full",
+          "on": "short-rest"
+        },
+        {
+          "amount": "full",
+          "on": "long-rest"
+        }
+      ],
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.subclass.warlock.the-fiend",
+        "feature": "srd51.feature.the-fiend.dark-ones-own-luck",
+        "package": "srd51"
+      }
+    }
+  ],
+  "rollModifiers": [],
+  "sections": [
+    "identity",
+    "core",
+    "abilities",
+    "saves",
+    "skills",
+    "senses",
+    "combat",
+    "attacks",
+    "actions",
+    "resources",
+    "spellcasting",
+    "spells",
+    "features",
+    "equipment",
+    "personality",
+    "conditions",
+    "notes",
+    "credits"
+  ],
+  "spellcasting": [
+    {
+      "ability": "cha",
+      "attackBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "Proficiency bonus"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.class.warlock",
+              "feature": "srd51.feature.warlock.pact-magic",
+              "package": "srd51"
+            },
+            "value": 4
+          },
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "CHA modifier"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.class.warlock",
+              "feature": "srd51.feature.warlock.pact-magic",
+              "package": "srd51"
+            },
+            "value": 5
+          }
+        ],
+        "value": 9
+      },
+      "cantripsKnown": 4,
+      "class": "srd51.class.warlock",
+      "dc": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Base"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.class.warlock",
+              "feature": "srd51.feature.warlock.pact-magic",
+              "package": "srd51"
+            },
+            "value": 8
+          },
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "Proficiency bonus"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.class.warlock",
+              "feature": "srd51.feature.warlock.pact-magic",
+              "package": "srd51"
+            },
+            "value": 4
+          },
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "CHA modifier"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.class.warlock",
+              "feature": "srd51.feature.warlock.pact-magic",
+              "package": "srd51"
+            },
+            "value": 5
+          }
+        ],
+        "value": 17
+      },
+      "list": "srd51.spell-list.warlock",
+      "pact": {
+        "current": null,
+        "level": 5,
+        "slots": 3
+      },
+      "preparation": "known",
+      "ritual": false,
+      "slots": [],
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.warlock",
+        "feature": "srd51.feature.warlock.pact-magic",
+        "package": "srd51"
+      },
+      "spellsKnown": 11
+    }
+  ],
+  "spells": [
+    {
+      "ability": "cha",
+      "as": "cantrip",
+      "id": "srd51.spell.eldritch-blast",
+      "level": 0,
+      "name": {
+        "en": "Eldritch Blast"
+      },
+      "paidWith": {
+        "free": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.warlock",
+        "feature": "srd51.feature.warlock.pact-magic",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "cantrip",
+      "id": "srd51.spell.minor-illusion",
+      "level": 0,
+      "name": {
+        "en": "Minor Illusion"
+      },
+      "paidWith": {
+        "free": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.warlock",
+        "feature": "srd51.feature.warlock.pact-magic",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "cantrip",
+      "id": "srd51.spell.chill-touch",
+      "level": 0,
+      "name": {
+        "en": "Chill Touch"
+      },
+      "paidWith": {
+        "free": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.warlock",
+        "feature": "srd51.feature.warlock.pact-magic",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "cantrip",
+      "id": "srd51.spell.mage-hand",
+      "level": 0,
+      "name": {
+        "en": "Mage Hand"
+      },
+      "paidWith": {
+        "free": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.warlock",
+        "feature": "srd51.feature.warlock.pact-magic",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "known",
+      "id": "srd51.spell.charm-person",
+      "level": 1,
+      "name": {
+        "en": "Charm Person"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.warlock",
+        "feature": "srd51.feature.warlock.pact-magic",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "known",
+      "id": "srd51.spell.hellish-rebuke",
+      "level": 1,
+      "name": {
+        "en": "Hellish Rebuke"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.warlock",
+        "feature": "srd51.feature.warlock.pact-magic",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "known",
+      "id": "srd51.spell.hold-person",
+      "level": 2,
+      "name": {
+        "en": "Hold Person"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.warlock",
+        "feature": "srd51.feature.warlock.pact-magic",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "known",
+      "id": "srd51.spell.misty-step",
+      "level": 2,
+      "name": {
+        "en": "Misty Step"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.warlock",
+        "feature": "srd51.feature.warlock.pact-magic",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "known",
+      "id": "srd51.spell.counterspell",
+      "level": 3,
+      "name": {
+        "en": "Counterspell"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.warlock",
+        "feature": "srd51.feature.warlock.pact-magic",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "known",
+      "id": "srd51.spell.fireball",
+      "level": 3,
+      "name": {
+        "en": "Fireball"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.warlock",
+        "feature": "srd51.feature.warlock.pact-magic",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "known",
+      "id": "srd51.spell.dimension-door",
+      "level": 4,
+      "name": {
+        "en": "Dimension Door"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.warlock",
+        "feature": "srd51.feature.warlock.pact-magic",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "known",
+      "id": "srd51.spell.banishment",
+      "level": 4,
+      "name": {
+        "en": "Banishment"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.warlock",
+        "feature": "srd51.feature.warlock.pact-magic",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "known",
+      "id": "srd51.spell.hold-monster",
+      "level": 5,
+      "name": {
+        "en": "Hold Monster"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.warlock",
+        "feature": "srd51.feature.warlock.pact-magic",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "known",
+      "id": "srd51.spell.scrying",
+      "level": 5,
+      "name": {
+        "en": "Scrying"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.warlock",
+        "feature": "srd51.feature.warlock.pact-magic",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "known",
+      "id": "srd51.spell.wall-of-fire",
+      "level": 4,
+      "name": {
+        "en": "Wall of Fire"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.warlock",
+        "feature": "srd51.feature.warlock.pact-magic",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "always-prepared",
+      "id": "srd51.spell.false-life",
+      "level": 1,
+      "name": {
+        "en": "False Life"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.warlock",
+        "feature": "fiendish-vigor",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "always-prepared",
+      "id": "srd51.spell.slow",
+      "level": 3,
+      "name": {
+        "en": "Slow"
+      },
+      "paidWith": {
+        "recharge": "long-rest",
+        "uses": 1
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.warlock",
+        "feature": "mire-the-mind",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "known",
+      "id": "srd51.spell.true-seeing",
+      "level": 6,
+      "name": {
+        "en": "True Seeing"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.warlock",
+        "feature": "srd51.feature.warlock.mystic-arcanum",
+        "package": "srd51"
+      }
+    }
+  ],
+  "values": {
+    "ability.cha": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 19
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Ability Score Increase"
+          },
+          "source": {
+            "effectIndex": 5,
+            "entity": "srd51.species.human",
+            "feature": "srd51.feature.human.ability-score-increase",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 20
+    },
+    "ability.con": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 13
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Ability Score Increase"
+          },
+          "source": {
+            "effectIndex": 2,
+            "entity": "srd51.species.human",
+            "feature": "srd51.feature.human.ability-score-increase",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 14
+    },
+    "ability.dex": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 13
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Ability Score Increase"
+          },
+          "source": {
+            "effectIndex": 1,
+            "entity": "srd51.species.human",
+            "feature": "srd51.feature.human.ability-score-increase",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 14
+    },
+    "ability.int": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Ability Score Increase"
+          },
+          "source": {
+            "effectIndex": 3,
+            "entity": "srd51.species.human",
+            "feature": "srd51.feature.human.ability-score-increase",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 11
+    },
+    "ability.str": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 9
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Ability Score Increase"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.species.human",
+            "feature": "srd51.feature.human.ability-score-increase",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 10
+    },
+    "ability.wis": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 11
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Ability Score Increase"
+          },
+          "source": {
+            "effectIndex": 4,
+            "entity": "srd51.species.human",
+            "feature": "srd51.feature.human.ability-score-increase",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 12
+    },
+    "ac": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Leather Armor"
+          },
+          "source": {
+            "entity": "srd51.item.leather-armor",
+            "package": ""
+          },
+          "value": 11
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 13
+    },
+    "attacks.perAction": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "One attack per Attack action"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        },
+        {
+          "applied": true,
+          "kind": "max",
+          "label": {
+            "en": "Thirsting Blade"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.class.warlock",
+            "feature": "thirsting-blade",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "carry.capacity": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength score × 15"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 150
+        }
+      ],
+      "value": 150
+    },
+    "check.cha": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 5
+    },
+    "check.con": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Constitution modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "check.dex": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "check.int": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "check.str": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "check.wis": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "hp.max": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "hitDie + mod(con)",
+          "kind": "base",
+          "label": {
+            "en": "Level 1 (Warlock)"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "formula": "10 × (average(hitDie) + mod(con))",
+          "kind": "add",
+          "label": {
+            "en": "10 more levels (Warlock)"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 70
+        }
+      ],
+      "value": 80
+    },
+    "initiative": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "jump.high": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "3 + Strength modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 3
+    },
+    "jump.long": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength score in feet"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        }
+      ],
+      "value": 10
+    },
+    "mod.cha": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 5
+    },
+    "mod.con": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Constitution modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "mod.dex": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "mod.int": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "mod.str": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Strength modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "mod.wis": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "passive.acrobatics": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "acrobatics bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 12
+    },
+    "passive.animal-handling": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "animal-handling bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 11
+    },
+    "passive.arcana": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "arcana bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 4
+        }
+      ],
+      "value": 14
+    },
+    "passive.athletics": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "athletics bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 10
+    },
+    "passive.deception": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "deception bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 9
+        }
+      ],
+      "value": 19
+    },
+    "passive.history": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "history bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 10
+    },
+    "passive.insight": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "insight bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 11
+    },
+    "passive.intimidation": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "intimidation bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 15
+    },
+    "passive.investigation": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "investigation bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 10
+    },
+    "passive.medicine": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "medicine bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 11
+    },
+    "passive.nature": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "nature bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 10
+    },
+    "passive.perception": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "perception bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 11
+    },
+    "passive.performance": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "performance bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 15
+    },
+    "passive.persuasion": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "persuasion bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 15
+    },
+    "passive.religion": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "religion bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 10
+    },
+    "passive.sleight-of-hand": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "sleight-of-hand bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 12
+    },
+    "passive.stealth": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "stealth bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 12
+    },
+    "passive.survival": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "survival bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 11
+    },
+    "proficiencyBonus": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Proficiency bonus by level"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 4
+        }
+      ],
+      "value": 4
+    },
+    "resource.dark-ones-own-luck.max": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "None"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        },
+        {
+          "applied": true,
+          "kind": "set",
+          "label": {
+            "en": "Dark One's Own Luck"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.subclass.warlock.the-fiend",
+            "feature": "srd51.feature.the-fiend.dark-ones-own-luck",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "resource.mystic-arcanum-6.max": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "None"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        },
+        {
+          "applied": true,
+          "formula": "table(warlock.mystic-arcanum-level-6)",
+          "kind": "set",
+          "label": {
+            "en": "Mystic Arcanum"
+          },
+          "source": {
+            "effectIndex": 4,
+            "entity": "srd51.class.warlock",
+            "feature": "srd51.feature.warlock.mystic-arcanum",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "resource.mystic-arcanum-7.max": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "None"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        },
+        {
+          "applied": true,
+          "formula": "table(warlock.mystic-arcanum-level-7)",
+          "kind": "set",
+          "label": {
+            "en": "Mystic Arcanum"
+          },
+          "source": {
+            "effectIndex": 5,
+            "entity": "srd51.class.warlock",
+            "feature": "srd51.feature.warlock.mystic-arcanum",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "resource.mystic-arcanum-8.max": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "None"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        },
+        {
+          "applied": true,
+          "formula": "table(warlock.mystic-arcanum-level-8)",
+          "kind": "set",
+          "label": {
+            "en": "Mystic Arcanum"
+          },
+          "source": {
+            "effectIndex": 6,
+            "entity": "srd51.class.warlock",
+            "feature": "srd51.feature.warlock.mystic-arcanum",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "resource.mystic-arcanum-9.max": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "None"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        },
+        {
+          "applied": true,
+          "formula": "table(warlock.mystic-arcanum-level-9)",
+          "kind": "set",
+          "label": {
+            "en": "Mystic Arcanum"
+          },
+          "source": {
+            "effectIndex": 7,
+            "entity": "srd51.class.warlock",
+            "feature": "srd51.feature.warlock.mystic-arcanum",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "save.cha": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 4
+        }
+      ],
+      "value": 9
+    },
+    "save.con": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Constitution modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "save.dex": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "save.int": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "save.str": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "save.wis": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 4
+        }
+      ],
+      "value": 5
+    },
+    "sense.darkvision": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "None"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        },
+        {
+          "applied": true,
+          "kind": "max",
+          "label": {
+            "en": "Devil's Sight"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.class.warlock",
+            "feature": "devils-sight",
+            "package": "srd51"
+          },
+          "value": 120
+        }
+      ],
+      "value": 120
+    },
+    "skill.acrobatics": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "skill.animal-handling": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "skill.arcana": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 4
+        }
+      ],
+      "value": 4
+    },
+    "skill.athletics": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "skill.deception": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 4
+        }
+      ],
+      "value": 9
+    },
+    "skill.history": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "skill.insight": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "skill.intimidation": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 5
+    },
+    "skill.investigation": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "skill.medicine": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "skill.nature": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "skill.perception": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "skill.performance": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 5
+    },
+    "skill.persuasion": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 5
+    },
+    "skill.religion": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "skill.sleight-of-hand": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "skill.stealth": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "skill.survival": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "speed.walk": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Species speed"
+          },
+          "source": {
+            "entity": "srd51.species.human",
+            "package": ""
+          },
+          "value": 30
+        }
+      ],
+      "value": 30
+    }
+  },
+  "warnings": []
+}
+

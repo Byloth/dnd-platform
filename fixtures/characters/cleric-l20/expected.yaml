@@ -1,0 +1,63 @@
+# Hill dwarf Cleric 20, Life Domain, acolyte. Base str 14, dex 10, con 13, int 10, wis 15, cha 12; dwarf +2 CON, hill dwarf +1 WIS;
+# ASIs +4 WIS, +5 CON, +1 STR (see character.yaml) → STR 15, DEX 10, CON 20, INT 10, WIS 20, CHA 12.
+# Modifiers: str +2, dex 0, con +5, int 0, wis +5, cha +1. Proficiency bonus +6.
+values:
+  ability.str: 15          # 14 + 1 (ASI 19)
+  ability.con: 20          # 13 + 2 (dwarf) + 2 (ASI 12) + 2 (ASI 16) + 1 (ASI 19)
+  ability.wis: 20          # 15 + 1 (hill dwarf) + 2 (ASI 4) + 2 (ASI 8)
+  mod.con: 5
+  mod.wis: 5
+  proficiencyBonus: 6
+  hp.max: 223              # level 1: 8 + 5 = 13; levels 2-20: 19 × (5 + 5) = 190; Dwarven Toughness 1 × 20 = 20
+  ac: 18                   # chain mail 16 + shield 2  # ENGINE MISMATCH: got 16 (no shield bonus)
+  initiative: 0
+  speed.walk: 25
+  sense.darkvision: 60
+  save.wis: 11             # 5 + 6
+  save.cha: 7              # 1 + 6
+  save.str: 2
+  save.con: 5
+  skill.insight: 11        # WIS 5 + 6
+  skill.medicine: 11
+  skill.religion: 6        # INT 0 + 6
+  skill.history: 6
+  skill.perception: 5
+  passive.perception: 15
+resources:
+  channel-divinity: { max: 3, recharge: [short-rest, long-rest] }   # table(cleric.channel-divinity-charges) row 18 = 3
+  divine-intervention: { max: 1, recharge: [long-rest] }            # automatic success at 20 (play note)
+actions:
+  turn-undead: { activation: action, cost: { channel-divinity: 1 } }
+  preserve-life: { activation: action, cost: { channel-divinity: 1 } }
+  divine-intervention: { activation: action, cost: { divine-intervention: 1 } }
+  divine-strike: { activation: free }                                # 2d8 radiant from 14
+attacks:
+  warhammer: { toHit: 8, damage: "1d8 + 2", type: bludgeoning }   # STR 2 + prof 6
+spellcasting:
+  srd51.class.cleric:
+    dc: 19                 # 8 + 6 + 5
+    attackBonus: 11        # 6 + 5
+    slots: { 1: 4, 2: 3, 3: 3, 4: 3, 5: 3, 6: 2, 7: 2, 8: 1, 9: 1 }   # full-caster table, level 20
+    cantripsKnown: 5
+spells:
+  srd51.spell.guidance: free
+  srd51.spell.gate: slot
+  srd51.spell.true-resurrection: slot
+  srd51.spell.raise-dead: slot         # Life Domain 9
+features:
+  - srd51.feature.cleric.divine-intervention
+  - srd51.feature.life-domain.supreme-healing
+  - srd51.feature.life-domain.divine-strike
+  - srd51.feature.hill-dwarf.dwarven-toughness
+choices:
+  "srd51.class.cleric#asi-4": answered
+  "srd51.class.cleric#asi-8": answered
+  "srd51.class.cleric#asi-12": answered   # ENGINE MISMATCH: got absent (classes/cleric.yaml has no level "12" entry, so the SRD 12th-level ASI is missing)
+  "srd51.class.cleric#asi-16": answered
+  "srd51.class.cleric#asi-19": answered
+  "srd51.class.cleric#cantrips": answered
+  "srd51.class.cleric#spells": answered
+proficiencies: [save:wis, save:cha, armor:heavy, weapon:warhammer, skill:insight, skill:medicine, language:dwarvish, language:elvish]
+sections:
+  active: [core, abilities, saves, skills, senses, combat, attacks, actions, resources, spellcasting, spells, features]
+warnings: []

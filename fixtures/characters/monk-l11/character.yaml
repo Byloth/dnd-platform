@@ -1,0 +1,36 @@
+formatVersion: 0
+id: fixture-monk-l11
+name: Still Water
+ruleset: { id: srd51, version: 0.1.0 }
+packages:
+  - { id: srd51, version: 0.1.0 }
+  - { id: homebrew.byloth, version: 0.1.0 }
+choices:
+  species: homebrew.byloth.species.feline
+  subspecies: homebrew.byloth.species.feline.puma
+  classes:
+    - { class: srd51.class.monk, subclass: srd51.subclass.monk.way-of-the-open-hand, levels: 11 }
+  abilityScores:
+    method: manual
+    # the feline species grants no ability increase
+    base: { str: 11, dex: 16, con: 14, int: 8, wis: 16, cha: 8 }
+    # ASIs: 4 DEX +2, 8 DEX +2
+    bonuses: { dex: 4 }
+  answers:
+    "srd51.class.monk#skills": [stealth, acrobatics]
+    "srd51.class.monk#tools": [flute]
+    "srd51.class.monk#monastic-tradition": [srd51.subclass.monk.way-of-the-open-hand]
+    "srd51.class.monk#asi-4": [asi]
+    "srd51.class.monk#asi-8": [asi]
+    "homebrew.byloth.species.feline#languages": [elvish]
+  # no weapon equipped: the unarmed strike shows Martial Arts
+  equipment:
+    - { item: srd51.item.dart, quantity: 10 }
+    - { item: srd51.item.explorers-pack, quantity: 1 }
+state:
+  hp: { current: 80, temporary: 0 }
+  hitDice: { spent: 0 }
+  resources: { ki: 11, wholeness-of-body: 1 }
+  conditions: []
+  deathSaves: { successes: 0, failures: 0 }
+  inspiration: false

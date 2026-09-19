@@ -1,0 +1,29 @@
+formatVersion: 0
+id: fixture-dragonborn-ancestry
+name: Red Standard
+ruleset: { id: srd51, version: 0.1.0 }
+packages:
+  - { id: srd51, version: 0.1.0 }
+choices:
+  species: srd51.species.dragonborn
+  # Sacred Oath comes at paladin 3: no subclass yet.
+  classes:
+    - { class: srd51.class.paladin, levels: 1 }
+  abilityScores:
+    method: manual
+    # dragonborn: +2 STR, +1 CHA (generated from the species trait) → STR 17, DEX 10, CON 14, INT 8, WIS 12, CHA 15
+    base: { str: 15, dex: 10, con: 14, int: 8, wis: 12, cha: 14 }
+  answers:
+    "srd51.class.paladin#skills": [athletics, persuasion]
+    # Draconic Ancestry: the choice id is `draconic-ancestry`, the option ids are the dragon colours (red → fire)
+    "srd51.feature.dragonborn.draconic-ancestry#draconic-ancestry": [red]
+  equipment:
+    - { item: srd51.item.chain-mail, quantity: 1, equipped: true }
+    - { item: srd51.item.longsword, quantity: 1, equipped: true }
+state:
+  hp: { current: 12, temporary: 0 }
+  hitDice: { spent: 0 }
+  resources: { breath-weapon: 1, divine-sense: 3, lay-on-hands: 5 }
+  conditions: []
+  deathSaves: { successes: 0, failures: 0 }
+  inspiration: false

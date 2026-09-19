@@ -1,0 +1,70 @@
+# Lightfoot halfling Ranger 20 (Hunter: Colossus Slayer, Multiattack Defense, Volley, Evasion; Archery) on the SRD 5.1 base package.
+# Scores: base str 10, dex 15, con 14, int 10, wis 15, cha 8; halfling +2 dex; lightfoot +1 cha;
+# ASIs: 4 +2 dex, 8 +1 dex/+1 wis, 12 +2 wis, 16 +2 wis, 19 +2 con.
+# Final: str 10, dex 20, con 16, int 10, wis 20, cha 9 → mods str 0, dex +5, con +3, int 0, wis +5, cha -1.
+# Proficiency bonus at 20: +6.
+values:
+  ability.dex: 20          # 15 + 2 (halfling) + 3 (ASIs)
+  ability.con: 16          # 14 + 2 (ASI 19)
+  ability.wis: 20          # 15 + 5 (ASIs)
+  ability.cha: 9
+  proficiencyBonus: 6
+  hp.max: 184              # level 1: 10 + 3 = 13; levels 2-20: 19 × (6 + 3) = 171
+  ac: 16                   # leather 11 + mod(dex) 5
+  initiative: 5
+  speed.walk: 25
+  attacks.perAction: 2
+  save.str: 6              # mod 0 + 6
+  save.dex: 11             # mod 5 + 6
+  save.con: 3              # not proficient
+  save.wis: 5
+  save.cha: -1
+  skill.perception: 11     # mod(wis) 5 + 6
+  skill.stealth: 11        # mod(dex) 5 + 6
+  skill.survival: 11       # mod(wis) 5 + 6
+  skill.animal-handling: 5 # mod(wis) 5, not proficient
+  passive.perception: 21
+attacks:
+  longbow: { toHit: 13, damage: "1d8 + 5", type: piercing }       # mod(dex) 5 + proficiency 6 + Archery 2
+  unarmed-strike: { toHit: 6, damage: "1", type: bludgeoning }
+actions:
+  lucky: { activation: special }
+  primeval-awareness: { activation: action, cost: { spell-slot: 1 } }
+  colossus-slayer: { activation: special }
+  hide-in-plain-sight: { activation: special }
+  volley: { activation: action }
+  vanish: { activation: bonus-action }                            # 14th level
+  foe-slayer: { activation: free }                                # 20th level
+spellcasting:
+  srd51.class.ranger:
+    dc: 19                 # 8 + 6 + mod(wis) 5
+    attackBonus: 11        # 6 + 5
+    slots: { 1: 4, 2: 3, 3: 3, 4: 3, 5: 2 }   # half-caster table, ranger level 20
+    spellsKnown: 11        # table ranger.spells-known, level 20 (19 → 11)
+spells:
+  srd51.spell.hunters-mark: slot
+  srd51.spell.stoneskin: slot
+  srd51.spell.tree-stride: slot
+features:
+  - srd51.feature.ranger.extra-attack
+  - srd51.feature.ranger.lands-stride
+  - srd51.feature.ranger.hide-in-plain-sight
+  - srd51.feature.ranger.vanish
+  - srd51.feature.ranger.feral-senses
+  - srd51.feature.ranger.foe-slayer
+  - srd51.feature.hunter.hunters-prey
+  - srd51.feature.hunter.defensive-tactics
+  - srd51.feature.hunter.multiattack
+  - srd51.feature.hunter.superior-hunters-defense
+choices:
+  "srd51.class.ranger#ranger-archetype": answered
+  "srd51.class.ranger#asi-19": answered
+  "srd51.feature.ranger.favored-enemy#favored-enemy-3": answered
+  "srd51.feature.ranger.favored-enemy#favored-enemy-language-3": answered
+  "srd51.feature.ranger.natural-explorer#favored-terrain-3": answered
+  "srd51.feature.hunter.superior-hunters-defense#superior-hunters-defense": answered
+  "srd51.class.ranger#spells": answered
+proficiencies: [save:str, save:dex, skill:perception, skill:stealth, skill:survival, weapon:martial, language:halfling]
+sections:
+  active: [core, abilities, saves, skills, senses, combat, attacks, actions, spellcasting, spells, features]  # Feral Senses adds text to senses
+  inactive: [resources]

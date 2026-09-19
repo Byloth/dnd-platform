@@ -1,0 +1,85 @@
+# High elf Druid 1 in leather armour with a scimitar, on the real base package.
+# Scores after elf +2 DEX and high elf +1 INT: STR 8, DEX 16, CON 14, INT 12, WIS 16, CHA 10.
+# Modifiers: STR -1, DEX +3, CON +2, INT +1, WIS +3, CHA 0. Proficiency bonus at level 1: +2.
+values:
+  ability.str: 8
+  ability.dex: 16            # 14 + 2 (elf)
+  ability.con: 14
+  ability.int: 12            # 11 + 1 (high elf)
+  ability.wis: 16
+  ability.cha: 10
+  proficiencyBonus: 2
+  hp.max: 10                 # hit die 8 + CON 2
+  ac: 14                     # leather 11 + DEX 3
+  initiative: 3              # DEX modifier
+  speed.walk: 30             # elf
+  sense.darkvision: 60       # elf Darkvision (op max 60)
+  attacks.perAction: 1
+  save.int: 3                # 1 + 2 proficient
+  save.wis: 5                # 3 + 2 proficient
+  save.dex: 3                # not proficient
+  save.str: -1               # not proficient
+  skill.nature: 3            # INT 1 + 2 (chosen)
+  skill.survival: 5          # WIS 3 + 2 (chosen)
+  skill.perception: 5        # WIS 3 + 2 (Keen Senses)
+  skill.medicine: 3          # WIS 3, not proficient
+  skill.stealth: 3           # DEX 3, not proficient
+  passive.perception: 15     # 10 + 5
+provenance:
+  ac: ["Leather Armor", "Dexterity modifier"]
+spellcasting:
+  srd51.class.druid:
+    dc: 13                   # 8 + 2 + 3
+    attackBonus: 5           # 2 + 3
+    slots: { 1: 2 }          # full-caster table, level 1
+    cantripsKnown: 2         # srd51.table.druid.cantrips-known row 1
+spells:
+  srd51.spell.druidcraft: free
+  srd51.spell.produce-flame: free
+  srd51.spell.fire-bolt: free           # High Elf cantrip (wizard list, INT). ENGINE MISMATCH: got absent (an open-choice of spell answer is registered but never added to the spell list)
+  srd51.spell.cure-wounds: slot
+  srd51.spell.entangle: slot
+  srd51.spell.healing-word: slot
+  srd51.spell.faerie-fire: slot
+attacks:
+  scimitar: { toHit: 5, damage: "1d6 + 3", type: slashing }   # finesse: DEX 3 > STR -1; + prof 2 (druid weapon)
+features:
+  - srd51.feature.druid.druidic
+  - srd51.feature.druid.spellcasting
+  - srd51.feature.elf.ability-score-increase
+  - srd51.feature.elf.darkvision
+  - srd51.feature.elf.keen-senses
+  - srd51.feature.elf.fey-ancestry
+  - srd51.feature.elf.trance
+  - srd51.feature.high-elf.ability-score-increase
+  - srd51.feature.high-elf.elf-weapon-training
+  - srd51.feature.high-elf.cantrip
+  - srd51.feature.high-elf.extra-language
+choices:
+  "srd51.class.druid#skills": answered
+  "srd51.class.druid#cantrips": answered
+  "srd51.class.druid#spells": answered
+  "srd51.feature.high-elf.cantrip#cantrip": answered
+  "srd51.feature.high-elf.extra-language#extra-language": answered
+proficiencies:
+  - save:int
+  - save:wis
+  - skill:nature
+  - skill:survival
+  - skill:perception           # Keen Senses
+  - armor:light
+  - armor:medium
+  - armor:shield
+  - weapon:scimitar
+  - weapon:quarterstaff
+  - weapon:longsword           # Elf Weapon Training
+  - weapon:longbow
+  - tool:herbalism-kit
+  - language:common
+  - language:elvish
+  - language:druidic           # Druidic
+  - language:sylvan            # high elf extra language, answered. ENGINE MISMATCH: absent (an open-choice of language answer is registered but not granted as a proficiency)
+sections:
+  active: [core, abilities, saves, skills, senses, combat, attacks, spellcasting, spells, features]
+  inactive: [resources]        # no Wild Shape before druid 2
+warnings: []

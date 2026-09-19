@@ -1,0 +1,53 @@
+# Rock gnome Rogue 5 (Thief) on the SRD 5.1 base package.
+# Scores: base str 8, dex 16, con 13, int 12, wis 13, cha 10; gnome +2 int; rock gnome +1 con; ASI 4 +2 dex.
+# Final: str 8, dex 18, con 14, int 14, wis 13, cha 10 → mods str -1, dex +4, con +2, int +2, wis +1, cha 0.
+# Proficiency bonus at 5: +3.
+values:
+  ability.dex: 18          # 16 + 2 (ASI 4)
+  ability.con: 14
+  ability.int: 14
+  proficiencyBonus: 3
+  hp.max: 38               # level 1: 8 + 2 = 10; levels 2-5: 4 × (average(d8) 5 + 2) = 28
+  ac: 15                   # leather 11 + mod(dex) 4
+  initiative: 4
+  speed.walk: 25
+  sense.darkvision: 60
+  attacks.perAction: 1     # rogues get no Extra Attack
+  jump.long: 12            # Strength score 8 + Second-Story Work mod(dex) 4
+  jump.high: 6             # 3 + mod(str) -1 + Second-Story Work 4
+  save.dex: 7              # mod 4 + 3
+  save.int: 5              # mod 2 + 3
+  save.wis: 1              # not proficient
+  skill.stealth: 10        # mod(dex) 4 + 2 × 3 (Expertise)
+  skill.sleight-of-hand: 10
+  skill.perception: 4      # mod(wis) 1 + 3
+  skill.investigation: 5   # mod(int) 2 + 3
+  skill.deception: 0       # mod(cha) 0, not proficient
+  passive.perception: 14
+attacks:
+  rapier: { toHit: 7, damage: "1d8 + 4", type: piercing }         # mod(dex) 4 + 3
+  shortbow: { toHit: 7, damage: "1d6 + 4", type: piercing }
+  unarmed-strike: { toHit: 2, damage: "0", type: bludgeoning }    # mod(str) -1 + 3
+actions:
+  sneak-attack: { activation: special }                           # 3d6 at rogue 5
+  cunning-action: { activation: bonus-action }
+  fast-hands: { activation: bonus-action }                        # Thief
+  uncanny-dodge: { activation: reaction }
+features:
+  - srd51.feature.rogue.expertise
+  - srd51.feature.rogue.sneak-attack
+  - srd51.feature.rogue.cunning-action
+  - srd51.feature.rogue.roguish-archetype
+  - srd51.feature.rogue.uncanny-dodge
+  - srd51.feature.thief.fast-hands
+  - srd51.feature.thief.second-story-work
+  - srd51.feature.gnome.darkvision
+choices:
+  "srd51.class.rogue#skills": answered
+  "srd51.class.rogue#roguish-archetype": answered
+  "srd51.class.rogue#asi-4": answered
+  "srd51.feature.rogue.expertise#expertise-1": answered
+proficiencies: [save:dex, save:int, skill:stealth, skill:sleight-of-hand, skill:perception, skill:investigation, armor:light, weapon:rapier, tool:thieves-tools]
+sections:
+  active: [core, abilities, saves, skills, senses, combat, attacks, actions, features]
+  inactive: [resources, spellcasting, spells]

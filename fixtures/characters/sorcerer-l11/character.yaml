@@ -1,0 +1,50 @@
+formatVersion: 0
+id: fixture-sorcerer-l11
+name: Ember Trace
+ruleset: { id: srd51, version: 0.1.0 }
+packages:
+  - { id: srd51, version: 0.1.0 }
+choices:
+  species: srd51.species.tiefling
+  classes:
+    - { class: srd51.class.sorcerer, subclass: srd51.subclass.sorcerer.draconic-bloodline, levels: 11 }
+  abilityScores:
+    method: manual
+    # tiefling: +1 INT, +2 CHA (generated) → cha 17; ASI 4: +2 CHA (19); ASI 8: +1 CHA +1 CON (cha 20, con 15)
+    base: { str: 8, dex: 14, con: 14, int: 11, wis: 12, cha: 15 }
+    bonuses: { cha: 3, con: 1 }
+  answers:
+    "srd51.class.sorcerer#skills": [arcana, persuasion]
+    "srd51.class.sorcerer#sorcerous-origin": [srd51.subclass.sorcerer.draconic-bloodline]
+    # cantrips known at 11: 6
+    "srd51.class.sorcerer#cantrips": [srd51.spell.fire-bolt, srd51.spell.light, srd51.spell.mage-hand, srd51.spell.prestidigitation, srd51.spell.ray-of-frost, srd51.spell.minor-illusion]
+    # spells known at 11: 12
+    "srd51.class.sorcerer#spells":
+      - srd51.spell.magic-missile
+      - srd51.spell.shield
+      - srd51.spell.misty-step
+      - srd51.spell.scorching-ray
+      - srd51.spell.fireball
+      - srd51.spell.counterspell
+      - srd51.spell.haste
+      - srd51.spell.greater-invisibility
+      - srd51.spell.dimension-door
+      - srd51.spell.cone-of-cold
+      - srd51.spell.hold-monster
+      - srd51.spell.chain-lightning
+    "srd51.feature.draconic-bloodline.dragon-ancestor#dragon-ancestor": [red]
+    # Metamagic: two options at 3, a third at 10 (SRD text)
+    "srd51.feature.sorcerer.metamagic#metamagic": [quickened-spell, twinned-spell, empowered-spell]
+    "srd51.class.sorcerer#asi-4": [asi]
+    "srd51.class.sorcerer#asi-8": [asi]
+  equipment:
+    - { item: srd51.item.dagger, quantity: 2, equipped: true }
+    - { item: srd51.item.component-pouch, quantity: 1 }
+state:
+  hp: { current: 79, temporary: 0 }
+  hitDice: { spent: 0 }
+  resources: { sorcery-points: 11 }
+  spellSlots: { "1": 4, "2": 3, "3": 3, "4": 3, "5": 2, "6": 1 }
+  conditions: []
+  deathSaves: { successes: 0, failures: 0 }
+  inspiration: false

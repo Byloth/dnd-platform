@@ -1,0 +1,40 @@
+# Human Fighter 5 (Champion) wearing three attuned items (cloak of protection, gauntlets of ogre power, bracers of
+# defense) and one equipped but not attuned (ring of protection: the fourth would exceed the three-item limit).
+# Scores after the human +1: STR 14, DEX 14, CON 14, INT 10, WIS 12, CHA 10; Gauntlets of Ogre Power set STR to 19
+# unless it is already higher. Modifiers: str +4, dex +2, con +2, int 0, wis +1, cha 0. Proficiency bonus at 5: +3.
+values:
+  ability.str: 19            # 13 + 1 (human) = 14, then Gauntlets of Ogre Power (op min 19)
+  mod.str: 4
+  ability.dex: 14
+  proficiencyBonus: 3
+  hp.max: 44                 # level 1: 10 + CON 2 = 12; levels 2-5: 4 × (6 + 2) = 32
+  ac: 15                     # 10 + DEX 2 + Bracers of Defense 2 (no armour, no shield) + Cloak of Protection 1; ring not attuned → no +1
+  attacks.perAction: 2       # Extra Attack: 1 + table(fighter.extra-attacks) row 5 = 1
+  carry.capacity: 285        # STR 19 × 15
+  jump.long: 19              # STR score
+  save.str: 8                # 4 + 3 proficient + 1 cloak
+  save.con: 6                # 2 + 3 proficient + 1 cloak
+  save.dex: 3                # 2 + 1 cloak
+  save.wis: 2                # 1 + 1 cloak
+  save.int: 1                # 0 + 1 cloak
+  save.cha: 1                # 0 + 1 cloak
+  skill.athletics: 7         # STR 4 + 3
+attacks:
+  longsword: { toHit: 7, damage: "1d8 + 4", type: slashing }               # STR 4 + proficiency 3
+  longsword-two-handed: { toHit: 7, damage: "1d10 + 4", type: slashing }
+resources:
+  second-wind: { max: 1, recharge: [short-rest, long-rest] }
+  action-surge: { max: 1, recharge: [short-rest, long-rest] }               # table(fighter.action-surges) row 2 → 1
+actions:
+  second-wind: { activation: bonus-action, cost: { second-wind: 1 } }
+  action-surge: { activation: free, cost: { action-surge: 1 } }
+features:
+  - srd51.feature.item.cloak-of-protection.protection
+  - srd51.feature.item.gauntlets-of-ogre-power.strength
+  - srd51.feature.item.bracers-of-defense.defense
+  - srd51.feature.fighter.extra-attack
+  # srd51.feature.item.ring-of-protection.protection must be ABSENT (not attuned): asserted through ac and the saves
+proficiencies: [save:str, save:con, skill:athletics, skill:perception, armor:heavy, weapon:martial]
+sections:
+  active: [attacks, resources, actions, features]
+  inactive: [spellcasting, spells, senses]

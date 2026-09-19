@@ -1,0 +1,57 @@
+formatVersion: 0
+id: fixture-multiclass-caster
+name: Twin Candle
+ruleset: { id: srd51, version: 0.1.0 }
+packages:
+  - { id: srd51, version: 0.1.0 }
+choices:
+  species: srd51.species.human
+  # First class listed = the class taken at level 1 (its hit die is the level-1 hit points, its saves are the only ones).
+  classes:
+    - { class: srd51.class.cleric, subclass: srd51.subclass.cleric.life-domain, levels: 5 }
+    - { class: srd51.class.wizard, subclass: srd51.subclass.wizard.school-of-evocation, levels: 5 }
+  abilityScores:
+    method: manual
+    # human: +1 to every score (generated from the species trait) → STR 10, DEX 12, CON 14, INT 16, WIS 16, CHA 10
+    base: { str: 9, dex: 11, con: 13, int: 15, wis: 15, cha: 9 }
+  answers:
+    "srd51.class.cleric#skills": [insight, religion]
+    "srd51.class.cleric#divine-domain": [srd51.subclass.cleric.life-domain]
+    # cleric cantrips known at class level 5: table row 4 → 4
+    "srd51.class.cleric#cantrips": [srd51.spell.sacred-flame, srd51.spell.guidance, srd51.spell.light, srd51.spell.thaumaturgy]
+    # prepared: cleric level 5 + WIS modifier 3 = 8 (the Life Domain spells are always prepared on top of these)
+    "srd51.class.cleric#spells":
+      - srd51.spell.guiding-bolt
+      - srd51.spell.healing-word
+      - srd51.spell.hold-person
+      - srd51.spell.spirit-guardians
+      - srd51.spell.dispel-magic
+      - srd51.spell.prayer-of-healing
+      - srd51.spell.aid
+      - srd51.spell.silence
+    "srd51.class.wizard#arcane-tradition": [srd51.subclass.wizard.school-of-evocation]
+    # wizard cantrips known at class level 5: table row 4 → 4
+    "srd51.class.wizard#cantrips": [srd51.spell.fire-bolt, srd51.spell.mage-hand, srd51.spell.prestidigitation, srd51.spell.ray-of-frost]
+    # prepared from the spellbook: wizard level 5 + INT modifier 3 = 8
+    "srd51.class.wizard#spells":
+      - srd51.spell.magic-missile
+      - srd51.spell.shield
+      - srd51.spell.mage-armor
+      - srd51.spell.detect-magic
+      - srd51.spell.misty-step
+      - srd51.spell.fireball
+      - srd51.spell.counterspell
+      - srd51.spell.fly
+    # "srd51.class.wizard#skills" deliberately unanswered: multiclassing into wizard grants no skills (SRD, Multiclassing
+    # Proficiencies); the engine still registers the first-class skill choice of every class → W_UNANSWERED_CHOICE.
+    "srd51.species.human#languages": [elvish]
+  equipment:
+    - { item: srd51.item.mace, quantity: 1, equipped: true }
+state:
+  hp: { current: 68, temporary: 0 }
+  hitDice: { spent: 0 }
+  resources: { channel-divinity: 1, arcane-recovery: 1 }
+  spellSlots: { "1": 4, "2": 3, "3": 3, "4": 3, "5": 2 }
+  conditions: []
+  deathSaves: { successes: 0, failures: 0 }
+  inspiration: false

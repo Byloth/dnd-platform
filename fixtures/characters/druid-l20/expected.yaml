@@ -1,0 +1,60 @@
+# High elf Druid 20 (Circle of the Land, forest, Archdruid) in leather armour with a scimitar.
+# Scores: base + elf/high elf + five ASIs (WIS +4, CON +2, DEX +2, INT +2): STR 8, DEX 18, CON 16, INT 14, WIS 20, CHA 10.
+# Modifiers: STR -1, DEX +4, CON +3, INT +2, WIS +5, CHA 0. Proficiency bonus at level 20: +6.
+values:
+  ability.dex: 18            # 14 + 2 (elf) + 2 (ASI 16)
+  ability.con: 16            # 14 + 2 (ASI 12)
+  ability.int: 14            # 11 + 1 (high elf) + 2 (ASI 19)
+  ability.wis: 20            # 16 + 4
+  proficiencyBonus: 6
+  hp.max: 163                # level 1: 8 + 3 = 11; levels 2-20: 19 × (5 + 3) = 152
+  ac: 15                     # leather 11 + DEX 4
+  initiative: 4
+  sense.darkvision: 60
+  save.int: 8                # 2 + 6
+  save.wis: 11               # 5 + 6
+  save.dex: 4
+  save.con: 3
+  skill.nature: 8            # INT 2 + 6
+  skill.survival: 11         # WIS 5 + 6
+  skill.perception: 11       # WIS 5 + 6 (Keen Senses)
+  skill.stealth: 4           # DEX 4, not proficient
+  passive.perception: 21
+spellcasting:
+  srd51.class.druid:
+    dc: 19                   # 8 + 6 + 5
+    attackBonus: 11          # 6 + 5
+    slots: { 1: 4, 2: 3, 3: 3, 4: 3, 5: 3, 6: 2, 7: 2, 8: 1, 9: 1 }   # full-caster table, level 20
+    cantripsKnown: 4
+spells:
+  srd51.spell.druidcraft: free
+  srd51.spell.guidance: free            # Bonus Cantrip (Circle of the Land). ENGINE MISMATCH: got absent (same open-choice of spell gap)
+  srd51.spell.fire-bolt: free           # High Elf cantrip (wizard list, INT). ENGINE MISMATCH: got absent (an open-choice of spell answer is registered but never added to the spell list)
+  srd51.spell.foresight: slot
+  srd51.spell.heal: slot
+  srd51.spell.tree-stride: slot         # forest circle spell, druid 9
+resources:
+  wild-shape: { max: .inf, recharge: [short-rest, long-rest] }   # Archdruid: resource.wild-shape.max set unlimited
+  natural-recovery: { max: 1, recharge: [long-rest] }
+actions:
+  wild-shape: { activation: action, cost: { wild-shape: 1 } }
+  natural-recovery: { activation: special, cost: { natural-recovery: 1 } }
+attacks:
+  scimitar: { toHit: 10, damage: "1d6 + 4", type: slashing }  # DEX 4 + prof 6
+features:
+  - srd51.feature.druid.wild-shape
+  - srd51.feature.druid.timeless-body
+  - srd51.feature.druid.beast-spells
+  - srd51.feature.druid.archdruid
+  - srd51.feature.circle-of-the-land.lands-stride
+  - srd51.feature.circle-of-the-land.natures-ward
+  - srd51.feature.circle-of-the-land.natures-sanctuary
+choices:
+  "srd51.class.druid#asi-12": answered
+  "srd51.class.druid#asi-16": answered
+  "srd51.class.druid#asi-19": answered
+  "srd51.class.druid#spells": answered
+proficiencies: [save:int, save:wis, skill:nature, skill:survival, skill:perception, weapon:scimitar, language:druidic]
+sections:
+  active: [core, abilities, saves, skills, senses, combat, attacks, actions, resources, spellcasting, spells, features]
+warnings: []

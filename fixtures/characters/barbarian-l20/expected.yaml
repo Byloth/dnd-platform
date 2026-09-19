@@ -1,0 +1,67 @@
+# Half-orc Barbarian 20, Path of the Berserker. Base str 15, dex 14, con 14, int 8, wis 10, cha 12; half-orc +2 STR +1 CON;
+# ASIs: +3 STR, +5 CON, +2 DEX (see character.yaml) → STR 20, DEX 16, CON 20; Primal Champion +4 STR +4 CON → STR 24, CON 24.
+# Final: STR 24, DEX 16, CON 24, INT 8, WIS 10, CHA 12. Modifiers: str +7, dex +3, con +7, int -1, wis 0, cha +1. Proficiency +6.
+values:
+  ability.str: 24          # 15 + 2 (half-orc) + 3 (ASIs) + 4 (Primal Champion)
+  ability.str.max: 24      # Primal Champion raises the cap
+  ability.dex: 16          # 14 + 2 (ASI 19)
+  ability.con: 24          # 14 + 1 (half-orc) + 5 (ASIs) + 4 (Primal Champion)
+  ability.con.max: 24
+  ability.int: 8
+  ability.wis: 10
+  ability.cha: 12
+  mod.str: 7
+  mod.con: 7
+  proficiencyBonus: 6
+  hp.max: 285              # level 1: 12 + 7 = 19; levels 2-20: 19 × (7 + 7) = 266 (the CON modifier applies retroactively)
+  ac: 20                   # Unarmored Defense: 10 + DEX 3 + CON 7
+  initiative: 3
+  speed.walk: 40           # 30 + Fast Movement 10
+  sense.darkvision: 60
+  attacks.perAction: 2
+  save.str: 13             # 7 + 6
+  save.dex: 3
+  save.con: 13             # 7 + 6
+  save.int: -1
+  save.wis: 0
+  save.cha: 1
+  skill.athletics: 13      # 7 + 6
+  skill.survival: 6        # 0 + 6
+  skill.intimidation: 7    # 1 + 6
+  skill.perception: 0
+  skill.stealth: 3
+  passive.perception: 10
+resources:
+  rage: { max: .inf, recharge: [long-rest] }                # SRD: unlimited at 20th level; table(barbarian.rage-count) row 20 encodes it as 9999
+  relentless-rage: { max: .inf, recharge: [short-rest, long-rest] }
+  relentless-endurance: { max: 1, recharge: [long-rest] }
+actions:
+  rage: { activation: bonus-action, cost: { rage: 1 } }
+  reckless-attack: { activation: free }
+  frenzy-attack: { activation: bonus-action }
+  intimidating-presence: { activation: action }
+  retaliation: { activation: reaction }                     # Berserker 14
+  relentless-endurance: { activation: special, cost: { relentless-endurance: 1 } }
+attacks:
+  greataxe: { toHit: 13, damage: "1d12 + 7", type: slashing }  # STR 7 + prof 6; 1d12 + 7 (not raging)
+  javelin: { toHit: 13, damage: "1d6 + 7", type: piercing }
+features:
+  - srd51.feature.barbarian.relentless-rage
+  - srd51.feature.barbarian.persistent-rage
+  - srd51.feature.barbarian.indomitable-might
+  - srd51.feature.barbarian.primal-champion
+  - srd51.feature.path-of-the-berserker.retaliation
+  - srd51.feature.path-of-the-berserker.mindless-rage
+choices:
+  "srd51.class.barbarian#skills": answered
+  "srd51.class.barbarian#primal-path": answered
+  "srd51.class.barbarian#asi-4": answered
+  "srd51.class.barbarian#asi-8": answered
+  "srd51.class.barbarian#asi-12": answered
+  "srd51.class.barbarian#asi-16": answered
+  "srd51.class.barbarian#asi-19": answered
+proficiencies: [save:str, save:con, skill:athletics, skill:survival, skill:intimidation, weapon:simple, weapon:martial]
+sections:
+  active: [core, abilities, saves, skills, senses, combat, attacks, actions, resources, features]
+  inactive: [spellcasting, spells]
+warnings: []

@@ -1,0 +1,58 @@
+formatVersion: 0
+id: fixture-druid-l11
+name: Green Hollow
+ruleset: { id: srd51, version: 0.1.0 }
+packages:
+  - { id: srd51, version: 0.1.0 }
+choices:
+  species: srd51.species.elf
+  subspecies: srd51.species.elf.high-elf
+  classes:
+    - { class: srd51.class.druid, subclass: srd51.subclass.druid.circle-of-the-land, levels: 11 }
+  abilityScores:
+    method: manual
+    # elf +2 DEX, high elf +1 INT (generated from the species traits)
+    base: { str: 8, dex: 14, con: 14, int: 11, wis: 16, cha: 10 }
+    # ASIs: 4 WIS +2, 8 WIS +2
+    bonuses: { wis: 4 }
+  answers:
+    "srd51.class.druid#skills": [nature, survival]
+    "srd51.class.druid#druid-circle": [srd51.subclass.druid.circle-of-the-land]
+    "srd51.class.druid#asi-4": [asi]
+    "srd51.class.druid#asi-8": [asi]
+    # cantrips known: table row 10 = 4
+    "srd51.class.druid#cantrips": [srd51.spell.druidcraft, srd51.spell.produce-flame, srd51.spell.shillelagh, srd51.spell.mending]
+    # prepared: druid level 11 + WIS modifier 5 = 16 spells
+    "srd51.class.druid#spells":
+      - srd51.spell.cure-wounds
+      - srd51.spell.entangle
+      - srd51.spell.healing-word
+      - srd51.spell.faerie-fire
+      - srd51.spell.goodberry
+      - srd51.spell.thunderwave
+      - srd51.spell.longstrider
+      - srd51.spell.moonbeam
+      - srd51.spell.flaming-sphere
+      - srd51.spell.lesser-restoration
+      - srd51.spell.heat-metal
+      - srd51.spell.dispel-magic
+      - srd51.spell.conjure-animals
+      - srd51.spell.daylight
+      - srd51.spell.polymorph
+      - srd51.spell.wall-of-fire
+    "srd51.feature.circle-of-the-land.bonus-cantrip#bonus-cantrip": [srd51.spell.guidance]
+    "srd51.feature.circle-of-the-land.circle-spells#land": [forest]
+    "srd51.feature.high-elf.cantrip#cantrip": [srd51.spell.fire-bolt]
+    "srd51.feature.high-elf.extra-language#extra-language": [sylvan]
+  equipment:
+    - { item: srd51.item.leather-armor, quantity: 1, equipped: true }
+    - { item: srd51.item.scimitar, quantity: 1, equipped: true }
+    - { item: srd51.item.explorers-pack, quantity: 1 }
+state:
+  hp: { current: 80, temporary: 0 }
+  hitDice: { spent: 0 }
+  resources: { wild-shape: 2, natural-recovery: 1 }
+  spellSlots: { "1": 4, "2": 3, "3": 3, "4": 3, "5": 2, "6": 1 }
+  conditions: []
+  deathSaves: { successes: 0, failures: 0 }
+  inspiration: false

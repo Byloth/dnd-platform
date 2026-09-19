@@ -1,0 +1,61 @@
+# Puma feline Monk 20 (Way of the Open Hand), unarmed and unarmoured.
+# Scores: base + five ASIs (DEX +4, WIS +4, CON +2): STR 11, DEX 20, CON 16, INT 8, WIS 20, CHA 8.
+# Modifiers: STR 0, DEX +5, CON +3, INT -1, WIS +5, CHA -1. Proficiency bonus at level 20: +6.
+values:
+  ability.dex: 20            # 16 + 4
+  ability.con: 16            # 14 + 2
+  ability.wis: 20            # 16 + 4
+  proficiencyBonus: 6
+  hp.max: 163                # level 1: 8 + 3 = 11; levels 2-20: 19 × (5 + 3) = 152
+  ac: 20                     # Unarmored Defense: 10 + DEX 5 + WIS 5
+  initiative: 5
+  speed.walk: 60             # feline 30 + Unarmored Movement row 18 = 30
+  speed.climb: 20
+  sense.darkvision: 60
+  jump.long: 22
+  attacks.perAction: 2
+  # Diamond Soul (monk 14): proficiency in all saving throws
+  save.str: 6                # 0 + 6
+  save.dex: 11               # 5 + 6
+  save.con: 9                # 3 + 6
+  save.int: 5                # -1 + 6
+  save.wis: 11               # 5 + 6
+  save.cha: 5                # -1 + 6
+  skill.stealth: 11          # DEX 5 + 6
+  skill.acrobatics: 11       # DEX 5 + 6
+  skill.perception: 5        # WIS 5, not proficient
+  passive.perception: 15
+resources:
+  ki: { max: 20, recharge: [short-rest, long-rest] }            # table(monk.ki-points) row 20
+  wholeness-of-body: { max: 1, recharge: [long-rest] }
+actions:
+  flurry-of-blows: { activation: bonus-action, cost: { ki: 1 } }
+  stunning-strike: { activation: special, cost: { ki: 1 } }
+  diamond-soul: { activation: free, cost: { ki: 1 } }
+  empty-body: { activation: action, cost: { ki: 4 } }
+  quivering-palm: { activation: special, cost: { ki: 3 } }
+  quivering-palm-end: { activation: action }
+  wholeness-of-body: { activation: action, cost: { wholeness-of-body: 1 } }
+  claws: { activation: action }
+attacks:
+  # Martial Arts die table(monk.martial-arts) row 17 = 1d10
+  unarmed-strike: { toHit: 11, damage: "1d10 + 5", type: bludgeoning }  # DEX 5 + prof 6; 1d10 + DEX 5. ENGINE MISMATCH: got toHit 6, damage "1" (wieldingOnly false when unarmed, see monk-l5)
+spells:
+  srd51.spell.astral-projection: "ki:8"   # Empty Body: cast astral projection for 8 ki points
+features:
+  - srd51.feature.monk.tongue-of-the-sun-and-moon
+  - srd51.feature.monk.diamond-soul
+  - srd51.feature.monk.timeless-body
+  - srd51.feature.monk.empty-body
+  - srd51.feature.monk.perfect-self
+  - srd51.feature.way-of-the-open-hand.tranquility
+  - srd51.feature.way-of-the-open-hand.quivering-palm
+choices:
+  "srd51.class.monk#asi-12": answered
+  "srd51.class.monk#asi-16": answered
+  "srd51.class.monk#asi-19": answered
+proficiencies: [save:str, save:dex, save:con, save:int, save:wis, save:cha, skill:stealth, skill:acrobatics, tool:flute, language:elvish]
+sections:
+  active: [core, abilities, saves, skills, senses, combat, attacks, actions, resources, spells, features]
+  inactive: [spellcasting]
+warnings: []

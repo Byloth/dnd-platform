@@ -1,0 +1,61 @@
+# Half-orc Barbarian 5, Path of the Berserker. Base str 15, dex 14, con 14, int 8, wis 10, cha 12;
+# half-orc +2 STR +1 CON; ASI 4 +2 STR → STR 19, DEX 14, CON 15, INT 8, WIS 10, CHA 12.
+# Modifiers: str +4, dex +2, con +2, int -1, wis 0, cha +1. Proficiency bonus at level 5: +3.
+values:
+  ability.str: 19          # 15 + 2 (half-orc) + 2 (ASI 4)
+  ability.dex: 14
+  ability.con: 15          # 14 + 1 (half-orc)
+  ability.int: 8
+  ability.wis: 10
+  ability.cha: 12
+  mod.str: 4
+  proficiencyBonus: 3
+  hp.max: 50               # level 1: 12 + 2 = 14; levels 2-5: 4 × (average(d12) 7 + 2) = 36
+  ac: 14                   # Unarmored Defense: 10 + DEX 2 + CON 2
+  initiative: 2
+  speed.walk: 40           # half-orc 30 + Fast Movement 10 (no heavy armour)
+  sense.darkvision: 60
+  attacks.perAction: 2     # Extra Attack
+  save.str: 7              # 4 + 3
+  save.dex: 2
+  save.con: 5              # 2 + 3
+  save.int: -1
+  save.wis: 0
+  save.cha: 1
+  skill.athletics: 7       # STR 4 + 3
+  skill.survival: 3        # WIS 0 + 3
+  skill.intimidation: 4    # CHA 1 + 3 (Menacing)
+  skill.perception: 0
+  skill.stealth: 2
+  passive.perception: 10
+provenance:
+  ac: ["Base", "Dexterity modifier", "Unarmored Defense"]
+resources:
+  rage: { max: 3, recharge: [long-rest] }                   # table(barbarian.rage-count) row 3 = 3 (next row is 6)
+  relentless-endurance: { max: 1, recharge: [long-rest] }
+actions:
+  rage: { activation: bonus-action, cost: { rage: 1 } }
+  reckless-attack: { activation: free }
+  frenzy-attack: { activation: bonus-action }                # Berserker Frenzy (needs raging + frenzy toggles in play)
+  relentless-endurance: { activation: special, cost: { relentless-endurance: 1 } }
+attacks:
+  greataxe: { toHit: 7, damage: "1d12 + 4", type: slashing } # STR 4 + prof 3; 1d12 + 4 (not raging: no rage bonus)
+  javelin: { toHit: 7, damage: "1d6 + 4", type: piercing }
+features:
+  - srd51.feature.barbarian.rage
+  - srd51.feature.barbarian.unarmored-defense
+  - srd51.feature.barbarian.danger-sense
+  - srd51.feature.barbarian.reckless-attack
+  - srd51.feature.barbarian.primal-path
+  - srd51.feature.barbarian.extra-attack
+  - srd51.feature.barbarian.fast-movement
+  - srd51.feature.path-of-the-berserker.frenzy
+choices:
+  "srd51.class.barbarian#skills": answered
+  "srd51.class.barbarian#primal-path": answered
+  "srd51.class.barbarian#asi-4": answered
+proficiencies: [save:str, save:con, skill:athletics, skill:survival, skill:intimidation, armor:light, armor:medium, armor:shield, weapon:simple, weapon:martial]
+sections:
+  active: [core, abilities, saves, skills, senses, combat, attacks, actions, resources, features]
+  inactive: [spellcasting, spells]
+warnings: []

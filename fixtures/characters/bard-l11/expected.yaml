@@ -1,0 +1,78 @@
+# Half-elf Bard 11, College of Lore. Base str 8, dex 14, con 13, int 10, wis 12, cha 15; half-elf +2 CHA, +1 DEX +1 CON;
+# ASI 4 +2 CHA, ASI 8 +1 CHA +1 DEX → STR 8, DEX 16, CON 14, INT 10, WIS 12, CHA 20.
+# Modifiers: str -1, dex +3, con +2, int 0, wis +1, cha +5. Proficiency bonus +4; Jack of All Trades floor(4 / 2) = 2.
+# Expertise: Performance, Persuasion (3rd), Insight, Perception (10th).
+values:
+  ability.str: 8
+  ability.dex: 16          # 14 + 1 (half-elf) + 1 (ASI 8)
+  ability.con: 14
+  ability.int: 10
+  ability.wis: 12
+  ability.cha: 20          # 15 + 2 (half-elf) + 2 (ASI 4) + 1 (ASI 8)
+  mod.cha: 5
+  proficiencyBonus: 4
+  hp.max: 80               # level 1: 8 + 2 = 10; levels 2-11: 10 × (5 + 2) = 70
+  ac: 14                   # leather 11 + DEX 3
+  initiative: 5            # DEX 3 + Jack of All Trades 2  # ENGINE MISMATCH: got 3
+  speed.walk: 30
+  sense.darkvision: 60
+  save.dex: 7              # 3 + 4
+  save.cha: 9              # 5 + 4
+  save.str: -1
+  save.con: 2
+  save.wis: 1
+  skill.performance: 13    # CHA 5 + 2 × 4 (Expertise)  # ENGINE MISMATCH: got 9
+  skill.persuasion: 13     # CHA 5 + 2 × 4 (Expertise)  # ENGINE MISMATCH: got 9
+  skill.insight: 9         # WIS 1 + 2 × 4 (Expertise 10)  # ENGINE MISMATCH: got 5
+  skill.perception: 9      # WIS 1 + 2 × 4 (Expertise 10)  # ENGINE MISMATCH: got 5
+  skill.deception: 9       # CHA 5 + 4
+  skill.arcana: 4          # INT 0 + 4
+  skill.history: 4
+  skill.investigation: 4
+  skill.stealth: 5         # DEX 3 + Jack of All Trades 2
+  skill.athletics: 1       # STR -1 + 2
+  passive.perception: 19   # 10 + 9  # ENGINE MISMATCH: got 15 (follows from the Expertise gap)
+resources:
+  bardic-inspiration: { max: 5, recharge: [short-rest, long-rest] }   # max(1, CHA 5); Font of Inspiration  # ENGINE MISMATCH: got [long-rest]
+actions:
+  bardic-inspiration: { activation: bonus-action, cost: { bardic-inspiration: 1 } }
+  cutting-words: { activation: reaction, cost: { bardic-inspiration: 1 } }
+  countercharm: { activation: action }                      # Bard 6
+attacks:
+  rapier: { toHit: 7, damage: "1d8 + 3", type: piercing }  # DEX 3 + prof 4
+spellcasting:
+  srd51.class.bard:
+    dc: 17                 # 8 + 4 + 5
+    attackBonus: 9         # 4 + 5
+    slots: { 1: 4, 2: 3, 3: 3, 4: 3, 5: 2, 6: 1 }   # full-caster table, level 11
+    cantripsKnown: 4       # table bard.cantrips-known row 10
+    spellsKnown: 15        # table bard.spells-known row 11
+spells:
+  srd51.spell.prestidigitation: free
+  srd51.spell.healing-word: slot
+  srd51.spell.mass-suggestion: slot
+  srd51.spell.fireball: slot          # Magical Secrets: counts as a bard spell
+  srd51.spell.counterspell: slot
+  srd51.spell.misty-step: slot        # Additional Magical Secrets: counts as a bard spell  # ENGINE MISMATCH: got absent (open-choice spells are not added to the spell list)
+features:
+  - srd51.feature.bard.countercharm
+  - srd51.feature.bard.magical-secrets
+  - srd51.feature.bard.expertise
+  - srd51.feature.college-of-lore.additional-magical-secrets
+  - srd51.feature.college-of-lore.cutting-words
+choices:
+  "srd51.class.bard#bard-college": answered
+  "srd51.class.bard#asi-4": answered
+  "srd51.class.bard#asi-8": answered
+  "srd51.class.bard#cantrips": answered
+  "srd51.class.bard#spells": answered
+  "srd51.feature.bard.expertise#expertise-3": answered
+  "srd51.feature.bard.expertise#expertise-10": answered
+  "srd51.feature.bard.magical-secrets#magical-secrets-10": answered
+  "srd51.feature.college-of-lore.additional-magical-secrets#additional-magical-secrets": answered
+  "srd51.feature.college-of-lore.bonus-proficiencies#skill": answered
+proficiencies: [save:dex, save:cha, armor:light, weapon:rapier, skill:performance, skill:persuasion, skill:deception, skill:insight, skill:perception, skill:arcana, skill:history, skill:investigation]
+sections:
+  active: [core, abilities, saves, skills, senses, combat, attacks, actions, resources, spellcasting, spells, features]
+# Every choice that exists at level 11 is answered (magical-secrets-14 / -18 belong to levels 14 and 18).
+warnings: []

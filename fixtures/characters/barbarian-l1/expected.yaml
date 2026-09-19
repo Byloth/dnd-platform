@@ -1,0 +1,69 @@
+# Half-orc Barbarian 1 (no path yet: the Primal Path is chosen at 3rd level).
+# Base str 15, dex 14, con 14, int 8, wis 10, cha 12; half-orc +2 STR +1 CON → STR 17, DEX 14, CON 15, INT 8, WIS 10, CHA 12.
+# Modifiers: str +3, dex +2, con +2, int -1, wis 0, cha +1. Proficiency bonus at level 1: +2.
+values:
+  ability.str: 17          # 15 + 2 (half-orc)
+  ability.dex: 14
+  ability.con: 15          # 14 + 1 (half-orc)
+  ability.int: 8
+  ability.wis: 10
+  ability.cha: 12
+  mod.str: 3
+  proficiencyBonus: 2
+  hp.max: 14               # d12 12 + CON 2
+  ac: 14                   # Unarmored Defense: 10 + DEX 2 + CON 2 (no armour; a greataxe is not armour)
+  initiative: 2            # DEX
+  speed.walk: 30           # half-orc
+  sense.darkvision: 60     # half-orc Darkvision
+  attacks.perAction: 1
+  save.str: 5              # 3 + 2 proficient
+  save.dex: 2
+  save.con: 4              # 2 + 2 proficient
+  save.int: -1
+  save.wis: 0
+  save.cha: 1
+  skill.athletics: 5       # STR 3 + 2 (class pick)
+  skill.survival: 2        # WIS 0 + 2 (class pick)
+  skill.intimidation: 3    # CHA 1 + 2 (Menacing)
+  skill.perception: 0      # WIS 0, not proficient
+  skill.stealth: 2         # DEX 2, not proficient
+  skill.nature: -1         # INT -1, not proficient
+  passive.perception: 10   # 10 + 0
+provenance:
+  ac: ["Base", "Dexterity modifier", "Unarmored Defense"]
+resources:
+  rage: { max: 2, recharge: [long-rest] }                   # table(barbarian.rage-count) row 1 = 2
+  relentless-endurance: { max: 1, recharge: [long-rest] }   # half-orc
+actions:
+  rage: { activation: bonus-action, cost: { rage: 1 } }
+  relentless-endurance: { activation: special, cost: { relentless-endurance: 1 } }
+attacks:
+  greataxe: { toHit: 5, damage: "1d12 + 3", type: slashing }   # STR 3 + prof 2 (martial); 1d12 + STR 3
+  javelin: { toHit: 5, damage: "1d6 + 3", type: piercing }     # STR 3 + prof 2 (simple, thrown); 1d6 + STR 3
+  unarmed-strike: { toHit: 5, damage: "4", type: bludgeoning } # 1 + STR 3
+features:
+  - srd51.feature.barbarian.rage
+  - srd51.feature.barbarian.unarmored-defense
+  - srd51.feature.half-orc.darkvision
+  - srd51.feature.half-orc.menacing
+  - srd51.feature.half-orc.relentless-endurance
+  - srd51.feature.half-orc.savage-attacks
+choices:
+  "srd51.class.barbarian#skills": answered
+proficiencies:
+  - save:str
+  - save:con
+  - skill:athletics
+  - skill:survival
+  - skill:intimidation
+  - armor:light
+  - armor:medium
+  - armor:shield
+  - weapon:simple
+  - weapon:martial
+  - language:common
+  - language:orc
+sections:
+  active: [core, abilities, saves, skills, senses, combat, attacks, actions, resources, features]
+  inactive: [spellcasting, spells]
+warnings: []               # every choice answered; no path choice exists before level 3

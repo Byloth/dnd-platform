@@ -1,0 +1,51 @@
+# Human Fighter 1, the simplest sheet: no spells, no senses, one class, one weapon.
+# Scores after the human +1: STR 16, DEX 14, CON 15, INT 10, WIS 12, CHA 10.
+# Modifiers: str +3, dex +2, con +2, int 0, wis +1, cha 0. Proficiency bonus at 1: +2.
+values:
+  ability.str: 16            # 15 + 1 (human)
+  mod.str: 3
+  proficiencyBonus: 2
+  hp.max: 12                 # 10 + CON 2
+  ac: 17                     # chain mail 16 (no DEX) + Defense fighting style 1 (wearing armour); STR 16 ≥ 13, no penalty
+  initiative: 2
+  speed.walk: 30
+  attacks.perAction: 1
+  save.str: 5                # 3 + 2 proficient
+  save.con: 4                # 2 + 2 proficient
+  save.dex: 2                # not proficient
+  skill.athletics: 5         # STR 3 + 2
+  skill.perception: 3        # WIS 1 + 2
+  skill.stealth: 2           # DEX 2, not proficient (chain mail disadvantage is a roll modifier, not a number)
+  passive.perception: 13     # 10 + 3
+provenance:
+  ac: ["Chain mail", "Defense"]
+attacks:
+  longsword: { toHit: 5, damage: "1d8 + 3", type: slashing }                # STR 3 + proficiency 2 (martial weapon)
+  longsword-two-handed: { toHit: 5, damage: "1d10 + 3", type: slashing }    # versatile die
+  unarmed-strike: { toHit: 5, damage: "4", type: bludgeoning }              # 1 + STR 3
+resources:
+  second-wind: { max: 1, recharge: [short-rest, long-rest] }
+actions:
+  second-wind: { activation: bonus-action, cost: { second-wind: 1 } }
+features:
+  - srd51.feature.fighter.fighting-style
+  - srd51.feature.fighter.second-wind
+choices:
+  "srd51.feature.fighter.fighting-style#fighting-style": answered
+  "srd51.class.fighter#skills": answered
+proficiencies:
+  - save:str
+  - save:con
+  - skill:athletics
+  - skill:perception
+  - armor:light
+  - armor:medium
+  - armor:heavy
+  - armor:shield
+  - weapon:simple
+  - weapon:martial
+  - language:common
+  - language:dwarvish
+sections:
+  active: [attacks, resources, actions]
+  inactive: [spellcasting, spells, senses]

@@ -1,0 +1,3428 @@
+{
+  "actions": [
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [
+        {
+          "amount": 1,
+          "resource": "channel-divinity"
+        }
+      ],
+      "dc": {
+        "provenance": [
+          {
+            "applied": true,
+            "formula": "8 + proficiencyBonus + mod(wis)",
+            "kind": "base",
+            "label": {
+              "en": "Save DC"
+            },
+            "source": {
+              "package": "srd51"
+            },
+            "value": 15
+          }
+        ],
+        "value": 15
+      },
+      "id": "turn-undead",
+      "name": {
+        "en": "Channel Divinity: Turn Undead"
+      },
+      "onUse": [
+        {
+          "kind": "note",
+          "text": {
+            "en": "A turned creature must spend its turns trying to move as far away from you as it can, and it can't willingly move to a space within 30 feet of you. It also can't take reactions. For its action, it can use only the Dash action or try to escape from an effect that prevents it from moving. If there's nowhere to move, the creature can use the Dodge action."
+          }
+        }
+      ],
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.class.cleric",
+        "feature": "srd51.feature.cleric.channel-divinity",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You present your holy symbol and speak a prayer censuring the undead. Each undead that can see or hear you within 30 feet of you must make a Wisdom saving throw. If the creature fails its saving throw, it is turned for 1 minute or until it takes any damage."
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [
+        {
+          "amount": 1,
+          "resource": "channel-divinity"
+        }
+      ],
+      "id": "preserve-life",
+      "name": {
+        "en": "Channel Divinity: Preserve Life"
+      },
+      "onUse": [
+        {
+          "amount": "5 * classLevel(cleric)",
+          "kind": "heal",
+          "note": {
+            "en": "Divide the hit points among any creatures within 30 feet; no creature above half its hit point maximum; not undead or constructs."
+          },
+          "target": "other"
+        }
+      ],
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.subclass.cleric.life-domain",
+        "feature": "srd51.feature.life-domain.channel-divinity-preserve-life",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You present your holy symbol and evoke healing energy that can restore a number of hit points equal to five times your cleric level. Choose any creatures within 30 feet of you, and divide those hit points among them. This feature can restore a creature to no more than half of its hit point maximum. You can't use this feature on an undead or a construct."
+      }
+    },
+    {
+      "activation": "special",
+      "available": true,
+      "cost": [
+        {
+          "amount": 1,
+          "resource": "arcane-recovery"
+        }
+      ],
+      "id": "arcane-recovery",
+      "name": {
+        "en": "Arcane Recovery"
+      },
+      "onUse": [
+        {
+          "amount": "full",
+          "budget": "ceil(classLevel(wizard) / 2)",
+          "kind": "restoreResource",
+          "note": {
+            "en": "Recover expended spell slots whose combined level is at most half your wizard level (rounded up); none of the slots can be 6th level or higher."
+          },
+          "resource": "spell-slots"
+        }
+      ],
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.class.wizard",
+        "feature": "srd51.feature.wizard.arcane-recovery",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Once per day when you finish a short rest, you can choose expended spell slots to recover. The spell slots can have a combined level that is equal to or less than half your wizard level (rounded up), and none of the slots can be 6th level or higher."
+      }
+    }
+  ],
+  "attacks": [
+    {
+      "ability": "str",
+      "attackBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Strength modifier"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 0
+          },
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "Proficiency bonus"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 4
+          }
+        ],
+        "value": 4
+      },
+      "critRange": 20,
+      "damage": "1d6",
+      "damageBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Strength modifier"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 0
+          }
+        ],
+        "value": 0
+      },
+      "damageDice": "1d6",
+      "damageType": "bludgeoning",
+      "extraDamage": [],
+      "id": "mace",
+      "item": "srd51.item.mace",
+      "magical": false,
+      "name": {
+        "en": "Mace"
+      },
+      "proficient": true,
+      "ranged": false,
+      "unarmed": false
+    },
+    {
+      "ability": "str",
+      "attackBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Strength modifier"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 0
+          },
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "Proficiency bonus"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 4
+          }
+        ],
+        "value": 4
+      },
+      "critRange": 20,
+      "damage": "1",
+      "damageBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Strength modifier"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 0
+          }
+        ],
+        "value": 0
+      },
+      "damageDice": "1",
+      "damageType": "bludgeoning",
+      "extraDamage": [],
+      "id": "unarmed-strike",
+      "magical": false,
+      "name": {
+        "en": "Unarmed strike"
+      },
+      "proficient": true,
+      "ranged": false,
+      "unarmed": true
+    }
+  ],
+  "choices": [
+    {
+      "answered": true,
+      "answers": [
+        "insight",
+        "religion"
+      ],
+      "choice": "skills",
+      "count": 2,
+      "key": "srd51.class.cleric#skills",
+      "of": "skill",
+      "options": [
+        "history",
+        "insight",
+        "medicine",
+        "persuasion",
+        "religion"
+      ],
+      "owner": "srd51.class.cleric"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "elvish"
+      ],
+      "choice": "languages",
+      "count": 1,
+      "key": "srd51.species.human#languages",
+      "of": "language",
+      "options": [],
+      "owner": "srd51.species.human"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "srd51.subclass.cleric.life-domain"
+      ],
+      "choice": "divine-domain",
+      "count": 1,
+      "key": "srd51.class.cleric#divine-domain",
+      "level": 1,
+      "of": "subclass",
+      "options": [],
+      "owner": "srd51.class.cleric"
+    },
+    {
+      "answered": false,
+      "answers": [],
+      "choice": "asi-4",
+      "count": 1,
+      "key": "srd51.class.cleric#asi-4",
+      "level": 4,
+      "of": "asi-or-feat",
+      "options": [],
+      "owner": "srd51.class.cleric"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "srd51.subclass.wizard.school-of-evocation"
+      ],
+      "choice": "arcane-tradition",
+      "count": 1,
+      "key": "srd51.class.wizard#arcane-tradition",
+      "level": 2,
+      "of": "subclass",
+      "options": [],
+      "owner": "srd51.class.wizard"
+    },
+    {
+      "answered": false,
+      "answers": [],
+      "choice": "asi-4",
+      "count": 1,
+      "key": "srd51.class.wizard#asi-4",
+      "level": 4,
+      "of": "asi-or-feat",
+      "options": [],
+      "owner": "srd51.class.wizard"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "srd51.spell.sacred-flame",
+        "srd51.spell.guidance",
+        "srd51.spell.light",
+        "srd51.spell.thaumaturgy"
+      ],
+      "choice": "cantrips",
+      "count": 4,
+      "key": "srd51.class.cleric#cantrips",
+      "of": "spell",
+      "options": [],
+      "owner": "srd51.class.cleric"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "srd51.spell.guiding-bolt",
+        "srd51.spell.healing-word",
+        "srd51.spell.hold-person",
+        "srd51.spell.spirit-guardians",
+        "srd51.spell.dispel-magic",
+        "srd51.spell.prayer-of-healing",
+        "srd51.spell.aid",
+        "srd51.spell.silence"
+      ],
+      "choice": "spells",
+      "count": 8,
+      "key": "srd51.class.cleric#spells",
+      "of": "spell",
+      "options": [],
+      "owner": "srd51.class.cleric"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "srd51.spell.fire-bolt",
+        "srd51.spell.mage-hand",
+        "srd51.spell.prestidigitation",
+        "srd51.spell.ray-of-frost"
+      ],
+      "choice": "cantrips",
+      "count": 4,
+      "key": "srd51.class.wizard#cantrips",
+      "of": "spell",
+      "options": [],
+      "owner": "srd51.class.wizard"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "srd51.spell.magic-missile",
+        "srd51.spell.shield",
+        "srd51.spell.mage-armor",
+        "srd51.spell.detect-magic",
+        "srd51.spell.misty-step",
+        "srd51.spell.fireball",
+        "srd51.spell.counterspell",
+        "srd51.spell.fly"
+      ],
+      "choice": "spells",
+      "count": 8,
+      "key": "srd51.class.wizard#spells",
+      "of": "spell",
+      "options": [],
+      "owner": "srd51.class.wizard"
+    }
+  ],
+  "classes": [
+    {
+      "class": "srd51.class.cleric",
+      "levels": 5,
+      "subclass": "srd51.subclass.cleric.life-domain"
+    },
+    {
+      "class": "srd51.class.wizard",
+      "levels": 5,
+      "subclass": "srd51.subclass.wizard.school-of-evocation"
+    }
+  ],
+  "defenses": [],
+  "features": [
+    {
+      "id": "srd51.feature.human.ability-score-increase",
+      "name": {
+        "en": "Ability Score Increase"
+      },
+      "origin": "species",
+      "owner": "srd51.species.human",
+      "source": {
+        "entity": "srd51.species.human",
+        "feature": "srd51.feature.human.ability-score-increase",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Your ability scores each increase by 1."
+      }
+    },
+    {
+      "id": "srd51.feature.human.speed",
+      "name": {
+        "en": "Speed"
+      },
+      "origin": "species",
+      "owner": "srd51.species.human",
+      "source": {
+        "entity": "srd51.species.human",
+        "feature": "srd51.feature.human.speed",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Your base walking speed is 30 feet."
+      }
+    },
+    {
+      "id": "srd51.feature.human.age",
+      "name": {
+        "en": "Age"
+      },
+      "origin": "species",
+      "owner": "srd51.species.human",
+      "source": {
+        "entity": "srd51.species.human",
+        "feature": "srd51.feature.human.age",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Humans reach adulthood in their late teens and live less than a century."
+      }
+    },
+    {
+      "id": "srd51.feature.human.alignment",
+      "name": {
+        "en": "Alignment"
+      },
+      "origin": "species",
+      "owner": "srd51.species.human",
+      "source": {
+        "entity": "srd51.species.human",
+        "feature": "srd51.feature.human.alignment",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Humans tend toward no particular alignment. The best and the worst are found among them."
+      }
+    },
+    {
+      "id": "srd51.feature.human.size",
+      "name": {
+        "en": "Size"
+      },
+      "origin": "species",
+      "owner": "srd51.species.human",
+      "source": {
+        "entity": "srd51.species.human",
+        "feature": "srd51.feature.human.size",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Humans vary widely in height and build, from barely 5 feet to well over 6 feet tall. Regardless of your position in that range, your size is Medium."
+      }
+    },
+    {
+      "id": "srd51.feature.human.languages",
+      "name": {
+        "en": "Languages"
+      },
+      "origin": "species",
+      "owner": "srd51.species.human",
+      "source": {
+        "entity": "srd51.species.human",
+        "feature": "srd51.feature.human.languages",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You can speak, read, and write Common and one extra language of your choice. Humans typically learn the languages of other peoples they deal with, including obscure dialects. They are fond of sprinkling their speech with words borrowed from other tongues: Orc curses, Elvish musical expressions, Dwarvish military phrases, and so on."
+      }
+    },
+    {
+      "id": "srd51.feature.cleric.divine-domain",
+      "level": 1,
+      "name": {
+        "en": "Divine Domain"
+      },
+      "origin": "class",
+      "owner": "srd51.class.cleric",
+      "source": {
+        "entity": "srd51.class.cleric",
+        "feature": "srd51.feature.cleric.divine-domain",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Choose one domain related to your deity, such as  Life. Each domain is detailed at the end of the class  description, and each one provides examples of gods  associated with it. Your choice grants you domain  spells and other features when you choose it at 1st  level. It also grants you additional ways to use Channel Divinity when you gain that feature at 2nd  level, and additional benefits at 6th, 8th, and 17th  levels.\n\n### Domain Spells\nEach domain has a list of spells—its domain spells—that you gain at the cleric levels noted in the domain  description. Once you gain a domain spell, you always have it prepared, and it doesn’t count against the number of spells you can prepare each day. \nIf you have a domain spell that doesn’t appear on the cleric spell list, the spell is nonetheless a cleric spell for you."
+      }
+    },
+    {
+      "id": "srd51.feature.cleric.spellcasting",
+      "level": 1,
+      "name": {
+        "en": "Spellcasting"
+      },
+      "origin": "class",
+      "owner": "srd51.class.cleric",
+      "source": {
+        "entity": "srd51.class.cleric",
+        "feature": "srd51.feature.cleric.spellcasting",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "As a conduit for divine power, you can cast cleric spells.\n\n###Cantrips\n\nAt 1st level, you know three cantrips of your choice from the cleric spell list. You learn additional cleric cantrips of your choice at higher levels, as shown in the Cantrips Known column of the Cleric table.\nPreparing and Casting Spells\n\nThe Cleric table shows how many spell slots you have to cast your spells of 1st level and higher. To cast one of these spells, you must expend a slot of the spell's level or higher. You regain all expended spell slots when you finish a long rest.\n\nYou prepare the list of cleric spells that are available for you to cast, choosing from the cleric spell list. When you do so, choose a number of cleric spells equal to your Wisdom modifier + your cleric level (minimum of one spell). The spells must be of a level for which you have spell slots.\n\nFor example, if you are a 3rd-level cleric, you have four 1st-level and two 2nd-level spell slots. With a Wisdom of 16, your list of prepared spells can include six spells of 1st or 2nd level, in any combination. If you prepare the 1st-level spell cure wounds, you can cast it using a 1st-level or 2nd-level slot. Casting the spell doesn't remove it from your list of prepared spells.\n\nYou can change your list of prepared spells when you finish a long rest. Preparing a new list of cleric spells requires time spent in prayer and meditation: at least 1 minute per spell level for each spell on your list.\n\n###Spellcasting Ability\n\nWisdom is your spellcasting ability for your cleric spells. The power of your spells comes from your devotion to your deity. You use your Wisdom whenever a cleric spell refers to your spellcasting ability. In addition, you use your Wisdom modifier when setting the saving throw DC for a cleric spell you cast and when making an attack roll with one.\n\n**Spell save DC** = 8 + your proficiency bonus + your Wisdom modifier\n\n**Spell attack modifier** = your proficiency bonus + your Wisdom modifier\n\n###Ritual Casting\n\nYou can cast a cleric spell as a ritual if that spell has the ritual tag and you have the spell prepared.\n\n###Spellcasting Focus\n\nYou can use a holy symbol (see chapter 5, “Equipment”) as a spellcasting focus for your cleric spells."
+      }
+    },
+    {
+      "id": "srd51.feature.cleric.channel-divinity",
+      "level": 2,
+      "name": {
+        "en": "Channel Divinity"
+      },
+      "origin": "class",
+      "owner": "srd51.class.cleric",
+      "source": {
+        "entity": "srd51.class.cleric",
+        "feature": "srd51.feature.cleric.channel-divinity",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "At 2nd level, you gain the ability to channel divine energy directly from your deity, using that energy to fuel magical effects. You start with two such effects: Turn Undead and an effect determined by your domain. Some domains grant you additional effects as you advance in levels, as noted in the domain description.\n\nWhen you use your Channel Divinity, you choose which effect to create. You must then finish a short or long rest to use your Channel Divinity again.\n\nSome Channel Divinity effects require saving throws. When you use such an effect from this class, the DC equals your cleric spell save DC.\n\nBeginning at 6th level, you can use your Channel Divinity twice between rests, and beginning at 18th level, you can use it three times between rests. When you finish a short or long rest, you regain your expended uses.\n\n### Channel Divinity: Turn Undead\n\nAs an action, you present your holy symbol and speak a prayer censuring the undead. Each undead that can see or hear you within 30 feet of you must make a Wisdom saving throw. If the creature fails its saving throw, it is turned for 1 minute or until it takes any damage.\n\nA turned creature must spend its turns trying to move as far away from you as it can, and it can't willingly move to a space within 30 feet of you. It also can't take reactions. For its action, it can use only the Dash action or try to escape from an effect that prevents it from moving. If there's nowhere to move, the creature can use the Dodge action."
+      }
+    },
+    {
+      "id": "srd51.feature.cleric.ability-score-improvement",
+      "level": 4,
+      "name": {
+        "en": "Ability Score Improvement"
+      },
+      "origin": "class",
+      "owner": "srd51.class.cleric",
+      "source": {
+        "entity": "srd51.class.cleric",
+        "feature": "srd51.feature.cleric.ability-score-improvement",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "When you reach 4th level, and again at 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature."
+      }
+    },
+    {
+      "id": "srd51.feature.cleric.destroy-undead",
+      "level": 5,
+      "name": {
+        "en": "Destroy Undead"
+      },
+      "origin": "class",
+      "owner": "srd51.class.cleric",
+      "source": {
+        "entity": "srd51.class.cleric",
+        "feature": "srd51.feature.cleric.destroy-undead",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Starting at 5th level, when an undead fails its saving throw against your Turn Undead feature, the creature is instantly destroyed if its challenge rating is at or below a certain threshold, as shown in the Destroy Undead table. \n\n### Destroy Undead (table)\n\n| Cleric Level | Destroys Undead of CR... | \n|---|---|\n| 5th | 1/2 or lower |\n| 8th | 1 or lower |\n| 11th | 2 or lower |\n| 14th | 3 or lower | \n| 17th | 4 or lower |"
+      }
+    },
+    {
+      "id": "srd51.feature.life-domain.bonus-proficiency",
+      "level": 1,
+      "name": {
+        "en": "Bonus Proficiency"
+      },
+      "origin": "subclass",
+      "owner": "srd51.subclass.cleric.life-domain",
+      "source": {
+        "entity": "srd51.subclass.cleric.life-domain",
+        "feature": "srd51.feature.life-domain.bonus-proficiency",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "When you choose this domain at 1st level, you gain proficiency with heavy armor."
+      }
+    },
+    {
+      "id": "srd51.feature.life-domain.disciple-of-life",
+      "level": 1,
+      "name": {
+        "en": "Disciple of Life"
+      },
+      "origin": "subclass",
+      "owner": "srd51.subclass.cleric.life-domain",
+      "source": {
+        "entity": "srd51.subclass.cleric.life-domain",
+        "feature": "srd51.feature.life-domain.disciple-of-life",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Also starting at 1st level, your healing spells are more effective. Whenever you use a spell of 1st level or higher to restore hit points to a creature, the creature regains additional hit points equal to 2 + the spell's level."
+      }
+    },
+    {
+      "id": "srd51.feature.life-domain.life-domain-spells-table",
+      "level": 1,
+      "name": {
+        "en": "Life Domain Spells (table)"
+      },
+      "origin": "subclass",
+      "owner": "srd51.subclass.cleric.life-domain",
+      "source": {
+        "entity": "srd51.subclass.cleric.life-domain",
+        "feature": "srd51.feature.life-domain.life-domain-spells-table",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Cleric Level | Spells |\n|---|---|\n| 1st | bless, cure wounds | \n| 3rd | lesser restoration, spiritual weapon |\n| 5th | beacon of hope, revivify |\n| 7th | death ward, guardian of faith |\n| 9th | mass cure wounds, raise dead |"
+      }
+    },
+    {
+      "id": "srd51.feature.life-domain.channel-divinity-preserve-life",
+      "level": 2,
+      "name": {
+        "en": "Channel Divinity: Preserve Life"
+      },
+      "origin": "subclass",
+      "owner": "srd51.subclass.cleric.life-domain",
+      "source": {
+        "entity": "srd51.subclass.cleric.life-domain",
+        "feature": "srd51.feature.life-domain.channel-divinity-preserve-life",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Starting at 2nd level, you can use your Channel Divinity to heal the badly injured.\n\nAs an action, you present your holy symbol and evoke healing energy that can restore a number of hit points equal to five times your cleric level. Choose any creatures within 30 feet of you, and divide those hit points among them. This feature can restore a creature to no more than half of its hit point maximum. You can't use this feature on an undead or a construct."
+      }
+    },
+    {
+      "id": "srd51.feature.wizard.arcane-recovery",
+      "level": 1,
+      "name": {
+        "en": "Arcane Recovery"
+      },
+      "origin": "class",
+      "owner": "srd51.class.wizard",
+      "source": {
+        "entity": "srd51.class.wizard",
+        "feature": "srd51.feature.wizard.arcane-recovery",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You have learned to regain some of your magical energy by studying your spellbook. Once per day when you finish a short rest, you can choose expended spell slots to recover. The spell slots can have a combined level that is equal to or less than half your wizard level (rounded up), and none of the slots can be 6th level or higher.\n\nFor example, if you're a 4th-level wizard, you can recover up to two levels worth of spell slots. You can recover either a 2nd-level spell slot or two 1st-level spell slots."
+      }
+    },
+    {
+      "id": "srd51.feature.wizard.spellcasting",
+      "level": 1,
+      "name": {
+        "en": "Spellcasting"
+      },
+      "origin": "class",
+      "owner": "srd51.class.wizard",
+      "source": {
+        "entity": "srd51.class.wizard",
+        "feature": "srd51.feature.wizard.spellcasting",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "As a student of arcane magic, you have a spellbook containing spells that show the first glimmerings of your true power.\n\n### Cantrips\n\nAt 1st level, you know three cantrips of your choice from the wizard spell list. You learn additional wizard cantrips of your choice at higher levels, as shown in the Cantrips Known column of the Wizard table.\n\n### Spellbook\n\nAt 1st level, you have a spellbook containing six 1st- level wizard spells of your choice. Your spellbook is the repository of the wizard spells you know, except your cantrips, which are fixed in your mind.\n\n### Preparing and Casting Spells\n\nThe Wizard table shows how many spell slots you have to cast your spells of 1st level and higher. To cast one of these spells, you must expend a slot of the spell's level or higher. You regain all expended spell slots when you finish a long rest.\n\nYou prepare the list of wizard spells that are available for you to cast. To do so, choose a number of wizard spells from your spellbook equal to your Intelligence modifier + your wizard level (minimum of one spell). The spells must be of a level for which you have spell slots.\n\nFor example, if you're a 3rd-level wizard, you have four 1st-level and two 2nd-level spell slots. With an Intelligence of 16, your list of prepared spells can include six spells of 1st or 2nd level, in any combination, chosen from your spellbook. If you prepare the 1st-level spell magic missile, you can cast it using a 1st-level or a 2nd-level slot. Casting the spell doesn't remove it from your list of prepared spells.\n\nYou can change your list of prepared spells when you finish a long rest. Preparing a new list of wizard spells requires time spent studying your spellbook and memorizing the incantations and gestures you must make to cast the spell: at least 1 minute per spell level for each spell on your list.\n\n### Spellcasting Ability\n\nIntelligence is your spellcasting ability for your wizard spells, since you learn your spells through dedicated study and memorization. You use your Intelligence whenever a spell refers to your spellcasting ability. In addition, you use your Intelligence modifier when setting the saving throw DC for a wizard spell you cast and when making an attack roll with one.\n\n**Spell save DC** = 8 + your proficiency bonus + your Intelligence modifier\n\n**Spell attack modifier** = your proficiency bonus + your Intelligence modifier\n\n### Ritual Casting\n\nYou can cast a wizard spell as a ritual if that spell has the ritual tag and you have the spell in your spellbook. You don't need to have the spell prepared.\n\n### Spellcasting Focus\n\nYou can use an arcane focus as a spellcasting focus for your wizard spells.\n\n### Learning Spells of 1st Level and Higher\n\nEach time you gain a wizard level, you can add two wizard spells of your choice to your spellbook for free. Each of these spells must be of a level for which you have spell slots, as shown on the Wizard table. On your adventures, you might find other spells that you can add to your spellbook (see the “Your Spellbook” sidebar)."
+      }
+    },
+    {
+      "id": "srd51.feature.wizard.arcane-tradition",
+      "level": 2,
+      "name": {
+        "en": "Arcane Tradition"
+      },
+      "origin": "class",
+      "owner": "srd51.class.wizard",
+      "source": {
+        "entity": "srd51.class.wizard",
+        "feature": "srd51.feature.wizard.arcane-tradition",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "When you reach 2nd level, you choose an arcane tradition, shaping your practice of magic through one of eight schools: Abjuration, Conjuration, Divination, Enchantment, Evocation, Illusion, Necromancy, or Transmutation, all detailed at the end of the class description.\n\nYour choice grants you features at 2nd level and again at 6th, 10th, and 14th level."
+      }
+    },
+    {
+      "id": "srd51.feature.wizard.ability-score-improvement",
+      "level": 4,
+      "name": {
+        "en": "Ability Score Improvement"
+      },
+      "origin": "class",
+      "owner": "srd51.class.wizard",
+      "source": {
+        "entity": "srd51.class.wizard",
+        "feature": "srd51.feature.wizard.ability-score-improvement",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "When you reach 4th level, and again at 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature."
+      }
+    },
+    {
+      "id": "srd51.feature.school-of-evocation.evocation-savant",
+      "level": 2,
+      "name": {
+        "en": "Evocation Savant"
+      },
+      "origin": "subclass",
+      "owner": "srd51.subclass.wizard.school-of-evocation",
+      "source": {
+        "entity": "srd51.subclass.wizard.school-of-evocation",
+        "feature": "srd51.feature.school-of-evocation.evocation-savant",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Beginning when you select this school at 2nd level, the gold and time you must spend to copy an evocation spell into your spellbook is halved."
+      }
+    },
+    {
+      "id": "srd51.feature.school-of-evocation.sculpt-spells",
+      "level": 2,
+      "name": {
+        "en": "Sculpt Spells"
+      },
+      "origin": "subclass",
+      "owner": "srd51.subclass.wizard.school-of-evocation",
+      "source": {
+        "entity": "srd51.subclass.wizard.school-of-evocation",
+        "feature": "srd51.feature.school-of-evocation.sculpt-spells",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Beginning at 2nd level, you can create pockets of relative safety within the effects of your evocation spells. When you cast an evocation spell that affects other creatures that you can see, you can choose a number of them equal to 1 + the spell's level. The chosen creatures automatically succeed on their saving throws against the spell, and they take no damage if they would normally take half damage on a successful save."
+      }
+    }
+  ],
+  "level": 10,
+  "meta": {
+    "characterId": "fixture-multiclass-caster",
+    "formatVersion": 0,
+    "language": "en",
+    "name": "Twin Candle",
+    "packages": [
+      {
+        "id": "srd51",
+        "version": "0.1.0"
+      }
+    ],
+    "ruleset": "srd51"
+  },
+  "proficiencies": [
+    {
+      "expertise": false,
+      "item": "heavy",
+      "source": {
+        "entity": "srd51.subclass.cleric.life-domain",
+        "feature": "srd51.feature.life-domain.bonus-proficiency",
+        "package": "srd51"
+      },
+      "type": "armor"
+    },
+    {
+      "expertise": false,
+      "item": "light",
+      "source": {
+        "entity": "srd51.class.cleric",
+        "package": "srd51"
+      },
+      "type": "armor"
+    },
+    {
+      "expertise": false,
+      "item": "medium",
+      "source": {
+        "entity": "srd51.class.cleric",
+        "package": "srd51"
+      },
+      "type": "armor"
+    },
+    {
+      "expertise": false,
+      "item": "shield",
+      "source": {
+        "entity": "srd51.class.cleric",
+        "package": "srd51"
+      },
+      "type": "armor"
+    },
+    {
+      "expertise": false,
+      "item": "common",
+      "source": {
+        "entity": "srd51.species.human",
+        "package": "srd51"
+      },
+      "type": "language"
+    },
+    {
+      "expertise": false,
+      "item": "elvish",
+      "source": {
+        "entity": "srd51.species.human",
+        "package": "srd51"
+      },
+      "type": "language"
+    },
+    {
+      "expertise": false,
+      "item": "cha",
+      "source": {
+        "entity": "srd51.class.cleric",
+        "package": "srd51"
+      },
+      "type": "save"
+    },
+    {
+      "expertise": false,
+      "item": "wis",
+      "source": {
+        "entity": "srd51.class.cleric",
+        "package": "srd51"
+      },
+      "type": "save"
+    },
+    {
+      "expertise": false,
+      "item": "insight",
+      "source": {
+        "entity": "srd51.class.cleric",
+        "package": "srd51"
+      },
+      "type": "skill"
+    },
+    {
+      "expertise": false,
+      "item": "religion",
+      "source": {
+        "entity": "srd51.class.cleric",
+        "package": "srd51"
+      },
+      "type": "skill"
+    },
+    {
+      "expertise": false,
+      "item": "simple",
+      "source": {
+        "entity": "srd51.class.cleric",
+        "package": "srd51"
+      },
+      "type": "weapon"
+    }
+  ],
+  "resources": [
+    {
+      "current": 1,
+      "display": "pips",
+      "id": "channel-divinity",
+      "max": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "None"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 0
+          },
+          {
+            "applied": true,
+            "formula": "table(cleric.channel-divinity-charges)",
+            "kind": "set",
+            "label": {
+              "en": "Channel Divinity"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.class.cleric",
+              "feature": "srd51.feature.cleric.channel-divinity",
+              "package": "srd51"
+            },
+            "value": 1
+          }
+        ],
+        "value": 1
+      },
+      "name": {
+        "en": "Channel Divinity"
+      },
+      "recharge": [
+        {
+          "amount": "full",
+          "on": "short-rest"
+        },
+        {
+          "amount": "full",
+          "on": "long-rest"
+        }
+      ],
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.cleric",
+        "feature": "srd51.feature.cleric.channel-divinity",
+        "package": "srd51"
+      }
+    },
+    {
+      "current": 1,
+      "display": "pips",
+      "id": "arcane-recovery",
+      "max": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "None"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 0
+          },
+          {
+            "applied": true,
+            "kind": "set",
+            "label": {
+              "en": "Arcane Recovery"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.class.wizard",
+              "feature": "srd51.feature.wizard.arcane-recovery",
+              "package": "srd51"
+            },
+            "value": 1
+          }
+        ],
+        "value": 1
+      },
+      "name": {
+        "en": "Arcane Recovery"
+      },
+      "recharge": [
+        {
+          "amount": "full",
+          "on": "dawn"
+        }
+      ],
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.wizard",
+        "feature": "srd51.feature.wizard.arcane-recovery",
+        "package": "srd51"
+      }
+    }
+  ],
+  "rollModifiers": [],
+  "sections": [
+    "identity",
+    "core",
+    "abilities",
+    "saves",
+    "skills",
+    "combat",
+    "attacks",
+    "actions",
+    "resources",
+    "spellcasting",
+    "spells",
+    "features",
+    "equipment",
+    "personality",
+    "conditions",
+    "notes",
+    "credits"
+  ],
+  "spellcasting": [
+    {
+      "ability": "wis",
+      "attackBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "Proficiency bonus"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.class.cleric",
+              "feature": "srd51.feature.cleric.spellcasting",
+              "package": "srd51"
+            },
+            "value": 4
+          },
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "WIS modifier"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.class.cleric",
+              "feature": "srd51.feature.cleric.spellcasting",
+              "package": "srd51"
+            },
+            "value": 3
+          }
+        ],
+        "value": 7
+      },
+      "cantripsKnown": 4,
+      "class": "srd51.class.cleric",
+      "dc": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Base"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.class.cleric",
+              "feature": "srd51.feature.cleric.spellcasting",
+              "package": "srd51"
+            },
+            "value": 8
+          },
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "Proficiency bonus"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.class.cleric",
+              "feature": "srd51.feature.cleric.spellcasting",
+              "package": "srd51"
+            },
+            "value": 4
+          },
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "WIS modifier"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.class.cleric",
+              "feature": "srd51.feature.cleric.spellcasting",
+              "package": "srd51"
+            },
+            "value": 3
+          }
+        ],
+        "value": 15
+      },
+      "list": "srd51.spell-list.cleric",
+      "preparation": "prepared",
+      "ritual": true,
+      "slots": [
+        {
+          "current": 4,
+          "level": 1,
+          "max": 4
+        },
+        {
+          "current": 3,
+          "level": 2,
+          "max": 3
+        },
+        {
+          "current": 3,
+          "level": 3,
+          "max": 3
+        },
+        {
+          "current": 3,
+          "level": 4,
+          "max": 3
+        },
+        {
+          "current": 2,
+          "level": 5,
+          "max": 2
+        }
+      ],
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.cleric",
+        "feature": "srd51.feature.cleric.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "int",
+      "attackBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "Proficiency bonus"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.class.wizard",
+              "feature": "srd51.feature.wizard.spellcasting",
+              "package": "srd51"
+            },
+            "value": 4
+          },
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "INT modifier"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.class.wizard",
+              "feature": "srd51.feature.wizard.spellcasting",
+              "package": "srd51"
+            },
+            "value": 3
+          }
+        ],
+        "value": 7
+      },
+      "cantripsKnown": 4,
+      "class": "srd51.class.wizard",
+      "dc": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Base"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.class.wizard",
+              "feature": "srd51.feature.wizard.spellcasting",
+              "package": "srd51"
+            },
+            "value": 8
+          },
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "Proficiency bonus"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.class.wizard",
+              "feature": "srd51.feature.wizard.spellcasting",
+              "package": "srd51"
+            },
+            "value": 4
+          },
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "INT modifier"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.class.wizard",
+              "feature": "srd51.feature.wizard.spellcasting",
+              "package": "srd51"
+            },
+            "value": 3
+          }
+        ],
+        "value": 15
+      },
+      "list": "srd51.spell-list.wizard",
+      "preparation": "spellbook",
+      "ritual": true,
+      "slots": [
+        {
+          "current": 4,
+          "level": 1,
+          "max": 4
+        },
+        {
+          "current": 3,
+          "level": 2,
+          "max": 3
+        },
+        {
+          "current": 3,
+          "level": 3,
+          "max": 3
+        },
+        {
+          "current": 3,
+          "level": 4,
+          "max": 3
+        },
+        {
+          "current": 2,
+          "level": 5,
+          "max": 2
+        }
+      ],
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.wizard",
+        "feature": "srd51.feature.wizard.spellcasting",
+        "package": "srd51"
+      }
+    }
+  ],
+  "spells": [
+    {
+      "ability": "wis",
+      "as": "cantrip",
+      "id": "srd51.spell.sacred-flame",
+      "level": 0,
+      "name": {
+        "en": "Sacred Flame"
+      },
+      "paidWith": {
+        "free": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.cleric",
+        "feature": "srd51.feature.cleric.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "wis",
+      "as": "cantrip",
+      "id": "srd51.spell.guidance",
+      "level": 0,
+      "name": {
+        "en": "Guidance"
+      },
+      "paidWith": {
+        "free": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.cleric",
+        "feature": "srd51.feature.cleric.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "wis",
+      "as": "cantrip",
+      "id": "srd51.spell.light",
+      "level": 0,
+      "name": {
+        "en": "Light"
+      },
+      "paidWith": {
+        "free": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.cleric",
+        "feature": "srd51.feature.cleric.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "wis",
+      "as": "cantrip",
+      "id": "srd51.spell.thaumaturgy",
+      "level": 0,
+      "name": {
+        "en": "Thaumaturgy"
+      },
+      "paidWith": {
+        "free": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.cleric",
+        "feature": "srd51.feature.cleric.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "wis",
+      "as": "prepared",
+      "id": "srd51.spell.guiding-bolt",
+      "level": 1,
+      "name": {
+        "en": "Guiding Bolt"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.cleric",
+        "feature": "srd51.feature.cleric.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "wis",
+      "as": "prepared",
+      "id": "srd51.spell.healing-word",
+      "level": 1,
+      "name": {
+        "en": "Healing Word"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.cleric",
+        "feature": "srd51.feature.cleric.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "wis",
+      "as": "prepared",
+      "id": "srd51.spell.hold-person",
+      "level": 2,
+      "name": {
+        "en": "Hold Person"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.cleric",
+        "feature": "srd51.feature.cleric.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "wis",
+      "as": "prepared",
+      "id": "srd51.spell.spirit-guardians",
+      "level": 3,
+      "name": {
+        "en": "Spirit Guardians"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.cleric",
+        "feature": "srd51.feature.cleric.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "wis",
+      "as": "prepared",
+      "id": "srd51.spell.dispel-magic",
+      "level": 3,
+      "name": {
+        "en": "Dispel Magic"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.cleric",
+        "feature": "srd51.feature.cleric.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "wis",
+      "as": "prepared",
+      "id": "srd51.spell.prayer-of-healing",
+      "level": 2,
+      "name": {
+        "en": "Prayer of Healing"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.cleric",
+        "feature": "srd51.feature.cleric.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "wis",
+      "as": "prepared",
+      "id": "srd51.spell.aid",
+      "level": 2,
+      "name": {
+        "en": "Aid"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.cleric",
+        "feature": "srd51.feature.cleric.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "wis",
+      "as": "prepared",
+      "id": "srd51.spell.silence",
+      "level": 2,
+      "name": {
+        "en": "Silence"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.cleric",
+        "feature": "srd51.feature.cleric.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "as": "always-prepared",
+      "id": "srd51.spell.bless",
+      "level": 1,
+      "name": {
+        "en": "Bless"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.subclass.cleric.life-domain",
+        "feature": "srd51.feature.life-domain.life-domain-spells-table",
+        "package": "srd51"
+      }
+    },
+    {
+      "as": "always-prepared",
+      "id": "srd51.spell.cure-wounds",
+      "level": 1,
+      "name": {
+        "en": "Cure Wounds"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.subclass.cleric.life-domain",
+        "feature": "srd51.feature.life-domain.life-domain-spells-table",
+        "package": "srd51"
+      }
+    },
+    {
+      "as": "always-prepared",
+      "id": "srd51.spell.lesser-restoration",
+      "level": 2,
+      "name": {
+        "en": "Lesser Restoration"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.subclass.cleric.life-domain",
+        "feature": "srd51.feature.life-domain.life-domain-spells-table",
+        "package": "srd51"
+      }
+    },
+    {
+      "as": "always-prepared",
+      "id": "srd51.spell.spiritual-weapon",
+      "level": 2,
+      "name": {
+        "en": "Spiritual Weapon"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.subclass.cleric.life-domain",
+        "feature": "srd51.feature.life-domain.life-domain-spells-table",
+        "package": "srd51"
+      }
+    },
+    {
+      "as": "always-prepared",
+      "id": "srd51.spell.beacon-of-hope",
+      "level": 3,
+      "name": {
+        "en": "Beacon of Hope"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 2,
+        "entity": "srd51.subclass.cleric.life-domain",
+        "feature": "srd51.feature.life-domain.life-domain-spells-table",
+        "package": "srd51"
+      }
+    },
+    {
+      "as": "always-prepared",
+      "id": "srd51.spell.revivify",
+      "level": 3,
+      "name": {
+        "en": "Revivify"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 2,
+        "entity": "srd51.subclass.cleric.life-domain",
+        "feature": "srd51.feature.life-domain.life-domain-spells-table",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "int",
+      "as": "cantrip",
+      "id": "srd51.spell.fire-bolt",
+      "level": 0,
+      "name": {
+        "en": "Fire Bolt"
+      },
+      "paidWith": {
+        "free": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.wizard",
+        "feature": "srd51.feature.wizard.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "int",
+      "as": "cantrip",
+      "id": "srd51.spell.mage-hand",
+      "level": 0,
+      "name": {
+        "en": "Mage Hand"
+      },
+      "paidWith": {
+        "free": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.wizard",
+        "feature": "srd51.feature.wizard.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "int",
+      "as": "cantrip",
+      "id": "srd51.spell.prestidigitation",
+      "level": 0,
+      "name": {
+        "en": "Prestidigitation"
+      },
+      "paidWith": {
+        "free": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.wizard",
+        "feature": "srd51.feature.wizard.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "int",
+      "as": "cantrip",
+      "id": "srd51.spell.ray-of-frost",
+      "level": 0,
+      "name": {
+        "en": "Ray of Frost"
+      },
+      "paidWith": {
+        "free": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.wizard",
+        "feature": "srd51.feature.wizard.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "int",
+      "as": "prepared",
+      "id": "srd51.spell.magic-missile",
+      "level": 1,
+      "name": {
+        "en": "Magic Missile"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.wizard",
+        "feature": "srd51.feature.wizard.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "int",
+      "as": "prepared",
+      "id": "srd51.spell.shield",
+      "level": 1,
+      "name": {
+        "en": "Shield"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.wizard",
+        "feature": "srd51.feature.wizard.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "int",
+      "as": "prepared",
+      "id": "srd51.spell.mage-armor",
+      "level": 1,
+      "name": {
+        "en": "Mage Armor"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.wizard",
+        "feature": "srd51.feature.wizard.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "int",
+      "as": "prepared",
+      "id": "srd51.spell.detect-magic",
+      "level": 1,
+      "name": {
+        "en": "Detect Magic"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.wizard",
+        "feature": "srd51.feature.wizard.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "int",
+      "as": "prepared",
+      "id": "srd51.spell.misty-step",
+      "level": 2,
+      "name": {
+        "en": "Misty Step"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.wizard",
+        "feature": "srd51.feature.wizard.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "int",
+      "as": "prepared",
+      "id": "srd51.spell.fireball",
+      "level": 3,
+      "name": {
+        "en": "Fireball"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.wizard",
+        "feature": "srd51.feature.wizard.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "int",
+      "as": "prepared",
+      "id": "srd51.spell.counterspell",
+      "level": 3,
+      "name": {
+        "en": "Counterspell"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.wizard",
+        "feature": "srd51.feature.wizard.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "int",
+      "as": "prepared",
+      "id": "srd51.spell.fly",
+      "level": 3,
+      "name": {
+        "en": "Fly"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.wizard",
+        "feature": "srd51.feature.wizard.spellcasting",
+        "package": "srd51"
+      }
+    }
+  ],
+  "values": {
+    "ability.cha": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 9
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Ability Score Increase"
+          },
+          "source": {
+            "effectIndex": 5,
+            "entity": "srd51.species.human",
+            "feature": "srd51.feature.human.ability-score-increase",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 10
+    },
+    "ability.con": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 13
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Ability Score Increase"
+          },
+          "source": {
+            "effectIndex": 2,
+            "entity": "srd51.species.human",
+            "feature": "srd51.feature.human.ability-score-increase",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 14
+    },
+    "ability.dex": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 11
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Ability Score Increase"
+          },
+          "source": {
+            "effectIndex": 1,
+            "entity": "srd51.species.human",
+            "feature": "srd51.feature.human.ability-score-increase",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 12
+    },
+    "ability.int": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 15
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Ability Score Increase"
+          },
+          "source": {
+            "effectIndex": 3,
+            "entity": "srd51.species.human",
+            "feature": "srd51.feature.human.ability-score-increase",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 16
+    },
+    "ability.str": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 9
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Ability Score Increase"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.species.human",
+            "feature": "srd51.feature.human.ability-score-increase",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 10
+    },
+    "ability.wis": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 15
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Ability Score Increase"
+          },
+          "source": {
+            "effectIndex": 4,
+            "entity": "srd51.species.human",
+            "feature": "srd51.feature.human.ability-score-increase",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 16
+    },
+    "ac": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 11
+    },
+    "attacks.perAction": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "One attack per Attack action"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "carry.capacity": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength score × 15"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 150
+        }
+      ],
+      "value": 150
+    },
+    "check.cha": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "check.con": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Constitution modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "check.dex": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "check.int": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 3
+    },
+    "check.str": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "check.wis": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 3
+    },
+    "hp.max": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "hitDie + mod(con)",
+          "kind": "base",
+          "label": {
+            "en": "Level 1 (Cleric)"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "formula": "4 × (average(hitDie) + mod(con))",
+          "kind": "add",
+          "label": {
+            "en": "4 more levels (Cleric)"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 28
+        },
+        {
+          "applied": true,
+          "formula": "5 × (average(hitDie) + mod(con))",
+          "kind": "add",
+          "label": {
+            "en": "5 more levels (Wizard)"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 30
+        }
+      ],
+      "value": 68
+    },
+    "initiative": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "jump.high": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "3 + Strength modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 3
+    },
+    "jump.long": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength score in feet"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        }
+      ],
+      "value": 10
+    },
+    "mod.cha": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "mod.con": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Constitution modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "mod.dex": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "mod.int": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 3
+    },
+    "mod.str": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Strength modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "mod.wis": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 3
+    },
+    "passive.acrobatics": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "acrobatics bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 11
+    },
+    "passive.animal-handling": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "animal-handling bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 13
+    },
+    "passive.arcana": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "arcana bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 13
+    },
+    "passive.athletics": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "athletics bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 10
+    },
+    "passive.deception": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "deception bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 10
+    },
+    "passive.history": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "history bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 13
+    },
+    "passive.insight": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "insight bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 7
+        }
+      ],
+      "value": 17
+    },
+    "passive.intimidation": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "intimidation bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 10
+    },
+    "passive.investigation": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "investigation bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 13
+    },
+    "passive.medicine": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "medicine bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 13
+    },
+    "passive.nature": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "nature bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 13
+    },
+    "passive.perception": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "perception bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 13
+    },
+    "passive.performance": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "performance bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 10
+    },
+    "passive.persuasion": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "persuasion bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 10
+    },
+    "passive.religion": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "religion bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 7
+        }
+      ],
+      "value": 17
+    },
+    "passive.sleight-of-hand": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "sleight-of-hand bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 11
+    },
+    "passive.stealth": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "stealth bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 11
+    },
+    "passive.survival": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "survival bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 13
+    },
+    "proficiencyBonus": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Proficiency bonus by level"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 4
+        }
+      ],
+      "value": 4
+    },
+    "resource.arcane-recovery.max": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "None"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        },
+        {
+          "applied": true,
+          "kind": "set",
+          "label": {
+            "en": "Arcane Recovery"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.class.wizard",
+            "feature": "srd51.feature.wizard.arcane-recovery",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "resource.channel-divinity.max": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "None"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        },
+        {
+          "applied": true,
+          "formula": "table(cleric.channel-divinity-charges)",
+          "kind": "set",
+          "label": {
+            "en": "Channel Divinity"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.class.cleric",
+            "feature": "srd51.feature.cleric.channel-divinity",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "save.cha": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 4
+        }
+      ],
+      "value": 4
+    },
+    "save.con": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Constitution modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "save.dex": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "save.int": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 3
+    },
+    "save.str": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "save.wis": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 4
+        }
+      ],
+      "value": 7
+    },
+    "skill.acrobatics": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "skill.animal-handling": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 3
+    },
+    "skill.arcana": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 3
+    },
+    "skill.athletics": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "skill.deception": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "skill.history": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 3
+    },
+    "skill.insight": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 4
+        }
+      ],
+      "value": 7
+    },
+    "skill.intimidation": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "skill.investigation": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 3
+    },
+    "skill.medicine": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 3
+    },
+    "skill.nature": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 3
+    },
+    "skill.perception": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 3
+    },
+    "skill.performance": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "skill.persuasion": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "skill.religion": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 4
+        }
+      ],
+      "value": 7
+    },
+    "skill.sleight-of-hand": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "skill.stealth": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "skill.survival": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 3
+    },
+    "speed.walk": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Species speed"
+          },
+          "source": {
+            "entity": "srd51.species.human",
+            "package": ""
+          },
+          "value": 30
+        }
+      ],
+      "value": 30
+    }
+  },
+  "warnings": [
+    {
+      "code": "W_UNANSWERED_CHOICE",
+      "entity": "srd51.class.cleric",
+      "message": "choice \"srd51.class.cleric#asi-4\" (asi-or-feat) has 0 of 1 answers",
+      "path": "srd51.class.cleric#asi-4",
+      "severity": "warning"
+    },
+    {
+      "code": "W_UNANSWERED_CHOICE",
+      "entity": "srd51.class.wizard",
+      "message": "choice \"srd51.class.wizard#asi-4\" (asi-or-feat) has 0 of 1 answers",
+      "path": "srd51.class.wizard#asi-4",
+      "severity": "warning"
+    }
+  ]
+}
+

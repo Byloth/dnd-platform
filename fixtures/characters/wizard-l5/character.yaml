@@ -1,0 +1,36 @@
+formatVersion: 0
+id: fixture-wizard-l5
+name: Cog Whisper
+ruleset: { id: srd51, version: 0.1.0 }
+packages:
+  - { id: srd51, version: 0.1.0 }
+choices:
+  species: srd51.species.gnome
+  subspecies: srd51.species.gnome.rock-gnome
+  classes:
+    - { class: srd51.class.wizard, subclass: srd51.subclass.wizard.school-of-evocation, levels: 5 }
+  abilityScores:
+    method: manual
+    # gnome +2 INT, rock gnome +1 CON (generated) → int 17, con 14; ASI 4: +2 INT → 19
+    base: { str: 8, dex: 14, con: 13, int: 15, wis: 12, cha: 10 }
+    bonuses: { int: 2 }
+  answers:
+    "srd51.class.wizard#skills": [arcana, investigation]
+    "srd51.class.wizard#arcane-tradition": [srd51.subclass.wizard.school-of-evocation]
+    # cantrips known at 5: 4
+    "srd51.class.wizard#cantrips": [srd51.spell.fire-bolt, srd51.spell.mage-hand, srd51.spell.light, srd51.spell.ray-of-frost]
+    # prepared: wizard level 5 + INT modifier 4 = 9
+    "srd51.class.wizard#spells": [srd51.spell.magic-missile, srd51.spell.shield, srd51.spell.mage-armor, srd51.spell.sleep, srd51.spell.misty-step, srd51.spell.scorching-ray, srd51.spell.web, srd51.spell.fireball, srd51.spell.counterspell]
+    "srd51.class.wizard#asi-4": [asi]
+  equipment:
+    - { item: srd51.item.quarterstaff, quantity: 1, equipped: true }
+    - { item: srd51.item.spellbook, quantity: 1 }
+    - { item: srd51.item.component-pouch, quantity: 1 }
+state:
+  hp: { current: 32, temporary: 0 }
+  hitDice: { spent: 0 }
+  resources: { arcane-recovery: 1 }
+  spellSlots: { "1": 4, "2": 3, "3": 2 }
+  conditions: []
+  deathSaves: { successes: 0, failures: 0 }
+  inspiration: false

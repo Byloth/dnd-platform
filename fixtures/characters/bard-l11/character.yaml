@@ -1,0 +1,63 @@
+formatVersion: 0
+id: fixture-bard-l11
+name: Willow Verse
+ruleset: { id: srd51, version: 0.1.0 }
+packages:
+  - { id: srd51, version: 0.1.0 }
+choices:
+  species: srd51.species.half-elf
+  classes:
+    - { class: srd51.class.bard, subclass: srd51.subclass.bard.college-of-lore, levels: 11 }
+  abilityScores:
+    method: manual
+    # half-elf: +2 CHA generated from the species trait
+    base: { str: 8, dex: 14, con: 13, int: 10, wis: 12, cha: 15 }
+    # half-elf +1 DEX +1 CON (the two +1 of choice, not modelled by the engine);
+    # ASI 4: +2 CHA (19); ASI 8: +1 CHA +1 DEX → CHA 20, DEX 16
+    bonuses: { dex: 2, con: 1, cha: 3 }
+  answers:
+    "srd51.class.bard#skills": [performance, persuasion, deception]
+    "srd51.class.bard#tools": [lute, flute, drum]
+    "srd51.feature.half-elf.skill-versatility#skill": [insight, perception]
+    "srd51.species.half-elf#languages": [dwarvish]
+    "srd51.class.bard#bard-college": [srd51.subclass.bard.college-of-lore]
+    "srd51.feature.college-of-lore.bonus-proficiencies#skill": [arcana, history, investigation]
+    "srd51.feature.bard.expertise#expertise-3": [performance, persuasion]
+    "srd51.feature.bard.expertise#expertise-10": [insight, perception]
+    "srd51.class.bard#asi-4": [asi]
+    "srd51.class.bard#asi-8": [asi]
+    # Additional Magical Secrets (Lore 6): two spells from any class, NOT counted in Spells Known
+    "srd51.feature.college-of-lore.additional-magical-secrets#additional-magical-secrets": [srd51.spell.misty-step, srd51.spell.haste]
+    # Magical Secrets (10): two spells from any class, counted in Spells Known (listed again in #spells below)
+    "srd51.feature.bard.magical-secrets#magical-secrets-10": [srd51.spell.fireball, srd51.spell.counterspell]
+    "srd51.class.bard#cantrips": [srd51.spell.vicious-mockery, srd51.spell.minor-illusion, srd51.spell.mage-hand, srd51.spell.prestidigitation]
+    # spells known at bard level 11: 15 = 13 bard spells + the 2 Magical Secrets
+    "srd51.class.bard#spells":
+      - srd51.spell.healing-word
+      - srd51.spell.charm-person
+      - srd51.spell.sleep
+      - srd51.spell.hideous-laughter
+      - srd51.spell.invisibility
+      - srd51.spell.shatter
+      - srd51.spell.hypnotic-pattern
+      - srd51.spell.dispel-magic
+      - srd51.spell.dimension-door
+      - srd51.spell.greater-invisibility
+      - srd51.spell.hold-monster
+      - srd51.spell.dominate-person
+      - srd51.spell.mass-suggestion
+      - srd51.spell.fireball
+      - srd51.spell.counterspell
+  equipment:
+    - { item: srd51.item.leather-armor, quantity: 1, equipped: true }
+    - { item: srd51.item.rapier, quantity: 1, equipped: true }
+    - { item: srd51.item.dagger, quantity: 1 }
+    - { item: srd51.item.lute, quantity: 1 }
+state:
+  hp: { current: 80, temporary: 0 }
+  hitDice: { spent: 0 }
+  resources: { bardic-inspiration: 5 }
+  spellSlots: { "1": 4, "2": 3, "3": 3, "4": 3, "5": 2, "6": 1 }
+  conditions: []
+  deathSaves: { successes: 0, failures: 0 }
+  inspiration: false

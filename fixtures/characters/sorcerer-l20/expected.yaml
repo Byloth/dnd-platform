@@ -1,0 +1,70 @@
+# Tiefling Sorcerer 20 (Draconic Bloodline, red dragon). Base str 8, dex 14, con 14, int 11, wis 12, cha 15;
+# tiefling +1 INT, +2 CHA; ASIs 4 +2 CHA, 8 +1 CHA +1 CON, 12 +2 CON, 16 +2 DEX, 19 +1 CON +1 WIS
+# → str 8, dex 16, con 18, int 12, wis 13, cha 20. Modifiers: str -1, dex +3, con +4, int +1, wis +1, cha +5.
+# Proficiency bonus at level 20: +6.
+values:
+  ability.str: 8
+  ability.dex: 16               # 14 + 2 (ASI 16)
+  ability.con: 18               # 14 + 1 (ASI 8) + 2 (ASI 12) + 1 (ASI 19)
+  ability.int: 12               # 11 + 1 (tiefling)
+  ability.wis: 13               # 12 + 1 (ASI 19)
+  ability.cha: 20               # 15 + 2 (tiefling) + 2 (ASI 4) + 1 (ASI 8)
+  proficiencyBonus: 6
+  hp.max: 182                   # level 1: 6 + 4 = 10; levels 2-20: 19 × (4 + 4) = 152; Draconic Resilience +1 × 20 = 20
+  ac: 16                        # 13 + DEX 3
+  initiative: 3
+  speed.walk: 30
+  sense.darkvision: 60
+  save.con: 10                  # 4 + 6
+  save.cha: 11                  # 5 + 6
+  save.dex: 3                   # not proficient
+  save.wis: 1                   # not proficient
+  skill.arcana: 7               # INT 1 + 6
+  skill.persuasion: 11          # CHA 5 + 6
+  skill.stealth: 3              # DEX 3, not proficient
+  skill.perception: 1
+  passive.perception: 11
+spellcasting:
+  srd51.class.sorcerer:
+    dc: 19                      # 8 + 6 + 5
+    attackBonus: 11             # 6 + 5
+    slots: { 1: 4, 2: 3, 3: 3, 4: 3, 5: 3, 6: 2, 7: 2, 8: 1, 9: 1 }   # full-caster table, level 20
+    cantripsKnown: 6
+    spellsKnown: 15             # table row 17
+spells:
+  srd51.spell.fire-bolt: free
+  srd51.spell.wish: slot
+  srd51.spell.thaumaturgy: free
+  srd51.spell.hellish-rebuke: uses:1
+  srd51.spell.darkness: uses:1
+resources:
+  sorcery-points: { max: 20, recharge: [long-rest] }  # table row 20
+actions:
+  create-spell-slot: { activation: bonus-action }
+  convert-spell-slot: { activation: bonus-action }
+  quickened-spell: { activation: free, cost: { sorcery-points: 2 } }
+  twinned-spell: { activation: free }
+  empowered-spell: { activation: free, cost: { sorcery-points: 1 } }
+  subtle-spell: { activation: free, cost: { sorcery-points: 1 } }
+  elemental-affinity: { activation: free, cost: { sorcery-points: 1 } }
+  dragon-wings: { activation: bonus-action }                              # level 14
+  draconic-presence: { activation: action, cost: { sorcery-points: 5 } } # level 18
+attacks:
+  dagger: { toHit: 9, damage: "1d4 + 3", type: piercing }   # DEX 3 + 6
+features:
+  - srd51.feature.sorcerer.font-of-magic
+  - srd51.feature.sorcerer.metamagic
+  - srd51.feature.sorcerer.sorcerous-restoration
+  - srd51.feature.draconic-bloodline.draconic-resilience
+  - srd51.feature.draconic-bloodline.elemental-affinity
+  - srd51.feature.draconic-bloodline.dragon-wings
+  - srd51.feature.draconic-bloodline.draconic-presence
+choices:
+  "srd51.class.sorcerer#asi-4": answered
+  "srd51.class.sorcerer#asi-8": answered
+  "srd51.class.sorcerer#asi-12": answered
+  "srd51.class.sorcerer#asi-16": answered
+  "srd51.class.sorcerer#asi-19": answered
+  "srd51.feature.sorcerer.metamagic#metamagic": answered
+sections:
+  active: [senses, attacks, actions, resources, spellcasting, spells, features]

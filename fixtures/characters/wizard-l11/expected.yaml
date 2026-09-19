@@ -1,0 +1,48 @@
+# Rock gnome Wizard 11 (School of Evocation). Base str 8, dex 14, con 13, int 15, wis 12, cha 10; gnome +2 INT,
+# rock gnome +1 CON; ASI 4 +2 INT; ASI 8 +1 INT +1 CON → str 8, dex 14, con 15, int 20, wis 12, cha 10.
+# Modifiers: str -1, dex +2, con +2, int +5, wis +1, cha 0. Proficiency bonus at level 11: +4.
+values:
+  ability.int: 20               # 15 + 2 (gnome) + 2 (ASI 4) + 1 (ASI 8)
+  ability.con: 15               # 13 + 1 (rock gnome) + 1 (ASI 8)
+  proficiencyBonus: 4
+  hp.max: 68                    # level 1: 6 + 2 = 8; levels 2-11: 10 × (4 + 2) = 60
+  ac: 12                        # 10 + DEX 2
+  initiative: 2
+  speed.walk: 25
+  sense.darkvision: 60
+  damage.spell.bonus: 5         # Empowered Evocation: + INT modifier (level 10)
+  save.int: 9                   # 5 + 4
+  save.wis: 5                   # 1 + 4
+  save.con: 2
+  skill.arcana: 9               # INT 5 + 4
+  skill.investigation: 9        # INT 5 + 4
+  skill.religion: 5             # INT 5, not proficient
+  passive.perception: 11
+spellcasting:
+  srd51.class.wizard:
+    dc: 17                      # 8 + 4 + 5
+    attackBonus: 9              # 4 + 5
+    slots: { 1: 4, 2: 3, 3: 3, 4: 3, 5: 2, 6: 1 }   # full-caster table, level 11
+    cantripsKnown: 5            # table row 10
+spells:
+  srd51.spell.fire-bolt: free
+  srd51.spell.prestidigitation: free
+  srd51.spell.chain-lightning: slot
+resources:
+  arcane-recovery: { max: 1, recharge: [dawn] }
+actions:
+  arcane-recovery: { activation: special, cost: { arcane-recovery: 1 } }
+attacks:
+  quarterstaff: { toHit: 3, damage: "1d6 - 1", type: bludgeoning }   # STR -1 + 4
+features:
+  - srd51.feature.wizard.arcane-recovery
+  - srd51.feature.school-of-evocation.sculpt-spells
+  - srd51.feature.school-of-evocation.potent-cantrip
+  - srd51.feature.school-of-evocation.empowered-evocation
+choices:
+  "srd51.class.wizard#arcane-tradition": answered
+  "srd51.class.wizard#spells": answered
+  "srd51.class.wizard#asi-4": answered
+  "srd51.class.wizard#asi-8": answered
+sections:
+  active: [senses, attacks, actions, resources, spellcasting, spells, features]

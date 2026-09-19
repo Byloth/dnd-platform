@@ -1,0 +1,31 @@
+formatVersion: 0
+id: fixture-barbarian-l5
+name: Grey Tusk
+ruleset: { id: srd51, version: 0.1.0 }
+packages:
+  - { id: srd51, version: 0.1.0 }
+choices:
+  species: srd51.species.half-orc
+  classes:
+    - { class: srd51.class.barbarian, subclass: srd51.subclass.barbarian.path-of-the-berserker, levels: 5 }
+  abilityScores:
+    method: manual
+    # half-orc: +2 STR, +1 CON generated from the species traits → STR 17, CON 15 before the ASI
+    base: { str: 15, dex: 14, con: 14, int: 8, wis: 10, cha: 12 }
+    # ASI at level 4: +2 STR → 19
+    bonuses: { str: 2 }
+  answers:
+    "srd51.class.barbarian#skills": [athletics, survival]
+    "srd51.class.barbarian#primal-path": [srd51.subclass.barbarian.path-of-the-berserker]
+    "srd51.class.barbarian#asi-4": [asi]
+  equipment:
+    - { item: srd51.item.greataxe, quantity: 1, equipped: true }
+    - { item: srd51.item.javelin, quantity: 4, equipped: true }
+    - { item: srd51.item.explorers-pack, quantity: 1 }
+state:
+  hp: { current: 50, temporary: 0 }
+  hitDice: { spent: 0 }
+  resources: { rage: 3, relentless-endurance: 1 }
+  conditions: []
+  deathSaves: { successes: 0, failures: 0 }
+  inspiration: false

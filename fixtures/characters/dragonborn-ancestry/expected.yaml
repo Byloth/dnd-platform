@@ -1,0 +1,51 @@
+# Dragonborn Paladin 1 with the red Draconic Ancestry answered.
+# Scores after the dragonborn +2 STR / +1 CHA: STR 17, DEX 10, CON 14, INT 8, WIS 12, CHA 15.
+# Modifiers: str +3, dex 0, con +2, int -1, wis +1, cha +2. Proficiency bonus at 1: +2.
+values:
+  ability.str: 17            # 15 + 2 (dragonborn)
+  ability.cha: 15            # 14 + 1 (dragonborn)
+  mod.str: 3
+  mod.cha: 2
+  proficiencyBonus: 2
+  hp.max: 12                 # 10 + CON 2
+  ac: 16                     # chain mail 16, no DEX; STR 17 ≥ 13
+  speed.walk: 30
+  save.wis: 3                # 1 + 2 proficient
+  save.cha: 4                # 2 + 2 proficient
+  save.str: 3                # not proficient
+  skill.athletics: 5         # STR 3 + 2
+  skill.persuasion: 4        # CHA 2 + 2
+attacks:
+  longsword: { toHit: 5, damage: "1d8 + 3", type: slashing }   # STR 3 + proficiency 2
+resources:
+  breath-weapon: { max: 1, recharge: [short-rest, long-rest] }
+  divine-sense: { max: 3, recharge: [long-rest] }              # 1 + CHA 2
+  lay-on-hands: { max: 5, recharge: [long-rest] }              # 5 × paladin level 1
+actions:
+  breath-weapon: { activation: action, cost: { breath-weapon: 1 } }   # save DC 8 + CON 2 + 2 = 12, 2d6 (not comparable here)
+  divine-sense: { activation: action, cost: { divine-sense: 1 } }
+  lay-on-hands: { activation: action, cost: { lay-on-hands: 1 } }
+features:
+  - srd51.feature.dragonborn.ability-score-increase
+  - srd51.feature.dragonborn.draconic-ancestry
+  - srd51.feature.dragonborn.breath-weapon
+  - srd51.feature.dragonborn.damage-resistance   # resistance to fire (red); `defenses` are not comparable in expected.yaml
+  - srd51.feature.paladin.divine-sense
+  - srd51.feature.paladin.lay-on-hands
+choices:
+  "srd51.feature.dragonborn.draconic-ancestry#draconic-ancestry": answered
+  "srd51.class.paladin#skills": answered
+proficiencies:
+  - save:wis
+  - save:cha
+  - skill:athletics
+  - skill:persuasion
+  - armor:heavy
+  - armor:shield
+  - weapon:simple
+  - weapon:martial
+  - language:common
+  - language:draconic
+sections:
+  active: [attacks, resources, actions, features]
+  inactive: [spellcasting, spells, senses]   # paladin spellcasting starts at 2; dragonborn have no darkvision

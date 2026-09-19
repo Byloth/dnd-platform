@@ -1,0 +1,57 @@
+# Puma feline Monk 11 (Way of the Open Hand), unarmed and unarmoured.
+# Scores: base + ASIs 4 and 8 (DEX +4): STR 11, DEX 20, CON 14, INT 8, WIS 16, CHA 8.
+# Modifiers: STR 0, DEX +5, CON +2, INT -1, WIS +3, CHA -1. Proficiency bonus at level 11: +4.
+values:
+  ability.dex: 20            # 16 + 4
+  ability.wis: 16
+  proficiencyBonus: 4
+  hp.max: 80                 # level 1: 8 + 2 = 10; levels 2-11: 10 × (5 + 2) = 70
+  ac: 18                     # Unarmored Defense: 10 + DEX 5 + WIS 3
+  initiative: 5
+  speed.walk: 50             # feline 30 + Unarmored Movement row 10 = 20
+  speed.climb: 20
+  sense.darkvision: 60
+  jump.long: 22              # Pounce: 2 × 11
+  attacks.perAction: 2
+  save.str: 4                # 0 + 4
+  save.dex: 9                # 5 + 4
+  save.con: 2                # not proficient (Diamond Soul only from 14)
+  save.wis: 3
+  skill.stealth: 9           # DEX 5 + 4
+  skill.acrobatics: 9        # DEX 5 + 4
+  skill.perception: 3        # WIS 3, not proficient
+  skill.insight: 3           # WIS 3, not proficient
+  passive.perception: 13
+resources:
+  ki: { max: 11, recharge: [short-rest, long-rest] }            # table(monk.ki-points) row 11
+  wholeness-of-body: { max: 1, recharge: [long-rest] }          # Open Hand 6
+actions:
+  flurry-of-blows: { activation: bonus-action, cost: { ki: 1 } }
+  stunning-strike: { activation: special, cost: { ki: 1 } }
+  stillness-of-mind: { activation: action }
+  wholeness-of-body: { activation: action, cost: { wholeness-of-body: 1 } }
+  open-hand-technique: { activation: special }
+  claws: { activation: action }
+attacks:
+  # Martial Arts die table(monk.martial-arts) row 11 = 1d8
+  unarmed-strike: { toHit: 9, damage: "1d8 + 5", type: bludgeoning }   # DEX 5 + prof 4; 1d8 + DEX 5. ENGINE MISMATCH: got toHit 4, damage "1" (wieldingOnly false when unarmed, see monk-l5)
+features:
+  - srd51.feature.monk.extra-attack
+  - srd51.feature.monk.stunning-strike
+  - srd51.feature.monk.ki-empowered-strikes
+  - srd51.feature.monk.evasion
+  - srd51.feature.monk.stillness-of-mind
+  - srd51.feature.monk.purity-of-body
+  - srd51.feature.way-of-the-open-hand.open-hand-technique
+  - srd51.feature.way-of-the-open-hand.wholeness-of-body
+  - srd51.feature.way-of-the-open-hand.tranquility
+choices:
+  "srd51.class.monk#monastic-tradition": answered
+  "srd51.class.monk#asi-4": answered
+  "srd51.class.monk#asi-8": answered
+  "homebrew.byloth.species.feline#languages": answered
+proficiencies: [skill:stealth, skill:acrobatics, save:str, save:dex, weapon:simple, weapon:shortsword, tool:flute, language:elvish]
+sections:
+  active: [core, abilities, saves, skills, senses, combat, attacks, actions, resources, features]
+  inactive: [spellcasting, spells]
+warnings: []

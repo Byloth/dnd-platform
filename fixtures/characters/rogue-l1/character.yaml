@@ -1,0 +1,33 @@
+formatVersion: 0
+id: fixture-rogue-l1
+name: Small Cog
+ruleset: { id: srd51, version: 0.1.0 }
+packages:
+  - { id: srd51, version: 0.1.0 }
+choices:
+  species: srd51.species.gnome
+  subspecies: srd51.species.gnome.rock-gnome
+  classes:
+    - { class: srd51.class.rogue, levels: 1 }
+  abilityScores:
+    method: manual
+    # gnome: +2 int; rock gnome: +1 con (generated from the species traits)
+    base: { str: 8, dex: 16, con: 13, int: 12, wis: 13, cha: 10 }
+  answers:
+    "srd51.class.rogue#skills": [stealth, sleight-of-hand, perception, investigation]
+    # Expertise: two of the skill proficiencies (grant-proficiency choose has no id → key "#skill")
+    "srd51.feature.rogue.expertise#expertise-1": [stealth, sleight-of-hand]
+  equipment:
+    - { item: srd51.item.leather-armor, quantity: 1, equipped: true }
+    - { item: srd51.item.rapier, quantity: 1, equipped: true }
+    - { item: srd51.item.shortbow, quantity: 1, equipped: true }
+    - { item: srd51.item.arrow, quantity: 20 }
+    - { item: srd51.item.dagger, quantity: 2 }
+    - { item: srd51.item.thieves-tools, quantity: 1 }
+state:
+  hp: { current: 10, temporary: 0 }
+  hitDice: { spent: 0 }
+  resources: {}
+  conditions: []
+  deathSaves: { successes: 0, failures: 0 }
+  inspiration: false

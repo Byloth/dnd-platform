@@ -1,0 +1,3494 @@
+{
+  "actions": [
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "claws",
+      "name": {
+        "en": "Claws"
+      },
+      "rolls": [
+        {
+          "ability": "str",
+          "bonus": {
+            "provenance": [
+              {
+                "applied": true,
+                "formula": "mod(str) + proficiencyBonus",
+                "kind": "base",
+                "label": {
+                  "en": "Roll bonus"
+                },
+                "source": {
+                  "effectIndex": 0,
+                  "entity": "homebrew.byloth.species.feline",
+                  "feature": "homebrew.byloth.feature.feline.claws",
+                  "package": "homebrew.byloth"
+                },
+                "value": 6
+              }
+            ],
+            "value": 6
+          },
+          "type": "attack"
+        },
+        {
+          "ability": "str",
+          "bonus": {
+            "provenance": [
+              {
+                "applied": true,
+                "formula": "mod(str)",
+                "kind": "base",
+                "label": {
+                  "en": "Roll bonus"
+                },
+                "source": {
+                  "effectIndex": 0,
+                  "entity": "homebrew.byloth.species.feline",
+                  "feature": "homebrew.byloth.feature.feline.claws",
+                  "package": "homebrew.byloth"
+                },
+                "value": 0
+              }
+            ],
+            "value": 0
+          },
+          "damageType": "slashing",
+          "dice": "1d4",
+          "type": "damage"
+        }
+      ],
+      "source": {
+        "effectIndex": 0,
+        "entity": "homebrew.byloth.species.feline",
+        "feature": "homebrew.byloth.feature.feline.claws",
+        "package": "homebrew.byloth"
+      }
+    },
+    {
+      "activation": "bonus-action",
+      "available": true,
+      "cost": [],
+      "id": "martial-arts-strike",
+      "name": {
+        "en": "Martial Arts unarmed strike"
+      },
+      "requires": {
+        "afterAction": "attack"
+      },
+      "rolls": [
+        {
+          "ability": "dex",
+          "bonus": {
+            "provenance": [
+              {
+                "applied": true,
+                "formula": "mod(dex) + proficiencyBonus",
+                "kind": "base",
+                "label": {
+                  "en": "Roll bonus"
+                },
+                "source": {
+                  "effectIndex": 2,
+                  "entity": "srd51.class.monk",
+                  "feature": "srd51.feature.monk.martial-arts",
+                  "package": "srd51"
+                },
+                "value": 11
+              }
+            ],
+            "value": 11
+          },
+          "type": "attack"
+        },
+        {
+          "ability": "dex",
+          "bonus": {
+            "provenance": [
+              {
+                "applied": true,
+                "formula": "mod(dex)",
+                "kind": "base",
+                "label": {
+                  "en": "Roll bonus"
+                },
+                "source": {
+                  "effectIndex": 2,
+                  "entity": "srd51.class.monk",
+                  "feature": "srd51.feature.monk.martial-arts",
+                  "package": "srd51"
+                },
+                "value": 5
+              }
+            ],
+            "value": 5
+          },
+          "damageType": "bludgeoning",
+          "dice": "table(monk.martial-arts)",
+          "type": "damage"
+        }
+      ],
+      "source": {
+        "effectIndex": 2,
+        "entity": "srd51.class.monk",
+        "feature": "srd51.feature.monk.martial-arts",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "When you use the Attack action with an unarmed strike or a monk weapon on your turn, you can make one unarmed strike as a bonus action."
+      }
+    },
+    {
+      "activation": "bonus-action",
+      "available": true,
+      "cost": [
+        {
+          "amount": 1,
+          "resource": "ki"
+        }
+      ],
+      "id": "flurry-of-blows",
+      "name": {
+        "en": "Flurry of Blows"
+      },
+      "onUse": [
+        {
+          "kind": "note",
+          "text": {
+            "en": "Make two unarmed strikes (roll the attack twice)."
+          }
+        }
+      ],
+      "requires": {
+        "afterAction": "attack"
+      },
+      "rolls": [
+        {
+          "ability": "dex",
+          "bonus": {
+            "provenance": [
+              {
+                "applied": true,
+                "formula": "mod(dex) + proficiencyBonus",
+                "kind": "base",
+                "label": {
+                  "en": "Roll bonus"
+                },
+                "source": {
+                  "effectIndex": 1,
+                  "entity": "srd51.class.monk",
+                  "feature": "srd51.feature.monk.ki",
+                  "package": "srd51"
+                },
+                "value": 11
+              }
+            ],
+            "value": 11
+          },
+          "type": "attack"
+        },
+        {
+          "ability": "dex",
+          "bonus": {
+            "provenance": [
+              {
+                "applied": true,
+                "formula": "mod(dex)",
+                "kind": "base",
+                "label": {
+                  "en": "Roll bonus"
+                },
+                "source": {
+                  "effectIndex": 1,
+                  "entity": "srd51.class.monk",
+                  "feature": "srd51.feature.monk.ki",
+                  "package": "srd51"
+                },
+                "value": 5
+              }
+            ],
+            "value": 5
+          },
+          "damageType": "bludgeoning",
+          "dice": "table(monk.martial-arts)",
+          "type": "damage"
+        }
+      ],
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.class.monk",
+        "feature": "srd51.feature.monk.ki",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Immediately after you take the Attack action on your turn, you can spend 1 ki point to make two unarmed strikes as a bonus action."
+      }
+    },
+    {
+      "activation": "bonus-action",
+      "available": true,
+      "cost": [
+        {
+          "amount": 1,
+          "resource": "ki"
+        }
+      ],
+      "id": "patient-defense",
+      "name": {
+        "en": "Patient Defense"
+      },
+      "onUse": [
+        {
+          "kind": "note",
+          "text": {
+            "en": "Dodge: until the start of your next turn, attacks against you have disadvantage and you have advantage on Dexterity saving throws."
+          }
+        }
+      ],
+      "source": {
+        "effectIndex": 2,
+        "entity": "srd51.class.monk",
+        "feature": "srd51.feature.monk.ki",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You can spend 1 ki point to take the Dodge action as a bonus action on your turn."
+      },
+      "toggle": "patient-defense"
+    },
+    {
+      "activation": "bonus-action",
+      "available": true,
+      "cost": [
+        {
+          "amount": 1,
+          "resource": "ki"
+        }
+      ],
+      "id": "step-of-the-wind",
+      "name": {
+        "en": "Step of the Wind"
+      },
+      "onUse": [
+        {
+          "kind": "note",
+          "text": {
+            "en": "Choose Disengage or Dash."
+          }
+        }
+      ],
+      "source": {
+        "effectIndex": 4,
+        "entity": "srd51.class.monk",
+        "feature": "srd51.feature.monk.ki",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You can spend 1 ki point to take the Disengage or Dash action as a bonus action on your turn, and your jump distance is doubled for the turn."
+      },
+      "toggle": "step-of-the-wind"
+    },
+    {
+      "activation": "reaction",
+      "available": true,
+      "cost": [],
+      "id": "deflect-missiles",
+      "name": {
+        "en": "Deflect Missiles"
+      },
+      "onUse": [
+        {
+          "kind": "note",
+          "text": {
+            "en": "Damage reduction: 1d10 + mod(dex) + classLevel(monk). Throwing the missile back costs 1 ki and is a ranged attack with proficiency, range 20/60, using the Martial Arts die."
+          }
+        }
+      ],
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.monk",
+        "feature": "srd51.feature.monk.deflect-missiles",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Reduce the damage you take from the attack by 1d10 + your Dexterity modifier + your monk level. If you reduce it to 0 and can hold the missile, you may spend 1 ki point to throw it back as part of the same reaction."
+      }
+    },
+    {
+      "activation": "reaction",
+      "available": true,
+      "cost": [],
+      "id": "slow-fall",
+      "name": {
+        "en": "Slow Fall"
+      },
+      "onUse": [
+        {
+          "kind": "note",
+          "text": {
+            "en": "Damage reduction: 5 * classLevel(monk)."
+          }
+        }
+      ],
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.monk",
+        "feature": "srd51.feature.monk.slow-fall",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Reduce any falling damage you take by an amount equal to five times your monk level."
+      }
+    },
+    {
+      "activation": "special",
+      "available": true,
+      "cost": [
+        {
+          "amount": 1,
+          "resource": "ki"
+        }
+      ],
+      "dc": {
+        "provenance": [
+          {
+            "applied": true,
+            "formula": "8 + proficiencyBonus + mod(wis)",
+            "kind": "base",
+            "label": {
+              "en": "Save DC"
+            },
+            "source": {
+              "package": "srd51"
+            },
+            "value": 19
+          }
+        ],
+        "value": 19
+      },
+      "id": "stunning-strike",
+      "name": {
+        "en": "Stunning Strike"
+      },
+      "onHit": [
+        {
+          "condition": "srd51.condition.stunned",
+          "expires": {
+            "until": "next-turn-end"
+          },
+          "kind": "applyCondition",
+          "note": {
+            "en": "Only if the target fails the Constitution saving throw."
+          },
+          "target": "other"
+        }
+      ],
+      "rolls": [
+        {
+          "ability": "con",
+          "bonus": {
+            "provenance": [
+              {
+                "applied": true,
+                "formula": "mod(con)",
+                "kind": "base",
+                "label": {
+                  "en": "Roll bonus"
+                },
+                "source": {
+                  "effectIndex": 0,
+                  "entity": "srd51.class.monk",
+                  "feature": "srd51.feature.monk.stunning-strike",
+                  "package": "srd51"
+                },
+                "value": 3
+              }
+            ],
+            "value": 3
+          },
+          "dc": {
+            "provenance": [
+              {
+                "applied": true,
+                "formula": "8 + proficiencyBonus + mod(wis)",
+                "kind": "base",
+                "label": {
+                  "en": "Save DC"
+                },
+                "source": {
+                  "package": "srd51"
+                },
+                "value": 19
+              }
+            ],
+            "value": 19
+          },
+          "type": "save"
+        }
+      ],
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.monk",
+        "feature": "srd51.feature.monk.stunning-strike",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "When you hit another creature with a melee weapon attack, you can spend 1 ki point to attempt a stunning strike. The target must succeed on a Constitution saving throw or be stunned until the end of your next turn."
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "stillness-of-mind",
+      "name": {
+        "en": "Stillness of Mind"
+      },
+      "onUse": [
+        {
+          "kind": "note",
+          "text": {
+            "en": "End one effect on yourself that is causing you to be charmed or frightened."
+          }
+        }
+      ],
+      "requires": {
+        "condition": {
+          "any": [
+            {
+              "conditionActive": "srd51.condition.charmed"
+            },
+            {
+              "conditionActive": "srd51.condition.frightened"
+            }
+          ]
+        }
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.monk",
+        "feature": "srd51.feature.monk.stillness-of-mind",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You can use your action to end one effect on yourself that is causing you to be charmed or frightened."
+      }
+    },
+    {
+      "activation": "free",
+      "available": true,
+      "cost": [
+        {
+          "amount": 1,
+          "resource": "ki"
+        }
+      ],
+      "id": "diamond-soul",
+      "name": {
+        "en": "Diamond Soul"
+      },
+      "onUse": [
+        {
+          "keep": "new",
+          "kind": "reroll",
+          "roll": "save"
+        }
+      ],
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.class.monk",
+        "feature": "srd51.feature.monk.diamond-soul",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Whenever you make a saving throw and fail, you can spend 1 ki point to reroll it and take the second result."
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [
+        {
+          "amount": 4,
+          "resource": "ki"
+        }
+      ],
+      "id": "empty-body",
+      "name": {
+        "en": "Empty Body"
+      },
+      "onUse": [
+        {
+          "condition": "srd51.condition.invisible",
+          "expires": {
+            "minutes": 1
+          },
+          "kind": "applyCondition",
+          "target": "self"
+        }
+      ],
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.monk",
+        "feature": "srd51.feature.monk.empty-body",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You can use your action to spend 4 ki points to become invisible for 1 minute. During that time, you also have resistance to all damage but force damage."
+      },
+      "toggle": "empty-body"
+    },
+    {
+      "activation": "special",
+      "available": true,
+      "cost": [],
+      "dc": {
+        "provenance": [
+          {
+            "applied": true,
+            "formula": "8 + proficiencyBonus + mod(wis)",
+            "kind": "base",
+            "label": {
+              "en": "Save DC"
+            },
+            "source": {
+              "package": "srd51"
+            },
+            "value": 19
+          }
+        ],
+        "value": 19
+      },
+      "id": "open-hand-technique",
+      "name": {
+        "en": "Open Hand Technique"
+      },
+      "onHit": [
+        {
+          "condition": "srd51.condition.prone",
+          "kind": "applyCondition",
+          "note": {
+            "en": "Option 1: only if the target fails a Dexterity saving throw."
+          },
+          "target": "other"
+        },
+        {
+          "kind": "note",
+          "text": {
+            "en": "Option 2: the target makes a Strength saving throw; if it fails, you can push it up to 15 feet away from you."
+          }
+        },
+        {
+          "kind": "note",
+          "text": {
+            "en": "Option 3: the target can't take reactions until the end of your next turn."
+          }
+        }
+      ],
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.subclass.monk.way-of-the-open-hand",
+        "feature": "srd51.feature.way-of-the-open-hand.open-hand-technique",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Impose one of the following effects on the target: it must succeed on a Dexterity saving throw or be knocked prone; it must make a Strength saving throw or you can push it up to 15 feet away from you; it can't take reactions until the end of your next turn."
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [
+        {
+          "amount": 1,
+          "resource": "wholeness-of-body"
+        }
+      ],
+      "id": "wholeness-of-body",
+      "name": {
+        "en": "Wholeness of Body"
+      },
+      "onUse": [
+        {
+          "amount": "3 * classLevel(monk)",
+          "kind": "heal",
+          "target": "self"
+        }
+      ],
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.subclass.monk.way-of-the-open-hand",
+        "feature": "srd51.feature.way-of-the-open-hand.wholeness-of-body",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "As an action, you can regain hit points equal to three times your monk level."
+      }
+    },
+    {
+      "activation": "special",
+      "available": true,
+      "cost": [
+        {
+          "amount": 3,
+          "resource": "ki"
+        }
+      ],
+      "id": "quivering-palm",
+      "name": {
+        "en": "Quivering Palm (set up)"
+      },
+      "onHit": [
+        {
+          "kind": "note",
+          "text": {
+            "en": "The target is marked for classLevel(monk) days. Only one creature can be marked at a time."
+          }
+        }
+      ],
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.subclass.monk.way-of-the-open-hand",
+        "feature": "srd51.feature.way-of-the-open-hand.quivering-palm",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Spend 3 ki points to start imperceptible vibrations in the target's body, which last for a number of days equal to your monk level. The vibrations are harmless unless you use your action to end them. You can have only one creature under this effect at a time, and you can end the vibrations harmlessly without using an action."
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "dc": {
+        "provenance": [
+          {
+            "applied": true,
+            "formula": "8 + proficiencyBonus + mod(wis)",
+            "kind": "base",
+            "label": {
+              "en": "Save DC"
+            },
+            "source": {
+              "package": "srd51"
+            },
+            "value": 19
+          }
+        ],
+        "value": 19
+      },
+      "id": "quivering-palm-end",
+      "name": {
+        "en": "Quivering Palm (end the vibrations)"
+      },
+      "onUse": [
+        {
+          "kind": "note",
+          "text": {
+            "en": "Failed save: the target is reduced to 0 hit points. Successful save: it takes 10d10 necrotic damage."
+          }
+        }
+      ],
+      "rolls": [
+        {
+          "ability": "con",
+          "bonus": {
+            "provenance": [
+              {
+                "applied": true,
+                "formula": "mod(con)",
+                "kind": "base",
+                "label": {
+                  "en": "Roll bonus"
+                },
+                "source": {
+                  "effectIndex": 1,
+                  "entity": "srd51.subclass.monk.way-of-the-open-hand",
+                  "feature": "srd51.feature.way-of-the-open-hand.quivering-palm",
+                  "package": "srd51"
+                },
+                "value": 3
+              }
+            ],
+            "value": 3
+          },
+          "dc": {
+            "provenance": [
+              {
+                "applied": true,
+                "formula": "8 + proficiencyBonus + mod(wis)",
+                "kind": "base",
+                "label": {
+                  "en": "Save DC"
+                },
+                "source": {
+                  "package": "srd51"
+                },
+                "value": 19
+              }
+            ],
+            "value": 19
+          },
+          "type": "save"
+        }
+      ],
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.subclass.monk.way-of-the-open-hand",
+        "feature": "srd51.feature.way-of-the-open-hand.quivering-palm",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You and the target must be on the same plane of existence. The creature must make a Constitution saving throw. If it fails, it is reduced to 0 hit points. If it succeeds, it takes 10d10 necrotic damage."
+      }
+    }
+  ],
+  "attacks": [
+    {
+      "ability": "dex",
+      "attackBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Dexterity modifier"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 5
+          },
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "Proficiency bonus"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 6
+          }
+        ],
+        "value": 11
+      },
+      "critRange": 20,
+      "damage": "1d10 + 5",
+      "damageBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Dexterity modifier"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 5
+          }
+        ],
+        "value": 5
+      },
+      "damageDice": "1d10",
+      "damageType": "bludgeoning",
+      "extraDamage": [],
+      "id": "unarmed-strike",
+      "magical": true,
+      "name": {
+        "en": "Unarmed strike"
+      },
+      "proficient": true,
+      "ranged": false,
+      "unarmed": true
+    }
+  ],
+  "choices": [
+    {
+      "answered": true,
+      "answers": [
+        "stealth",
+        "acrobatics"
+      ],
+      "choice": "skills",
+      "count": 2,
+      "key": "srd51.class.monk#skills",
+      "of": "skill",
+      "options": [
+        "acrobatics",
+        "athletics",
+        "history",
+        "insight",
+        "religion",
+        "stealth"
+      ],
+      "owner": "srd51.class.monk"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "flute"
+      ],
+      "choice": "tools",
+      "count": 1,
+      "key": "srd51.class.monk#tools",
+      "of": "tool",
+      "options": [
+        "alchemists-supplies",
+        "brewers-supplies",
+        "calligraphers-supplies",
+        "carpenters-tools",
+        "cartographers-tools",
+        "cobblers-tools",
+        "cooks-utensils",
+        "glassblowers-tools",
+        "jewelers-tools",
+        "leatherworkers-tools",
+        "masons-tools",
+        "painters-supplies",
+        "potters-tools",
+        "smiths-tools",
+        "tinkers-tools",
+        "weavers-tools",
+        "woodcarvers-tools",
+        "disguise-kit",
+        "forgery-kit",
+        "bagpipes",
+        "drum",
+        "dulcimer",
+        "flute",
+        "lute",
+        "lyre",
+        "horn",
+        "pan-flute",
+        "shawm",
+        "viol"
+      ],
+      "owner": "srd51.class.monk"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "elvish"
+      ],
+      "choice": "languages",
+      "count": 1,
+      "key": "homebrew.byloth.species.feline#languages",
+      "of": "language",
+      "options": [],
+      "owner": "homebrew.byloth.species.feline"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "srd51.subclass.monk.way-of-the-open-hand"
+      ],
+      "choice": "monastic-tradition",
+      "count": 1,
+      "key": "srd51.class.monk#monastic-tradition",
+      "level": 3,
+      "of": "subclass",
+      "options": [],
+      "owner": "srd51.class.monk"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "asi"
+      ],
+      "choice": "asi-4",
+      "count": 1,
+      "key": "srd51.class.monk#asi-4",
+      "level": 4,
+      "of": "asi-or-feat",
+      "options": [],
+      "owner": "srd51.class.monk"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "asi"
+      ],
+      "choice": "asi-8",
+      "count": 1,
+      "key": "srd51.class.monk#asi-8",
+      "level": 8,
+      "of": "asi-or-feat",
+      "options": [],
+      "owner": "srd51.class.monk"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "asi"
+      ],
+      "choice": "asi-12",
+      "count": 1,
+      "key": "srd51.class.monk#asi-12",
+      "level": 12,
+      "of": "asi-or-feat",
+      "options": [],
+      "owner": "srd51.class.monk"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "asi"
+      ],
+      "choice": "asi-16",
+      "count": 1,
+      "key": "srd51.class.monk#asi-16",
+      "level": 16,
+      "of": "asi-or-feat",
+      "options": [],
+      "owner": "srd51.class.monk"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "asi"
+      ],
+      "choice": "asi-19",
+      "count": 1,
+      "key": "srd51.class.monk#asi-19",
+      "level": 19,
+      "of": "asi-or-feat",
+      "options": [],
+      "owner": "srd51.class.monk"
+    }
+  ],
+  "classes": [
+    {
+      "class": "srd51.class.monk",
+      "levels": 20,
+      "subclass": "srd51.subclass.monk.way-of-the-open-hand"
+    }
+  ],
+  "defenses": [
+    {
+      "defense": "immunity",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.monk",
+        "feature": "srd51.feature.monk.purity-of-body",
+        "package": "srd51"
+      },
+      "to": [
+        "poison",
+        "disease"
+      ]
+    },
+    {
+      "defense": "condition-immunity",
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.class.monk",
+        "feature": "srd51.feature.monk.purity-of-body",
+        "package": "srd51"
+      },
+      "to": [
+        "srd51.condition.poisoned"
+      ]
+    }
+  ],
+  "features": [
+    {
+      "id": "homebrew.byloth.feature.feline.claws",
+      "name": {
+        "en": "Claws"
+      },
+      "origin": "species",
+      "owner": "homebrew.byloth.species.feline",
+      "source": {
+        "entity": "homebrew.byloth.species.feline",
+        "feature": "homebrew.byloth.feature.feline.claws",
+        "package": "homebrew.byloth"
+      },
+      "text": {
+        "en": "Your claws are natural weapons, which you can use to make unarmed\nstrikes. On a hit, they deal slashing damage equal to 1d4 + your\nStrength modifier.\n"
+      }
+    },
+    {
+      "id": "homebrew.byloth.feature.feline.darkvision",
+      "name": {
+        "en": "Darkvision"
+      },
+      "origin": "species",
+      "owner": "homebrew.byloth.species.feline",
+      "source": {
+        "entity": "homebrew.byloth.species.feline",
+        "feature": "homebrew.byloth.feature.feline.darkvision",
+        "package": "homebrew.byloth"
+      },
+      "text": {
+        "en": "You can see in dim light within 60 feet of you as if it were bright\nlight, and in darkness as if it were dim light. You can't discern\ncolor in darkness, only shades of gray.\n"
+      }
+    },
+    {
+      "id": "homebrew.byloth.feature.feline.cats-grace",
+      "name": {
+        "en": "Cat's Grace"
+      },
+      "origin": "species",
+      "owner": "homebrew.byloth.species.feline",
+      "source": {
+        "entity": "homebrew.byloth.species.feline",
+        "feature": "homebrew.byloth.feature.feline.cats-grace",
+        "package": "homebrew.byloth"
+      },
+      "text": {
+        "en": "You have advantage on Dexterity (Stealth) checks made to move\nsilently.\n"
+      }
+    },
+    {
+      "id": "homebrew.byloth.feature.feline.puma.pounce",
+      "name": {
+        "en": "Pounce"
+      },
+      "origin": "subspecies",
+      "owner": "homebrew.byloth.species.feline.puma",
+      "source": {
+        "entity": "homebrew.byloth.species.feline.puma",
+        "feature": "homebrew.byloth.feature.feline.puma.pounce",
+        "package": "homebrew.byloth"
+      },
+      "text": {
+        "en": "Your long jump is up to twice your Strength score in feet.\n"
+      }
+    },
+    {
+      "id": "srd51.feature.monk.martial-arts",
+      "level": 1,
+      "name": {
+        "en": "Martial Arts"
+      },
+      "origin": "class",
+      "owner": "srd51.class.monk",
+      "source": {
+        "entity": "srd51.class.monk",
+        "feature": "srd51.feature.monk.martial-arts",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "At 1st level, your practice of martial arts gives you mastery of combat styles that use unarmed strikes and monk weapons, which are shortswords and any simple melee weapons that don't have the two- handed or heavy property.\n\nYou gain the following benefits while you are unarmed or wielding only monk weapons and you aren't wearing armor or wielding a shield:\n\n* You can use Dexterity instead of Strength for the attack and damage rolls of your unarmed strikes and monk weapons.\n* You can roll a d4 in place of the normal damage of your unarmed strike or monk weapon. This die changes as you gain monk levels, as shown in the Martial Arts column of the Monk table.\n* When you use the Attack action with an unarmed strike or a monk weapon on your turn, you can make one unarmed strike as a bonus action. For example, if you take the Attack action and attack with a quarterstaff, you can also make an unarmed strike as a bonus action, assuming you haven't already taken a bonus action this turn. \n\nCertain monasteries use specialized forms of the monk weapons. For example, you might use a club that is two lengths of wood connected by a short chain (called a nunchaku) or a sickle with a shorter, straighter blade (called a kama). Whatever name you use for a monk weapon, you can use the game statistics provided for the weapon."
+      }
+    },
+    {
+      "id": "srd51.feature.monk.unarmored-defense",
+      "level": 1,
+      "name": {
+        "en": "Unarmored Defense"
+      },
+      "origin": "class",
+      "owner": "srd51.class.monk",
+      "source": {
+        "entity": "srd51.class.monk",
+        "feature": "srd51.feature.monk.unarmored-defense",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Beginning at 1st level, while you are wearing no armor and not wielding a shield, your AC equals 10 + your Dexterity modifier + your Wisdom modifier."
+      }
+    },
+    {
+      "id": "srd51.feature.monk.ki",
+      "level": 2,
+      "name": {
+        "en": "Ki"
+      },
+      "origin": "class",
+      "owner": "srd51.class.monk",
+      "source": {
+        "entity": "srd51.class.monk",
+        "feature": "srd51.feature.monk.ki",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Starting at 2nd level, your training allows you to harness the mystic energy of ki. Your access to this energy is represented by a number of ki points. Your monk level determines the number of points you have, as shown in the Ki Points column of the Monk table.\n\nYou can spend these points to fuel various ki features. You start knowing three such features: Flurry of Blows, Patient Defense, and Step of the Wind. You learn more ki features as you gain levels in this class.\n\nWhen you spend a ki point, it is unavailable until you finish a short or long rest, at the end of which you draw all of your expended ki back into yourself. You must spend at least 30 minutes of the rest meditating to regain your ki points.\n\nSome of your ki features require your target to make a saving throw to resist the feature's effects. The saving throw DC is calculated as follows:\n\n*Ki save DC* = 8 + your proficiency bonus + your Wisdom modifier\n\n### Flurry of Blows\n\nImmediately after you take the Attack action on your turn, you can spend 1 ki point to make two unarmed strikes as a bonus action. \n\n### Patient Defense\n\nYou can spend 1 ki point to take the Dodge action as a bonus action on your turn.\n\n### Step of the Wind\n\nYou can spend 1 ki point to take the Disengage or Dash action as a bonus action on your turn, and your jump distance is doubled for the turn."
+      }
+    },
+    {
+      "id": "srd51.feature.monk.unarmored-movement",
+      "level": 2,
+      "name": {
+        "en": "Unarmored Movement"
+      },
+      "origin": "class",
+      "owner": "srd51.class.monk",
+      "source": {
+        "entity": "srd51.class.monk",
+        "feature": "srd51.feature.monk.unarmored-movement",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Starting at 2nd level, your speed increases by 10 feet while you are not wearing armor or wielding a shield. This bonus increases when you reach certain monk levels, as shown in the Monk table.\n\nAt 9th level, you gain the ability to move along vertical surfaces and across liquids on your turn without falling during the move."
+      }
+    },
+    {
+      "id": "srd51.feature.monk.deflect-missiles",
+      "level": 3,
+      "name": {
+        "en": "Deflect Missiles"
+      },
+      "origin": "class",
+      "owner": "srd51.class.monk",
+      "source": {
+        "entity": "srd51.class.monk",
+        "feature": "srd51.feature.monk.deflect-missiles",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Starting at 3rd level, you can use your reaction to deflect or catch the missile when you are hit by a ranged weapon attack. When you do so, the damage you take from the attack is reduced by 1d10 + your Dexterity modifier + your monk level.\n\nIf you reduce the damage to 0, you can catch the missile if it is small enough for you to hold in one hand and you have at least one hand free. If you catch a missile in this way, you can spend 1 ki point to make a ranged attack with the weapon or piece of ammunition you just caught, as part of the same reaction. You make this attack with proficiency, regardless of your weapon proficiencies, and the missile counts as a monk weapon for the attack, which has a normal range of 20 feet and a long range of 60 feet."
+      }
+    },
+    {
+      "id": "srd51.feature.monk.monastic-tradition",
+      "level": 3,
+      "name": {
+        "en": "Monastic Tradition"
+      },
+      "origin": "class",
+      "owner": "srd51.class.monk",
+      "source": {
+        "entity": "srd51.class.monk",
+        "feature": "srd51.feature.monk.monastic-tradition",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "When you reach 3rd level, you commit yourself to a monastic tradition such as the Way of the Open Hand. Your tradition grants you features at 3rd level and again at 6th, 11th, and 17th level."
+      }
+    },
+    {
+      "id": "srd51.feature.monk.ability-score-improvement",
+      "level": 4,
+      "name": {
+        "en": "Ability Score Improvement"
+      },
+      "origin": "class",
+      "owner": "srd51.class.monk",
+      "source": {
+        "entity": "srd51.class.monk",
+        "feature": "srd51.feature.monk.ability-score-improvement",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "When you reach 4th level, and again at 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature."
+      }
+    },
+    {
+      "id": "srd51.feature.monk.slow-fall",
+      "level": 4,
+      "name": {
+        "en": "Slow Fall"
+      },
+      "origin": "class",
+      "owner": "srd51.class.monk",
+      "source": {
+        "entity": "srd51.class.monk",
+        "feature": "srd51.feature.monk.slow-fall",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Beginning at 4th level, you can use your reaction when you fall to reduce any falling damage you take by an amount equal to five times your monk level."
+      }
+    },
+    {
+      "id": "srd51.feature.monk.extra-attack",
+      "level": 5,
+      "name": {
+        "en": "Extra Attack"
+      },
+      "origin": "class",
+      "owner": "srd51.class.monk",
+      "source": {
+        "entity": "srd51.class.monk",
+        "feature": "srd51.feature.monk.extra-attack",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Beginning at 5th level, you can attack twice, instead of once, whenever you take the Attack action on your turn."
+      }
+    },
+    {
+      "id": "srd51.feature.monk.stunning-strike",
+      "level": 5,
+      "name": {
+        "en": "Stunning Strike"
+      },
+      "origin": "class",
+      "owner": "srd51.class.monk",
+      "source": {
+        "entity": "srd51.class.monk",
+        "feature": "srd51.feature.monk.stunning-strike",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Starting at 5th level, you can interfere with the flow of ki in an opponent's body. When you hit another creature with a melee weapon attack, you can spend 1 ki point to attempt a stunning strike. The target must succeed on a Constitution saving throw or be stunned until the end of your next turn."
+      }
+    },
+    {
+      "id": "srd51.feature.monk.ki-empowered-strikes",
+      "level": 6,
+      "name": {
+        "en": "Ki-Empowered Strikes"
+      },
+      "origin": "class",
+      "owner": "srd51.class.monk",
+      "source": {
+        "entity": "srd51.class.monk",
+        "feature": "srd51.feature.monk.ki-empowered-strikes",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Starting at 6th level, your unarmed strikes count as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage."
+      }
+    },
+    {
+      "id": "srd51.feature.monk.evasion",
+      "level": 7,
+      "name": {
+        "en": "Evasion"
+      },
+      "origin": "class",
+      "owner": "srd51.class.monk",
+      "source": {
+        "entity": "srd51.class.monk",
+        "feature": "srd51.feature.monk.evasion",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "At 7th level, your instinctive agility lets you dodge out of the way of certain area effects, such as a blue dragon's lightning breath or a fireball spell. When you are subjected to an effect that allows you to make a Dexterity saving throw to take only half damage, you instead take no damage if you succeed on the saving throw, and only half damage if you fail."
+      }
+    },
+    {
+      "id": "srd51.feature.monk.stillness-of-mind",
+      "level": 7,
+      "name": {
+        "en": "Stillness of Mind"
+      },
+      "origin": "class",
+      "owner": "srd51.class.monk",
+      "source": {
+        "entity": "srd51.class.monk",
+        "feature": "srd51.feature.monk.stillness-of-mind",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Starting at 7th level, you can use your action to end one effect on yourself that is causing you to be charmed or frightened."
+      }
+    },
+    {
+      "id": "srd51.feature.monk.purity-of-body",
+      "level": 10,
+      "name": {
+        "en": "Purity of Body"
+      },
+      "origin": "class",
+      "owner": "srd51.class.monk",
+      "source": {
+        "entity": "srd51.class.monk",
+        "feature": "srd51.feature.monk.purity-of-body",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "At 10th level, your mastery of the ki flowing through you makes you immune to disease and poison."
+      }
+    },
+    {
+      "id": "srd51.feature.monk.tongue-of-the-sun-and-moon",
+      "level": 13,
+      "name": {
+        "en": "Tongue of the Sun and Moon"
+      },
+      "origin": "class",
+      "owner": "srd51.class.monk",
+      "source": {
+        "entity": "srd51.class.monk",
+        "feature": "srd51.feature.monk.tongue-of-the-sun-and-moon",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Starting at 13th level, you learn to touch the ki of other minds so that you understand all spoken languages. Moreover, any creature that can understand a language can understand what you say."
+      }
+    },
+    {
+      "id": "srd51.feature.monk.diamond-soul",
+      "level": 14,
+      "name": {
+        "en": "Diamond Soul"
+      },
+      "origin": "class",
+      "owner": "srd51.class.monk",
+      "source": {
+        "entity": "srd51.class.monk",
+        "feature": "srd51.feature.monk.diamond-soul",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Beginning at 14th level, your mastery of ki grants you proficiency in all saving throws.\n\nAdditionally, whenever you make a saving throw and fail, you can spend 1 ki point to reroll it and take the second result."
+      }
+    },
+    {
+      "id": "srd51.feature.monk.timeless-body",
+      "level": 15,
+      "name": {
+        "en": "Timeless Body"
+      },
+      "origin": "class",
+      "owner": "srd51.class.monk",
+      "source": {
+        "entity": "srd51.class.monk",
+        "feature": "srd51.feature.monk.timeless-body",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "At 15th level, your ki sustains you so that you suffer none of the frailty of old age, and you can't be aged magically. You can still die of old age, however. In addition, you no longer need food or water."
+      }
+    },
+    {
+      "id": "srd51.feature.monk.empty-body",
+      "level": 18,
+      "name": {
+        "en": "Empty Body"
+      },
+      "origin": "class",
+      "owner": "srd51.class.monk",
+      "source": {
+        "entity": "srd51.class.monk",
+        "feature": "srd51.feature.monk.empty-body",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Beginning at 18th level, you can use your action to spend 4 ki points to become invisible for 1 minute. During that time, you also have resistance to all damage but force damage.\n\nAdditionally, you can spend 8 ki points to cast the astral projection spell, without needing material components. When you do so, you can't take any other creatures with you."
+      }
+    },
+    {
+      "id": "srd51.feature.monk.perfect-self",
+      "level": 20,
+      "name": {
+        "en": "Perfect Self"
+      },
+      "origin": "class",
+      "owner": "srd51.class.monk",
+      "source": {
+        "entity": "srd51.class.monk",
+        "feature": "srd51.feature.monk.perfect-self",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "At 20th level, when you roll for initiative and have no ki points remaining, you regain 4 ki points."
+      }
+    },
+    {
+      "id": "srd51.feature.way-of-the-open-hand.open-hand-technique",
+      "level": 3,
+      "name": {
+        "en": "Open Hand Technique"
+      },
+      "origin": "subclass",
+      "owner": "srd51.subclass.monk.way-of-the-open-hand",
+      "source": {
+        "entity": "srd51.subclass.monk.way-of-the-open-hand",
+        "feature": "srd51.feature.way-of-the-open-hand.open-hand-technique",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Starting when you choose this tradition at 3rd level, you can manipulate your enemy's ki when you harness your own. Whenever you hit a creature with one of the attacks granted by your Flurry of Blows, you can impose one of the following effects on that target:\n\n* It must succeed on a Dexterity saving throw or be knocked prone.\n* It must make a Strength saving throw. If it fails, you can push it up to 15 feet away from you.\n* It can't take reactions until the end of your next turn."
+      }
+    },
+    {
+      "id": "srd51.feature.way-of-the-open-hand.wholeness-of-body",
+      "level": 6,
+      "name": {
+        "en": "Wholeness of Body"
+      },
+      "origin": "subclass",
+      "owner": "srd51.subclass.monk.way-of-the-open-hand",
+      "source": {
+        "entity": "srd51.subclass.monk.way-of-the-open-hand",
+        "feature": "srd51.feature.way-of-the-open-hand.wholeness-of-body",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "At 6th level, you gain the ability to heal yourself. As an action, you can regain hit points equal to three times your monk level. You must finish a long rest before you can use this feature again."
+      }
+    },
+    {
+      "id": "srd51.feature.way-of-the-open-hand.tranquility",
+      "level": 11,
+      "name": {
+        "en": "Tranquility"
+      },
+      "origin": "subclass",
+      "owner": "srd51.subclass.monk.way-of-the-open-hand",
+      "source": {
+        "entity": "srd51.subclass.monk.way-of-the-open-hand",
+        "feature": "srd51.feature.way-of-the-open-hand.tranquility",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Beginning at 11th level, you can enter a special meditation that surrounds you with an aura of peace. At the end of a long rest, you gain the effect of a sanctuary spell that lasts until the start of your next long rest (the spell can end early as normal). The saving throw DC for the spell equals 8 + your Wisdom modifier + your proficiency bonus."
+      }
+    },
+    {
+      "id": "srd51.feature.way-of-the-open-hand.quivering-palm",
+      "level": 17,
+      "name": {
+        "en": "Quivering Palm"
+      },
+      "origin": "subclass",
+      "owner": "srd51.subclass.monk.way-of-the-open-hand",
+      "source": {
+        "entity": "srd51.subclass.monk.way-of-the-open-hand",
+        "feature": "srd51.feature.way-of-the-open-hand.quivering-palm",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "At 17th level, you gain the ability to set up lethal vibrations in someone's body. When you hit a creature with an unarmed strike, you can spend 3 ki points to start these imperceptible vibrations, which last for a number of days equal to your monk level. The vibrations are harmless unless you use your action to end them. To do so, you and the target must be on the same plane of existence. When you use this action, the creature must make a Constitution saving throw. If it fails, it is reduced to 0 hit points. If it succeeds, it takes 10d10 necrotic damage.\n\nYou can have only one creature under the effect of this feature at a time. You can choose to end the vibrations harmlessly without using an action."
+      }
+    }
+  ],
+  "level": 20,
+  "meta": {
+    "characterId": "fixture-monk-l20",
+    "formatVersion": 0,
+    "language": "en",
+    "name": "Still Water",
+    "packages": [
+      {
+        "id": "srd51",
+        "version": "0.1.0"
+      },
+      {
+        "id": "homebrew.byloth",
+        "version": "0.1.0"
+      }
+    ],
+    "ruleset": "srd51"
+  },
+  "proficiencies": [
+    {
+      "expertise": false,
+      "item": "common",
+      "source": {
+        "entity": "homebrew.byloth.species.feline",
+        "package": "homebrew.byloth"
+      },
+      "type": "language"
+    },
+    {
+      "expertise": false,
+      "item": "elvish",
+      "source": {
+        "entity": "homebrew.byloth.species.feline",
+        "package": "homebrew.byloth"
+      },
+      "type": "language"
+    },
+    {
+      "expertise": false,
+      "item": "cha",
+      "source": {
+        "entity": "srd51.class.monk",
+        "feature": "srd51.feature.monk.diamond-soul",
+        "package": "srd51"
+      },
+      "type": "save"
+    },
+    {
+      "expertise": false,
+      "item": "con",
+      "source": {
+        "entity": "srd51.class.monk",
+        "feature": "srd51.feature.monk.diamond-soul",
+        "package": "srd51"
+      },
+      "type": "save"
+    },
+    {
+      "expertise": false,
+      "item": "dex",
+      "source": {
+        "entity": "srd51.class.monk",
+        "package": "srd51"
+      },
+      "type": "save"
+    },
+    {
+      "expertise": false,
+      "item": "int",
+      "source": {
+        "entity": "srd51.class.monk",
+        "feature": "srd51.feature.monk.diamond-soul",
+        "package": "srd51"
+      },
+      "type": "save"
+    },
+    {
+      "expertise": false,
+      "item": "str",
+      "source": {
+        "entity": "srd51.class.monk",
+        "package": "srd51"
+      },
+      "type": "save"
+    },
+    {
+      "expertise": false,
+      "item": "wis",
+      "source": {
+        "entity": "srd51.class.monk",
+        "feature": "srd51.feature.monk.diamond-soul",
+        "package": "srd51"
+      },
+      "type": "save"
+    },
+    {
+      "expertise": false,
+      "item": "acrobatics",
+      "source": {
+        "entity": "srd51.class.monk",
+        "package": "srd51"
+      },
+      "type": "skill"
+    },
+    {
+      "expertise": false,
+      "item": "stealth",
+      "source": {
+        "entity": "srd51.class.monk",
+        "package": "srd51"
+      },
+      "type": "skill"
+    },
+    {
+      "expertise": false,
+      "item": "flute",
+      "source": {
+        "entity": "srd51.class.monk",
+        "package": "srd51"
+      },
+      "type": "tool"
+    },
+    {
+      "expertise": false,
+      "item": "shortsword",
+      "source": {
+        "entity": "srd51.class.monk",
+        "package": "srd51"
+      },
+      "type": "weapon"
+    },
+    {
+      "expertise": false,
+      "item": "simple",
+      "source": {
+        "entity": "srd51.class.monk",
+        "package": "srd51"
+      },
+      "type": "weapon"
+    }
+  ],
+  "resources": [
+    {
+      "current": 20,
+      "display": "pips",
+      "id": "ki",
+      "max": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "None"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 0
+          },
+          {
+            "applied": true,
+            "formula": "table(monk.ki-points)",
+            "kind": "set",
+            "label": {
+              "en": "Ki"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.class.monk",
+              "feature": "srd51.feature.monk.ki",
+              "package": "srd51"
+            },
+            "value": 20
+          }
+        ],
+        "value": 20
+      },
+      "name": {
+        "en": "Ki points"
+      },
+      "recharge": [
+        {
+          "amount": "full",
+          "on": "short-rest"
+        },
+        {
+          "amount": "full",
+          "on": "long-rest"
+        }
+      ],
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.monk",
+        "feature": "srd51.feature.monk.ki",
+        "package": "srd51"
+      }
+    },
+    {
+      "current": 1,
+      "display": "pips",
+      "id": "wholeness-of-body",
+      "max": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "None"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 0
+          },
+          {
+            "applied": true,
+            "kind": "set",
+            "label": {
+              "en": "Wholeness of Body"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.subclass.monk.way-of-the-open-hand",
+              "feature": "srd51.feature.way-of-the-open-hand.wholeness-of-body",
+              "package": "srd51"
+            },
+            "value": 1
+          }
+        ],
+        "value": 1
+      },
+      "name": {
+        "en": "Wholeness of Body"
+      },
+      "recharge": [
+        {
+          "amount": "full",
+          "on": "long-rest"
+        }
+      ],
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.subclass.monk.way-of-the-open-hand",
+        "feature": "srd51.feature.way-of-the-open-hand.wholeness-of-body",
+        "package": "srd51"
+      }
+    }
+  ],
+  "rollModifiers": [
+    {
+      "applied": true,
+      "kind": "advantage",
+      "note": {
+        "en": "to move silently"
+      },
+      "on": {
+        "skill": "stealth",
+        "type": "check"
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "homebrew.byloth.species.feline",
+        "feature": "homebrew.byloth.feature.feline.cats-grace",
+        "package": "homebrew.byloth"
+      }
+    },
+    {
+      "applied": false,
+      "kind": "advantage",
+      "on": {
+        "ability": "dex",
+        "type": "save"
+      },
+      "source": {
+        "effectIndex": 3,
+        "entity": "srd51.class.monk",
+        "feature": "srd51.feature.monk.ki",
+        "package": "srd51"
+      }
+    }
+  ],
+  "sections": [
+    "identity",
+    "core",
+    "abilities",
+    "saves",
+    "skills",
+    "senses",
+    "combat",
+    "attacks",
+    "actions",
+    "resources",
+    "spells",
+    "features",
+    "equipment",
+    "personality",
+    "conditions",
+    "notes",
+    "credits"
+  ],
+  "spellcasting": [],
+  "spells": [
+    {
+      "ability": "wis",
+      "as": "known",
+      "id": "srd51.spell.astral-projection",
+      "level": 9,
+      "name": {
+        "en": "Astral Projection"
+      },
+      "paidWith": {
+        "amount": 8,
+        "resource": "ki"
+      },
+      "source": {
+        "effectIndex": 2,
+        "entity": "srd51.class.monk",
+        "feature": "srd51.feature.monk.empty-body",
+        "package": "srd51"
+      }
+    }
+  ],
+  "values": {
+    "ability.cha": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 8
+        }
+      ],
+      "value": 8
+    },
+    "ability.con": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 16
+        }
+      ],
+      "value": 16
+    },
+    "ability.dex": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 20
+        }
+      ],
+      "value": 20
+    },
+    "ability.int": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 8
+        }
+      ],
+      "value": 8
+    },
+    "ability.str": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 11
+        }
+      ],
+      "value": 11
+    },
+    "ability.wis": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 20
+        }
+      ],
+      "value": 20
+    },
+    "ac": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        },
+        {
+          "applied": true,
+          "formula": "10 + mod(dex) + mod(wis)",
+          "kind": "set-formula",
+          "label": {
+            "en": "Unarmored Defense"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.class.monk",
+            "feature": "srd51.feature.monk.unarmored-defense",
+            "package": "srd51"
+          },
+          "value": 20
+        }
+      ],
+      "value": 20
+    },
+    "attacks.perAction": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "One attack per Attack action"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        },
+        {
+          "applied": true,
+          "kind": "set",
+          "label": {
+            "en": "Extra Attack"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.class.monk",
+            "feature": "srd51.feature.monk.extra-attack",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "carry.capacity": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength score × 15"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 165
+        }
+      ],
+      "value": 165
+    },
+    "check.cha": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        }
+      ],
+      "value": -1
+    },
+    "check.con": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Constitution modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 3
+    },
+    "check.dex": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 5
+    },
+    "check.int": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        }
+      ],
+      "value": -1
+    },
+    "check.str": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "check.wis": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 5
+    },
+    "hp.max": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "hitDie + mod(con)",
+          "kind": "base",
+          "label": {
+            "en": "Level 1 (Monk)"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 11
+        },
+        {
+          "applied": true,
+          "formula": "19 × (average(hitDie) + mod(con))",
+          "kind": "add",
+          "label": {
+            "en": "19 more levels (Monk)"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 152
+        }
+      ],
+      "value": 163
+    },
+    "initiative": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 5
+    },
+    "jump.high": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "3 + Strength modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        },
+        {
+          "applied": false,
+          "kind": "mul",
+          "label": {
+            "en": "Ki"
+          },
+          "source": {
+            "effectIndex": 6,
+            "entity": "srd51.class.monk",
+            "feature": "srd51.feature.monk.ki",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 3
+    },
+    "jump.long": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength score in feet"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 11
+        },
+        {
+          "applied": true,
+          "formula": "2 * score(str)",
+          "kind": "set-formula",
+          "label": {
+            "en": "Pounce"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "homebrew.byloth.species.feline.puma",
+            "feature": "homebrew.byloth.feature.feline.puma.pounce",
+            "package": "homebrew.byloth"
+          },
+          "value": 22
+        },
+        {
+          "applied": false,
+          "kind": "mul",
+          "label": {
+            "en": "Ki"
+          },
+          "source": {
+            "effectIndex": 5,
+            "entity": "srd51.class.monk",
+            "feature": "srd51.feature.monk.ki",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 22
+    },
+    "mod.cha": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        }
+      ],
+      "value": -1
+    },
+    "mod.con": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Constitution modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 3
+    },
+    "mod.dex": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 5
+    },
+    "mod.int": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        }
+      ],
+      "value": -1
+    },
+    "mod.str": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Strength modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "mod.wis": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 5
+    },
+    "passive.acrobatics": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "acrobatics bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 11
+        }
+      ],
+      "value": 21
+    },
+    "passive.animal-handling": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "animal-handling bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 15
+    },
+    "passive.arcana": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "arcana bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        }
+      ],
+      "value": 9
+    },
+    "passive.athletics": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "athletics bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 10
+    },
+    "passive.deception": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "deception bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        }
+      ],
+      "value": 9
+    },
+    "passive.history": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "history bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        }
+      ],
+      "value": 9
+    },
+    "passive.insight": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "insight bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 15
+    },
+    "passive.intimidation": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "intimidation bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        }
+      ],
+      "value": 9
+    },
+    "passive.investigation": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "investigation bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        }
+      ],
+      "value": 9
+    },
+    "passive.medicine": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "medicine bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 15
+    },
+    "passive.nature": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "nature bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        }
+      ],
+      "value": 9
+    },
+    "passive.perception": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "perception bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 15
+    },
+    "passive.performance": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "performance bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        }
+      ],
+      "value": 9
+    },
+    "passive.persuasion": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "persuasion bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        }
+      ],
+      "value": 9
+    },
+    "passive.religion": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "religion bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        }
+      ],
+      "value": 9
+    },
+    "passive.sleight-of-hand": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "sleight-of-hand bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 15
+    },
+    "passive.stealth": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "stealth bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 11
+        }
+      ],
+      "value": 21
+    },
+    "passive.survival": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "survival bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 15
+    },
+    "proficiencyBonus": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Proficiency bonus by level"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 6
+        }
+      ],
+      "value": 6
+    },
+    "resource.ki.max": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "None"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        },
+        {
+          "applied": true,
+          "formula": "table(monk.ki-points)",
+          "kind": "set",
+          "label": {
+            "en": "Ki"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.class.monk",
+            "feature": "srd51.feature.monk.ki",
+            "package": "srd51"
+          },
+          "value": 20
+        }
+      ],
+      "value": 20
+    },
+    "resource.wholeness-of-body.max": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "None"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        },
+        {
+          "applied": true,
+          "kind": "set",
+          "label": {
+            "en": "Wholeness of Body"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.subclass.monk.way-of-the-open-hand",
+            "feature": "srd51.feature.way-of-the-open-hand.wholeness-of-body",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "save.cha": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 6
+        }
+      ],
+      "value": 5
+    },
+    "save.con": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Constitution modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 6
+        }
+      ],
+      "value": 9
+    },
+    "save.dex": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 6
+        }
+      ],
+      "value": 11
+    },
+    "save.int": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 6
+        }
+      ],
+      "value": 5
+    },
+    "save.str": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 6
+        }
+      ],
+      "value": 6
+    },
+    "save.wis": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 6
+        }
+      ],
+      "value": 11
+    },
+    "sense.darkvision": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "None"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        },
+        {
+          "applied": true,
+          "kind": "max",
+          "label": {
+            "en": "Darkvision"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "homebrew.byloth.species.feline",
+            "feature": "homebrew.byloth.feature.feline.darkvision",
+            "package": "homebrew.byloth"
+          },
+          "value": 60
+        }
+      ],
+      "value": 60
+    },
+    "skill.acrobatics": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 6
+        }
+      ],
+      "value": 11
+    },
+    "skill.animal-handling": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 5
+    },
+    "skill.arcana": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        }
+      ],
+      "value": -1
+    },
+    "skill.athletics": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "skill.deception": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        }
+      ],
+      "value": -1
+    },
+    "skill.history": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        }
+      ],
+      "value": -1
+    },
+    "skill.insight": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 5
+    },
+    "skill.intimidation": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        }
+      ],
+      "value": -1
+    },
+    "skill.investigation": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        }
+      ],
+      "value": -1
+    },
+    "skill.medicine": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 5
+    },
+    "skill.nature": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        }
+      ],
+      "value": -1
+    },
+    "skill.perception": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 5
+    },
+    "skill.performance": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        }
+      ],
+      "value": -1
+    },
+    "skill.persuasion": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        }
+      ],
+      "value": -1
+    },
+    "skill.religion": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        }
+      ],
+      "value": -1
+    },
+    "skill.sleight-of-hand": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 5
+    },
+    "skill.stealth": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 6
+        }
+      ],
+      "value": 11
+    },
+    "skill.survival": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 5
+    },
+    "speed.climb": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Species speed"
+          },
+          "source": {
+            "entity": "homebrew.byloth.species.feline",
+            "package": ""
+          },
+          "value": 20
+        }
+      ],
+      "value": 20
+    },
+    "speed.walk": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Species speed"
+          },
+          "source": {
+            "entity": "homebrew.byloth.species.feline",
+            "package": ""
+          },
+          "value": 30
+        },
+        {
+          "applied": true,
+          "formula": "table(monk.unarmored-movement)",
+          "kind": "add",
+          "label": {
+            "en": "Unarmored Movement"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.class.monk",
+            "feature": "srd51.feature.monk.unarmored-movement",
+            "package": "srd51"
+          },
+          "value": 30
+        }
+      ],
+      "value": 60
+    }
+  },
+  "warnings": []
+}
+

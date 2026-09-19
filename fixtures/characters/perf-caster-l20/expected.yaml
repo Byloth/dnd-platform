@@ -1,0 +1,17 @@
+# Human Wizard 20 (School of Evocation) for the performance test; minimal expectations.
+# Base str 9, dex 13, con 13, int 15, wis 11, cha 9; human +1 all; ASIs 4 +2 INT, 8 +2 INT, 12 +2 CON, 16 +2 DEX,
+# 19 +2 WIS → str 10, dex 16, con 16, int 20, wis 14, cha 10. Modifiers: 0, +3, +3, +5, +2, 0. Proficiency +6.
+values:
+  ability.int: 20               # 15 + 1 (human) + 2 (ASI 4) + 2 (ASI 8)
+  ability.con: 16               # 13 + 1 + 2 (ASI 12)
+  proficiencyBonus: 6
+  hp.max: 142                   # level 1: 6 + 3 = 9; levels 2-20: 19 × (4 + 3) = 133
+spellcasting:
+  srd51.class.wizard:
+    dc: 19                      # 8 + 6 + 5
+    slots: { 1: 4, 2: 3, 3: 3, 4: 3, 5: 3, 6: 2, 7: 2, 8: 1, 9: 1 }   # full-caster table, level 20
+    cantripsKnown: 5
+choices:
+  "srd51.class.wizard#spells": answered   # 25 prepared = 20 + INT 5
+sections:
+  active: [spellcasting, spells, resources]

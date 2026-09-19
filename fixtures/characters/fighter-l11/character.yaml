@@ -1,0 +1,39 @@
+formatVersion: 0
+id: fixture-fighter-l11
+name: Steady Oak
+ruleset: { id: srd51, version: 0.1.0 }
+packages:
+  - { id: srd51, version: 0.1.0 }
+choices:
+  species: srd51.species.human
+  classes:
+    - { class: srd51.class.fighter, subclass: srd51.subclass.fighter.champion, levels: 11 }
+  abilityScores:
+    method: manual
+    # human: +1 to every score (generated from the species trait)
+    base: { str: 15, dex: 13, con: 14, int: 9, wis: 11, cha: 9 }
+    # ASIs: 4 STR +2, 6 STR +2, 8 CON +2
+    bonuses: { str: 4, con: 2 }
+  answers:
+    "srd51.class.fighter#skills": [athletics, perception]
+    "srd51.feature.fighter.fighting-style#fighting-style": [defense]
+    "srd51.class.fighter#martial-archetype": [srd51.subclass.fighter.champion]
+    "srd51.class.fighter#asi-4": [asi]
+    "srd51.class.fighter#asi-6": [asi]
+    "srd51.class.fighter#asi-8": [asi]
+    # Champion 10: second Fighting Style
+    "srd51.feature.champion.additional-fighting-style#additional-fighting-style": [archery]
+    "srd51.species.human#languages": [elvish]
+  equipment:
+    - { item: srd51.item.chain-mail, quantity: 1, equipped: true }
+    - { item: srd51.item.shield, quantity: 1, equipped: true }
+    - { item: srd51.item.longsword, quantity: 1, equipped: true }
+    - { item: srd51.item.longbow, quantity: 1, equipped: true }
+    - { item: srd51.item.arrow, quantity: 20 }
+state:
+  hp: { current: 103, temporary: 0 }
+  hitDice: { spent: 0 }
+  resources: { second-wind: 1, action-surge: 1, indomitable: 1 }
+  conditions: []
+  deathSaves: { successes: 0, failures: 0 }
+  inspiration: false

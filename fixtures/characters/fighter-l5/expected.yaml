@@ -1,0 +1,48 @@
+# Human Fighter 5 (Champion, Defense style) in chain mail with shield and longsword.
+# Scores: base + human 1 + ASI 4 (STR +2): STR 18, DEX 14, CON 15, INT 10, WIS 12, CHA 10.
+# Modifiers: STR +4, DEX +2, CON +2, INT 0, WIS +1, CHA 0. Proficiency bonus at level 5: +3.
+values:
+  ability.str: 18            # 15 + 1 (human) + 2 (ASI 4)
+  ability.con: 15            # 14 + 1
+  proficiencyBonus: 3        # level 5
+  hp.max: 44                 # level 1: 10 + 2 = 12; levels 2-5: 4 × (average(d10) 6 + 2) = 32
+  ac: 19                     # chain mail 16 (no DEX) + shield 2 + Defense 1 (wearing armour). ENGINE MISMATCH: got 17 (srd51.item.shield is type gear/tag shield, the engine only reads type shield and adds no shield AC)
+  initiative: 2              # DEX modifier
+  speed.walk: 30
+  attacks.perAction: 2       # Extra Attack: 1 + table(fighter.extra-attacks) row 5 = 1
+  save.str: 7                # 4 + 3 proficient
+  save.con: 5                # 2 + 3 proficient
+  save.dex: 2                # not proficient
+  skill.athletics: 7         # STR 4 + 3
+  skill.perception: 4        # WIS 1 + 3
+  skill.acrobatics: 2        # DEX 2, not proficient (Remarkable Athlete only from 7)
+  passive.perception: 14     # 10 + 4
+resources:
+  second-wind: { max: 1, recharge: [short-rest, long-rest] }
+  action-surge: { max: 1, recharge: [short-rest, long-rest] }  # table(fighter.action-surges) row 2 = 1
+actions:
+  second-wind: { activation: bonus-action, cost: { second-wind: 1 } }
+  action-surge: { activation: free, cost: { action-surge: 1 } }
+attacks:
+  longsword: { toHit: 7, damage: "1d8 + 4", type: slashing }             # STR 4 + prof 3
+  longsword-two-handed: { toHit: 7, damage: "1d10 + 4", type: slashing }
+  unarmed-strike: { toHit: 7, damage: "5", type: bludgeoning }           # 1 + STR 4
+features:
+  - srd51.feature.fighter.fighting-style
+  - srd51.feature.fighter.second-wind
+  - srd51.feature.fighter.action-surge
+  - srd51.feature.fighter.martial-archetype
+  - srd51.feature.fighter.ability-score-improvement
+  - srd51.feature.fighter.extra-attack
+  - srd51.feature.champion.improved-critical
+choices:
+  "srd51.class.fighter#skills": answered
+  "srd51.feature.fighter.fighting-style#fighting-style": answered
+  "srd51.class.fighter#martial-archetype": answered
+  "srd51.class.fighter#asi-4": answered
+  "srd51.species.human#languages": answered
+proficiencies: [save:str, save:con, skill:athletics, skill:perception, armor:heavy, armor:shield, weapon:martial, language:elvish]
+sections:
+  active: [core, abilities, saves, skills, combat, attacks, actions, resources, features]
+  inactive: [senses, spellcasting, spells]
+warnings: []

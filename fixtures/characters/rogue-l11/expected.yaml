@@ -1,0 +1,53 @@
+# Rock gnome Rogue 11 (Thief) on the SRD 5.1 base package.
+# Scores: base str 8, dex 16, con 13, int 12, wis 13, cha 10; gnome +2 int; rock gnome +1 con; ASIs 4 +2 dex, 8 +2 dex, 10 +2 int.
+# Final: str 8, dex 20, con 14, int 16, wis 13, cha 10 → mods str -1, dex +5, con +2, int +3, wis +1, cha 0.
+# Proficiency bonus at 11: +4. Expertise (1): stealth, sleight of hand; Expertise (6): perception, investigation.
+values:
+  ability.dex: 20          # 16 + 4 (ASIs 4, 8)
+  ability.int: 16          # 12 + 2 (gnome) + 2 (ASI 10)
+  ability.con: 14
+  proficiencyBonus: 4
+  hp.max: 80               # level 1: 8 + 2 = 10; levels 2-11: 10 × (5 + 2) = 70
+  ac: 16                   # leather 11 + mod(dex) 5
+  initiative: 5
+  speed.walk: 25
+  sense.darkvision: 60
+  attacks.perAction: 1
+  jump.long: 13            # 8 + Second-Story Work 5
+  save.dex: 9              # mod 5 + 4
+  save.int: 7              # mod 3 + 4
+  save.wis: 1              # not proficient (Slippery Mind at 15)
+  skill.stealth: 13        # mod(dex) 5 + 2 × 4 (Expertise)
+  skill.sleight-of-hand: 13
+  skill.perception: 9      # mod(wis) 1 + 2 × 4 (Expertise at 6)
+                           # ENGINE MISMATCH: got 5 (second Expertise pair has the same answer key "#skill" as the first; only proficiency applies)
+  skill.investigation: 11  # mod(int) 3 + 2 × 4 (Expertise at 6)
+                           # ENGINE MISMATCH: got 7 (same cause)
+  skill.arcana: 3          # mod(int) 3, not proficient
+  passive.perception: 19   # 10 + 9
+                           # ENGINE MISMATCH: got 15 (follows skill.perception)
+attacks:
+  rapier: { toHit: 9, damage: "1d8 + 5", type: piercing }         # mod(dex) 5 + 4
+  shortbow: { toHit: 9, damage: "1d6 + 5", type: piercing }
+  unarmed-strike: { toHit: 3, damage: "0", type: bludgeoning }    # mod(str) -1 + 4
+actions:
+  sneak-attack: { activation: special }                           # 6d6 at rogue 11
+  cunning-action: { activation: bonus-action }
+  fast-hands: { activation: bonus-action }
+  uncanny-dodge: { activation: reaction }
+features:
+  - srd51.feature.rogue.sneak-attack
+  - srd51.feature.rogue.uncanny-dodge
+  - srd51.feature.rogue.evasion
+  - srd51.feature.rogue.reliable-talent
+  - srd51.feature.thief.second-story-work
+  - srd51.feature.thief.supreme-sneak
+choices:
+  "srd51.class.rogue#roguish-archetype": answered
+  "srd51.class.rogue#asi-8": answered
+  "srd51.class.rogue#asi-10": answered
+  "srd51.feature.rogue.expertise#expertise-1": answered
+proficiencies: [save:dex, save:int, skill:stealth, skill:perception, weapon:rapier, tool:thieves-tools, language:thieves-cant]
+sections:
+  active: [core, abilities, saves, skills, senses, combat, attacks, actions, features]
+  inactive: [resources, spellcasting, spells]

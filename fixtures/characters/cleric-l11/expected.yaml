@@ -1,0 +1,68 @@
+# Hill dwarf Cleric 11, Life Domain, acolyte. Base str 14, dex 10, con 13, int 10, wis 15, cha 12; dwarf +2 CON, hill dwarf +1 WIS;
+# ASI 4 +2 WIS, ASI 8 +2 WIS → STR 14, DEX 10, CON 15, INT 10, WIS 20, CHA 12. Modifiers: str +2, dex 0, con +2, int 0, wis +5, cha +1.
+# Proficiency bonus +4.
+values:
+  ability.con: 15
+  ability.wis: 20          # 15 + 1 (hill dwarf) + 2 (ASI 4) + 2 (ASI 8)
+  mod.wis: 5
+  proficiencyBonus: 4
+  hp.max: 91               # level 1: 8 + 2 = 10; levels 2-11: 10 × (5 + 2) = 70; Dwarven Toughness 1 × 11 = 11
+  ac: 18                   # chain mail 16 + shield 2  # ENGINE MISMATCH: got 16 (no shield bonus)
+  initiative: 0
+  speed.walk: 25
+  sense.darkvision: 60
+  save.wis: 9              # 5 + 4
+  save.cha: 5              # 1 + 4
+  save.str: 2
+  save.dex: 0
+  save.con: 2
+  save.int: 0
+  skill.insight: 9         # WIS 5 + 4
+  skill.medicine: 9        # WIS 5 + 4
+  skill.religion: 4        # INT 0 + 4
+  skill.history: 4
+  skill.perception: 5      # WIS 5, not proficient
+  passive.perception: 15
+resources:
+  channel-divinity: { max: 2, recharge: [short-rest, long-rest] }   # table(cleric.channel-divinity-charges) row 6 = 2
+  divine-intervention: { max: 1, recharge: [long-rest] }            # Cleric 10
+actions:
+  turn-undead: { activation: action, cost: { channel-divinity: 1 } }
+  preserve-life: { activation: action, cost: { channel-divinity: 1 } }
+  divine-intervention: { activation: action, cost: { divine-intervention: 1 } }
+  divine-strike: { activation: free }                                # Life Domain 8 (+1d8 radiant once per turn)
+attacks:
+  warhammer: { toHit: 6, damage: "1d8 + 2", type: bludgeoning }   # STR 2 + prof 4
+spellcasting:
+  srd51.class.cleric:
+    dc: 17                 # 8 + 4 + 5
+    attackBonus: 9         # 4 + 5
+    slots: { 1: 4, 2: 3, 3: 3, 4: 3, 5: 2, 6: 1 }   # full-caster table, level 11
+    cantripsKnown: 5       # table cleric.cantrips-known row 10
+spells:
+  srd51.spell.spare-the-dying: free
+  srd51.spell.heal: slot
+  srd51.spell.commune: slot
+  srd51.spell.death-ward: slot         # Life Domain 7
+  srd51.spell.guardian-of-faith: slot
+  srd51.spell.mass-cure-wounds: slot   # Life Domain 9
+  srd51.spell.raise-dead: slot
+features:
+  - srd51.feature.cleric.channel-divinity
+  - srd51.feature.cleric.destroy-undead
+  - srd51.feature.cleric.divine-intervention
+  - srd51.feature.life-domain.blessed-healer
+  - srd51.feature.life-domain.divine-strike
+  - srd51.feature.hill-dwarf.dwarven-toughness
+choices:
+  "srd51.class.cleric#divine-domain": answered
+  "srd51.class.cleric#asi-4": answered
+  "srd51.class.cleric#asi-8": answered
+  "srd51.class.cleric#cantrips": answered
+  "srd51.class.cleric#spells": answered
+  "srd51.feature.dwarf.tool-proficiency#tool": answered
+  "srd51.background.acolyte#languages": answered
+proficiencies: [save:wis, save:cha, armor:heavy, armor:shield, weapon:simple, weapon:warhammer, tool:smiths-tools, skill:insight, skill:religion, skill:medicine, skill:history, language:celestial]
+sections:
+  active: [core, abilities, saves, skills, senses, combat, attacks, actions, resources, spellcasting, spells, features]
+warnings: []

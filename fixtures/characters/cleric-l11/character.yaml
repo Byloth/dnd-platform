@@ -1,0 +1,57 @@
+formatVersion: 0
+id: fixture-cleric-l11
+name: Stone Lantern
+ruleset: { id: srd51, version: 0.1.0 }
+packages:
+  - { id: srd51, version: 0.1.0 }
+choices:
+  species: srd51.species.dwarf
+  subspecies: srd51.species.dwarf.hill-dwarf
+  classes:
+    - { class: srd51.class.cleric, subclass: srd51.subclass.cleric.life-domain, levels: 11 }
+  background: srd51.background.acolyte
+  abilityScores:
+    method: manual
+    # dwarf +2 CON and hill dwarf +1 WIS generated from the species traits
+    base: { str: 14, dex: 10, con: 13, int: 10, wis: 15, cha: 12 }
+    # ASI 4: +2 WIS (18); ASI 8: +2 WIS (20)
+    bonuses: { wis: 4 }
+  answers:
+    "srd51.class.cleric#skills": [medicine, history]
+    "srd51.class.cleric#divine-domain": [srd51.subclass.cleric.life-domain]
+    "srd51.class.cleric#asi-4": [asi]
+    "srd51.class.cleric#asi-8": [asi]
+    "srd51.feature.dwarf.tool-proficiency#tool": [smiths-tools]
+    "srd51.background.acolyte#languages": [celestial, elvish]
+    "srd51.class.cleric#cantrips": [srd51.spell.sacred-flame, srd51.spell.guidance, srd51.spell.light, srd51.spell.thaumaturgy, srd51.spell.spare-the-dying]
+    # prepared: cleric level 11 + WIS modifier 5 = 16
+    "srd51.class.cleric#spells":
+      - srd51.spell.healing-word
+      - srd51.spell.guiding-bolt
+      - srd51.spell.shield-of-faith
+      - srd51.spell.sanctuary
+      - srd51.spell.aid
+      - srd51.spell.hold-person
+      - srd51.spell.silence
+      - srd51.spell.spirit-guardians
+      - srd51.spell.dispel-magic
+      - srd51.spell.banishment
+      - srd51.spell.freedom-of-movement
+      - srd51.spell.flame-strike
+      - srd51.spell.greater-restoration
+      - srd51.spell.heal
+      - srd51.spell.harm
+      - srd51.spell.commune
+  equipment:
+    - { item: srd51.item.warhammer, quantity: 1, equipped: true }
+    - { item: srd51.item.chain-mail, quantity: 1, equipped: true }
+    - { item: srd51.item.shield, quantity: 1, equipped: true }
+    - { item: srd51.item.priests-pack, quantity: 1 }
+state:
+  hp: { current: 91, temporary: 0 }
+  hitDice: { spent: 0 }
+  resources: { channel-divinity: 2, divine-intervention: 1 }
+  spellSlots: { "1": 4, "2": 3, "3": 3, "4": 3, "5": 2, "6": 1 }
+  conditions: []
+  deathSaves: { successes: 0, failures: 0 }
+  inspiration: false

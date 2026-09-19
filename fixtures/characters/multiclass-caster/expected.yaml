@@ -1,0 +1,71 @@
+# Human Cleric 5 (Life Domain) / Wizard 5 (School of Evocation), character level 10.
+# Scores after the human +1: STR 10, DEX 12, CON 14, INT 16, WIS 16, CHA 10.
+# Modifiers: str 0, dex +1, con +2, int +3, wis +3, cha 0. Proficiency bonus at 10: +4.
+values:
+  ability.int: 16            # 15 + 1 (human)
+  ability.wis: 16            # 15 + 1 (human)
+  mod.int: 3
+  mod.wis: 3
+  proficiencyBonus: 4
+  hp.max: 68                 # cleric level 1: 8 + CON 2 = 10; cleric levels 2-5: 4 × (5 + 2) = 28; wizard levels 1-5: 5 × (4 + 2) = 30
+  ac: 11                     # 10 + DEX 1 (no armour equipped)
+  attacks.perAction: 1
+  save.wis: 7                # 3 + 4, proficient (cleric, first class)
+  save.cha: 4                # 0 + 4, proficient (cleric, first class)
+  save.int: 3                # WIS/INT saves of the wizard are NOT gained by multiclassing (SRD: saving throw proficiencies come from the first class only)
+                             # ENGINE MISMATCH: got 7 (the engine grants the saving throws of every class listed)
+  save.dex: 1                # not proficient
+  save.con: 2                # not proficient
+  skill.insight: 7           # WIS 3 + 4
+  skill.religion: 7          # INT 3 + 4
+  skill.arcana: 3            # INT 3, not proficient (no skills from the second class)
+  speed.walk: 30
+spellcasting:
+  srd51.class.cleric:
+    dc: 15                   # 8 + 4 + WIS 3
+    attackBonus: 7           # 4 + 3
+    cantripsKnown: 4         # cleric cantrips-known table, class level 5 → row 4
+    # multiclass table, caster level = cleric 5 × 1 + wizard 5 × 1 = 10 → row 10: 4 / 3 / 3 / 3 / 2
+    slots: { 1: 4, 2: 3, 3: 3, 4: 3, 5: 2, 6: 0 }
+  srd51.class.wizard:
+    dc: 15                   # 8 + 4 + INT 3
+    attackBonus: 7           # 4 + 3
+    cantripsKnown: 4         # wizard cantrips-known table, class level 5 → row 4
+    slots: { 1: 4, 2: 3, 3: 3, 4: 3, 5: 2, 6: 0 }   # the slots are shared: same multiclass row for both classes
+spells:
+  srd51.spell.sacred-flame: free      # cleric cantrip
+  srd51.spell.fire-bolt: free         # wizard cantrip
+  srd51.spell.guiding-bolt: slot      # prepared cleric spell
+  srd51.spell.bless: slot             # Life Domain always-prepared (level 1 row)
+  srd51.spell.revivify: slot          # Life Domain always-prepared (level 5 row)
+  srd51.spell.magic-missile: slot     # prepared wizard spell
+  srd51.spell.fireball: slot
+resources:
+  channel-divinity: { max: 1, recharge: [short-rest, long-rest] }   # table(cleric.channel-divinity-charges) row 2 → 1 at cleric 5
+  arcane-recovery: { max: 1, recharge: [dawn] }
+actions:
+  turn-undead: { activation: action, cost: { channel-divinity: 1 } }
+  preserve-life: { activation: action, cost: { channel-divinity: 1 } }   # Life Domain Channel Divinity
+  arcane-recovery: { activation: special, cost: { arcane-recovery: 1 } }
+features:
+  - srd51.feature.cleric.spellcasting
+  - srd51.feature.wizard.spellcasting
+  - srd51.feature.life-domain.disciple-of-life
+  - srd51.feature.school-of-evocation.sculpt-spells
+choices:
+  "srd51.class.cleric#divine-domain": answered
+  "srd51.class.wizard#arcane-tradition": answered
+  "srd51.class.cleric#spells": answered
+  "srd51.class.wizard#spells": answered
+proficiencies:
+  - save:wis
+  - save:cha
+  - skill:insight
+  - skill:religion
+  - armor:heavy               # Life Domain bonus proficiency
+  - weapon:simple
+  - language:common
+  - language:elvish
+sections:
+  active: [spellcasting, spells, resources, actions, features]
+  inactive: [senses]

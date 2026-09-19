@@ -1,0 +1,88 @@
+# Gold dragonborn Paladin 20 (Oath of Devotion, Defense style) on the SRD 5.1 base package.
+# Scores: base str 15, dex 10, con 14, int 8, wis 12, cha 13; dragonborn +2 str, +1 cha;
+# ASIs: 4 +2 str, 8 +1 str/+1 cha, 12 +2 cha, 16 +2 cha, 19 +2 wis.
+# Final: str 20, dex 10, con 14, int 8, wis 14, cha 19 → mods str +5, dex 0, con +2, int -1, wis +2, cha +4.
+# Proficiency bonus at 20: +6. Aura of Protection: every saving throw + max(1, mod(cha)) = +4.
+values:
+  ability.str: 20          # 15 + 2 (dragonborn) + 3 (ASIs)
+  ability.cha: 19          # 13 + 1 (dragonborn) + 5 (ASIs)
+  ability.wis: 14          # 12 + 2 (ASI 19)
+  ability.con: 14
+  proficiencyBonus: 6      # table proficiency-bonus, level 20 (17 → 6)
+  hp.max: 164              # level 1: 10 + 2 = 12; levels 2-20: 19 × (6 + 2) = 152
+  ac: 19                   # chain mail 16 + shield 2 + Defense 1
+                           # ENGINE MISMATCH: got 17 (no shield bonus, see paladin-l1)
+  initiative: 0
+  speed.walk: 30
+  attacks.perAction: 2
+  save.wis: 12             # mod 2 + proficiency 6 + aura 4
+  save.cha: 14             # mod 4 + 6 + 4
+  save.str: 9              # mod 5 + aura 4
+  save.dex: 4              # 0 + 4
+  save.con: 6              # 2 + 4
+  save.int: 3              # -1 + 4
+  skill.athletics: 11      # mod(str) 5 + 6
+  skill.persuasion: 10     # mod(cha) 4 + 6
+  skill.insight: 2         # mod(wis) 2, not proficient
+  skill.perception: 2
+  passive.perception: 12   # 10 + 2
+resources:
+  divine-sense: { max: 5, recharge: [long-rest] }               # 1 + mod(cha) 4
+  lay-on-hands: { max: 100, recharge: [long-rest] }             # 5 × 20
+  channel-divinity: { max: 1, recharge: [short-rest, long-rest] }
+  cleansing-touch: { max: 4, recharge: [long-rest] }            # max(1, mod(cha) 4)
+  holy-nimbus: { max: 1, recharge: [long-rest] }
+  breath-weapon: { max: 1, recharge: [short-rest, long-rest] }
+actions:
+  divine-sense: { activation: action, cost: { divine-sense: 1 } }
+  lay-on-hands: { activation: action, cost: { lay-on-hands: 1 } }
+  lay-on-hands-cure: { activation: action, cost: { lay-on-hands: 5 } }
+  divine-smite: { activation: special, cost: { spell-slot: 1 } }
+  sacred-weapon: { activation: action, cost: { channel-divinity: 1 } }
+  turn-the-unholy: { activation: action, cost: { channel-divinity: 1 } }
+  cleansing-touch: { activation: action, cost: { cleansing-touch: 1 } }
+  holy-nimbus: { activation: action, cost: { holy-nimbus: 1 } }
+  breath-weapon: { activation: action, cost: { breath-weapon: 1 } }
+attacks:
+  longsword: { toHit: 11, damage: "1d8 + 5", type: slashing }            # mod(str) 5 + proficiency 6
+  longsword-two-handed: { toHit: 11, damage: "1d10 + 5", type: slashing }
+  unarmed-strike: { toHit: 11, damage: "6", type: bludgeoning }          # 1 + 5
+spellcasting:
+  srd51.class.paladin:
+    dc: 18                 # 8 + 6 + mod(cha) 4
+    attackBonus: 10        # 6 + 4
+    slots: { 1: 4, 2: 3, 3: 3, 4: 3, 5: 2 }   # half-caster table, paladin level 20
+spells:
+  srd51.spell.bless: slot
+  srd51.spell.raise-dead: slot
+  srd51.spell.banishment: slot
+  srd51.spell.protection-from-evil-and-good: slot   # oath spell (3rd)
+  srd51.spell.lesser-restoration: slot              # oath spell (5th)
+  srd51.spell.beacon-of-hope: slot                  # oath spell (9th)
+  srd51.spell.freedom-of-movement: slot             # oath spell (13th)
+  srd51.spell.guardian-of-faith: slot               # oath spell (13th)
+  srd51.spell.commune: slot                         # oath spell (17th)
+  srd51.spell.flame-strike: slot                    # oath spell (17th)
+features:
+  - srd51.feature.paladin.aura-of-protection
+  - srd51.feature.paladin.aura-of-courage
+  - srd51.feature.paladin.improved-divine-smite
+  - srd51.feature.paladin.cleansing-touch
+  - srd51.feature.oath-of-devotion.aura-of-devotion
+  - srd51.feature.oath-of-devotion.purity-of-spirit
+  - srd51.feature.oath-of-devotion.holy-nimbus
+  - srd51.feature.dragonborn.breath-weapon
+choices:
+  "srd51.class.paladin#sacred-oath": answered
+  "srd51.class.paladin#asi-4": answered
+  "srd51.class.paladin#asi-8": answered
+  "srd51.class.paladin#asi-12": answered
+  "srd51.class.paladin#asi-16": answered
+  "srd51.class.paladin#asi-19": answered
+  "srd51.feature.paladin.fighting-style#fighting-style": answered
+  "srd51.class.paladin#spells": answered            # 14 prepared = floor(20 / 2) + mod(cha) 4
+                                                    # ENGINE MISMATCH: got unanswered (engine expects classLevel + mod = 24, see paladin-l5)
+proficiencies: [save:wis, save:cha, skill:athletics, skill:persuasion, armor:heavy, armor:shield, weapon:martial, language:draconic]
+sections:
+  active: [core, abilities, saves, skills, combat, attacks, actions, resources, spellcasting, spells, features]
+  inactive: [senses]

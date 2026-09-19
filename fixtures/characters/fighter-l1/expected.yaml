@@ -1,0 +1,61 @@
+# Human Fighter 1 (Defense style) in chain mail with shield and longsword, on the real base package.
+# Scores after the human +1: STR 16, DEX 14, CON 15, INT 10, WIS 12, CHA 10.
+# Modifiers floor((score - 10) / 2): STR +3, DEX +2, CON +2, INT 0, WIS +1, CHA 0. Proficiency bonus at level 1: +2.
+values:
+  ability.str: 16            # 15 + 1 (human)
+  ability.dex: 14            # 13 + 1
+  ability.con: 15            # 14 + 1
+  ability.int: 10            # 9 + 1
+  ability.wis: 12            # 11 + 1
+  ability.cha: 10            # 9 + 1
+  proficiencyBonus: 2        # srd51.table.proficiency-bonus, level 1
+  hp.max: 12                 # hit die 10 + CON 2
+  ac: 19                     # chain mail 16 (no DEX) + shield 2 + Defense 1 (wearing armour). ENGINE MISMATCH: got 17 (srd51.item.shield is type gear/tag shield, the engine only reads type shield and adds no shield AC)
+  initiative: 2              # DEX modifier
+  speed.walk: 30             # human
+  attacks.perAction: 1       # no Extra Attack before 5
+  save.str: 5                # 3 + 2 proficient
+  save.con: 4                # 2 + 2 proficient
+  save.dex: 2                # not proficient
+  save.wis: 1                # not proficient
+  skill.athletics: 5         # STR 3 + 2 (chosen)
+  skill.perception: 3        # WIS 1 + 2 (chosen)
+  skill.acrobatics: 2        # DEX 2, not proficient
+  skill.intimidation: 0      # CHA 0, not proficient
+  skill.survival: 1          # WIS 1, not proficient
+  passive.perception: 13     # 10 + 3
+provenance:
+  save.str: ["Strength modifier", "Proficiency bonus"]
+resources:
+  second-wind: { max: 1, recharge: [short-rest, long-rest] }   # Second Wind: once per short or long rest
+actions:
+  second-wind: { activation: bonus-action, cost: { second-wind: 1 } }
+attacks:
+  longsword: { toHit: 5, damage: "1d8 + 3", type: slashing }             # STR 3 + prof 2; 1d8 + STR 3
+  longsword-two-handed: { toHit: 5, damage: "1d10 + 3", type: slashing } # versatile row: 1d10 + STR 3
+  unarmed-strike: { toHit: 5, damage: "4", type: bludgeoning }           # 1 + STR 3
+features:
+  - srd51.feature.human.ability-score-increase
+  - srd51.feature.fighter.fighting-style
+  - srd51.feature.fighter.second-wind
+choices:
+  "srd51.class.fighter#skills": answered
+  "srd51.feature.fighter.fighting-style#fighting-style": answered
+  "srd51.species.human#languages": answered
+proficiencies:
+  - save:str
+  - save:con
+  - skill:athletics
+  - skill:perception
+  - armor:light
+  - armor:medium
+  - armor:heavy
+  - armor:shield
+  - weapon:simple
+  - weapon:martial
+  - language:common
+  - language:elvish            # human extra language, answered
+sections:
+  active: [core, abilities, saves, skills, combat, attacks, actions, resources, features]
+  inactive: [senses, spellcasting, spells]
+warnings: []                   # every choice answered

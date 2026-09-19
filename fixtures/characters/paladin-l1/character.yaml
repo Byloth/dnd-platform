@@ -1,0 +1,30 @@
+formatVersion: 0
+id: fixture-paladin-l1
+name: Steady Ember
+ruleset: { id: srd51, version: 0.1.0 }
+packages:
+  - { id: srd51, version: 0.1.0 }
+choices:
+  species: srd51.species.dragonborn
+  classes:
+    - { class: srd51.class.paladin, levels: 1 }
+  abilityScores:
+    method: manual
+    # dragonborn: +2 str, +1 cha (generated from the species traits)
+    base: { str: 15, dex: 10, con: 14, int: 8, wis: 12, cha: 13 }
+  answers:
+    "srd51.class.paladin#skills": [athletics, persuasion]
+    "srd51.feature.dragonborn.draconic-ancestry#draconic-ancestry": [gold]
+  equipment:
+    - { item: srd51.item.chain-mail, quantity: 1, equipped: true }
+    - { item: srd51.item.shield, quantity: 1, equipped: true }
+    - { item: srd51.item.longsword, quantity: 1, equipped: true }
+    - { item: srd51.item.javelin, quantity: 5 }
+    - { item: srd51.item.explorers-pack, quantity: 1 }
+state:
+  hp: { current: 12, temporary: 0 }
+  hitDice: { spent: 0 }
+  resources: { divine-sense: 3, lay-on-hands: 5, breath-weapon: 1 }
+  conditions: []
+  deathSaves: { successes: 0, failures: 0 }
+  inspiration: false

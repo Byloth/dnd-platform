@@ -1,0 +1,72 @@
+# Level 20 human Wizard used by packages/cli/test/performance.test.ts: 5 cantrips, 25 prepared spells of levels 1-9,
+# every choice answered. Kept as a normal golden fixture too (minimal expected.yaml).
+formatVersion: 0
+id: fixture-perf-caster-l20
+name: Long Ledger
+ruleset: { id: srd51, version: 0.1.0 }
+packages:
+  - { id: srd51, version: 0.1.0 }
+choices:
+  species: srd51.species.human
+  classes:
+    - { class: srd51.class.wizard, subclass: srd51.subclass.wizard.school-of-evocation, levels: 20 }
+  abilityScores:
+    method: manual
+    # human +1 all (generated) → str 10, dex 14, con 14, int 16, wis 12, cha 10
+    # ASIs: 4 +2 INT; 8 +2 INT; 12 +2 CON; 16 +2 DEX; 19 +2 WIS → str 10, dex 16, con 16, int 20, wis 14, cha 10
+    base: { str: 9, dex: 13, con: 13, int: 15, wis: 11, cha: 9 }
+    bonuses: { int: 4, con: 2, dex: 2, wis: 2 }
+  answers:
+    "srd51.class.wizard#skills": [arcana, history]
+    "srd51.species.human#languages": [elvish]
+    "srd51.class.wizard#arcane-tradition": [srd51.subclass.wizard.school-of-evocation]
+    # cantrips known at 20: 5
+    "srd51.class.wizard#cantrips": [srd51.spell.fire-bolt, srd51.spell.mage-hand, srd51.spell.light, srd51.spell.ray-of-frost, srd51.spell.prestidigitation]
+    # prepared: wizard level 20 + INT modifier 5 = 25, levels 1-9
+    "srd51.class.wizard#spells":
+      - srd51.spell.magic-missile
+      - srd51.spell.shield
+      - srd51.spell.mage-armor
+      - srd51.spell.misty-step
+      - srd51.spell.scorching-ray
+      - srd51.spell.web
+      - srd51.spell.fireball
+      - srd51.spell.counterspell
+      - srd51.spell.haste
+      - srd51.spell.dimension-door
+      - srd51.spell.greater-invisibility
+      - srd51.spell.wall-of-fire
+      - srd51.spell.cone-of-cold
+      - srd51.spell.wall-of-force
+      - srd51.spell.chain-lightning
+      - srd51.spell.disintegrate
+      - srd51.spell.globe-of-invulnerability
+      - srd51.spell.delayed-blast-fireball
+      - srd51.spell.teleport
+      - srd51.spell.sunburst
+      - srd51.spell.dominate-monster
+      - srd51.spell.meteor-swarm
+      - srd51.spell.time-stop
+      - srd51.spell.wish
+      - srd51.spell.foresight
+    "srd51.class.wizard#asi-4": [asi]
+    "srd51.class.wizard#asi-8": [asi]
+    "srd51.class.wizard#asi-12": [asi]
+    "srd51.class.wizard#asi-16": [asi]
+    "srd51.class.wizard#asi-19": [asi]
+    "srd51.feature.wizard.spell-mastery#spell-mastery-1": [srd51.spell.shield]
+    "srd51.feature.wizard.spell-mastery#spell-mastery-2": [srd51.spell.misty-step]
+    "srd51.feature.wizard.signature-spells#signature-spells": [srd51.spell.fireball, srd51.spell.counterspell]
+  equipment:
+    - { item: srd51.item.quarterstaff, quantity: 1, equipped: true }
+    - { item: srd51.item.dagger, quantity: 1, equipped: true }
+    - { item: srd51.item.spellbook, quantity: 1 }
+    - { item: srd51.item.component-pouch, quantity: 1 }
+state:
+  hp: { current: 142, temporary: 0 }
+  hitDice: { spent: 0 }
+  resources: { arcane-recovery: 1, signature-spells: 2, overchannel: 0 }
+  spellSlots: { "1": 4, "2": 3, "3": 3, "4": 3, "5": 3, "6": 2, "7": 2, "8": 1, "9": 1 }
+  conditions: []
+  deathSaves: { successes: 0, failures: 0 }
+  inspiration: false

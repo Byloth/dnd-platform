@@ -1,0 +1,30 @@
+formatVersion: 0
+id: fixture-fighter-l1
+name: Steady Oak
+ruleset: { id: srd51, version: 0.1.0 }
+packages:
+  - { id: srd51, version: 0.1.0 }
+choices:
+  species: srd51.species.human
+  classes:
+    - { class: srd51.class.fighter, levels: 1 }
+  abilityScores:
+    method: manual
+    # human: +1 to every score (generated from the species trait) → 16 / 14 / 15 / 10 / 12 / 10
+    base: { str: 15, dex: 13, con: 14, int: 9, wis: 11, cha: 9 }
+  answers:
+    "srd51.class.fighter#skills": [athletics, perception]
+    "srd51.feature.fighter.fighting-style#fighting-style": [defense]
+    "srd51.species.human#languages": [elvish]
+  equipment:
+    - { item: srd51.item.chain-mail, quantity: 1, equipped: true }
+    - { item: srd51.item.shield, quantity: 1, equipped: true }
+    - { item: srd51.item.longsword, quantity: 1, equipped: true }
+    - { item: srd51.item.handaxe, quantity: 2 }
+state:
+  hp: { current: 12, temporary: 0 }
+  hitDice: { spent: 0 }
+  resources: { second-wind: 1 }
+  conditions: []
+  deathSaves: { successes: 0, failures: 0 }
+  inspiration: false

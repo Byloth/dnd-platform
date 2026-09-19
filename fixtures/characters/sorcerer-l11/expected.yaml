@@ -1,0 +1,61 @@
+# Tiefling Sorcerer 11 (Draconic Bloodline, red dragon). Base str 8, dex 14, con 14, int 11, wis 12, cha 15;
+# tiefling +1 INT, +2 CHA; ASI 4 +2 CHA; ASI 8 +1 CHA +1 CON → str 8, dex 14, con 15, int 12, wis 12, cha 20.
+# Modifiers: str -1, dex +2, con +2, int +1, wis +1, cha +5. Proficiency bonus at level 11: +4.
+values:
+  ability.str: 8
+  ability.dex: 14
+  ability.con: 15               # 14 + 1 (ASI 8)
+  ability.int: 12
+  ability.wis: 12
+  ability.cha: 20               # 15 + 2 (tiefling) + 2 (ASI 4) + 1 (ASI 8)
+  proficiencyBonus: 4
+  hp.max: 79                    # level 1: 6 + 2 = 8; levels 2-11: 10 × (4 + 2) = 60; Draconic Resilience +1 × 11 = 11
+  ac: 15                        # 13 + DEX 2
+  initiative: 2
+  speed.walk: 30
+  sense.darkvision: 60
+  save.con: 6                   # 2 + 4
+  save.cha: 9                   # 5 + 4
+  save.dex: 2                   # not proficient
+  skill.arcana: 5               # INT 1 + 4
+  skill.persuasion: 9           # CHA 5 + 4
+  skill.intimidation: 5         # CHA 5, not proficient
+  skill.perception: 1
+  passive.perception: 11
+spellcasting:
+  srd51.class.sorcerer:
+    dc: 17                      # 8 + 4 + 5
+    attackBonus: 9              # 4 + 5
+    slots: { 1: 4, 2: 3, 3: 3, 4: 3, 5: 2, 6: 1 }   # full-caster table, level 11
+    cantripsKnown: 6            # table row 10
+    spellsKnown: 12             # table row 11
+spells:
+  srd51.spell.fire-bolt: free
+  srd51.spell.chain-lightning: slot
+  srd51.spell.thaumaturgy: free
+  srd51.spell.hellish-rebuke: uses:1
+  srd51.spell.darkness: uses:1
+resources:
+  sorcery-points: { max: 11, recharge: [long-rest] }  # table(sorcerer.sorcery-points) row 11
+actions:
+  create-spell-slot: { activation: bonus-action }
+  convert-spell-slot: { activation: bonus-action }
+  quickened-spell: { activation: free, cost: { sorcery-points: 2 } }
+  twinned-spell: { activation: free }
+  empowered-spell: { activation: free, cost: { sorcery-points: 1 } }
+  elemental-affinity: { activation: free, cost: { sorcery-points: 1 } }   # resistance for 1 hour (level 6)
+attacks:
+  dagger: { toHit: 6, damage: "1d4 + 2", type: piercing }   # DEX 2 + 4
+features:
+  - srd51.feature.sorcerer.font-of-magic
+  - srd51.feature.sorcerer.metamagic
+  - srd51.feature.draconic-bloodline.draconic-resilience
+  - srd51.feature.draconic-bloodline.dragon-ancestor
+  - srd51.feature.draconic-bloodline.elemental-affinity
+choices:
+  "srd51.class.sorcerer#asi-4": answered
+  "srd51.class.sorcerer#asi-8": answered
+  "srd51.feature.sorcerer.metamagic#metamagic": answered
+  "srd51.feature.draconic-bloodline.dragon-ancestor#dragon-ancestor": answered
+sections:
+  active: [senses, attacks, actions, resources, spellcasting, spells, features]

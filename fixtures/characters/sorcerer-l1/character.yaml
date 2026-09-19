@@ -1,0 +1,33 @@
+formatVersion: 0
+id: fixture-sorcerer-l1
+name: Ember Trace
+ruleset: { id: srd51, version: 0.1.0 }
+packages:
+  - { id: srd51, version: 0.1.0 }
+choices:
+  species: srd51.species.tiefling
+  classes:
+    - { class: srd51.class.sorcerer, subclass: srd51.subclass.sorcerer.draconic-bloodline, levels: 1 }
+  abilityScores:
+    method: manual
+    # tiefling: +1 INT, +2 CHA (generated from the species trait) → str 8, dex 14, con 14, int 12, wis 12, cha 17
+    base: { str: 8, dex: 14, con: 14, int: 11, wis: 12, cha: 15 }
+  answers:
+    "srd51.class.sorcerer#skills": [arcana, persuasion]
+    "srd51.class.sorcerer#sorcerous-origin": [srd51.subclass.sorcerer.draconic-bloodline]
+    # cantrips known at 1: 4 (table sorcerer.cantrips-known)
+    "srd51.class.sorcerer#cantrips": [srd51.spell.fire-bolt, srd51.spell.light, srd51.spell.mage-hand, srd51.spell.prestidigitation]
+    # spells known at 1: 2 (table sorcerer.spells-known)
+    "srd51.class.sorcerer#spells": [srd51.spell.magic-missile, srd51.spell.shield]
+    "srd51.feature.draconic-bloodline.dragon-ancestor#dragon-ancestor": [red]
+  equipment:
+    - { item: srd51.item.dagger, quantity: 2, equipped: true }
+    - { item: srd51.item.component-pouch, quantity: 1 }
+state:
+  hp: { current: 9, temporary: 0 }
+  hitDice: { spent: 0 }
+  resources: {}
+  spellSlots: { "1": 2 }
+  conditions: []
+  deathSaves: { successes: 0, failures: 0 }
+  inspiration: false

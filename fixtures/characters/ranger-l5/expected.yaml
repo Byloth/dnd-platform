@@ -1,0 +1,66 @@
+# Lightfoot halfling Ranger 5 (Hunter: Colossus Slayer, Archery) on the SRD 5.1 base package.
+# Scores: base str 10, dex 15, con 14, int 10, wis 15, cha 8; halfling +2 dex; lightfoot +1 cha; ASI 4 +2 dex.
+# Final: str 10, dex 19, con 14, int 10, wis 15, cha 9 → mods str 0, dex +4, con +2, int 0, wis +2, cha -1.
+# Proficiency bonus at 5: +3.
+values:
+  ability.dex: 19          # 15 + 2 (halfling) + 2 (ASI 4)
+  ability.wis: 15
+  ability.cha: 9           # 8 + 1 (lightfoot)
+  proficiencyBonus: 3
+  hp.max: 44               # level 1: 10 + 2 = 12; levels 2-5: 4 × (average(d10) 6 + 2) = 32
+  ac: 15                   # leather 11 + mod(dex) 4 (Archery is not Defense)
+  initiative: 4
+  speed.walk: 25
+  attacks.perAction: 2     # Extra Attack at ranger 5
+  save.str: 3              # mod 0 + 3
+  save.dex: 7              # mod 4 + 3
+  save.wis: 2              # not proficient
+  save.con: 2
+  skill.perception: 5      # mod(wis) 2 + 3
+  skill.stealth: 7         # mod(dex) 4 + 3
+  skill.survival: 5        # mod(wis) 2 + 3
+  skill.acrobatics: 4      # mod(dex) 4, not proficient
+  passive.perception: 15
+provenance:
+  ac: ["Leather Armor", "Dexterity modifier"]
+attacks:
+  longbow: { toHit: 9, damage: "1d8 + 4", type: piercing }        # mod(dex) 4 + proficiency 3 + Archery 2
+  unarmed-strike: { toHit: 3, damage: "1", type: bludgeoning }    # mod(str) 0 + 3; Archery is ranged only
+actions:
+  lucky: { activation: special }
+  primeval-awareness: { activation: action, cost: { spell-slot: 1 } }
+  colossus-slayer: { activation: special }                        # Hunter's Prey option
+spellcasting:
+  srd51.class.ranger:
+    dc: 13                 # 8 + proficiency 3 + mod(wis) 2
+    attackBonus: 5         # 3 + 2
+    slots: { 1: 4, 2: 2 }  # half-caster table, ranger level 5
+    spellsKnown: 4         # table ranger.spells-known, level 5
+spells:
+  srd51.spell.hunters-mark: slot
+  srd51.spell.cure-wounds: slot
+  srd51.spell.goodberry: slot
+  srd51.spell.pass-without-trace: slot
+features:
+  - srd51.feature.ranger.favored-enemy
+  - srd51.feature.ranger.natural-explorer
+  - srd51.feature.ranger.fighting-style
+  - srd51.feature.ranger.spellcasting
+  - srd51.feature.ranger.primeval-awareness
+  - srd51.feature.ranger.ranger-archetype
+  - srd51.feature.ranger.extra-attack
+  - srd51.feature.hunter.hunters-prey
+  - srd51.feature.halfling.lucky
+choices:
+  "srd51.class.ranger#skills": answered
+  "srd51.class.ranger#ranger-archetype": answered
+  "srd51.class.ranger#asi-4": answered
+  "srd51.feature.ranger.fighting-style#fighting-style": answered
+  "srd51.feature.hunter.hunters-prey#hunters-prey": answered
+  "srd51.feature.ranger.favored-enemy#favored-enemy-1": answered
+  "srd51.feature.ranger.natural-explorer#favored-terrain-1": answered
+  "srd51.class.ranger#spells": answered
+proficiencies: [save:str, save:dex, skill:perception, skill:stealth, skill:survival, armor:medium, weapon:martial]
+sections:
+  active: [core, abilities, saves, skills, combat, attacks, actions, spellcasting, spells, features]
+  inactive: [senses, resources]

@@ -1,0 +1,58 @@
+# High elf Druid 11 (Circle of the Land, forest) in leather armour with a scimitar.
+# Scores: base + elf/high elf + ASIs 4 and 8 (WIS +4): STR 8, DEX 16, CON 14, INT 12, WIS 20, CHA 10.
+# Modifiers: STR -1, DEX +3, CON +2, INT +1, WIS +5, CHA 0. Proficiency bonus at level 11: +4.
+values:
+  ability.wis: 20            # 16 + 4
+  proficiencyBonus: 4
+  hp.max: 80                 # level 1: 8 + 2 = 10; levels 2-11: 10 × (5 + 2) = 70
+  ac: 14                     # leather 11 + DEX 3
+  initiative: 3
+  sense.darkvision: 60
+  save.int: 5                # 1 + 4
+  save.wis: 9                # 5 + 4
+  save.dex: 3
+  skill.nature: 5            # INT 1 + 4
+  skill.survival: 9          # WIS 5 + 4
+  skill.perception: 9        # WIS 5 + 4 (Keen Senses)
+  skill.medicine: 5          # WIS 5, not proficient
+  passive.perception: 19
+spellcasting:
+  srd51.class.druid:
+    dc: 17                   # 8 + 4 + 5
+    attackBonus: 9           # 4 + 5
+    slots: { 1: 4, 2: 3, 3: 3, 4: 3, 5: 2, 6: 1 }   # full-caster table, level 11
+    cantripsKnown: 4         # srd51.table.druid.cantrips-known row 10
+spells:
+  srd51.spell.mending: free
+  srd51.spell.guidance: free            # Bonus Cantrip (Circle of the Land). ENGINE MISMATCH: got absent (same open-choice of spell gap)
+  srd51.spell.fire-bolt: free           # High Elf cantrip (wizard list, INT). ENGINE MISMATCH: got absent (an open-choice of spell answer is registered but never added to the spell list)
+  srd51.spell.wall-of-fire: slot
+  srd51.spell.barkskin: slot            # forest circle spells: 3
+  srd51.spell.call-lightning: slot      # 5
+  srd51.spell.divination: slot          # 7
+  srd51.spell.freedom-of-movement: slot
+  srd51.spell.commune-with-nature: slot # 9
+  srd51.spell.tree-stride: slot
+resources:
+  wild-shape: { max: 2, recharge: [short-rest, long-rest] }
+  natural-recovery: { max: 1, recharge: [long-rest] }
+actions:
+  wild-shape: { activation: action, cost: { wild-shape: 1 } }
+  natural-recovery: { activation: special, cost: { natural-recovery: 1 } }
+attacks:
+  scimitar: { toHit: 7, damage: "1d6 + 3", type: slashing }   # DEX 3 + prof 4
+features:
+  - srd51.feature.druid.wild-shape
+  - srd51.feature.circle-of-the-land.circle-spells
+  - srd51.feature.circle-of-the-land.lands-stride
+  - srd51.feature.circle-of-the-land.natures-ward
+choices:
+  "srd51.class.druid#asi-4": answered
+  "srd51.class.druid#asi-8": answered
+  "srd51.class.druid#cantrips": answered
+  "srd51.class.druid#spells": answered
+  "srd51.feature.circle-of-the-land.circle-spells#land": answered
+proficiencies: [save:int, save:wis, skill:nature, skill:survival, skill:perception, weapon:scimitar, language:druidic]
+sections:
+  active: [core, abilities, saves, skills, senses, combat, attacks, actions, resources, spellcasting, spells, features]
+warnings: []

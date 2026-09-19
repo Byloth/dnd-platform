@@ -1,0 +1,68 @@
+# Lightfoot halfling Ranger 11 (Hunter: Colossus Slayer, Multiattack Defense, Volley; Archery) on the SRD 5.1 base package.
+# Scores: base str 10, dex 15, con 14, int 10, wis 15, cha 8; halfling +2 dex; lightfoot +1 cha; ASI 4 +2 dex; ASI 8 +1 dex, +1 wis.
+# Final: str 10, dex 20, con 14, int 10, wis 16, cha 9 → mods str 0, dex +5, con +2, int 0, wis +3, cha -1.
+# Proficiency bonus at 11: +4.
+values:
+  ability.dex: 20          # 15 + 2 (halfling) + 3 (ASIs)
+  ability.wis: 16          # 15 + 1 (ASI 8)
+  ability.cha: 9
+  proficiencyBonus: 4
+  hp.max: 92               # level 1: 10 + 2 = 12; levels 2-11: 10 × (6 + 2) = 80
+  ac: 16                   # leather 11 + mod(dex) 5
+  initiative: 5
+  speed.walk: 25
+  attacks.perAction: 2
+  save.str: 4              # mod 0 + 4
+  save.dex: 9              # mod 5 + 4
+  save.wis: 3              # not proficient
+  save.con: 2
+  skill.perception: 7      # mod(wis) 3 + 4
+  skill.stealth: 9         # mod(dex) 5 + 4 (no Hide in Plain Sight bonus unless toggled)
+  skill.survival: 7        # mod(wis) 3 + 4
+  skill.nature: 0
+  passive.perception: 17
+attacks:
+  longbow: { toHit: 11, damage: "1d8 + 5", type: piercing }       # mod(dex) 5 + proficiency 4 + Archery 2
+  unarmed-strike: { toHit: 4, damage: "1", type: bludgeoning }
+actions:
+  lucky: { activation: special }
+  primeval-awareness: { activation: action, cost: { spell-slot: 1 } }
+  colossus-slayer: { activation: special }
+  hide-in-plain-sight: { activation: special }
+  volley: { activation: action }                                  # Multiattack option
+spellcasting:
+  srd51.class.ranger:
+    dc: 15                 # 8 + 4 + mod(wis) 3
+    attackBonus: 7         # 4 + 3
+    slots: { 1: 4, 2: 3, 3: 3 }   # half-caster table, ranger level 11
+    spellsKnown: 7         # table ranger.spells-known, level 11
+spells:
+  srd51.spell.hunters-mark: slot
+  srd51.spell.spike-growth: slot
+  srd51.spell.conjure-animals: slot
+  srd51.spell.plant-growth: slot
+features:
+  - srd51.feature.ranger.favored-enemy
+  - srd51.feature.ranger.natural-explorer
+  - srd51.feature.ranger.extra-attack
+  - srd51.feature.ranger.lands-stride
+  - srd51.feature.ranger.hide-in-plain-sight
+  - srd51.feature.hunter.hunters-prey
+  - srd51.feature.hunter.defensive-tactics
+  - srd51.feature.hunter.multiattack
+choices:
+  "srd51.class.ranger#ranger-archetype": answered
+  "srd51.class.ranger#asi-4": answered
+  "srd51.class.ranger#asi-8": answered
+  "srd51.feature.ranger.favored-enemy#favored-enemy-1": answered
+  "srd51.feature.ranger.favored-enemy#favored-enemy-2": answered
+  "srd51.feature.ranger.favored-enemy#favored-enemy-language-2": answered
+  "srd51.feature.ranger.natural-explorer#favored-terrain-2": answered
+  "srd51.feature.ranger.natural-explorer#favored-terrain-3": answered
+  "srd51.feature.hunter.defensive-tactics#defensive-tactics": answered
+  "srd51.feature.hunter.multiattack#multiattack": answered
+  "srd51.class.ranger#spells": answered
+proficiencies: [save:str, save:dex, skill:perception, skill:stealth, skill:survival, weapon:martial]
+sections:
+  active: [core, abilities, saves, skills, combat, attacks, actions, spellcasting, spells, features]
+  inactive: [senses, resources]

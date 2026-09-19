@@ -1,0 +1,67 @@
+# Tiefling Sorcerer 1 (Draconic Bloodline, red dragon). Base str 8, dex 14, con 14, int 11, wis 12, cha 15;
+# tiefling +1 INT, +2 CHA → str 8, dex 14, con 14, int 12, wis 12, cha 17.
+# Modifiers: str -1, dex +2, con +2, int +1, wis +1, cha +3. Proficiency bonus at level 1: +2.
+values:
+  ability.str: 8
+  ability.dex: 14
+  ability.con: 14
+  ability.int: 12               # 11 + 1 (tiefling)
+  ability.wis: 12
+  ability.cha: 17               # 15 + 2 (tiefling)
+  proficiencyBonus: 2
+  hp.max: 9                     # d6 6 + CON 2 = 8; Draconic Resilience +1 × sorcerer level 1 = 9
+  ac: 15                        # Draconic Resilience, no armour: 13 + DEX 2
+  initiative: 2                 # DEX
+  speed.walk: 30                # tiefling
+  sense.darkvision: 60          # tiefling Darkvision
+  save.con: 4                   # 2 + 2 proficient
+  save.cha: 5                   # 3 + 2 proficient
+  save.str: -1                  # not proficient
+  save.dex: 2                   # not proficient
+  save.wis: 1                   # not proficient
+  skill.arcana: 3               # INT 1 + 2 (chosen)
+  skill.persuasion: 5           # CHA 3 + 2 (chosen)
+  skill.deception: 3            # CHA 3, not proficient
+  skill.perception: 1           # WIS 1, not proficient
+  skill.athletics: -1           # STR -1, not proficient
+  passive.perception: 11        # 10 + 1
+spellcasting:
+  srd51.class.sorcerer:
+    dc: 13                      # 8 + 2 + CHA 3
+    attackBonus: 5              # 2 + 3
+    slots: { 1: 2 }             # full-caster table, level 1
+    cantripsKnown: 4            # table sorcerer.cantrips-known row 1
+    spellsKnown: 2              # table sorcerer.spells-known row 1
+spells:
+  srd51.spell.fire-bolt: free
+  srd51.spell.magic-missile: slot
+  srd51.spell.shield: slot
+  srd51.spell.thaumaturgy: free # Infernal Legacy cantrip (known)
+attacks:
+  dagger: { toHit: 4, damage: "1d4 + 2", type: piercing }   # finesse: DEX 2 (> STR -1) + proficiency 2 (sorcerer weapon)
+  unarmed-strike: { toHit: 1, damage: "0" }                 # STR -1 + 2; 1 + (-1) = 0
+features:
+  - srd51.feature.sorcerer.spellcasting
+  - srd51.feature.draconic-bloodline.draconic-resilience
+  - srd51.feature.draconic-bloodline.dragon-ancestor
+  - srd51.feature.tiefling.hellish-resistance
+  - srd51.feature.tiefling.infernal-legacy
+choices:
+  "srd51.class.sorcerer#skills": answered
+  "srd51.class.sorcerer#sorcerous-origin": answered
+  "srd51.class.sorcerer#cantrips": answered
+  "srd51.class.sorcerer#spells": answered
+  "srd51.feature.draconic-bloodline.dragon-ancestor#dragon-ancestor": answered
+proficiencies:
+  - save:con
+  - save:cha
+  - skill:arcana
+  - skill:persuasion
+  - weapon:dagger
+  - weapon:quarterstaff
+  - language:common
+  - language:infernal
+  - language:draconic           # Dragon Ancestor
+sections:
+  active: [core, abilities, saves, skills, senses, combat, attacks, spellcasting, spells, features]
+  inactive: [resources, actions]   # sorcery points arrive at level 2

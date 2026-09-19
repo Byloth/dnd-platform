@@ -1,0 +1,54 @@
+# Human Warlock 5 (The Fiend, Pact of the Blade). Base str 9, dex 13, con 13, int 10, wis 11, cha 15; human +1 all;
+# ASI 4 +2 CHA → str 10, dex 14, con 14, int 11, wis 12, cha 18. Modifiers: 0, +2, +2, 0, +1, +4.
+# Proficiency bonus at level 5: +3.
+values:
+  ability.cha: 18               # 15 + 1 (human) + 2 (ASI 4)
+  ability.con: 14
+  proficiencyBonus: 3
+  hp.max: 38                    # level 1: 8 + 2 = 10; levels 2-5: 4 × (5 + 2) = 28
+  ac: 13                        # leather 11 + DEX 2
+  initiative: 2
+  speed.walk: 30
+  sense.darkvision: 120         # Devil's Sight (op max 120; human has none)
+  attacks.perAction: 2          # Thirsting Blade (op max 2)
+  save.wis: 4                   # 1 + 3
+  save.cha: 7                   # 4 + 3
+  save.con: 2
+  skill.arcana: 3               # INT 0 + 3
+  skill.deception: 7            # CHA 4 + 3
+  skill.perception: 1
+  passive.perception: 11
+spellcasting:
+  # Pact Magic row 5: 2 slots of 3rd level → snapshot pact: { slots: 2, level: 3 }
+  srd51.class.warlock:
+    dc: 15                      # 8 + 3 + 4
+    attackBonus: 7              # 3 + 4
+    cantripsKnown: 3            # table row 4
+    spellsKnown: 6              # table row 5
+spells:
+  srd51.spell.eldritch-blast: free
+  srd51.spell.chill-touch: free
+  srd51.spell.fireball: slot
+  srd51.spell.counterspell: slot
+resources: {}
+actions:
+  dark-ones-blessing: { activation: free }
+  create-pact-weapon: { activation: action }   # Pact of the Blade
+attacks:
+  dagger: { toHit: 5, damage: "1d4 + 2", type: piercing }   # DEX 2 + 3
+features:
+  - srd51.feature.warlock.pact-magic
+  - srd51.feature.warlock.eldritch-invocations
+  - srd51.feature.warlock.pact-boon
+  - srd51.feature.the-fiend.dark-ones-blessing
+choices:
+  "srd51.class.warlock#otherworldly-patron": answered
+  "srd51.class.warlock#cantrips": answered
+  "srd51.class.warlock#spells": answered
+  "srd51.class.warlock#asi-4": answered
+  "srd51.feature.warlock.eldritch-invocations#eldritch-invocations": answered
+  "srd51.feature.warlock.pact-boon#pact-boon": answered
+proficiencies: [save:wis, save:cha, skill:arcana, skill:deception, armor:light, weapon:simple, language:infernal]
+sections:
+  active: [senses, attacks, actions, spellcasting, spells, features]
+  inactive: [resources]         # Dark One's Own Luck arrives at 6
