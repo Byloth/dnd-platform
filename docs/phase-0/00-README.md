@@ -14,6 +14,7 @@ Taken on 2026-09-18 and recorded in [../17-open-decisions.md](../17-open-decisio
 |---|---|
 | DEC-01 | TypeScript everywhere. Vue ecosystem for the future web application. Monorepo with workspace packages under the temporary scope `@byloth/dnd-platform`. Application shell (single-page vs Nuxt) deferred to Phase 1, leaning Nuxt. |
 | DEC-02 | SRD 5.1 (2014) is the first base package. The engine is edition-neutral; SRD 5.2 (2024) arrives later as a second base package and the ruleset becomes selectable (granularity: DEC-18). |
+| DEC-20 | No package is incompatible with another: a campaign or character carries a content selection (packages, order, exclusions); the engine prunes what becomes unreachable and reports the cascade. Taken 2026-09-21, implemented in M0.6. |
 | DEC-03 | YAML for authoring, JSON Schema for validation, JSON as canonical exchange form. |
 | DEC-08 | AGPL-3.0. Public repository from the first commit. Copyrighted official content is integrated from day one in a git-ignored directory, in the same format, and must work exactly like public content. |
 

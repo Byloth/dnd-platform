@@ -119,6 +119,9 @@ Every sheet section, feature card and spell card carries its source; the print o
 6. Obtain the owner's confirmation, then transcribe the real `phb14` starting with Way of Shadow, the Monk-relevant equipment and the reference Monk fixture; verify the fixture passes locally and is skipped in CI — M0.6.
 7. Continue `phb14` transcription class by class as needed by later fixtures; it is not required to be complete for Phase 0 — M0.6.
 8. Write the naming convention and the additive-only rule into `content-private/README.md` — M0.6.
+9. Loader *selection mode* (DEC-20): `loadPackages` accepts an optional selection `{ packages, order, exclude: [{ package, type?, tags?, ids? }] }`, prunes transitively, marks pruned entities inactive, returns a cascade report; unresolved references to excluded entities are diagnostics, not errors. Fixture: a selection excluding the PHB species with a feline-only homebrew, asserting the cascade — M0.6.
+10. Suite guard for DEC-20: load every Wizards package present (`srd51` plus whatever exists under `content-private/`) with an empty exclusion list and assert an empty cascade report; skipped when no private package is present — M0.6.
+11. Source books for transcription live in `content-private/sources/` (git-ignored with the rest): one PDF per book with a text layer, and `text/<id>.md` with one marker per page for searching; see the README there. Planned private packages beyond `phb14`: `dmg14`, `mm14`, `tce`, `xge`, `mpmm` (Wizards) and `historia` (Mana Project Studio, Italian, a setting: ships a preset selection) — M0.6 onwards, as fixtures need them.
 
 ## Open points
 

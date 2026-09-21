@@ -83,6 +83,7 @@ Warnings (non-blocking): missing translations, a feature with text but no effect
 - Two packages adding entities with the same id is impossible (namespaced ids).
 - Two packages patching the same field: the later in load order wins, and the platform shows a conflict warning on the sheet's provenance for that value. A campaign can pin the order.
 - Extensions never conflict (they are additive); duplicates are merged with a warning.
+- **No package declares incompatibility with another (DEC-20).** A campaign or character carries a *content selection*: packages, order and exclusions (a package, an entity type within it, a tag, or single ids). The engine prunes what the exclusions make unreachable (an entity referencing or requiring an excluded one becomes inactive, transitively) and returns a cascade report listing what each exclusion also disabled. A setting package may ship a *preset selection* instead of a conflicts list.
 
 ### Visibility and sharing
 

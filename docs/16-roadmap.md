@@ -32,7 +32,7 @@ Done when:
 - A second character of every SRD class computes without warnings.
 - Adding the homebrew species and the private Player's Handbook package required no engine change.
 
-Decisions taken at the start (2026-09-18, recorded in [17](17-open-decisions.md)): DEC-01 Technology stack (partially: TypeScript, Vue ecosystem, monorepo; app shell deferred to Phase 1), DEC-02 Rules edition (SRD 5.1 first, ruleset selectable by design), DEC-03 Serialisation format (YAML + JSON Schema), DEC-08 Project licence (AGPL-3.0, public repository). Execution plan: [phase-0/](phase-0/00-README.md).
+Decisions taken at the start (2026-09-18, recorded in [17](17-open-decisions.md)): DEC-01 Technology stack (partially: TypeScript, Vue ecosystem, monorepo; app shell deferred to Phase 1), DEC-02 Rules edition (SRD 5.1 first, ruleset selectable by design), DEC-03 Serialisation format (YAML + JSON Schema), DEC-08 Project licence (AGPL-3.0, public repository). Taken during Phase 0 (2026-09-21): DEC-20 Package compatibility and content selection. Execution plan: [phase-0/](phase-0/00-README.md).
 
 ### Phase 1 — MVP: create, view, print
 
