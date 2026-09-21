@@ -31,6 +31,16 @@ pnpm generate:types          # regenerate packages/schema/src/generated from the
 
 Content format: `docs/phase-0/02-content-format.md`; schemas in `packages/schema/schemas/`; example packages in `fixtures/packages/`.
 
+### Private content
+
+Official books are copyrighted and never committed. They are transcribed by hand into private packages under
+`content-private/`, a git-ignored directory with the same package format as `packages/content/`. The tooling
+scans both roots (`dnd validate` prints what it found), private fixtures under `content-private/fixtures/` are
+skipped when the directory is absent, and two guards (`E_PRIVATE_OUTSIDE_ROOT`, `E_PRIVATE_TRACKED`) plus the
+pre-commit hook make sure nothing private leaves the machine. See
+[`content-private/README.md`](content-private/README.md) and
+[`docs/phase-0/06-private-packages.md`](docs/phase-0/06-private-packages.md).
+
 ## Licence
 
 AGPL-3.0-only. See [LICENSE](LICENSE) and [NOTICE](NOTICE) for the SRD 5.1

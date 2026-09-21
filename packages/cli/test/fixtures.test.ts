@@ -3,28 +3,34 @@ import { join, resolve } from "node:path";
 
 import { describe, expect, it } from "vitest";
 
-import { runFixtures } from "../src/commands/fixtures.js";
+import { DEFAULT_FIXTURE_DIRS, runFixtures } from "../src/commands/fixtures.js";
 
 const ROOT = resolve(import.meta.dirname, "..", "..", "..");
-const DIR = resolve(ROOT, "fixtures", "characters");
-const names = existsSync(DIR) ?
-    readdirSync(DIR)
-        .filter((name) => existsSync(join(DIR, name, "character.yaml")))
-        .sort() :
-    [];
+
+/** Every fixture under the default roots; the private root is absent in CI. */
+const fixtures = DEFAULT_FIXTURE_DIRS.flatMap((dir) =>
+{
+    const absolute = resolve(ROOT, dir);
+    if (!existsSync(absolute)) { return []; }
+
+    return readdirSync(absolute)
+        .filter((name) => existsSync(join(absolute, name, "character.yaml")))
+        .sort()
+        .map((name) => ({ dir: dir, name: name }));
+});
 
 describe("golden character fixtures", () =>
 {
     it("finds fixtures", () =>
     {
-        expect(names.length).toBeGreaterThan(0);
+        expect(fixtures.length).toBeGreaterThan(0);
     });
 
-    for (const name of names)
+    for (const { dir, name } of fixtures)
     {
-        it(`fixtures/characters/${name}`, (ctx) =>
+        it(`${dir}/${name}`, (ctx) =>
         {
-            const [report] = runFixtures({ root: ROOT, filter: name });
+            const [report] = runFixtures({ root: ROOT, dirs: [dir], filter: name });
 
             expect(report).toBeDefined();
             if (report!.status === "skip")

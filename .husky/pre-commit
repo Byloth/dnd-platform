@@ -1,3 +1,12 @@
+#!/bin/sh
+# Nothing under content-private/ may be committed, except its README (docs/phase-0/06-private-packages.md).
+private=$(git diff --cached --name-only --diff-filter=ACMR -- content-private | grep -v '^content-private/README\.md$' || true)
+if [ -n "$private" ]; then
+    echo "pre-commit: refusing to commit private content:" >&2
+    echo "$private" | sed 's/^/  /' >&2
+    exit 1
+fi
+
 pnpm run lint
 pnpm run typecheck
 pnpm run test

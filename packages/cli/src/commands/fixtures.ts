@@ -9,15 +9,21 @@
  */
 
 import { existsSync, readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
-import { dirname, join, resolve } from "node:path";
+import { join, resolve } from "node:path";
 
 import { parse } from "yaml";
 
 import { derive, loadPackages, stableStringify } from "@byloth/dnd-platform-engine";
 import type { Character, ComputedSheet, SpellView } from "@byloth/dnd-platform-engine";
 
+import { PRIVATE_ROOT, findRepositoryRoot } from "../io/repository.js";
 import { toPackageSource } from "../io/to-package-source.js";
 import { computeCoverage, writeCoverageReport } from "./coverage.js";
+
+export { findRepositoryRoot };
+
+/** Fixture roots scanned by default; the private one is absent in CI. */
+export const DEFAULT_FIXTURE_DIRS: readonly string[] = ["fixtures/characters", `${PRIVATE_ROOT}/fixtures`];
 
 export type FixtureStatus = "pass" | "fail" | "skip" | "updated";
 
@@ -87,20 +93,6 @@ interface Expected
     readonly proficiencies?: readonly string[];
     readonly sections?: { readonly active?: readonly string[], readonly inactive?: readonly string[] };
     readonly warnings?: readonly string[];
-}
-
-/** Walk up from `from` to the directory holding `pnpm-workspace.yaml`. */
-export function findRepositoryRoot(from: string = process.cwd()): string
-{
-    let dir = resolve(from);
-    for (;;)
-    {
-        if (existsSync(join(dir, "pnpm-workspace.yaml"))) { return dir; }
-
-        const parent = dirname(dir);
-        if (parent === dir) { throw new Error(`repository root (pnpm-workspace.yaml) not found above ${from}`); }
-        dir = parent;
-    }
 }
 
 function readYaml<T>(path: string): T
@@ -262,6 +254,13 @@ function runOne(root: string, directory: string, name: string, update: boolean):
     }
 
     const sources = packagesFile.packages.map((path) => toPackageSource(resolve(root, path)));
+    const loadedIds = new Set(sources.map((s) => s.manifest.id));
+    const missingIds = (packagesFile.requires ?? []).filter((id) => !loadedIds.has(id));
+    if (missingIds.length > 0)
+    {
+        return { name: name, directory: directory, status: "skip", details: [`missing packages: ${missingIds.join(", ")}`] };
+    }
+
     const character = readYaml<Character>(join(directory, "character.yaml"));
     const pins = Object.fromEntries(character.packages.map((p) => [p.id, p.version]));
     const set = loadPackages(sources, { pins: pins });
@@ -295,11 +294,11 @@ function runOne(root: string, directory: string, name: string, update: boolean):
     return { name: name, directory: directory, status: updated ? "updated" : "pass", details: [] };
 }
 
-/** Run every fixture under the given directories (default `fixtures/characters`). */
+/** Run every fixture under the given directories (default `DEFAULT_FIXTURE_DIRS`; a missing directory is skipped). */
 export function runFixtures(options: FixturesOptions = {}): FixtureReport[]
 {
     const root = options.root ?? findRepositoryRoot();
-    const dirs = (options.dirs?.length ? options.dirs : ["fixtures/characters"]).map((d) => resolve(root, d));
+    const dirs = (options.dirs?.length ? options.dirs : DEFAULT_FIXTURE_DIRS).map((d) => resolve(root, d));
     const reports: FixtureReport[] = [];
 
     for (const dir of dirs)
@@ -359,6 +358,14 @@ export function runFixturesCommand(argv: readonly string[]): number
     }
     else
     {
+        if (dirs.length === 0)
+        {
+            const privateDir = `${PRIVATE_ROOT}/fixtures`;
+            if (!existsSync(resolve(findRepositoryRoot(), privateDir)))
+            {
+                process.stdout.write(`${privateDir}: absent, private fixtures skipped\n`);
+            }
+        }
         for (const report of reports)
         {
             const label = report.status.toUpperCase().padEnd(7);

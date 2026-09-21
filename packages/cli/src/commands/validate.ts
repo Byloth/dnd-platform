@@ -1,9 +1,13 @@
 /**
- * `dnd validate <dir…> [--allow-missing] [--json]`
+ * `dnd validate [dirs…] [--all] [--references] [--allow-missing] [--json]`
  *
  * Schema conformance of content package directories plus the cheap
- * structural checks of docs/phase-0/02-content-format.md. Referential
- * integrity between entities belongs to the engine's `validate` (M0.4).
+ * structural checks of docs/phase-0/02-content-format.md, and the two guards
+ * of docs/phase-0/06-private-packages.md around `content-private/`.
+ * With no directory, or with `--all`, the two package roots
+ * (`packages/content/*`, `content-private/*`) are discovered. With
+ * `--references` the packages are also loaded into the engine next to the
+ * base package and every cross-entity reference must resolve.
  */
 
 import { existsSync } from "node:fs";
@@ -14,9 +18,14 @@ import type { ErrorObject, ValidateFunction } from "ajv";
 import addFormats from "ajv-formats";
 
 import { ENTITY_TYPE_FOR_DIRECTORY, SCHEMAS, checkFormula } from "@byloth/dnd-platform-schema";
+import { loadPackages, validate as validateReferences } from "@byloth/dnd-platform-engine";
+import type { PackageSource } from "@byloth/dnd-platform-engine";
 
 import { readPackageDirectory } from "../io/read-package.js";
 import type { PackageDirectory, SourceFile } from "../io/read-package.js";
+import { PRIVATE_ROOT, PUBLIC_ROOT, discoverPackages, isUnderPrivateRoot, trackedPrivateFiles, tryRepositoryRoot } from "../io/repository.js";
+import type { DiscoveredPackage } from "../io/repository.js";
+import { toPackageSource } from "../io/to-package-source.js";
 
 export const DIAGNOSTIC_CODES = [
     "E_MANIFEST_MISSING",
@@ -25,9 +34,13 @@ export const DIAGNOSTIC_CODES = [
     "E_FORMULA",
     "E_ID_MISMATCH",
     "E_PRIVATE_PUBLIC",
+    "E_PRIVATE_OUTSIDE_ROOT",
+    "E_PRIVATE_TRACKED",
     "E_BASE_DEPENDENCIES",
     "E_MISSING_RULESET",
     "E_EXTENSION_RULESET",
+    "E_REFERENCE",
+    "W_REFERENCE",
     "W_UNKNOWN_DIRECTORY"
 
 ] as const;
@@ -144,7 +157,13 @@ function validateFile(
     void pkg;
 }
 
-function validatePackage(root: string, ajv: Ajv2020, out: Diagnostic[]): void
+interface Context
+{
+    readonly ajv: Ajv2020;
+    readonly repoRoot?: string;
+}
+
+function validatePackage(root: string, context: Context, out: Diagnostic[]): void
 {
     const pkg = readPackageDirectory(root);
     const packageName = basename(root);
@@ -155,6 +174,7 @@ function validatePackage(root: string, ajv: Ajv2020, out: Diagnostic[]): void
         return;
     }
 
+    const { ajv } = context;
     const manifestValidator = ajv.getSchema("https://dnd-platform.byloth.dev/schema/v0/package.schema.json");
     if (manifestValidator === undefined) { throw new Error("package schema not registered"); }
     validateFile(pkg, packageName, pkg.manifest, manifestValidator, out);
@@ -166,6 +186,17 @@ function validatePackage(root: string, ajv: Ajv2020, out: Diagnostic[]): void
     if (manifest.redistributable === false && manifest.visibility !== "private")
     {
         out.push({ severity: "error", code: "E_PRIVATE_PUBLIC", ...manifestBase, path: "/visibility", message: "a non-redistributable package must be private" });
+    }
+    const outsidePrivateRoot = context.repoRoot !== undefined && !isUnderPrivateRoot(context.repoRoot, root);
+    if (manifest.redistributable === false && outsidePrivateRoot)
+    {
+        out.push({
+            severity: "error",
+            code: "E_PRIVATE_OUTSIDE_ROOT",
+            ...manifestBase,
+            path: "/redistributable",
+            message: `a non-redistributable package must live under ${PRIVATE_ROOT}/ (docs/phase-0/06-private-packages.md)`
+        });
     }
     if (manifest.kind === "base")
     {
@@ -200,13 +231,61 @@ function validatePackage(root: string, ajv: Ajv2020, out: Diagnostic[]): void
     }
 }
 
-export interface ValidateOptions { readonly allowMissing?: boolean }
+/**
+ * Load the packages into the engine next to the base package and report
+ * unresolved references and load errors as diagnostics.
+ */
+function checkReferences(dirs: readonly string[], repoRoot: string | undefined, out: Diagnostic[]): void
+{
+    const sources: PackageSource[] = [];
+    const seen = new Set<string>();
+    const add = (dir: string): void =>
+    {
+        let source: PackageSource;
+        try { source = toPackageSource(dir); }
+        catch { return; } // parse errors are already reported by the schema pass
+
+        if (seen.has(source.manifest.id)) { return; }
+        seen.add(source.manifest.id);
+        sources.push(source);
+    };
+    for (const dir of dirs) { add(dir); }
+
+    const base = repoRoot === undefined ? undefined : resolve(repoRoot, PUBLIC_ROOT, "srd51");
+    if (base !== undefined && existsSync(base) && !sources.some((s) => s.manifest.kind === "base")) { add(base); }
+    if (sources.length === 0) { return; }
+
+    const set = loadPackages(sources);
+    for (const d of validateReferences(set).entries)
+    {
+        if (d.severity === "info") { continue; }
+        out.push({
+            severity: d.severity,
+            code: d.severity === "error" ? "E_REFERENCE" : "W_REFERENCE",
+            package: d.package ?? "",
+            file: d.entity ?? "",
+            path: d.path ?? "/",
+            message: `${d.code} ${d.message}`
+        });
+    }
+}
+
+export interface ValidateOptions
+{
+    readonly allowMissing?: boolean;
+    /** Repository root for the private-root guards; discovered from the working directory when omitted. */
+    readonly repoRoot?: string;
+    /** Also load the packages into the engine and resolve every reference. */
+    readonly references?: boolean;
+}
 
 /** Validate package directories; returns every diagnostic found. */
 export function validatePackages(dirs: readonly string[], options: ValidateOptions = {}): Diagnostic[]
 {
-    const ajv = createAjv();
+    const repoRoot = options.repoRoot ?? tryRepositoryRoot();
+    const context: Context = { ajv: createAjv(), ...(repoRoot !== undefined ? { repoRoot: repoRoot } : {}) };
     const out: Diagnostic[] = [];
+    const present: string[] = [];
     for (const dir of dirs)
     {
         const root = resolve(dir);
@@ -217,25 +296,69 @@ export function validatePackages(dirs: readonly string[], options: ValidateOptio
 
             continue;
         }
-        validatePackage(root, ajv, out);
+        present.push(root);
+        validatePackage(root, context, out);
     }
+    if (repoRoot !== undefined)
+    {
+        for (const file of trackedPrivateFiles(repoRoot))
+        {
+            out.push({
+                severity: "error",
+                code: "E_PRIVATE_TRACKED",
+                package: PRIVATE_ROOT,
+                file: file,
+                path: "/",
+                message: "tracked by git; nothing under content-private/ may be committed"
+            });
+        }
+    }
+    if (options.references) { checkReferences(present, repoRoot, out); }
 
     return out;
+}
+
+function describeRoots(found: readonly DiscoveredPackage[], repoRoot: string): string
+{
+    const lines: string[] = [];
+    for (const root of [PUBLIC_ROOT, PRIVATE_ROOT] as const)
+    {
+        const packages = found.filter((p) => p.root === root);
+        const state = existsSync(resolve(repoRoot, root)) ? `${packages.length} package(s)` : "absent";
+        lines.push(`${root}/: ${state}`);
+        for (const p of packages)
+        {
+            lines.push(`  ${p.id ?? basename(p.directory)}  ${p.visibility ?? "?"}${p.redistributable === false ? ", not redistributable" : ""}  (${p.relative})`);
+        }
+    }
+
+    return `${lines.join("\n")}\n`;
 }
 
 export function runValidate(argv: readonly string[]): number
 {
     const json = argv.includes("--json");
     const allowMissing = argv.includes("--allow-missing");
-    const dirs = argv.filter((arg) => !arg.startsWith("--"));
-    if (dirs.length === 0)
-    {
-        process.stderr.write("dnd validate: at least one package directory is required\n");
+    const references = argv.includes("--references");
+    const explicit = argv.filter((arg) => !arg.startsWith("--"));
+    const all = argv.includes("--all") || (explicit.length === 0);
 
-        return 2;
+    let dirs = explicit;
+    if (all)
+    {
+        const repoRoot = tryRepositoryRoot();
+        if (repoRoot === undefined)
+        {
+            process.stderr.write("dnd validate: not inside the repository; pass package directories explicitly\n");
+
+            return 2;
+        }
+        const found = discoverPackages(repoRoot);
+        if (!json) { process.stdout.write(describeRoots(found, repoRoot)); }
+        dirs = [...found.map((p) => p.directory), ...explicit];
     }
 
-    const diagnostics = validatePackages(dirs, { allowMissing: allowMissing });
+    const diagnostics = validatePackages(dirs, { allowMissing: allowMissing, references: references });
     const errors = diagnostics.filter((d) => d.severity === "error").length;
     if (json)
     {

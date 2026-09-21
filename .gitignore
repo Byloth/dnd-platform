@@ -29,9 +29,10 @@ coverage/
 #
 *.log
 
-# Copyrighted content: same package format, never committed
+# Copyrighted content: same package format, never committed (only its README is tracked)
 #
-/content-private/
+/content-private/*
+!/content-private/README.md
 
 # Downloaded upstream datasets of the SRD import pipeline
 #

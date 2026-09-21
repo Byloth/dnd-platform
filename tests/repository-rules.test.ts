@@ -44,10 +44,12 @@ describe("repository rules (docs/phase-0/01-monorepo.md)", () =>
         expect(offenders).toEqual([]);
     });
 
-    it("nothing under content-private/ is tracked by git", () =>
+    it("nothing under content-private/ is tracked by git, except its README", () =>
     {
-        const tracked = execFileSync("git", ["ls-files", "content-private"], { cwd: ROOT, encoding: "utf8" }).trim();
+        const tracked = execFileSync("git", ["ls-files", "content-private"], { cwd: ROOT, encoding: "utf8" })
+            .split("\n")
+            .filter((line) => line !== "");
 
-        expect(tracked).toBe("");
+        expect(tracked).toEqual(["content-private/README.md"]);
     });
 });

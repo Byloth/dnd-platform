@@ -4,7 +4,7 @@
  * `dnd` — command-line tools of the platform.
  *
  * Commands (docs/phase-0/00-README.md, M0.8):
- *   validate <dirs…> [--allow-missing] [--json]   validate content package directories
+ *   validate [dirs…] [--all] [--references] [--allow-missing] [--json]
  *   build                                          YAML → canonical JSON bundles
  *   derive <character.yaml> [--json|--text]
  *   fixtures [dirs…] [--update] [--filter <name>] [--coverage]
@@ -20,8 +20,10 @@ const HELP = `dnd — dnd-platform command-line tools (content format v${FORMAT_
 Usage: dnd <command> [options]
 
 Commands:
-  validate <dirs…> [--allow-missing] [--json]
-             validate content package directories against the schemas
+  validate [dirs…] [--all] [--references] [--allow-missing] [--json]
+             validate content package directories against the schemas;
+             no directory or --all: discover packages/content/* and content-private/*;
+             --references: also load them into the engine and resolve every reference
   build      convert YAML packages to canonical JSON      (M0.8)
   derive     compute a character sheet                    (M0.8)
   fixtures [dirs…] [--update] [--filter <name>] [--json]

@@ -1,2 +1,3 @@
 diagnostics:
   - { code: E_PRIVATE_PUBLIC, file: package.yaml }
+  - { code: E_PRIVATE_OUTSIDE_ROOT, file: package.yaml }
