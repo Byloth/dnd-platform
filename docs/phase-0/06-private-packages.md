@@ -116,9 +116,9 @@ Every sheet section, feature card and spell card carries its source; the print o
 3. Implement the redistributable guard and the git-tracking guard in `validate:content`, each with a test using a temporary directory — M0.3.
 4. Add `requires: [<package-id>]` to the fixture format and the skipped-with-reason behaviour to the fixture runner — M0.3.
 5. Create the `phb14` manifest and the Way of Shadow subclass as the private-package stub used by M0.2 (the stub is a fixture package under `fixtures/packages/phb14-stub/` with placeholder text and real mechanics; it is committed because it contains no book text) — M0.2.
-6. Obtain the owner's confirmation, then transcribe the real `phb14` starting with Way of Shadow, the Monk-relevant equipment and the reference Monk fixture; verify the fixture passes locally and is skipped in CI — M0.6.
-7. Continue `phb14` transcription class by class as needed by later fixtures; it is not required to be complete for Phase 0 — M0.6.
-8. Write the naming convention and the additive-only rule into `content-private/README.md` — M0.6.
+6. Obtain the owner's confirmation, then transcribe the real `phb14` starting with Way of Shadow, the Monk-relevant equipment and the reference Monk fixture; verify the fixture passes locally and is skipped in CI — M0.6. **Done (2026-09-21):** confirmation given; the whole book is transcribed (see the progress log of [08-workplan.md](08-workplan.md)); `content-private/fixtures/reference-monk/` is green locally and absent in CI.
+7. Continue `phb14` transcription class by class as needed by later fixtures; it is not required to be complete for Phase 0 — M0.6. **Done (2026-09-21):** complete for the Player's Handbook; other books are later milestones.
+8. Write the naming convention and the additive-only rule into `content-private/README.md` — M0.6. **Done (2026-09-21).**
 9. Loader *selection mode* (DEC-20): `loadPackages` accepts an optional selection `{ packages, order, exclude: [{ package, type?, tags?, ids? }] }`, prunes transitively, marks pruned entities inactive, returns a cascade report; unresolved references to excluded entities are diagnostics, not errors. Fixture: a selection excluding the PHB species with a feline-only homebrew, asserting the cascade — M0.6. **Done (2026-09-21):** `packages/engine/src/load/select.ts`, tests in `packages/engine/test/selection.test.ts` (placeholder species and feat added to `fixtures/packages/phb14-stub/`), golden fixture `fixtures/characters/monk-l3-excluded-species/` proving that a character keeps computing on excluded content. A fixture declares its selection in `packages.yaml`:
 
    ```yaml
@@ -132,6 +132,6 @@ Every sheet section, feature card and spell card carries its source; the print o
 
 ## Open points
 
-- Whether the committed `phb14-stub` fixture package (placeholder text, real mechanics) is acceptable from a copyright standpoint: mechanics and names of features are widely reproduced, verbatim text is not; keep placeholder text to a single sentence and no rules text.
+- ~~Whether the committed `phb14-stub` fixture package is acceptable~~ Kept (2026-09-21): placeholder text only, plus a placeholder species and feat that correspond to nothing in any book (DEC-20 tests).
 - Whether a developer should be able to point the CLI at an additional private root through an environment variable (for a shared network drive). Cheap to add; decide when a second developer joins.
-- Whether private fixtures should be allowed to assert against private text (feature descriptions) or only against numbers; numbers only keeps fixture files shareable in bug reports.
+- ~~Whether private fixtures should be allowed to assert against private text~~ Decided (2026-09-21): numbers, ids and codes only; no book text in `expected.yaml`.

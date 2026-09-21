@@ -46,6 +46,8 @@ Outcome after regeneration: 572 overlay files applied; class features with mecha
 - **`cap` operator for `modify`** (M0.6): `op: max` is a floor (Darkvision 60 vs 120), so "+1 to a maximum of 20" (most PHB feats) cannot be expressed; v0 authors `add 1` plus a note.
 - **`campaign.selection` / `character.selection`** (DEC-20, M0.6): the content selection is an engine input and a fixture-harness field for now; the document field belongs to the campaign entity of Phase 6 and enters the format with v1.
 
+- **From the Player's Handbook transcription (M0.6, private package):** play effects and modifiers that land on *another* creature (temporary hit points or healing granted to an ally, advantage/disadvantage imposed on a target, conditions the target suffers from a feature, auras); an `onHit` hook on spells ("the next time you hit" riders); forced movement and teleport play effects; condition removal; contested checks; a flat damage reduction; per-target cooldowns; "all damage types except X"; ritual-only and at-will spell grants next to slot casting; variable costs (ki to upscale, any-level slot); a choice count that grows with level; a school filter on `grant-spellcasting`; a proficiency block mixing fixed entries and a choice; roll-table and stat-block entities.
+
 ## Modelling choices to confirm in review
 
 - Expertise: features-1 used two `open-choice` of skill without doubling; features-3 used `grant-proficiency choose` with `expertise: true` (the engine applies the doubling). **Decision: the second form; `choose.id` now exists for features with two picks.** Bard's overlay must be rewritten accordingly.

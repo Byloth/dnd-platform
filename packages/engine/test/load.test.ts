@@ -171,10 +171,14 @@ describe("loadPackages: patches before indexing, overlapping patches", () =>
     it("indexes a subspecies and its inline feature appended by a patch", () =>
     {
         const fleet = feature(`${MINI}.feature.elf.wood.fleet`, []);
-        const sub = { id: `${SPECIES}.wood`, name: { en: "Wood elf" }, features: [fleet] };
+        const features = [{ ...fleet, source: "ext" }];
+        const sub = { id: `${SPECIES}.wood`, name: { en: "Wood elf" }, source: "ext", features: features };
         const set = withPatch([{ id: "ext.patch.elf", target: SPECIES, append: { subspecies: [sub] } }]);
 
         expect(set.entities.get(`${SPECIES}.wood`)?.type).toBe("species");
+        // the appended entry names the patching package as its source: it belongs to that package, not to the species'
+        expect(set.entities.get(`${SPECIES}.wood`)?.package).toBe("ext");
+        expect(set.entities.get(`${MINI}.feature.elf.wood.fleet`)?.package).toBe("ext");
         expect(set.entities.get(`${SPECIES}.wood`)?.inline).toEqual({ owner: SPECIES, path: "/subspecies/0" });
         const inline = set.entities.get(`${MINI}.feature.elf.wood.fleet`)?.inline;
         expect(inline).toEqual({ owner: `${SPECIES}.wood`, path: "/features/0" });

@@ -180,6 +180,8 @@ function order(sources: readonly PackageSource[], out: Diagnostic[], selection?:
 interface Indexed
 {
     entities: Map<string, ResolvedEntity>;
+    /** Ids of the loaded packages: an embedded entry whose `source` names one of them belongs to that package. */
+    packages: Set<string>;
     /** Target id → path written → id of the patch that wrote it (for the overlap warning). */
     patchedPaths: Map<string, Map<string, string>>;
 }
@@ -223,6 +225,14 @@ function addEntity(
  * species, items… are indexed as features of their own, remembering the
  * owner and the pointer of the entry so a selection can remove them.
  */
+/** An entry appended by a patch carries the patching package as `source`; that is the package it belongs to. */
+function packageOf(index: Indexed, item: unknown, owner: ResolvedEntity): string
+{
+    const source = (item as { source?: unknown } | null)?.source;
+
+    return (typeof source === "string") && index.packages.has(source) ? source : owner.package;
+}
+
 function indexInlineFeatures(index: Indexed, owner: ResolvedEntity, out: Diagnostic[]): void
 {
     const visit = (node: unknown, key: string, path: string): void =>
@@ -237,7 +247,8 @@ function indexInlineFeatures(index: Indexed, owner: ResolvedEntity, out: Diagnos
                 if ((key === "features") && inline)
                 {
                     const id = (item as { id: string }).id;
-                    addEntity(index, "feature", id, item, owner.package, out, { owner: owner.id, path: itemPath });
+                    const pkg = packageOf(index, item, owner);
+                    addEntity(index, "feature", id, item, pkg, out, { owner: owner.id, path: itemPath });
                 }
                 visit(item, key, itemPath);
             });
@@ -264,7 +275,8 @@ function indexSubspecies(index: Indexed, owner: ResolvedEntity, out: Diagnostic[
     {
         const inline = { owner: owner.id, path: `/subspecies/${i}` };
         const before = index.entities.size;
-        addEntity(index, "species", sub.id, { ...sub, parent: owner.id }, owner.package, out, inline);
+        const pkg = packageOf(index, sub, owner);
+        addEntity(index, "species", sub.id, { ...sub, parent: owner.id }, pkg, out, inline);
         if (index.entities.size > before) { indexed.push(index.entities.get(sub.id)!); }
     });
 
@@ -385,7 +397,11 @@ export function loadPackages(sources: readonly PackageSource[], options: LoadOpt
 
     // 1. top-level entities; 2. patches (they may append subspecies and features);
     // 3. inline features and subspecies of the patched data; 4. translations; 5. selection.
-    const index: Indexed = { entities: new Map(), patchedPaths: new Map() };
+    const index: Indexed = {
+        entities: new Map(),
+        packages: new Set(sorted.map((s) => s.manifest.id)),
+        patchedPaths: new Map()
+    };
     for (const source of sorted)
     {
         for (const entity of source.entities)

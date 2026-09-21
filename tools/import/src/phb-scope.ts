@@ -13,6 +13,10 @@
  * Nothing from the book is embedded here; without the private source the
  * script exits quietly.
  *
+ * Known limit: a span starts at the entity's heading, so text the OCR placed
+ * before the heading on the same page (a left column read after the right one)
+ * is missed; re-OCR that page with content-private/sources/column-ocr.py.
+ *
  *   node tools/import/src/phb-scope.ts
  */
 
@@ -207,8 +211,8 @@ const CLASS_HEADINGS = new Set([
     "OATH OF DEVOTION", "HUNTER", "THIEF", "DRACONIC BLOODLINE", "THE FIEND", "SCHOOL OF EVOCATION",
     "ELDRITCH INVOCATIONS", "SACRED OATHS", "MARTIAL ARCHETYPES", "MONASTIC TRADITIONS", "ROGUISH ARCHETYPES",
     "SORCEROUS ORIGINS", "OTHERWORLDLY PATRONS", "ARCANE TRADITIONS", "DRUID CIRCLES", "DIVINE DOMAINS",
-    "BARD COLLEGES", "PRIMAL PATHS", "RANGER ARCHETYPES", "ELEMENTAL DISCIPLINES", "MANEUVERS"
-]);
+    "BARD COLLEGES", "PRIMAL PATHS", "RANGER ARCHETYPES"
+]); // "MANEUVERS" and "ELEMENTAL DISCIPLINES" belong to their subclass and must stay inside its span
 /** OCR renders small-caps headings in mixed case ("DIVINE WorD") and sometimes appends junk ("BARD i),"). */
 const normalizeHeading = (line: string): string => line.trim().toUpperCase()
     .replace(/’/g, "'")

@@ -12,7 +12,7 @@ rules engine) is described in [`docs/phase-0/`](docs/phase-0/00-README.md).
 
 ## Status
 
-Phase 0, milestone M0.5 done: the base package covers the whole SRD 5.1 with authored mechanics, the engine derives every class at every tier with provenance, and 59 golden fixtures with hand-computed expectations plus unit tests for every effect kind guard it. Content format frozen at v0. Next: private and homebrew packages (M0.6), the play engine (M0.7). Nothing playable yet.
+Phase 0, milestone M0.6 done: the base package covers the whole SRD 5.1 with authored mechanics, the engine derives every class at every tier with provenance, 60 public golden fixtures guard it, private packages load from a git-ignored root next to the base (the owner's Player's Handbook transcription proves the path, with 30 private fixtures that run only where the book is), and a content selection (DEC-20) lets a campaign exclude content without breaking anything. Content format frozen at v0. Next: the play engine (M0.7), then the CLI (M0.8). Nothing playable yet.
 
 ## Development
 
