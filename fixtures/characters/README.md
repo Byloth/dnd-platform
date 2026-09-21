@@ -5,7 +5,7 @@ Each subdirectory is one golden fixture run by `dnd fixtures` (and by `pnpm test
 
 | File | Role |
 |---|---|
-| `packages.yaml` | `packages`: package directories to load, relative to the repository root, in dependency order; `requires`: the package ids the fixture needs. A missing directory makes the fixture **skipped**, never failed (private packages are absent in CI). |
+| `packages.yaml` | `packages`: package directories to load, relative to the repository root, in dependency order; `requires`: the package ids the fixture needs. A missing directory or a missing required id makes the fixture **skipped**, never failed (private packages are absent in CI). `selection` (optional): a content selection applied at load, as a campaign would (DEC-20); the cascade is printed when the fixture fails. |
 | `character.yaml` | The character document (`packages/schema/schemas/character.schema.json`). |
 | `expected.yaml` | Hand-computed expectations with the arithmetic in comments: `values` (path → value), `provenance` (path → applied contribution labels in order), `resources`, `actions`, `proficiencies` (`type:item`), `sections` (`active`/`inactive`), `warnings` (codes that must be present). Written **before** the engine runs the fixture: red, then green. |
 | `snapshot.json` | Canonical JSON of the whole computed sheet, for regression. |

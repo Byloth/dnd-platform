@@ -14,7 +14,7 @@ import { join, resolve } from "node:path";
 import { parse } from "yaml";
 
 import { derive, loadPackages, stableStringify } from "@byloth/dnd-platform-engine";
-import type { Character, ComputedSheet, SpellView } from "@byloth/dnd-platform-engine";
+import type { Character, ComputedSheet, Selection, SpellView } from "@byloth/dnd-platform-engine";
 
 import { PRIVATE_ROOT, findRepositoryRoot } from "../io/repository.js";
 import { toPackageSource } from "../io/to-package-source.js";
@@ -48,6 +48,8 @@ interface PackagesFile
 {
     readonly packages: readonly string[];
     readonly requires?: readonly string[];
+    /** Content selection applied at load (DEC-20), as a campaign would. */
+    readonly selection?: Selection;
 }
 
 interface ExpectedResource
@@ -263,11 +265,21 @@ function runOne(root: string, directory: string, name: string, update: boolean):
 
     const character = readYaml<Character>(join(directory, "character.yaml"));
     const pins = Object.fromEntries(character.packages.map((p) => [p.id, p.version]));
-    const set = loadPackages(sources, { pins: pins });
+    const selection = packagesFile.selection;
+    const set = loadPackages(sources, { pins: pins, ...(selection !== undefined ? { selection: selection } : {}) });
     const sheet = derive(character, set);
 
     const expectedPath = join(directory, "expected.yaml");
     const failures = existsSync(expectedPath) ? compareExpected(sheet, readYaml<Expected>(expectedPath), name) : [];
+    if ((failures.length > 0) && !set.cascade.empty)
+    {
+        for (const entry of set.cascade.inactive)
+        {
+            const via = entry.via === undefined ? "excluded" : `${entry.via.kind} via ${entry.via.requires}${entry.via.path}`;
+            failures.push(`${name}: cascade: ${entry.id} inactive (${via})`);
+        }
+        for (const p of set.cascade.pruned) { failures.push(`${name}: cascade: ${p.from}${p.path} pruned (${p.ref})`); }
+    }
 
     const canonical = `${stableStringify(sheet)}\n`;
     const snapshotPath = join(directory, "snapshot.json");

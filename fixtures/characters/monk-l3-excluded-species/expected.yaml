@@ -1,0 +1,16 @@
+# Dwarf monk 3 on the SRD excerpt, loaded under a selection that EXCLUDES the dwarf (DEC-20).
+# The character already chose the dwarf, so the sheet keeps every dwarf contribution and flags it.
+# Scores: str 11, dex 17, con 14 + 2 (dwarf Ability Score Increase) = 16, int 8, wis 15, cha 8.
+# Modifiers: str 0, dex +3, con +3, int -1, wis +2, cha -1. Proficiency bonus at 3: +2.
+values:
+  ability.con: 16          # 14 + 2 from the excluded-but-kept dwarf feature
+  hp.max: 27               # level 1: 8 + 3 = 11; levels 2-3: 2 × (average(d8) 5 + 3) = 16
+  speed.walk: 35           # dwarf 25 + Unarmored Movement at class level 3 = 10
+  ac: 15                   # Unarmored Defense: 10 + mod(dex) 3 + mod(wis) 2
+  save.con: 3
+provenance:
+  ability.con: ["Base score", "Ability Score Increase"]
+features:
+  - srd51.feature.dwarf.ability-score-increase
+proficiencies: [language:common, language:dwarvish]
+warnings: [W_EXCLUDED_CONTENT, W_UNANSWERED_CHOICE]   # dwarf excluded; monastic-tradition not chosen

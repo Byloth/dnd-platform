@@ -1,13 +1,15 @@
 /**
  * Package loading: dependency order, single base, version pins, entity
- * index (inline features and subspecies included), patches, translations.
+ * index (inline features and subspecies included), patches, translations,
+ * content selection (DEC-20).
  */
 
 import type { EntityType, PackageManifest, Ruleset } from "@byloth/dnd-platform-schema";
 
 import type {
-    Diagnostic, Diagnostics, LoadOptions, PackageSet, PackageSource, ResolvedEntity, SourceEntity
+    Diagnostic, Diagnostics, LoadOptions, PackageSet, PackageSource, ResolvedEntity, Selection, SourceEntity
 } from "../index.js";
+import { EMPTY_CASCADE, applySelection } from "./select.js";
 
 interface PatchData
 {
@@ -51,8 +53,63 @@ function getPath(target: Record<string, unknown>, path: string): unknown
     return node;
 }
 
-/** Topological order of the packages, base first, ties broken by id. */
-function order(sources: readonly PackageSource[], out: Diagnostic[]): PackageSource[]
+function compareIds(a: string, b: string): number
+{
+    return a < b ? -1 : a > b ? 1 : 0;
+}
+
+/**
+ * Keep the sources a selection lists, plus everything a kept package depends
+ * on (a dependency is never dropped: existing characters must keep computing).
+ */
+function selectSources(
+    sources: readonly PackageSource[],
+    selection: Selection | undefined,
+    out: Diagnostic[]
+): PackageSource[]
+{
+    const wanted = selection?.packages ?? [];
+    if (wanted.length === 0) { return [...sources]; }
+
+    const byId = new Map(sources.map((s) => [s.manifest.id, s]));
+    const keep = new Set<string>();
+    const frontier = wanted.filter((id) => byId.has(id));
+    while (frontier.length > 0)
+    {
+        const id = frontier.pop()!;
+        if (keep.has(id)) { continue; }
+        keep.add(id);
+        for (const dep of byId.get(id)!.manifest.dependencies ?? [])
+        {
+            if (!byId.has(dep.id) || keep.has(dep.id)) { continue; }
+            if (!wanted.includes(dep.id))
+            {
+                out.push({
+                    severity: "info",
+                    code: "I_EXCLUDED_PACKAGE",
+                    package: dep.id,
+                    message: `package "${dep.id}" is not in the selection but "${id}" depends on it; kept`
+                });
+            }
+            frontier.push(dep.id);
+        }
+    }
+    for (const source of sources)
+    {
+        if (keep.has(source.manifest.id)) { continue; }
+        out.push({
+            severity: "info",
+            code: "I_EXCLUDED_PACKAGE",
+            package: source.manifest.id,
+            message: `package "${source.manifest.id}" is not in the selection; not loaded`
+        });
+    }
+
+    return sources.filter((s) => keep.has(s.manifest.id));
+}
+
+/** Topological order of the packages, base first, ties broken by the selection's order and then by id. */
+function order(sources: readonly PackageSource[], out: Diagnostic[], selection?: Selection): PackageSource[]
 {
     const byId = new Map<string, PackageSource>();
     for (const source of sources)
@@ -93,14 +150,16 @@ function order(sources: readonly PackageSource[], out: Diagnostic[]): PackageSou
         remaining.set(id, deps);
     }
 
+    const priority = new Map((selection?.order ?? []).map((id, i) => [id, i] as const));
+    const rank = (id: string): number => priority.get(id) ?? Number.MAX_SAFE_INTEGER;
     const sorted: PackageSource[] = [];
     while (remaining.size > 0)
     {
         const ready = [...remaining.entries()].filter(([, deps]) => deps.size === 0).map(([id]) => id)
-            .sort();
+            .sort((a, b) => (rank(a) - rank(b)) || compareIds(a, b));
         if (ready.length === 0)
         {
-            const cycle = [...remaining.keys()].sort();
+            const cycle = [...remaining.keys()].sort(compareIds);
             out.push({
                 severity: "error", code: "E_DEPENDENCY_CYCLE", message: `dependency cycle among ${cycle.join(", ")}`
             });
@@ -118,9 +177,22 @@ function order(sources: readonly PackageSource[], out: Diagnostic[]): PackageSou
     return sorted;
 }
 
-interface Indexed { entities: Map<string, ResolvedEntity> }
+interface Indexed
+{
+    entities: Map<string, ResolvedEntity>;
+    /** Target id → path written → id of the patch that wrote it (for the overlap warning). */
+    patchedPaths: Map<string, Map<string, string>>;
+}
 
-function addEntity(index: Indexed, type: EntityType, id: string, data: unknown, pkg: string, out: Diagnostic[]): void
+function addEntity(
+    index: Indexed,
+    type: EntityType,
+    id: string,
+    data: unknown,
+    pkg: string,
+    out: Diagnostic[],
+    inline?: { owner: string, path: string }
+): void
 {
     if (index.entities.has(id))
     {
@@ -135,40 +207,68 @@ function addEntity(index: Indexed, type: EntityType, id: string, data: unknown, 
 
         return;
     }
-    index.entities.set(id, { type: type, id: id, data: data, package: pkg, patchedBy: [] });
+    index.entities.set(id, {
+        type: type,
+        id: id,
+        data: data,
+        package: pkg,
+        patchedBy: [],
+        active: true,
+        ...(inline !== undefined ? { inline: inline } : {})
+    });
 }
 
-/** Inline features (objects with an id) inside classes, species, items… are indexed as features of their own. */
-function indexInlineFeatures(index: Indexed, data: unknown, pkg: string, out: Diagnostic[]): void
+/**
+ * Inline features (objects with an id under a `features` key) inside classes,
+ * species, items… are indexed as features of their own, remembering the
+ * owner and the pointer of the entry so a selection can remove them.
+ */
+function indexInlineFeatures(index: Indexed, owner: ResolvedEntity, out: Diagnostic[]): void
 {
-    const visit = (node: unknown, key: string): void =>
+    const visit = (node: unknown, key: string, path: string): void =>
     {
         if (Array.isArray(node))
         {
-            for (const item of node)
+            node.forEach((item, i) =>
             {
+                const itemPath = `${path}/${i}`;
                 const isObject = (item !== null) && (typeof item === "object");
                 const inline = isObject && (typeof (item as { id?: unknown }).id === "string");
                 if ((key === "features") && inline)
                 {
-                    addEntity(index, "feature", (item as { id: string }).id, item, pkg, out);
+                    const id = (item as { id: string }).id;
+                    addEntity(index, "feature", id, item, owner.package, out, { owner: owner.id, path: itemPath });
                 }
-                visit(item, key);
-            }
+                visit(item, key, itemPath);
+            });
         }
         else if ((node !== null) && (typeof node === "object"))
         {
-            for (const [k, v] of Object.entries(node as Record<string, unknown>)) { visit(v, k); }
+            for (const [k, v] of Object.entries(node as Record<string, unknown>))
+            {
+                // A subspecies is a container of its own: its inline features belong to it, not to the species.
+                if ((k === "subspecies") && (owner.type === "species") && (owner.inline === undefined)) { continue; }
+                visit(v, k, `${path}/${k}`);
+            }
         }
     };
-    visit(data, "");
+    visit(owner.data, "", "");
 }
 
-function indexSubspecies(index: Indexed, data: unknown, pkg: string, out: Diagnostic[]): void
+/** Index the subspecies of a species as species of their own; returns the indexed entries. */
+function indexSubspecies(index: Indexed, owner: ResolvedEntity, out: Diagnostic[]): ResolvedEntity[]
 {
-    const subspecies = (data as { subspecies?: { id: string }[] }).subspecies ?? [];
-    const parent = (data as { id: string }).id;
-    for (const sub of subspecies) { addEntity(index, "species", sub.id, { ...sub, parent: parent }, pkg, out); }
+    const subspecies = (owner.data as { subspecies?: { id: string }[] }).subspecies ?? [];
+    const indexed: ResolvedEntity[] = [];
+    subspecies.forEach((sub, i) =>
+    {
+        const inline = { owner: owner.id, path: `/subspecies/${i}` };
+        const before = index.entities.size;
+        addEntity(index, "species", sub.id, { ...sub, parent: owner.id }, owner.package, out, inline);
+        if (index.entities.size > before) { indexed.push(index.entities.get(sub.id)!); }
+    });
+
+    return indexed;
 }
 
 function applyPatch(index: Indexed, patch: SourceEntity, pkg: string, out: Diagnostic[]): void
@@ -187,10 +287,34 @@ function applyPatch(index: Indexed, patch: SourceEntity, pkg: string, out: Diagn
 
         return;
     }
+    const written = index.patchedPaths.get(data.target) ?? new Map<string, string>();
+    index.patchedPaths.set(data.target, written);
+    const note = (path: string): void =>
+    {
+        const previous = written.get(path);
+        if (previous !== undefined)
+        {
+            out.push({
+                severity: "warning",
+                code: "W_PATCH_OVERLAP",
+                package: pkg,
+                entity: patch.id,
+                path: path,
+                message: `patch "${patch.id}" writes "${path}" of "${data.target}" after "${previous}"; ` +
+                    "the later package wins"
+            });
+        }
+        written.set(path, patch.id);
+    };
     const patched = clone(target.data) as Record<string, unknown>;
-    for (const [path, value] of Object.entries(data.set ?? {})) { setPath(patched, path, value); }
+    for (const [path, value] of Object.entries(data.set ?? {}))
+    {
+        note(path);
+        setPath(patched, path, value);
+    }
     for (const [path, values] of Object.entries(data.append ?? {}))
     {
+        note(path);
         const current = getPath(patched, path);
         setPath(patched, path, [...(Array.isArray(current) ? current : []), ...values]);
     }
@@ -221,7 +345,8 @@ function applyTranslation(index: Indexed, translation: SourceEntity, pkg: string
 export function loadPackages(sources: readonly PackageSource[], options: LoadOptions = {}): PackageSet
 {
     const out: Diagnostic[] = [];
-    const sorted = order(sources, out);
+    const selected = selectSources(sources, options.selection, out);
+    const sorted = order(selected, out, options.selection);
 
     const bases = sorted.filter((s) => s.manifest.kind === "base");
     if (bases.length === 0)
@@ -258,15 +383,15 @@ export function loadPackages(sources: readonly PackageSource[], options: LoadOpt
         }
     }
 
-    const index: Indexed = { entities: new Map() };
+    // 1. top-level entities; 2. patches (they may append subspecies and features);
+    // 3. inline features and subspecies of the patched data; 4. translations; 5. selection.
+    const index: Indexed = { entities: new Map(), patchedPaths: new Map() };
     for (const source of sorted)
     {
         for (const entity of source.entities)
         {
             if ((entity.type === "patch") || (entity.type === "translation")) { continue; }
             addEntity(index, entity.type, entity.id, entity.data, source.manifest.id, out);
-            indexInlineFeatures(index, entity.data, source.manifest.id, out);
-            if (entity.type === "species") { indexSubspecies(index, entity.data, source.manifest.id, out); }
         }
     }
     for (const source of sorted)
@@ -276,6 +401,12 @@ export function loadPackages(sources: readonly PackageSource[], options: LoadOpt
             if (entity.type === "patch") { applyPatch(index, entity, source.manifest.id, out); }
         }
     }
+    for (const owner of [...index.entities.values()])
+    {
+        indexInlineFeatures(index, owner, out);
+        if (owner.type !== "species") { continue; }
+        for (const sub of indexSubspecies(index, owner, out)) { indexInlineFeatures(index, sub, out); }
+    }
     for (const source of sorted)
     {
         for (const entity of source.entities)
@@ -283,6 +414,7 @@ export function loadPackages(sources: readonly PackageSource[], options: LoadOpt
             if (entity.type === "translation") { applyTranslation(index, entity, source.manifest.id, out); }
         }
     }
+    const cascade = options.selection !== undefined ? applySelection(index, options.selection, out) : EMPTY_CASCADE;
 
     const diagnostics: Diagnostics = { ok: out.every((d) => d.severity !== "error"), entries: out };
 
@@ -291,7 +423,8 @@ export function loadPackages(sources: readonly PackageSource[], options: LoadOpt
         ruleset: (base?.ruleset ?? {}) as Ruleset,
         rulesetPackage: base?.manifest.id ?? "",
         entities: index.entities,
-        diagnostics: diagnostics
+        diagnostics: diagnostics,
+        cascade: cascade
     };
 }
 

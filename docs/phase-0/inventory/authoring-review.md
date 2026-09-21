@@ -43,6 +43,9 @@ Outcome after regeneration: 572 overlay files applied; class features with mecha
 - **Condition removal.** Lesser Restoration, Stillness of Mind: no `removeCondition` play effect. Add it.
 - **Duplicate action ids across features.** Rogue and Hunter both declare `uncanny-dodge`; the engine should merge identical ids or content should namespace them.
 
+- **`cap` operator for `modify`** (M0.6): `op: max` is a floor (Darkvision 60 vs 120), so "+1 to a maximum of 20" (most PHB feats) cannot be expressed; v0 authors `add 1` plus a note.
+- **`campaign.selection` / `character.selection`** (DEC-20, M0.6): the content selection is an engine input and a fixture-harness field for now; the document field belongs to the campaign entity of Phase 6 and enters the format with v1.
+
 ## Modelling choices to confirm in review
 
 - Expertise: features-1 used two `open-choice` of skill without doubling; features-3 used `grant-proficiency choose` with `expertise: true` (the engine applies the doubling). **Decision: the second form; `choose.id` now exists for features with two picks.** Bard's overlay must be rewritten accordingly.

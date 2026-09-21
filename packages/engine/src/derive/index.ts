@@ -21,7 +21,7 @@ import type {
 import { baseAbilityScores, buildFacts, classLevelsOf, equippedItems, totalLevel } from "./facts.js";
 import { assembleAttacks } from "./attacks.js";
 import type { AttackModifier } from "./attacks.js";
-import { collectFeatures } from "./features.js";
+import { collectFeatures, noteExcluded } from "./features.js";
 import type { ActiveFeature, PendingChoice } from "./features.js";
 import { ValueGraph } from "./values.js";
 import type { PendingContribution, TableEntry } from "./values.js";
@@ -204,6 +204,22 @@ interface EffectContext
     readonly effect: Effect;
     readonly applied: boolean;
     readonly source: ContributionSource;
+}
+
+/** `W_EXCLUDED_CONTENT` is raised at every lookup of an entity; the sheet reports each entity once. */
+function dedupeExcluded(warnings: readonly Diagnostic[]): Diagnostic[]
+{
+    const seen = new Set<string>();
+
+    return warnings.filter((w) =>
+    {
+        if (w.code !== "W_EXCLUDED_CONTENT") { return true; }
+        const key = w.entity ?? "";
+        if (seen.has(key)) { return false; }
+        seen.add(key);
+
+        return true;
+    });
 }
 
 export function derive(character: Character, set: PackageSet, options: DeriveOptions = {}): ComputedSheet
@@ -472,6 +488,7 @@ export function derive(character: Character, set: PackageSet, options: DeriveOpt
     const spellEntity = (spellId: string): Spell | undefined =>
     {
         const resolved = set.entities.get(spellId);
+        noteExcluded(resolved, warnings);
 
         return (resolved && resolved.type === "spell") ? resolved.data as Spell : undefined;
     };
@@ -888,7 +905,7 @@ export function derive(character: Character, set: PackageSet, options: DeriveOpt
         spells: spells,
         choices: col.choices,
         sections: orderedSections,
-        warnings: [...set.diagnostics.entries.filter((d) => d.severity !== "info"), ...warnings]
+        warnings: [...set.diagnostics.entries.filter((d) => d.severity !== "info"), ...dedupeExcluded(warnings)]
     };
 }
 

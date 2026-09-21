@@ -209,7 +209,7 @@ source: phb14
 levels:
   3:
     features:
-      - id: phb14.feature.monk.shadow-arts
+      - id: phb14.feature.way-of-shadow.shadow-arts
         name: { en: Shadow Arts }
         text: { en: "You can use your ki to duplicate the effects of certain spells..." }
         effects:
@@ -223,7 +223,7 @@ levels:
             as: always-prepared
             ability: wis
   6:
-    features: [phb14.feature.monk.shadow-step]
+    features: [phb14.feature.way-of-shadow.shadow-step]
 ```
 
 **Species** (called race in 2014 text; the entity type is `species` in both editions)

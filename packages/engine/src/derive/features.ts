@@ -4,7 +4,23 @@ import type {
     Character, Choice, ConditionEntity, Feature, Item, Species, Subclass, Class, Background, Feat
 } from "@byloth/dnd-platform-schema";
 
-import type { ContributionSource, Diagnostic, FeatureOrigin, PackageSet } from "../index.js";
+import type { ContributionSource, Diagnostic, FeatureOrigin, PackageSet, ResolvedEntity } from "../index.js";
+
+/**
+ * DEC-20: an entity excluded by the selection stays loaded and keeps
+ * contributing to the characters that already chose it; the sheet says so.
+ */
+export function noteExcluded(resolved: ResolvedEntity | undefined, out: Diagnostic[]): void
+{
+    if ((resolved === undefined) || resolved.active) { return; }
+    out.push({
+        severity: "warning",
+        code: "W_EXCLUDED_CONTENT",
+        package: resolved.package,
+        entity: resolved.id,
+        message: `"${resolved.id}" is excluded from the current selection; the sheet keeps it`
+    });
+}
 
 export interface ActiveFeature
 {
@@ -38,6 +54,7 @@ function resolveFeature(ref: FeatureRef, set: PackageSet, out: Collected): { dat
     if (typeof ref !== "string")
     {
         const indexed = set.entities.get(ref.id);
+        noteExcluded(indexed, out.warnings);
 
         return { data: (indexed?.data as Feature | undefined) ?? ref, pkg: indexed?.package ?? "" };
     }
@@ -50,6 +67,7 @@ function resolveFeature(ref: FeatureRef, set: PackageSet, out: Collected): { dat
 
         return undefined;
     }
+    noteExcluded(resolved, out.warnings);
 
     return { data: resolved.data as Feature, pkg: resolved.package };
 }
@@ -107,6 +125,7 @@ function entity<T>(
 
         return undefined;
     }
+    noteExcluded(resolved, out.warnings);
 
     return { data: resolved.data as T, pkg: resolved.package };
 }
@@ -176,6 +195,7 @@ export function collectFeatures(character: Character, set: PackageSet): Collecte
         {
             const resolved = set.entities.get(answer);
             if ((resolved === undefined) || (resolved.type !== "feat")) { continue; }
+            noteExcluded(resolved, out.warnings);
             const feat = resolved.data as Feat;
             const asFeature: Feature = {
                 id: feat.id,
@@ -201,6 +221,7 @@ export function collectFeatures(character: Character, set: PackageSet): Collecte
         if (!entry.equipped) { continue; }
         const resolved = set.entities.get(entry.item);
         if ((resolved === undefined) || (resolved.type !== "item")) { continue; }
+        noteExcluded(resolved, out.warnings);
         const item = resolved.data as Item;
         if ((item.attunement !== undefined) && (item.attunement !== false) && !entry.attuned) { continue; }
         addFeatures(item.features, "item", item.id, resolved.package, set, out);
@@ -211,6 +232,7 @@ export function collectFeatures(character: Character, set: PackageSet): Collecte
     {
         const resolved = set.entities.get(active.condition);
         if ((resolved === undefined) || (resolved.type !== "condition")) { continue; }
+        noteExcluded(resolved, out.warnings);
         const condition = resolved.data as ConditionEntity;
         const effects = [...(condition.effects ?? [])];
         if (condition.levels && (active.level !== undefined))

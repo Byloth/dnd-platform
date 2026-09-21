@@ -10,3 +10,7 @@ reproduced, which is why the manifest says `redistributable: true` while
 `visibility: private` exercises the visibility handling. The real package,
 transcribed for personal use, lives in `content-private/phb14/` and is never
 committed (see `docs/phase-0/06-private-packages.md`).
+
+The placeholder species `phb14.species.placeholder-kin` (with a subspecies) and the feat
+`phb14.feat.kin-born` that requires it exist only for the DEC-20 content-selection tests:
+excluding "the species of phb14" must cascade to them. They correspond to nothing in any book.

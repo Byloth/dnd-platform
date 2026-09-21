@@ -4,58 +4,23 @@
  */
 
 import type { Diagnostic, Diagnostics, PackageSet } from "../index.js";
+import { walkReferences } from "../load/references.js";
+import type { Reference } from "../load/references.js";
 
-const ENTITY_TYPES = [
-    "class", "subclass", "species", "background", "feat", "feature", "spell", "spell-list", "item", "condition", "rule",
-    "table", "archetype"
-];
-const SEGMENT = "[a-z0-9]+(?:[-.][a-z0-9]+)*";
-const ENTITY_ID = new RegExp(`^${SEGMENT}\\.(?:${ENTITY_TYPES.join("|")})\\.${SEGMENT}$`);
-const TABLE_REF = /table\(([a-z0-9]+(?:[-.][a-z0-9]+)*)\)/g;
-/** Keys whose string values are never entity references. */
-const SKIP_KEYS = new Set(["id", "en", "it", "action", "resource", "state", "choice", "section", "toggle"]);
-
-function references(node: unknown, path: string, out: { path: string, ref: string }[]): void
-{
-    if (typeof node === "string")
-    {
-        if (ENTITY_ID.test(node)) { out.push({ path: path, ref: node }); }
-        for (const match of node.matchAll(TABLE_REF))
-        {
-            const ref = match[1]!;
-            if (ENTITY_ID.test(ref)) { out.push({ path: path, ref: ref }); }
-        }
-
-        return;
-    }
-    if (Array.isArray(node))
-    {
-        node.forEach((item, index) => references(item, `${path}/${index}`, out));
-
-        return;
-    }
-    if ((node !== null) && (typeof node === "object"))
-    {
-        const record = node as Record<string, unknown>;
-        // A `modify` effect's target is a value path (attack.spell.bonus), not an entity id; a patch's target is.
-        const valuePathTarget = record["kind"] === "modify";
-        for (const [key, value] of Object.entries(record))
-        {
-            if (SKIP_KEYS.has(key) && (typeof value === "string")) { continue; }
-            if (valuePathTarget && (key === "target")) { continue; }
-            references(value, `${path}/${key}`, out);
-        }
-    }
-}
-
+/**
+ * Every reference must name a loaded entity. Under a selection (DEC-20)
+ * excluded entities stay loaded, inactive, so a reference to one of them is
+ * never a missing reference: the loader has already pruned it from the
+ * entities that stay active and reported it as `I_PRUNED`.
+ */
 export function validate(set: PackageSet): Diagnostics
 {
     const out: Diagnostic[] = [...set.diagnostics.entries];
     const seen = new Set<string>();
     const check = (owner: string, pkg: string, data: unknown): void =>
     {
-        const refs: { path: string, ref: string }[] = [];
-        references(data, "", refs);
+        const refs: Reference[] = [];
+        walkReferences(data, "", refs);
         for (const { path, ref } of refs)
         {
             if (set.entities.has(ref) || (ref === owner)) { continue; }

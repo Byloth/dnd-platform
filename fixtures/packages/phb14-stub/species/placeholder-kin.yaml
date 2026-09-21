@@ -1,0 +1,34 @@
+# Placeholder species of the private-package stub: it exists so that the DEC-20 content-selection
+# fixture can exclude "the species of phb14" and watch the cascade (subspecies, inline features, a
+# feat that requires the species). Nothing from any book is reproduced.
+id: phb14.species.placeholder-kin
+name: { en: Placeholder Kin }
+text: { en: "Placeholder: a species defined only for the selection fixture." }
+source: phb14
+tags: [phb14-species]
+size: medium
+speed: { walk: 30 }
+languages: { fixed: [common] }
+features:
+  - id: phb14.feature.placeholder-kin.ability-score-increase
+    name: { en: Ability Score Increase }
+    text: { en: "Placeholder: your Wisdom score increases by 1." }
+    effects:
+      - { kind: modify, target: ability.wis, op: add, value: 1 }
+  - id: phb14.feature.placeholder-kin.keen-nose
+    name: { en: Keen Nose }
+    text: { en: "Placeholder: advantage on Wisdom (Perception) checks that rely on smell." }
+    effects:
+      - kind: roll-advantage
+        on: { type: check, skill: perception }
+        note: { en: "that rely on smell" }
+subspecies:
+  - id: phb14.species.placeholder-kin.highland
+    name: { en: Highland Kin }
+    text: { en: "Placeholder: the mountain-dwelling branch." }
+    features:
+      - id: phb14.feature.placeholder-kin.highland.sure-footed
+        name: { en: Sure-Footed }
+        text: { en: "Placeholder: your climbing speed equals your walking speed." }
+        effects:
+          - { kind: modify, target: speed.climb, op: set-formula, formula: "30" }

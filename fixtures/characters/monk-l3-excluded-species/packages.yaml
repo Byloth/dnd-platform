@@ -1,0 +1,9 @@
+packages:
+  - fixtures/packages/srd51-excerpt
+  - fixtures/packages/homebrew-feline
+requires: [srd51, homebrew.byloth]
+# DEC-20: the campaign excludes the dwarf, which this character already chose. The sheet keeps
+# computing with the dwarf's contributions and carries W_EXCLUDED_CONTENT.
+selection:
+  exclude:
+    - { ids: [srd51.species.dwarf] }

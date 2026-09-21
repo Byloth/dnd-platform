@@ -1,0 +1,26 @@
+formatVersion: 0
+id: fixture-monk-l3-excluded-species
+name: Stone Fist
+ruleset: { id: srd51, version: 0.1.0 }
+packages:
+  - { id: srd51, version: 0.1.0 }
+  - { id: homebrew.byloth, version: 0.1.0 }
+choices:
+  species: srd51.species.dwarf
+  classes:
+    - { class: srd51.class.monk, levels: 3 }
+  abilityScores:
+    method: manual
+    base: { str: 11, dex: 17, con: 14, int: 8, wis: 15, cha: 8 }
+  answers:
+    "srd51.class.monk#skills": [stealth, acrobatics]
+    "srd51.class.monk#tools": [musical-instrument]
+  equipment:
+    - { item: srd51.item.dart, quantity: 10 }
+state:
+  hp: { current: 27, temporary: 0 }
+  hitDice: { spent: 0 }
+  resources: { ki: 3 }
+  conditions: []
+  deathSaves: { successes: 0, failures: 0 }
+  inspiration: false

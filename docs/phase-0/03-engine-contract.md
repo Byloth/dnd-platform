@@ -160,6 +160,17 @@ interface ApplyResult { state: CharacterState; entry: LogEntry; warnings: Diagno
 interface LogEntry { id: string; event: PlayEvent; before: Partial<CharacterState>; after: Partial<CharacterState> }
 ```
 
+#### Content selection (DEC-20)
+
+```ts
+interface ExclusionFilter { package?: string; type?: EntityType; tags?: string[]; ids?: EntityId[] }  // AND inside, OR across
+interface Selection { packages?: string[]; order?: string[]; exclude?: ExclusionFilter[] }
+interface LoadOptions { pins?; language?; selection?: Selection }
+interface ResolvedEntity { …; active: boolean; inactiveBecause?: { excludedBy: number; via?: { requires: EntityId; path: string; kind: "hard" | "contains" } }; inline?: { owner: EntityId; path: string } }
+interface CascadeReport { exclusions: { filter, matched: EntityId[] }[]; inactive: ({ id } & InactiveReason)[]; pruned: { from, path, ref }[]; empty: boolean }
+interface PackageSet { …; cascade: CascadeReport }
+```
+
 ### Diagnostic codes
 
 Stable identifiers, never reworded into other codes once published.
@@ -174,6 +185,15 @@ Stable identifiers, never reworded into other codes once published.
 | load | `E_DUPLICATE_ID` | error | the same entity id appears in two packages |
 | load | `W_VERSION_MISMATCH` | warning | a pinned version differs from the loaded one |
 | load | `E_PATCH_TARGET` | error | a patch targets a missing entity or path |
+| load | `W_PATCH_OVERLAP` | warning | two patches write the same path of the same entity; the later package wins |
+| load | `I_EXCLUDED` | info | an entity matched an exclusion filter of the selection |
+| load | `I_CASCADE` | info | an entity is inactive because something it requires or belongs to is excluded |
+| load | `I_PRUNED` | info | a reference to an inactive entity was removed from an active entity's data |
+| load | `I_EXCLUDED_REFERENCE` | info | a scalar reference to an inactive entity could not be removed and is kept |
+| load | `I_EXCLUDED_PACKAGE` | info | a package is not in `selection.packages` (not loaded, or kept as a dependency) |
+| load | `W_UNKNOWN_EXCLUSION` | warning | an exclusion filter matched no loaded entity |
+| load | `W_EMPTY_EXCLUSION` | warning | an exclusion filter has no key and matches nothing |
+| derive | `W_EXCLUDED_CONTENT` | warning | the character uses content the selection excludes; the sheet keeps it (once per entity) |
 | derive | `W_DUPLICATE_ACTION` | derive | the same action id is declared twice with different content; the first wins |
 | `E_MISSING_REFERENCE` | validate | an entity id or `table(<id>)` reference does not resolve |
 | `W_UNANSWERED_CHOICE` | warning | a required choice has no answer; the sheet still renders |
@@ -181,6 +201,17 @@ Stable identifiers, never reworded into other codes once published.
 | derive | `E_VALUE_CYCLE` | error | formulas reference each other in a cycle; the nodes fall back to their base value |
 | derive | `E_FORMULA` | error | a formula failed to parse or evaluate |
 | derive | `E_UNKNOWN_CONDITION_KEY` | error | a `when` uses a key outside the condition language |
+
+### Selection and pruning (DEC-20)
+
+`loadPackages` with `options.selection` applies the exclusions after patches and translations, in place on the index. Nothing is removed from `entities`: an excluded entity, and every entity that cannot exist without it, gets `active: false` and an `inactiveBecause` reason. Inactive means *not offered for new choices*; a character that already uses the entity keeps every contribution and the sheet carries `W_EXCLUDED_CONTENT`.
+
+- **Hard edges** (target inactive ⇒ owner inactive, `kind: "hard"`): `subclass.class`, `item.baseItem`, `feat.prerequisites` through `species`, `class` and `hasFeature` reachable via `all` only (never via `any` or `not`), `archetype.recommends.*`, `grant-spellcasting.list`.
+- **Containment** (`kind: "contains"`): an inline feature belongs to the entity that embeds it, a subspecies to its species, a subspecies' inline feature to the subspecies. Excluding the container disables the contents; excluding an embedded entry alone splices it out of the container's data, which stays active.
+- **Soft references** (everything else): a reference from an active entity to an inactive one is removed together with the smallest array element that carries it (a `features` entry, a `spells` entry, an effect) and reported as `I_PRUNED`; a scalar reference with no enclosing array is kept and reported as `I_EXCLUDED_REFERENCE`.
+- `selection.packages` drops unlisted sources unless a listed package depends on them; `selection.order` breaks ties among packages at the same dependency depth before the id sort, which is what decides the winner of overlapping patches.
+- Determinism: entities are visited in id order, the closure always takes the smallest pending id, splices run from the end; the cascade report is a function of the set and the selection alone.
+- The cascade report is mirrored as `info` diagnostics, which `derive` filters out of `sheet.warnings`; an empty exclusion list costs nothing (fast path).
 
 ### Derivation algorithm (`derive`)
 
@@ -225,6 +256,8 @@ Beyond schema conformance:
 - `apply` never mutates its inputs.
 - `undo(apply(s, e).state, entry)` deep-equals `s` for every event type (property test).
 - Package order does not change the output when the dependency graph is the same (property test).
+
+- The cascade report of a selection does not depend on the order of the sources or of their entities, and a selection that excludes nothing an entity uses leaves that entity's data byte-identical.
 
 ## Tasks
 

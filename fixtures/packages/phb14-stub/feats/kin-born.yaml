@@ -1,0 +1,13 @@
+# Placeholder feat of the private-package stub, only for the DEC-20 selection fixture: it requires the
+# placeholder species, so excluding that species must make this feat inactive.
+id: phb14.feat.kin-born
+name: { en: Kin-Born }
+text: { en: "Placeholder: a feat only the placeholder kin may take." }
+source: phb14
+prerequisites: { species: phb14.species.placeholder-kin }
+features:
+  - id: phb14.feature.kin-born.second-wind-of-the-hills
+    name: { en: Second Wind of the Hills }
+    text: { en: "Placeholder: your hit point maximum increases by 1 per level." }
+    effects:
+      - { kind: modify, target: hp.perLevel, op: add, value: 1 }

@@ -9,7 +9,7 @@ tags: [stealth, darkness]
 levels:
   3:
     features:
-      - id: phb14.feature.monk.shadow-arts
+      - id: phb14.feature.way-of-shadow.shadow-arts
         name: { en: Shadow Arts }
         text:
           en: |
@@ -30,7 +30,7 @@ levels:
             ability: wis
   6:
     features:
-      - id: phb14.feature.monk.shadow-step
+      - id: phb14.feature.way-of-shadow.shadow-step
         name: { en: Shadow Step }
         text:
           en: |

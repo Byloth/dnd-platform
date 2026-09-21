@@ -147,3 +147,49 @@ describe("loadPackages", () =>
         expect(set.ruleset.id).toBe(`${MINI}.ruleset`);
     });
 });
+
+describe("loadPackages: patches before indexing, overlapping patches", () =>
+{
+    const SPECIES = `${MINI}.species.elf`;
+
+    interface Patch { id: string, target: string, set?: object, append?: object }
+    function withPatch(patches: Patch[]): ReturnType<typeof loadPackages>
+    {
+        const data = { id: SPECIES, name: { en: "Elf" }, size: "medium", speed: { walk: 30 }, subspecies: [] };
+        const elf = { type: "species" as const, data: data };
+        const base = miniPackage({ entities: [elf] });
+        const ext = miniPackage({
+            id: "ext",
+            kind: "extension",
+            dependencies: [{ id: MINI, version: "^0.1.0" }],
+            entities: patches.map((p) => ({ type: "patch" as const, id: p.id, data: p }))
+        });
+
+        return loadPackages([base, ext]);
+    }
+
+    it("indexes a subspecies and its inline feature appended by a patch", () =>
+    {
+        const fleet = feature(`${MINI}.feature.elf.wood.fleet`, []);
+        const sub = { id: `${SPECIES}.wood`, name: { en: "Wood elf" }, features: [fleet] };
+        const set = withPatch([{ id: "ext.patch.elf", target: SPECIES, append: { subspecies: [sub] } }]);
+
+        expect(set.entities.get(`${SPECIES}.wood`)?.type).toBe("species");
+        expect(set.entities.get(`${SPECIES}.wood`)?.inline).toEqual({ owner: SPECIES, path: "/subspecies/0" });
+        const inline = set.entities.get(`${MINI}.feature.elf.wood.fleet`)?.inline;
+        expect(inline).toEqual({ owner: `${SPECIES}.wood`, path: "/features/0" });
+        expect(set.diagnostics.ok).toBe(true);
+    });
+
+    it("warns when two patches write the same path; the later one wins", () =>
+    {
+        const set = withPatch([
+            { id: "ext.patch.a", target: SPECIES, set: { "speed.walk": 35 } },
+            { id: "ext.patch.b", target: SPECIES, set: { "speed.walk": 40 } }
+        ]);
+
+        expect(codes(set)).toContain("W_PATCH_OVERLAP");
+        expect((set.entities.get(SPECIES)!.data as { speed: { walk: number } }).speed.walk).toBe(40);
+        expect(set.entities.get(SPECIES)!.patchedBy).toEqual(["ext.patch.a", "ext.patch.b"]);
+    });
+});
