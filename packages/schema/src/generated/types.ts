@@ -47,6 +47,10 @@ export type Patch = {
     append?: {
         [k: string]: unknown[] | undefined;
     };
+    /**
+     * Printed page number of the source, for review of transcriptions.
+     */
+    page?: number;
 };
 
 export interface Root {

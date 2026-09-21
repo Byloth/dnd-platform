@@ -3672,6 +3672,11 @@ export const SCHEMAS = {
                 "additionalProperties": {
                     "type": "array"
                 }
+            },
+            "page": {
+                "type": "integer",
+                "minimum": 1,
+                "description": "Printed page number of the source, for review of transcriptions."
             }
         },
         "additionalProperties": false,

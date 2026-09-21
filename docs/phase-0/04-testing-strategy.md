@@ -106,7 +106,7 @@ sections:
 warnings: []
 ```
 
-Ability scores come from the character example in [02-content-format.md](02-content-format.md): standard array plus species bonuses (+2 DEX, +2 WIS). The bruised-lung condition is applied in `state.conditions` of the fixture so the condition path is covered at level 2 as well as level 5.
+Ability scores are set directly (`method: manual`: 11, 17, 14, 8, 15, 8), because the homebrew feline species grants no ability bonus; the derived numbers are the ones above. The bruised-lung condition is applied in `state.conditions` of the fixture so the condition path is covered at level 2 as well as level 5. Implemented in M0.6 as `content-private/fixtures/reference-monk/` (private, skipped when absent); its `expected.yaml` uses the flat format of `fixtures/characters/README.md`.
 
 Reference fixture set (all public unless stated):
 
