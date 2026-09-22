@@ -20,6 +20,10 @@ dist/
 coverage/
 *.tsbuildinfo
 
+# Canonical JSON bundles written by `dnd build` (the private ones land under content-private/build/)
+#
+/build/
+
 # Environmental files
 #
 .env
