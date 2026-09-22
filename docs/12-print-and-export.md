@@ -108,7 +108,7 @@ Generated from the sources of every package the character depends on ([05](05-co
 - Rendering takes the computed sheet, the assistant's view model and the active sections and fills templates; no rule logic lives in the print layer ([15](15-logical-architecture.md)).
 - Print styles are shared with the screen's print mode ([08](08-dynamic-sheet.md), [13](13-ux-and-accessibility.md)); the PDF is the print mode paginated.
 - Export and import are functions of the character store only; they do not involve rendering.
-- Phase 1 ships Part 2 and export/import; Part 3 and Part 4 follow in Phase 2 with play mode; Part 5 and the credits page complete in Phase 2; Part 1 and variants in Phase 3.
+- Phase 1 ships Part 2, Part 3, the credits page and export/import (decided 2026-09-22 with DEC-13); Part 4 follows with the assistant (Phase 5) and Part 5 with the rules content of Phase 2; Part 1 and the variants in Phase 3, together with digitally fillable fields.
 
 ## Why
 
@@ -118,10 +118,10 @@ Generated from the sources of every package the character depends on ([05](05-co
 
 ## Deferred decisions
 
-- DEC-13 PDF generation approach — Phase 1.
+- DEC-13 PDF generation approach — Decided (2026-09-22): the print mode paginated by the browser; digital form fields in Phase 3.
 - DEC-11 Import from other platforms' formats — Phase 4.
 - DEC-03 Serialisation format (also governs the export document) — Phase 0.
-- DEC-09 Supported print languages — Phase 1.
+- DEC-09 Supported print languages — Decided: Italian and English.
 
 ## Depends on / feeds into
 

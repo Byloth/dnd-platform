@@ -92,7 +92,7 @@ Print mode on screen and the PDF share one stylesheet ([12](12-print-and-export.
 3. Write the play-mode layout specification for portrait phone, landscape and tablet.
 4. Define the interface string catalogue format, the translator kit and the term-check against the glossary.
 5. Write the accessibility acceptance checklist and run it on every screen before a phase closes.
-6. Set and measure the performance budget on a reference low-end device.
+6. Set and measure the performance budget on a reference low-end device — from Phase 1 (the roadmap makes it part of every phase's done criteria); the device is named in the Phase 1 plan.
 7. Write the error and empty-state copy in English and Italian.
 8. Align help-level behaviour with [11](11-play-assistant.md) in one shared table.
 
@@ -111,8 +111,8 @@ Print mode on screen and the PDF share one stylesheet ([12](12-print-and-export.
 ## Deferred decisions
 
 - DEC-06 Offline support — Phase 2.
-- DEC-09 Supported languages beyond Italian and English — Phase 1.
-- DEC-01 Technology stack (constrains the component implementation, not this specification) — Phase 0.
+- DEC-09 Supported languages beyond Italian and English — Decided (2026-09-22): none before Phase 4.
+- DEC-01 Technology stack (constrains the component implementation, not this specification) — Decided.
 
 ## Depends on / feeds into
 

@@ -28,8 +28,8 @@ This document defines who owns a character, how a character can be seen by other
 ### Ownership
 
 - Every character records an `owner` (a user identifier) or a `guest` marker.
-- A guest character exists only on the device that created it and in the export file the guest downloads. Decided: **guest mode is allowed, with export as the only persistence**. The interface says so plainly and offers the export before anything is lost (closing the browser, clearing data).
-- Signing up while holding guest characters imports them and assigns ownership; importing an export file into an account does the same.
+- A guest character exists only on the device that created it and in the export file the guest downloads. Decided: **guest mode is allowed, with export as the only persistence**. The interface says so plainly and offers the export before anything is lost (closing the browser, clearing data). Decided (DEC-12, 2026-09-22): until a back end exists, every user is a guest; the device keeps the characters in the browser's own storage, and where the browser allows it the user may connect a *working directory* on disk that mirrors packages, characters and exports and survives a cleared browser.
+- Signing up while holding guest characters imports them and assigns ownership; importing an export file into an account does the same. Accounts arrive with the back end (Phase 6, or earlier if offline synchronisation needs them).
 - Deleting a character deletes its snapshots, log and shares. Deleting an account deletes all its characters and revokes all its grants; content packages it authored are handled per the policy in [06](06-homebrew-and-extensibility.md) (public packages may be kept anonymised so dependent characters do not break).
 
 ### Sharing
@@ -74,6 +74,7 @@ Official books are private packages ([05](05-content-model-and-sources.md)). The
 
 - **Self-hosted, single group**: an administrator uploads the packages once and marks them "available to all users of this deployment". Everyone sees them; the deployment is not public.
 - **Public instance**: private packages are visible only to the user who uploaded them (and, through campaign visibility, to members of a campaign whose DM uploaded them and attached them). They are never listed, searchable or copied.
+- **Loaded locally** (the Phase 1–3 mode, DEC-04): there is no instance; the user loads the package into their own browser from a file, it is validated and kept in the device's storage, and it is never sent anywhere. Attribution appears on the sheet and in print; the export of a character lists the package by id and version and never embeds it.
 - In both modes: the platform refuses to include a private package in any export or listing, refuses to change its visibility to `public`, and keeps an audit record (who uploaded which package, which version, when, to which campaigns it was attached).
 - The repository ships no private package and no tooling that fetches one; it ships the format and the authoring tools ([05](05-content-model-and-sources.md), [06](06-homebrew-and-extensibility.md)).
 
@@ -96,8 +97,8 @@ Official books are private packages ([05](05-content-model-and-sources.md)). The
 
 ## Deferred decisions
 
-- DEC-12 Authentication and account model (email, passwordless, third-party identity, invitations) — Phase 1.
-- DEC-04 Hosting and deployment model (self-hosted single group vs public instance, or both) — Phase 1. Decides which private-package policy applies and which privacy notices are needed.
+- DEC-12 Authentication and account model — Decided for Phase 1–3 (no accounts, device storage plus export); the sign-in method is chosen with the back end.
+- DEC-04 Hosting and deployment model — Decided (2026-09-22): static front end, packages loaded locally; a hosted instance is a later phase.
 - DEC-10 Monetisation and hosting costs — Phase 4.
 - DEC-14 Homebrew moderation policy for `public` packages — Phase 4.
 

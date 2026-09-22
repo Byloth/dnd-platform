@@ -108,7 +108,7 @@ Expert view of the same: the raw provenance list `{value, kind, feature, entity,
 | Interaction | forms, choice pickers, validation | buttons, pips, tap targets, undo | fillable fields for state |
 | Density | full, all sections expanded on desktop | vital block and actions pinned to the top, everything else collapsed | fixed page layout per [12](12-print-and-export.md) |
 | Numbers | with provenance visible on hover/tap | as roll buttons | static, computed |
-| Warnings | inline, blocking for illegal states | non-blocking badge | omitted |
+| Warnings | inline, next to the value; nothing blocks ([07](07-character-creation.md)) | non-blocking badge | listed in an appendix |
 | Help level effect | explanations beside every choice | summaries under names, tactical tab default | extra rules pages for newcomer |
 
 Mode switch is instant and never loses state; play mode is specified in [09](09-play-mode.md), print in [12](12-print-and-export.md).
@@ -134,9 +134,9 @@ A package may declare: section identifier, localised title, default priority, ac
 
 ## Deferred decisions
 
-- DEC-01 Technology stack — Phase 0. The composer's output is described as data so the choice of rendering technology stays open.
-- DEC-09 Supported languages — Phase 1. Affects how localised section titles and provenance wording are stored.
-- DEC-13 PDF generation approach — Phase 1. Print consumes the composer output; the approach decides how.
+- DEC-01 Technology stack — Decided. The composer's output is described as data so the rendering technology stays replaceable.
+- DEC-09 Supported languages — Decided: Italian and English.
+- DEC-13 PDF generation approach — Decided (2026-09-22): print consumes the composer output through the print mode of the sheet.
 
 ## Depends on / feeds into
 

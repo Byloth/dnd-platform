@@ -90,7 +90,7 @@ This document lists what could make the project fail, stall, or harm its users, 
 ## R-12 Performance on cheap phones
 
 - **Detail.** Play mode runs on whatever phone the player brings, often on poor connectivity. A slow sheet is a paper sheet by the second session.
-- **Mitigation.** The engine is small and pure and can run on the client; computed sheets can be cached; payloads are the character and the needed packages only ([15](15-logical-architecture.md)); play mode is designed for one thumb and minimal rendering ([09](09-play-mode.md), [13](13-ux-and-accessibility.md)); low-end device testing is a Phase 2 criterion ([16](16-roadmap.md)). Offline support, if chosen, removes the connectivity dependency (DEC-06).
+- **Mitigation.** The engine is small and pure and can run on the client; computed sheets can be cached; payloads are the character and the needed packages only ([15](15-logical-architecture.md)); play mode is designed for one thumb and minimal rendering ([09](09-play-mode.md), [13](13-ux-and-accessibility.md)); low-end device testing is part of every phase's done criteria from Phase 1 ([16](16-roadmap.md); the reference device is named in the Phase 1 plan). Offline support, if chosen, removes the connectivity dependency (DEC-06).
 - **Signal to watch.** Any interaction in play mode that takes longer than a dice roll at the table.
 
 ## Review log

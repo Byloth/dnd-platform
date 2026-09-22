@@ -10,32 +10,33 @@ When a decision is taken, its status becomes **Decided**, the chosen option and 
 
 | Id | Decision | Phase | Status |
 |---|---|---|---|
-| DEC-01 | Technology stack | 0 / 1 | Partially decided (2026-09-18) |
+| DEC-01 | Technology stack | 0 / 1 | Decided (2026-09-18 Phase 0 part, 2026-09-22 Phase 1 part) |
 | DEC-02 | Rules edition: 2014 (SRD 5.1) or 2024 (SRD 5.2) for the base package | 0 | Decided (2026-09-18) |
 | DEC-03 | Serialisation format of packages and characters | 0 | Decided (2026-09-18) |
-| DEC-04 | Hosting and deployment model | 1 | Open |
+| DEC-04 | Hosting and deployment model | 1 | Decided (2026-09-22) |
 | DEC-05 | Dice random number generation and roll verifiability | 2 | Open |
 | DEC-06 | Offline support | 2 | Open |
 | DEC-07 | Language-model-based assistance | 5 | Open |
 | DEC-08 | Project licence and openness | 0 | Decided (2026-09-18) |
-| DEC-09 | Supported languages for interface and content | 1 | Open |
+| DEC-09 | Supported languages for interface and content | 1 | Decided (2026-09-22) |
 | DEC-10 | Monetisation and hosting costs | 4 | Open |
 | DEC-11 | Import from other platforms | 4 | Open |
-| DEC-12 | Authentication and account model | 1 | Open |
-| DEC-13 | PDF generation approach | 1 | Open |
+| DEC-12 | Authentication and account model | 1 | Decided for Phase 1–3 (2026-09-22); accounts reopen with the back end |
+| DEC-13 | PDF generation approach | 1 | Decided (2026-09-22) |
 | DEC-14 | Homebrew moderation policy for public packages | 4 | Open |
-| DEC-15 | Default ability score generation method | 1 | Open |
+| DEC-15 | Default ability score generation method | 1 | Decided (2026-09-22) |
 | DEC-16 | Hit point gain method policy at level up | 3 | Open |
 | DEC-17 | Respec permissions in campaigns | 6 | Open |
 | DEC-18 | Ruleset selection granularity (per character, per campaign, both) | 3 | Open |
-| DEC-19 | Strategy for authoring mechanical effects of SRD content (by hand, agent-assisted, hybrid) | 0 | Open |
+| DEC-19 | Strategy for authoring mechanical effects of SRD content (by hand, agent-assisted, hybrid) | 0 | Decided (2026-09-19, hybrid) |
+| DEC-20 | Package compatibility and content selection | 0 | Decided (2026-09-21) |
 
 ## Entries
 
 ### DEC-01 — Technology stack
 - **What:** languages, frameworks, storage, build and test tooling for the rules engine, the web application and the export service.
 - **Decided (2026-09-18, Phase 0 part):** TypeScript everywhere, so one rules engine runs in the browser, on a server and in command-line tools. Vue ecosystem for the web application, starting from the author's own templates (a Vite + Vue single-page template and a Nuxt 4 template). Monorepo with workspace packages under the temporary scope `@byloth/dnd-platform`: engine (pure, no I/O), schema, content (base package), cli; the web application is added in Phase 1. Unit and golden-fixture tests with the test runner already used by those templates. Determinism and testability are non-negotiable: every "configuration → expected output" case is a test.
-- **Open (Phase 1 part):** single-page application vs Nuxt application shell; leaning Nuxt because accounts, sharing and PDF export will likely want a server side. Decided together with DEC-04 and DEC-12.
+- **Decided (2026-09-22, Phase 1 part):** **Nuxt 4 application shell, used as a single-page / statically generated application in Phase 1** (no server rendering, no server routes): the engine and everything else run in the browser. Chosen over the plain Vite + Vue template because the same project can later gain a service worker (offline, DEC-06) and a Nitro back end (sharing, campaigns) without a rewrite, while costing nothing now. Starts from the author's Nuxt 4 template (`nuxtplate`, brought up to date: Nuxt 4.5, Pinia 4, vue-router 5, `@byloth/eslint-config-nuxt` 4, TypeScript 6), with Vitest added as in the other packages. Decided together with DEC-04 and DEC-12. Execution: [phase-1/01-web-application.md](phase-1/01-web-application.md).
 - **Options known (originally):** to be surveyed at Phase 0 start. Constraints already fixed by the design: the rules engine must be a pure, shareable library usable by the web application, the export service and authoring tools ([15](15-logical-architecture.md)); the content format must be text-based and diffable (DEC-03); the interface must be usable on cheap phones ([13](13-ux-and-accessibility.md)).
 - **Unblocks:** all implementation.
 - **Referenced by:** [01](01-vision.md), [15](15-logical-architecture.md).
@@ -56,7 +57,8 @@ When a decision is taken, its status becomes **Decided**, the chosen option and 
 
 ### DEC-04 — Hosting and deployment model
 - **What:** self-hosted per group, a single public instance, or both; and the consequences for private official packages ([14](14-accounts-sharing-and-campaigns.md)).
-- **Options known:** self-hosted only (simplest legally: one group, their books); public instance with per-user uploads; both.
+- **Decided (2026-09-22):** **a static front end published on GitHub Pages by a GitHub Actions workflow, with no back end.** The published application ships only the public SRD package. Private official packages and homebrew are loaded by the user from the interface, as the package directory zipped or as the JSON bundle of `dnd build`, validated in the browser and kept in the browser's own storage: nothing is uploaded anywhere, so the copyrighted books never leave the machine of the person who owns them. "Self-hosted" reduces to serving the same static files; a public multi-user instance with uploads, accounts and audit is out of scope until a back end exists (DEC-10, Phase 4 at the earliest). Consequences: the private-package policy of [14](14-accounts-sharing-and-campaigns.md) has a third mode, *loaded locally*; no privacy notice beyond "your data stays in your browser" is needed in Phase 1. Execution: [phase-1/02-content-and-character-stores.md](phase-1/02-content-and-character-stores.md).
+- **Options known (originally):** self-hosted only (simplest legally: one group, their books); public instance with per-user uploads; both. The chosen option is a fourth: no instance at all, everything in the browser.
 - **Unblocks:** the account model (DEC-12), the private-package policy, cost planning (DEC-10).
 - **Referenced by:** [14](14-accounts-sharing-and-campaigns.md), [15](15-logical-architecture.md).
 
@@ -87,8 +89,8 @@ When a decision is taken, its status becomes **Decided**, the chosen option and 
 
 ### DEC-09 — Supported languages
 - **What:** which languages the interface and the base content support, and in which order.
-- **Decided part:** Italian and English interface from Phase 1; Italian translation package of the base package in Phase 1 ([13](13-ux-and-accessibility.md), [05](05-content-model-and-sources.md)).
-- **Open part:** further languages, and whether community translation packages are accepted before Phase 4.
+- **Decided (2026-09-18 part):** Italian and English interface from Phase 1; Italian translation package of the base package in Phase 1 ([13](13-ux-and-accessibility.md), [05](05-content-model-and-sources.md)).
+- **Decided (2026-09-22 part):** no further language before Phase 4. Adding one needs no code (interface strings are catalogues, content strings are translation packages), so anyone can load a translation package the same way as any other package; official community translations start with the homebrew tooling and moderation of Phase 4 (DEC-14).
 - **Referenced by:** [05](05-content-model-and-sources.md), [13](13-ux-and-accessibility.md).
 
 ### DEC-10 — Monetisation and hosting costs
@@ -105,13 +107,15 @@ When a decision is taken, its status becomes **Decided**, the chosen option and 
 
 ### DEC-12 — Authentication and account model
 - **What:** how users sign in, whether guest use is kept permanently, how sharing links are secured.
-- **Decided part:** trying without an account is allowed, with export as the only persistence ([14](14-accounts-sharing-and-campaigns.md)).
+- **Decided (2026-09-18 part):** trying without an account is allowed, with export as the only persistence ([14](14-accounts-sharing-and-campaigns.md)).
+- **Decided (2026-09-22, Phase 1–3):** **no accounts.** With no back end (DEC-04) every user is a guest: characters persist in the browser's storage of the device and in export files, and the interface offers the export before anything can be lost. Where the browser allows it, the user may connect a *working directory* on their own disk that mirrors the store (packages, characters, exports) and survives a cleared browser. The roadmap's "simplest persistent account" is deferred to the phase that adds a back end, together with sharing and campaigns (Phase 6, or earlier if DEC-06 sync needs it); the sign-in method is chosen then.
 - **Unblocks:** persistence of characters, sharing, campaigns.
 - **Referenced by:** [14](14-accounts-sharing-and-campaigns.md).
 
 ### DEC-13 — PDF generation approach
 - **What:** whether the printed playbook is produced from the same layout as the screen (print stylesheet) or from a dedicated print layout engine; how fillable fields are produced.
-- **Requirements fixed:** the structure and content in [12](12-print-and-export.md); fillable fields; A4 and Letter; black-and-white legibility.
+- **Decided (2026-09-22):** **the print mode of the sheet is a paginated print stylesheet; the PDF is the browser's own "print to PDF".** A4 and Letter as page sizes, black-and-white legibility tested, pips, boxes and lines printed to be filled with a pen. Digital form fields inside the PDF cannot come from a stylesheet: they arrive in Phase 3 with the print variants, from a PDF library fed by the same section tree, and can then be saved to the working directory (DEC-12). Reasons: zero infrastructure, immediate preview, one layout to maintain.
+- **Requirements fixed:** the structure and content in [12](12-print-and-export.md); fillable fields (pen-fillable in Phase 1, digital in Phase 3); A4 and Letter; black-and-white legibility.
 - **Unblocks:** Phase 1 print deliverable.
 - **Referenced by:** [12](12-print-and-export.md), [15](15-logical-architecture.md).
 
@@ -123,6 +127,7 @@ When a decision is taken, its status becomes **Decided**, the chosen option and 
 
 ### DEC-15 — Default ability score method
 - **What:** which method the newcomer wizard proposes by default (standard array, point buy, rolling) and which are allowed.
+- **Decided (2026-09-22):** **standard array by default**; point buy and rolling remain available in the same step; a campaign may restrict the methods (Phase 6, [14](14-accounts-sharing-and-campaigns.md)). Reason: six fixed numbers to assign need no arithmetic and no dice, one sentence explains them.
 - **Constraint fixed:** all three must be supported; the default must be the one that needs the least explanation ([07](07-character-creation.md)).
 - **Unblocks:** the wizard's ability score step.
 - **Referenced by:** [07](07-character-creation.md).
@@ -149,6 +154,7 @@ When a decision is taken, its status becomes **Decided**, the chosen option and 
 
 ### DEC-19 — Strategy for authoring mechanical effects of SRD content
 - **What:** open datasets provide prose, lists and level tables, but no dataset provides the mechanical effects the engine needs for class, species, feat and background features. They must be authored: by hand, with a swarm of agents reading the SRD text and producing effect declarations under a strict schema (subject to explicit confirmation by the project owner before launch), or a hybrid where agents draft and humans review.
+- **Decided (2026-09-19):** hybrid. Ten agents drafted the effects of the whole SRD under the fixed vocabulary, in packets, with the schema validator as the gate; every file was reviewed and the golden fixtures of M0.5 caught the remaining errors (recorded in [phase-0/08-workplan.md](phase-0/08-workplan.md), M0.4 and M0.5). The same recipe served the private Player's Handbook in M0.6 and is planned for the Italian translation in Phase 1.
 - **Constraint fixed:** whatever produces the effects, the validator and the golden fixtures are the acceptance gate; nothing enters the base package unvalidated.
 - **Unblocks:** completion of the base package ([phase-0/05-srd-import-pipeline.md](phase-0/05-srd-import-pipeline.md)).
 - **Referenced by:** [05](05-content-model-and-sources.md).

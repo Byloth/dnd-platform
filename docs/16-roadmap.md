@@ -41,19 +41,19 @@ Goal: a newcomer builds a character in the browser, sees a dynamic sheet with ex
 Scope:
 - Guided character creation, newcomer help level, expert mode as a plain form ([07](07-character-creation.md)).
 - Dynamic sheet in build mode with "explain this number" ([08](08-dynamic-sheet.md)).
-- Print/export: extended playbook and compact sheet, fillable fields, character data export/import ([12](12-print-and-export.md)).
-- Accounts minimal or absent: try-without-account with export as persistence, plus the simplest persistent account ([14](14-accounts-sharing-and-campaigns.md)).
+- Print/export: the character sheet, the feature and spell cards and the credits page of the playbook, pen-fillable fields, character data export/import ([12](12-print-and-export.md)); the tactical guide, the rules cheat sheet and the compact variant follow with the phases that produce their content.
+- No accounts: everything runs in the browser; characters persist in the device's storage and in export files, optionally mirrored to a working directory on disk ([14](14-accounts-sharing-and-campaigns.md)).
 - Campaign and package-visibility data structures present but without UI.
 - Italian and English interface; Italian translation package for the base package ([13](13-ux-and-accessibility.md), [05](05-content-model-and-sources.md)).
-- Private packages selectable in creation and visible on the sheet, with attribution.
+- Private packages loaded by the user from the interface (never uploaded anywhere), selectable in creation and visible on the sheet, with attribution.
 
 Done when:
 - A tester who has never played builds a level 1 character in under 15 minutes and can say what each number on the sheet means.
-- The reference Monk's printed playbook contains every kind of panel found in the original playbook, with no redundant explanation and no mention of abilities the character does not have.
+- The reference Monk's printed playbook contains every kind of panel found in the original playbook except the tactical guide (Phase 5) and the rules cheat sheet (Phase 2), with no redundant explanation and no mention of abilities the character does not have.
 - A character exported and re-imported produces a byte-identical computed sheet.
 - The sheet is usable on a phone in portrait orientation.
 
-Decisions to take at the start: DEC-04 Hosting and deployment model, DEC-09 Supported languages, DEC-12 Authentication and account model, DEC-13 PDF generation approach, DEC-15 Default ability score method.
+Decisions taken at the start (2026-09-22, recorded in [17](17-open-decisions.md)): DEC-01 (Phase 1 part: the application shell), DEC-04 Hosting and deployment model, DEC-09 Supported languages, DEC-12 Authentication and account model (no accounts until a back end exists), DEC-13 PDF generation approach, DEC-15 Default ability score method. Execution plan: [phase-1/](phase-1/00-README.md).
 
 ### Phase 2 — Play mode
 

@@ -28,7 +28,8 @@ Read in order the first time; afterwards, each document stands on its own.
 | 16 | [Roadmap](16-roadmap.md) | Phases 0–6 with goals, scope, done criteria and the decisions each phase must take. |
 | 17 | [Open decisions](17-open-decisions.md) | The register of postponed choices (`DEC-nn`), each tied to a phase. |
 | 18 | [Risks](18-risks.md) | Risks and mitigations, each pointing to the document that addresses it. |
-| — | [Phase 0 execution plan](phase-0/00-README.md) | Monorepo, content format v0, engine contract, testing, SRD import pipeline, private packages, ruleset switching, work plan. |
+| — | [Phase 0 execution plan](phase-0/00-README.md) | Monorepo, content format v0, engine contract, testing, SRD import pipeline, private packages, ruleset switching, work plan. Done at `v0.2.0`. |
+| — | [Phase 1 execution plan](phase-1/00-README.md) | The web application, content and character stores in the browser, sheet composer, guided creation, print and export, localisation, testing and accessibility, work plan. |
 
 Suggested shorter paths:
 - **"What is this?"** — 01, 02, 16.

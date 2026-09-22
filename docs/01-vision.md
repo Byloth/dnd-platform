@@ -68,7 +68,7 @@ Player-first is a scope decision (Decided): the DM and campaign side is modelled
 
 ## Deferred decisions
 
-- DEC-01 Technology stack — partially decided (TypeScript, Vue ecosystem, monorepo); application shell in Phase 1.
+- DEC-01 Technology stack — Decided (TypeScript, Vue ecosystem, monorepo; the application shell chosen at the opening of Phase 1).
 - DEC-08 Project licence — Decided: AGPL-3.0, public repository.
 - DEC-10 Monetisation and hosting costs — Phase 4 at the latest.
 

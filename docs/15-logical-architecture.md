@@ -87,6 +87,7 @@ This document describes the platform as a set of blocks with clear responsibilit
 - **Caching is optional**: a stored computed sheet may be kept for speed and must be invalidated when the character, a package version or the engine version changes. Any disagreement between cache and recomputation is a bug in the cache.
 - **Offline-capable shape** (Deferred, DEC-06): engine, composer and play engine can run on the client; the content store can serve a package bundle; the character store can be local-first with later sync. Nothing in the contracts assumes a live server.
 - **Graceful degradation**: an entity referenced by a character but missing from the loaded packages produces a warning and a placeholder, never a failed render.
+- **Phase 1 shape** (Decided, DEC-04 and DEC-12): every block runs in the browser. The content store is the public base package shipped with the application plus the packages the user loads from files into the device's storage; the character store is the device's storage, optionally mirrored to a working directory on disk; the export service is the print mode of the sheet and the export file; identity is a single guest; the API surface has no server behind it until sharing and campaigns need one.
 
 ### Why the engine is a shared library
 
@@ -128,8 +129,8 @@ Golden fixtures are written before the engine, from the rulebook, and act as the
 
 - DEC-01 Technology stack (per block if useful; the engine's language choice constrains where it can run) — Phase 0.
 - DEC-03 Serialisation format for packages and character documents — Phase 0.
-- DEC-04 Hosting and deployment model — Phase 1.
-- DEC-13 PDF generation approach for the export service — Phase 1.
+- DEC-04 Hosting and deployment model — Decided (2026-09-22): static front end, no back end in Phase 1.
+- DEC-13 PDF generation approach for the export service — Decided (2026-09-22).
 - DEC-06 Offline support — Phase 2.
 
 ## Depends on / feeds into
