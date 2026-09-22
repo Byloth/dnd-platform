@@ -121,6 +121,8 @@ Reference fixture set (all public unless stated):
 
 Naming: fixture directories are kebab-case; character names inside are descriptive ("Reference Monk"); no fixture is named after a person or a real campaign.
 
+A fixture may also keep `sheet.txt`, the readable sheet of `dnd derive --text` rendered without colour; `dnd fixtures` compares it and `--update` rewrites it. Three public fixtures carry one (`monk-l3-base`, `cleric-l5`, `multiclass-caster`) and the private reference Monk a fourth: they are the reference for the web sheet of Phase 1 and are reviewed by hand.
+
 ### Level 3 — catalogue unit tests
 
 One test file per effect kind (`modify`, `grant-proficiency`, `declare-resource`, `add-action`, `grant-spellcasting`, `grant-spells`, `extend-spell-list`, `roll-advantage`, `roll-disadvantage`, `defense`, `add-text`, `add-section`, `open-choice`, `define-table`), each with the minimal package that exercises it and assertions on the resulting `ComputedSheet` and provenance. Specific tables of cases:

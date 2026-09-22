@@ -48,6 +48,17 @@ Fixed requirement from the project owner: **everything is deterministic and test
 
 Phase 0 is done when M0.1–M0.8 are done and the done criteria of Phase 0 in [../16-roadmap.md](../16-roadmap.md) hold.
 
+## Phase 0 verification (2026-09-22, `v0.2.0`)
+
+| Criterion ([../16-roadmap.md](../16-roadmap.md)) | Evidence | Result |
+|---|---|---|
+| Every SRD class, subclass, species, background, feat, spell, item and condition is in the base package and passes validation | `pnpm validate:content` (1106 entities, no diagnostics); `pnpm fixtures --coverage` writes `fixtures/coverage.md` with 100 % of classes, subclasses, species, backgrounds, feats and conditions reached by a fixture | Holds |
+| The reference Monk's computed sheet matches hand-computed values (AC, HP, Ki, attacks, saves, skills) with correct provenance, including contributions from the private package | `content-private/fixtures/reference-monk/expected.yaml` (hand-computed, provenance asserted per value) passes locally with base + `phb14` + `homebrew.byloth`; skipped in CI where the book is absent | Holds (verified locally on 2026-09-22) |
+| A second character of every SRD class computes without warnings | `packages/cli/test/phase-0-criteria.test.ts`: at least two public fixtures per class with an empty `warnings` list. The check found choices opening before their level gate (Expertise 6/10, Favored Enemy 2/3, Natural Explorer 2/3), fixed in the engine at M0.8 | Holds |
+| Adding the homebrew species and the private Player's Handbook package required no engine change | M0.6 history: `homebrew.byloth` (feline species with subspecies, bruised-lung condition) and `phb14` (28 subclasses, subraces, backgrounds, feats, spells, list patches) loaded on the M0.5 engine; the only engine change of M0.6 was the DEC-20 content selection, a feature planned for campaigns, not a fix for either package | Holds |
+
+Phase 0 closed on 2026-09-22 at `v0.2.0`. The Phase 1 execution plan is written at the opening of Phase 1 (owner decision, see [08-workplan.md](08-workplan.md)).
+
 ## Conventions for this directory
 
 - Each document opens with **Purpose**, then **Decisions** (what this document fixes), **Design**, **Tasks** (numbered, referencing milestones), **Open points** (small questions to settle while working, not DEC-level decisions).

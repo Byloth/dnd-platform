@@ -27,7 +27,7 @@ dnd/                                  # repository root (~/byloth/dnd)
   LICENSE                             # AGPL-3.0
   NOTICE                              # SRD 5.1 CC-BY-4.0 attribution (text as in the srd51 manifest)
   README.md                           # short, public
-  CONTRIBUTING.md                     # later (Phase 4)
+  CONTRIBUTING.md                     # written at Phase 0 close (R-09)
   package.json                        # root scripts, workspaces glue, devDependencies shared
   pnpm-workspace.yaml
   pnpm-lock.yaml
@@ -164,7 +164,7 @@ On every pull request and on the default branch, one workflow with these jobs in
 - `LICENSE`: AGPL-3.0 text, verbatim.
 - `NOTICE`: the SRD 5.1 attribution sentence from the `srd51` manifest in [02-content-format.md](02-content-format.md), plus a line stating that official books are not part of this repository.
 - `README.md`: one paragraph on what the project is, the licence, the link to `docs/00-README.md`, and how to run `pnpm install && pnpm test`.
-- `CONTRIBUTING.md`: deferred to Phase 4, when external contributions are expected.
+- `CONTRIBUTING.md`: written at Phase 0 close, since the risk register names a contribution guide as a Phase 0 mitigation of the single-maintainer risk (R-09); expanded in Phase 4 when external contributions are expected.
 
 ## Tasks
 
@@ -182,4 +182,4 @@ On every pull request and on the default branch, one workflow with these jobs in
 - pnpm versus npm workspaces: the owner's templates do not pin a package manager; confirm before M0.1.
 - Whether the generated types are committed (proposed) or produced only at build time; committing keeps editor tooling working without a build step at the cost of the CI diff check.
 - Whether `fixtures/` should be a fifth workspace package so that it can declare its own test runner config, or stay a plain directory read by the `cli` runner; plain directory until a reason appears.
-- Exact CLI command names (`dnd validate` versus `dnd-platform validate`); the bin name follows the project name and is renamed together with the scope.
+- ~~Exact CLI command names (`dnd validate` versus `dnd-platform validate`)~~ Closed in M0.8: the bin is `dnd` (`validate`, `build`, `derive`, `fixtures`); it is renamed together with the scope before publication.

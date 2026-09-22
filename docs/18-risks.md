@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This document lists what could make the project fail, stall, or harm its users, with a mitigation for each and the document that carries that mitigation. Likelihood and impact are rated low / medium / high. The owner phase is where the mitigation must be in place. The list is reviewed at the start of every phase ([16](16-roadmap.md)).
+This document lists what could make the project fail, stall, or harm its users, with a mitigation for each and the document that carries that mitigation. Likelihood and impact are rated low / medium / high. The owner phase is where the mitigation must be in place. The list is reviewed at every milestone boundary and at the close of every phase ([16](16-roadmap.md), [phase-0/08-workplan.md](phase-0/08-workplan.md)); the review log at the end of this document records what was seen and whether a risk is kept, promoted to the next phase or closed.
 
 ## Register
 
@@ -92,3 +92,17 @@ This document lists what could make the project fail, stall, or harm its users, 
 - **Detail.** Play mode runs on whatever phone the player brings, often on poor connectivity. A slow sheet is a paper sheet by the second session.
 - **Mitigation.** The engine is small and pure and can run on the client; computed sheets can be cached; payloads are the character and the needed packages only ([15](15-logical-architecture.md)); play mode is designed for one thumb and minimal rendering ([09](09-play-mode.md), [13](13-ux-and-accessibility.md)); low-end device testing is a Phase 2 criterion ([16](16-roadmap.md)). Offline support, if chosen, removes the connectivity dependency (DEC-06).
 - **Signal to watch.** Any interaction in play mode that takes longer than a dice roll at the table.
+
+## Review log
+
+### Phase 0 close (2026-09-22)
+
+| Id | Signal observed | Outcome |
+|---|---|---|
+| R-01 | The repository holds only the SRD; the private root, its guards (`E_PRIVATE_OUTSIDE_ROOT`, `E_PRIVATE_TRACKED`, the pre-commit hook) and now the bundle rule of `dnd build` keep book content out; SRD attribution is in `NOTICE`, in every package manifest and in the credits of the readable sheet. No request for a shared library of official packages. | Kept; owner Phase 1 for the credits of the printed playbook. |
+| R-02 | The catalogue closed at M0.4 and held through the whole SRD, the Player's Handbook and the play engine without an entity-specific code path; the gaps found are format candidates for v1 (`inventory/authoring-review.md`), not code. | Kept at low likelihood; re-read when the first 2024 content is authored. |
+| R-03 | The SRD took one milestone with agent drafting under a fixed vocabulary; the Player's Handbook one sitting. Coverage is 100 % of the SRD at Phase 0 close (signal not triggered). | Kept; owner Phase 1–4 (translations start in Phase 1). |
+| R-05 | Nothing outside the sheet, the play engine and the CLI was built; the DM side stays a data structure. | Kept. |
+| R-08 | Only the CC-BY-4.0 SRD 5.1 is redistributed; the import lock file records the licence hash. | Kept. |
+| R-09 | Documentation-first held (every milestone updated its documents); the engine is pure, content is data; `CONTRIBUTING.md` written at Phase 0 close (the monorepo plan had deferred it to Phase 4, the register named it a Phase 0 deliverable: the register wins). | Kept at high likelihood by nature; promoted to Phase 1 for the first external contributor path. |
+

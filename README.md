@@ -12,7 +12,7 @@ rules engine) is described in [`docs/phase-0/`](docs/phase-0/00-README.md).
 
 ## Status
 
-Phase 0, milestone M0.7 done: the base package covers the whole SRD 5.1 with authored mechanics, the engine derives every class at every tier with provenance, 60 public golden fixtures guard it, private packages load from a git-ignored root next to the base (the owner's Player's Handbook transcription proves the path, with 30 private fixtures that run only where the book is), a content selection (DEC-20) lets a campaign exclude content without breaking anything, and the play engine applies and undoes every play event (damage, healing, resources, spells and concentration, conditions and toggles with expiry, rests, death saves, the turn tracker) with the rules read from the ruleset; eight public session fixtures replay whole scenes. Content format frozen at v0. Next: the CLI (M0.8). Nothing playable from a screen yet.
+**Phase 0 done** (`v0.2.0`, 2026-09-22): the content format (frozen at v0) and the rules engine exist and are proven. The base package covers the whole SRD 5.1 with authored mechanics; the engine derives every class at every tier with provenance and applies and undoes every play event with the rules read from the ruleset; 60 public golden characters, 8 play sessions and 3 readable sheets guard it; private packages load from a git-ignored root next to the base (the owner's Player's Handbook transcription proves the path with 30 private fixtures); a content selection (DEC-20) lets a campaign exclude content without breaking anything; the `dnd` command validates, bundles and derives from the terminal. Next: Phase 1, the web application (guided creation, dynamic sheet, print), whose plan is written at its opening. Nothing playable from a screen yet.
 
 ## Development
 
@@ -25,11 +25,21 @@ pnpm typecheck
 pnpm build
 pnpm test
 pnpm validate:content        # validate every content package directory against the schemas
-pnpm fixtures                # run the golden character fixtures and the play session fixtures (add --update to refresh snapshots after review)
+pnpm build:content           # write the canonical JSON bundle of every package (build/content/, content-private/build/)
+pnpm fixtures                # run the golden characters, the play sessions and the readable sheets (--update after review)
 pnpm generate:types          # regenerate packages/schema/src/generated from the JSON Schemas
 ```
 
-Content format: `docs/phase-0/02-content-format.md`; schemas in `packages/schema/schemas/`; example packages in `fixtures/packages/`.
+Content format: `docs/phase-0/02-content-format.md`; schemas in `packages/schema/schemas/`; example packages in `fixtures/packages/`. How to contribute: [`CONTRIBUTING.md`](CONTRIBUTING.md).
+
+## CLI
+
+`dnd` is the command of `packages/cli` (`node packages/cli/dist/index.js` after `pnpm build`; `pnpm exec dnd` inside the workspace). Every command exits with 0 on success, 1 on a failure it reports, 2 on a usage error.
+
+- **`dnd validate [dirs…] [--all] [--references] [--allow-missing] [--json]`** validates package directories against the schemas and the structural rules. Without directories (or with `--all`) it discovers every package under `packages/content/` and `content-private/`. `--references` also loads the packages into the engine and resolves every reference. Example: `dnd validate --references fixtures/packages/homebrew-feline`.
+- **`dnd build [dirs…] [--out <dir>] [--json]`** writes one canonical JSON bundle per package: the engine's `PackageSource` (manifest, ruleset, entities sorted by type and id, sorted keys), which `loadPackages` accepts as it is. Redistributable packages land in `build/content/<id>.json`, a non-redistributable one in `content-private/build/<id>.json` and never elsewhere.
+- **`dnd derive <character.yaml> [--json | --text] [--package <dir>]… [--explain <path>] [--language <code>] [--no-color] [--width <n>]`** computes a character's sheet. Packages come from a `packages.yaml` next to the character (as in the fixtures) or, without one, from the content roots by id plus any `--package`. `--text` (the default) prints the readable sheet: every section of the dynamic sheet, the core numbers with their provenance, abilities, skills, attacks, actions, resources, spells, features, equipment, credits and warnings; colour only on a terminal. `--json` prints the canonical sheet, byte for byte a fixture's `snapshot.json`. `--explain ac` prints every contribution to one value, inactive ones included. Example: `dnd derive fixtures/characters/monk-l3-base/character.yaml`.
+- **`dnd fixtures [dirs…] [--update] [--filter <name>] [--coverage] [--json]`** runs the golden characters (`fixtures/characters/`: `expected.yaml`, `snapshot.json` and, when present, the readable `sheet.txt`) and the play sessions (`fixtures/sessions/`), plus the private ones under `content-private/fixtures/` when they exist. `--update` rewrites snapshots and sheets after review; `--coverage` reports which base-package entities no fixture touches.
 
 ### Private content
 
