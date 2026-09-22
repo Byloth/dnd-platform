@@ -11,6 +11,7 @@
 import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 
+import pc from "picocolors";
 import { parse } from "yaml";
 
 import { derive, loadPackages, stableStringify } from "@byloth/dnd-platform-engine";
@@ -65,7 +66,8 @@ export function runDerive(argv: readonly string[]): number
 
         return 2;
     }
-    const color = !argv.includes("--no-color") && !json && process.stdout.isTTY === true && process.env["NO_COLOR"] === undefined;
+    // picocolors honours NO_COLOR, FORCE_COLOR and whether stdout is a terminal.
+    const color = !argv.includes("--no-color") && !json && pc.isColorSupported;
 
     const repoRoot = tryRepositoryRoot();
     if (repoRoot === undefined)
