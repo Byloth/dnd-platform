@@ -1,11 +1,10 @@
 import { readdirSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 
-import { Ajv2020 } from "ajv/dist/2020.js";
 import type { ValidateFunction } from "ajv";
-import addFormats from "ajv-formats";
 
-import { checkFormula } from "../src/formula.js";
+import { createAjv as createSharedAjv } from "../src/validate.js";
+import type { SchemaValidator } from "../src/validate.js";
 
 export const SCHEMAS_DIR = resolve(import.meta.dirname, "..", "schemas");
 
@@ -22,23 +21,12 @@ export function schemaFiles(): string[]
         .sort();
 }
 
-export function createAjv(): Ajv2020
+export function createAjv(): SchemaValidator
 {
-    const ajv = new Ajv2020({
-        allErrors: true,
-        strict: true,
-        strictRequired: false,
-        discriminator: true,
-        allowUnionTypes: true
-    });
-    addFormats.default(ajv);
-    ajv.addFormat("formula", { type: "string", validate: (value: string) => checkFormula(value).ok });
-    for (const name of schemaFiles()) { ajv.addSchema(readSchema(name)); }
-
-    return ajv;
+    return createSharedAjv({ strict: true });
 }
 
-export function validatorFor(ajv: Ajv2020, name: string): ValidateFunction
+export function validatorFor(ajv: SchemaValidator, name: string): ValidateFunction
 {
     const validate = ajv.getSchema(`https://dnd-platform.byloth.dev/schema/v0/${name}.schema.json`);
     if (!validate) { throw new Error(`schema "${name}" is not registered`); }

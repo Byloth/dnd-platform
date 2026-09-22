@@ -18,8 +18,6 @@
     "@byloth/dnd-platform-composer": "workspace:*",
     "@byloth/dnd-platform-engine": "workspace:*",
     "@byloth/dnd-platform-schema": "workspace:*",
-    "ajv": "^8.20.0",
-    "ajv-formats": "^3.0.1",
     "picocolors": "^1.1.1",
     "string-width": "^8.2.2",
     "yaml": "^2.9.1"

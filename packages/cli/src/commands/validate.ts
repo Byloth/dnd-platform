@@ -13,16 +13,13 @@
 import { existsSync } from "node:fs";
 import { basename, resolve } from "node:path";
 
-import { Ajv2020 } from "ajv/dist/2020.js";
-import type { ErrorObject, ValidateFunction } from "ajv";
-import addFormats from "ajv-formats";
-
-import { ENTITY_TYPE_FOR_DIRECTORY, SCHEMAS, checkFormula } from "@byloth/dnd-platform-schema";
+import { checkManifest, createAjv, entityIdMismatch, validateDocument } from "@byloth/dnd-platform-schema/validate";
+import type { SchemaValidator } from "@byloth/dnd-platform-schema/validate";
 import { loadPackages, validate as validateReferences } from "@byloth/dnd-platform-engine";
 import type { PackageSource } from "@byloth/dnd-platform-engine";
 
 import { readPackageDirectory } from "../io/read-package.js";
-import type { PackageDirectory, SourceFile } from "../io/read-package.js";
+import type { SourceFile } from "../io/read-package.js";
 import { PRIVATE_ROOT, PUBLIC_ROOT, discoverPackages, isUnderPrivateRoot, trackedPrivateFiles, tryRepositoryRoot } from "../io/repository.js";
 import type { DiscoveredPackage } from "../io/repository.js";
 import { toPackageSource } from "../io/to-package-source.js";
@@ -59,59 +56,10 @@ export interface Diagnostic
 interface Manifest
 {
     readonly id?: string;
-    readonly kind?: string;
-    readonly visibility?: string;
     readonly redistributable?: boolean;
-    readonly dependencies?: readonly unknown[];
 }
 
-function createAjv(): Ajv2020
-{
-    const ajv = new Ajv2020({
-        allErrors: true,
-        strict: false,
-        strictRequired: false,
-        allowUnionTypes: true,
-        discriminator: true
-    });
-    addFormats(ajv);
-    ajv.addFormat("formula", {
-        type: "string",
-        validate: (value: string) => checkFormula(value).ok
-    });
-    for (const schema of Object.values(SCHEMAS)) { ajv.addSchema(schema as object); }
-
-    return ajv;
-}
-
-function pointer(error: ErrorObject): string
-{
-    return error.instancePath || "/";
-}
-
-function describe(error: ErrorObject): string
-{
-    if (error.keyword === "additionalProperties")
-    {
-        return `unexpected property "${String((error.params as { additionalProperty: string }).additionalProperty)}"`;
-    }
-    if (error.keyword === "enum")
-    {
-        const allowed = (error.params as { allowedValues: unknown[] }).allowedValues.map(String);
-
-        return `${error.message ?? "invalid value"}: ${allowed.join(", ")}`;
-    }
-
-    return error.message ?? error.keyword;
-}
-
-function validateFile(
-    pkg: PackageDirectory,
-    packageId: string,
-    file: SourceFile,
-    validator: ValidateFunction,
-    out: Diagnostic[]
-): void
+function validateFile(packageId: string, file: SourceFile, ajv: SchemaValidator, out: Diagnostic[]): void
 {
     const base = { package: packageId, file: file.path };
     if (file.parseError !== undefined)
@@ -122,44 +70,27 @@ function validateFile(
 
         return;
     }
-    if (!validator(file.data))
-    {
-        // A `oneOf` on effects reports every branch; keep the errors that carry information.
-        const errors = (validator.errors ?? []).filter((e) => e.keyword !== "oneOf" && e.keyword !== "const");
-        for (const error of errors)
-        {
-            const formula = error.keyword === "format" && (error.params as { format?: string }).format === "formula";
-            out.push({
-                severity: "error",
-                code: formula ? "E_FORMULA" : "E_SCHEMA",
-                ...base,
-                path: pointer(error),
-                message: describe(error)
-            });
-        }
-        if (errors.length === 0)
-        {
-            out.push({ severity: "error", code: "E_SCHEMA", ...base, path: "/", message: "does not match any known shape" });
-        }
-    }
-    const entityType = (ENTITY_TYPE_FOR_DIRECTORY as Record<string, string | undefined>)[file.directory];
-    const id = (file.data as { id?: unknown } | null)?.id;
-    if (entityType !== undefined && typeof id === "string" && !id.startsWith(`${packageId}.${entityType}.`))
+    for (const problem of validateDocument(ajv, file.schema, file.data))
     {
         out.push({
             severity: "error",
-            code: "E_ID_MISMATCH",
+            code: problem.formula ? "E_FORMULA" : "E_SCHEMA",
             ...base,
-            path: "/id",
-            message: `id "${id}" must start with "${packageId}.${entityType}." (package id and directory type)`
+            path: problem.path,
+            message: problem.message
         });
     }
-    void pkg;
+    const id = (file.data as { id?: unknown } | null)?.id;
+    const mismatch = entityIdMismatch(packageId, file.directory, id);
+    if (mismatch !== undefined)
+    {
+        out.push({ severity: "error", code: "E_ID_MISMATCH", ...base, path: "/id", message: mismatch });
+    }
 }
 
 interface Context
 {
-    readonly ajv: Ajv2020;
+    readonly ajv: SchemaValidator;
     readonly repoRoot?: string;
 }
 
@@ -175,17 +106,14 @@ function validatePackage(root: string, context: Context, out: Diagnostic[]): voi
     }
 
     const { ajv } = context;
-    const manifestValidator = ajv.getSchema("https://dnd-platform.byloth.dev/schema/v0/package.schema.json");
-    if (manifestValidator === undefined) { throw new Error("package schema not registered"); }
-    validateFile(pkg, packageName, pkg.manifest, manifestValidator, out);
+    validateFile(packageName, pkg.manifest, ajv, out);
 
     const manifest = (pkg.manifest.data ?? {}) as Manifest;
     const packageId = manifest.id ?? packageName;
-    const manifestBase = { package: packageId, file: "package.yaml" };
 
-    if (manifest.redistributable === false && manifest.visibility !== "private")
+    for (const problem of checkManifest(pkg.manifest.data, pkg.ruleset !== undefined))
     {
-        out.push({ severity: "error", code: "E_PRIVATE_PUBLIC", ...manifestBase, path: "/visibility", message: "a non-redistributable package must be private" });
+        out.push({ severity: "error", code: problem.code, package: packageId, file: problem.file, path: problem.path, message: problem.message });
     }
     const outsidePrivateRoot = context.repoRoot !== undefined && !isUnderPrivateRoot(context.repoRoot, root);
     if (manifest.redistributable === false && outsidePrivateRoot)
@@ -193,42 +121,18 @@ function validatePackage(root: string, context: Context, out: Diagnostic[]): voi
         out.push({
             severity: "error",
             code: "E_PRIVATE_OUTSIDE_ROOT",
-            ...manifestBase,
+            package: packageId,
+            file: "package.yaml",
             path: "/redistributable",
             message: `a non-redistributable package must live under ${PRIVATE_ROOT}/ (docs/phase-0/06-private-packages.md)`
         });
     }
-    if (manifest.kind === "base")
-    {
-        if ((manifest.dependencies ?? []).length > 0)
-        {
-            out.push({ severity: "error", code: "E_BASE_DEPENDENCIES", ...manifestBase, path: "/dependencies", message: "a base package has no dependencies" });
-        }
-        if (pkg.ruleset === undefined)
-        {
-            out.push({ severity: "error", code: "E_MISSING_RULESET", ...manifestBase, path: "/", message: "a base package must ship ruleset.yaml" });
-        }
-    }
-    else if (pkg.ruleset !== undefined)
-    {
-        out.push({ severity: "error", code: "E_EXTENSION_RULESET", package: packageId, file: "ruleset.yaml", path: "/", message: "only a base package may ship ruleset.yaml" });
-    }
-    if (pkg.ruleset !== undefined)
-    {
-        const rulesetValidator = ajv.getSchema("https://dnd-platform.byloth.dev/schema/v0/ruleset.schema.json");
-        if (rulesetValidator === undefined) { throw new Error("ruleset schema not registered"); }
-        validateFile(pkg, packageId, pkg.ruleset, rulesetValidator, out);
-    }
+    if (pkg.ruleset !== undefined) { validateFile(packageId, pkg.ruleset, ajv, out); }
     for (const dir of pkg.unknownDirectories)
     {
         out.push({ severity: "warning", code: "W_UNKNOWN_DIRECTORY", package: packageId, file: `${dir}/`, path: "/", message: "not part of the package layout; ignored" });
     }
-    for (const file of pkg.files)
-    {
-        const validator = ajv.getSchema(`https://dnd-platform.byloth.dev/schema/v0/${file.schema}.schema.json`);
-        if (validator === undefined) { throw new Error(`schema "${file.schema}" not registered`); }
-        validateFile(pkg, packageId, file, validator, out);
-    }
+    for (const file of pkg.files) { validateFile(packageId, file, ajv, out); }
 }
 
 /**
