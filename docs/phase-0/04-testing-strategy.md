@@ -150,25 +150,25 @@ fixtures/sessions/<name>/
   session.yaml
 ```
 
-`session.yaml` is a list of steps, each with an event and the expected state slice afterwards; dice results are part of the event (`short-rest` hit dice rolls, `death-save` roll), never generated:
+`session.yaml` is a list of steps, each with an event and the expected state slice afterwards; dice results are part of the event (`short-rest` hit dice rolls, `death-save` roll, `rolled` totals), never generated. `expect` matches the state partially (an object by the keys it lists, an array as a whole) and may also carry `warnings` (codes that must be present), `rejected: true` (no change and a warning) and `values` (value paths checked on a re-derivation with the new state). Entries get the ids `step-<n>`; after the last step every entry is undone in reverse and the state must equal the initial one. `dnd fixtures` runs a directory as a session when it holds `session.yaml`:
 
 ```yaml
 steps:
   - event: { type: use-action, action: flurry-of-blows }
-    expect: { resources: { ki: 2 }, turn: { bonusAction: used } }
+    expect: { resources: { ki: 2 }, turn: { used: [action, bonus-action] } }
   - event: { type: damage, amount: 30 }
-    expect: { hp: { current: 0, temporary: 0 }, deathSaves: { successes: 0, failures: 0 } }
+    expect: { hp: { current: 0, temporary: 0 }, deathSaves: { successes: 0, failures: 0 }, warnings: [I_DOWN] }
   - event: { type: death-save, roll: 1 }
     expect: { deathSaves: { failures: 2 } }
-  - event: { type: heal, amount: 5 }
-    expect: { hp: { current: 5 }, deathSaves: { successes: 0, failures: 0 } }
+  - event: { type: spend-resource, resource: ki, amount: 9 }
+    expect: { rejected: true, warnings: [W_INSUFFICIENT_RESOURCE] }
   - event: { type: short-rest, hitDice: [{ die: 8, rolls: [6] }] }
-    expect: { hp: { current: 13 }, hitDice: { spent: 1 }, resources: { ki: 3 } }
-  - event: { type: long-rest }
-    expect: { hp: { current: 24 }, hitDice: { spent: 0 }, conditions: [] }
+    expect: { hp: { current: 8 }, hitDice: { spent: 1 }, resources: { ki: 3 } }
+  - event: { type: toggle, state: patient-defense, on: true }
+    expect: { values: { ac: 17 } }
 ```
 
-Required sessions at M0.7: a full combat round with every activation type, concentration warning on damage, condition expiry on `end-turn`, temporary HP absorption, dropping to 0 and stabilising, both rests, a rejected event (spending more than available).
+Sessions at M0.7 (`fixtures/sessions/`): `monk-combat-round` (action, bonus action, reaction, prerequisites, the turn tracker and a toggle expiring at the start of the next turn), `cleric-concentration` (slots, concentration check DC, resistance, replacement, cantrips, a reported play effect, long rest), `condition-expiry` (turn counters relative to whose turn it is, exhaustion levels, a custom effect re-derived), `temp-hp-absorption`, `dying-and-stabilising`, `rests`, `rejected-events` (one rejection per validation, plus `force`), `minib-scout-long-rest` (the same engine on the other ruleset); `content-private/fixtures/sessions/reference-monk` casts Darkness with 2 ki. The free and special activations are covered by the unit tests on a mini package (`packages/engine/test/play.test.ts`).
 
 ### Level 6 — performance
 
@@ -176,7 +176,7 @@ Required sessions at M0.7: a full combat round with every activation type, conce
 
 ### Coverage targets
 
-- 100% of effect kinds, `modify` ops, `modify` targets, condition keys, formula functions and `PlayEvent` types exercised, enforced by meta-tests that diff the schema enumerations against what the fixtures and unit tests touched.
+- 100% of effect kinds, `modify` ops, `modify` targets, condition keys, formula functions and `PlayEvent` types exercised, enforced by meta-tests that diff the schema enumerations (and `PLAY_EVENT_TYPES` of the engine) against what the fixtures and unit tests touched.
 - Every entity of the base package is loaded by at least one golden fixture: a coverage script (`pnpm fixtures --coverage`) records which entity ids `derive` resolved and reports the unreferenced ones; the list must be empty at M0.5. Spells count as covered when at least one fixture knows or is granted them, so spell coverage is achieved by the level 20 casters plus deliberate list fixtures.
 
 ### Workflow and CI

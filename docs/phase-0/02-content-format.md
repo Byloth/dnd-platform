@@ -106,10 +106,20 @@ hitPoints:
   firstLevel: "hitDie + mod(con)"
   perLevel: "average(hitDie) + mod(con)"          # default; rolling handled in play/progression
 rests:
-  short: { hitDice: spend }
+  short: { hitDice: spend, hours: 1 }                # hours: timed effects of at most this long end with the rest (M0.7)
   long:
     hitPoints: full
     hitDiceRecovered: "max(1, floor(level / 2))"
+    hours: 8
+    conditionLevelsRecovered: 1                      # exhaustion loses one level
+concentration: { saveDc: "max(10, floor(damage / 2))" }   # `damage` bound to the damage taken (M0.7)
+deathSaves:                                          # read by the death-save event (M0.7); absent: the event is rejected
+  dc: 10
+  successes: 3
+  failures: 3
+  natural20: { hitPoints: 1 }
+  natural1: { failures: 2 }
+  damage: { failures: 1 }
 spellSlots:
   full: { table: srd51.table.spell-slots.full }
   half: { table: srd51.table.spell-slots.half }
@@ -418,7 +428,7 @@ Anything else is a validation error. New keys are added to the catalogue, with a
 Deterministic arithmetic over character facts, evaluated to a number or a dice expression.
 
 - Literals: integers, dice strings `"1d4"`.
-- Variables: `level`, `proficiencyBonus`, `hitDie`, `hitDieCount`, `slotLevel` (in scaling), `score` (in the ability modifier formula of the ruleset), `classLevel` (bare: levels in the class that owns the table or feature, used in class tables), `casterWeight` (in the multiclass caster level formula of the ruleset).
+- Variables: `level`, `proficiencyBonus`, `hitDie`, `hitDieCount`, `slotLevel` (in scaling), `score` (in the ability modifier formula of the ruleset), `classLevel` (bare: levels in the class that owns the table or feature, used in class tables), `casterWeight` (in the multiclass caster level formula of the ruleset), `damage` (in the concentration DC formula of the ruleset).
 - Functions: `mod(ability)`, `score(ability)`, `classLevel(class-name)`, `table(name)` / `table(id, key)`, `max(...)`, `min(...)`, `floor(x)`, `ceil(x)`, `average(dice)`, `sum(...)`.
 - Operators: `+ - * /` and parentheses. Division is real; use `floor`/`ceil`.
 - No strings, no conditionals (use `when` on the effect), no recursion, no user-defined functions. A formula references derived values only through the functions above; the engine builds the dependency graph from those references.
@@ -473,6 +483,7 @@ state:
   concentration: null
   toggles: []                   # [{ state: raging, since: <log id>, expires: { turns: 10 } }]
   activeSpells: []              # [{ spell, caster, slotLevel, expires }]
+  turn: { used: [], actionsTaken: [], movementUsed: 0, active: false }   # written by the play engine; active between start-turn and end-turn
 snapshots: []
 ```
 

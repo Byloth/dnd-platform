@@ -23,7 +23,9 @@ DEC-02 fixes SRD 5.1 as the first ruleset and requires that the move to SRD 5.2,
 | Ability modifier | `ruleset.abilityModifier` formula | `mod(ability)` evaluates this formula with `score` bound. |
 | Proficiency bonus | `ruleset.proficiencyBonus.table` | `proficiencyBonus` value path reads the table by `level`. |
 | Hit points | `ruleset.hitPoints.firstLevel` and `.perLevel` | `hp.max` base contribution; progression uses the same formulas. |
-| Rests | `ruleset.rests.short`, `ruleset.rests.long` | `apply` for `short-rest` and `long-rest` reads what is restored and the Hit Dice formula. |
+| Rests | `ruleset.rests.short`, `ruleset.rests.long` | `apply` for `short-rest` and `long-rest` reads what is restored, the Hit Dice formula, the rest lengths (`hours`, which timed effects end) and `conditionLevelsRecovered` (exhaustion). |
+| Concentration | `ruleset.concentration.saveDc` (formula, `damage` bound) | `apply` for `damage` reports the check with this DC; without the key the check is reported without a DC. |
+| Death saving throws | `ruleset.deathSaves` (`dc`, `successes`, `failures`, `natural20`, `natural1`, `damage`) | `apply` for `death-save`, `damage` at 0 hit points and `stabilise`; without the key `death-save` is rejected. |
 | Spell slots | `ruleset.spellSlots.<progression>.table` and `.multiclass` | `grant-spellcasting` with `slots.progression` resolves through the ruleset; multiclass caster level uses `casterWeight` per class. |
 | Base actions | `ruleset.baseActions` (ids of `Rule` entities) | Listed in the sheet's actions with `source: ruleset`; the assistant and the cheat sheet render them. |
 | Standard conditions | `ruleset.conditions` (ids of `Condition` entities) | Offered in play mode; their effects come from the entities. |
@@ -93,7 +95,7 @@ baseActions: [minib.rule.action.attack]
 conditions: []
 ```
 
-Plus one class (`minib.class.scout`, hit die 8, one feature per level up to 5), one species and the two tables. A fixture character `fixtures/characters/minib-scout-5/` built on `minib` has `expected.yaml` asserting a proficiency bonus of +4 with provenance pointing at `minib.table.proficiency-bonus`, and a session fixture asserts that a long rest recovers 5 Hit Dice. The same engine build passes the `srd51` fixtures with +3 and 2 Hit Dice. If either set needs a code change to pass, the engine has an edition constant and the change is rejected.
+Plus one class (`minib.class.scout`, hit die 8, one feature per level up to 5), one species and the two tables. A fixture character `fixtures/characters/minib-scout-5/` built on `minib` has `expected.yaml` asserting a proficiency bonus of +4 with provenance pointing at `minib.table.proficiency-bonus`, and the session fixture `fixtures/sessions/minib-scout-long-rest/` asserts that a long rest recovers 5 Hit Dice, that two successes at DC 11 stabilise, that damage at 0 hit points counts two failures and that a natural 20 regains 5 hit points. The same engine build passes the `srd51` fixtures with +3 and 2 Hit Dice. If either set needs a code change to pass, the engine has an edition constant and the change is rejected.
 
 ### Future path
 

@@ -27,7 +27,7 @@ export function validate(set: PackageSet): Diagnostics;
 export function derive(character: Character, set: PackageSet, options?: DeriveOptions): ComputedSheet;
 
 // One play event → new state + a log entry that can be undone.
-export function apply(sheet: ComputedSheet, state: CharacterState, event: PlayEvent): ApplyResult;
+export function apply(sheet: ComputedSheet, state: CharacterState, event: PlayEvent, options?: { id?: string }): ApplyResult;
 export function undo(state: CharacterState, entry: LogEntry): CharacterState;
 
 // Provenance of one value, for "explain this number".
@@ -111,9 +111,15 @@ interface ComputedSheet {
   defenses: DefenseView[];
   choices: ChoiceView[];               // key '<owner id>#<choice id>', owner, choice, of, count, options, answers, answered, level
   sections: string[];                  // active sections in display order (docs/08)
+  toggles: ToggleView[];               // player-controlled states declared by actions and features: state, name, expires, source
+  play: PlayRules;                     // what apply reads from the ruleset, evaluated for this character (M0.7)
   warnings: Diagnostic[];
 }
 // M0.4 adds: spellcasting (ability, dc, attackBonus, slots), spells (paidWith: slot | resource | free), senses as views.
+// M0.7 adds: `play` (hitDice pools per class, rests with hitDiceRecovered already evaluated and the rest lengths in hours,
+// concentration.saveDc, deathSaves, the loaded conditions with their maxLevel), `toggles`, SpellView.duration/onCast/caster,
+// and the ruleset's base actions (Attack, Dash…) listed in `actions` after the granted ones with `source.entity` = the Rule id,
+// without activating the Actions section.
 
 interface DerivedValue {
   value: number | string;              // number, or dice string for table-driven dice
@@ -134,30 +140,36 @@ interface Contribution {
 // spellSlots, conditions (with level and expiry), deathSaves, inspiration, concentration, customEffects,
 // toggles, activeSpells, turn.
 
-type PlayEvent =
+type PlayEvent = PlayEventBody & { force?: boolean };   // force: skip the validation against the sheet (DM override)
+type PlayEventBody =
   | { type: 'damage'; amount: number; damageType?: string }
   | { type: 'heal'; amount: number }
   | { type: 'temp-hp'; amount: number }
-  | { type: 'spend-resource'; resource: string; amount: number }
+  | { type: 'spend-resource'; resource: string; amount: number }      // resource id, or spell-slot-<n> / spell-slot-pact
   | { type: 'restore-resource'; resource: string; amount: number }
-  | { type: 'cast-spell'; spell: EntityId; slotLevel?: number }
+  | { type: 'cast-spell'; spell: EntityId; slotLevel?: number; rolled?: number }   // rolled: total of a dice-valued onCast effect
   | { type: 'end-concentration' }
   | { type: 'end-spell'; spell: EntityId }
   | { type: 'toggle'; state: string; on: boolean }
-  | { type: 'apply-condition'; condition: EntityId }
+  | { type: 'apply-condition'; condition: EntityId; level?: number; expires?: Expiry }
   | { type: 'remove-condition'; condition: EntityId }
-  | { type: 'short-rest'; hitDice: { die: number; rolls: number[] }[] }   // rolls supplied by the caller
-  | { type: 'long-rest' }
-  | { type: 'death-save'; roll: number }
+  | { type: 'custom-effect'; name: LocalisedString; text?: LocalisedString; effects?: Effect[]; expires?: Expiry }
+  | { type: 'end-custom-effect'; name: LocalisedString }
+  | { type: 'short-rest'; hitDice: { die: number; rolls: number[] }[]; rolled?: Record<string, number> }   // rolls supplied by the caller
+  | { type: 'long-rest'; rolled?: Record<string, number> }             // rolled: dice recharge amounts by resource id
+  | { type: 'dawn'; rolled?: Record<string, number> }
+  | { type: 'death-save'; roll: number }                               // the natural d20 result
   | { type: 'stabilise' }
   | { type: 'inspiration'; value: boolean }
-  | { type: 'use-action'; action: string }         // marks activation used this turn, pays cost
+  | { type: 'use-action'; action: string; rolled?: number }            // marks the activation used this turn, pays the cost
+  | { type: 'start-turn' }                                             // resets the reaction, expires "until the start of your next turn"
   | { type: 'end-turn' }
   | { type: 'note'; text: string };
-// Expiry on apply-condition and a custom-effect event are added with the play engine (M0.7).
 
 interface ApplyResult { state: CharacterState; entry: LogEntry; warnings: Diagnostic[] }
 interface LogEntry { id: string; event: PlayEvent; before: Partial<CharacterState>; after: Partial<CharacterState> }
+// before/after hold only the touched top-level keys; a key the event created is absent from `before`, so
+// undo = the state without the keys of `after`, plus `before`. `id` comes from `options.id` (the caller owns the log).
 ```
 
 #### Content selection (DEC-20)
@@ -229,12 +241,21 @@ Complexity is linear in the number of active effects plus the topological sort; 
 
 ### Play algorithm (`apply`)
 
-- Validates the event against the sheet (unknown resource, insufficient amount, spell not castable, activation already used this turn) → warning and no state change, unless `force: true` is passed in the event for DM overrides.
-- Produces the new state and a `LogEntry` with the minimal `before`/`after` slices, so `undo` is a pure restore of `before`.
-- Rests read the sheet's resources: `short-rest` restores every `short-rest` resource to max, applies supplied Hit Dice rolls plus CON modifier; `long-rest` restores HP to max, `long-rest` and `short-rest` resources, Hit Dice per the ruleset formula, clears temporary HP and non-persistent conditions (those with `expires: long-rest`).
-- `damage` reduces temporary HP first, then HP; at 0 HP sets `deathSaves` tracking on; a damage event while concentrating adds a warning "concentration check DC N" (N computed from the ruleset rule), never auto-drops concentration.
-- `toggle` switches a declared state; effects gated by `toggled` are re-derived on the next `derive`. `cast-spell` on a spell with `effects` and a duration adds an `activeSpells` entry; `end-spell` and `end-concentration` remove it, and expiries are decremented by `end-turn` and by rests.
-- `end-turn` resets the turn tracker (action, bonus action, reaction, movement, free interaction) and decrements `expires: turns` counters.
+Implemented in M0.7 (`packages/engine/src/play/`). The sheet is the only source of numbers: `apply` never sees the package set.
+
+- Validates the event against the sheet → one warning and no state change (empty `before`/`after`), unless `force: true` is passed in the event for DM overrides. Rejection codes: `W_UNKNOWN_RESOURCE`, `W_INSUFFICIENT_RESOURCE`, `W_UNKNOWN_SPELL`, `W_NO_SLOT`, `W_UNKNOWN_ACTION`, `W_UNAVAILABLE_ACTION`, `W_ACTIVATION_USED`, `W_REQUIRES_ACTION`, `W_UNKNOWN_TOGGLE`, `W_ALREADY_ACTIVE`, `W_NOT_ACTIVE`, `W_UNKNOWN_CONDITION`, `W_CONDITION_PRESENT`, `W_CONDITION_ABSENT`, `W_CONDITION_LEVEL`, `W_NOT_CONCENTRATING`, `W_HIT_DICE`, `W_NOT_DYING`, `W_RULE_UNDEFINED`. Warnings that accompany a change: `W_CONCENTRATION_CHECK` (with the DC), `W_DEAD`, `E_FORMULA`. Informational entries (`info`): `I_DOWN`, `I_DEFENSE`, `I_CONCENTRATION_ENDED`, `I_CONCENTRATION_REPLACED`, `I_TEMP_HP_KEPT`, `I_STABILISED`, `I_EXPIRED`, `I_ROLL_NEEDED`, `I_PLAY_EFFECT`.
+- Produces the new state and a `LogEntry` with the minimal `before`/`after` slices, so `undo` is a pure restore of `before` (keys the event created are removed).
+- `damage`: the sheet's defenses by damage type first (immunity → 0, vulnerability ×2, resistance halved), then temporary HP, then HP. Dropping to 0 ends concentration and the concentrated spell (`I_DOWN`). Damage while at 0 HP counts `deathSaves.damage.failures` of the ruleset. Damage while concentrating and still above 0 → `W_CONCENTRATION_CHECK` with the DC of `ruleset.concentration.saveDc` evaluated with `damage` bound to the damage taken.
+- `heal` caps at `hp.max`; any HP above 0 clears the death saves. `temp-hp` replaces only when higher.
+- `spend-resource`/`restore-resource` work on the sheet's resources (a missing state entry means full; a non-numeric maximum is unlimited) and on spell slots through the ids `spell-slot-<level>` and `spell-slot-pact`.
+- `cast-spell` pays per `SpellView.paidWith`: a slot of `slotLevel` (default the spell's level), the caster's Pact Magic slot when it has no regular slot of that level, a resource, or one of the limited uses (tracked in `state.resources` as `spell-uses-<spell id, dots to hyphens>`, restored by the recharge). A concentration spell sets `concentration` (replacing the running one with `I_CONCENTRATION_REPLACED`); a non-instantaneous duration adds an `activeSpells` entry whose expiry is the duration (days become hours; until-dispelled and special are manual); `onCast` play effects run.
+- Play effects the engine executes: `heal` and `applyCondition` on self, `tempHp`, `restoreResource` (a resource, or `spell-slots` with amount `full`), `note`. Dice-valued amounts need the caller's `rolled` total, otherwise `I_ROLL_NEEDED` and nothing changes. Everything else (effects on another creature, `extraDamage`, `reroll`, slot recovery with a budget) is reported as `I_PLAY_EFFECT` for the player.
+- `use-action`: the action must be listed and available; its activation must not be in `turn.used` (a `special` activation is never spent); `requires.afterAction` must be in `turn.actionsTaken`; costs are paid (`{resource, amount}` and `{resource: spell-slot, level}`); then the activation is marked, the id appended to `actionsTaken`, the action's toggle switched on with its expiry, and `onUse` effects run.
+- `toggle` switches a state declared in `sheet.toggles` (its expiry comes from the declaration); effects gated by `toggled` are re-derived on the next `derive`. `apply-condition` validates the id against `sheet.play.conditions` and the level against `maxLevel` (a levelled condition defaults to level 1; applying a present condition needs a `level` and replaces it). `custom-effect` adds a player-written effect that `derive` applies as a feature of origin `custom`.
+- Rests read `sheet.play.rests`. `short-rest`: Hit Dice are validated against the pools and the total spent (rejected when `rests.short.hitDice` is `none`), each roll heals `max(0, roll + CON modifier)`; resources with a `short-rest` recharge are restored (`full`, a number, a formula, or dice through `rolled`); `{rest: short-rest}` expiries end, and timed ones up to `rests.short.hours` when the ruleset states it. `long-rest`: HP per `rests.long.hitPoints`, temporary HP to 0, `hitDice.spent` reduced by `hitDiceRecovered`, short- and long-rest recharges, every spell slot back (`spellSlots` emptied), concentration cleared, death saves reset, every turn-based and rest expiry ended plus timed ones up to `rests.long.hours`, levelled conditions reduced by `conditionLevelsRecovered` (removed at 0), turn tracker reset. `dawn` fires `dawn` recharges and `until: dawn` expiries.
+- `death-save` needs 0 HP and `ruleset.deathSaves`: a natural 20 regains `natural20.hitPoints` and clears the saves; a natural 1 counts `natural1.failures`; `roll ≥ dc` is a success; reaching `successes` stabilises (`I_STABILISED`, saves reset), reaching `failures` reports `W_DEAD`. `stabilise` resets the saves at 0 HP.
+- Expiry model: `turns: n` counts `end-turn` events, the current turn's included (`turns: 1` gained on the character's turn ends with that turn); `until: next-turn-end` is stored as `turns: 2` during the character's own turn (`turn.active`) and `turns: 1` otherwise; `rounds: n` counts `start-turn` events; `until: next-turn-start` ends at the next `start-turn`; `minutes` and `hours` elapse only through rests; `manual` never expires by itself. An expired concentration spell clears `concentration`. Deferred: a "combat over" event for minutes and rounds outside rests.
+- `start-turn` removes the reaction from `turn.used` and sets `turn.active`; `end-turn` keeps only the reaction in `turn.used`, clears `actionsTaken` and `movementUsed`, clears `turn.active`.
 
 ### Validation rules (`validate`)
 
@@ -275,4 +296,5 @@ Beyond schema conformance:
 
 - Whether `ComputedSheet.values` should be a flat record or nested; flat (`'skill.stealth'`) is simpler for `explain` and golden files. Leaning flat.
 - Whether inactive contributions (`applied: false`) belong in the default output or only under an option; they are needed for "explain", cheap to keep. Leaning always included.
-- How `use-action` interacts with actions that have no cost but a prerequisite (`afterAction: attack`): the turn tracker must remember which actions were taken this turn, not only which activation types. Design the tracker as a list of action ids taken plus activation flags.
+- ~~How `use-action` interacts with actions that have no cost but a prerequisite (`afterAction: attack`)~~ Resolved in M0.7: `turn.actionsTaken` (ids) next to `turn.used` (activation types).
+- The rest lengths (`rests.<kind>.hours`) decide which timed effects a rest ends; without them nothing timed elapses outside a "combat over" event that does not exist yet (Phase 2).

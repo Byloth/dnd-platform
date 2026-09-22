@@ -92,7 +92,7 @@ Because everything is additive by reference, a character built on `srd51` alone 
 - Copy from the physical or legally owned digital book; write the text in `text.en`, mechanics in `effects` under the same catalogue as the base package.
 - Record the page in a `page` field of the entity (accepted by the schema for any entity, ignored by the engine) to make review possible.
 - One entity per commit-sized unit of work in the private directory's own history if the group keeps one (a separate private repository is allowed and recommended for backup; it is never a submodule of the public one).
-- No private text in commit messages, issues, fixtures or test names of the public repository. Private fixtures live under `content-private/fixtures/` and are discovered by the same two-root rule.
+- No private text in commit messages, issues, fixtures or test names of the public repository. Private fixtures live under `content-private/fixtures/` (sessions under `content-private/fixtures/sessions/`) and are discovered by the same two-root rule.
 
 ### Test behaviour with and without the directory
 

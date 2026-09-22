@@ -14,6 +14,7 @@ content-private/
     package.yaml       visibility: private, redistributable: false
     subclasses/ species/ backgrounds/ feats/ spells/ tables/ patches/ …
   fixtures/            private golden fixtures (same format as fixtures/characters/)
+  fixtures/sessions/   private play session fixtures (same format as fixtures/sessions/)
   sources/             the books themselves and their extracted text, never read by the tooling
 ```
 
