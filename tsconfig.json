@@ -1,8 +1,17 @@
 {
   "files": [],
   "references": [
-    { "path": "./packages/schema" },
-    { "path": "./packages/engine" },
-    { "path": "./packages/cli" }
+    {
+      "path": "./packages/schema"
+    },
+    {
+      "path": "./packages/engine"
+    },
+    {
+      "path": "./packages/composer"
+    },
+    {
+      "path": "./packages/cli"
+    }
   ]
 }

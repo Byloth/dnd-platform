@@ -23,6 +23,18 @@ export default [
     }
   },
   {
+    // The composer is pure as well: it may import only the schema and engine packages and itself.
+    files: ["packages/composer/src/**/*.ts"],
+    rules: {
+      "no-restricted-imports": ["error", {
+        patterns: [{
+          regex: "^(?!\\.|@byloth/dnd-platform-(schema|engine)($|/)).*",
+          message: "The composer may import only relative modules and the schema and engine packages."
+        }]
+      }]
+    }
+  },
+  {
     // The rules engine is pure: no I/O, no platform modules, no runtime
     // dependencies. It may import only the schema package and itself.
     files: ["packages/engine/src/**/*.ts"],

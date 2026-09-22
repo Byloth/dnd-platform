@@ -1,0 +1,23 @@
+{
+  "name": "@byloth/dnd-platform-composer",
+  "version": "0.0.0",
+  "description": "Sheet composer: a computed sheet, its character and its packages → a section tree, the data every rendering of the sheet starts from.",
+  "private": true,
+  "license": "AGPL-3.0-only",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc --build"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@byloth/dnd-platform-engine": "workspace:*",
+    "@byloth/dnd-platform-schema": "workspace:*"
+  }
+}

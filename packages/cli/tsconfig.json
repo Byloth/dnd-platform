@@ -3,9 +3,23 @@
   "compilerOptions": {
     "rootDir": "src",
     "outDir": "dist",
-    "types": ["node"],
+    "types": [
+      "node"
+    ],
     "tsBuildInfoFile": "../../node_modules/.tmp/cli.tsbuildinfo"
   },
-  "include": ["src/**/*"],
-  "references": [{ "path": "../schema" }, { "path": "../engine" }]
+  "include": [
+    "src/**/*"
+  ],
+  "references": [
+    {
+      "path": "../schema"
+    },
+    {
+      "path": "../engine"
+    },
+    {
+      "path": "../composer"
+    }
+  ]
 }

@@ -15,6 +15,7 @@
     "build": "tsc --build"
   },
   "dependencies": {
+    "@byloth/dnd-platform-composer": "workspace:*",
     "@byloth/dnd-platform-engine": "workspace:*",
     "@byloth/dnd-platform-schema": "workspace:*",
     "ajv": "^8.20.0",

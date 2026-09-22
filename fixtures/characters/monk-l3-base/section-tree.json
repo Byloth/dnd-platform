@@ -1,0 +1,2209 @@
+{
+  "sections": [
+    {
+      "blocks": [
+        {
+          "classes": [
+            {
+              "id": "srd51.class.monk",
+              "levels": 3,
+              "name": "Monk"
+            }
+          ],
+          "kind": "identity",
+          "level": 3,
+          "name": "Quiet Paw",
+          "packages": [
+            {
+              "id": "srd51",
+              "version": "0.1.0"
+            },
+            {
+              "id": "homebrew.byloth",
+              "version": "0.1.0"
+            }
+          ],
+          "parts": [
+            "Feline (Puma)",
+            "Monk 3"
+          ],
+          "ruleset": "srd51",
+          "species": "Feline",
+          "subspecies": "Puma"
+        }
+      ],
+      "id": "identity",
+      "title": ""
+    },
+    {
+      "blocks": [
+        {
+          "items": [
+            {
+              "explain": {
+                "expert": [
+                  {
+                    "applied": true,
+                    "label": "Base",
+                    "shown": "10",
+                    "source": "srd51"
+                  },
+                  {
+                    "applied": true,
+                    "label": "Dexterity modifier",
+                    "shown": "+3",
+                    "source": "srd51"
+                  },
+                  {
+                    "applied": true,
+                    "formula": "10 + mod(dex) + mod(wis)",
+                    "label": "Unarmored Defense",
+                    "shown": "set-formula 15",
+                    "source": "srd51 · monk.unarmored-defense"
+                  }
+                ],
+                "provenance": [
+                  {
+                    "applied": true,
+                    "kind": "base",
+                    "label": {
+                      "en": "Base"
+                    },
+                    "source": {
+                      "entity": "srd51.ruleset",
+                      "package": "srd51"
+                    },
+                    "value": 10
+                  },
+                  {
+                    "applied": true,
+                    "kind": "add",
+                    "label": {
+                      "en": "Dexterity modifier"
+                    },
+                    "source": {
+                      "entity": "srd51.ruleset",
+                      "package": "srd51"
+                    },
+                    "value": 3
+                  },
+                  {
+                    "applied": true,
+                    "formula": "10 + mod(dex) + mod(wis)",
+                    "kind": "set-formula",
+                    "label": {
+                      "en": "Unarmored Defense"
+                    },
+                    "source": {
+                      "effectIndex": 0,
+                      "entity": "srd51.class.monk",
+                      "feature": "srd51.feature.monk.unarmored-defense",
+                      "package": "srd51"
+                    },
+                    "value": 15
+                  }
+                ],
+                "regular": [
+                  {
+                    "applied": true,
+                    "label": "Base",
+                    "shown": "10",
+                    "source": "srd51"
+                  },
+                  {
+                    "applied": true,
+                    "label": "Dexterity modifier",
+                    "shown": "+3",
+                    "source": "srd51"
+                  },
+                  {
+                    "applied": true,
+                    "formula": "10 + mod(dex) + mod(wis)",
+                    "label": "Unarmored Defense",
+                    "shown": "=15",
+                    "source": "srd51 · monk.unarmored-defense"
+                  }
+                ]
+              },
+              "id": "ac",
+              "label": "Armor Class",
+              "shown": "15",
+              "value": {
+                "provenance": [
+                  {
+                    "applied": true,
+                    "kind": "base",
+                    "label": {
+                      "en": "Base"
+                    },
+                    "source": {
+                      "entity": "srd51.ruleset",
+                      "package": "srd51"
+                    },
+                    "value": 10
+                  },
+                  {
+                    "applied": true,
+                    "kind": "add",
+                    "label": {
+                      "en": "Dexterity modifier"
+                    },
+                    "source": {
+                      "entity": "srd51.ruleset",
+                      "package": "srd51"
+                    },
+                    "value": 3
+                  },
+                  {
+                    "applied": true,
+                    "formula": "10 + mod(dex) + mod(wis)",
+                    "kind": "set-formula",
+                    "label": {
+                      "en": "Unarmored Defense"
+                    },
+                    "source": {
+                      "effectIndex": 0,
+                      "entity": "srd51.class.monk",
+                      "feature": "srd51.feature.monk.unarmored-defense",
+                      "package": "srd51"
+                    },
+                    "value": 15
+                  }
+                ],
+                "value": 15
+              }
+            },
+            {
+              "id": "initiative",
+              "label": "Initiative",
+              "shown": "+3",
+              "value": {
+                "provenance": [
+                  {
+                    "applied": true,
+                    "kind": "base",
+                    "label": {
+                      "en": "Dexterity modifier"
+                    },
+                    "source": {
+                      "entity": "srd51.ruleset",
+                      "package": "srd51"
+                    },
+                    "value": 3
+                  }
+                ],
+                "value": 3
+              }
+            },
+            {
+              "explain": {
+                "expert": [
+                  {
+                    "applied": true,
+                    "label": "Species speed",
+                    "shown": "30",
+                    "source": "homebrew.byloth.species.feline"
+                  },
+                  {
+                    "applied": true,
+                    "formula": "table(monk.unarmored-movement)",
+                    "label": "Unarmored Movement",
+                    "shown": "+10",
+                    "source": "srd51 · monk.unarmored-movement"
+                  }
+                ],
+                "provenance": [
+                  {
+                    "applied": true,
+                    "kind": "base",
+                    "label": {
+                      "en": "Species speed"
+                    },
+                    "source": {
+                      "entity": "homebrew.byloth.species.feline",
+                      "package": ""
+                    },
+                    "value": 30
+                  },
+                  {
+                    "applied": true,
+                    "formula": "table(monk.unarmored-movement)",
+                    "kind": "add",
+                    "label": {
+                      "en": "Unarmored Movement"
+                    },
+                    "source": {
+                      "effectIndex": 0,
+                      "entity": "srd51.class.monk",
+                      "feature": "srd51.feature.monk.unarmored-movement",
+                      "package": "srd51"
+                    },
+                    "value": 10
+                  }
+                ],
+                "regular": [
+                  {
+                    "applied": true,
+                    "label": "Species speed",
+                    "shown": "30",
+                    "source": "homebrew.byloth.species.feline"
+                  },
+                  {
+                    "applied": true,
+                    "formula": "table(monk.unarmored-movement)",
+                    "label": "Unarmored Movement",
+                    "shown": "+10",
+                    "source": "srd51 · monk.unarmored-movement"
+                  }
+                ]
+              },
+              "id": "speed",
+              "label": "Speed",
+              "shown": "40 ft, climb 20 ft",
+              "value": {
+                "provenance": [
+                  {
+                    "applied": true,
+                    "kind": "base",
+                    "label": {
+                      "en": "Species speed"
+                    },
+                    "source": {
+                      "entity": "homebrew.byloth.species.feline",
+                      "package": ""
+                    },
+                    "value": 30
+                  },
+                  {
+                    "applied": true,
+                    "formula": "table(monk.unarmored-movement)",
+                    "kind": "add",
+                    "label": {
+                      "en": "Unarmored Movement"
+                    },
+                    "source": {
+                      "effectIndex": 0,
+                      "entity": "srd51.class.monk",
+                      "feature": "srd51.feature.monk.unarmored-movement",
+                      "package": "srd51"
+                    },
+                    "value": 10
+                  }
+                ],
+                "value": 40
+              }
+            },
+            {
+              "explain": {
+                "expert": [
+                  {
+                    "applied": true,
+                    "formula": "hitDie + mod(con)",
+                    "label": "Level 1 (Monk)",
+                    "shown": "10",
+                    "source": "srd51"
+                  },
+                  {
+                    "applied": true,
+                    "formula": "2 × (average(hitDie) + mod(con))",
+                    "label": "2 more levels (Monk)",
+                    "shown": "+14",
+                    "source": "srd51"
+                  }
+                ],
+                "provenance": [
+                  {
+                    "applied": true,
+                    "formula": "hitDie + mod(con)",
+                    "kind": "base",
+                    "label": {
+                      "en": "Level 1 (Monk)"
+                    },
+                    "source": {
+                      "entity": "srd51.ruleset",
+                      "package": "srd51"
+                    },
+                    "value": 10
+                  },
+                  {
+                    "applied": true,
+                    "formula": "2 × (average(hitDie) + mod(con))",
+                    "kind": "add",
+                    "label": {
+                      "en": "2 more levels (Monk)"
+                    },
+                    "source": {
+                      "entity": "srd51.ruleset",
+                      "package": "srd51"
+                    },
+                    "value": 14
+                  }
+                ],
+                "regular": [
+                  {
+                    "applied": true,
+                    "formula": "hitDie + mod(con)",
+                    "label": "Level 1 (Monk)",
+                    "shown": "10",
+                    "source": "srd51"
+                  },
+                  {
+                    "applied": true,
+                    "formula": "2 × (average(hitDie) + mod(con))",
+                    "label": "2 more levels (Monk)",
+                    "shown": "+14",
+                    "source": "srd51"
+                  }
+                ]
+              },
+              "id": "hp",
+              "label": "Hit Points",
+              "shown": "24 / 24",
+              "value": {
+                "provenance": [
+                  {
+                    "applied": true,
+                    "formula": "hitDie + mod(con)",
+                    "kind": "base",
+                    "label": {
+                      "en": "Level 1 (Monk)"
+                    },
+                    "source": {
+                      "entity": "srd51.ruleset",
+                      "package": "srd51"
+                    },
+                    "value": 10
+                  },
+                  {
+                    "applied": true,
+                    "formula": "2 × (average(hitDie) + mod(con))",
+                    "kind": "add",
+                    "label": {
+                      "en": "2 more levels (Monk)"
+                    },
+                    "source": {
+                      "entity": "srd51.ruleset",
+                      "package": "srd51"
+                    },
+                    "value": 14
+                  }
+                ],
+                "value": 24
+              }
+            },
+            {
+              "id": "hit-dice",
+              "label": "Hit Dice",
+              "shown": "3d8"
+            },
+            {
+              "id": "proficiency",
+              "label": "Proficiency Bonus",
+              "shown": "+2",
+              "value": {
+                "provenance": [
+                  {
+                    "applied": true,
+                    "kind": "base",
+                    "label": {
+                      "en": "Proficiency bonus by level"
+                    },
+                    "source": {
+                      "entity": "srd51.ruleset",
+                      "package": "srd51"
+                    },
+                    "value": 2
+                  }
+                ],
+                "value": 2
+              }
+            },
+            {
+              "id": "passive-perception",
+              "label": "Passive Perception",
+              "shown": "12",
+              "value": {
+                "provenance": [
+                  {
+                    "applied": true,
+                    "kind": "base",
+                    "label": {
+                      "en": "Base"
+                    },
+                    "source": {
+                      "entity": "srd51.ruleset",
+                      "package": "srd51"
+                    },
+                    "value": 10
+                  },
+                  {
+                    "applied": true,
+                    "kind": "add",
+                    "label": {
+                      "en": "perception bonus"
+                    },
+                    "source": {
+                      "entity": "srd51.ruleset",
+                      "package": "srd51"
+                    },
+                    "value": 2
+                  }
+                ],
+                "value": 12
+              }
+            }
+          ],
+          "kind": "values"
+        }
+      ],
+      "id": "core",
+      "title": "Core"
+    },
+    {
+      "blocks": [
+        {
+          "kind": "abilities",
+          "rows": [
+            {
+              "id": "str",
+              "modifier": "+0",
+              "name": "Strength",
+              "proficient": true,
+              "save": "+2",
+              "score": "11",
+              "values": {
+                "modifier": {
+                  "provenance": [
+                    {
+                      "applied": true,
+                      "formula": "floor((score - 10) / 2)",
+                      "kind": "base",
+                      "label": {
+                        "en": "Strength modifier"
+                      },
+                      "source": {
+                        "entity": "srd51.ruleset",
+                        "package": "srd51"
+                      },
+                      "value": 0
+                    }
+                  ],
+                  "value": 0
+                },
+                "save": {
+                  "provenance": [
+                    {
+                      "applied": true,
+                      "kind": "base",
+                      "label": {
+                        "en": "Strength modifier"
+                      },
+                      "source": {
+                        "entity": "srd51.ruleset",
+                        "package": "srd51"
+                      },
+                      "value": 0
+                    },
+                    {
+                      "applied": true,
+                      "kind": "add",
+                      "label": {
+                        "en": "Proficiency bonus"
+                      },
+                      "source": {
+                        "entity": "srd51.ruleset",
+                        "package": "srd51"
+                      },
+                      "value": 2
+                    }
+                  ],
+                  "value": 2
+                },
+                "score": {
+                  "provenance": [
+                    {
+                      "applied": true,
+                      "kind": "base",
+                      "label": {
+                        "en": "Base score"
+                      },
+                      "source": {
+                        "package": ""
+                      },
+                      "value": 11
+                    }
+                  ],
+                  "value": 11
+                }
+              }
+            },
+            {
+              "id": "dex",
+              "modifier": "+3",
+              "name": "Dexterity",
+              "proficient": true,
+              "save": "+5",
+              "score": "17",
+              "values": {
+                "modifier": {
+                  "provenance": [
+                    {
+                      "applied": true,
+                      "formula": "floor((score - 10) / 2)",
+                      "kind": "base",
+                      "label": {
+                        "en": "Dexterity modifier"
+                      },
+                      "source": {
+                        "entity": "srd51.ruleset",
+                        "package": "srd51"
+                      },
+                      "value": 3
+                    }
+                  ],
+                  "value": 3
+                },
+                "save": {
+                  "provenance": [
+                    {
+                      "applied": true,
+                      "kind": "base",
+                      "label": {
+                        "en": "Dexterity modifier"
+                      },
+                      "source": {
+                        "entity": "srd51.ruleset",
+                        "package": "srd51"
+                      },
+                      "value": 3
+                    },
+                    {
+                      "applied": true,
+                      "kind": "add",
+                      "label": {
+                        "en": "Proficiency bonus"
+                      },
+                      "source": {
+                        "entity": "srd51.ruleset",
+                        "package": "srd51"
+                      },
+                      "value": 2
+                    }
+                  ],
+                  "value": 5
+                },
+                "score": {
+                  "provenance": [
+                    {
+                      "applied": true,
+                      "kind": "base",
+                      "label": {
+                        "en": "Base score"
+                      },
+                      "source": {
+                        "package": ""
+                      },
+                      "value": 17
+                    }
+                  ],
+                  "value": 17
+                }
+              }
+            },
+            {
+              "id": "con",
+              "modifier": "+2",
+              "name": "Constitution",
+              "proficient": false,
+              "save": "+2",
+              "score": "14",
+              "values": {
+                "modifier": {
+                  "provenance": [
+                    {
+                      "applied": true,
+                      "formula": "floor((score - 10) / 2)",
+                      "kind": "base",
+                      "label": {
+                        "en": "Constitution modifier"
+                      },
+                      "source": {
+                        "entity": "srd51.ruleset",
+                        "package": "srd51"
+                      },
+                      "value": 2
+                    }
+                  ],
+                  "value": 2
+                },
+                "save": {
+                  "provenance": [
+                    {
+                      "applied": true,
+                      "kind": "base",
+                      "label": {
+                        "en": "Constitution modifier"
+                      },
+                      "source": {
+                        "entity": "srd51.ruleset",
+                        "package": "srd51"
+                      },
+                      "value": 2
+                    }
+                  ],
+                  "value": 2
+                },
+                "score": {
+                  "provenance": [
+                    {
+                      "applied": true,
+                      "kind": "base",
+                      "label": {
+                        "en": "Base score"
+                      },
+                      "source": {
+                        "package": ""
+                      },
+                      "value": 14
+                    }
+                  ],
+                  "value": 14
+                }
+              }
+            },
+            {
+              "id": "int",
+              "modifier": "−1",
+              "name": "Intelligence",
+              "proficient": false,
+              "save": "−1",
+              "score": "8",
+              "values": {
+                "modifier": {
+                  "provenance": [
+                    {
+                      "applied": true,
+                      "formula": "floor((score - 10) / 2)",
+                      "kind": "base",
+                      "label": {
+                        "en": "Intelligence modifier"
+                      },
+                      "source": {
+                        "entity": "srd51.ruleset",
+                        "package": "srd51"
+                      },
+                      "value": -1
+                    }
+                  ],
+                  "value": -1
+                },
+                "save": {
+                  "provenance": [
+                    {
+                      "applied": true,
+                      "kind": "base",
+                      "label": {
+                        "en": "Intelligence modifier"
+                      },
+                      "source": {
+                        "entity": "srd51.ruleset",
+                        "package": "srd51"
+                      },
+                      "value": -1
+                    }
+                  ],
+                  "value": -1
+                },
+                "score": {
+                  "provenance": [
+                    {
+                      "applied": true,
+                      "kind": "base",
+                      "label": {
+                        "en": "Base score"
+                      },
+                      "source": {
+                        "package": ""
+                      },
+                      "value": 8
+                    }
+                  ],
+                  "value": 8
+                }
+              }
+            },
+            {
+              "id": "wis",
+              "modifier": "+2",
+              "name": "Wisdom",
+              "proficient": false,
+              "save": "+2",
+              "score": "15",
+              "values": {
+                "modifier": {
+                  "provenance": [
+                    {
+                      "applied": true,
+                      "formula": "floor((score - 10) / 2)",
+                      "kind": "base",
+                      "label": {
+                        "en": "Wisdom modifier"
+                      },
+                      "source": {
+                        "entity": "srd51.ruleset",
+                        "package": "srd51"
+                      },
+                      "value": 2
+                    }
+                  ],
+                  "value": 2
+                },
+                "save": {
+                  "provenance": [
+                    {
+                      "applied": true,
+                      "kind": "base",
+                      "label": {
+                        "en": "Wisdom modifier"
+                      },
+                      "source": {
+                        "entity": "srd51.ruleset",
+                        "package": "srd51"
+                      },
+                      "value": 2
+                    }
+                  ],
+                  "value": 2
+                },
+                "score": {
+                  "provenance": [
+                    {
+                      "applied": true,
+                      "kind": "base",
+                      "label": {
+                        "en": "Base score"
+                      },
+                      "source": {
+                        "package": ""
+                      },
+                      "value": 15
+                    }
+                  ],
+                  "value": 15
+                }
+              }
+            },
+            {
+              "id": "cha",
+              "modifier": "−1",
+              "name": "Charisma",
+              "proficient": false,
+              "save": "−1",
+              "score": "8",
+              "values": {
+                "modifier": {
+                  "provenance": [
+                    {
+                      "applied": true,
+                      "formula": "floor((score - 10) / 2)",
+                      "kind": "base",
+                      "label": {
+                        "en": "Charisma modifier"
+                      },
+                      "source": {
+                        "entity": "srd51.ruleset",
+                        "package": "srd51"
+                      },
+                      "value": -1
+                    }
+                  ],
+                  "value": -1
+                },
+                "save": {
+                  "provenance": [
+                    {
+                      "applied": true,
+                      "kind": "base",
+                      "label": {
+                        "en": "Charisma modifier"
+                      },
+                      "source": {
+                        "entity": "srd51.ruleset",
+                        "package": "srd51"
+                      },
+                      "value": -1
+                    }
+                  ],
+                  "value": -1
+                },
+                "score": {
+                  "provenance": [
+                    {
+                      "applied": true,
+                      "kind": "base",
+                      "label": {
+                        "en": "Base score"
+                      },
+                      "source": {
+                        "package": ""
+                      },
+                      "value": 8
+                    }
+                  ],
+                  "value": 8
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "id": "abilities",
+      "title": "Abilities"
+    },
+    {
+      "blocks": [],
+      "id": "saves",
+      "title": "Saves"
+    },
+    {
+      "blocks": [
+        {
+          "kind": "skills",
+          "proficiencies": [
+            {
+              "items": [
+                "Shortsword",
+                "Simple"
+              ],
+              "label": "Weapons",
+              "type": "weapon"
+            },
+            {
+              "items": [
+                "Musical instrument"
+              ],
+              "label": "Tools",
+              "type": "tool"
+            },
+            {
+              "items": [
+                "Common"
+              ],
+              "label": "Languages",
+              "type": "language"
+            }
+          ],
+          "rows": [
+            {
+              "ability": "DEX",
+              "bonus": "+5",
+              "id": "acrobatics",
+              "mark": "proficient",
+              "name": "Acrobatics",
+              "value": {
+                "provenance": [
+                  {
+                    "applied": true,
+                    "kind": "base",
+                    "label": {
+                      "en": "Dexterity modifier"
+                    },
+                    "source": {
+                      "entity": "srd51.ruleset",
+                      "package": "srd51"
+                    },
+                    "value": 3
+                  },
+                  {
+                    "applied": true,
+                    "kind": "add",
+                    "label": {
+                      "en": "Proficiency bonus"
+                    },
+                    "source": {
+                      "entity": "srd51.ruleset",
+                      "package": "srd51"
+                    },
+                    "value": 2
+                  }
+                ],
+                "value": 5
+              }
+            },
+            {
+              "ability": "WIS",
+              "bonus": "+2",
+              "id": "animal-handling",
+              "mark": "untrained",
+              "name": "Animal handling",
+              "value": {
+                "provenance": [
+                  {
+                    "applied": true,
+                    "kind": "base",
+                    "label": {
+                      "en": "Wisdom modifier"
+                    },
+                    "source": {
+                      "entity": "srd51.ruleset",
+                      "package": "srd51"
+                    },
+                    "value": 2
+                  }
+                ],
+                "value": 2
+              }
+            },
+            {
+              "ability": "INT",
+              "bonus": "−1",
+              "id": "arcana",
+              "mark": "untrained",
+              "name": "Arcana",
+              "value": {
+                "provenance": [
+                  {
+                    "applied": true,
+                    "kind": "base",
+                    "label": {
+                      "en": "Intelligence modifier"
+                    },
+                    "source": {
+                      "entity": "srd51.ruleset",
+                      "package": "srd51"
+                    },
+                    "value": -1
+                  }
+                ],
+                "value": -1
+              }
+            },
+            {
+              "ability": "STR",
+              "bonus": "+0",
+              "id": "athletics",
+              "mark": "untrained",
+              "name": "Athletics",
+              "value": {
+                "provenance": [
+                  {
+                    "applied": true,
+                    "kind": "base",
+                    "label": {
+                      "en": "Strength modifier"
+                    },
+                    "source": {
+                      "entity": "srd51.ruleset",
+                      "package": "srd51"
+                    },
+                    "value": 0
+                  }
+                ],
+                "value": 0
+              }
+            },
+            {
+              "ability": "CHA",
+              "bonus": "−1",
+              "id": "deception",
+              "mark": "untrained",
+              "name": "Deception",
+              "value": {
+                "provenance": [
+                  {
+                    "applied": true,
+                    "kind": "base",
+                    "label": {
+                      "en": "Charisma modifier"
+                    },
+                    "source": {
+                      "entity": "srd51.ruleset",
+                      "package": "srd51"
+                    },
+                    "value": -1
+                  }
+                ],
+                "value": -1
+              }
+            },
+            {
+              "ability": "INT",
+              "bonus": "−1",
+              "id": "history",
+              "mark": "untrained",
+              "name": "History",
+              "value": {
+                "provenance": [
+                  {
+                    "applied": true,
+                    "kind": "base",
+                    "label": {
+                      "en": "Intelligence modifier"
+                    },
+                    "source": {
+                      "entity": "srd51.ruleset",
+                      "package": "srd51"
+                    },
+                    "value": -1
+                  }
+                ],
+                "value": -1
+              }
+            },
+            {
+              "ability": "WIS",
+              "bonus": "+2",
+              "id": "insight",
+              "mark": "untrained",
+              "name": "Insight",
+              "value": {
+                "provenance": [
+                  {
+                    "applied": true,
+                    "kind": "base",
+                    "label": {
+                      "en": "Wisdom modifier"
+                    },
+                    "source": {
+                      "entity": "srd51.ruleset",
+                      "package": "srd51"
+                    },
+                    "value": 2
+                  }
+                ],
+                "value": 2
+              }
+            },
+            {
+              "ability": "CHA",
+              "bonus": "−1",
+              "id": "intimidation",
+              "mark": "untrained",
+              "name": "Intimidation",
+              "value": {
+                "provenance": [
+                  {
+                    "applied": true,
+                    "kind": "base",
+                    "label": {
+                      "en": "Charisma modifier"
+                    },
+                    "source": {
+                      "entity": "srd51.ruleset",
+                      "package": "srd51"
+                    },
+                    "value": -1
+                  }
+                ],
+                "value": -1
+              }
+            },
+            {
+              "ability": "INT",
+              "bonus": "−1",
+              "id": "investigation",
+              "mark": "untrained",
+              "name": "Investigation",
+              "value": {
+                "provenance": [
+                  {
+                    "applied": true,
+                    "kind": "base",
+                    "label": {
+                      "en": "Intelligence modifier"
+                    },
+                    "source": {
+                      "entity": "srd51.ruleset",
+                      "package": "srd51"
+                    },
+                    "value": -1
+                  }
+                ],
+                "value": -1
+              }
+            },
+            {
+              "ability": "WIS",
+              "bonus": "+2",
+              "id": "medicine",
+              "mark": "untrained",
+              "name": "Medicine",
+              "value": {
+                "provenance": [
+                  {
+                    "applied": true,
+                    "kind": "base",
+                    "label": {
+                      "en": "Wisdom modifier"
+                    },
+                    "source": {
+                      "entity": "srd51.ruleset",
+                      "package": "srd51"
+                    },
+                    "value": 2
+                  }
+                ],
+                "value": 2
+              }
+            },
+            {
+              "ability": "INT",
+              "bonus": "−1",
+              "id": "nature",
+              "mark": "untrained",
+              "name": "Nature",
+              "value": {
+                "provenance": [
+                  {
+                    "applied": true,
+                    "kind": "base",
+                    "label": {
+                      "en": "Intelligence modifier"
+                    },
+                    "source": {
+                      "entity": "srd51.ruleset",
+                      "package": "srd51"
+                    },
+                    "value": -1
+                  }
+                ],
+                "value": -1
+              }
+            },
+            {
+              "ability": "WIS",
+              "bonus": "+2",
+              "id": "perception",
+              "mark": "untrained",
+              "name": "Perception",
+              "value": {
+                "provenance": [
+                  {
+                    "applied": true,
+                    "kind": "base",
+                    "label": {
+                      "en": "Wisdom modifier"
+                    },
+                    "source": {
+                      "entity": "srd51.ruleset",
+                      "package": "srd51"
+                    },
+                    "value": 2
+                  }
+                ],
+                "value": 2
+              }
+            },
+            {
+              "ability": "CHA",
+              "bonus": "−1",
+              "id": "performance",
+              "mark": "untrained",
+              "name": "Performance",
+              "value": {
+                "provenance": [
+                  {
+                    "applied": true,
+                    "kind": "base",
+                    "label": {
+                      "en": "Charisma modifier"
+                    },
+                    "source": {
+                      "entity": "srd51.ruleset",
+                      "package": "srd51"
+                    },
+                    "value": -1
+                  }
+                ],
+                "value": -1
+              }
+            },
+            {
+              "ability": "CHA",
+              "bonus": "−1",
+              "id": "persuasion",
+              "mark": "untrained",
+              "name": "Persuasion",
+              "value": {
+                "provenance": [
+                  {
+                    "applied": true,
+                    "kind": "base",
+                    "label": {
+                      "en": "Charisma modifier"
+                    },
+                    "source": {
+                      "entity": "srd51.ruleset",
+                      "package": "srd51"
+                    },
+                    "value": -1
+                  }
+                ],
+                "value": -1
+              }
+            },
+            {
+              "ability": "INT",
+              "bonus": "−1",
+              "id": "religion",
+              "mark": "untrained",
+              "name": "Religion",
+              "value": {
+                "provenance": [
+                  {
+                    "applied": true,
+                    "kind": "base",
+                    "label": {
+                      "en": "Intelligence modifier"
+                    },
+                    "source": {
+                      "entity": "srd51.ruleset",
+                      "package": "srd51"
+                    },
+                    "value": -1
+                  }
+                ],
+                "value": -1
+              }
+            },
+            {
+              "ability": "DEX",
+              "bonus": "+3",
+              "id": "sleight-of-hand",
+              "mark": "untrained",
+              "name": "Sleight of hand",
+              "value": {
+                "provenance": [
+                  {
+                    "applied": true,
+                    "kind": "base",
+                    "label": {
+                      "en": "Dexterity modifier"
+                    },
+                    "source": {
+                      "entity": "srd51.ruleset",
+                      "package": "srd51"
+                    },
+                    "value": 3
+                  }
+                ],
+                "value": 3
+              }
+            },
+            {
+              "ability": "DEX",
+              "bonus": "+5",
+              "id": "stealth",
+              "mark": "proficient",
+              "name": "Stealth",
+              "value": {
+                "provenance": [
+                  {
+                    "applied": true,
+                    "kind": "base",
+                    "label": {
+                      "en": "Dexterity modifier"
+                    },
+                    "source": {
+                      "entity": "srd51.ruleset",
+                      "package": "srd51"
+                    },
+                    "value": 3
+                  },
+                  {
+                    "applied": true,
+                    "kind": "add",
+                    "label": {
+                      "en": "Proficiency bonus"
+                    },
+                    "source": {
+                      "entity": "srd51.ruleset",
+                      "package": "srd51"
+                    },
+                    "value": 2
+                  }
+                ],
+                "value": 5
+              }
+            },
+            {
+              "ability": "WIS",
+              "bonus": "+2",
+              "id": "survival",
+              "mark": "untrained",
+              "name": "Survival",
+              "value": {
+                "provenance": [
+                  {
+                    "applied": true,
+                    "kind": "base",
+                    "label": {
+                      "en": "Wisdom modifier"
+                    },
+                    "source": {
+                      "entity": "srd51.ruleset",
+                      "package": "srd51"
+                    },
+                    "value": 2
+                  }
+                ],
+                "value": 2
+              }
+            }
+          ]
+        }
+      ],
+      "id": "skills",
+      "title": "Skills"
+    },
+    {
+      "blocks": [
+        {
+          "items": [
+            "Darkvision 60 ft",
+            "Passive Perception 12",
+            "Passive Investigation 9",
+            "Passive Insight 12"
+          ],
+          "kind": "text"
+        }
+      ],
+      "id": "senses",
+      "title": "Senses"
+    },
+    {
+      "blocks": [
+        {
+          "kind": "pairs",
+          "rows": [
+            {
+              "label": "Advantage",
+              "text": "on check Stealth (to move silently)"
+            },
+            {
+              "label": "Carrying capacity",
+              "text": "165 lb"
+            }
+          ]
+        }
+      ],
+      "id": "combat",
+      "title": "Combat"
+    },
+    {
+      "blocks": [
+        {
+          "kind": "attacks",
+          "rows": [
+            {
+              "attack": {
+                "ability": "dex",
+                "attackBonus": {
+                  "provenance": [
+                    {
+                      "applied": true,
+                      "kind": "base",
+                      "label": {
+                        "en": "Dexterity modifier"
+                      },
+                      "source": {
+                        "entity": "srd51.ruleset",
+                        "package": "srd51"
+                      },
+                      "value": 3
+                    },
+                    {
+                      "applied": true,
+                      "kind": "add",
+                      "label": {
+                        "en": "Proficiency bonus"
+                      },
+                      "source": {
+                        "entity": "srd51.ruleset",
+                        "package": "srd51"
+                      },
+                      "value": 2
+                    }
+                  ],
+                  "value": 5
+                },
+                "critRange": 20,
+                "damage": "1d6 + 3",
+                "damageBonus": {
+                  "provenance": [
+                    {
+                      "applied": true,
+                      "kind": "base",
+                      "label": {
+                        "en": "Dexterity modifier"
+                      },
+                      "source": {
+                        "entity": "srd51.ruleset",
+                        "package": "srd51"
+                      },
+                      "value": 3
+                    }
+                  ],
+                  "value": 3
+                },
+                "damageDice": "1d6",
+                "damageType": "piercing",
+                "extraDamage": [],
+                "id": "shortbow",
+                "item": "srd51.item.shortbow",
+                "magical": false,
+                "name": {
+                  "en": "Shortbow"
+                },
+                "proficient": true,
+                "ranged": true,
+                "unarmed": false
+              },
+              "damage": "1d6 + 3 piercing",
+              "id": "shortbow",
+              "name": "Shortbow",
+              "notes": [
+                "ranged",
+                "DEX"
+              ],
+              "toHit": "+5"
+            },
+            {
+              "attack": {
+                "ability": "str",
+                "attackBonus": {
+                  "provenance": [
+                    {
+                      "applied": true,
+                      "kind": "base",
+                      "label": {
+                        "en": "Strength modifier"
+                      },
+                      "source": {
+                        "entity": "srd51.ruleset",
+                        "package": "srd51"
+                      },
+                      "value": 0
+                    },
+                    {
+                      "applied": true,
+                      "kind": "add",
+                      "label": {
+                        "en": "Proficiency bonus"
+                      },
+                      "source": {
+                        "entity": "srd51.ruleset",
+                        "package": "srd51"
+                      },
+                      "value": 2
+                    }
+                  ],
+                  "value": 2
+                },
+                "critRange": 20,
+                "damage": "1",
+                "damageBonus": {
+                  "provenance": [
+                    {
+                      "applied": true,
+                      "kind": "base",
+                      "label": {
+                        "en": "Strength modifier"
+                      },
+                      "source": {
+                        "entity": "srd51.ruleset",
+                        "package": "srd51"
+                      },
+                      "value": 0
+                    }
+                  ],
+                  "value": 0
+                },
+                "damageDice": "1",
+                "damageType": "bludgeoning",
+                "extraDamage": [],
+                "id": "unarmed-strike",
+                "magical": false,
+                "name": {
+                  "en": "Unarmed strike"
+                },
+                "proficient": true,
+                "ranged": false,
+                "unarmed": true
+              },
+              "damage": "1 bludgeoning",
+              "id": "unarmed-strike",
+              "name": "Unarmed strike",
+              "notes": [
+                "melee",
+                "STR"
+              ],
+              "toHit": "+2"
+            }
+          ]
+        }
+      ],
+      "id": "attacks",
+      "title": "Attacks"
+    },
+    {
+      "blocks": [
+        {
+          "base": [
+            {
+              "id": "attack",
+              "name": "Attack"
+            },
+            {
+              "id": "dash",
+              "name": "Dash"
+            },
+            {
+              "id": "disengage",
+              "name": "Disengage"
+            },
+            {
+              "id": "dodge",
+              "name": "Dodge"
+            },
+            {
+              "id": "help",
+              "name": "Help"
+            },
+            {
+              "id": "hide",
+              "name": "Hide"
+            },
+            {
+              "id": "ready",
+              "name": "Ready"
+            },
+            {
+              "id": "search",
+              "name": "Search"
+            },
+            {
+              "id": "use-object",
+              "name": "Use an Object"
+            },
+            {
+              "id": "cast-a-spell",
+              "name": "Cast a Spell"
+            }
+          ],
+          "groups": [
+            {
+              "activation": "action",
+              "items": [
+                {
+                  "action": {
+                    "activation": "action",
+                    "available": true,
+                    "cost": [],
+                    "id": "claws",
+                    "name": {
+                      "en": "Claws"
+                    },
+                    "rolls": [
+                      {
+                        "ability": "str",
+                        "bonus": {
+                          "provenance": [
+                            {
+                              "applied": true,
+                              "formula": "mod(str) + proficiencyBonus",
+                              "kind": "base",
+                              "label": {
+                                "en": "Roll bonus"
+                              },
+                              "source": {
+                                "effectIndex": 0,
+                                "entity": "homebrew.byloth.species.feline",
+                                "feature": "homebrew.byloth.feature.feline.claws",
+                                "package": "homebrew.byloth"
+                              },
+                              "value": 2
+                            }
+                          ],
+                          "value": 2
+                        },
+                        "type": "attack"
+                      },
+                      {
+                        "ability": "str",
+                        "bonus": {
+                          "provenance": [
+                            {
+                              "applied": true,
+                              "formula": "mod(str)",
+                              "kind": "base",
+                              "label": {
+                                "en": "Roll bonus"
+                              },
+                              "source": {
+                                "effectIndex": 0,
+                                "entity": "homebrew.byloth.species.feline",
+                                "feature": "homebrew.byloth.feature.feline.claws",
+                                "package": "homebrew.byloth"
+                              },
+                              "value": 0
+                            }
+                          ],
+                          "value": 0
+                        },
+                        "damageType": "slashing",
+                        "dice": "1d4",
+                        "type": "damage"
+                      }
+                    ],
+                    "source": {
+                      "effectIndex": 0,
+                      "entity": "homebrew.byloth.species.feline",
+                      "feature": "homebrew.byloth.feature.feline.claws",
+                      "package": "homebrew.byloth"
+                    }
+                  },
+                  "available": true,
+                  "cost": "",
+                  "details": [
+                    "attack +2",
+                    "1d4 slashing"
+                  ],
+                  "id": "claws",
+                  "name": "Claws"
+                }
+              ],
+              "label": "Actions"
+            },
+            {
+              "activation": "bonus-action",
+              "items": [
+                {
+                  "action": {
+                    "activation": "bonus-action",
+                    "available": false,
+                    "cost": [],
+                    "id": "martial-arts-strike",
+                    "name": {
+                      "en": "Martial Arts unarmed strike"
+                    },
+                    "requires": {
+                      "afterAction": "attack"
+                    },
+                    "rolls": [
+                      {
+                        "ability": "dex",
+                        "bonus": {
+                          "provenance": [
+                            {
+                              "applied": true,
+                              "formula": "mod(dex) + proficiencyBonus",
+                              "kind": "base",
+                              "label": {
+                                "en": "Roll bonus"
+                              },
+                              "source": {
+                                "effectIndex": 2,
+                                "entity": "srd51.class.monk",
+                                "feature": "srd51.feature.monk.martial-arts",
+                                "package": "srd51"
+                              },
+                              "value": 5
+                            }
+                          ],
+                          "value": 5
+                        },
+                        "type": "attack"
+                      },
+                      {
+                        "ability": "dex",
+                        "bonus": {
+                          "provenance": [
+                            {
+                              "applied": true,
+                              "formula": "mod(dex)",
+                              "kind": "base",
+                              "label": {
+                                "en": "Roll bonus"
+                              },
+                              "source": {
+                                "effectIndex": 2,
+                                "entity": "srd51.class.monk",
+                                "feature": "srd51.feature.monk.martial-arts",
+                                "package": "srd51"
+                              },
+                              "value": 3
+                            }
+                          ],
+                          "value": 3
+                        },
+                        "damageType": "bludgeoning",
+                        "dice": "table(monk.martial-arts)",
+                        "type": "damage"
+                      }
+                    ],
+                    "source": {
+                      "effectIndex": 2,
+                      "entity": "srd51.class.monk",
+                      "feature": "srd51.feature.monk.martial-arts",
+                      "package": "srd51"
+                    },
+                    "text": {
+                      "en": "When you use the Attack action with an unarmed strike or a monk weapon on your turn, you can make one unarmed strike as a bonus action."
+                    }
+                  },
+                  "available": false,
+                  "cost": "",
+                  "details": [
+                    "after Attack",
+                    "attack +5",
+                    "martial arts die +3 bludgeoning"
+                  ],
+                  "id": "martial-arts-strike",
+                  "name": "Martial Arts unarmed strike",
+                  "text": "When you use the Attack action with an unarmed strike or a monk weapon on your turn, you can make one unarmed strike as a bonus action."
+                },
+                {
+                  "action": {
+                    "activation": "bonus-action",
+                    "available": true,
+                    "cost": [
+                      {
+                        "amount": 1,
+                        "resource": "ki"
+                      }
+                    ],
+                    "id": "flurry-of-blows",
+                    "name": {
+                      "en": "Flurry of Blows"
+                    },
+                    "onUse": [
+                      {
+                        "kind": "note",
+                        "text": {
+                          "en": "Make two unarmed strikes (roll the attack twice)."
+                        }
+                      }
+                    ],
+                    "requires": {
+                      "afterAction": "attack"
+                    },
+                    "rolls": [
+                      {
+                        "ability": "dex",
+                        "bonus": {
+                          "provenance": [
+                            {
+                              "applied": true,
+                              "formula": "mod(dex) + proficiencyBonus",
+                              "kind": "base",
+                              "label": {
+                                "en": "Roll bonus"
+                              },
+                              "source": {
+                                "effectIndex": 1,
+                                "entity": "srd51.class.monk",
+                                "feature": "srd51.feature.monk.ki",
+                                "package": "srd51"
+                              },
+                              "value": 5
+                            }
+                          ],
+                          "value": 5
+                        },
+                        "type": "attack"
+                      },
+                      {
+                        "ability": "dex",
+                        "bonus": {
+                          "provenance": [
+                            {
+                              "applied": true,
+                              "formula": "mod(dex)",
+                              "kind": "base",
+                              "label": {
+                                "en": "Roll bonus"
+                              },
+                              "source": {
+                                "effectIndex": 1,
+                                "entity": "srd51.class.monk",
+                                "feature": "srd51.feature.monk.ki",
+                                "package": "srd51"
+                              },
+                              "value": 3
+                            }
+                          ],
+                          "value": 3
+                        },
+                        "damageType": "bludgeoning",
+                        "dice": "table(monk.martial-arts)",
+                        "type": "damage"
+                      }
+                    ],
+                    "source": {
+                      "effectIndex": 1,
+                      "entity": "srd51.class.monk",
+                      "feature": "srd51.feature.monk.ki",
+                      "package": "srd51"
+                    },
+                    "text": {
+                      "en": "Immediately after you take the Attack action on your turn, you can spend 1 ki point to make two unarmed strikes as a bonus action."
+                    }
+                  },
+                  "available": true,
+                  "cost": "1 ki",
+                  "details": [
+                    "after Attack",
+                    "attack +5",
+                    "martial arts die +3 bludgeoning"
+                  ],
+                  "id": "flurry-of-blows",
+                  "name": "Flurry of Blows",
+                  "text": "Immediately after you take the Attack action on your turn, you can spend 1 ki point to make two unarmed strikes as a bonus action."
+                },
+                {
+                  "action": {
+                    "activation": "bonus-action",
+                    "available": true,
+                    "cost": [
+                      {
+                        "amount": 1,
+                        "resource": "ki"
+                      }
+                    ],
+                    "id": "patient-defense",
+                    "name": {
+                      "en": "Patient Defense"
+                    },
+                    "onUse": [
+                      {
+                        "kind": "note",
+                        "text": {
+                          "en": "Dodge: until the start of your next turn, attacks against you have disadvantage and you have advantage on Dexterity saving throws."
+                        }
+                      }
+                    ],
+                    "source": {
+                      "effectIndex": 2,
+                      "entity": "srd51.class.monk",
+                      "feature": "srd51.feature.monk.ki",
+                      "package": "srd51"
+                    },
+                    "text": {
+                      "en": "You can spend 1 ki point to take the Dodge action as a bonus action on your turn."
+                    },
+                    "toggle": "patient-defense"
+                  },
+                  "available": true,
+                  "cost": "1 ki",
+                  "details": [
+                    "toggles Patient defense"
+                  ],
+                  "id": "patient-defense",
+                  "name": "Patient Defense",
+                  "text": "You can spend 1 ki point to take the Dodge action as a bonus action on your turn."
+                },
+                {
+                  "action": {
+                    "activation": "bonus-action",
+                    "available": true,
+                    "cost": [
+                      {
+                        "amount": 1,
+                        "resource": "ki"
+                      }
+                    ],
+                    "id": "step-of-the-wind",
+                    "name": {
+                      "en": "Step of the Wind"
+                    },
+                    "onUse": [
+                      {
+                        "kind": "note",
+                        "text": {
+                          "en": "Choose Disengage or Dash."
+                        }
+                      }
+                    ],
+                    "source": {
+                      "effectIndex": 4,
+                      "entity": "srd51.class.monk",
+                      "feature": "srd51.feature.monk.ki",
+                      "package": "srd51"
+                    },
+                    "text": {
+                      "en": "You can spend 1 ki point to take the Disengage or Dash action as a bonus action on your turn, and your jump distance is doubled for the turn."
+                    },
+                    "toggle": "step-of-the-wind"
+                  },
+                  "available": true,
+                  "cost": "1 ki",
+                  "details": [
+                    "toggles Step of the wind"
+                  ],
+                  "id": "step-of-the-wind",
+                  "name": "Step of the Wind",
+                  "text": "You can spend 1 ki point to take the Disengage or Dash action as a bonus action on your turn, and your jump distance is doubled for the turn."
+                }
+              ],
+              "label": "Bonus actions"
+            },
+            {
+              "activation": "reaction",
+              "items": [
+                {
+                  "action": {
+                    "activation": "reaction",
+                    "available": true,
+                    "cost": [],
+                    "id": "deflect-missiles",
+                    "name": {
+                      "en": "Deflect Missiles"
+                    },
+                    "onUse": [
+                      {
+                        "kind": "note",
+                        "text": {
+                          "en": "Damage reduction: 1d10 + mod(dex) + classLevel(monk). Throwing the missile back costs 1 ki and is a ranged attack with proficiency, range 20/60, using the Martial Arts die."
+                        }
+                      }
+                    ],
+                    "source": {
+                      "effectIndex": 0,
+                      "entity": "srd51.class.monk",
+                      "feature": "srd51.feature.monk.deflect-missiles",
+                      "package": "srd51"
+                    },
+                    "text": {
+                      "en": "Reduce the damage you take from the attack by 1d10 + your Dexterity modifier + your monk level. If you reduce it to 0 and can hold the missile, you may spend 1 ki point to throw it back as part of the same reaction."
+                    }
+                  },
+                  "available": true,
+                  "cost": "",
+                  "details": [],
+                  "id": "deflect-missiles",
+                  "name": "Deflect Missiles",
+                  "text": "Reduce the damage you take from the attack by 1d10 + your Dexterity modifier + your monk level. If you reduce it to 0 and can hold the missile, you may spend 1 ki point to throw it back as part of the same reaction."
+                }
+              ],
+              "label": "Reactions"
+            }
+          ],
+          "kind": "actions"
+        }
+      ],
+      "id": "actions",
+      "title": "Actions"
+    },
+    {
+      "blocks": [
+        {
+          "items": [
+            {
+              "current": 3,
+              "id": "ki",
+              "max": 3,
+              "name": "Ki points",
+              "pips": true,
+              "recharge": "regains all on a short rest, all on a long rest",
+              "shownMax": "3"
+            }
+          ],
+          "kind": "resources"
+        }
+      ],
+      "id": "resources",
+      "title": "Resources"
+    },
+    {
+      "blocks": [
+        {
+          "groups": [
+            {
+              "items": [
+                {
+                  "id": "homebrew.byloth.feature.feline.claws",
+                  "name": "Claws",
+                  "text": "Your claws are natural weapons, which you can use to make unarmed\nstrikes. On a hit, they deal slashing damage equal to 1d4 + your\nStrength modifier.\n"
+                },
+                {
+                  "id": "homebrew.byloth.feature.feline.darkvision",
+                  "name": "Darkvision",
+                  "text": "You can see in dim light within 60 feet of you as if it were bright\nlight, and in darkness as if it were dim light. You can't discern\ncolor in darkness, only shades of gray.\n"
+                },
+                {
+                  "id": "homebrew.byloth.feature.feline.cats-grace",
+                  "name": "Cat's Grace",
+                  "text": "You have advantage on Dexterity (Stealth) checks made to move\nsilently.\n"
+                }
+              ],
+              "label": "Species — Feline",
+              "origin": "species"
+            },
+            {
+              "items": [
+                {
+                  "id": "homebrew.byloth.feature.feline.puma.pounce",
+                  "name": "Pounce",
+                  "text": "Your long jump is up to twice your Strength score in feet.\n"
+                }
+              ],
+              "label": "Subspecies — Puma",
+              "origin": "subspecies"
+            },
+            {
+              "items": [
+                {
+                  "id": "srd51.feature.monk.martial-arts",
+                  "level": 1,
+                  "name": "Martial Arts",
+                  "text": "At 1st level, your practice of martial arts gives you mastery of combat styles that use unarmed strikes and monk weapons, which are shortswords and any simple melee weapons that don't have the two- handed or heavy property.\n\nYou gain the following benefits while you are unarmed or wielding only monk weapons and you aren't wearing armor or wielding a shield:\n\n* You can use Dexterity instead of Strength for the attack and damage rolls of your unarmed strikes and monk weapons.\n* You can roll a d4 in place of the normal damage of your unarmed strike or monk weapon. This die changes as you gain monk levels, as shown in the Martial Arts column of the Monk table.\n* When you use the Attack action with an unarmed strike or a monk weapon on your turn, you can make one unarmed strike as a bonus action. For example, if you take the Attack action and attack with a quarterstaff, you can also make an unarmed strike as a bonus action, assuming you haven't already taken a bonus action this turn. \n\nCertain monasteries use specialized forms of the monk weapons. For example, you might use a club that is two lengths of wood connected by a short chain (called a nunchaku) or a sickle with a shorter, straighter blade (called a kama). Whatever name you use for a monk weapon, you can use the game statistics provided for the weapon."
+                },
+                {
+                  "id": "srd51.feature.monk.unarmored-defense",
+                  "level": 1,
+                  "name": "Unarmored Defense",
+                  "text": "Beginning at 1st level, while you are wearing no armor and not wielding a shield, your AC equals 10 + your Dexterity modifier + your Wisdom modifier."
+                },
+                {
+                  "id": "srd51.feature.monk.ki",
+                  "level": 2,
+                  "name": "Ki",
+                  "text": "Starting at 2nd level, your training allows you to harness the mystic energy of ki. Your access to this energy is represented by a number of ki points. Your monk level determines the number of points you have, as shown in the Ki Points column of the Monk table.\n\nYou can spend these points to fuel various ki features. You start knowing three such features: Flurry of Blows, Patient Defense, and Step of the Wind. You learn more ki features as you gain levels in this class.\n\nWhen you spend a ki point, it is unavailable until you finish a short or long rest, at the end of which you draw all of your expended ki back into yourself. You must spend at least 30 minutes of the rest meditating to regain your ki points.\n\nSome of your ki features require your target to make a saving throw to resist the feature's effects. The saving throw DC is calculated as follows:\n\n*Ki save DC* = 8 + your proficiency bonus + your Wisdom modifier\n\n### Flurry of Blows\n\nImmediately after you take the Attack action on your turn, you can spend 1 ki point to make two unarmed strikes as a bonus action. \n\n### Patient Defense\n\nYou can spend 1 ki point to take the Dodge action as a bonus action on your turn.\n\n### Step of the Wind\n\nYou can spend 1 ki point to take the Disengage or Dash action as a bonus action on your turn, and your jump distance is doubled for the turn."
+                },
+                {
+                  "id": "srd51.feature.monk.unarmored-movement",
+                  "level": 2,
+                  "name": "Unarmored Movement",
+                  "text": "Starting at 2nd level, your speed increases by 10 feet while you are not wearing armor or wielding a shield. This bonus increases when you reach certain monk levels, as shown in the Monk table.\n\nAt 9th level, you gain the ability to move along vertical surfaces and across liquids on your turn without falling during the move."
+                },
+                {
+                  "id": "srd51.feature.monk.deflect-missiles",
+                  "level": 3,
+                  "name": "Deflect Missiles",
+                  "text": "Starting at 3rd level, you can use your reaction to deflect or catch the missile when you are hit by a ranged weapon attack. When you do so, the damage you take from the attack is reduced by 1d10 + your Dexterity modifier + your monk level.\n\nIf you reduce the damage to 0, you can catch the missile if it is small enough for you to hold in one hand and you have at least one hand free. If you catch a missile in this way, you can spend 1 ki point to make a ranged attack with the weapon or piece of ammunition you just caught, as part of the same reaction. You make this attack with proficiency, regardless of your weapon proficiencies, and the missile counts as a monk weapon for the attack, which has a normal range of 20 feet and a long range of 60 feet."
+                },
+                {
+                  "id": "srd51.feature.monk.monastic-tradition",
+                  "level": 3,
+                  "name": "Monastic Tradition",
+                  "text": "When you reach 3rd level, you commit yourself to a monastic tradition such as the Way of the Open Hand. Your tradition grants you features at 3rd level and again at 6th, 11th, and 17th level."
+                }
+              ],
+              "label": "Class — Monk",
+              "origin": "class"
+            }
+          ],
+          "kind": "features"
+        }
+      ],
+      "id": "features",
+      "title": "Features & traits"
+    },
+    {
+      "blocks": [
+        {
+          "items": [
+            {
+              "flags": [],
+              "id": "srd51.item.dart",
+              "name": "Dart",
+              "quantity": 10
+            },
+            {
+              "flags": [
+                "equipped"
+              ],
+              "id": "srd51.item.shortbow",
+              "name": "Shortbow",
+              "quantity": 1
+            },
+            {
+              "flags": [],
+              "id": "srd51.item.arrow",
+              "name": "Arrow",
+              "quantity": 20
+            }
+          ],
+          "kind": "equipment"
+        }
+      ],
+      "id": "equipment",
+      "title": "Equipment"
+    },
+    {
+      "blocks": [],
+      "id": "personality",
+      "title": "Personality"
+    },
+    {
+      "blocks": [],
+      "id": "conditions",
+      "title": "Conditions & effects"
+    },
+    {
+      "blocks": [
+        {
+          "kind": "notes",
+          "open": [
+            {
+              "key": "homebrew.byloth.species.feline#languages",
+              "label": "Feline: Languages",
+              "progress": "0 of 1 language(s)"
+            },
+            {
+              "key": "srd51.class.monk#monastic-tradition",
+              "label": "Monk: Monastic tradition",
+              "progress": "0 of 1 subclass(s)"
+            }
+          ]
+        }
+      ],
+      "id": "notes",
+      "title": "Notes"
+    },
+    {
+      "blocks": [
+        {
+          "kind": "credits",
+          "packages": [
+            {
+              "id": "srd51",
+              "name": "System Reference Document 5.1",
+              "sources": [
+                {
+                  "line": "System Reference Document 5.1, Wizards of the Coast — CC-BY-4.0. This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+                  "title": "System Reference Document 5.1"
+                }
+              ],
+              "version": "0.1.0"
+            },
+            {
+              "id": "homebrew.byloth",
+              "name": "Byloth's homebrew",
+              "sources": [
+                {
+                  "line": "Byloth's homebrew, Matteo Bilotta — CC-BY-4.0. Homebrew content by Matteo Bilotta, licensed under CC-BY-4.0.",
+                  "title": "Byloth's homebrew"
+                }
+              ],
+              "version": "0.1.0"
+            }
+          ]
+        }
+      ],
+      "id": "credits",
+      "title": "Credits"
+    }
+  ],
+  "warnings": [
+    {
+      "code": "W_UNANSWERED_CHOICE",
+      "message": "choice \"homebrew.byloth.species.feline#languages\" (language) has 0 of 1 answers"
+    },
+    {
+      "code": "W_UNANSWERED_CHOICE",
+      "message": "choice \"srd51.class.monk#monastic-tradition\" (subclass) has 0 of 1 answers"
+    }
+  ]
+}

@@ -151,6 +151,9 @@ importers:
 
   packages/cli:
     dependencies:
+      '@byloth/dnd-platform-composer':
+        specifier: workspace:*
+        version: link:../composer
       '@byloth/dnd-platform-engine':
         specifier: workspace:*
         version: link:../engine
@@ -176,6 +179,15 @@ importers:
       '@types/node':
         specifier: ^24.13.2
         version: 24.13.5
+
+  packages/composer:
+    devDependencies:
+      '@byloth/dnd-platform-engine':
+        specifier: workspace:*
+        version: link:../engine
+      '@byloth/dnd-platform-schema':
+        specifier: workspace:*
+        version: link:../schema
 
   packages/content/srd51: {}
 

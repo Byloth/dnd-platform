@@ -15,6 +15,7 @@ import { join, resolve } from "node:path";
 
 import { parse } from "yaml";
 
+import { compose } from "@byloth/dnd-platform-composer";
 import { derive, loadPackages, stableStringify } from "@byloth/dnd-platform-engine";
 import type { Character, ComputedSheet, Selection, SpellView } from "@byloth/dnd-platform-engine";
 
@@ -22,7 +23,7 @@ import { PRIVATE_ROOT, findRepositoryRoot } from "../io/repository.js";
 import { toPackageSource } from "../io/to-package-source.js";
 import { computeCoverage, writeCoverageReport } from "./coverage.js";
 import { runSession } from "./sessions.js";
-import { renderSheet } from "../render/text.js";
+import { renderTree } from "../render/text.js";
 
 export { findRepositoryRoot };
 
@@ -310,20 +311,24 @@ function runOne(root: string, directory: string, name: string, update: boolean):
         failures.push(`${name}: snapshot.json differs from the derived sheet (review, then --update)`);
     }
 
-    // The readable sheet is golden too, where a fixture keeps one (the reference for the web sheet).
-    const textPath = join(directory, "sheet.txt");
-    if (update || existsSync(textPath))
+    // The composer's section tree and the readable sheet are golden too, where a fixture keeps them
+    // (the reference for the web sheet): checked when present, refreshed by --update.
+    const tree = compose(sheet, { character: character, packages: set });
+    const goldens: [string, string][] = [
+        ["section-tree.json", stableStringify(tree)],
+        ["sheet.txt", renderTree(tree, { color: false })]
+    ];
+    for (const [file, content] of goldens)
     {
-        const text = renderSheet(sheet, { character: character, packages: set, color: false });
-        if (update && existsSync(textPath) && readFileSync(textPath, "utf8") !== text)
+        const path = join(directory, file);
+        if (!existsSync(path)) { continue; }
+        if (readFileSync(path, "utf8") === content) { continue; }
+        if (update)
         {
-            writeFileSync(textPath, text);
+            writeFileSync(path, content);
             updated = true;
         }
-        else if (!update && readFileSync(textPath, "utf8") !== text)
-        {
-            failures.push(`${name}: sheet.txt differs from the rendered sheet (review, then --update)`);
-        }
+        else { failures.push(`${name}: ${file} differs from the composed sheet (review, then --update)`); }
     }
 
     if (failures.length > 0) { return { name: name, directory: directory, status: "fail", details: failures }; }

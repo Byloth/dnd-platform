@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "tsBuildInfoFile": "../../node_modules/.tmp/composer.tsbuildinfo"
+  },
+  "include": ["src/**/*"],
+  "references": [{ "path": "../schema" }, { "path": "../engine" }]
+}
