@@ -272,11 +272,33 @@ export function derive(character: Character, set: PackageSet, options: DeriveOpt
         grantsOf(background.id, background.proficiencies, source, col, answers);
         languagesOf(background.id, background.languages, source, col, answers);
     }
+    // Level and class gates on proficiency grants are known before any proficiency is: evaluate them now,
+    // with no proficiencies in the facts; anything that needs them is re-evaluated in pass 2.
+    const baseScores = baseAbilityScores(character);
+    const preFacts: Facts = buildFacts({
+        character: character,
+        set: set,
+        features: new Set(collected.features.map((f) => f.id)),
+        proficiencies: new Set(),
+        abilities: baseScores,
+        knownSpells: new Set()
+    });
+    const gateHolds = (when: Effect["when"]): boolean =>
+    {
+        try { return evaluateWhen(when, preFacts); }
+        catch (error)
+        {
+            // An unknown condition key is reported by pass 2.
+            if (error instanceof ConditionError) { return true; }
+            throw error;
+        }
+    };
     for (const feature of collected.features)
     {
         (feature.data.effects ?? []).forEach((effect) =>
         {
             if (effect.kind !== "grant-proficiency") { return; }
+            if (!gateHolds(effect.when)) { return; }
             for (const item of effect.items ?? [])
             {
                 const name = item === "self" ? feature.owner : item;
@@ -309,7 +331,6 @@ export function derive(character: Character, set: PackageSet, options: DeriveOpt
         proficiencySet.add(`${p.type}:${p.item}`);
         if (p.expertise) { proficiencySet.add(`${p.type}:${p.item}:expertise`); }
     }
-    const baseScores = baseAbilityScores(character);
     const facts: Facts = buildFacts({
         character: character,
         set: set,
@@ -339,7 +360,7 @@ export function derive(character: Character, set: PackageSet, options: DeriveOpt
     // Option effects of answered inline choices are features of their own ("option" origin).
     for (const ctx of [...contexts])
     {
-        if ((ctx.effect.kind !== "open-choice") || !ctx.effect.options) { continue; }
+        if ((ctx.effect.kind !== "open-choice") || !ctx.effect.options || !ctx.applied) { continue; }
         const key = `${ctx.feature.id}#${ctx.effect.choice}`;
         const chosen = registerChoice(col, answers, {
             key: key,

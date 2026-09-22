@@ -424,35 +424,6 @@
         "survival"
       ],
       "owner": "srd51.feature.rogue.expertise"
-    },
-    {
-      "answered": false,
-      "answers": [],
-      "choice": "expertise-6",
-      "count": 2,
-      "key": "srd51.feature.rogue.expertise#expertise-6",
-      "of": "skill",
-      "options": [
-        "acrobatics",
-        "animal-handling",
-        "arcana",
-        "athletics",
-        "deception",
-        "history",
-        "insight",
-        "intimidation",
-        "investigation",
-        "medicine",
-        "nature",
-        "perception",
-        "performance",
-        "persuasion",
-        "religion",
-        "sleight-of-hand",
-        "stealth",
-        "survival"
-      ],
-      "owner": "srd51.feature.rogue.expertise"
     }
   ],
   "classes": [
@@ -2604,14 +2575,6 @@
       "value": 25
     }
   },
-  "warnings": [
-    {
-      "code": "W_UNANSWERED_CHOICE",
-      "entity": "srd51.feature.rogue.expertise",
-      "message": "choice \"srd51.feature.rogue.expertise#expertise-6\" (skill) has 0 of 2 answers",
-      "path": "srd51.feature.rogue.expertise#expertise-6",
-      "severity": "warning"
-    }
-  ]
+  "warnings": []
 }
 

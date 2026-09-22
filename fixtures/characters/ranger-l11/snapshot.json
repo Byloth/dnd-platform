@@ -544,31 +544,6 @@
       "owner": "srd51.feature.ranger.favored-enemy"
     },
     {
-      "answered": false,
-      "answers": [],
-      "choice": "favored-enemy-3",
-      "count": 1,
-      "key": "srd51.feature.ranger.favored-enemy#favored-enemy-3",
-      "of": "option",
-      "options": [
-        "aberrations",
-        "beasts",
-        "celestials",
-        "constructs",
-        "dragons",
-        "elementals",
-        "fey",
-        "fiends",
-        "giants",
-        "monstrosities",
-        "oozes",
-        "plants",
-        "undead",
-        "two-humanoid-races"
-      ],
-      "owner": "srd51.feature.ranger.favored-enemy"
-    },
-    {
       "answered": true,
       "answers": [
         "forest"
@@ -3351,14 +3326,6 @@
       "value": 25
     }
   },
-  "warnings": [
-    {
-      "code": "W_UNANSWERED_CHOICE",
-      "entity": "srd51.feature.ranger.favored-enemy",
-      "message": "choice \"srd51.feature.ranger.favored-enemy#favored-enemy-3\" (option) has 0 of 1 answers",
-      "path": "srd51.feature.ranger.favored-enemy#favored-enemy-3",
-      "severity": "warning"
-    }
-  ]
+  "warnings": []
 }
 
