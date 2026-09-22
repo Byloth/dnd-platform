@@ -25,5 +25,7 @@ jobs:
       - run: pnpm validate:content
       - run: pnpm build:content
       - run: pnpm fixtures
+      - run: pnpm web:prepare-content
+      - run: pnpm web:generate
       # Public content only: content-private/ never exists here.
       # Fixtures that require a private package are reported as skipped.

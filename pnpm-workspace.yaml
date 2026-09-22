@@ -1,3 +1,8 @@
 packages:
   - packages/*
   - packages/content/*
+
+# Native helpers the web application's toolchain builds at install time (pnpm asks explicitly).
+allowBuilds:
+  "@parcel/watcher": true
+  esbuild: true

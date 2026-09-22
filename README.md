@@ -12,7 +12,7 @@ rules engine) is described in [`docs/phase-0/`](docs/phase-0/00-README.md).
 
 ## Status
 
-**Phase 0 done** (`v0.2.0`, 2026-09-22): the content format (frozen at v0) and the rules engine exist and are proven. The base package covers the whole SRD 5.1 with authored mechanics; the engine derives every class at every tier with provenance and applies and undoes every play event with the rules read from the ruleset; 60 public golden characters, 8 play sessions and 3 readable sheets guard it; private packages load from a git-ignored root next to the base (the owner's Player's Handbook transcription proves the path with 30 private fixtures); a content selection (DEC-20) lets a campaign exclude content without breaking anything; the `dnd` command validates, bundles and derives from the terminal. Next: Phase 1, the web application (guided creation, dynamic sheet, print), whose plan is written at its opening. Nothing playable from a screen yet.
+**Phase 1 in progress** (M1.1 done, `v0.3.1`, 2026-09-22): the web application exists as a static Nuxt 4 site in `packages/web`, publishable on GitHub Pages, showing a fixture character's sheet composed by the new `packages/composer`; the content store, the dynamic sheet, guided creation, print and Italian follow milestone by milestone (`docs/phase-1/`). **Phase 0 done** (`v0.2.0`, 2026-09-22): the content format (frozen at v0) and the rules engine exist and are proven. The base package covers the whole SRD 5.1 with authored mechanics; the engine derives every class at every tier with provenance and applies and undoes every play event with the rules read from the ruleset; 60 public golden characters, 8 play sessions and 3 readable sheets guard it; private packages load from a git-ignored root next to the base (the owner's Player's Handbook transcription proves the path with 30 private fixtures); a content selection (DEC-20) lets a campaign exclude content without breaking anything; the `dnd` command validates, bundles and derives from the terminal. Next: Phase 1, the web application (guided creation, dynamic sheet, print), whose plan is written at its opening. Nothing playable from a screen yet.
 
 ## Development
 
@@ -28,7 +28,12 @@ pnpm validate:content        # validate every content package directory against 
 pnpm build:content           # write the canonical JSON bundle of every package (build/content/, content-private/build/)
 pnpm fixtures                # run the golden characters, the play sessions and the readable sheets (--update after review)
 pnpm generate:types          # regenerate packages/schema/src/generated from the JSON Schemas
+pnpm web:prepare-content     # copy the SRD bundle and the sample character into the site (git-ignored)
+pnpm web:dev                 # the web application's development server (after pnpm build)
+pnpm web:generate            # the static site in packages/web/.output/public/
 ```
+
+The web application (`packages/web`, Nuxt 4, client-rendered) consumes the workspace packages from their `dist`, so `pnpm build` comes first; `pnpm lint`, `pnpm typecheck` and `pnpm test` cover it too. The site is published on GitHub Pages by `.github/workflows/pages.yml` on every push to the default branch, under the repository's path (`NUXT_APP_BASE_URL`).
 
 Content format: `docs/phase-0/02-content-format.md`; schemas in `packages/schema/schemas/`; example packages in `fixtures/packages/`. How to contribute: [`CONTRIBUTING.md`](CONTRIBUTING.md).
 

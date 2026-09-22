@@ -1,0 +1,44 @@
+{
+  "name": "@byloth/dnd-platform-web",
+  "version": "0.0.0",
+  "description": "The web application of the platform: guided character creation, dynamic sheet, print. Static, runs entirely in the browser.",
+  "private": true,
+  "license": "AGPL-3.0-only",
+  "type": "module",
+  "scripts": {
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "lint": "eslint .",
+    "typecheck": "nuxt typecheck",
+    "test": "vitest run",
+    "prepare-content": "node scripts/prepare-content.ts",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@byloth/dnd-platform-composer": "workspace:*",
+    "@byloth/dnd-platform-engine": "workspace:*",
+    "@byloth/dnd-platform-schema": "workspace:*",
+    "@byloth/nuxt-vuert-module": "^2.0.0-dev.1",
+    "@fortawesome/fontawesome-free": "^7.3.1",
+    "@nuxtjs/i18n": "^10.6.0",
+    "@pinia/nuxt": "1.0.2",
+    "@vueuse/nuxt": "^15.0.0",
+    "bootstrap": "^5.3.8",
+    "nuxt": "^4.5.2",
+    "pinia": "^4.0.3",
+    "vue": "^3.5.43",
+    "vue-router": "^5.3.1"
+  },
+  "devDependencies": {
+    "@byloth/eslint-config-nuxt": "^4.0.2",
+    "@nuxt/test-utils": "^4.3.2",
+    "@vue/test-utils": "^2.4.6",
+    "happy-dom": "^20.14.5",
+    "sass": "^1.104.1",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.10",
+    "vue-tsc": "^3.3.11",
+    "yaml": "^2.9.1"
+  }
+}

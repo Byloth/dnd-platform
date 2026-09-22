@@ -1,0 +1,159 @@
+@use "../variables";
+
+/*
+ * General configurations:
+ */
+$enable-gradients: true;
+$enable-shadows: true;
+
+/*
+ * Colors:
+ */
+$theme-colors:
+(
+  "primary": variables.$primary,
+  "secondary": variables.$secondary,
+  "accent": variables.$accent,
+  "success": variables.$success,
+  "info": variables.$info,
+  "warning": variables.$warning,
+  "danger": variables.$danger,
+  "light": variables.$slightly-off-white,
+  "dark": variables.$not-quite-black
+);
+
+/*
+ * Grids:
+ */
+$grid-breakpoints:
+(
+    xs: variables.$xs-size,
+    sm: variables.$sm-size,
+    md: variables.$md-size,
+    lg: variables.$lg-size,
+    xl: variables.$xl-size,
+    xxl: variables.$xxl-size
+);
+$grid-gutter-width: 0px;
+
+$container-max-widths:
+(
+    sm: variables.$container-sm-size,
+    md: variables.$container-md-size,
+    lg: variables.$container-lg-size,
+    xl: variables.$container-xl-size,
+    xxl: variables.$container-xxl-size
+);
+
+/*
+ * Font styles:
+ */
+$link-color: variables.$primary;
+$link-decoration: none;
+$link-hover-decoration: underline;
+
+@use "bootstrap/scss/bootstrap" as bs with
+(
+    $enable-gradients: $enable-gradients,
+    $enable-shadows: $enable-shadows,
+
+    $theme-colors: $theme-colors,
+
+    $grid-breakpoints: $grid-breakpoints,
+    $grid-gutter-width: $grid-gutter-width,
+
+    $container-max-widths: $container-max-widths,
+
+    $link-color: $link-color,
+    $link-decoration: $link-decoration,
+    $link-hover-decoration: $link-hover-decoration
+);
+
+.alert
+{
+    @each $color, $value in $theme-colors
+    {
+        &.alert-#{$color}
+        {
+            $alert-background: bs.shade-color($value, 80%);
+            $alert-border: bs.shade-color($value, 40%);
+            $alert-color: bs.tint-color($value, 40%);
+
+            hr
+            {
+                background-color: rgba($alert-color, 0.5);
+            }
+
+            .alert-link,
+            .btn-close,
+            .btn-link
+            {
+                box-shadow: 0px 0px 0px 0px rgba($value, 0);
+                color: $alert-color;
+
+                &:focus-visible
+                {
+                    background-color: unset;
+                    background-image: unset;
+                    box-shadow: 0px 0px 0px 0.25em rgba($value, 0.25);
+                }
+            }
+            .alert-link,
+            .btn-link
+            {
+                &:hover
+                {
+                    color: bs.shift-color($alert-color, bs.$link-shade-percentage);
+                }
+                &:active
+                {
+                    color: bs.shift-color($alert-color, - bs.$link-shade-percentage);
+                }
+            }
+            .btn-close
+            {
+                transition: opacity variables.$transition-duration variables.$transition-timing-function;
+            }
+
+            .btn-primary
+            {
+                @include bs.button-variant($value, $value);
+            }
+            .btn-secondary
+            {
+                $outline-color: bs.tint-color($value, 25%);
+
+                @include bs.button-outline-variant($outline-color);
+
+                background-color: rgba($outline-color, 0);
+
+                &:hover,
+                &:active
+                {
+                    background-color: $outline-color;
+                    color: #000000;
+                }
+                &:focus-visible
+                {
+                    color: $outline-color;
+                }
+            }
+        }
+    }
+}
+
+.btn:disabled
+{
+    cursor: not-allowed;
+    pointer-events: auto;
+
+    &:active
+    {
+        background-color: var(--bs-btn-disabled-bg);
+        background-image: none;
+        box-shadow: none;
+        border-color: var(--bs-btn-disabled-border-color);
+        color: var(--bs-btn-disabled-color);
+        opacity: var(--bs-btn-disabled-opacity);
+    }
+}

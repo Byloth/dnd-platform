@@ -147,4 +147,5 @@ Risks: the newcomer test fails the fifteen-minute target; that is a finding, not
 
 | Milestone | Closed | Tag | Notes |
 |---|---|---|---|
+| M1.1 | 2026-09-22 | v0.3.1 | `packages/composer` (pure; `compose` and `explain`; the CLI text renderer is typography over its tree, the four `sheet.txt` byte-identical, four `section-tree.json` goldens); the Ajv validator shared as `@byloth/dnd-platform-schema/validate`; `packages/web` from `nuxtplate` on pnpm (Nuxt 4.5 `ssr: false`, `github-pages` preset, `@nuxtjs/i18n` EN/IT, Pinia, VueUse), the sample sheet page rendering `cleric-l5` from the composer's tree, component and catalogue tests in the Nuxt Vitest project, `pages.yml` and CI steps, root scripts `web:*`. Left out: the template's alert handler (pnpm link issue with the vuert prerelease, see 01). Pending the owner: enable Pages, push, check the site from a phone. |
 | — | 2026-09-22 | — | Phase 1 opened: decisions DEC-01 (shell), DEC-04, DEC-09, DEC-12, DEC-13, DEC-15 taken by the owner; execution plan written (this directory). |

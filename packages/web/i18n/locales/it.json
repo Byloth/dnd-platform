@@ -1,0 +1,20 @@
+{
+  "app": {
+    "title": "dnd-platform",
+    "tagline": "Una piattaforma D&D 5e per chi inizia, a partire dal personaggio."
+  },
+  "nav": {
+    "sheet": "Scheda",
+    "packages": "Pacchetti",
+    "language": "Lingua"
+  },
+  "sample": {
+    "heading": "Personaggio di esempio",
+    "intro": "Il pacchetto base SRD 5.1 caricato nel tuo browser e un personaggio di prova calcolato dal motore delle regole, reso a partire dal section tree del composer. La scheda dinamica arriva con i prossimi milestone.",
+    "loading": "Caricamento del pacchetto SRD…",
+    "failed": "Impossibile caricare il pacchetto SRD."
+  },
+  "footer": {
+    "attribution": "Quest'opera include materiale tratto dal System Reference Document 5.1 di Wizards of the Coast LLC, con licenza Creative Commons Attribution 4.0 International."
+  }
+}

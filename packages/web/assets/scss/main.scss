@@ -1,0 +1,16 @@
+@use "./variables";
+
+:root
+{
+    --hidden-footer-height: 128px;
+    --navigation-bar-height: 64px;
+}
+
+body
+{
+    background-color: variables.$chrome-incognito-color;
+    box-shadow: 0px 0px 0.5em 0px rgba(0, 0, 0, 0.5);
+    color: variables.$not-quite-black;
+    font-family: variables.$font-family;
+    margin-bottom: var(--hidden-footer-height);
+}

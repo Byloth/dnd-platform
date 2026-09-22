@@ -10,6 +10,8 @@ const gitignorePath = path.resolve(__dirname, ".gitignore");
 
 export default [
   includeIgnoreFile(gitignorePath),
+  // The web application lints itself with the Nuxt configuration (packages/web/eslint.config.mjs).
+  { ignores: ["packages/web/**"] },
   ...eslintTs,
   {
     // Command-line scripts report through the console by design.

@@ -16,8 +16,8 @@
   "packageManager": "pnpm@12.3.4",
   "scripts": {
     "build": "tsc --build",
-    "typecheck": "tsc --build --force",
-    "lint": "eslint .",
+    "typecheck": "tsc --build --force && pnpm web:typecheck",
+    "lint": "eslint . && pnpm web:lint",
     "test": "vitest run",
     "test:watch": "vitest",
     "prepare": "husky",
@@ -27,7 +27,14 @@
     "build:content": "node packages/cli/dist/index.js build",
     "fixtures": "node packages/cli/dist/index.js fixtures",
     "test:perf": "vitest run packages/cli/test/performance.test.ts",
-    "fixtures:coverage": "node packages/cli/dist/index.js fixtures --coverage"
+    "fixtures:coverage": "node packages/cli/dist/index.js fixtures --coverage",
+    "web:dev": "pnpm --filter @byloth/dnd-platform-web run dev",
+    "web:lint": "pnpm --filter @byloth/dnd-platform-web run lint",
+    "web:typecheck": "pnpm --filter @byloth/dnd-platform-web run typecheck",
+    "web:test": "pnpm --filter @byloth/dnd-platform-web run test",
+    "web:prepare-content": "pnpm --filter @byloth/dnd-platform-web run prepare-content",
+    "web:generate": "pnpm --filter @byloth/dnd-platform-web run generate",
+    "web:preview": "pnpm --filter @byloth/dnd-platform-web run preview"
   },
   "devDependencies": {
     "@byloth/dnd-platform-schema": "workspace:*",

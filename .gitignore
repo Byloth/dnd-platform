@@ -24,6 +24,12 @@ coverage/
 #
 /build/
 
+# The web application: Nuxt's generated files and the content copied into the site
+#
+.nuxt/
+.output/
+/packages/web/public/content/
+
 # Environmental files
 #
 .env

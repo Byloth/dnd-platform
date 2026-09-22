@@ -1,0 +1,53 @@
+@use "sass:string";
+
+/*
+ * Colors:
+ */
+$not-quite-black: #212529;
+$somewhat-gray: #ADB5BD;
+$slightly-off-white: #F8F9FA;
+
+$chrome-scrollbar-color: #F1F1F1;
+$chrome-link-preview-color: #DEE1E6;
+$chrome-incognito-color: #35363A;
+
+$primary: #0D6EFD;
+$secondary: #6C757D;
+$accent: #FD9C0D;
+
+$success: #198754;
+$info: #0DCAF0;
+$warning: #FFC107;
+$danger: #DC3545;
+
+/*
+ * Fonts:
+ */
+$font-family: string.unquote("system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif");
+
+/*
+ * Sizes:
+ */
+$xs-size: 0;
+$sm-size: 576px;
+$md-size: 768px;
+$lg-size: 992px;
+$xl-size: 1200px;
+$xxl-size: 1400px;
+
+$max-mobile-size: $sm-size - 1px;
+$min-tablet-size: $sm-size;
+$max-tablet-size: $lg-size - 1px;
+$min-desktop-size: $lg-size;
+
+$container-sm-size: $sm-size - 36px;
+$container-md-size: $md-size - 48px;
+$container-lg-size: $lg-size - 32px;
+$container-xl-size: $xl-size - 60px;
+$container-xxl-size: $xxl-size - 80px;
+
+/*
+ * Transitions:
+ */
+$transition-duration: 150ms;
+$transition-timing-function: ease-in-out;

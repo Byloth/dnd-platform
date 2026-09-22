@@ -6,13 +6,19 @@ import { describe, expect, it } from "vitest";
 
 const ROOT = resolve(import.meta.dirname, "..");
 
+/** Generated trees never hold a package manifest; skipping them keeps the walk fast. */
+const SKIPPED = new Set(["node_modules", "dist", ".git", ".nuxt", ".output", "coverage"]);
+/** The site's copy of the content (git-ignored) mirrors packages that are checked at their source. */
+const SKIPPED_PATHS = ["packages/web/public/content"];
+
 function walk(dir: string, out: string[] = []): string[]
 {
     for (const entry of readdirSync(dir))
     {
-        if (entry === "node_modules" || entry === "dist" || entry === ".git") { continue; }
+        if (SKIPPED.has(entry)) { continue; }
 
         const path = join(dir, entry);
+        if (SKIPPED_PATHS.some((skipped) => path.endsWith(skipped))) { continue; }
         if (statSync(path).isDirectory()) { walk(path, out); }
         else { out.push(path); }
     }
