@@ -2,7 +2,7 @@
 # Mechanics come from tools/import/overlay/<entity-id>.yaml; edit those, then re-run `node tools/import/src/map.ts`.
 id: srd51.rule.action.use-object
 name:
-  en: Search
+  en: Use an Object
 source: srd51
 category: action
 text:

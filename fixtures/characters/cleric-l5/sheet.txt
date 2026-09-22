@@ -1,0 +1,137 @@
+STONE LANTERN
+Dwarf (Hill Dwarf) · Cleric 5, Life Domain · Acolyte  —  level 5
+Ruleset srd51 · packages srd51 0.1.0
+
+CORE
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Armor Class                             18
+                  16  Chain mail              ← srd51.item.chain-mail
+                  +2  Shield                  ← srd51.item.shield
+  Initiative                              +0
+  Speed                                25 ft
+  Hit Points                         43 / 43
+                  10  Level 1 (Cleric)        ← srd51
+                 +28  4 more levels (Cleric)  ← srd51
+                  +5  Dwarven Toughness       ← srd51 · hill-dwarf.dwarven-toughness
+  Hit Dice                               5d8
+  Proficiency Bonus                       +3
+  Passive Perception                      14
+
+ABILITIES
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                Score  Mod  Save
+  Strength         14   +2    +2
+  Dexterity        10   +0    +0
+  Constitution     15   +2    +2
+  Intelligence     10   +0    +0
+  Wisdom           18   +4    +7  ● proficient
+  Charisma         12   +1    +4  ● proficient
+
+SKILLS
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  ○  Acrobatics (DEX)       +0       ●  Medicine (WIS)         +7
+  ○  Animal handling (WIS)  +4       ○  Nature (INT)           +0
+  ○  Arcana (INT)           +0       ○  Perception (WIS)       +4
+  ○  Athletics (STR)        +2       ○  Performance (CHA)      +1
+  ○  Deception (CHA)        +1       ○  Persuasion (CHA)       +1
+  ●  History (INT)          +3       ●  Religion (INT)         +3
+  ●  Insight (WIS)          +7       ○  Sleight of hand (DEX)  +0
+  ○  Intimidation (CHA)     +1       ○  Stealth (DEX)          +0
+  ○  Investigation (INT)    +0       ○  Survival (WIS)         +4
+  ○ untrained  ● proficient  ◉ expertise
+
+  Armor      Heavy, Light, Medium, Shield
+  Weapons    Battleaxe, Handaxe, Light hammer, Simple, Warhammer
+  Tools      Smiths tools
+  Languages  Celestial, Common, Dwarvish, Elvish
+
+SENSES
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Darkvision 60 ft · Passive Perception 14 · Passive Investigation 10 · Passive Insight 17
+
+COMBAT
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Resistance         Poison
+  Advantage          on save against Poison
+  Carrying capacity  210 lb
+
+ATTACKS
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Attack                  To hit  Damage
+  Warhammer                   +5  1d8 + 2 bludgeoning   melee, STR
+  Warhammer (two-handed)      +5  1d10 + 2 bludgeoning  melee, STR
+  Unarmed strike              +5  3 bludgeoning         melee, STR
+
+ACTIONS
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Actions
+    Channel Divinity: Turn Undead    1 channel-divinity  DC 15
+    Channel Divinity: Preserve Life  1 channel-divinity
+
+  Base actions  Attack, Dash, Disengage, Dodge, Help, Hide, Ready, Search, Use an Object, Cast a
+                Spell
+
+RESOURCES
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Channel Divinity  1 / 1  ●  regains all on a short rest, all on a long rest
+
+SPELLCASTING
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Cleric — Wisdom · save DC 15 · spell attack +7 · prepared spells · ritual casting
+    4 cantrips
+    Slots 1st ●●●● 2nd ●●● 3rd ●●
+
+SPELLS
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Cantrips   Guidance ©, Light, Sacred Flame, Thaumaturgy
+  1st level  Bless* ©, Cure Wounds*, Guiding Bolt, Healing Word, Sanctuary, Shield of Faith ©
+  2nd level  Aid, Hold Person ©, Lesser Restoration*, Silence ©, Spiritual Weapon*
+  3rd level  Beacon of Hope* ©, Dispel Magic, Revivify*, Spirit Guardians ©
+  © concentration  * always prepared
+
+FEATURES & TRAITS
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Species — Dwarf
+    Ability Score Increase     Your Constitution score increases by 2.
+    Speed                      Your base walking speed is 25 feet.
+    Darkvision                 Accustomed to life underground, you have superior vision in dark…
+    Age                        Dwarves mature at the same rate as humans, but they're considered…
+    Alignment                  Most dwarves are lawful, believing firmly in the benefits of a…
+    Size                       Dwarves stand between 4 and 5 feet tall and average about 150…
+    Languages                  You can speak, read, and write Common and Dwarvish.
+    Dwarven Resilience         You have advantage on saving throws against poison, and you have…
+    Dwarven Combat Training    You have proficiency with the battleaxe, handaxe, light hammer,…
+    Tool Proficiency           You gain proficiency with the artisan's tools of your choice:…
+    Stonecunning               Whenever you make an Intelligence (History) check related to the…
+  Subspecies — Hill Dwarf
+    Ability Score Increase    Your Wisdom score increases by 1.
+    Dwarven Toughness         Your hit point maximum increases by 1, and it increases by 1 every…
+  Class — Cleric
+    Divine Domain              L1  Choose one domain related to your deity, such as Life.
+    Spellcasting               L1  As a conduit for divine power, you can cast cleric spells.
+    Channel Divinity           L2  At 2nd level, you gain the ability to channel divine energy…
+    Ability Score Improvement  L4  When you reach 4th level, and again at 8th, 12th, 16th, and 19th…
+    Destroy Undead             L5  Starting at 5th level, when an undead fails its saving throw…
+  Subclass — Life Domain
+    Bonus Proficiency                L1  When you choose this domain at 1st level, you gain…
+    Disciple of Life                 L1  Also starting at 1st level, your healing spells are more…
+    Life Domain Spells (table)       L1  Cleric Level | Spells | |---|---| | 1st | bless, cure…
+    Channel Divinity: Preserve Life  L2  Starting at 2nd level, you can use your Channel Divinity…
+  Background — Acolyte
+    Shelter of the Faithful    As an acolyte, you command the respect of those who share your…
+
+EQUIPMENT
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Warhammer        equipped
+  Chain mail       equipped
+  Shield           equipped
+  Priest's Pack
+
+CREDITS
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  System Reference Document 5.1 (srd51 0.1.0)
+    System Reference Document 5.1, Wizards of the Coast — CC-BY-4.0. This work includes material
+    taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and
+    available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is
+    licensed under the Creative Commons Attribution 4.0 International License available at
+    https://creativecommons.org/licenses/by/4.0/legalcode.

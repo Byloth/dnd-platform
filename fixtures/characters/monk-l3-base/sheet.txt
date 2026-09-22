@@ -1,0 +1,128 @@
+QUIET PAW
+Feline (Puma) · Monk 3  —  level 3
+Ruleset srd51 · packages srd51 0.1.0, homebrew.byloth 0.1.0
+
+CORE
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Armor Class                           15
+                  10  Base                  ← srd51
+                  +3  Dexterity modifier    ← srd51
+                 =15  Unarmored Defense     ← srd51 · monk.unarmored-defense
+  Initiative                            +3
+  Speed                 40 ft, climb 20 ft
+                  30  Species speed         ← homebrew.byloth.species.feline
+                 +10  Unarmored Movement    ← srd51 · monk.unarmored-movement
+  Hit Points                       24 / 24
+                  10  Level 1 (Monk)        ← srd51
+                 +14  2 more levels (Monk)  ← srd51
+  Hit Dice                             3d8
+  Proficiency Bonus                     +2
+  Passive Perception                    12
+
+ABILITIES
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                Score  Mod  Save
+  Strength         11   +0    +2  ● proficient
+  Dexterity        17   +3    +5  ● proficient
+  Constitution     14   +2    +2
+  Intelligence      8   −1    −1
+  Wisdom           15   +2    +2
+  Charisma          8   −1    −1
+
+SKILLS
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  ●  Acrobatics (DEX)       +5       ○  Medicine (WIS)         +2
+  ○  Animal handling (WIS)  +2       ○  Nature (INT)           −1
+  ○  Arcana (INT)           −1       ○  Perception (WIS)       +2
+  ○  Athletics (STR)        +0       ○  Performance (CHA)      −1
+  ○  Deception (CHA)        −1       ○  Persuasion (CHA)       −1
+  ○  History (INT)          −1       ○  Religion (INT)         −1
+  ○  Insight (WIS)          +2       ○  Sleight of hand (DEX)  +3
+  ○  Intimidation (CHA)     −1       ●  Stealth (DEX)          +5
+  ○  Investigation (INT)    −1       ○  Survival (WIS)         +2
+  ○ untrained  ● proficient  ◉ expertise
+
+  Weapons    Shortsword, Simple
+  Tools      Musical instrument
+  Languages  Common
+
+SENSES
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Darkvision 60 ft · Passive Perception 12 · Passive Investigation 9 · Passive Insight 12
+
+COMBAT
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Advantage          on check Stealth (to move silently)
+  Carrying capacity  165 lb
+
+ATTACKS
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Attack          To hit  Damage
+  Shortbow            +5  1d6 + 3 piercing  ranged, DEX
+  Unarmed strike      +2  1 bludgeoning     melee, STR
+
+ACTIONS
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Actions
+    Claws    attack +2 · 1d4 slashing
+  Bonus actions
+    Martial Arts unarmed strike        after Attack · attack +5 · martial arts die +3 bludgeoning
+                                       (not available now)
+    Flurry of Blows              1 ki  after Attack · attack +5 · martial arts die +3 bludgeoning
+    Patient Defense              1 ki  toggles Patient defense
+    Step of the Wind             1 ki  toggles Step of the wind
+  Reactions
+    Deflect Missiles
+
+  Base actions  Attack, Dash, Disengage, Dodge, Help, Hide, Ready, Search, Use an Object, Cast a
+                Spell
+
+RESOURCES
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Ki points  3 / 3  ●●●  regains all on a short rest, all on a long rest
+
+FEATURES & TRAITS
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Species — Feline
+    Claws          Your claws are natural weapons, which you can use to make unarmed strikes.
+    Darkvision     You can see in dim light within 60 feet of you as if it were bright light, and…
+    Cat's Grace    You have advantage on Dexterity (Stealth) checks made to move silently.
+  Subspecies — Puma
+    Pounce    Your long jump is up to twice your Strength score in feet.
+  Class — Monk
+    Martial Arts        L1  At 1st level, your practice of martial arts gives you mastery of combat…
+    Unarmored Defense   L1  Beginning at 1st level, while you are wearing no armor and not wielding…
+    Ki                  L2  Starting at 2nd level, your training allows you to harness the mystic…
+    Unarmored Movement  L2  Starting at 2nd level, your speed increases by 10 feet while you are…
+    Deflect Missiles    L3  Starting at 3rd level, you can use your reaction to deflect or catch…
+    Monastic Tradition  L3  When you reach 3rd level, you commit yourself to a monastic tradition…
+
+EQUIPMENT
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Dart      ×10
+  Shortbow       equipped
+  Arrow     ×20
+
+NOTES
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Choices still open
+    Feline: Languages         0 of 1 language(s)
+    Monk: Monastic tradition  0 of 1 subclass(s)
+
+CREDITS
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  System Reference Document 5.1 (srd51 0.1.0)
+    System Reference Document 5.1, Wizards of the Coast — CC-BY-4.0. This work includes material
+    taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and
+    available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is
+    licensed under the Creative Commons Attribution 4.0 International License available at
+    https://creativecommons.org/licenses/by/4.0/legalcode.
+  Byloth's homebrew (homebrew.byloth 0.1.0)
+    Byloth's homebrew, Matteo Bilotta — CC-BY-4.0. Homebrew content by Matteo Bilotta, licensed
+    under CC-BY-4.0.
+
+WARNINGS
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  W_UNANSWERED_CHOICE: choice "homebrew.byloth.species.feline#languages" (language) has 0 of 1
+  answers
+  W_UNANSWERED_CHOICE: choice "srd51.class.monk#monastic-tradition" (subclass) has 0 of 1 answers

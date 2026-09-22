@@ -930,6 +930,8 @@ for (const condition of conditions)
 
 /** Rule slugs aligned with the ids the ruleset refers to. */
 const RULE_RENAMES: Record<string, string> = { "use-an-object": "use-object" };
+/** Upstream data errors: the Open5e v2 rule `use-an-object` is named "Search". */
+const RULE_NAMES: Record<string, string> = { "use-object": "Use an Object" };
 const RULE_CATEGORY: Record<string, string> = {
     "actions-in-combat": "action",
     "movement": "movement",
@@ -956,7 +958,7 @@ for (const ruleSet of ruleSets)
         const name = category === "action" ? `action.${renamed}` : `${setSlug}.${renamed}`;
         write("rules", name, {
             id: id("rule", name),
-            name: { en: rule.fields.name },
+            name: { en: RULE_NAMES[renamed] ?? rule.fields.name },
             source: PKG,
             category: category,
             text: text(rule.fields.desc) ?? { en: rule.fields.name },

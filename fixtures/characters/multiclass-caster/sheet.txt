@@ -1,0 +1,143 @@
+TWIN CANDLE
+Human · Cleric 5, Life Domain · Wizard 5, School of Evocation  —  level 10
+Ruleset srd51 · packages srd51 0.1.0
+
+CORE
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Armor Class                             11
+                  10  Base                    ← srd51
+                  +1  Dexterity modifier      ← srd51
+  Initiative                              +1
+  Speed                                30 ft
+  Hit Points                         68 / 68
+                  10  Level 1 (Cleric)        ← srd51
+                 +28  4 more levels (Cleric)  ← srd51
+                 +30  5 more levels (Wizard)  ← srd51
+  Hit Dice                         5d8 + 5d6
+  Proficiency Bonus                       +4
+  Passive Perception                      13
+
+ABILITIES
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                Score  Mod  Save
+  Strength         10   +0    +0
+  Dexterity        12   +1    +1
+  Constitution     14   +2    +2
+  Intelligence     16   +3    +3
+  Wisdom           16   +3    +7  ● proficient
+  Charisma         10   +0    +4  ● proficient
+
+SKILLS
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  ○  Acrobatics (DEX)       +1       ○  Medicine (WIS)         +3
+  ○  Animal handling (WIS)  +3       ○  Nature (INT)           +3
+  ○  Arcana (INT)           +3       ○  Perception (WIS)       +3
+  ○  Athletics (STR)        +0       ○  Performance (CHA)      +0
+  ○  Deception (CHA)        +0       ○  Persuasion (CHA)       +0
+  ○  History (INT)          +3       ●  Religion (INT)         +7
+  ●  Insight (WIS)          +7       ○  Sleight of hand (DEX)  +1
+  ○  Intimidation (CHA)     +0       ○  Stealth (DEX)          +1
+  ○  Investigation (INT)    +3       ○  Survival (WIS)         +3
+  ○ untrained  ● proficient  ◉ expertise
+
+  Armor      Heavy, Light, Medium, Shield
+  Weapons    Simple
+  Languages  Common, Elvish
+
+COMBAT
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Carrying capacity  150 lb
+
+ATTACKS
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Attack          To hit  Damage
+  Mace                +4  1d6 bludgeoning  melee, STR
+  Unarmed strike      +4  1 bludgeoning    melee, STR
+
+ACTIONS
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Actions
+    Channel Divinity: Turn Undead    1 channel-divinity  DC 15
+    Channel Divinity: Preserve Life  1 channel-divinity
+  Special
+    Arcane Recovery  1 arcane-recovery
+
+  Base actions  Attack, Dash, Disengage, Dodge, Help, Hide, Ready, Search, Use an Object, Cast a
+                Spell
+
+RESOURCES
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Channel Divinity  1 / 1  ●  regains all on a short rest, all on a long rest
+  Arcane Recovery   1 / 1  ●  regains all on a dawn
+
+SPELLCASTING
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Cleric — Wisdom · save DC 15 · spell attack +7 · prepared spells · ritual casting
+    4 cantrips
+    Slots 1st ●●●● 2nd ●●● 3rd ●●● 4th ●●● 5th ●●
+  Wizard — Intelligence · save DC 15 · spell attack +7 · spellbook spells · ritual casting
+    4 cantrips
+    Slots 1st ●●●● 2nd ●●● 3rd ●●● 4th ●●● 5th ●●
+
+SPELLS
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Cantrips   Fire Bolt, Guidance ©, Light, Mage Hand, Prestidigitation, Ray of Frost, Sacred Flame,
+             Thaumaturgy
+  1st level  Bless* ©, Cure Wounds*, Detect Magic ©, Guiding Bolt, Healing Word, Mage Armor, Magic
+             Missile, Shield
+  2nd level  Aid, Hold Person ©, Lesser Restoration*, Misty Step, Prayer of Healing, Silence ©,
+             Spiritual Weapon*
+  3rd level  Beacon of Hope* ©, Counterspell, Dispel Magic, Fireball, Fly ©, Revivify*, Spirit
+             Guardians ©
+  © concentration  * always prepared
+
+FEATURES & TRAITS
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Species — Human
+    Ability Score Increase    Your ability scores each increase by 1.
+    Speed                     Your base walking speed is 30 feet.
+    Age                       Humans reach adulthood in their late teens and live less than a…
+    Alignment                 Humans tend toward no particular alignment.
+    Size                      Humans vary widely in height and build, from barely 5 feet to well…
+    Languages                 You can speak, read, and write Common and one extra language of…
+  Class — Cleric, Wizard
+    Divine Domain              L1  Choose one domain related to your deity, such as Life.
+    Spellcasting               L1  As a conduit for divine power, you can cast cleric spells.
+    Channel Divinity           L2  At 2nd level, you gain the ability to channel divine energy…
+    Ability Score Improvement  L4  When you reach 4th level, and again at 8th, 12th, 16th, and 19th…
+    Destroy Undead             L5  Starting at 5th level, when an undead fails its saving throw…
+    Arcane Recovery            L1  You have learned to regain some of your magical energy by…
+    Spellcasting               L1  As a student of arcane magic, you have a spellbook containing…
+    Arcane Tradition           L2  When you reach 2nd level, you choose an arcane tradition,…
+    Ability Score Improvement  L4  When you reach 4th level, and again at 8th, 12th, 16th, and 19th…
+  Subclass — Life Domain, School of Evocation
+    Bonus Proficiency                L1  When you choose this domain at 1st level, you gain…
+    Disciple of Life                 L1  Also starting at 1st level, your healing spells are more…
+    Life Domain Spells (table)       L1  Cleric Level | Spells | |---|---| | 1st | bless, cure…
+    Channel Divinity: Preserve Life  L2  Starting at 2nd level, you can use your Channel Divinity…
+    Evocation Savant                 L2  Beginning when you select this school at 2nd level, the…
+    Sculpt Spells                    L2  Beginning at 2nd level, you can create pockets of relative…
+
+EQUIPMENT
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Mace    equipped
+
+NOTES
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Choices still open
+    Cleric: Asi 4  0 of 1 asi-or-feat(s)
+    Wizard: Asi 4  0 of 1 asi-or-feat(s)
+
+CREDITS
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  System Reference Document 5.1 (srd51 0.1.0)
+    System Reference Document 5.1, Wizards of the Coast — CC-BY-4.0. This work includes material
+    taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and
+    available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is
+    licensed under the Creative Commons Attribution 4.0 International License available at
+    https://creativecommons.org/licenses/by/4.0/legalcode.
+
+WARNINGS
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  W_UNANSWERED_CHOICE: choice "srd51.class.cleric#asi-4" (asi-or-feat) has 0 of 1 answers
+  W_UNANSWERED_CHOICE: choice "srd51.class.wizard#asi-4" (asi-or-feat) has 0 of 1 answers

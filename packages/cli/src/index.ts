@@ -13,6 +13,7 @@
 import { FORMAT_VERSION } from "@byloth/dnd-platform-schema";
 
 import { runBuild } from "./commands/build.js";
+import { runDerive } from "./commands/derive.js";
 import { runFixturesCommand } from "./commands/fixtures.js";
 import { runValidate } from "./commands/validate.js";
 
@@ -44,6 +45,7 @@ export function main(argv: readonly string[]): number
     }
     if (command === "validate") { return runValidate(rest); }
     if (command === "build") { return runBuild(rest); }
+    if (command === "derive") { return runDerive(rest); }
     if (command === "fixtures") { return runFixturesCommand(rest); }
 
     process.stderr.write(`dnd: unknown or not yet implemented command "${command}"\n\n${HELP}`);

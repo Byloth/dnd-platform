@@ -264,7 +264,7 @@
       "cost": [],
       "id": "use-object",
       "name": {
-        "en": "Search"
+        "en": "Use an Object"
       },
       "source": {
         "entity": "srd51.rule.action.use-object",
