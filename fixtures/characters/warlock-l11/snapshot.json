@@ -72,6 +72,136 @@
       "text": {
         "en": "You create a pact weapon in your empty hand, choosing the form this melee weapon takes each time. You are proficient with it while you wield it, and it counts as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage. It disappears if it is more than 5 feet away from you for 1 minute or more, if you use this feature again, if you dismiss it (no action required), or if you die."
       }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "attack",
+      "name": {
+        "en": "Attack"
+      },
+      "source": {
+        "entity": "srd51.rule.action.attack",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "dash",
+      "name": {
+        "en": "Dash"
+      },
+      "source": {
+        "entity": "srd51.rule.action.dash",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "disengage",
+      "name": {
+        "en": "Disengage"
+      },
+      "source": {
+        "entity": "srd51.rule.action.disengage",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "dodge",
+      "name": {
+        "en": "Dodge"
+      },
+      "source": {
+        "entity": "srd51.rule.action.dodge",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "help",
+      "name": {
+        "en": "Help"
+      },
+      "source": {
+        "entity": "srd51.rule.action.help",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "hide",
+      "name": {
+        "en": "Hide"
+      },
+      "source": {
+        "entity": "srd51.rule.action.hide",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "ready",
+      "name": {
+        "en": "Ready"
+      },
+      "source": {
+        "entity": "srd51.rule.action.ready",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "search",
+      "name": {
+        "en": "Search"
+      },
+      "source": {
+        "entity": "srd51.rule.action.search",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "use-object",
+      "name": {
+        "en": "Search"
+      },
+      "source": {
+        "entity": "srd51.rule.action.use-object",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "cast-a-spell",
+      "name": {
+        "en": "Cast a Spell"
+      },
+      "source": {
+        "entity": "srd51.rule.action.cast-a-spell",
+        "package": "srd51"
+      }
     }
   ],
   "attacks": [
@@ -735,6 +865,137 @@
     ],
     "ruleset": "srd51"
   },
+  "play": {
+    "concentration": {
+      "saveDc": "max(10, floor(damage / 2))"
+    },
+    "conditions": [
+      {
+        "id": "srd51.condition.blinded",
+        "name": {
+          "en": "Blinded"
+        }
+      },
+      {
+        "id": "srd51.condition.charmed",
+        "name": {
+          "en": "Charmed"
+        }
+      },
+      {
+        "id": "srd51.condition.deafened",
+        "name": {
+          "en": "Deafened"
+        }
+      },
+      {
+        "cumulative": true,
+        "id": "srd51.condition.exhaustion",
+        "maxLevel": 6,
+        "name": {
+          "en": "Exhaustion"
+        }
+      },
+      {
+        "id": "srd51.condition.frightened",
+        "name": {
+          "en": "Frightened"
+        }
+      },
+      {
+        "id": "srd51.condition.grappled",
+        "name": {
+          "en": "Grappled"
+        }
+      },
+      {
+        "id": "srd51.condition.incapacitated",
+        "name": {
+          "en": "Incapacitated"
+        }
+      },
+      {
+        "id": "srd51.condition.invisible",
+        "name": {
+          "en": "Invisible"
+        }
+      },
+      {
+        "id": "srd51.condition.paralyzed",
+        "name": {
+          "en": "Paralyzed"
+        }
+      },
+      {
+        "id": "srd51.condition.petrified",
+        "name": {
+          "en": "Petrified"
+        }
+      },
+      {
+        "id": "srd51.condition.poisoned",
+        "name": {
+          "en": "Poisoned"
+        }
+      },
+      {
+        "id": "srd51.condition.prone",
+        "name": {
+          "en": "Prone"
+        }
+      },
+      {
+        "id": "srd51.condition.restrained",
+        "name": {
+          "en": "Restrained"
+        }
+      },
+      {
+        "id": "srd51.condition.stunned",
+        "name": {
+          "en": "Stunned"
+        }
+      },
+      {
+        "id": "srd51.condition.unconscious",
+        "name": {
+          "en": "Unconscious"
+        }
+      }
+    ],
+    "deathSaves": {
+      "damage": {
+        "failures": 1
+      },
+      "dc": 10,
+      "failures": 3,
+      "natural1": {
+        "failures": 2
+      },
+      "natural20": {
+        "hitPoints": 1
+      },
+      "successes": 3
+    },
+    "hitDice": [
+      {
+        "die": 8,
+        "total": 11
+      }
+    ],
+    "rests": {
+      "long": {
+        "conditionLevelsRecovered": 1,
+        "hitDiceRecovered": 5,
+        "hitPoints": "full",
+        "hours": 8
+      },
+      "short": {
+        "hitDice": "spend",
+        "hours": 1
+      }
+    }
+  },
   "proficiencies": [
     {
       "expertise": false,
@@ -1202,6 +1463,10 @@
     {
       "ability": "cha",
       "as": "cantrip",
+      "caster": "srd51.class.warlock",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.eldritch-blast",
       "level": 0,
       "name": {
@@ -1220,6 +1485,11 @@
     {
       "ability": "cha",
       "as": "cantrip",
+      "caster": "srd51.class.warlock",
+      "duration": {
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.minor-illusion",
       "level": 0,
       "name": {
@@ -1238,6 +1508,11 @@
     {
       "ability": "cha",
       "as": "cantrip",
+      "caster": "srd51.class.warlock",
+      "duration": {
+        "rounds": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.chill-touch",
       "level": 0,
       "name": {
@@ -1256,6 +1531,11 @@
     {
       "ability": "cha",
       "as": "cantrip",
+      "caster": "srd51.class.warlock",
+      "duration": {
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.mage-hand",
       "level": 0,
       "name": {
@@ -1274,11 +1554,29 @@
     {
       "ability": "cha",
       "as": "known",
+      "caster": "srd51.class.warlock",
+      "duration": {
+        "hours": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.charm-person",
       "level": 1,
       "name": {
         "en": "Charm Person"
       },
+      "onCast": [
+        {
+          "condition": "srd51.condition.charmed",
+          "expires": {
+            "hours": 1
+          },
+          "kind": "applyCondition",
+          "note": {
+            "en": "On a failed Wisdom saving throw (made with advantage if you or your companions are fighting the target); ends if you or your companions do anything harmful to it. The target regards you as a friendly acquaintance and knows it was charmed when the spell ends. One additional creature (within 30 feet of the others) for each slot level above 1st."
+          },
+          "target": "other"
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -1292,6 +1590,10 @@
     {
       "ability": "cha",
       "as": "known",
+      "caster": "srd51.class.warlock",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.hellish-rebuke",
       "level": 1,
       "name": {
@@ -1310,11 +1612,33 @@
     {
       "ability": "cha",
       "as": "known",
+      "caster": "srd51.class.warlock",
+      "duration": {
+        "concentration": true,
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.hold-person",
       "level": 2,
       "name": {
         "en": "Hold Person"
       },
+      "onCast": [
+        {
+          "condition": "srd51.condition.paralyzed",
+          "expires": {
+            "minutes": 1
+          },
+          "kind": "applyCondition",
+          "target": "other"
+        },
+        {
+          "kind": "note",
+          "text": {
+            "en": "Humanoids only, on a failed Wisdom save. At the end of each of its turns the target repeats the saving throw; on a success the spell ends on it. Each slot level above 2nd targets one additional humanoid (within 30 feet of each other)."
+          }
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -1328,6 +1652,10 @@
     {
       "ability": "cha",
       "as": "known",
+      "caster": "srd51.class.warlock",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.misty-step",
       "level": 2,
       "name": {
@@ -1346,6 +1674,10 @@
     {
       "ability": "cha",
       "as": "known",
+      "caster": "srd51.class.warlock",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.counterspell",
       "level": 3,
       "name": {
@@ -1364,6 +1696,10 @@
     {
       "ability": "cha",
       "as": "known",
+      "caster": "srd51.class.warlock",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.fireball",
       "level": 3,
       "name": {
@@ -1382,6 +1718,10 @@
     {
       "ability": "cha",
       "as": "known",
+      "caster": "srd51.class.warlock",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.dimension-door",
       "level": 4,
       "name": {
@@ -1400,11 +1740,30 @@
     {
       "ability": "cha",
       "as": "known",
+      "caster": "srd51.class.warlock",
+      "duration": {
+        "concentration": true,
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.banishment",
       "level": 4,
       "name": {
         "en": "Banishment"
       },
+      "onCast": [
+        {
+          "condition": "srd51.condition.incapacitated",
+          "expires": {
+            "minutes": 1
+          },
+          "kind": "applyCondition",
+          "note": {
+            "en": "On a failed Charisma saving throw, a creature native to your plane is banished to a harmless demiplane and incapacitated there until the spell ends, then reappears in the space it left. A creature native to another plane returns to its home plane and doesn't return if the spell lasts a full minute. One additional creature for each slot level above 4th."
+          },
+          "target": "other"
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -1418,11 +1777,33 @@
     {
       "ability": "cha",
       "as": "known",
+      "caster": "srd51.class.warlock",
+      "duration": {
+        "concentration": true,
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.hold-monster",
       "level": 5,
       "name": {
         "en": "Hold Monster"
       },
+      "onCast": [
+        {
+          "condition": "srd51.condition.paralyzed",
+          "expires": {
+            "minutes": 1
+          },
+          "kind": "applyCondition",
+          "target": "other"
+        },
+        {
+          "kind": "note",
+          "text": {
+            "en": "On a failed Wisdom save; no effect against the undead. At the end of each round the target repeats the saving throw; on a success the spell ends for it. Each slot level above 5th targets one additional creature (within 30 feet of each other)."
+          }
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -1436,6 +1817,12 @@
     {
       "ability": "cha",
       "as": "known",
+      "caster": "srd51.class.warlock",
+      "duration": {
+        "concentration": true,
+        "minutes": 10,
+        "type": "timed"
+      },
       "id": "srd51.spell.scrying",
       "level": 5,
       "name": {
@@ -1454,6 +1841,12 @@
     {
       "ability": "cha",
       "as": "known",
+      "caster": "srd51.class.warlock",
+      "duration": {
+        "concentration": true,
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.wall-of-fire",
       "level": 4,
       "name": {
@@ -1472,11 +1865,25 @@
     {
       "ability": "cha",
       "as": "always-prepared",
+      "caster": "srd51.class.warlock",
+      "duration": {
+        "hours": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.false-life",
       "level": 1,
       "name": {
         "en": "False Life"
       },
+      "onCast": [
+        {
+          "amount": "1d4+4",
+          "kind": "tempHp",
+          "note": {
+            "en": "Plus 5 for each slot level above 1st."
+          }
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -1490,11 +1897,25 @@
     {
       "ability": "cha",
       "as": "always-prepared",
+      "caster": "srd51.class.warlock",
+      "duration": {
+        "concentration": true,
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.slow",
       "level": 3,
       "name": {
         "en": "Slow"
       },
+      "onCast": [
+        {
+          "kind": "note",
+          "text": {
+            "en": "Up to six creatures in a 40-foot cube, on a failed Wisdom save. An affected creature repeats the saving throw at the end of its turn; on a success the effect ends for it."
+          }
+        }
+      ],
       "paidWith": {
         "recharge": "long-rest",
         "uses": 1
@@ -1509,6 +1930,11 @@
     {
       "ability": "cha",
       "as": "known",
+      "caster": "srd51.class.warlock",
+      "duration": {
+        "hours": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.true-seeing",
       "level": 6,
       "name": {
@@ -1525,6 +1951,7 @@
       }
     }
   ],
+  "toggles": [],
   "values": {
     "ability.cha": {
       "provenance": [

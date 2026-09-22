@@ -52,9 +52,12 @@ hitPoints:
 rests:
   short:
     hitDice: spend
+    hours: 1
   long:
     hitPoints: full
     hitDiceRecovered: max(1, floor(level / 2))
+    hours: 8
+    conditionLevelsRecovered: 1
 spellSlots:
   full:
     table: srd51.table.spell-slots.full
@@ -94,3 +97,15 @@ conditions:
 - srd51.condition.stunned
 - srd51.condition.unconscious
 - srd51.condition.exhaustion
+concentration:
+  saveDc: max(10, floor(damage / 2))
+deathSaves:
+  dc: 10
+  successes: 3
+  failures: 3
+  natural20:
+    hitPoints: 1
+  natural1:
+    failures: 2
+  damage:
+    failures: 1

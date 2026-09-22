@@ -418,6 +418,136 @@
         "en": "Emanate an aura of sunlight. For 1 minute, bright light shines from you in a 30-foot radius, and dim light shines 30 feet beyond that. Whenever an enemy creature starts its turn in the bright light, the creature takes 10 radiant damage. In addition, for the duration, you have advantage on saving throws against spells cast by fiends or undead."
       },
       "toggle": "holy-nimbus"
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "attack",
+      "name": {
+        "en": "Attack"
+      },
+      "source": {
+        "entity": "srd51.rule.action.attack",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "dash",
+      "name": {
+        "en": "Dash"
+      },
+      "source": {
+        "entity": "srd51.rule.action.dash",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "disengage",
+      "name": {
+        "en": "Disengage"
+      },
+      "source": {
+        "entity": "srd51.rule.action.disengage",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "dodge",
+      "name": {
+        "en": "Dodge"
+      },
+      "source": {
+        "entity": "srd51.rule.action.dodge",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "help",
+      "name": {
+        "en": "Help"
+      },
+      "source": {
+        "entity": "srd51.rule.action.help",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "hide",
+      "name": {
+        "en": "Hide"
+      },
+      "source": {
+        "entity": "srd51.rule.action.hide",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "ready",
+      "name": {
+        "en": "Ready"
+      },
+      "source": {
+        "entity": "srd51.rule.action.ready",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "search",
+      "name": {
+        "en": "Search"
+      },
+      "source": {
+        "entity": "srd51.rule.action.search",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "use-object",
+      "name": {
+        "en": "Search"
+      },
+      "source": {
+        "entity": "srd51.rule.action.use-object",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "cast-a-spell",
+      "name": {
+        "en": "Cast a Spell"
+      },
+      "source": {
+        "entity": "srd51.rule.action.cast-a-spell",
+        "package": "srd51"
+      }
     }
   ],
   "attacks": [
@@ -1406,6 +1536,137 @@
     ],
     "ruleset": "srd51"
   },
+  "play": {
+    "concentration": {
+      "saveDc": "max(10, floor(damage / 2))"
+    },
+    "conditions": [
+      {
+        "id": "srd51.condition.blinded",
+        "name": {
+          "en": "Blinded"
+        }
+      },
+      {
+        "id": "srd51.condition.charmed",
+        "name": {
+          "en": "Charmed"
+        }
+      },
+      {
+        "id": "srd51.condition.deafened",
+        "name": {
+          "en": "Deafened"
+        }
+      },
+      {
+        "cumulative": true,
+        "id": "srd51.condition.exhaustion",
+        "maxLevel": 6,
+        "name": {
+          "en": "Exhaustion"
+        }
+      },
+      {
+        "id": "srd51.condition.frightened",
+        "name": {
+          "en": "Frightened"
+        }
+      },
+      {
+        "id": "srd51.condition.grappled",
+        "name": {
+          "en": "Grappled"
+        }
+      },
+      {
+        "id": "srd51.condition.incapacitated",
+        "name": {
+          "en": "Incapacitated"
+        }
+      },
+      {
+        "id": "srd51.condition.invisible",
+        "name": {
+          "en": "Invisible"
+        }
+      },
+      {
+        "id": "srd51.condition.paralyzed",
+        "name": {
+          "en": "Paralyzed"
+        }
+      },
+      {
+        "id": "srd51.condition.petrified",
+        "name": {
+          "en": "Petrified"
+        }
+      },
+      {
+        "id": "srd51.condition.poisoned",
+        "name": {
+          "en": "Poisoned"
+        }
+      },
+      {
+        "id": "srd51.condition.prone",
+        "name": {
+          "en": "Prone"
+        }
+      },
+      {
+        "id": "srd51.condition.restrained",
+        "name": {
+          "en": "Restrained"
+        }
+      },
+      {
+        "id": "srd51.condition.stunned",
+        "name": {
+          "en": "Stunned"
+        }
+      },
+      {
+        "id": "srd51.condition.unconscious",
+        "name": {
+          "en": "Unconscious"
+        }
+      }
+    ],
+    "deathSaves": {
+      "damage": {
+        "failures": 1
+      },
+      "dc": 10,
+      "failures": 3,
+      "natural1": {
+        "failures": 2
+      },
+      "natural20": {
+        "hitPoints": 1
+      },
+      "successes": 3
+    },
+    "hitDice": [
+      {
+        "die": 10,
+        "total": 20
+      }
+    ],
+    "rests": {
+      "long": {
+        "conditionLevelsRecovered": 1,
+        "hitDiceRecovered": 10,
+        "hitPoints": "full",
+        "hours": 8
+      },
+      "short": {
+        "hitDice": "spend",
+        "hours": 1
+      }
+    }
+  },
   "proficiencies": [
     {
       "expertise": false,
@@ -1998,6 +2259,12 @@
     {
       "ability": "cha",
       "as": "prepared",
+      "caster": "srd51.class.paladin",
+      "duration": {
+        "concentration": true,
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.bless",
       "level": 1,
       "name": {
@@ -2016,11 +2283,25 @@
     {
       "ability": "cha",
       "as": "prepared",
+      "caster": "srd51.class.paladin",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.cure-wounds",
       "level": 1,
       "name": {
         "en": "Cure Wounds"
       },
+      "onCast": [
+        {
+          "amount": "1d8",
+          "kind": "heal",
+          "note": {
+            "en": "Plus your spellcasting ability modifier (the formula language has no spellcasting-ability variable in v0)."
+          },
+          "target": "other"
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -2034,6 +2315,12 @@
     {
       "ability": "cha",
       "as": "prepared",
+      "caster": "srd51.class.paladin",
+      "duration": {
+        "concentration": true,
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.divine-favor",
       "level": 1,
       "name": {
@@ -2052,6 +2339,12 @@
     {
       "ability": "cha",
       "as": "prepared",
+      "caster": "srd51.class.paladin",
+      "duration": {
+        "concentration": true,
+        "minutes": 10,
+        "type": "timed"
+      },
       "id": "srd51.spell.shield-of-faith",
       "level": 1,
       "name": {
@@ -2070,11 +2363,35 @@
     {
       "ability": "cha",
       "as": "prepared",
+      "caster": "srd51.class.paladin",
+      "duration": {
+        "rounds": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.command",
       "level": 1,
       "name": {
         "en": "Command"
       },
+      "onCast": [
+        {
+          "condition": "srd51.condition.prone",
+          "expires": {
+            "manual": true
+          },
+          "kind": "applyCondition",
+          "note": {
+            "en": "Grovel command only: the target falls prone and then ends its turn."
+          },
+          "target": "other"
+        },
+        {
+          "kind": "note",
+          "text": {
+            "en": "On a failed Wisdom saving throw the target follows your one-word command on its next turn (Approach, Drop, Flee, Grovel, Halt, or another the DM adjudicates); no effect on undead, on creatures that don't understand your language, or if the command is directly harmful. One additional creature (within 30 feet of the others) for each slot level above 1st."
+          }
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -2088,6 +2405,12 @@
     {
       "ability": "cha",
       "as": "prepared",
+      "caster": "srd51.class.paladin",
+      "duration": {
+        "concentration": true,
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.heroism",
       "level": 1,
       "name": {
@@ -2106,6 +2429,12 @@
     {
       "ability": "cha",
       "as": "prepared",
+      "caster": "srd51.class.paladin",
+      "duration": {
+        "concentration": true,
+        "hours": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.magic-weapon",
       "level": 2,
       "name": {
@@ -2124,11 +2453,26 @@
     {
       "ability": "cha",
       "as": "prepared",
+      "caster": "srd51.class.paladin",
+      "duration": {
+        "hours": 8,
+        "type": "timed"
+      },
       "id": "srd51.spell.aid",
       "level": 2,
       "name": {
         "en": "Aid"
       },
+      "onCast": [
+        {
+          "amount": "5",
+          "kind": "heal",
+          "note": {
+            "en": "Current hit points increase by 5 together with the hit point maximum (plus 5 for each slot level above 2nd); up to three creatures."
+          },
+          "target": "other"
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -2142,6 +2486,12 @@
     {
       "ability": "cha",
       "as": "prepared",
+      "caster": "srd51.class.paladin",
+      "duration": {
+        "concentration": true,
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.branding-smite",
       "level": 2,
       "name": {
@@ -2160,11 +2510,25 @@
     {
       "ability": "cha",
       "as": "prepared",
+      "caster": "srd51.class.paladin",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.revivify",
       "level": 3,
       "name": {
         "en": "Revivify"
       },
+      "onCast": [
+        {
+          "amount": "1",
+          "kind": "heal",
+          "note": {
+            "en": "A creature that died within the last minute returns to life with 1 hit point; not one that died of old age, and missing body parts aren't restored."
+          },
+          "target": "other"
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -2178,6 +2542,11 @@
     {
       "ability": "cha",
       "as": "prepared",
+      "caster": "srd51.class.paladin",
+      "duration": {
+        "hours": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.daylight",
       "level": 3,
       "name": {
@@ -2196,6 +2565,11 @@
     {
       "ability": "cha",
       "as": "prepared",
+      "caster": "srd51.class.paladin",
+      "duration": {
+        "hours": 8,
+        "type": "timed"
+      },
       "id": "srd51.spell.death-ward",
       "level": 4,
       "name": {
@@ -2214,11 +2588,30 @@
     {
       "ability": "cha",
       "as": "prepared",
+      "caster": "srd51.class.paladin",
+      "duration": {
+        "concentration": true,
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.banishment",
       "level": 4,
       "name": {
         "en": "Banishment"
       },
+      "onCast": [
+        {
+          "condition": "srd51.condition.incapacitated",
+          "expires": {
+            "minutes": 1
+          },
+          "kind": "applyCondition",
+          "note": {
+            "en": "On a failed Charisma saving throw, a creature native to your plane is banished to a harmless demiplane and incapacitated there until the spell ends, then reappears in the space it left. A creature native to another plane returns to its home plane and doesn't return if the spell lasts a full minute. One additional creature for each slot level above 4th."
+          },
+          "target": "other"
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -2232,11 +2625,31 @@
     {
       "ability": "cha",
       "as": "prepared",
+      "caster": "srd51.class.paladin",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.raise-dead",
       "level": 5,
       "name": {
         "en": "Raise Dead"
       },
+      "onCast": [
+        {
+          "amount": "1",
+          "kind": "heal",
+          "note": {
+            "en": "A creature dead no longer than 10 days, whose soul is willing and free, returns to life with 1 hit point; poisons and nonmagical diseases are neutralized. Undead can't be raised, and the spell fails if body parts integral to survival are missing."
+          },
+          "target": "other"
+        },
+        {
+          "kind": "note",
+          "text": {
+            "en": "The target takes a -4 penalty to all attack rolls, saving throws and ability checks, reduced by 1 each time it finishes a long rest until it disappears."
+          }
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -2250,6 +2663,12 @@
     {
       "ability": "cha",
       "as": "always-prepared",
+      "caster": "srd51.class.paladin",
+      "duration": {
+        "concentration": true,
+        "minutes": 10,
+        "type": "timed"
+      },
       "id": "srd51.spell.protection-from-evil-and-good",
       "level": 1,
       "name": {
@@ -2268,6 +2687,11 @@
     {
       "ability": "cha",
       "as": "always-prepared",
+      "caster": "srd51.class.paladin",
+      "duration": {
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.sanctuary",
       "level": 1,
       "name": {
@@ -2286,6 +2710,10 @@
     {
       "ability": "cha",
       "as": "always-prepared",
+      "caster": "srd51.class.paladin",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.lesser-restoration",
       "level": 2,
       "name": {
@@ -2304,6 +2732,11 @@
     {
       "ability": "cha",
       "as": "always-prepared",
+      "caster": "srd51.class.paladin",
+      "duration": {
+        "minutes": 10,
+        "type": "timed"
+      },
       "id": "srd51.spell.zone-of-truth",
       "level": 2,
       "name": {
@@ -2322,6 +2755,12 @@
     {
       "ability": "cha",
       "as": "always-prepared",
+      "caster": "srd51.class.paladin",
+      "duration": {
+        "concentration": true,
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.beacon-of-hope",
       "level": 3,
       "name": {
@@ -2340,6 +2779,10 @@
     {
       "ability": "cha",
       "as": "always-prepared",
+      "caster": "srd51.class.paladin",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.dispel-magic",
       "level": 3,
       "name": {
@@ -2358,6 +2801,11 @@
     {
       "ability": "cha",
       "as": "always-prepared",
+      "caster": "srd51.class.paladin",
+      "duration": {
+        "hours": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.freedom-of-movement",
       "level": 4,
       "name": {
@@ -2376,11 +2824,24 @@
     {
       "ability": "cha",
       "as": "always-prepared",
+      "caster": "srd51.class.paladin",
+      "duration": {
+        "hours": 8,
+        "type": "timed"
+      },
       "id": "srd51.spell.guardian-of-faith",
       "level": 4,
       "name": {
         "en": "Guardian of Faith"
       },
+      "onCast": [
+        {
+          "kind": "note",
+          "text": {
+            "en": "The guardian has no statistics; its damage is a flat 20 radiant (Dexterity saving throw for half)."
+          }
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -2394,6 +2855,11 @@
     {
       "ability": "cha",
       "as": "always-prepared",
+      "caster": "srd51.class.paladin",
+      "duration": {
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.commune",
       "level": 5,
       "name": {
@@ -2412,6 +2878,10 @@
     {
       "ability": "cha",
       "as": "always-prepared",
+      "caster": "srd51.class.paladin",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.flame-strike",
       "level": 5,
       "name": {
@@ -2426,6 +2896,38 @@
         "feature": "srd51.feature.oath-of-devotion.oath-spells",
         "package": "srd51"
       }
+    }
+  ],
+  "toggles": [
+    {
+      "expires": {
+        "minutes": 1
+      },
+      "name": {
+        "en": "Channel Divinity: Sacred Weapon"
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.subclass.paladin.oath-of-devotion",
+        "feature": "srd51.feature.oath-of-devotion.channel-divinity",
+        "package": "srd51"
+      },
+      "state": "sacred-weapon"
+    },
+    {
+      "expires": {
+        "minutes": 1
+      },
+      "name": {
+        "en": "Holy Nimbus"
+      },
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.subclass.paladin.oath-of-devotion",
+        "feature": "srd51.feature.oath-of-devotion.holy-nimbus",
+        "package": "srd51"
+      },
+      "state": "holy-nimbus"
     }
   ],
   "values": {

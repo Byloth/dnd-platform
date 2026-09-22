@@ -22,7 +22,8 @@ export const FORMULA_VARIABLES = [
     "slotLevel",
     "score",
     "classLevel",
-    "casterWeight"
+    "casterWeight",
+    "damage"
 
 ] as const;
 export type FormulaVariable = (typeof FORMULA_VARIABLES)[number];

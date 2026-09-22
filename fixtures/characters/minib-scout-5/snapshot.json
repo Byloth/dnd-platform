@@ -1,5 +1,54 @@
 {
-  "actions": [],
+  "actions": [
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "attack",
+      "name": {
+        "en": "Attack"
+      },
+      "source": {
+        "entity": "minib.rule.action.attack",
+        "package": "minib"
+      },
+      "text": {
+        "en": "Make one melee or ranged attack."
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "dash",
+      "name": {
+        "en": "Dash"
+      },
+      "source": {
+        "entity": "minib.rule.action.dash",
+        "package": "minib"
+      },
+      "text": {
+        "en": "Gain extra movement equal to your speed for the current turn."
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "dodge",
+      "name": {
+        "en": "Dodge"
+      },
+      "source": {
+        "entity": "minib.rule.action.dodge",
+        "package": "minib"
+      },
+      "text": {
+        "en": "Until the start of your next turn, attack rolls against you have disadvantage."
+      }
+    }
+  ],
   "attacks": [
     {
       "ability": "str",
@@ -169,6 +218,63 @@
     ],
     "ruleset": "minib"
   },
+  "play": {
+    "concentration": {
+      "saveDc": "max(12, damage)"
+    },
+    "conditions": [
+      {
+        "id": "minib.condition.bleeding",
+        "name": {
+          "en": "Bleeding"
+        }
+      },
+      {
+        "id": "minib.condition.dazed",
+        "name": {
+          "en": "Dazed"
+        }
+      },
+      {
+        "id": "minib.condition.prone",
+        "name": {
+          "en": "Prone"
+        }
+      }
+    ],
+    "deathSaves": {
+      "damage": {
+        "failures": 2
+      },
+      "dc": 11,
+      "failures": 4,
+      "natural1": {
+        "failures": 1
+      },
+      "natural20": {
+        "hitPoints": 5
+      },
+      "successes": 2
+    },
+    "hitDice": [
+      {
+        "die": 8,
+        "total": 5
+      }
+    ],
+    "rests": {
+      "long": {
+        "conditionLevelsRecovered": 2,
+        "hitDiceRecovered": 5,
+        "hitPoints": "full",
+        "hours": 6
+      },
+      "short": {
+        "hitDice": "spend",
+        "hours": 1
+      }
+    }
+  },
   "proficiencies": [
     {
       "expertise": false,
@@ -244,6 +350,7 @@
   ],
   "spellcasting": [],
   "spells": [],
+  "toggles": [],
   "values": {
     "ability.cha": {
       "provenance": [

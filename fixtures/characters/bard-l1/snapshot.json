@@ -30,6 +30,136 @@
       "text": {
         "en": "Choose one creature other than yourself within 60 feet of you who can hear you. That creature gains one Bardic Inspiration die. Once within the next 10 minutes, the creature can roll the die and add the number rolled to one ability check, attack roll, or saving throw it makes, deciding after the d20 roll but before the GM says whether it succeeds. A creature can have only one Bardic Inspiration die at a time."
       }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "attack",
+      "name": {
+        "en": "Attack"
+      },
+      "source": {
+        "entity": "srd51.rule.action.attack",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "dash",
+      "name": {
+        "en": "Dash"
+      },
+      "source": {
+        "entity": "srd51.rule.action.dash",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "disengage",
+      "name": {
+        "en": "Disengage"
+      },
+      "source": {
+        "entity": "srd51.rule.action.disengage",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "dodge",
+      "name": {
+        "en": "Dodge"
+      },
+      "source": {
+        "entity": "srd51.rule.action.dodge",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "help",
+      "name": {
+        "en": "Help"
+      },
+      "source": {
+        "entity": "srd51.rule.action.help",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "hide",
+      "name": {
+        "en": "Hide"
+      },
+      "source": {
+        "entity": "srd51.rule.action.hide",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "ready",
+      "name": {
+        "en": "Ready"
+      },
+      "source": {
+        "entity": "srd51.rule.action.ready",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "search",
+      "name": {
+        "en": "Search"
+      },
+      "source": {
+        "entity": "srd51.rule.action.search",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "use-object",
+      "name": {
+        "en": "Search"
+      },
+      "source": {
+        "entity": "srd51.rule.action.use-object",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "cast-a-spell",
+      "name": {
+        "en": "Cast a Spell"
+      },
+      "source": {
+        "entity": "srd51.rule.action.cast-a-spell",
+        "package": "srd51"
+      }
     }
   ],
   "attacks": [
@@ -505,6 +635,137 @@
     ],
     "ruleset": "srd51"
   },
+  "play": {
+    "concentration": {
+      "saveDc": "max(10, floor(damage / 2))"
+    },
+    "conditions": [
+      {
+        "id": "srd51.condition.blinded",
+        "name": {
+          "en": "Blinded"
+        }
+      },
+      {
+        "id": "srd51.condition.charmed",
+        "name": {
+          "en": "Charmed"
+        }
+      },
+      {
+        "id": "srd51.condition.deafened",
+        "name": {
+          "en": "Deafened"
+        }
+      },
+      {
+        "cumulative": true,
+        "id": "srd51.condition.exhaustion",
+        "maxLevel": 6,
+        "name": {
+          "en": "Exhaustion"
+        }
+      },
+      {
+        "id": "srd51.condition.frightened",
+        "name": {
+          "en": "Frightened"
+        }
+      },
+      {
+        "id": "srd51.condition.grappled",
+        "name": {
+          "en": "Grappled"
+        }
+      },
+      {
+        "id": "srd51.condition.incapacitated",
+        "name": {
+          "en": "Incapacitated"
+        }
+      },
+      {
+        "id": "srd51.condition.invisible",
+        "name": {
+          "en": "Invisible"
+        }
+      },
+      {
+        "id": "srd51.condition.paralyzed",
+        "name": {
+          "en": "Paralyzed"
+        }
+      },
+      {
+        "id": "srd51.condition.petrified",
+        "name": {
+          "en": "Petrified"
+        }
+      },
+      {
+        "id": "srd51.condition.poisoned",
+        "name": {
+          "en": "Poisoned"
+        }
+      },
+      {
+        "id": "srd51.condition.prone",
+        "name": {
+          "en": "Prone"
+        }
+      },
+      {
+        "id": "srd51.condition.restrained",
+        "name": {
+          "en": "Restrained"
+        }
+      },
+      {
+        "id": "srd51.condition.stunned",
+        "name": {
+          "en": "Stunned"
+        }
+      },
+      {
+        "id": "srd51.condition.unconscious",
+        "name": {
+          "en": "Unconscious"
+        }
+      }
+    ],
+    "deathSaves": {
+      "damage": {
+        "failures": 1
+      },
+      "dc": 10,
+      "failures": 3,
+      "natural1": {
+        "failures": 2
+      },
+      "natural20": {
+        "hitPoints": 1
+      },
+      "successes": 3
+    },
+    "hitDice": [
+      {
+        "die": 8,
+        "total": 1
+      }
+    ],
+    "rests": {
+      "long": {
+        "conditionLevelsRecovered": 1,
+        "hitDiceRecovered": 1,
+        "hitPoints": "full",
+        "hours": 8
+      },
+      "short": {
+        "hitDice": "spend",
+        "hours": 1
+      }
+    }
+  },
   "proficiencies": [
     {
       "expertise": false,
@@ -871,11 +1132,23 @@
     {
       "ability": "cha",
       "as": "cantrip",
+      "caster": "srd51.class.bard",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.vicious-mockery",
       "level": 0,
       "name": {
         "en": "Vicious Mockery"
       },
+      "onCast": [
+        {
+          "kind": "note",
+          "text": {
+            "en": "Only if the target can hear you. On a failed save it also has disadvantage on the next attack roll it makes before the end of its next turn."
+          }
+        }
+      ],
       "paidWith": {
         "free": true
       },
@@ -889,6 +1162,11 @@
     {
       "ability": "cha",
       "as": "cantrip",
+      "caster": "srd51.class.bard",
+      "duration": {
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.minor-illusion",
       "level": 0,
       "name": {
@@ -907,11 +1185,25 @@
     {
       "ability": "cha",
       "as": "known",
+      "caster": "srd51.class.bard",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.healing-word",
       "level": 1,
       "name": {
         "en": "Healing Word"
       },
+      "onCast": [
+        {
+          "amount": "1d4",
+          "kind": "heal",
+          "note": {
+            "en": "Plus your spellcasting ability modifier (the formula language has no spellcasting-ability variable in v0). No effect on undead or constructs."
+          },
+          "target": "other"
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -925,11 +1217,29 @@
     {
       "ability": "cha",
       "as": "known",
+      "caster": "srd51.class.bard",
+      "duration": {
+        "hours": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.charm-person",
       "level": 1,
       "name": {
         "en": "Charm Person"
       },
+      "onCast": [
+        {
+          "condition": "srd51.condition.charmed",
+          "expires": {
+            "hours": 1
+          },
+          "kind": "applyCondition",
+          "note": {
+            "en": "On a failed Wisdom saving throw (made with advantage if you or your companions are fighting the target); ends if you or your companions do anything harmful to it. The target regards you as a friendly acquaintance and knows it was charmed when the spell ends. One additional creature (within 30 feet of the others) for each slot level above 1st."
+          },
+          "target": "other"
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -943,11 +1253,29 @@
     {
       "ability": "cha",
       "as": "known",
+      "caster": "srd51.class.bard",
+      "duration": {
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.sleep",
       "level": 1,
       "name": {
         "en": "Sleep"
       },
+      "onCast": [
+        {
+          "condition": "srd51.condition.unconscious",
+          "expires": {
+            "minutes": 1
+          },
+          "kind": "applyCondition",
+          "note": {
+            "en": "No saving throw. Roll 5d8 (+2d8 per slot level above 1st): creatures within 20 feet of the point are affected in ascending order of current hit points, each subtracting its hit points from the total, as long as its hit points are at or below what remains. Undead and creatures immune to being charmed aren't affected. A sleeper wakes if it takes damage or someone uses an action to shake or slap it."
+          },
+          "target": "other"
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -961,11 +1289,41 @@
     {
       "ability": "cha",
       "as": "known",
+      "caster": "srd51.class.bard",
+      "duration": {
+        "concentration": true,
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.hideous-laughter",
       "level": 1,
       "name": {
         "en": "Hideous Laughter"
       },
+      "onCast": [
+        {
+          "condition": "srd51.condition.prone",
+          "expires": {
+            "minutes": 1
+          },
+          "kind": "applyCondition",
+          "target": "other"
+        },
+        {
+          "condition": "srd51.condition.incapacitated",
+          "expires": {
+            "minutes": 1
+          },
+          "kind": "applyCondition",
+          "target": "other"
+        },
+        {
+          "kind": "note",
+          "text": {
+            "en": "On a failed Wisdom save; the target is unable to stand up for the duration. A creature with an Intelligence score of 4 or less isn't affected. At the end of each of its turns, and each time it takes damage (with advantage), the target repeats the saving throw; on a success the spell ends."
+          }
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -977,6 +1335,7 @@
       }
     }
   ],
+  "toggles": [],
   "values": {
     "ability.cha": {
       "provenance": [

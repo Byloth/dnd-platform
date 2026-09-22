@@ -64,6 +64,136 @@
       "text": {
         "en": "When you cast a wizard spell of 1st through 5th level that deals damage, you can deal maximum damage with that spell. The first time you do so, you suffer no adverse effect. If you use this feature again before you finish a long rest, you take 2d12 necrotic damage for each level of the spell, immediately after you cast it. Each time you use this feature again before finishing a long rest, the necrotic damage per spell level increases by 1d12. This damage ignores resistance and immunity."
       }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "attack",
+      "name": {
+        "en": "Attack"
+      },
+      "source": {
+        "entity": "srd51.rule.action.attack",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "dash",
+      "name": {
+        "en": "Dash"
+      },
+      "source": {
+        "entity": "srd51.rule.action.dash",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "disengage",
+      "name": {
+        "en": "Disengage"
+      },
+      "source": {
+        "entity": "srd51.rule.action.disengage",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "dodge",
+      "name": {
+        "en": "Dodge"
+      },
+      "source": {
+        "entity": "srd51.rule.action.dodge",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "help",
+      "name": {
+        "en": "Help"
+      },
+      "source": {
+        "entity": "srd51.rule.action.help",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "hide",
+      "name": {
+        "en": "Hide"
+      },
+      "source": {
+        "entity": "srd51.rule.action.hide",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "ready",
+      "name": {
+        "en": "Ready"
+      },
+      "source": {
+        "entity": "srd51.rule.action.ready",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "search",
+      "name": {
+        "en": "Search"
+      },
+      "source": {
+        "entity": "srd51.rule.action.search",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "use-object",
+      "name": {
+        "en": "Search"
+      },
+      "source": {
+        "entity": "srd51.rule.action.use-object",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "cast-a-spell",
+      "name": {
+        "en": "Cast a Spell"
+      },
+      "source": {
+        "entity": "srd51.rule.action.cast-a-spell",
+        "package": "srd51"
+      }
     }
   ],
   "attacks": [
@@ -832,6 +962,137 @@
     ],
     "ruleset": "srd51"
   },
+  "play": {
+    "concentration": {
+      "saveDc": "max(10, floor(damage / 2))"
+    },
+    "conditions": [
+      {
+        "id": "srd51.condition.blinded",
+        "name": {
+          "en": "Blinded"
+        }
+      },
+      {
+        "id": "srd51.condition.charmed",
+        "name": {
+          "en": "Charmed"
+        }
+      },
+      {
+        "id": "srd51.condition.deafened",
+        "name": {
+          "en": "Deafened"
+        }
+      },
+      {
+        "cumulative": true,
+        "id": "srd51.condition.exhaustion",
+        "maxLevel": 6,
+        "name": {
+          "en": "Exhaustion"
+        }
+      },
+      {
+        "id": "srd51.condition.frightened",
+        "name": {
+          "en": "Frightened"
+        }
+      },
+      {
+        "id": "srd51.condition.grappled",
+        "name": {
+          "en": "Grappled"
+        }
+      },
+      {
+        "id": "srd51.condition.incapacitated",
+        "name": {
+          "en": "Incapacitated"
+        }
+      },
+      {
+        "id": "srd51.condition.invisible",
+        "name": {
+          "en": "Invisible"
+        }
+      },
+      {
+        "id": "srd51.condition.paralyzed",
+        "name": {
+          "en": "Paralyzed"
+        }
+      },
+      {
+        "id": "srd51.condition.petrified",
+        "name": {
+          "en": "Petrified"
+        }
+      },
+      {
+        "id": "srd51.condition.poisoned",
+        "name": {
+          "en": "Poisoned"
+        }
+      },
+      {
+        "id": "srd51.condition.prone",
+        "name": {
+          "en": "Prone"
+        }
+      },
+      {
+        "id": "srd51.condition.restrained",
+        "name": {
+          "en": "Restrained"
+        }
+      },
+      {
+        "id": "srd51.condition.stunned",
+        "name": {
+          "en": "Stunned"
+        }
+      },
+      {
+        "id": "srd51.condition.unconscious",
+        "name": {
+          "en": "Unconscious"
+        }
+      }
+    ],
+    "deathSaves": {
+      "damage": {
+        "failures": 1
+      },
+      "dc": 10,
+      "failures": 3,
+      "natural1": {
+        "failures": 2
+      },
+      "natural20": {
+        "hitPoints": 1
+      },
+      "successes": 3
+    },
+    "hitDice": [
+      {
+        "die": 6,
+        "total": 20
+      }
+    ],
+    "rests": {
+      "long": {
+        "conditionLevelsRecovered": 1,
+        "hitDiceRecovered": 10,
+        "hitPoints": "full",
+        "hours": 8
+      },
+      "short": {
+        "hitDice": "spend",
+        "hours": 1
+      }
+    }
+  },
   "proficiencies": [
     {
       "expertise": false,
@@ -1322,6 +1583,10 @@
     {
       "ability": "int",
       "as": "cantrip",
+      "caster": "srd51.class.wizard",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.fire-bolt",
       "level": 0,
       "name": {
@@ -1340,6 +1605,11 @@
     {
       "ability": "int",
       "as": "cantrip",
+      "caster": "srd51.class.wizard",
+      "duration": {
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.mage-hand",
       "level": 0,
       "name": {
@@ -1358,6 +1628,11 @@
     {
       "ability": "int",
       "as": "cantrip",
+      "caster": "srd51.class.wizard",
+      "duration": {
+        "hours": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.light",
       "level": 0,
       "name": {
@@ -1376,11 +1651,23 @@
     {
       "ability": "int",
       "as": "cantrip",
+      "caster": "srd51.class.wizard",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.ray-of-frost",
       "level": 0,
       "name": {
         "en": "Ray of Frost"
       },
+      "onCast": [
+        {
+          "kind": "note",
+          "text": {
+            "en": "On a hit, the target's speed is reduced by 10 feet until the start of your next turn."
+          }
+        }
+      ],
       "paidWith": {
         "free": true
       },
@@ -1394,6 +1681,11 @@
     {
       "ability": "int",
       "as": "cantrip",
+      "caster": "srd51.class.wizard",
+      "duration": {
+        "hours": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.prestidigitation",
       "level": 0,
       "name": {
@@ -1412,6 +1704,10 @@
     {
       "ability": "int",
       "as": "prepared",
+      "caster": "srd51.class.wizard",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.magic-missile",
       "level": 1,
       "name": {
@@ -1430,6 +1726,11 @@
     {
       "ability": "int",
       "as": "prepared",
+      "caster": "srd51.class.wizard",
+      "duration": {
+        "rounds": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.shield",
       "level": 1,
       "name": {
@@ -1448,6 +1749,11 @@
     {
       "ability": "int",
       "as": "prepared",
+      "caster": "srd51.class.wizard",
+      "duration": {
+        "hours": 8,
+        "type": "timed"
+      },
       "id": "srd51.spell.mage-armor",
       "level": 1,
       "name": {
@@ -1466,11 +1772,29 @@
     {
       "ability": "int",
       "as": "prepared",
+      "caster": "srd51.class.wizard",
+      "duration": {
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.sleep",
       "level": 1,
       "name": {
         "en": "Sleep"
       },
+      "onCast": [
+        {
+          "condition": "srd51.condition.unconscious",
+          "expires": {
+            "minutes": 1
+          },
+          "kind": "applyCondition",
+          "note": {
+            "en": "No saving throw. Roll 5d8 (+2d8 per slot level above 1st): creatures within 20 feet of the point are affected in ascending order of current hit points, each subtracting its hit points from the total, as long as its hit points are at or below what remains. Undead and creatures immune to being charmed aren't affected. A sleeper wakes if it takes damage or someone uses an action to shake or slap it."
+          },
+          "target": "other"
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -1484,6 +1808,10 @@
     {
       "ability": "int",
       "as": "prepared",
+      "caster": "srd51.class.wizard",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.misty-step",
       "level": 2,
       "name": {
@@ -1502,6 +1830,10 @@
     {
       "ability": "int",
       "as": "prepared",
+      "caster": "srd51.class.wizard",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.scorching-ray",
       "level": 2,
       "name": {
@@ -1520,11 +1852,36 @@
     {
       "ability": "int",
       "as": "prepared",
+      "caster": "srd51.class.wizard",
+      "duration": {
+        "concentration": true,
+        "hours": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.web",
       "level": 2,
       "name": {
         "en": "Web"
       },
+      "onCast": [
+        {
+          "condition": "srd51.condition.restrained",
+          "expires": {
+            "manual": true
+          },
+          "kind": "applyCondition",
+          "note": {
+            "en": "A creature that starts its turn in the webs or enters them during its turn, on a failed Dexterity save; restrained as long as it remains in the webs or until it breaks free with a Strength check against your spell save DC as an action."
+          },
+          "target": "other"
+        },
+        {
+          "kind": "note",
+          "text": {
+            "en": "The 20-foot cube of webs is difficult terrain and lightly obscured; if not anchored between two solid masses or layered over a surface it collapses and the spell ends at the start of your next turn. Any 5-foot cube exposed to fire burns away in 1 round, dealing 2d4 fire damage to a creature that starts its turn in the fire."
+          }
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -1538,6 +1895,10 @@
     {
       "ability": "int",
       "as": "prepared",
+      "caster": "srd51.class.wizard",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.fireball",
       "level": 3,
       "name": {
@@ -1556,6 +1917,10 @@
     {
       "ability": "int",
       "as": "prepared",
+      "caster": "srd51.class.wizard",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.counterspell",
       "level": 3,
       "name": {
@@ -1574,6 +1939,12 @@
     {
       "ability": "int",
       "as": "prepared",
+      "caster": "srd51.class.wizard",
+      "duration": {
+        "concentration": true,
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.haste",
       "level": 3,
       "name": {
@@ -1592,6 +1963,10 @@
     {
       "ability": "int",
       "as": "prepared",
+      "caster": "srd51.class.wizard",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.dimension-door",
       "level": 4,
       "name": {
@@ -1610,11 +1985,30 @@
     {
       "ability": "int",
       "as": "prepared",
+      "caster": "srd51.class.wizard",
+      "duration": {
+        "concentration": true,
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.greater-invisibility",
       "level": 4,
       "name": {
         "en": "Greater Invisibility"
       },
+      "onCast": [
+        {
+          "condition": "srd51.condition.invisible",
+          "expires": {
+            "minutes": 1
+          },
+          "kind": "applyCondition",
+          "note": {
+            "en": "You or a creature you touch; anything the target is wearing or carrying is invisible as long as it is on the target's person."
+          },
+          "target": "self"
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -1628,6 +2022,12 @@
     {
       "ability": "int",
       "as": "prepared",
+      "caster": "srd51.class.wizard",
+      "duration": {
+        "concentration": true,
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.wall-of-fire",
       "level": 4,
       "name": {
@@ -1646,6 +2046,10 @@
     {
       "ability": "int",
       "as": "prepared",
+      "caster": "srd51.class.wizard",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.cone-of-cold",
       "level": 5,
       "name": {
@@ -1664,6 +2068,12 @@
     {
       "ability": "int",
       "as": "prepared",
+      "caster": "srd51.class.wizard",
+      "duration": {
+        "concentration": true,
+        "minutes": 10,
+        "type": "timed"
+      },
       "id": "srd51.spell.wall-of-force",
       "level": 5,
       "name": {
@@ -1682,6 +2092,10 @@
     {
       "ability": "int",
       "as": "prepared",
+      "caster": "srd51.class.wizard",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.chain-lightning",
       "level": 6,
       "name": {
@@ -1700,6 +2114,10 @@
     {
       "ability": "int",
       "as": "prepared",
+      "caster": "srd51.class.wizard",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.disintegrate",
       "level": 6,
       "name": {
@@ -1718,6 +2136,12 @@
     {
       "ability": "int",
       "as": "prepared",
+      "caster": "srd51.class.wizard",
+      "duration": {
+        "concentration": true,
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.globe-of-invulnerability",
       "level": 6,
       "name": {
@@ -1736,6 +2160,12 @@
     {
       "ability": "int",
       "as": "prepared",
+      "caster": "srd51.class.wizard",
+      "duration": {
+        "concentration": true,
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.delayed-blast-fireball",
       "level": 7,
       "name": {
@@ -1754,6 +2184,10 @@
     {
       "ability": "int",
       "as": "prepared",
+      "caster": "srd51.class.wizard",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.teleport",
       "level": 7,
       "name": {
@@ -1772,11 +2206,28 @@
     {
       "ability": "int",
       "as": "prepared",
+      "caster": "srd51.class.wizard",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.sunburst",
       "level": 8,
       "name": {
         "en": "Sunburst"
       },
+      "onCast": [
+        {
+          "condition": "srd51.condition.blinded",
+          "expires": {
+            "minutes": 1
+          },
+          "kind": "applyCondition",
+          "note": {
+            "en": "On a failed save; undead and oozes save with disadvantage. A blinded creature repeats the Constitution saving throw at the end of each of its turns and is no longer blinded on a success. The spell dispels any magical darkness in its area."
+          },
+          "target": "other"
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -1790,11 +2241,30 @@
     {
       "ability": "int",
       "as": "prepared",
+      "caster": "srd51.class.wizard",
+      "duration": {
+        "concentration": true,
+        "hours": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.dominate-monster",
       "level": 8,
       "name": {
         "en": "Dominate Monster"
       },
+      "onCast": [
+        {
+          "condition": "srd51.condition.charmed",
+          "expires": {
+            "hours": 1
+          },
+          "kind": "applyCondition",
+          "note": {
+            "en": "On a failed Wisdom saving throw (with advantage if you or your friends are fighting it). While charmed you have a telepathic link to issue commands (no action required); each time the target takes damage it repeats the save, ending the spell on a success. Duration: concentration up to 8 hours with a 9th-level slot."
+          },
+          "target": "other"
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -1808,6 +2278,10 @@
     {
       "ability": "int",
       "as": "prepared",
+      "caster": "srd51.class.wizard",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.meteor-swarm",
       "level": 9,
       "name": {
@@ -1826,6 +2300,10 @@
     {
       "ability": "int",
       "as": "prepared",
+      "caster": "srd51.class.wizard",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.time-stop",
       "level": 9,
       "name": {
@@ -1844,6 +2322,10 @@
     {
       "ability": "int",
       "as": "prepared",
+      "caster": "srd51.class.wizard",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.wish",
       "level": 9,
       "name": {
@@ -1862,6 +2344,10 @@
     {
       "ability": "int",
       "as": "known",
+      "caster": "srd51.class.wizard",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.magic-missile",
       "level": 1,
       "name": {
@@ -1880,6 +2366,10 @@
     {
       "ability": "int",
       "as": "known",
+      "caster": "srd51.class.wizard",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.misty-step",
       "level": 2,
       "name": {
@@ -1898,6 +2388,10 @@
     {
       "ability": "int",
       "as": "known",
+      "caster": "srd51.class.wizard",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.fireball",
       "level": 3,
       "name": {
@@ -1916,6 +2410,10 @@
     {
       "ability": "int",
       "as": "known",
+      "caster": "srd51.class.wizard",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.counterspell",
       "level": 3,
       "name": {
@@ -1932,6 +2430,7 @@
       }
     }
   ],
+  "toggles": [],
   "values": {
     "ability.cha": {
       "provenance": [

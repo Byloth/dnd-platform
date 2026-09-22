@@ -1168,6 +1168,10 @@ export interface Character {
             used?: ("action" | "bonus-action" | "reaction" | "free" | "special")[];
             actionsTaken?: string[];
             movementUsed?: number;
+            /**
+             * True between the character's start-turn and end-turn events.
+             */
+            active?: boolean;
         };
     };
     snapshots?: {
@@ -1498,10 +1502,22 @@ export interface Ruleset {
     rests: {
         short: {
             hitDice?: "spend" | "none";
+            /**
+             * Length of a short rest; timed effects of at most this many hours end with it. Absent: timed effects do not elapse.
+             */
+            hours?: number;
         };
         long: {
             hitPoints?: "full" | "none";
             hitDiceRecovered?: string;
+            /**
+             * Levels removed from every levelled condition (exhaustion) by a long rest; absent: none.
+             */
+            conditionLevelsRecovered?: number;
+            /**
+             * Length of a long rest; timed effects of at most this many hours end with it. Absent: timed effects do not elapse.
+             */
+            hours?: number;
         };
     };
     spellSlots?: {
@@ -1524,6 +1540,47 @@ export interface Ruleset {
     };
     baseActions?: string[];
     conditions?: string[];
+    /**
+     * Concentration rules read by the play engine; absent: no concentration check is reported.
+     */
+    concentration?: {
+        /**
+         * DC of the saving throw to keep concentrating after taking damage; `damage` is bound to the damage taken.
+         */
+        saveDc: string;
+    };
+    /**
+     * Death saving throw rules read by the play engine; absent: the death-save event is rejected.
+     */
+    deathSaves?: {
+        dc: number;
+        /**
+         * Successes that stabilise the character.
+         */
+        successes: number;
+        /**
+         * Failures that kill the character.
+         */
+        failures: number;
+        /**
+         * A natural 20 regains this many hit points instead of counting as a success.
+         */
+        natural20?: {
+            hitPoints: number;
+        };
+        /**
+         * Failures counted on a natural 1.
+         */
+        natural1?: {
+            failures: number;
+        };
+        /**
+         * Failures counted when the character takes damage at 0 hit points.
+         */
+        damage?: {
+            failures: number;
+        };
+    };
 }
 export interface Species {
     id: string;

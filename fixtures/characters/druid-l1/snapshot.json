@@ -1,5 +1,136 @@
 {
-  "actions": [],
+  "actions": [
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "attack",
+      "name": {
+        "en": "Attack"
+      },
+      "source": {
+        "entity": "srd51.rule.action.attack",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "dash",
+      "name": {
+        "en": "Dash"
+      },
+      "source": {
+        "entity": "srd51.rule.action.dash",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "disengage",
+      "name": {
+        "en": "Disengage"
+      },
+      "source": {
+        "entity": "srd51.rule.action.disengage",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "dodge",
+      "name": {
+        "en": "Dodge"
+      },
+      "source": {
+        "entity": "srd51.rule.action.dodge",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "help",
+      "name": {
+        "en": "Help"
+      },
+      "source": {
+        "entity": "srd51.rule.action.help",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "hide",
+      "name": {
+        "en": "Hide"
+      },
+      "source": {
+        "entity": "srd51.rule.action.hide",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "ready",
+      "name": {
+        "en": "Ready"
+      },
+      "source": {
+        "entity": "srd51.rule.action.ready",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "search",
+      "name": {
+        "en": "Search"
+      },
+      "source": {
+        "entity": "srd51.rule.action.search",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "use-object",
+      "name": {
+        "en": "Search"
+      },
+      "source": {
+        "entity": "srd51.rule.action.use-object",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "cast-a-spell",
+      "name": {
+        "en": "Cast a Spell"
+      },
+      "source": {
+        "entity": "srd51.rule.action.cast-a-spell",
+        "package": "srd51"
+      }
+    }
+  ],
   "attacks": [
     {
       "ability": "dex",
@@ -497,6 +628,137 @@
     ],
     "ruleset": "srd51"
   },
+  "play": {
+    "concentration": {
+      "saveDc": "max(10, floor(damage / 2))"
+    },
+    "conditions": [
+      {
+        "id": "srd51.condition.blinded",
+        "name": {
+          "en": "Blinded"
+        }
+      },
+      {
+        "id": "srd51.condition.charmed",
+        "name": {
+          "en": "Charmed"
+        }
+      },
+      {
+        "id": "srd51.condition.deafened",
+        "name": {
+          "en": "Deafened"
+        }
+      },
+      {
+        "cumulative": true,
+        "id": "srd51.condition.exhaustion",
+        "maxLevel": 6,
+        "name": {
+          "en": "Exhaustion"
+        }
+      },
+      {
+        "id": "srd51.condition.frightened",
+        "name": {
+          "en": "Frightened"
+        }
+      },
+      {
+        "id": "srd51.condition.grappled",
+        "name": {
+          "en": "Grappled"
+        }
+      },
+      {
+        "id": "srd51.condition.incapacitated",
+        "name": {
+          "en": "Incapacitated"
+        }
+      },
+      {
+        "id": "srd51.condition.invisible",
+        "name": {
+          "en": "Invisible"
+        }
+      },
+      {
+        "id": "srd51.condition.paralyzed",
+        "name": {
+          "en": "Paralyzed"
+        }
+      },
+      {
+        "id": "srd51.condition.petrified",
+        "name": {
+          "en": "Petrified"
+        }
+      },
+      {
+        "id": "srd51.condition.poisoned",
+        "name": {
+          "en": "Poisoned"
+        }
+      },
+      {
+        "id": "srd51.condition.prone",
+        "name": {
+          "en": "Prone"
+        }
+      },
+      {
+        "id": "srd51.condition.restrained",
+        "name": {
+          "en": "Restrained"
+        }
+      },
+      {
+        "id": "srd51.condition.stunned",
+        "name": {
+          "en": "Stunned"
+        }
+      },
+      {
+        "id": "srd51.condition.unconscious",
+        "name": {
+          "en": "Unconscious"
+        }
+      }
+    ],
+    "deathSaves": {
+      "damage": {
+        "failures": 1
+      },
+      "dc": 10,
+      "failures": 3,
+      "natural1": {
+        "failures": 2
+      },
+      "natural20": {
+        "hitPoints": 1
+      },
+      "successes": 3
+    },
+    "hitDice": [
+      {
+        "die": 8,
+        "total": 1
+      }
+    ],
+    "rests": {
+      "long": {
+        "conditionLevelsRecovered": 1,
+        "hitDiceRecovered": 1,
+        "hitPoints": "full",
+        "hours": 8
+      },
+      "short": {
+        "hitDice": "spend",
+        "hours": 1
+      }
+    }
+  },
   "proficiencies": [
     {
       "expertise": false,
@@ -894,6 +1156,10 @@
     {
       "ability": "wis",
       "as": "cantrip",
+      "caster": "srd51.class.druid",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.druidcraft",
       "level": 0,
       "name": {
@@ -912,6 +1178,11 @@
     {
       "ability": "wis",
       "as": "cantrip",
+      "caster": "srd51.class.druid",
+      "duration": {
+        "minutes": 10,
+        "type": "timed"
+      },
       "id": "srd51.spell.produce-flame",
       "level": 0,
       "name": {
@@ -930,11 +1201,25 @@
     {
       "ability": "wis",
       "as": "prepared",
+      "caster": "srd51.class.druid",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.cure-wounds",
       "level": 1,
       "name": {
         "en": "Cure Wounds"
       },
+      "onCast": [
+        {
+          "amount": "1d8",
+          "kind": "heal",
+          "note": {
+            "en": "Plus your spellcasting ability modifier (the formula language has no spellcasting-ability variable in v0)."
+          },
+          "target": "other"
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -948,11 +1233,30 @@
     {
       "ability": "wis",
       "as": "prepared",
+      "caster": "srd51.class.druid",
+      "duration": {
+        "concentration": true,
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.entangle",
       "level": 1,
       "name": {
         "en": "Entangle"
       },
+      "onCast": [
+        {
+          "condition": "srd51.condition.restrained",
+          "expires": {
+            "minutes": 1
+          },
+          "kind": "applyCondition",
+          "note": {
+            "en": "On a failed Strength saving throw by a creature in the area when the spell is cast; the area is difficult terrain. A restrained creature can use its action to make a Strength check against your spell save DC to free itself."
+          },
+          "target": "other"
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -966,11 +1270,25 @@
     {
       "ability": "wis",
       "as": "prepared",
+      "caster": "srd51.class.druid",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.healing-word",
       "level": 1,
       "name": {
         "en": "Healing Word"
       },
+      "onCast": [
+        {
+          "amount": "1d4",
+          "kind": "heal",
+          "note": {
+            "en": "Plus your spellcasting ability modifier (the formula language has no spellcasting-ability variable in v0). No effect on undead or constructs."
+          },
+          "target": "other"
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -984,11 +1302,25 @@
     {
       "ability": "wis",
       "as": "prepared",
+      "caster": "srd51.class.druid",
+      "duration": {
+        "concentration": true,
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.faerie-fire",
       "level": 1,
       "name": {
         "en": "Faerie Fire"
       },
+      "onCast": [
+        {
+          "kind": "note",
+          "text": {
+            "en": "Creatures in the 20-foot cube are outlined on a failed Dexterity saving throw; objects are outlined automatically."
+          }
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -1002,6 +1334,10 @@
     {
       "ability": "wis",
       "as": "cantrip",
+      "caster": "srd51.class.druid",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.fire-bolt",
       "level": 0,
       "name": {
@@ -1018,6 +1354,7 @@
       }
     }
   ],
+  "toggles": [],
   "values": {
     "ability.cha": {
       "provenance": [

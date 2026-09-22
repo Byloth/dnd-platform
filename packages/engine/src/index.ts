@@ -6,7 +6,7 @@
  *
  * Content and character types come from the schema package (generated from
  * the JSON Schemas); the engine's own input and output types are defined
- * here. `apply`/`undo` bodies arrive in M0.7.
+ * here.
  */
 
 import type {
@@ -17,7 +17,8 @@ import type {
     LocalizedString,
     PackageManifest,
     PlayEffect,
-    Ruleset
+    Ruleset,
+    Spell
 } from "@byloth/dnd-platform-schema";
 
 export { assertNever, effectKind, playEffectKind } from "./effects.js";
@@ -28,6 +29,8 @@ export { derive, explain } from "./derive/index.js";
 export { evaluateFormula, formulaReferences } from "./formula/evaluate.js";
 export type { DiceExpression, FormulaEnvironment, FormulaValue } from "./formula/evaluate.js";
 export { evaluateWhen } from "./conditions/evaluate.js";
+export { PLAY_EVENT_TYPES, apply, undo } from "./play/index.js";
+export type { ApplyOptions } from "./play/index.js";
 export type { Facts, WieldedWeapon } from "./conditions/evaluate.js";
 export type { Character, Condition, Effect, PackageManifest, PlayEffect, Ruleset };
 
@@ -194,7 +197,11 @@ export interface DerivedValue
 }
 
 export type FeatureOrigin =
-    "species" | "subspecies" | "class" | "subclass" | "background" | "feat" | "item" | "condition" | "option";
+    "species" | "subspecies" | "class" | "subclass" | "background" | "feat" | "item" | "condition" | "option" |
+    "spell" | "custom";
+/** An expiry as stored in the character state (conditions, toggles, active spells, custom effects). */
+export type Expiry = NonNullable<CharacterState["conditions"][number]["expires"]>;
+export type SpellDuration = Spell["duration"];
 
 export interface FeatureView
 {
@@ -330,7 +337,50 @@ export interface SpellView
     readonly as: "cantrip" | "known" | "prepared" | "always-prepared";
     readonly ability?: string;
     readonly paidWith: SpellPayment;
+    /** Class whose spellcasting grants the spell, when any (Pact Magic slots are looked up through it). */
+    readonly caster?: EntityId;
+    readonly duration: SpellDuration;
+    readonly onCast?: readonly PlayEffect[];
     readonly source: ContributionSource;
+}
+export interface ToggleView
+{
+    readonly state: string;
+    readonly name: LocalizedString;
+    readonly expires?: Expiry;
+    readonly source: ContributionSource;
+}
+export interface HitDicePool
+{
+    readonly die: number;
+    readonly total: number;
+}
+export interface ConditionRef
+{
+    readonly id: EntityId;
+    readonly name: LocalizedString;
+    /** Highest level of a levelled condition (exhaustion). */
+    readonly maxLevel?: number;
+    readonly cumulative?: boolean;
+}
+/** What the play engine reads from the ruleset, evaluated for this character (docs/phase-0/07). */
+export interface PlayRules
+{
+    /** One pool per class, largest die first. */
+    readonly hitDice: readonly HitDicePool[];
+    readonly rests: {
+        readonly short: { readonly hitDice: "spend" | "none", readonly hours?: number };
+        readonly long: {
+            readonly hitPoints: "full" | "none";
+            readonly hitDiceRecovered: number;
+            readonly hours?: number;
+            readonly conditionLevelsRecovered?: number;
+        };
+    };
+    readonly concentration?: { readonly saveDc: string };
+    readonly deathSaves?: NonNullable<Ruleset["deathSaves"]>;
+    /** Every condition entity loaded and active, sorted by id. */
+    readonly conditions: readonly ConditionRef[];
 }
 export interface ExtraDamageView
 {
@@ -387,8 +437,10 @@ export interface ComputedSheet
     readonly defenses: readonly DefenseView[];
     readonly spellcasting: readonly SpellcastingView[];
     readonly spells: readonly SpellView[];
+    readonly toggles: readonly ToggleView[];
     readonly choices: readonly ChoiceView[];
     readonly sections: readonly string[];
+    readonly play: PlayRules;
     readonly warnings: readonly Diagnostic[];
 }
 
@@ -399,32 +451,53 @@ export interface HitDieRoll
     readonly die: number;
     readonly rolls: readonly number[];
 }
-export type PlayEvent =
+/** Dice results supplied by the caller for recharge amounts that are dice (`1d6 + 1`), by resource id. */
+export type RolledAmounts = Readonly<Record<string, number>>;
+export type PlayEventBody =
     { readonly type: "damage", readonly amount: number, readonly damageType?: string } |
     { readonly type: "heal", readonly amount: number } |
     { readonly type: "temp-hp", readonly amount: number } |
     { readonly type: "spend-resource", readonly resource: string, readonly amount: number } |
     { readonly type: "restore-resource", readonly resource: string, readonly amount: number } |
-    { readonly type: "cast-spell", readonly spell: EntityId, readonly slotLevel?: number } |
+    { readonly type: "cast-spell", readonly spell: EntityId, readonly slotLevel?: number, readonly rolled?: number } |
     { readonly type: "end-concentration" } |
     { readonly type: "end-spell", readonly spell: EntityId } |
     { readonly type: "toggle", readonly state: string, readonly on: boolean } |
-    { readonly type: "apply-condition", readonly condition: EntityId } |
+    {
+        readonly type: "apply-condition";
+        readonly condition: EntityId;
+        readonly level?: number;
+        readonly expires?: Expiry;
+    } |
     { readonly type: "remove-condition", readonly condition: EntityId } |
-    { readonly type: "short-rest", readonly hitDice: readonly HitDieRoll[] } |
-    { readonly type: "long-rest" } |
+    {
+        readonly type: "custom-effect";
+        readonly name: LocalizedString;
+        readonly text?: LocalizedString;
+        readonly effects?: readonly Effect[];
+        readonly expires?: Expiry;
+    } |
+    { readonly type: "end-custom-effect", readonly name: LocalizedString } |
+    { readonly type: "short-rest", readonly hitDice: readonly HitDieRoll[], readonly rolled?: RolledAmounts } |
+    { readonly type: "long-rest", readonly rolled?: RolledAmounts } |
+    { readonly type: "dawn", readonly rolled?: RolledAmounts } |
     { readonly type: "death-save", readonly roll: number } |
     { readonly type: "stabilise" } |
     { readonly type: "inspiration", readonly value: boolean } |
-    { readonly type: "use-action", readonly action: string } |
+    { readonly type: "use-action", readonly action: string, readonly rolled?: number } |
+    { readonly type: "start-turn" } |
     { readonly type: "end-turn" } |
     { readonly type: "note", readonly text: string };
+/** `force: true` skips the validation of the event against the sheet (DM overrides). */
+export type PlayEvent = PlayEventBody & { readonly force?: boolean };
 
 export interface LogEntry
 {
     readonly id: string;
     readonly event: PlayEvent;
+    /** The touched top-level keys of the state as they were; a key created by the event is absent here. */
     readonly before: Partial<CharacterState>;
+    /** The same keys as they are after the event. */
     readonly after: Partial<CharacterState>;
 }
 export interface ApplyResult
@@ -432,25 +505,4 @@ export interface ApplyResult
     readonly state: CharacterState;
     readonly entry: LogEntry;
     readonly warnings: readonly Diagnostic[];
-}
-
-// ---- play contract (M0.7) --------------------------------------------------------------
-
-const NOT_IMPLEMENTED = "Not implemented yet: scheduled for milestone M0.7.";
-
-export function apply(sheet: ComputedSheet, state: CharacterState, event: PlayEvent): ApplyResult
-{
-    void sheet;
-    void state;
-    void event;
-
-    throw new Error(NOT_IMPLEMENTED);
-}
-
-export function undo(state: CharacterState, entry: LogEntry): CharacterState
-{
-    void state;
-    void entry;
-
-    throw new Error(NOT_IMPLEMENTED);
 }

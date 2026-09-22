@@ -461,13 +461,11 @@ export const SCHEMAS = {
                         "properties": {
                             "successes": {
                                 "type": "integer",
-                                "minimum": 0,
-                                "maximum": 3
+                                "minimum": 0
                             },
                             "failures": {
                                 "type": "integer",
-                                "minimum": 0,
-                                "maximum": 3
+                                "minimum": 0
                             }
                         },
                         "additionalProperties": false,
@@ -597,6 +595,10 @@ export const SCHEMAS = {
                             },
                             "movementUsed": {
                                 "type": "number"
+                            },
+                            "active": {
+                                "type": "boolean",
+                                "description": "True between the character's start-turn and end-turn events."
                             }
                         },
                         "additionalProperties": false
@@ -4063,6 +4065,11 @@ export const SCHEMAS = {
                                     "spend",
                                     "none"
                                 ]
+                            },
+                            "hours": {
+                                "type": "integer",
+                                "minimum": 1,
+                                "description": "Length of a short rest; timed effects of at most this many hours end with it. Absent: timed effects do not elapse."
                             }
                         },
                         "additionalProperties": false
@@ -4079,6 +4086,16 @@ export const SCHEMAS = {
                             },
                             "hitDiceRecovered": {
                                 "$ref": "common.schema.json#/$defs/formula"
+                            },
+                            "conditionLevelsRecovered": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "description": "Levels removed from every levelled condition (exhaustion) by a long rest; absent: none."
+                            },
+                            "hours": {
+                                "type": "integer",
+                                "minimum": 1,
+                                "description": "Length of a long rest; timed effects of at most this many hours end with it. Absent: timed effects do not elapse."
                             }
                         },
                         "additionalProperties": false
@@ -4171,6 +4188,88 @@ export const SCHEMAS = {
                 "items": {
                     "$ref": "common.schema.json#/$defs/entityId"
                 }
+            },
+            "concentration": {
+                "type": "object",
+                "description": "Concentration rules read by the play engine; absent: no concentration check is reported.",
+                "properties": {
+                    "saveDc": {
+                        "$ref": "common.schema.json#/$defs/formula",
+                        "description": "DC of the saving throw to keep concentrating after taking damage; `damage` is bound to the damage taken."
+                    }
+                },
+                "additionalProperties": false,
+                "required": [
+                    "saveDc"
+                ]
+            },
+            "deathSaves": {
+                "type": "object",
+                "description": "Death saving throw rules read by the play engine; absent: the death-save event is rejected.",
+                "properties": {
+                    "dc": {
+                        "type": "integer",
+                        "minimum": 1
+                    },
+                    "successes": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "description": "Successes that stabilise the character."
+                    },
+                    "failures": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "description": "Failures that kill the character."
+                    },
+                    "natural20": {
+                        "type": "object",
+                        "properties": {
+                            "hitPoints": {
+                                "type": "integer",
+                                "minimum": 0
+                            }
+                        },
+                        "additionalProperties": false,
+                        "required": [
+                            "hitPoints"
+                        ],
+                        "description": "A natural 20 regains this many hit points instead of counting as a success."
+                    },
+                    "natural1": {
+                        "type": "object",
+                        "properties": {
+                            "failures": {
+                                "type": "integer",
+                                "minimum": 1
+                            }
+                        },
+                        "additionalProperties": false,
+                        "required": [
+                            "failures"
+                        ],
+                        "description": "Failures counted on a natural 1."
+                    },
+                    "damage": {
+                        "type": "object",
+                        "properties": {
+                            "failures": {
+                                "type": "integer",
+                                "minimum": 0
+                            }
+                        },
+                        "additionalProperties": false,
+                        "required": [
+                            "failures"
+                        ],
+                        "description": "Failures counted when the character takes damage at 0 hit points."
+                    }
+                },
+                "additionalProperties": false,
+                "required": [
+                    "dc",
+                    "successes",
+                    "failures"
+                ]
             }
         },
         "additionalProperties": false,

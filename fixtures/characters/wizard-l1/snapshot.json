@@ -33,6 +33,136 @@
       "text": {
         "en": "Once per day when you finish a short rest, you can choose expended spell slots to recover. The spell slots can have a combined level that is equal to or less than half your wizard level (rounded up), and none of the slots can be 6th level or higher."
       }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "attack",
+      "name": {
+        "en": "Attack"
+      },
+      "source": {
+        "entity": "srd51.rule.action.attack",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "dash",
+      "name": {
+        "en": "Dash"
+      },
+      "source": {
+        "entity": "srd51.rule.action.dash",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "disengage",
+      "name": {
+        "en": "Disengage"
+      },
+      "source": {
+        "entity": "srd51.rule.action.disengage",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "dodge",
+      "name": {
+        "en": "Dodge"
+      },
+      "source": {
+        "entity": "srd51.rule.action.dodge",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "help",
+      "name": {
+        "en": "Help"
+      },
+      "source": {
+        "entity": "srd51.rule.action.help",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "hide",
+      "name": {
+        "en": "Hide"
+      },
+      "source": {
+        "entity": "srd51.rule.action.hide",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "ready",
+      "name": {
+        "en": "Ready"
+      },
+      "source": {
+        "entity": "srd51.rule.action.ready",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "search",
+      "name": {
+        "en": "Search"
+      },
+      "source": {
+        "entity": "srd51.rule.action.search",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "use-object",
+      "name": {
+        "en": "Search"
+      },
+      "source": {
+        "entity": "srd51.rule.action.use-object",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "cast-a-spell",
+      "name": {
+        "en": "Cast a Spell"
+      },
+      "source": {
+        "entity": "srd51.rule.action.cast-a-spell",
+        "package": "srd51"
+      }
     }
   ],
   "attacks": [
@@ -509,6 +639,137 @@
     ],
     "ruleset": "srd51"
   },
+  "play": {
+    "concentration": {
+      "saveDc": "max(10, floor(damage / 2))"
+    },
+    "conditions": [
+      {
+        "id": "srd51.condition.blinded",
+        "name": {
+          "en": "Blinded"
+        }
+      },
+      {
+        "id": "srd51.condition.charmed",
+        "name": {
+          "en": "Charmed"
+        }
+      },
+      {
+        "id": "srd51.condition.deafened",
+        "name": {
+          "en": "Deafened"
+        }
+      },
+      {
+        "cumulative": true,
+        "id": "srd51.condition.exhaustion",
+        "maxLevel": 6,
+        "name": {
+          "en": "Exhaustion"
+        }
+      },
+      {
+        "id": "srd51.condition.frightened",
+        "name": {
+          "en": "Frightened"
+        }
+      },
+      {
+        "id": "srd51.condition.grappled",
+        "name": {
+          "en": "Grappled"
+        }
+      },
+      {
+        "id": "srd51.condition.incapacitated",
+        "name": {
+          "en": "Incapacitated"
+        }
+      },
+      {
+        "id": "srd51.condition.invisible",
+        "name": {
+          "en": "Invisible"
+        }
+      },
+      {
+        "id": "srd51.condition.paralyzed",
+        "name": {
+          "en": "Paralyzed"
+        }
+      },
+      {
+        "id": "srd51.condition.petrified",
+        "name": {
+          "en": "Petrified"
+        }
+      },
+      {
+        "id": "srd51.condition.poisoned",
+        "name": {
+          "en": "Poisoned"
+        }
+      },
+      {
+        "id": "srd51.condition.prone",
+        "name": {
+          "en": "Prone"
+        }
+      },
+      {
+        "id": "srd51.condition.restrained",
+        "name": {
+          "en": "Restrained"
+        }
+      },
+      {
+        "id": "srd51.condition.stunned",
+        "name": {
+          "en": "Stunned"
+        }
+      },
+      {
+        "id": "srd51.condition.unconscious",
+        "name": {
+          "en": "Unconscious"
+        }
+      }
+    ],
+    "deathSaves": {
+      "damage": {
+        "failures": 1
+      },
+      "dc": 10,
+      "failures": 3,
+      "natural1": {
+        "failures": 2
+      },
+      "natural20": {
+        "hitPoints": 1
+      },
+      "successes": 3
+    },
+    "hitDice": [
+      {
+        "die": 6,
+        "total": 1
+      }
+    ],
+    "rests": {
+      "long": {
+        "conditionLevelsRecovered": 1,
+        "hitDiceRecovered": 1,
+        "hitPoints": "full",
+        "hours": 8
+      },
+      "short": {
+        "hitDice": "spend",
+        "hours": 1
+      }
+    }
+  },
   "proficiencies": [
     {
       "expertise": false,
@@ -853,6 +1114,10 @@
     {
       "ability": "int",
       "as": "cantrip",
+      "caster": "srd51.class.wizard",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.fire-bolt",
       "level": 0,
       "name": {
@@ -871,6 +1136,11 @@
     {
       "ability": "int",
       "as": "cantrip",
+      "caster": "srd51.class.wizard",
+      "duration": {
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.mage-hand",
       "level": 0,
       "name": {
@@ -889,6 +1159,11 @@
     {
       "ability": "int",
       "as": "cantrip",
+      "caster": "srd51.class.wizard",
+      "duration": {
+        "hours": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.light",
       "level": 0,
       "name": {
@@ -907,6 +1182,10 @@
     {
       "ability": "int",
       "as": "prepared",
+      "caster": "srd51.class.wizard",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.magic-missile",
       "level": 1,
       "name": {
@@ -925,6 +1204,11 @@
     {
       "ability": "int",
       "as": "prepared",
+      "caster": "srd51.class.wizard",
+      "duration": {
+        "rounds": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.shield",
       "level": 1,
       "name": {
@@ -943,6 +1227,11 @@
     {
       "ability": "int",
       "as": "prepared",
+      "caster": "srd51.class.wizard",
+      "duration": {
+        "hours": 8,
+        "type": "timed"
+      },
       "id": "srd51.spell.mage-armor",
       "level": 1,
       "name": {
@@ -961,11 +1250,29 @@
     {
       "ability": "int",
       "as": "prepared",
+      "caster": "srd51.class.wizard",
+      "duration": {
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.sleep",
       "level": 1,
       "name": {
         "en": "Sleep"
       },
+      "onCast": [
+        {
+          "condition": "srd51.condition.unconscious",
+          "expires": {
+            "minutes": 1
+          },
+          "kind": "applyCondition",
+          "note": {
+            "en": "No saving throw. Roll 5d8 (+2d8 per slot level above 1st): creatures within 20 feet of the point are affected in ascending order of current hit points, each subtracting its hit points from the total, as long as its hit points are at or below what remains. Undead and creatures immune to being charmed aren't affected. A sleeper wakes if it takes damage or someone uses an action to shake or slap it."
+          },
+          "target": "other"
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -977,6 +1284,7 @@
       }
     }
   ],
+  "toggles": [],
   "values": {
     "ability.cha": {
       "provenance": [

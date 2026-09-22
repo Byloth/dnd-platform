@@ -289,13 +289,11 @@
           "properties": {
             "successes": {
               "type": "integer",
-              "minimum": 0,
-              "maximum": 3
+              "minimum": 0
             },
             "failures": {
               "type": "integer",
-              "minimum": 0,
-              "maximum": 3
+              "minimum": 0
             }
           },
           "additionalProperties": false,
@@ -425,6 +423,10 @@
             },
             "movementUsed": {
               "type": "number"
+            },
+            "active": {
+              "type": "boolean",
+              "description": "True between the character's start-turn and end-turn events."
             }
           },
           "additionalProperties": false

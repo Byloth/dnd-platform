@@ -88,6 +88,136 @@
       "text": {
         "en": "During a short rest, you choose expended spell slots to recover. The spell slots can have a combined level that is equal to or less than half your druid level (rounded up), and none of the slots can be 6th level or higher."
       }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "attack",
+      "name": {
+        "en": "Attack"
+      },
+      "source": {
+        "entity": "srd51.rule.action.attack",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "dash",
+      "name": {
+        "en": "Dash"
+      },
+      "source": {
+        "entity": "srd51.rule.action.dash",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "disengage",
+      "name": {
+        "en": "Disengage"
+      },
+      "source": {
+        "entity": "srd51.rule.action.disengage",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "dodge",
+      "name": {
+        "en": "Dodge"
+      },
+      "source": {
+        "entity": "srd51.rule.action.dodge",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "help",
+      "name": {
+        "en": "Help"
+      },
+      "source": {
+        "entity": "srd51.rule.action.help",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "hide",
+      "name": {
+        "en": "Hide"
+      },
+      "source": {
+        "entity": "srd51.rule.action.hide",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "ready",
+      "name": {
+        "en": "Ready"
+      },
+      "source": {
+        "entity": "srd51.rule.action.ready",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "search",
+      "name": {
+        "en": "Search"
+      },
+      "source": {
+        "entity": "srd51.rule.action.search",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "use-object",
+      "name": {
+        "en": "Search"
+      },
+      "source": {
+        "entity": "srd51.rule.action.use-object",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "cast-a-spell",
+      "name": {
+        "en": "Cast a Spell"
+      },
+      "source": {
+        "entity": "srd51.rule.action.cast-a-spell",
+        "package": "srd51"
+      }
     }
   ],
   "attacks": [
@@ -834,6 +964,137 @@
     ],
     "ruleset": "srd51"
   },
+  "play": {
+    "concentration": {
+      "saveDc": "max(10, floor(damage / 2))"
+    },
+    "conditions": [
+      {
+        "id": "srd51.condition.blinded",
+        "name": {
+          "en": "Blinded"
+        }
+      },
+      {
+        "id": "srd51.condition.charmed",
+        "name": {
+          "en": "Charmed"
+        }
+      },
+      {
+        "id": "srd51.condition.deafened",
+        "name": {
+          "en": "Deafened"
+        }
+      },
+      {
+        "cumulative": true,
+        "id": "srd51.condition.exhaustion",
+        "maxLevel": 6,
+        "name": {
+          "en": "Exhaustion"
+        }
+      },
+      {
+        "id": "srd51.condition.frightened",
+        "name": {
+          "en": "Frightened"
+        }
+      },
+      {
+        "id": "srd51.condition.grappled",
+        "name": {
+          "en": "Grappled"
+        }
+      },
+      {
+        "id": "srd51.condition.incapacitated",
+        "name": {
+          "en": "Incapacitated"
+        }
+      },
+      {
+        "id": "srd51.condition.invisible",
+        "name": {
+          "en": "Invisible"
+        }
+      },
+      {
+        "id": "srd51.condition.paralyzed",
+        "name": {
+          "en": "Paralyzed"
+        }
+      },
+      {
+        "id": "srd51.condition.petrified",
+        "name": {
+          "en": "Petrified"
+        }
+      },
+      {
+        "id": "srd51.condition.poisoned",
+        "name": {
+          "en": "Poisoned"
+        }
+      },
+      {
+        "id": "srd51.condition.prone",
+        "name": {
+          "en": "Prone"
+        }
+      },
+      {
+        "id": "srd51.condition.restrained",
+        "name": {
+          "en": "Restrained"
+        }
+      },
+      {
+        "id": "srd51.condition.stunned",
+        "name": {
+          "en": "Stunned"
+        }
+      },
+      {
+        "id": "srd51.condition.unconscious",
+        "name": {
+          "en": "Unconscious"
+        }
+      }
+    ],
+    "deathSaves": {
+      "damage": {
+        "failures": 1
+      },
+      "dc": 10,
+      "failures": 3,
+      "natural1": {
+        "failures": 2
+      },
+      "natural20": {
+        "hitPoints": 1
+      },
+      "successes": 3
+    },
+    "hitDice": [
+      {
+        "die": 8,
+        "total": 11
+      }
+    ],
+    "rests": {
+      "long": {
+        "conditionLevelsRecovered": 1,
+        "hitDiceRecovered": 5,
+        "hitPoints": "full",
+        "hours": 8
+      },
+      "short": {
+        "hitDice": "spend",
+        "hours": 1
+      }
+    }
+  },
   "proficiencies": [
     {
       "expertise": false,
@@ -1381,6 +1642,10 @@
     {
       "ability": "wis",
       "as": "cantrip",
+      "caster": "srd51.class.druid",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.druidcraft",
       "level": 0,
       "name": {
@@ -1399,6 +1664,11 @@
     {
       "ability": "wis",
       "as": "cantrip",
+      "caster": "srd51.class.druid",
+      "duration": {
+        "minutes": 10,
+        "type": "timed"
+      },
       "id": "srd51.spell.produce-flame",
       "level": 0,
       "name": {
@@ -1417,6 +1687,11 @@
     {
       "ability": "wis",
       "as": "cantrip",
+      "caster": "srd51.class.druid",
+      "duration": {
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.shillelagh",
       "level": 0,
       "name": {
@@ -1435,6 +1710,10 @@
     {
       "ability": "wis",
       "as": "cantrip",
+      "caster": "srd51.class.druid",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.mending",
       "level": 0,
       "name": {
@@ -1453,11 +1732,25 @@
     {
       "ability": "wis",
       "as": "prepared",
+      "caster": "srd51.class.druid",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.cure-wounds",
       "level": 1,
       "name": {
         "en": "Cure Wounds"
       },
+      "onCast": [
+        {
+          "amount": "1d8",
+          "kind": "heal",
+          "note": {
+            "en": "Plus your spellcasting ability modifier (the formula language has no spellcasting-ability variable in v0)."
+          },
+          "target": "other"
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -1471,11 +1764,30 @@
     {
       "ability": "wis",
       "as": "prepared",
+      "caster": "srd51.class.druid",
+      "duration": {
+        "concentration": true,
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.entangle",
       "level": 1,
       "name": {
         "en": "Entangle"
       },
+      "onCast": [
+        {
+          "condition": "srd51.condition.restrained",
+          "expires": {
+            "minutes": 1
+          },
+          "kind": "applyCondition",
+          "note": {
+            "en": "On a failed Strength saving throw by a creature in the area when the spell is cast; the area is difficult terrain. A restrained creature can use its action to make a Strength check against your spell save DC to free itself."
+          },
+          "target": "other"
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -1489,11 +1801,25 @@
     {
       "ability": "wis",
       "as": "prepared",
+      "caster": "srd51.class.druid",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.healing-word",
       "level": 1,
       "name": {
         "en": "Healing Word"
       },
+      "onCast": [
+        {
+          "amount": "1d4",
+          "kind": "heal",
+          "note": {
+            "en": "Plus your spellcasting ability modifier (the formula language has no spellcasting-ability variable in v0). No effect on undead or constructs."
+          },
+          "target": "other"
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -1507,11 +1833,25 @@
     {
       "ability": "wis",
       "as": "prepared",
+      "caster": "srd51.class.druid",
+      "duration": {
+        "concentration": true,
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.faerie-fire",
       "level": 1,
       "name": {
         "en": "Faerie Fire"
       },
+      "onCast": [
+        {
+          "kind": "note",
+          "text": {
+            "en": "Creatures in the 20-foot cube are outlined on a failed Dexterity saving throw; objects are outlined automatically."
+          }
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -1525,6 +1865,10 @@
     {
       "ability": "wis",
       "as": "prepared",
+      "caster": "srd51.class.druid",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.goodberry",
       "level": 1,
       "name": {
@@ -1543,6 +1887,10 @@
     {
       "ability": "wis",
       "as": "prepared",
+      "caster": "srd51.class.druid",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.thunderwave",
       "level": 1,
       "name": {
@@ -1561,6 +1909,11 @@
     {
       "ability": "wis",
       "as": "prepared",
+      "caster": "srd51.class.druid",
+      "duration": {
+        "hours": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.longstrider",
       "level": 1,
       "name": {
@@ -1579,11 +1932,25 @@
     {
       "ability": "wis",
       "as": "prepared",
+      "caster": "srd51.class.druid",
+      "duration": {
+        "concentration": true,
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.moonbeam",
       "level": 2,
       "name": {
         "en": "Moonbeam"
       },
+      "onCast": [
+        {
+          "kind": "note",
+          "text": {
+            "en": "A creature that enters the cylinder for the first time on a turn or starts its turn there makes the Constitution save. A shapechanger saves with disadvantage and, on a failure, reverts to its original form and can't change form until it leaves the light."
+          }
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -1597,6 +1964,12 @@
     {
       "ability": "wis",
       "as": "prepared",
+      "caster": "srd51.class.druid",
+      "duration": {
+        "concentration": true,
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.flaming-sphere",
       "level": 2,
       "name": {
@@ -1615,6 +1988,10 @@
     {
       "ability": "wis",
       "as": "prepared",
+      "caster": "srd51.class.druid",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.lesser-restoration",
       "level": 2,
       "name": {
@@ -1633,11 +2010,25 @@
     {
       "ability": "wis",
       "as": "prepared",
+      "caster": "srd51.class.druid",
+      "duration": {
+        "concentration": true,
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.heat-metal",
       "level": 2,
       "name": {
         "en": "Heat Metal"
       },
+      "onCast": [
+        {
+          "kind": "note",
+          "text": {
+            "en": "No saving throw against the damage. A creature holding or wearing the object that takes the damage must succeed on a Constitution saving throw or drop the object if it can; if it doesn't drop it, it has disadvantage on attack rolls and ability checks until the start of your next turn."
+          }
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -1651,6 +2042,10 @@
     {
       "ability": "wis",
       "as": "prepared",
+      "caster": "srd51.class.druid",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.dispel-magic",
       "level": 3,
       "name": {
@@ -1669,11 +2064,25 @@
     {
       "ability": "wis",
       "as": "prepared",
+      "caster": "srd51.class.druid",
+      "duration": {
+        "concentration": true,
+        "hours": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.conjure-animals",
       "level": 3,
       "name": {
         "en": "Conjure Animals"
       },
+      "onCast": [
+        {
+          "kind": "note",
+          "text": {
+            "en": "The DM has the creatures' statistics (no stat blocks in v0). Twice as many creatures with a 5th-level slot, three times as many with a 7th-level slot, four times as many with a 9th-level slot."
+          }
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -1687,6 +2096,11 @@
     {
       "ability": "wis",
       "as": "prepared",
+      "caster": "srd51.class.druid",
+      "duration": {
+        "hours": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.daylight",
       "level": 3,
       "name": {
@@ -1705,11 +2119,25 @@
     {
       "ability": "wis",
       "as": "prepared",
+      "caster": "srd51.class.druid",
+      "duration": {
+        "concentration": true,
+        "hours": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.polymorph",
       "level": 4,
       "name": {
         "en": "Polymorph"
       },
+      "onCast": [
+        {
+          "kind": "note",
+          "text": {
+            "en": "An unwilling creature makes a Wisdom saving throw to avoid the effect; a shapechanger automatically succeeds. The transformation ends at 0 hit points, when the creature returns to its previous hit points; excess damage carries over to its normal form."
+          }
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -1723,6 +2151,12 @@
     {
       "ability": "wis",
       "as": "prepared",
+      "caster": "srd51.class.druid",
+      "duration": {
+        "concentration": true,
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.wall-of-fire",
       "level": 4,
       "name": {
@@ -1741,6 +2175,12 @@
     {
       "ability": "wis",
       "as": "always-prepared",
+      "caster": "srd51.class.druid",
+      "duration": {
+        "concentration": true,
+        "hours": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.barkskin",
       "level": 2,
       "name": {
@@ -1759,6 +2199,12 @@
     {
       "ability": "wis",
       "as": "always-prepared",
+      "caster": "srd51.class.druid",
+      "duration": {
+        "concentration": true,
+        "hours": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.spider-climb",
       "level": 2,
       "name": {
@@ -1777,6 +2223,12 @@
     {
       "ability": "wis",
       "as": "always-prepared",
+      "caster": "srd51.class.druid",
+      "duration": {
+        "concentration": true,
+        "minutes": 10,
+        "type": "timed"
+      },
       "id": "srd51.spell.call-lightning",
       "level": 3,
       "name": {
@@ -1795,6 +2247,10 @@
     {
       "ability": "wis",
       "as": "always-prepared",
+      "caster": "srd51.class.druid",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.plant-growth",
       "level": 3,
       "name": {
@@ -1813,6 +2269,10 @@
     {
       "ability": "wis",
       "as": "always-prepared",
+      "caster": "srd51.class.druid",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.divination",
       "level": 4,
       "name": {
@@ -1831,6 +2291,11 @@
     {
       "ability": "wis",
       "as": "always-prepared",
+      "caster": "srd51.class.druid",
+      "duration": {
+        "hours": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.freedom-of-movement",
       "level": 4,
       "name": {
@@ -1849,6 +2314,10 @@
     {
       "ability": "wis",
       "as": "always-prepared",
+      "caster": "srd51.class.druid",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.commune-with-nature",
       "level": 5,
       "name": {
@@ -1867,6 +2336,12 @@
     {
       "ability": "wis",
       "as": "always-prepared",
+      "caster": "srd51.class.druid",
+      "duration": {
+        "concentration": true,
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.tree-stride",
       "level": 5,
       "name": {
@@ -1885,6 +2360,10 @@
     {
       "ability": "wis",
       "as": "cantrip",
+      "caster": "srd51.class.druid",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.fire-bolt",
       "level": 0,
       "name": {
@@ -1903,6 +2382,12 @@
     {
       "ability": "wis",
       "as": "cantrip",
+      "caster": "srd51.class.druid",
+      "duration": {
+        "concentration": true,
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.guidance",
       "level": 0,
       "name": {
@@ -1917,6 +2402,23 @@
         "feature": "srd51.feature.circle-of-the-land.bonus-cantrip",
         "package": "srd51"
       }
+    }
+  ],
+  "toggles": [
+    {
+      "expires": {
+        "manual": true
+      },
+      "name": {
+        "en": "Wild Shape"
+      },
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.class.druid",
+        "feature": "srd51.feature.druid.wild-shape",
+        "package": "srd51"
+      },
+      "state": "wild-shape"
     }
   ],
   "values": {

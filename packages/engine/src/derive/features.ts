@@ -1,7 +1,7 @@
 /** Collection of the active features of a character, with their origin. */
 
 import type {
-    Character, Choice, ConditionEntity, Feature, Item, Species, Subclass, Class, Background, Feat
+    Character, Choice, ConditionEntity, Feature, Item, Species, Subclass, Class, Background, Feat, Spell
 } from "@byloth/dnd-platform-schema";
 
 import type { ContributionSource, Diagnostic, FeatureOrigin, PackageSet, ResolvedEntity } from "../index.js";
@@ -253,6 +253,44 @@ export function collectFeatures(character: Character, set: PackageSet): Collecte
             source: { package: resolved.package, entity: condition.id }
         });
     }
+
+    // Spells the play engine tracks as active apply their `effects` to the character (Haste).
+    for (const active of character.state.activeSpells ?? [])
+    {
+        const resolved = set.entities.get(active.spell);
+        if ((resolved === undefined) || (resolved.type !== "spell")) { continue; }
+        noteExcluded(resolved, out.warnings);
+        const spell = resolved.data as Spell;
+        if (!spell.effects?.length) { continue; }
+        out.features.push({
+            id: spell.id,
+            data: { id: spell.id, name: spell.name, effects: spell.effects },
+            origin: "spell",
+            owner: spell.id,
+            source: { package: resolved.package, entity: spell.id }
+        });
+    }
+
+    // Custom temporary effects written by the player are features of the character document itself.
+    (character.state.customEffects ?? []).forEach((custom, index) =>
+    {
+        const label = custom.name["en"] ?? Object.values(custom.name)[0] ?? "effect";
+        const slug = label.toLowerCase().replace(/[^a-z0-9]+/g, "-")
+            .replace(/^-+|-+$/g, "") || "effect";
+        const id = `custom.${slug}-${index + 1}`;
+        out.features.push({
+            id: id,
+            data: {
+                id: id,
+                name: custom.name,
+                ...(custom.text ? { text: custom.text } : {}),
+                effects: custom.effects ?? []
+            },
+            origin: "custom",
+            owner: id,
+            source: { package: "", entity: id }
+        });
+    });
 
     return out;
 }

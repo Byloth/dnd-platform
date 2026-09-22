@@ -13,10 +13,15 @@ hitPoints:
   firstLevel: "hitDie + mod(con) + 2"
   perLevel: "average(hitDie) + mod(con)"
 rests:
-  short: { hitDice: spend }
+  short: { hitDice: spend, hours: 1 }
   long:
     hitPoints: full
     hitDiceRecovered: "level"
+    hours: 6
+    conditionLevelsRecovered: 2
 spellSlots: {}
 baseActions: [minib.rule.action.attack, minib.rule.action.dash, minib.rule.action.dodge]
 conditions: [minib.condition.prone, minib.condition.dazed, minib.condition.bleeding]
+# Deliberately different from srd51: proves the play engine reads these numbers from the ruleset.
+concentration: { saveDc: "max(12, damage)" }
+deathSaves: { dc: 11, successes: 2, failures: 4, natural20: { hitPoints: 5 }, natural1: { failures: 1 }, damage: { failures: 2 } }

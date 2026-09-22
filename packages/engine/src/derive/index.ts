@@ -5,7 +5,8 @@
 
 import { parseFormula } from "@byloth/dnd-platform-schema";
 import type {
-    Background, Character, Class, Effect, LocalizedString, ProficiencyGrants, Species, Spell, Table
+    Background, Character, Class, ConditionEntity, Effect, LocalizedString, ProficiencyGrants, Rule, Species, Spell,
+    Table
 } from "@byloth/dnd-platform-schema";
 
 import { evaluateWhen, ConditionError } from "../conditions/evaluate.js";
@@ -13,10 +14,9 @@ import type { Facts } from "../conditions/evaluate.js";
 import { stableStringify } from "../canonical.js";
 import { evaluateFormula, formatValue } from "../formula/evaluate.js";
 import type {
-    ActionView, ChoiceView, ComputedSheet, Contribution, ContributionSource, DefenseView, DeriveOptions, DerivedValue,
-    Diagnostic,
-    FeatureView, PackageSet, ProficiencyView, Provenance, ResolvedRoll, ResourceView, RollModifierView, SlotView,
-    SpellcastingView, SpellView, ValuePath
+    ActionView, ChoiceView, ComputedSheet, ConditionRef, Contribution, ContributionSource, DefenseView, DeriveOptions,
+    DerivedValue, Diagnostic, FeatureView, HitDicePool, PackageSet, PlayRules, ProficiencyView, Provenance,
+    ResolvedRoll, ResourceView, RollModifierView, SlotView, SpellcastingView, SpellView, ToggleView, ValuePath
 } from "../index.js";
 import { baseAbilityScores, buildFacts, classLevelsOf, equippedItems, totalLevel } from "./facts.js";
 import { assembleAttacks } from "./attacks.js";
@@ -497,7 +497,8 @@ export function derive(character: Character, set: PackageSet, options: DeriveOpt
         as: SpellView["as"],
         paidWith: SpellView["paidWith"],
         source: ContributionSource,
-        ability?: string
+        ability?: string,
+        caster?: string
     ): void =>
     {
         const spell = spellEntity(spellId);
@@ -520,6 +521,9 @@ export function derive(character: Character, set: PackageSet, options: DeriveOpt
             as: cantrip ? "cantrip" : as,
             ...(ability ? { ability: ability } : {}),
             paidWith: cantrip && "slot" in paidWith ? { free: true } : paidWith,
+            ...(caster ? { caster: caster } : {}),
+            duration: spell.duration,
+            ...(spell.onCast?.length ? { onCast: spell.onCast } : {}),
             source: source
         });
     };
@@ -784,8 +788,14 @@ export function derive(character: Character, set: PackageSet, options: DeriveOpt
                     options: []
                 });
                 const chosenAs = e.preparation === "known" ? "known" : "prepared";
-                for (const spellId of cantrips) { addSpell(spellId, "known", { free: true }, ctx.source, e.ability); }
-                for (const spellId of chosen) { addSpell(spellId, chosenAs, { slot: true }, ctx.source, e.ability); }
+                for (const spellId of cantrips)
+                {
+                    addSpell(spellId, "known", { free: true }, ctx.source, e.ability, classId);
+                }
+                for (const spellId of chosen)
+                {
+                    addSpell(spellId, chosenAs, { slot: true }, ctx.source, e.ability, classId);
+                }
                 sections.add("spellcasting");
                 sections.add("spells");
                 break;
@@ -797,7 +807,10 @@ export function derive(character: Character, set: PackageSet, options: DeriveOpt
                 let paidWith: SpellView["paidWith"] = { slot: true };
                 if (cost && "amount" in cost) { paidWith = { resource: cost.resource, amount: cost.amount }; }
                 else if (e.uses) { paidWith = { uses: e.uses.count, recharge: e.uses.recharge }; }
-                for (const spellId of e.spells) { addSpell(spellId, e.as, paidWith, ctx.source, e.ability); }
+                for (const spellId of e.spells)
+                {
+                    addSpell(spellId, e.as, paidWith, ctx.source, e.ability, ctx.feature.ownerClass);
+                }
                 sections.add("spells");
                 break;
             }
@@ -808,7 +821,7 @@ export function derive(character: Character, set: PackageSet, options: DeriveOpt
     for (const chosen of chosenSpells)
     {
         const caster = spellcasting.find((s) => s.class === chosen.ownerClass) ?? spellcasting[0];
-        addSpell(chosen.id, "known", { slot: true }, chosen.source, caster?.ability);
+        addSpell(chosen.id, "known", { slot: true }, chosen.source, caster?.ability, caster?.class);
         sections.add("spells");
     }
     const attacks = assembleAttacks(
@@ -851,6 +864,118 @@ export function derive(character: Character, set: PackageSet, options: DeriveOpt
             });
         }
     }
+
+    // Base actions of the ruleset (Attack, Dash…) are listed after the granted ones, without activating
+    // the Actions section: they belong to the cheat sheet, not to the character (docs/phase-0/07).
+    for (const ruleId of set.ruleset.baseActions ?? [])
+    {
+        const resolved = set.entities.get(ruleId);
+        if ((resolved === undefined) || (resolved.type !== "rule"))
+        {
+            warnings.push({
+                severity: "warning", code: "W_MISSING_ENTITY", entity: ruleId, message: `rule "${ruleId}" is not loaded`
+            });
+
+            continue;
+        }
+        noteExcluded(resolved, warnings);
+        const rule = resolved.data as Rule;
+        const id = ruleId.slice(ruleId.lastIndexOf(".") + 1);
+        if (seenActions.has(id)) { continue; }
+        seenActions.set(id, {
+            id: id,
+            name: rule.name,
+            activation: "action",
+            cost: [],
+            ...(options.includeText !== false && rule.summary ? { text: rule.summary } : {}),
+            source: { package: resolved.package, entity: ruleId },
+            available: true
+        });
+    }
+
+    // Player-controlled states: declared by actions (Patient Defense) or by features (Rage).
+    const toggles = new Map<string, ToggleView>();
+    for (const ctx of contexts)
+    {
+        const e = ctx.effect;
+        if ((e.kind !== "add-action") || !e.toggle || toggles.has(e.toggle.state)) { continue; }
+        toggles.set(e.toggle.state, {
+            state: e.toggle.state,
+            name: e.name ?? ctx.feature.data.name,
+            ...(e.toggle.expires ? { expires: e.toggle.expires } : {}),
+            source: ctx.source
+        });
+    }
+    for (const feature of collected.features)
+    {
+        const toggle = feature.data.toggle;
+        if (!toggle || toggles.has(toggle.state)) { continue; }
+        toggles.set(toggle.state, {
+            state: toggle.state,
+            name: feature.data.name,
+            ...(toggle.expires ? { expires: toggle.expires } : {}),
+            source: feature.source
+        });
+    }
+
+    // What the play engine reads from the ruleset, evaluated for this character.
+    const evaluateNumber = (formula: string, fallback: number): number =>
+    {
+        const parsed = parseFormula(formula);
+        if (!parsed.ok) { return fallback; }
+        try
+        {
+            const value = evaluateFormula(parsed.ast, graph.environment());
+
+            return typeof value === "number" ? value : fallback;
+        }
+        catch { return fallback; }
+    };
+    const hitDicePools = new Map<number, number>();
+    for (const cls of classes)
+    {
+        hitDicePools.set(cls.data.hitDie, (hitDicePools.get(cls.data.hitDie) ?? 0) + cls.levels);
+    }
+    const hitDice: HitDicePool[] = [...hitDicePools.entries()]
+        .sort((a, b) => b[0] - a[0])
+        .map(([die, total]) => ({ die: die, total: total }));
+    const conditionRefs: ConditionRef[] = [];
+    for (const resolved of set.entities.values())
+    {
+        if ((resolved.type !== "condition") || !resolved.active) { continue; }
+        const condition = resolved.data as ConditionEntity;
+        const levels = Object.keys(condition.levels ?? {}).map(Number);
+        conditionRefs.push({
+            id: condition.id,
+            name: condition.name,
+            ...(levels.length > 0 ? { maxLevel: Math.max(...levels) } : {}),
+            ...(condition.cumulative !== undefined ? { cumulative: condition.cumulative } : {})
+        });
+    }
+    conditionRefs.sort((a, b) => a.id.localeCompare(b.id));
+    const rests = set.ruleset.rests;
+    const play: PlayRules = {
+        hitDice: hitDice,
+        rests: {
+            short: {
+                hitDice: rests.short.hitDice ?? "spend",
+                ...(rests.short.hours !== undefined ? { hours: rests.short.hours } : {})
+            },
+            long: {
+                hitPoints: rests.long.hitPoints ?? "full",
+                hitDiceRecovered: rests.long.hitDiceRecovered === undefined ?
+                    0 :
+                    Math.max(0, Math.floor(evaluateNumber(rests.long.hitDiceRecovered, 0))),
+                ...(rests.long.hours !== undefined ? { hours: rests.long.hours } : {}),
+                ...(rests.long.conditionLevelsRecovered !== undefined ?
+                    { conditionLevelsRecovered: rests.long.conditionLevelsRecovered } :
+                    {})
+            }
+        },
+        ...(set.ruleset.concentration ? { concentration: { saveDc: set.ruleset.concentration.saveDc } } : {}),
+        ...(set.ruleset.deathSaves ? { deathSaves: set.ruleset.deathSaves } : {}),
+        conditions: conditionRefs
+    };
 
     const values: Record<ValuePath, DerivedValue> = {};
     for (const path of graph.paths()) { values[path] = graph.get(path); }
@@ -903,8 +1028,10 @@ export function derive(character: Character, set: PackageSet, options: DeriveOpt
         defenses: defenses,
         spellcasting: spellcasting,
         spells: spells,
+        toggles: [...toggles.values()],
         choices: col.choices,
         sections: orderedSections,
+        play: play,
         warnings: [...set.diagnostics.entries.filter((d) => d.severity !== "info"), ...dedupeExcluded(warnings)]
     };
 }

@@ -119,6 +119,136 @@
       "text": {
         "en": "When you make an ability check, you can expend one use of Bardic Inspiration. Roll a Bardic Inspiration die and add the number rolled to your ability check. You can choose to do so after you roll the die for the ability check, but before the GM tells you whether you succeed or fail."
       }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "attack",
+      "name": {
+        "en": "Attack"
+      },
+      "source": {
+        "entity": "srd51.rule.action.attack",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "dash",
+      "name": {
+        "en": "Dash"
+      },
+      "source": {
+        "entity": "srd51.rule.action.dash",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "disengage",
+      "name": {
+        "en": "Disengage"
+      },
+      "source": {
+        "entity": "srd51.rule.action.disengage",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "dodge",
+      "name": {
+        "en": "Dodge"
+      },
+      "source": {
+        "entity": "srd51.rule.action.dodge",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "help",
+      "name": {
+        "en": "Help"
+      },
+      "source": {
+        "entity": "srd51.rule.action.help",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "hide",
+      "name": {
+        "en": "Hide"
+      },
+      "source": {
+        "entity": "srd51.rule.action.hide",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "ready",
+      "name": {
+        "en": "Ready"
+      },
+      "source": {
+        "entity": "srd51.rule.action.ready",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "search",
+      "name": {
+        "en": "Search"
+      },
+      "source": {
+        "entity": "srd51.rule.action.search",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "use-object",
+      "name": {
+        "en": "Search"
+      },
+      "source": {
+        "entity": "srd51.rule.action.use-object",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "cast-a-spell",
+      "name": {
+        "en": "Cast a Spell"
+      },
+      "source": {
+        "entity": "srd51.rule.action.cast-a-spell",
+        "package": "srd51"
+      }
     }
   ],
   "attacks": [
@@ -1063,6 +1193,137 @@
     ],
     "ruleset": "srd51"
   },
+  "play": {
+    "concentration": {
+      "saveDc": "max(10, floor(damage / 2))"
+    },
+    "conditions": [
+      {
+        "id": "srd51.condition.blinded",
+        "name": {
+          "en": "Blinded"
+        }
+      },
+      {
+        "id": "srd51.condition.charmed",
+        "name": {
+          "en": "Charmed"
+        }
+      },
+      {
+        "id": "srd51.condition.deafened",
+        "name": {
+          "en": "Deafened"
+        }
+      },
+      {
+        "cumulative": true,
+        "id": "srd51.condition.exhaustion",
+        "maxLevel": 6,
+        "name": {
+          "en": "Exhaustion"
+        }
+      },
+      {
+        "id": "srd51.condition.frightened",
+        "name": {
+          "en": "Frightened"
+        }
+      },
+      {
+        "id": "srd51.condition.grappled",
+        "name": {
+          "en": "Grappled"
+        }
+      },
+      {
+        "id": "srd51.condition.incapacitated",
+        "name": {
+          "en": "Incapacitated"
+        }
+      },
+      {
+        "id": "srd51.condition.invisible",
+        "name": {
+          "en": "Invisible"
+        }
+      },
+      {
+        "id": "srd51.condition.paralyzed",
+        "name": {
+          "en": "Paralyzed"
+        }
+      },
+      {
+        "id": "srd51.condition.petrified",
+        "name": {
+          "en": "Petrified"
+        }
+      },
+      {
+        "id": "srd51.condition.poisoned",
+        "name": {
+          "en": "Poisoned"
+        }
+      },
+      {
+        "id": "srd51.condition.prone",
+        "name": {
+          "en": "Prone"
+        }
+      },
+      {
+        "id": "srd51.condition.restrained",
+        "name": {
+          "en": "Restrained"
+        }
+      },
+      {
+        "id": "srd51.condition.stunned",
+        "name": {
+          "en": "Stunned"
+        }
+      },
+      {
+        "id": "srd51.condition.unconscious",
+        "name": {
+          "en": "Unconscious"
+        }
+      }
+    ],
+    "deathSaves": {
+      "damage": {
+        "failures": 1
+      },
+      "dc": 10,
+      "failures": 3,
+      "natural1": {
+        "failures": 2
+      },
+      "natural20": {
+        "hitPoints": 1
+      },
+      "successes": 3
+    },
+    "hitDice": [
+      {
+        "die": 8,
+        "total": 20
+      }
+    ],
+    "rests": {
+      "long": {
+        "conditionLevelsRecovered": 1,
+        "hitDiceRecovered": 10,
+        "hitPoints": "full",
+        "hours": 8
+      },
+      "short": {
+        "hitDice": "spend",
+        "hours": 1
+      }
+    }
+  },
   "proficiencies": [
     {
       "expertise": false,
@@ -1522,11 +1783,23 @@
     {
       "ability": "cha",
       "as": "cantrip",
+      "caster": "srd51.class.bard",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.vicious-mockery",
       "level": 0,
       "name": {
         "en": "Vicious Mockery"
       },
+      "onCast": [
+        {
+          "kind": "note",
+          "text": {
+            "en": "Only if the target can hear you. On a failed save it also has disadvantage on the next attack roll it makes before the end of its next turn."
+          }
+        }
+      ],
       "paidWith": {
         "free": true
       },
@@ -1540,6 +1813,11 @@
     {
       "ability": "cha",
       "as": "cantrip",
+      "caster": "srd51.class.bard",
+      "duration": {
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.minor-illusion",
       "level": 0,
       "name": {
@@ -1558,6 +1836,11 @@
     {
       "ability": "cha",
       "as": "cantrip",
+      "caster": "srd51.class.bard",
+      "duration": {
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.mage-hand",
       "level": 0,
       "name": {
@@ -1576,6 +1859,11 @@
     {
       "ability": "cha",
       "as": "cantrip",
+      "caster": "srd51.class.bard",
+      "duration": {
+        "hours": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.prestidigitation",
       "level": 0,
       "name": {
@@ -1594,11 +1882,25 @@
     {
       "ability": "cha",
       "as": "known",
+      "caster": "srd51.class.bard",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.healing-word",
       "level": 1,
       "name": {
         "en": "Healing Word"
       },
+      "onCast": [
+        {
+          "amount": "1d4",
+          "kind": "heal",
+          "note": {
+            "en": "Plus your spellcasting ability modifier (the formula language has no spellcasting-ability variable in v0). No effect on undead or constructs."
+          },
+          "target": "other"
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -1612,11 +1914,29 @@
     {
       "ability": "cha",
       "as": "known",
+      "caster": "srd51.class.bard",
+      "duration": {
+        "hours": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.charm-person",
       "level": 1,
       "name": {
         "en": "Charm Person"
       },
+      "onCast": [
+        {
+          "condition": "srd51.condition.charmed",
+          "expires": {
+            "hours": 1
+          },
+          "kind": "applyCondition",
+          "note": {
+            "en": "On a failed Wisdom saving throw (made with advantage if you or your companions are fighting the target); ends if you or your companions do anything harmful to it. The target regards you as a friendly acquaintance and knows it was charmed when the spell ends. One additional creature (within 30 feet of the others) for each slot level above 1st."
+          },
+          "target": "other"
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -1630,11 +1950,29 @@
     {
       "ability": "cha",
       "as": "known",
+      "caster": "srd51.class.bard",
+      "duration": {
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.sleep",
       "level": 1,
       "name": {
         "en": "Sleep"
       },
+      "onCast": [
+        {
+          "condition": "srd51.condition.unconscious",
+          "expires": {
+            "minutes": 1
+          },
+          "kind": "applyCondition",
+          "note": {
+            "en": "No saving throw. Roll 5d8 (+2d8 per slot level above 1st): creatures within 20 feet of the point are affected in ascending order of current hit points, each subtracting its hit points from the total, as long as its hit points are at or below what remains. Undead and creatures immune to being charmed aren't affected. A sleeper wakes if it takes damage or someone uses an action to shake or slap it."
+          },
+          "target": "other"
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -1648,11 +1986,41 @@
     {
       "ability": "cha",
       "as": "known",
+      "caster": "srd51.class.bard",
+      "duration": {
+        "concentration": true,
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.hideous-laughter",
       "level": 1,
       "name": {
         "en": "Hideous Laughter"
       },
+      "onCast": [
+        {
+          "condition": "srd51.condition.prone",
+          "expires": {
+            "minutes": 1
+          },
+          "kind": "applyCondition",
+          "target": "other"
+        },
+        {
+          "condition": "srd51.condition.incapacitated",
+          "expires": {
+            "minutes": 1
+          },
+          "kind": "applyCondition",
+          "target": "other"
+        },
+        {
+          "kind": "note",
+          "text": {
+            "en": "On a failed Wisdom save; the target is unable to stand up for the duration. A creature with an Intelligence score of 4 or less isn't affected. At the end of each of its turns, and each time it takes damage (with advantage), the target repeats the saving throw; on a success the spell ends."
+          }
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -1666,11 +2034,30 @@
     {
       "ability": "cha",
       "as": "known",
+      "caster": "srd51.class.bard",
+      "duration": {
+        "concentration": true,
+        "hours": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.invisibility",
       "level": 2,
       "name": {
         "en": "Invisibility"
       },
+      "onCast": [
+        {
+          "condition": "srd51.condition.invisible",
+          "expires": {
+            "hours": 1
+          },
+          "kind": "applyCondition",
+          "note": {
+            "en": "Anything the target wears or carries is invisible while on its person. The spell ends for a target that attacks or casts a spell. Each slot level above 2nd targets one additional creature."
+          },
+          "target": "other"
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -1684,6 +2071,10 @@
     {
       "ability": "cha",
       "as": "known",
+      "caster": "srd51.class.bard",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.shatter",
       "level": 2,
       "name": {
@@ -1702,11 +2093,41 @@
     {
       "ability": "cha",
       "as": "known",
+      "caster": "srd51.class.bard",
+      "duration": {
+        "concentration": true,
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.hypnotic-pattern",
       "level": 3,
       "name": {
         "en": "Hypnotic Pattern"
       },
+      "onCast": [
+        {
+          "condition": "srd51.condition.charmed",
+          "expires": {
+            "minutes": 1
+          },
+          "kind": "applyCondition",
+          "target": "other"
+        },
+        {
+          "condition": "srd51.condition.incapacitated",
+          "expires": {
+            "minutes": 1
+          },
+          "kind": "applyCondition",
+          "target": "other"
+        },
+        {
+          "kind": "note",
+          "text": {
+            "en": "Each creature in the 30-foot cube that sees the pattern, on a failed Wisdom save. While charmed it is incapacitated and has a speed of 0. The spell ends for a creature that takes any damage or is shaken out of its stupor by someone using an action."
+          }
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -1720,6 +2141,10 @@
     {
       "ability": "cha",
       "as": "known",
+      "caster": "srd51.class.bard",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.dispel-magic",
       "level": 3,
       "name": {
@@ -1738,6 +2163,10 @@
     {
       "ability": "cha",
       "as": "known",
+      "caster": "srd51.class.bard",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.dimension-door",
       "level": 4,
       "name": {
@@ -1756,11 +2185,30 @@
     {
       "ability": "cha",
       "as": "known",
+      "caster": "srd51.class.bard",
+      "duration": {
+        "concentration": true,
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.greater-invisibility",
       "level": 4,
       "name": {
         "en": "Greater Invisibility"
       },
+      "onCast": [
+        {
+          "condition": "srd51.condition.invisible",
+          "expires": {
+            "minutes": 1
+          },
+          "kind": "applyCondition",
+          "note": {
+            "en": "You or a creature you touch; anything the target is wearing or carrying is invisible as long as it is on the target's person."
+          },
+          "target": "self"
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -1774,11 +2222,33 @@
     {
       "ability": "cha",
       "as": "known",
+      "caster": "srd51.class.bard",
+      "duration": {
+        "concentration": true,
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.hold-monster",
       "level": 5,
       "name": {
         "en": "Hold Monster"
       },
+      "onCast": [
+        {
+          "condition": "srd51.condition.paralyzed",
+          "expires": {
+            "minutes": 1
+          },
+          "kind": "applyCondition",
+          "target": "other"
+        },
+        {
+          "kind": "note",
+          "text": {
+            "en": "On a failed Wisdom save; no effect against the undead. At the end of each round the target repeats the saving throw; on a success the spell ends for it. Each slot level above 5th targets one additional creature (within 30 feet of each other)."
+          }
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -1792,11 +2262,30 @@
     {
       "ability": "cha",
       "as": "known",
+      "caster": "srd51.class.bard",
+      "duration": {
+        "concentration": true,
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.dominate-person",
       "level": 5,
       "name": {
         "en": "Dominate Person"
       },
+      "onCast": [
+        {
+          "condition": "srd51.condition.charmed",
+          "expires": {
+            "minutes": 1
+          },
+          "kind": "applyCondition",
+          "note": {
+            "en": "On a failed Wisdom saving throw (with advantage if you or your friends are fighting it). While charmed you have a telepathic link to issue commands (no action required); each time the target takes damage it repeats the save, ending the spell on a success. Duration: concentration up to 10 minutes with a 6th-level slot, 1 hour with 7th, 8 hours with 8th or higher."
+          },
+          "target": "other"
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -1810,6 +2299,11 @@
     {
       "ability": "cha",
       "as": "known",
+      "caster": "srd51.class.bard",
+      "duration": {
+        "hours": 24,
+        "type": "timed"
+      },
       "id": "srd51.spell.mass-suggestion",
       "level": 6,
       "name": {
@@ -1828,6 +2322,11 @@
     {
       "ability": "cha",
       "as": "known",
+      "caster": "srd51.class.bard",
+      "duration": {
+        "hours": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.forcecage",
       "level": 7,
       "name": {
@@ -1846,6 +2345,11 @@
     {
       "ability": "cha",
       "as": "known",
+      "caster": "srd51.class.bard",
+      "duration": {
+        "hours": 8,
+        "type": "timed"
+      },
       "id": "srd51.spell.foresight",
       "level": 9,
       "name": {
@@ -1864,6 +2368,10 @@
     {
       "ability": "cha",
       "as": "known",
+      "caster": "srd51.class.bard",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.power-word-kill",
       "level": 9,
       "name": {
@@ -1882,6 +2390,10 @@
     {
       "ability": "cha",
       "as": "known",
+      "caster": "srd51.class.bard",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.fireball",
       "level": 3,
       "name": {
@@ -1900,6 +2412,10 @@
     {
       "ability": "cha",
       "as": "known",
+      "caster": "srd51.class.bard",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.counterspell",
       "level": 3,
       "name": {
@@ -1918,6 +2434,12 @@
     {
       "ability": "cha",
       "as": "known",
+      "caster": "srd51.class.bard",
+      "duration": {
+        "concentration": true,
+        "minutes": 10,
+        "type": "timed"
+      },
       "id": "srd51.spell.wall-of-force",
       "level": 5,
       "name": {
@@ -1936,6 +2458,10 @@
     {
       "ability": "cha",
       "as": "known",
+      "caster": "srd51.class.bard",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.teleport",
       "level": 7,
       "name": {
@@ -1954,6 +2480,10 @@
     {
       "ability": "cha",
       "as": "known",
+      "caster": "srd51.class.bard",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.wish",
       "level": 9,
       "name": {
@@ -1972,6 +2502,10 @@
     {
       "ability": "cha",
       "as": "known",
+      "caster": "srd51.class.bard",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.meteor-swarm",
       "level": 9,
       "name": {
@@ -1990,6 +2524,10 @@
     {
       "ability": "cha",
       "as": "known",
+      "caster": "srd51.class.bard",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.fireball",
       "level": 3,
       "name": {
@@ -2008,6 +2546,10 @@
     {
       "ability": "cha",
       "as": "known",
+      "caster": "srd51.class.bard",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.counterspell",
       "level": 3,
       "name": {
@@ -2026,6 +2568,12 @@
     {
       "ability": "cha",
       "as": "known",
+      "caster": "srd51.class.bard",
+      "duration": {
+        "concentration": true,
+        "minutes": 10,
+        "type": "timed"
+      },
       "id": "srd51.spell.wall-of-force",
       "level": 5,
       "name": {
@@ -2044,6 +2592,10 @@
     {
       "ability": "cha",
       "as": "known",
+      "caster": "srd51.class.bard",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.teleport",
       "level": 7,
       "name": {
@@ -2062,6 +2614,10 @@
     {
       "ability": "cha",
       "as": "known",
+      "caster": "srd51.class.bard",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.wish",
       "level": 9,
       "name": {
@@ -2080,6 +2636,10 @@
     {
       "ability": "cha",
       "as": "known",
+      "caster": "srd51.class.bard",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.meteor-swarm",
       "level": 9,
       "name": {
@@ -2098,6 +2658,10 @@
     {
       "ability": "cha",
       "as": "known",
+      "caster": "srd51.class.bard",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.misty-step",
       "level": 2,
       "name": {
@@ -2116,6 +2680,12 @@
     {
       "ability": "cha",
       "as": "known",
+      "caster": "srd51.class.bard",
+      "duration": {
+        "concentration": true,
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.haste",
       "level": 3,
       "name": {
@@ -2130,6 +2700,23 @@
         "feature": "srd51.feature.college-of-lore.additional-magical-secrets",
         "package": "srd51"
       }
+    }
+  ],
+  "toggles": [
+    {
+      "expires": {
+        "until": "next-turn-end"
+      },
+      "name": {
+        "en": "Countercharm"
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.countercharm",
+        "package": "srd51"
+      },
+      "state": "countercharm"
     }
   ],
   "values": {

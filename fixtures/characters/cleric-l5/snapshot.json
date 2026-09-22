@@ -80,6 +80,136 @@
       "text": {
         "en": "You present your holy symbol and evoke healing energy that can restore a number of hit points equal to five times your cleric level. Choose any creatures within 30 feet of you, and divide those hit points among them. This feature can restore a creature to no more than half of its hit point maximum. You can't use this feature on an undead or a construct."
       }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "attack",
+      "name": {
+        "en": "Attack"
+      },
+      "source": {
+        "entity": "srd51.rule.action.attack",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "dash",
+      "name": {
+        "en": "Dash"
+      },
+      "source": {
+        "entity": "srd51.rule.action.dash",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "disengage",
+      "name": {
+        "en": "Disengage"
+      },
+      "source": {
+        "entity": "srd51.rule.action.disengage",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "dodge",
+      "name": {
+        "en": "Dodge"
+      },
+      "source": {
+        "entity": "srd51.rule.action.dodge",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "help",
+      "name": {
+        "en": "Help"
+      },
+      "source": {
+        "entity": "srd51.rule.action.help",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "hide",
+      "name": {
+        "en": "Hide"
+      },
+      "source": {
+        "entity": "srd51.rule.action.hide",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "ready",
+      "name": {
+        "en": "Ready"
+      },
+      "source": {
+        "entity": "srd51.rule.action.ready",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "search",
+      "name": {
+        "en": "Search"
+      },
+      "source": {
+        "entity": "srd51.rule.action.search",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "use-object",
+      "name": {
+        "en": "Search"
+      },
+      "source": {
+        "entity": "srd51.rule.action.use-object",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "cast-a-spell",
+      "name": {
+        "en": "Cast a Spell"
+      },
+      "source": {
+        "entity": "srd51.rule.action.cast-a-spell",
+        "package": "srd51"
+      }
     }
   ],
   "attacks": [
@@ -797,6 +927,137 @@
     ],
     "ruleset": "srd51"
   },
+  "play": {
+    "concentration": {
+      "saveDc": "max(10, floor(damage / 2))"
+    },
+    "conditions": [
+      {
+        "id": "srd51.condition.blinded",
+        "name": {
+          "en": "Blinded"
+        }
+      },
+      {
+        "id": "srd51.condition.charmed",
+        "name": {
+          "en": "Charmed"
+        }
+      },
+      {
+        "id": "srd51.condition.deafened",
+        "name": {
+          "en": "Deafened"
+        }
+      },
+      {
+        "cumulative": true,
+        "id": "srd51.condition.exhaustion",
+        "maxLevel": 6,
+        "name": {
+          "en": "Exhaustion"
+        }
+      },
+      {
+        "id": "srd51.condition.frightened",
+        "name": {
+          "en": "Frightened"
+        }
+      },
+      {
+        "id": "srd51.condition.grappled",
+        "name": {
+          "en": "Grappled"
+        }
+      },
+      {
+        "id": "srd51.condition.incapacitated",
+        "name": {
+          "en": "Incapacitated"
+        }
+      },
+      {
+        "id": "srd51.condition.invisible",
+        "name": {
+          "en": "Invisible"
+        }
+      },
+      {
+        "id": "srd51.condition.paralyzed",
+        "name": {
+          "en": "Paralyzed"
+        }
+      },
+      {
+        "id": "srd51.condition.petrified",
+        "name": {
+          "en": "Petrified"
+        }
+      },
+      {
+        "id": "srd51.condition.poisoned",
+        "name": {
+          "en": "Poisoned"
+        }
+      },
+      {
+        "id": "srd51.condition.prone",
+        "name": {
+          "en": "Prone"
+        }
+      },
+      {
+        "id": "srd51.condition.restrained",
+        "name": {
+          "en": "Restrained"
+        }
+      },
+      {
+        "id": "srd51.condition.stunned",
+        "name": {
+          "en": "Stunned"
+        }
+      },
+      {
+        "id": "srd51.condition.unconscious",
+        "name": {
+          "en": "Unconscious"
+        }
+      }
+    ],
+    "deathSaves": {
+      "damage": {
+        "failures": 1
+      },
+      "dc": 10,
+      "failures": 3,
+      "natural1": {
+        "failures": 2
+      },
+      "natural20": {
+        "hitPoints": 1
+      },
+      "successes": 3
+    },
+    "hitDice": [
+      {
+        "die": 8,
+        "total": 5
+      }
+    ],
+    "rests": {
+      "long": {
+        "conditionLevelsRecovered": 1,
+        "hitDiceRecovered": 2,
+        "hitPoints": "full",
+        "hours": 8
+      },
+      "short": {
+        "hitDice": "spend",
+        "hours": 1
+      }
+    }
+  },
   "proficiencies": [
     {
       "expertise": false,
@@ -1198,6 +1459,10 @@
     {
       "ability": "wis",
       "as": "cantrip",
+      "caster": "srd51.class.cleric",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.sacred-flame",
       "level": 0,
       "name": {
@@ -1216,6 +1481,12 @@
     {
       "ability": "wis",
       "as": "cantrip",
+      "caster": "srd51.class.cleric",
+      "duration": {
+        "concentration": true,
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.guidance",
       "level": 0,
       "name": {
@@ -1234,6 +1505,11 @@
     {
       "ability": "wis",
       "as": "cantrip",
+      "caster": "srd51.class.cleric",
+      "duration": {
+        "hours": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.light",
       "level": 0,
       "name": {
@@ -1252,6 +1528,11 @@
     {
       "ability": "wis",
       "as": "cantrip",
+      "caster": "srd51.class.cleric",
+      "duration": {
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.thaumaturgy",
       "level": 0,
       "name": {
@@ -1270,11 +1551,25 @@
     {
       "ability": "wis",
       "as": "prepared",
+      "caster": "srd51.class.cleric",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.healing-word",
       "level": 1,
       "name": {
         "en": "Healing Word"
       },
+      "onCast": [
+        {
+          "amount": "1d4",
+          "kind": "heal",
+          "note": {
+            "en": "Plus your spellcasting ability modifier (the formula language has no spellcasting-ability variable in v0). No effect on undead or constructs."
+          },
+          "target": "other"
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -1288,6 +1583,11 @@
     {
       "ability": "wis",
       "as": "prepared",
+      "caster": "srd51.class.cleric",
+      "duration": {
+        "rounds": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.guiding-bolt",
       "level": 1,
       "name": {
@@ -1306,6 +1606,12 @@
     {
       "ability": "wis",
       "as": "prepared",
+      "caster": "srd51.class.cleric",
+      "duration": {
+        "concentration": true,
+        "minutes": 10,
+        "type": "timed"
+      },
       "id": "srd51.spell.shield-of-faith",
       "level": 1,
       "name": {
@@ -1324,6 +1630,11 @@
     {
       "ability": "wis",
       "as": "prepared",
+      "caster": "srd51.class.cleric",
+      "duration": {
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.sanctuary",
       "level": 1,
       "name": {
@@ -1342,11 +1653,26 @@
     {
       "ability": "wis",
       "as": "prepared",
+      "caster": "srd51.class.cleric",
+      "duration": {
+        "hours": 8,
+        "type": "timed"
+      },
       "id": "srd51.spell.aid",
       "level": 2,
       "name": {
         "en": "Aid"
       },
+      "onCast": [
+        {
+          "amount": "5",
+          "kind": "heal",
+          "note": {
+            "en": "Current hit points increase by 5 together with the hit point maximum (plus 5 for each slot level above 2nd); up to three creatures."
+          },
+          "target": "other"
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -1360,11 +1686,33 @@
     {
       "ability": "wis",
       "as": "prepared",
+      "caster": "srd51.class.cleric",
+      "duration": {
+        "concentration": true,
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.hold-person",
       "level": 2,
       "name": {
         "en": "Hold Person"
       },
+      "onCast": [
+        {
+          "condition": "srd51.condition.paralyzed",
+          "expires": {
+            "minutes": 1
+          },
+          "kind": "applyCondition",
+          "target": "other"
+        },
+        {
+          "kind": "note",
+          "text": {
+            "en": "Humanoids only, on a failed Wisdom save. At the end of each of its turns the target repeats the saving throw; on a success the spell ends on it. Each slot level above 2nd targets one additional humanoid (within 30 feet of each other)."
+          }
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -1378,6 +1726,12 @@
     {
       "ability": "wis",
       "as": "prepared",
+      "caster": "srd51.class.cleric",
+      "duration": {
+        "concentration": true,
+        "minutes": 10,
+        "type": "timed"
+      },
       "id": "srd51.spell.silence",
       "level": 2,
       "name": {
@@ -1396,6 +1750,12 @@
     {
       "ability": "wis",
       "as": "prepared",
+      "caster": "srd51.class.cleric",
+      "duration": {
+        "concentration": true,
+        "minutes": 10,
+        "type": "timed"
+      },
       "id": "srd51.spell.spirit-guardians",
       "level": 3,
       "name": {
@@ -1414,6 +1774,10 @@
     {
       "ability": "wis",
       "as": "prepared",
+      "caster": "srd51.class.cleric",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.dispel-magic",
       "level": 3,
       "name": {
@@ -1431,6 +1795,12 @@
     },
     {
       "as": "always-prepared",
+      "caster": "srd51.class.cleric",
+      "duration": {
+        "concentration": true,
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.bless",
       "level": 1,
       "name": {
@@ -1448,11 +1818,25 @@
     },
     {
       "as": "always-prepared",
+      "caster": "srd51.class.cleric",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.cure-wounds",
       "level": 1,
       "name": {
         "en": "Cure Wounds"
       },
+      "onCast": [
+        {
+          "amount": "1d8",
+          "kind": "heal",
+          "note": {
+            "en": "Plus your spellcasting ability modifier (the formula language has no spellcasting-ability variable in v0)."
+          },
+          "target": "other"
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -1465,6 +1849,10 @@
     },
     {
       "as": "always-prepared",
+      "caster": "srd51.class.cleric",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.lesser-restoration",
       "level": 2,
       "name": {
@@ -1482,11 +1870,24 @@
     },
     {
       "as": "always-prepared",
+      "caster": "srd51.class.cleric",
+      "duration": {
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.spiritual-weapon",
       "level": 2,
       "name": {
         "en": "Spiritual Weapon"
       },
+      "onCast": [
+        {
+          "kind": "note",
+          "text": {
+            "en": "The melee spell attack made when casting deals 1d8 + your spellcasting ability modifier force damage (the formula language has no spellcasting-ability variable in v0)."
+          }
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -1499,6 +1900,12 @@
     },
     {
       "as": "always-prepared",
+      "caster": "srd51.class.cleric",
+      "duration": {
+        "concentration": true,
+        "minutes": 1,
+        "type": "timed"
+      },
       "id": "srd51.spell.beacon-of-hope",
       "level": 3,
       "name": {
@@ -1516,11 +1923,25 @@
     },
     {
       "as": "always-prepared",
+      "caster": "srd51.class.cleric",
+      "duration": {
+        "type": "instantaneous"
+      },
       "id": "srd51.spell.revivify",
       "level": 3,
       "name": {
         "en": "Revivify"
       },
+      "onCast": [
+        {
+          "amount": "1",
+          "kind": "heal",
+          "note": {
+            "en": "A creature that died within the last minute returns to life with 1 hit point; not one that died of old age, and missing body parts aren't restored."
+          },
+          "target": "other"
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -1532,6 +1953,7 @@
       }
     }
   ],
+  "toggles": [],
   "values": {
     "ability.cha": {
       "provenance": [
