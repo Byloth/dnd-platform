@@ -14,4 +14,4 @@ pnpm web:preview             # serve the generated site
 pnpm web:lint && pnpm web:typecheck && pnpm web:test
 ```
 
-The site path is `NUXT_APP_BASE_URL` (default `/dnd/`).
+The site path is `NUXT_APP_BASE_URL` (default `/dnd-platform/`, the repository name: https://byloth.github.io/dnd-platform/).

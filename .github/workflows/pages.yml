@@ -4,7 +4,7 @@ name: Pages
 # branch and published on GitHub Pages. Pages must be enabled on the repository with "GitHub Actions" as the source.
 on:
   push:
-    branches: [main]
+    branches: [master]
   workflow_dispatch:
 
 permissions:

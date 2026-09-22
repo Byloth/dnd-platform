@@ -7,7 +7,7 @@ This document orders the work of Phase 1 into the eight milestones of [00-README
 ## Decisions
 
 - **Milestones are sequential; tasks inside a milestone may run in parallel.** A milestone closes only when its done criteria in [00-README.md](00-README.md) hold, the suite is green, the accessibility pass of [07-testing-accessibility-performance.md](07-testing-accessibility-performance.md) is recorded, and the site generates.
-- **Every milestone ends in a tag** `v0.3.<n>`; Phase 1 closes with `v1.0.0`, the MVP. The owner pushes; the Pages deployment follows the push.
+- **Every milestone ends in a tag** `v0.3.<n>`; Phase 1 closes with `v1.0.0`, the MVP. The owner pushes to `master` (the default branch of the public repository; the workflows trigger on it); the Pages deployment follows the push.
 - **Three explicit confirmation points**: before the first public deployment on GitHub Pages (M1.1: the owner enables Pages and pushes; until then the site exists only locally), before launching the agent drafting of the Italian translation (M1.7), before recruiting people for the newcomer test (M1.8). Nothing else needs confirmation.
 - **The content format stays at v0.** Additions Phase 1 needs (an `abilityScores` block in the ruleset for point buy, an export document schema) are additive and recorded in [../phase-0/inventory/authoring-review.md](../phase-0/inventory/authoring-review.md); a breaking change waits for v1 and its migration.
 - **No back end, no accounts, no service worker in Phase 1** (DEC-04, DEC-12, DEC-06): a task that needs one is out of scope and goes to the open points.

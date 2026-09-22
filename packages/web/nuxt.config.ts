@@ -5,7 +5,7 @@
 export default defineNuxtConfig({
   ssr: false,
   app: {
-    baseURL: process.env["NUXT_APP_BASE_URL"] ?? "/dnd/",
+    baseURL: process.env["NUXT_APP_BASE_URL"] ?? "/dnd-platform/",
     head: { title: "dnd-platform" },
     pageTransition: { name: "page", mode: "out-in" }
   },
