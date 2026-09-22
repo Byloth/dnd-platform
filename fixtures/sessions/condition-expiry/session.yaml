@@ -1,0 +1,36 @@
+# Conditions and custom effects on the level 3 Monk: "until the end of your next turn" stored as a turn
+# counter that depends on whose turn it is, levelled conditions (exhaustion) recovered by the long rest,
+# a custom effect re-derived into the sheet, validation against the loaded conditions.
+steps:
+  - event: { type: apply-condition, condition: srd51.condition.stunned, expires: { until: next-turn-end } }
+    expect: { conditions: [{ condition: srd51.condition.stunned, expires: { turns: 1 } }] }
+  - event: { type: end-turn }
+    expect: { conditions: [], warnings: [I_EXPIRED] }
+  - event: { type: start-turn }
+    expect: { turn: { active: true } }
+  - event: { type: apply-condition, condition: srd51.condition.prone, expires: { until: next-turn-end } }
+    expect: { conditions: [{ condition: srd51.condition.prone, expires: { turns: 2 } }] }
+  - event: { type: end-turn }
+    expect: { conditions: [{ condition: srd51.condition.prone, expires: { turns: 1 } }] }
+  - event: { type: end-turn }
+    expect: { conditions: [] }
+  - event: { type: apply-condition, condition: srd51.condition.exhaustion, level: 2 }
+    expect: { conditions: [{ condition: srd51.condition.exhaustion, level: 2 }] }
+  - event: { type: apply-condition, condition: srd51.condition.exhaustion }
+    expect: { rejected: true, warnings: [W_CONDITION_PRESENT] }
+  - event: { type: apply-condition, condition: srd51.condition.exhaustion, level: 7 }
+    expect: { rejected: true, warnings: [W_CONDITION_LEVEL] }
+  - event: { type: custom-effect, name: { en: Bruised }, effects: [{ kind: modify, target: ac, op: add, value: -1 }], expires: { rest: long-rest } }
+    expect: { values: { ac: 14 } }
+  - event: { type: long-rest }
+    expect: { conditions: [{ condition: srd51.condition.exhaustion, level: 1 }], customEffects: [], values: { ac: 15 } }
+  - event: { type: long-rest }
+    expect: { conditions: [], warnings: [I_EXPIRED] }
+  - event: { type: apply-condition, condition: srd51.condition.dazed }
+    expect: { rejected: true, warnings: [W_UNKNOWN_CONDITION] }
+  - event: { type: remove-condition, condition: srd51.condition.stunned }
+    expect: { rejected: true, warnings: [W_CONDITION_ABSENT] }
+  - event: { type: apply-condition, condition: homebrew.byloth.condition.bruised-lung }
+    expect: { conditions: [{ condition: homebrew.byloth.condition.bruised-lung }] }
+  - event: { type: remove-condition, condition: homebrew.byloth.condition.bruised-lung }
+    expect: { conditions: [] }

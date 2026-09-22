@@ -1,0 +1,19 @@
+# Temporary hit points on the level 3 Monk: they never stack, absorb damage first, survive a short rest
+# and vanish with a long rest.
+steps:
+  - event: { type: temp-hp, amount: 5 }
+    expect: { hp: { current: 24, temporary: 5 } }
+  - event: { type: temp-hp, amount: 3 }
+    expect: { hp: { current: 24, temporary: 5 }, warnings: [I_TEMP_HP_KEPT] }
+  - event: { type: damage, amount: 3 }
+    expect: { hp: { current: 24, temporary: 2 } }
+  - event: { type: damage, amount: 6 }
+    expect: { hp: { current: 20, temporary: 0 } }
+  - event: { type: heal, amount: 10 }
+    expect: { hp: { current: 24, temporary: 0 } }
+  - event: { type: temp-hp, amount: 4 }
+    expect: { hp: { current: 24, temporary: 4 } }
+  - event: { type: short-rest, hitDice: [] }
+    expect: { hp: { current: 24, temporary: 4 }, hitDice: { spent: 0 } }
+  - event: { type: long-rest }
+    expect: { hp: { current: 24, temporary: 0 } }

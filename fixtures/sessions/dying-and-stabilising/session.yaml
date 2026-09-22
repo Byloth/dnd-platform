@@ -1,0 +1,38 @@
+# The level 1 Fighter drops to 0 hit points: death saving throws read from the ruleset (DC 10, three
+# successes or failures, natural 1 counts two, natural 20 regains a hit point, damage at 0 counts one),
+# healing clears the saves, stabilise resets them.
+steps:
+  - event: { type: damage, amount: 12 }
+    expect: { hp: { current: 0, temporary: 0 }, deathSaves: { successes: 0, failures: 0 }, warnings: [I_DOWN] }
+  - event: { type: death-save, roll: 15 }
+    expect: { deathSaves: { successes: 1, failures: 0 } }
+  - event: { type: death-save, roll: 3 }
+    expect: { deathSaves: { successes: 1, failures: 1 } }
+  - event: { type: death-save, roll: 1 }
+    expect: { deathSaves: { successes: 1, failures: 3 }, warnings: [W_DEAD] }
+  - event: { type: heal, amount: 5 }
+    expect: { hp: { current: 5 }, deathSaves: { successes: 0, failures: 0 } }
+  - event: { type: damage, amount: 5 }
+    expect: { hp: { current: 0 } }
+  - event: { type: death-save, roll: 20 }
+    expect: { hp: { current: 1 }, deathSaves: { successes: 0, failures: 0 }, warnings: [I_STABILISED] }
+  - event: { type: damage, amount: 1 }
+    expect: { hp: { current: 0 } }
+  - event: { type: death-save, roll: 10 }
+    expect: { deathSaves: { successes: 1, failures: 0 } }
+  - event: { type: damage, amount: 2 }
+    expect: { deathSaves: { successes: 1, failures: 1 } }
+  - event: { type: death-save, roll: 12 }
+    expect: { deathSaves: { successes: 2, failures: 1 } }
+  - event: { type: death-save, roll: 19 }
+    expect: { deathSaves: { successes: 0, failures: 0 }, hp: { current: 0 }, warnings: [I_STABILISED] }
+  - event: { type: damage, amount: 3 }
+    expect: { deathSaves: { successes: 0, failures: 1 } }
+  - event: { type: stabilise }
+    expect: { deathSaves: { successes: 0, failures: 0 } }
+  - event: { type: heal, amount: 1 }
+    expect: { hp: { current: 1 } }
+  - event: { type: death-save, roll: 10 }
+    expect: { rejected: true, warnings: [W_NOT_DYING] }
+  - event: { type: stabilise }
+    expect: { rejected: true, warnings: [W_NOT_DYING] }

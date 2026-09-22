@@ -1,0 +1,24 @@
+# Rests of the level 1 Fighter (d10, CON +2): Second Wind with the caller's roll, its recharge on a
+# short rest, Hit Dice spent with the Constitution modifier and validated, the long rest recovering
+# hit points and Hit Dice per the ruleset formula (max(1, floor(level / 2)) = 1).
+steps:
+  - event: { type: damage, amount: 10 }
+    expect: { hp: { current: 2, temporary: 0 } }
+  - event: { type: use-action, action: second-wind }
+    expect: { hp: { current: 2 }, resources: { second-wind: 0 }, warnings: [I_ROLL_NEEDED] }
+  - event: { type: end-turn }
+    expect: { turn: { used: [] } }
+  - event: { type: use-action, action: second-wind }
+    expect: { rejected: true, warnings: [W_INSUFFICIENT_RESOURCE] }
+  - event: { type: short-rest, hitDice: [{ die: 10, rolls: [4] }] }
+    expect: { hp: { current: 8 }, hitDice: { spent: 1 }, resources: { second-wind: 1 } }
+  - event: { type: use-action, action: second-wind, rolled: 7 }
+    expect: { hp: { current: 12 }, resources: { second-wind: 0 } }
+  - event: { type: short-rest, hitDice: [{ die: 10, rolls: [1] }] }
+    expect: { rejected: true, warnings: [W_HIT_DICE] }
+  - event: { type: short-rest, hitDice: [{ die: 8, rolls: [] }] }
+    expect: { hitDice: { spent: 1 }, resources: { second-wind: 1 } }
+  - event: { type: damage, amount: 7 }
+    expect: { hp: { current: 5 } }
+  - event: { type: long-rest }
+    expect: { hp: { current: 12, temporary: 0 }, hitDice: { spent: 0 }, resources: { second-wind: 1 } }

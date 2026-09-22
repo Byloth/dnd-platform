@@ -1,0 +1,25 @@
+# The same engine build on the mini ruleset B (docs/phase-0/07-ruleset-switching.md): a long rest
+# recovers every Hit Die (`hitDiceRecovered: level` = 5), death saves stabilise at two successes with
+# DC 11, a natural 1 counts one failure, damage at 0 hit points counts two and a natural 20 regains 5 hit
+# points; nothing of this is in code.
+steps:
+  - event: { type: short-rest, hitDice: [{ die: 8, rolls: [3, 3, 3, 3, 3] }] }
+    expect: { hitDice: { spent: 5 }, hp: { current: 40 } }
+  - event: { type: long-rest }
+    expect: { hitDice: { spent: 0 } }
+  - event: { type: damage, amount: 40 }
+    expect: { hp: { current: 0, temporary: 0 }, warnings: [I_DOWN] }
+  - event: { type: death-save, roll: 10 }
+    expect: { deathSaves: { successes: 0, failures: 1 } }
+  - event: { type: death-save, roll: 11 }
+    expect: { deathSaves: { successes: 1, failures: 1 } }
+  - event: { type: death-save, roll: 11 }
+    expect: { deathSaves: { successes: 0, failures: 0 }, warnings: [I_STABILISED] }
+  - event: { type: death-save, roll: 1 }
+    expect: { deathSaves: { successes: 0, failures: 1 } }
+  - event: { type: damage, amount: 1 }
+    expect: { deathSaves: { successes: 0, failures: 3 }, warnings: [] }
+  - event: { type: damage, amount: 1 }
+    expect: { deathSaves: { successes: 0, failures: 4 }, warnings: [W_DEAD] }
+  - event: { type: death-save, roll: 20 }
+    expect: { deathSaves: { successes: 0, failures: 0 }, hp: { current: 5 }, warnings: [I_STABILISED] }

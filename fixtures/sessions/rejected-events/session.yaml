@@ -1,0 +1,31 @@
+# Events the level 3 Monk cannot take: each is rejected with one warning and no change, and `force`
+# lets a DM override the validation.
+steps:
+  - event: { type: spend-resource, resource: ki, amount: 4 }
+    expect: { rejected: true, warnings: [W_INSUFFICIENT_RESOURCE], resources: { ki: 3 } }
+  - event: { type: spend-resource, resource: rage, amount: 1 }
+    expect: { rejected: true, warnings: [W_UNKNOWN_RESOURCE] }
+  - event: { type: restore-resource, resource: rage, amount: 1 }
+    expect: { rejected: true, warnings: [W_UNKNOWN_RESOURCE] }
+  - event: { type: use-action, action: fly }
+    expect: { rejected: true, warnings: [W_UNKNOWN_ACTION] }
+  - event: { type: cast-spell, spell: srd51.spell.fireball }
+    expect: { rejected: true, warnings: [W_UNKNOWN_SPELL] }
+  - event: { type: toggle, state: raging, on: true }
+    expect: { rejected: true, warnings: [W_UNKNOWN_TOGGLE] }
+  - event: { type: toggle, state: patient-defense, on: false }
+    expect: { rejected: true, warnings: [W_NOT_ACTIVE] }
+  - event: { type: end-concentration }
+    expect: { rejected: true, warnings: [W_NOT_CONCENTRATING] }
+  - event: { type: end-spell, spell: srd51.spell.darkness }
+    expect: { rejected: true, warnings: [W_NOT_ACTIVE] }
+  - event: { type: end-custom-effect, name: { en: Nothing } }
+    expect: { rejected: true, warnings: [W_NOT_ACTIVE] }
+  - event: { type: death-save, roll: 10 }
+    expect: { rejected: true, warnings: [W_NOT_DYING] }
+  - event: { type: short-rest, hitDice: [{ die: 12, rolls: [6] }] }
+    expect: { rejected: true, warnings: [W_HIT_DICE] }
+  - event: { type: spend-resource, resource: ki, amount: 4, force: true }
+    expect: { resources: { ki: 0 }, warnings: [] }
+  - event: { type: toggle, state: raging, on: true, force: true }
+    expect: { toggles: [{ state: raging }] }

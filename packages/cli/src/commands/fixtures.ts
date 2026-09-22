@@ -6,6 +6,8 @@
  * in its `packages.yaml`, derived, compared with the hand-written
  * `expected.yaml` and with `snapshot.json` (canonical JSON of the whole
  * sheet). A fixture whose packages are missing is skipped, never failed.
+ * A fixture directory holding `session.yaml` is a session fixture instead
+ * (commands/sessions.ts): its events go through `apply`, step by step.
  */
 
 import { existsSync, readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
@@ -19,11 +21,17 @@ import type { Character, ComputedSheet, Selection, SpellView } from "@byloth/dnd
 import { PRIVATE_ROOT, findRepositoryRoot } from "../io/repository.js";
 import { toPackageSource } from "../io/to-package-source.js";
 import { computeCoverage, writeCoverageReport } from "./coverage.js";
+import { runSession } from "./sessions.js";
 
 export { findRepositoryRoot };
 
-/** Fixture roots scanned by default; the private one is absent in CI. */
-export const DEFAULT_FIXTURE_DIRS: readonly string[] = ["fixtures/characters", `${PRIVATE_ROOT}/fixtures`];
+/** Fixture roots scanned by default (golden characters and sessions); the private ones are absent in CI. */
+export const DEFAULT_FIXTURE_DIRS: readonly string[] = [
+    "fixtures/characters",
+    "fixtures/sessions",
+    `${PRIVATE_ROOT}/fixtures`,
+    `${PRIVATE_ROOT}/fixtures/sessions`
+];
 
 export type FixtureStatus = "pass" | "fail" | "skip" | "updated";
 
@@ -324,7 +332,10 @@ export function runFixtures(options: FixturesOptions = {}): FixtureReport[]
 
             try
             {
-                reports.push(runOne(root, directory, name, options.update === true));
+                const session = existsSync(join(directory, "session.yaml"));
+                reports.push(session ?
+                    runSession(root, directory, name) :
+                    runOne(root, directory, name, options.update === true));
             }
             catch (error)
             {

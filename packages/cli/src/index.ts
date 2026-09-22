@@ -7,7 +7,7 @@
  *   validate [dirs…] [--all] [--references] [--allow-missing] [--json]
  *   build                                          YAML → canonical JSON bundles
  *   derive <character.yaml> [--json|--text]
- *   fixtures [dirs…] [--update] [--filter <name>] [--coverage]
+ *   fixtures [dirs…] [--update] [--filter <name>] [--coverage]   golden characters and play sessions
  */
 
 import { FORMAT_VERSION } from "@byloth/dnd-platform-schema";
@@ -27,7 +27,8 @@ Commands:
   build      convert YAML packages to canonical JSON      (M0.8)
   derive     compute a character sheet                    (M0.8)
   fixtures [dirs…] [--update] [--filter <name>] [--json]
-             run the golden character fixtures (default fixtures/characters)
+             run the golden character fixtures (fixtures/characters) and the
+             play session fixtures (fixtures/sessions), plus the private ones when present
 `;
 
 export function main(argv: readonly string[]): number

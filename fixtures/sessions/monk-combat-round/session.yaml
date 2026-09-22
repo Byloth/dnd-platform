@@ -1,0 +1,31 @@
+# A combat round of the level 3 Monk (base package): action, bonus action, reaction, the turn tracker
+# and its reset, prerequisites (Flurry of Blows after the Attack action), a toggle with expiry.
+steps:
+  - event: { type: start-turn }
+    expect: { turn: { used: [], actionsTaken: [], movementUsed: 0, active: true } }
+  - event: { type: use-action, action: flurry-of-blows }
+    expect: { rejected: true, warnings: [W_REQUIRES_ACTION] }
+  - event: { type: use-action, action: attack }
+    expect: { turn: { used: [action], actionsTaken: [attack] } }
+  - event: { type: use-action, action: flurry-of-blows }
+    expect: { resources: { ki: 2 }, turn: { used: [action, bonus-action], actionsTaken: [attack, flurry-of-blows] } }
+  - event: { type: use-action, action: patient-defense }
+    expect: { rejected: true, warnings: [W_ACTIVATION_USED], resources: { ki: 2 } }
+  - event: { type: use-action, action: deflect-missiles }
+    expect: { turn: { used: [action, bonus-action, reaction] } }
+  - event: { type: end-turn }
+    expect: { turn: { used: [reaction], actionsTaken: [], movementUsed: 0, active: false } }
+  - event: { type: use-action, action: deflect-missiles }
+    expect: { rejected: true, warnings: [W_ACTIVATION_USED] }
+  - event: { type: start-turn }
+    expect: { turn: { used: [], active: true } }
+  - event: { type: use-action, action: patient-defense }
+    expect: { resources: { ki: 1 }, toggles: [{ state: patient-defense, expires: { until: next-turn-start } }] }
+  - event: { type: use-action, action: step-of-the-wind }
+    expect: { rejected: true, warnings: [W_ACTIVATION_USED] }
+  - event: { type: end-turn }
+    expect: { toggles: [{ state: patient-defense, expires: { until: next-turn-start } }], warnings: [] }
+  - event: { type: start-turn }
+    expect: { toggles: [], warnings: [I_EXPIRED] }
+  - event: { type: note, text: "Round over" }
+    expect: { resources: { ki: 1 } }

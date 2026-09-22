@@ -1,0 +1,36 @@
+# Concentration of the level 5 Life Domain Cleric: slots spent by level, the concentration check DC on
+# damage (read from the ruleset), resistance halving the damage first, replacement by a second
+# concentration spell, cantrips cast for free, a play effect the engine only reports, and the long rest.
+steps:
+  - event: { type: cast-spell, spell: srd51.spell.shield-of-faith }
+    expect:
+      spellSlots: { "1": 3, "2": 3, "3": 2 }
+      concentration: { spell: srd51.spell.shield-of-faith, since: step-1 }
+      activeSpells: [{ spell: srd51.spell.shield-of-faith, expires: { minutes: 10 } }]
+      values: { ac: 20 }
+  - event: { type: damage, amount: 9 }
+    expect: { hp: { current: 34, temporary: 0 }, warnings: [W_CONCENTRATION_CHECK] }
+  - event: { type: damage, amount: 30, damageType: poison }
+    expect: { hp: { current: 19 }, warnings: [I_DEFENSE, W_CONCENTRATION_CHECK] }
+  - event: { type: cast-spell, spell: srd51.spell.spirit-guardians }
+    expect:
+      spellSlots: { "1": 3, "2": 3, "3": 1 }
+      concentration: { spell: srd51.spell.spirit-guardians, since: step-4 }
+      activeSpells: [{ spell: srd51.spell.spirit-guardians, expires: { minutes: 10 } }]
+      warnings: [I_CONCENTRATION_REPLACED]
+      values: { ac: 18 }
+  - event: { type: cast-spell, spell: srd51.spell.healing-word, slotLevel: 2 }
+    expect: { spellSlots: { "1": 3, "2": 2, "3": 1 }, hp: { current: 19 }, warnings: [I_PLAY_EFFECT] }
+  - event: { type: cast-spell, spell: srd51.spell.guidance }
+    expect:
+      spellSlots: { "1": 3, "2": 2, "3": 1 }
+      concentration: { spell: srd51.spell.guidance, since: step-6 }
+      activeSpells: [{ spell: srd51.spell.guidance, expires: { minutes: 1 } }]
+  - event: { type: end-concentration }
+    expect: { concentration: null, activeSpells: [] }
+  - event: { type: end-concentration }
+    expect: { rejected: true, warnings: [W_NOT_CONCENTRATING] }
+  - event: { type: use-action, action: preserve-life }
+    expect: { resources: { channel-divinity: 0 }, turn: { used: [action], actionsTaken: [preserve-life] } }
+  - event: { type: long-rest }
+    expect: { hp: { current: 43, temporary: 0 }, spellSlots: {}, resources: { channel-divinity: 1 }, turn: { used: [], actionsTaken: [] } }

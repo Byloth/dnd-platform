@@ -2,10 +2,11 @@
  * Expiry of temporary things in the character state (conditions, toggles,
  * active spells, custom effects). One representation, one clock:
  *
- * - `turns: n` counts the character's end-turn events; `until: next-turn-end`
- *   is stored as `turns: 1`. Something gained during the character's own
- *   turn gets one more, so that it survives the current end-turn
- *   ("until the end of your next turn").
+ * - `turns: n` counts the character's end-turn events, the current turn's
+ *   included: `turns: 1` gained during the character's turn ends with that
+ *   turn (Step of the Wind). `until: next-turn-end` is stored as a counter
+ *   relative to whose turn it is: `turns: 2` during the character's own
+ *   turn, `turns: 1` otherwise.
  * - `rounds: n` counts start-turn events: "1 round" ends when the
  *   character's next turn begins.
  * - `until: next-turn-start` ends at the next start-turn, `until: dawn` at
@@ -36,7 +37,6 @@ export function normalizeExpiry(expiry: Expiry | undefined, duringOwnTurn: boole
 {
     if (expiry === undefined) { return undefined; }
     if ("until" in expiry && expiry.until === "next-turn-end") { return { turns: duringOwnTurn ? 2 : 1 }; }
-    if ("turns" in expiry) { return { turns: duringOwnTurn ? expiry.turns + 1 : expiry.turns }; }
 
     return expiry;
 }

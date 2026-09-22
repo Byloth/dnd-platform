@@ -1665,7 +1665,7 @@
   "toggles": [
     {
       "expires": {
-        "turns": 1
+        "until": "next-turn-start"
       },
       "name": {
         "en": "Patient Defense"
