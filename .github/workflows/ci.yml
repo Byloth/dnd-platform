@@ -21,9 +21,10 @@ jobs:
       - run: pnpm typecheck
       - run: pnpm build
       - run: pnpm generate:types:check
-      - run: pnpm test
       - run: pnpm validate:content
       - run: pnpm build:content
+      # After build:content: the web tests read the SRD bundle from build/content/.
+      - run: pnpm test
       - run: pnpm fixtures
       - run: pnpm web:prepare-content
       - run: pnpm web:generate
