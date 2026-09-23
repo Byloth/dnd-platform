@@ -19,6 +19,7 @@ Two vocabularies are used across these documents: the game's own terms (5e) and 
 | Passive Perception | Percezione passiva | 10 + Perception modifier; used without rolling. |
 | Armor Class (AC) | Classe Armatura (CA) | The number an attack roll must meet or beat to hit. |
 | Hit points (HP) | Punti ferita (PF) | Health. Temporary hit points are a separate buffer. |
+| Hit Dice (Hit Die) | Dadi vita (Dado vita) | A pool of dice, one per level, spent on a short rest to regain hit points. |
 | Hit dice | Dadi vita | Dice spent on a short rest to heal; one per level. |
 | Death saving throw | Tiro salvezza contro morte | Rolls made at 0 HP; three successes stabilise, three failures kill. |
 | Initiative | Iniziativa | A roll that orders turns in combat. |

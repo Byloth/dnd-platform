@@ -35,12 +35,19 @@
                         <dt>{{ item.label }}</dt>
                         <dd>
                             <strong :aria-label="`${item.label}, ${item.shown}`">{{ item.shown }}</strong>
-                            <ul v-if="item.explain" class="explain">
+                            <ul v-if="item.explain?.newcomer" class="explain">
+                                <li v-for="(sentence, i) in [...item.explain.newcomer, ...(item.explain.notes ?? [])]"
+                                    :key="i">
+                                    {{ sentence }}
+                                </li>
+                            </ul>
+                            <ul v-else-if="item.explain" class="explain">
                                 <li v-for="(line, i) in item.explain.regular" :key="i">
                                     <code>{{ line.shown }}</code> {{ line.label }}
                                     <small class="text-muted">← {{ line.source }}</small>
                                 </li>
                             </ul>
+                            <small v-if="item.raw" class="text-muted raw">{{ item.raw }}</small>
                         </dd>
                     </template>
                 </dl>
@@ -196,7 +203,12 @@
                                     {{ item.name }}
                                     <small v-if="item.level !== undefined" class="text-muted">L{{ item.level }}</small>
                                 </dt>
-                                <dd>{{ item.text }}</dd>
+                                <dd>
+                                    <p v-if="item.summary" class="summary">
+                                        {{ item.summary }}
+                                    </p>
+                                    {{ item.text }}
+                                </dd>
                             </template>
                         </dl>
                     </div>

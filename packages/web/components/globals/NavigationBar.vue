@@ -1,45 +1,87 @@
 <script lang="ts" setup>
-    const { t, locale, locales, setLocale } = useI18n();
+    import type { HelpLevel } from "@byloth/dnd-platform-composer";
 
-    const onLanguage = (event: Event): void =>
-    {
-        void setLocale((event.target as HTMLSelectElement).value as typeof locale.value);
-    };
+    import type { Language, Theme } from "@/stores/preferences";
+
+    const { t, locales } = useI18n();
+    const preferences = usePreferencesStore();
+
+    const HELP_LEVELS: HelpLevel[] = ["newcomer", "regular", "expert"];
+    const THEMES: Theme[] = ["system", "light", "dark"];
+
+    const language = computed({
+        get: (): Language => preferences.language,
+        set: (value: Language): void => { preferences.language = value; }
+    });
+    const helpLevel = computed({
+        get: (): HelpLevel => preferences.helpLevel,
+        set: (value: HelpLevel): void => { preferences.helpLevel = value; }
+    });
+    const theme = computed({
+        get: (): Theme => preferences.theme,
+        set: (value: Theme): void => { preferences.theme = value; }
+    });
 </script>
 
 <template>
     <nav class="navigation-bar" :aria-label="t('nav.main')">
-        <div class="container row">
-            <div class="col">
+        <div class="container bar">
+            <div class="links">
                 <RouterLink :to="{ name: 'index' }" class="link bold">
                     {{ t("app.title") }}
+                </RouterLink>
+                <RouterLink :to="{ name: 'index' }" class="link">
+                    {{ t("nav.characters") }}
                 </RouterLink>
                 <RouterLink :to="{ name: 'packages' }" class="link">
                     {{ t("nav.packages") }}
                 </RouterLink>
             </div>
-            <div class="col right">
-                <label class="link">
-                    <span class="visually-hidden">{{ t("nav.language") }}</span>
-                    <select :value="locale" @change="onLanguage">
-                        <option v-for="l in locales"
-                                :key="l.code"
-                                :value="l.code">
-                            {{ l.name }}
-                        </option>
-                    </select>
-                </label>
-            </div>
+            <details class="settings">
+                <summary class="link">
+                    {{ t("nav.settings") }}
+                </summary>
+                <div class="settings-panel">
+                    <label>
+                        <span>{{ t("nav.language") }}</span>
+                        <select v-model="language">
+                            <option v-for="l in locales"
+                                    :key="l.code"
+                                    :value="l.code">
+                                {{ l.name }}
+                            </option>
+                        </select>
+                    </label>
+                    <label>
+                        <span>{{ t("nav.helpLevel") }}</span>
+                        <select v-model="helpLevel">
+                            <option v-for="level in HELP_LEVELS"
+                                    :key="level"
+                                    :value="level">
+                                {{ t(`preferences.helpLevel.${level}`) }}
+                            </option>
+                        </select>
+                    </label>
+                    <label>
+                        <span>{{ t("nav.theme") }}</span>
+                        <select v-model="theme">
+                            <option v-for="value in THEMES"
+                                    :key="value"
+                                    :value="value">
+                                {{ t(`preferences.theme.${value}`) }}
+                            </option>
+                        </select>
+                    </label>
+                </div>
+            </details>
         </div>
     </nav>
 </template>
 
 <style lang="scss" scoped>
-    @use "@/assets/scss/variables";
-
     .navigation-bar
     {
-        background-color: rgba(#FFF, 0.5);
+        background-color: rgba(var(--bs-body-bg-rgb), 0.75);
         box-shadow: 0px 0px 1em rgba(0, 0, 0, 0.25);
         backdrop-filter: blur(10px);
         position: fixed;
@@ -47,34 +89,70 @@
         width: 100%;
         z-index: 1;
 
-        .col.right
+        .bar
         {
-            text-align: right;
+            align-items: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            min-height: var(--navigation-bar-height);
+        }
+
+        .links
+        {
+            display: flex;
+            flex-wrap: wrap;
         }
 
         .link
         {
-            display: inline-block;
+            align-items: center;
+            cursor: pointer;
+            display: inline-flex;
             min-height: 44px;
-            padding: 0.75em 1em;
-
-            &.router-link-exact-active:not(.bold)
-            {
-                text-decoration: underline;
-            }
+            padding: 0.5em 0.75em;
 
             &.bold
             {
                 font-weight: bold;
             }
+
+            &.router-link-exact-active:not(.bold)
+            {
+                text-decoration: underline;
+            }
         }
 
-        & > .container.row
+        .settings
         {
-            align-items: center;
-            height: var(--navigation-bar-height);
-            margin-left: auto;
-            margin-right: auto;
+            position: relative;
+
+            .settings-panel
+            {
+                background-color: var(--bs-body-bg);
+                border: 1px solid var(--bs-border-color);
+                border-radius: 0.5em;
+                display: flex;
+                flex-direction: column;
+                gap: 0.75em;
+                padding: 1em;
+                position: absolute;
+                right: 0px;
+                z-index: 2;
+
+                label
+                {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.25em;
+                }
+
+                select
+                {
+                    min-height: 44px;
+                    min-width: 12em;
+                }
+            }
         }
     }
 </style>

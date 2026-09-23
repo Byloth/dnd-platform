@@ -1,49 +1,64 @@
 <script lang="ts" setup>
-    import type { Character } from "@byloth/dnd-platform-engine";
+    // The characters page: until the user's own characters (M1.5), the site's demo characters, each linking its sheet.
 
-    import SheetTree from "@/components/sheet/SheetTree.vue";
+    const { t } = useI18n();
+    const { list } = useCharacters();
 
-    const { fetchBundle } = useContent();
-    const engine = useEngine();
-    const { t, locale } = useI18n();
-    const runtimeConfig = useRuntimeConfig();
-
-    const { data, status, error } = await useAsyncData("sample-sheet", async () =>
-    {
-        const [srd51, character] = await Promise.all([
-            fetchBundle("srd51"),
-            $fetch<Character>(`${runtimeConfig.app.baseURL}content/sample-character.json`, { responseType: "json" })
-        ]);
-        return { character: character, sources: [srd51] };
-    });
-
-    const composed = computed(() =>
-    {
-        if (!data.value) { return undefined; }
-
-        return engine.sheet(data.value.character, data.value.sources, locale.value);
-    });
+    const { data: characters, status } = await useAsyncData("characters", () => list());
 </script>
 
 <template>
-    <div id="home-page" class="page container">
-        <h1>{{ t("sample.heading") }}</h1>
-        <p>{{ t("sample.intro") }}</p>
+    <div id="characters-page" class="page container">
+        <h1>{{ t("characters.heading") }}</h1>
+        <p>{{ t("characters.intro") }}</p>
         <p v-if="status === 'pending'" role="status">
-            {{ t("sample.loading") }}
+            {{ t("characters.loading") }}
         </p>
-        <p v-else-if="error" role="alert">
-            {{ t("sample.failed") }} <code>{{ error.message }}</code>
+        <p v-else-if="status === 'error'" role="alert">
+            {{ t("characters.failed") }}
         </p>
-        <SheetTree v-else-if="composed" :tree="composed.tree" />
+        <section v-else aria-labelledby="characters-demo-heading">
+            <h2 id="characters-demo-heading">
+                {{ t("characters.demos") }}
+            </h2>
+            <ul class="characters">
+                <li v-for="character in characters" :key="character.id">
+                    <NuxtLink :to="{ name: 'characters-id', params: { id: character.id } }" class="character">
+                        <strong>{{ character.name }}</strong>
+                        <span>{{ character.summary }}</span>
+                    </NuxtLink>
+                </li>
+            </ul>
+        </section>
     </div>
 </template>
 
 <style lang="scss" scoped>
-    #home-page
+    #characters-page
     {
         min-height: 100dvh;
         padding-bottom: 2em;
         padding-top: calc(var(--navigation-bar-height) + 1em);
+
+        .characters
+        {
+            display: grid;
+            gap: 0.75em;
+            grid-template-columns: repeat(auto-fill, minmax(16em, 1fr));
+            list-style: none;
+            padding: 0px;
+        }
+
+        .character
+        {
+            background-color: var(--bs-body-bg);
+            border: 1px solid var(--bs-border-color);
+            border-radius: 0.5em;
+            display: flex;
+            flex-direction: column;
+            min-height: 44px;
+            padding: 1em;
+            text-decoration: none;
+        }
     }
 </style>

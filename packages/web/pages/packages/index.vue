@@ -278,8 +278,8 @@
         .load,
         .package
         {
-            background-color: #FFF;
-            border: 1px solid variables.$somewhat-gray;
+            background-color: var(--bs-body-bg);
+            border: 1px solid var(--bs-border-color);
             border-radius: 0.5em;
             margin-bottom: 1em;
             padding: 1em;

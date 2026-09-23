@@ -38,7 +38,7 @@ describe("the reference Monk in the browser", () =>
 
         const character = parse(readFileSync(join(FIXTURE, "character.yaml"), "utf8")) as Character;
         const sources = await useContentStore().sources(character.packages.map((p) => p.id));
-        const { sheet, tree } = useEngine().sheet(character, sources, "en");
+        const { sheet, tree } = useEngine().sheet(character, sources, { language: "en" });
 
         expect(`${stableStringify(sheet)}\n`).toBe(readFileSync(join(FIXTURE, "snapshot.json"), "utf8"));
         expect(stableStringify(tree)).toBe(readFileSync(join(FIXTURE, "section-tree.json"), "utf8"));

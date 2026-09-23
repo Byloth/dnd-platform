@@ -9,8 +9,6 @@
 </template>
 
 <style lang="scss" scoped>
-    @use "@/assets/scss/variables";
-
     .default-layout
     {
         display: flex;
@@ -19,7 +17,7 @@
 
         .content
         {
-            background-color: variables.$slightly-off-white;
+            background-color: var(--bs-tertiary-bg);
             min-height: 100dvh;
             flex: 1;
         }

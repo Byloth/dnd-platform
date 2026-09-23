@@ -1,3 +1,4 @@
+import { ReferenceException } from "@byloth/core";
 import { defineStore } from "pinia";
 
 import type { PackageDiagnostic, PackageSource } from "@byloth/dnd-platform-loader";
@@ -41,6 +42,16 @@ export interface RemoveResult
     readonly removed: boolean;
     /** Names of the stored characters that use the package, when it was not removed. */
     readonly usedBy: readonly string[];
+}
+
+/** A package a character uses is neither on the site nor loaded in this browser (docs/13-ux-and-accessibility.md). */
+export class MissingPackageException extends ReferenceException
+{
+    public constructor(public readonly packageId: string)
+    {
+        const message = `The package "${packageId}" is not on the site nor loaded in this browser.`;
+        super(message, undefined, "MissingPackageException");
+    }
 }
 
 /** Site bundles fetched in this page load; the HTTP cache keeps them across loads. */
@@ -163,7 +174,7 @@ export const useContentStore = defineStore("content", () =>
             if (id in published.packages) { return _siteBundle(id); }
 
             const record = records.find((r) => r.source.manifest.id === id);
-            if (!record) { throw new Error(`the package "${id}" is not on the site nor loaded in this browser`); }
+            if (!record) { throw new MissingPackageException(id); }
 
             return record.source;
         }));

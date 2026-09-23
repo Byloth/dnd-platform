@@ -4,16 +4,13 @@
     "tagline": "A character-first D&D 5e platform for newcomers."
   },
   "nav": {
-    "sheet": "Sheet",
     "packages": "Packages",
     "language": "Language",
-    "main": "Main"
-  },
-  "sample": {
-    "heading": "Sample character",
-    "intro": "The SRD 5.1 base package loaded in your browser and a fixture character derived by the rules engine, rendered from the composer's section tree. The dynamic sheet arrives with the next milestones.",
-    "loading": "Loading the SRD package…",
-    "failed": "The SRD package could not be loaded."
+    "main": "Main",
+    "characters": "Characters",
+    "settings": "Settings",
+    "helpLevel": "Help level",
+    "theme": "Theme"
   },
   "footer": {
     "attribution": "This work includes material taken from the System Reference Document 5.1 by Wizards of the Coast LLC, licensed under the Creative Commons Attribution 4.0 International License."
@@ -77,5 +74,55 @@
       "usage": "Using {used} of the {quota} available.",
       "safari": "Safari deletes the data of sites you have not opened for a few weeks. Keep the files of your packages; exporting characters to a file comes with a next version."
     }
+  },
+  "preferences": {
+    "helpLevel": {
+      "newcomer": "Newcomer: explain everything",
+      "regular": "Regular",
+      "expert": "Expert: raw values"
+    },
+    "theme": {
+      "system": "Like the device",
+      "light": "Light",
+      "dark": "Dark"
+    }
+  },
+  "characters": {
+    "heading": "Characters",
+    "intro": "Your characters will live here: creating one with guidance arrives with the next versions. Meanwhile, open one of the demo characters to see how a sheet explains every number.",
+    "demos": "Demo characters",
+    "loading": "Loading the characters…",
+    "failed": "The characters could not be loaded."
+  },
+  "character": {
+    "loading": "Computing the sheet…",
+    "failed": "The sheet could not be computed.",
+    "back": "Back to the characters",
+    "notFound": {
+      "heading": "Character not found",
+      "text": "There is no character with this address in this browser."
+    },
+    "missing": {
+      "heading": "Content not installed here",
+      "text": "This character uses content that is not installed here: the package {id}. Load it on the Packages page, then come back.",
+      "action": "Go to Packages"
+    }
+  },
+  "terms": {
+    "abilityScore": "Ability score",
+    "proficiencyBonus": "Proficiency bonus",
+    "skill": "Skill",
+    "savingThrow": "Saving throw",
+    "armorClass": "Armor Class",
+    "hitPoints": "Hit points",
+    "hitDice": "Hit Dice",
+    "initiative": "Initiative",
+    "speed": "Speed",
+    "action": "Action",
+    "bonusAction": "Bonus action",
+    "reaction": "Reaction",
+    "spellSlot": "Spell slot",
+    "shortRest": "Short rest",
+    "longRest": "Long rest"
   }
 }

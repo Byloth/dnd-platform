@@ -1,4 +1,7 @@
-/** Both interface catalogues carry the same keys: no string exists in one language only. */
+/**
+ * Both interface catalogues carry the same keys: no string exists in one language only; every key has a translator
+ * note in en.notes.json (docs/phase-1/06-localisation.md).
+ */
 
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
@@ -22,5 +25,13 @@ describe("interface catalogues", () =>
         const italian = JSON.parse(readFileSync(resolve(LOCALES, "it.json"), "utf8")) as unknown;
 
         expect(keys(italian).sort()).toEqual(keys(english).sort());
+    });
+
+    it("carry a translator note for every English key", () =>
+    {
+        const english = JSON.parse(readFileSync(resolve(LOCALES, "en.json"), "utf8")) as unknown;
+        const notes = JSON.parse(readFileSync(resolve(LOCALES, "en.notes.json"), "utf8")) as unknown;
+
+        expect(keys(notes).sort()).toEqual(keys(english).sort());
     });
 });

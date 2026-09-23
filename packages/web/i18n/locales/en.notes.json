@@ -1,0 +1,128 @@
+{
+  "app": {
+    "title": "The application's name, shown in the header; keep it as is unless the project is renamed.",
+    "tagline": "One line under the name: what the platform is, for a newcomer."
+  },
+  "nav": {
+    "packages": "Header navigation and settings; short labels, they share a phone-width bar.",
+    "language": "Header navigation and settings; short labels, they share a phone-width bar.",
+    "main": "Header navigation and settings; short labels, they share a phone-width bar.",
+    "characters": "Header navigation and settings; short labels, they share a phone-width bar.",
+    "settings": "Header navigation and settings; short labels, they share a phone-width bar.",
+    "helpLevel": "Header navigation and settings; short labels, they share a phone-width bar.",
+    "theme": "Header navigation and settings; short labels, they share a phone-width bar."
+  },
+  "footer": {
+    "attribution": "Legal attribution required by the SRD's licence (CC-BY-4.0); translate the sentence, keep the names and the licence name."
+  },
+  "errors": {
+    "network": {
+      "title": "Alert shown when something fails; one plain sentence, no technical terms.",
+      "message": "Alert shown when something fails; one plain sentence, no technical terms. Parameters: {message}."
+    },
+    "unexpected": {
+      "title": "Alert shown when something fails; one plain sentence, no technical terms.",
+      "message": "Alert shown when something fails; one plain sentence, no technical terms."
+    }
+  },
+  "packages": {
+    "heading": "Title of the Packages page.",
+    "intro": "Explains to a newcomer what a package is and that files never leave the device.",
+    "load": {
+      "heading": "Adding packages from files: button, status lines per file and their details.",
+      "hint": "Adding packages from files: button, status lines per file and their details.",
+      "choose": "Adding packages from files: button, status lines per file and their details.",
+      "checking": "Adding packages from files: button, status lines per file and their details. Parameters: {file}.",
+      "done": "Adding packages from files: button, status lines per file and their details. Parameters: {name}, {version}.",
+      "remarks": "Adding packages from files: button, status lines per file and their details. Parameters: {count}. Plural forms separated by | (one | other, or zero | one | other).",
+      "refused": "Adding packages from files: button, status lines per file and their details. Parameters: {file}.",
+      "refusedNext": "Adding packages from files: button, status lines per file and their details.",
+      "problems": "Adding packages from files: button, status lines per file and their details. Parameters: {count}. Plural forms separated by | (one | other, or zero | one | other).",
+      "failed": "Adding packages from files: button, status lines per file and their details. Parameters: {file}.",
+      "dismiss": "Adding packages from files: button, status lines per file and their details."
+    },
+    "list": {
+      "heading": "The list of installed packages: labels of each package's facts.",
+      "site": "The list of installed packages: labels of each package's facts.",
+      "file": "The list of installed packages: labels of each package's facts. Parameters: {file}.",
+      "private": "The list of installed packages: labels of each package's facts.",
+      "id": "The list of installed packages: labels of each package's facts.",
+      "version": "The list of installed packages: labels of each package's facts.",
+      "kind": "The list of installed packages: labels of each package's facts.",
+      "content": "The list of installed packages: labels of each package's facts.",
+      "entries": "The list of installed packages: labels of each package's facts. Parameters: {count}. Plural forms separated by | (one | other, or zero | one | other).",
+      "sources": "The list of installed packages: labels of each package's facts.",
+      "source": "The list of installed packages: labels of each package's facts. Parameters: {license}, {title}."
+    },
+    "kind": {
+      "base": "The kind of a package, as a short noun phrase.",
+      "extension": "The kind of a package, as a short noun phrase.",
+      "translation": "The kind of a package, as a short noun phrase."
+    },
+    "remove": {
+      "action": "Removing a package: the button and its confirmation, destructive, so say what happens.",
+      "confirm": "Removing a package: the button and its confirmation, destructive, so say what happens. Parameters: {name}.",
+      "yes": "Removing a package: the button and its confirmation, destructive, so say what happens.",
+      "no": "Removing a package: the button and its confirmation, destructive, so say what happens.",
+      "inUse": "Removing a package: the button and its confirmation, destructive, so say what happens. Parameters: {characters}, {name}."
+    },
+    "storage": {
+      "heading": "The state of the browser's storage; plain words, no technical terms.",
+      "persisted": "The state of the browser's storage; plain words, no technical terms.",
+      "notPersisted": "The state of the browser's storage; plain words, no technical terms.",
+      "unknown": "The state of the browser's storage; plain words, no technical terms.",
+      "usage": "The state of the browser's storage; plain words, no technical terms. Parameters: {quota}, {used}.",
+      "safari": "The state of the browser's storage; plain words, no technical terms."
+    }
+  },
+  "preferences": {
+    "helpLevel": {
+      "newcomer": "A help level in the settings menu: how much the sheet explains.",
+      "regular": "A help level in the settings menu: how much the sheet explains.",
+      "expert": "A help level in the settings menu: how much the sheet explains."
+    },
+    "theme": {
+      "system": "A colour theme in the settings menu.",
+      "light": "A colour theme in the settings menu.",
+      "dark": "A colour theme in the settings menu."
+    }
+  },
+  "characters": {
+    "heading": "The characters page (the home page).",
+    "intro": "The characters page (the home page).",
+    "demos": "The characters page (the home page).",
+    "loading": "The characters page (the home page).",
+    "failed": "The characters page (the home page)."
+  },
+  "character": {
+    "loading": "A character's sheet page: loading and error states.",
+    "failed": "A character's sheet page: loading and error states.",
+    "back": "A character's sheet page: loading and error states.",
+    "notFound": {
+      "heading": "A character's sheet page: loading and error states.",
+      "text": "A character's sheet page: loading and error states."
+    },
+    "missing": {
+      "heading": "A character's sheet page: loading and error states.",
+      "text": "A character's sheet page: loading and error states. Parameters: {id}.",
+      "action": "A character's sheet page: loading and error states."
+    }
+  },
+  "terms": {
+    "abilityScore": "A game term: must be the official word of docs/03-glossary.md in this language (a test checks it).",
+    "proficiencyBonus": "A game term: must be the official word of docs/03-glossary.md in this language (a test checks it).",
+    "skill": "A game term: must be the official word of docs/03-glossary.md in this language (a test checks it).",
+    "savingThrow": "A game term: must be the official word of docs/03-glossary.md in this language (a test checks it).",
+    "armorClass": "A game term: must be the official word of docs/03-glossary.md in this language (a test checks it).",
+    "hitPoints": "A game term: must be the official word of docs/03-glossary.md in this language (a test checks it).",
+    "hitDice": "A game term: must be the official word of docs/03-glossary.md in this language (a test checks it).",
+    "initiative": "A game term: must be the official word of docs/03-glossary.md in this language (a test checks it).",
+    "speed": "A game term: must be the official word of docs/03-glossary.md in this language (a test checks it).",
+    "action": "A game term: must be the official word of docs/03-glossary.md in this language (a test checks it).",
+    "bonusAction": "A game term: must be the official word of docs/03-glossary.md in this language (a test checks it).",
+    "reaction": "A game term: must be the official word of docs/03-glossary.md in this language (a test checks it).",
+    "spellSlot": "A game term: must be the official word of docs/03-glossary.md in this language (a test checks it).",
+    "shortRest": "A game term: must be the official word of docs/03-glossary.md in this language (a test checks it).",
+    "longRest": "A game term: must be the official word of docs/03-glossary.md in this language (a test checks it)."
+  }
+}

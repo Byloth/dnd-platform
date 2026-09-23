@@ -1,3 +1,4 @@
+import type { HelpLevel, Translate } from "@byloth/dnd-platform-composer";
 import { loadPackages } from "@byloth/dnd-platform-loader";
 import type { PackageSet, PackageSource } from "@byloth/dnd-platform-loader";
 import type { Character } from "@byloth/dnd-platform-engine";
@@ -61,6 +62,14 @@ function _pins(character: Character): Record<string, string>
     return Object.fromEntries(character.packages.map((p) => [p.id, p.version]));
 }
 
+export interface SheetOptions
+{
+    readonly language?: string;
+    readonly helpLevel?: HelpLevel;
+    /** The interface's translation of the composer's `sheet.*` strings; the composer's own when absent. */
+    readonly translate?: Translate;
+}
+
 export function useEngine()
 {
     /** The package set of the sources, loaded with the given pins; computed once per versions and pins. */
@@ -77,14 +86,20 @@ export function useEngine()
         return set;
     };
 
-    /** The computed sheet and its section tree; computed once per character document, versions and language. */
-    const sheet = (character: Character, sources: readonly PackageSource[], language?: string): ComposedSheet =>
+    /**
+     * The computed sheet and its section tree; computed once per character document, versions, language and help
+     * level (the translation follows the language).
+     */
+    const sheet = (
+        character: Character, sources: readonly PackageSource[], options: SheetOptions = {}
+    ): ComposedSheet =>
     {
-        const key = `${stableStringify(character)}|${_versions(sources)}|${language ?? ""}`;
+        const { language, helpLevel } = options;
+        const key = `${stableStringify(character)}|${_versions(sources)}|${language ?? ""}|${helpLevel ?? ""}`;
         const cached = _sheets.get(key);
         if (cached) { return cached; }
 
-        const composed = composeSheet(character, packageSet(sources, _pins(character)), language);
+        const composed = composeSheet(character, packageSet(sources, _pins(character)), options);
         _stats.sheets += 1;
         _sheets.set(key, composed);
 

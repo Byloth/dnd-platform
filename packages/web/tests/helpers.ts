@@ -7,6 +7,7 @@ import { readdirSync, readFileSync, statSync } from "node:fs";
 import { join, relative, resolve } from "node:path";
 
 import { zipSync } from "fflate";
+import { parse } from "yaml";
 import { registerEndpoint } from "@nuxt/test-utils/runtime";
 
 import { IndexedDatabase } from "@byloth/core";
@@ -70,6 +71,25 @@ export function serveSite(): { publish: (published: boolean) => void }
     registerEndpoint("/dnd-platform/content/srd51.json", () => SRD);
 
     return { publish: (published: boolean): void => { _site.published = published; } };
+}
+
+/**
+ * Serves `content/characters/index.json` and one file per fixture, as `web:prepare-content` publishes the demo
+ * characters. Call once per test file, at the top level.
+ */
+export function serveDemoCharacters(names: readonly string[]): void
+{
+    const characters = names.map((name) =>
+        parse(readFileSync(resolve(ROOT, "fixtures", "characters", name, "character.yaml"), "utf8")) as {
+            id: string; name: string;
+        });
+
+    registerEndpoint("/dnd-platform/content/characters/index.json", () =>
+        characters.map((c) => ({ id: c.id, name: c.name, summary: "" })));
+    for (const character of characters)
+    {
+        registerEndpoint(`/dnd-platform/content/characters/${character.id}.json`, () => character);
+    }
 }
 
 /** Closes and deletes the browser database, between tests. */
