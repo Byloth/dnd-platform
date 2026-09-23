@@ -39,6 +39,7 @@
     "@nuxt/test-utils": "^4.3.2",
     "@vue/test-utils": "^2.5.1",
     "fake-indexeddb": "^6.2.5",
+    "fflate": "^0.8.3",
     "happy-dom": "^20.14.5",
     "sass": "^1.104.1",
     "typescript": "^6.0.3",

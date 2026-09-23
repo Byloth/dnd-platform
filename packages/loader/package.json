@@ -22,11 +22,11 @@
     "build": "tsc --build"
   },
   "dependencies": {
-    "@byloth/dnd-platform-schema": "workspace:*",
     "fflate": "^0.8.3",
     "yaml": "^2.9.1"
   },
   "devDependencies": {
+    "@byloth/dnd-platform-schema": "workspace:*",
     "@types/node": "^24.13.6"
   }
 }

@@ -99,9 +99,6 @@ importers:
 
   packages/loader:
     dependencies:
-      '@byloth/dnd-platform-schema':
-        specifier: workspace:*
-        version: link:../schema
       fflate:
         specifier: ^0.8.3
         version: 0.8.3
@@ -109,6 +106,9 @@ importers:
         specifier: ^2.9.1
         version: 2.9.1
     devDependencies:
+      '@byloth/dnd-platform-schema':
+        specifier: workspace:*
+        version: link:../schema
       '@types/node':
         specifier: ^24.13.6
         version: 24.13.6
@@ -198,6 +198,9 @@ importers:
       fake-indexeddb:
         specifier: ^6.2.5
         version: 6.2.5
+      fflate:
+        specifier: ^0.8.3
+        version: 0.8.3
       happy-dom:
         specifier: ^20.14.5
         version: 20.14.5

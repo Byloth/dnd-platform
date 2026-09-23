@@ -13,6 +13,8 @@ import type { SchemaValidator } from "@byloth/dnd-platform-schema/validate";
 import type { PackageFiles, SourceFile } from "./files.js";
 import { loadPackages } from "./load/index.js";
 import { validate } from "./references/validate.js";
+import { run, runPausing } from "./steps.js";
+import type { PauseOptions, Steps } from "./steps.js";
 import type { PackageSource } from "./types.js";
 
 export const DIAGNOSTIC_CODES = [
@@ -97,6 +99,21 @@ export function checkPackage(
     pkg: PackageFiles, name: string, ajv: SchemaValidator, options: CheckOptions = {}
 ): PackageDiagnostic[]
 {
+    return run(checkSteps(pkg, name, ajv, options));
+}
+
+/** `checkPackage`, pausing between files. */
+export function checkPackageAsync(
+    pkg: PackageFiles, name: string, ajv: SchemaValidator, options: CheckOptions & PauseOptions = {}
+): Promise<PackageDiagnostic[]>
+{
+    return runPausing(checkSteps(pkg, name, ajv, options), options);
+}
+
+function* checkSteps(
+    pkg: PackageFiles, name: string, ajv: SchemaValidator, options: CheckOptions
+): Steps<PackageDiagnostic[]>
+{
     const out: PackageDiagnostic[] = [];
     if (pkg.manifest === undefined)
     {
@@ -141,7 +158,11 @@ export function checkPackage(
             message: "not part of the package layout; ignored"
         });
     }
-    for (const file of pkg.files) { checkFile(packageId, file, ajv, out); }
+    for (const file of pkg.files)
+    {
+        checkFile(packageId, file, ajv, out);
+        yield;
+    }
 
     return out;
 }

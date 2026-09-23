@@ -8,8 +8,11 @@
 import { parse } from "yaml";
 
 import { ENTITY_TYPE_FOR_DIRECTORY, SCHEMA_FOR_DIRECTORY } from "@byloth/dnd-platform-schema";
+import type { EntityDirectory } from "@byloth/dnd-platform-schema";
 import type { PackageManifest, Ruleset } from "@byloth/dnd-platform-schema";
 
+import { run, runPausing } from "./steps.js";
+import type { PauseOptions, Steps } from "./steps.js";
 import type { PackageSource, SourceEntity } from "./types.js";
 
 /** One YAML document of a package, with where it came from. */
@@ -73,6 +76,19 @@ function readYaml(path: string, directory: string, schema: string, read: (path: 
  */
 export function readPackageFiles(paths: Iterable<string>, read: (path: string) => string): PackageFiles
 {
+    return run(readSteps(paths, read));
+}
+
+/** `readPackageFiles`, pausing between files. */
+export function readPackageFilesAsync(
+    paths: Iterable<string>, read: (path: string) => string, options: PauseOptions = {}
+): Promise<PackageFiles>
+{
+    return runPausing(readSteps(paths, read), options);
+}
+
+function* readSteps(paths: Iterable<string>, read: (path: string) => string): Steps<PackageFiles>
+{
     const all = new Set<string>();
     const directories = new Set<string>();
     for (const path of paths)
@@ -98,7 +114,11 @@ export function readPackageFiles(paths: Iterable<string>, read: (path: string) =
         }
 
         const inside = [...all].filter((p) => p.startsWith(`${directory}/`) && YAML_FILE.test(p)).sort(comparePaths);
-        for (const path of inside) { files.push(readYaml(path, directory, schema, read)); }
+        for (const path of inside)
+        {
+            files.push(readYaml(path, directory, schema, read));
+            yield;
+        }
     }
 
     return {
@@ -147,4 +167,45 @@ export function toPackageSource(pkg: PackageFiles, label: string): PackageSource
     const entities = pkg.files.map(entityOf);
 
     return { manifest: manifest, ...(ruleset ? { ruleset: ruleset } : {}), entities: entities };
+}
+
+const DIRECTORY_FOR_TYPE = new Map(
+    Object.entries(ENTITY_TYPE_FOR_DIRECTORY).map(([directory, type]) => [type as string, directory as EntityDirectory])
+);
+
+/**
+ * The files a package source stands for, so that a bundle is checked like a directory: each entity back in
+ * its directory (its recorded `file`, or `<directory>/<id>.yaml`), translations back to their strings.
+ */
+export function filesOfSource(source: PackageSource): PackageFiles
+{
+    const files: SourceFile[] = [];
+    for (const entity of source.entities)
+    {
+        if (entity.type === "translation")
+        {
+            const { language, strings } = entity.data as { language: string, strings: unknown };
+            const path = entity.file ?? `translations/${language}/${entity.id}.yaml`;
+            files.push({ path: path, directory: "translations", schema: "translation", data: strings });
+
+            continue;
+        }
+
+        const directory = DIRECTORY_FOR_TYPE.get(entity.type);
+        if (directory === undefined) { throw new Error(`${entity.id}: unknown entity type "${entity.type}"`); }
+
+        const path = entity.file ?? `${directory}/${entity.id}.yaml`;
+        files.push({ path: path, directory: directory, schema: SCHEMA_FOR_DIRECTORY[directory], data: entity.data });
+    }
+
+    const ruleset: SourceFile | undefined = source.ruleset ?
+        { path: "ruleset.yaml", directory: "", schema: "ruleset", data: source.ruleset } :
+        undefined;
+
+    return {
+        manifest: { path: "package.yaml", directory: "", schema: "package", data: source.manifest },
+        ...(ruleset ? { ruleset: ruleset } : {}),
+        files: files.sort((a, b) => comparePaths(a.path, b.path)),
+        unknownDirectories: []
+    };
 }

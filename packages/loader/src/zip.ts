@@ -5,10 +5,26 @@
 
 import { strFromU8, unzipSync } from "fflate";
 
-import { readPackageFiles } from "./files.js";
+import { readPackageFiles, readPackageFilesAsync } from "./files.js";
 import type { PackageFiles } from "./files.js";
+import type { PauseOptions } from "./steps.js";
 
 export function readPackageZip(bytes: Uint8Array): PackageFiles
+{
+    const { names, read } = unzipPackage(bytes);
+
+    return readPackageFiles(names, read);
+}
+
+/** `readPackageZip`, pausing between files (the unzipping itself runs in one go). */
+export function readPackageZipAsync(bytes: Uint8Array, options: PauseOptions = {}): Promise<PackageFiles>
+{
+    const { names, read } = unzipPackage(bytes);
+
+    return readPackageFilesAsync(names, read, options);
+}
+
+function unzipPackage(bytes: Uint8Array): { names: string[], read: (path: string) => string }
 {
     const entries = unzipSync(bytes);
     let names = Object.keys(entries);
@@ -23,5 +39,5 @@ export function readPackageZip(bytes: Uint8Array): PackageFiles
         names = names.filter((n) => n.startsWith(prefix) && n !== prefix).map((n) => n.slice(prefix.length));
     }
 
-    return readPackageFiles(names, (path) => strFromU8(entries[`${prefix}${path}`]!));
+    return { names: names, read: (path) => strFromU8(entries[`${prefix}${path}`]!) };
 }

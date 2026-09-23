@@ -8,9 +8,10 @@
 export type * from "./types.js";
 export { loadPackages } from "./load/index.js";
 export { validate } from "./references/validate.js";
-export { comparePaths, readPackageFiles, toPackageSource } from "./files.js";
+export { comparePaths, filesOfSource, readPackageFiles, readPackageFilesAsync, toPackageSource } from "./files.js";
 export type { PackageFiles, SourceFile } from "./files.js";
-export { DIAGNOSTIC_CODES, checkPackage, checkReferences } from "./check.js";
+export { DIAGNOSTIC_CODES, checkPackage, checkPackageAsync, checkReferences } from "./check.js";
 export type { CheckOptions, DiagnosticCode, PackageDiagnostic } from "./check.js";
 export { bundleText, parseBundle, toBundle } from "./bundle.js";
-export { readPackageZip } from "./zip.js";
+export { readPackageZip, readPackageZipAsync } from "./zip.js";
+export type { Pause, PauseOptions } from "./steps.js";
