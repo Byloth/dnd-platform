@@ -26,6 +26,8 @@ jobs:
       - run: pnpm generate:types:check
       - run: pnpm validate:content
       - run: pnpm build:content
+      # A public package whose content changed must carry a new, released version (DEC-21).
+      - run: pnpm release:content:check
       # After build:content: the web tests read the SRD bundle from build/content/.
       - run: pnpm test
       - run: pnpm fixtures

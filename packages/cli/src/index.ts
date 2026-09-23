@@ -6,6 +6,7 @@
  * Commands (docs/phase-0/00-README.md, M0.8):
  *   validate [dirs…] [--all] [--references] [--allow-missing] [--json]
  *   build                                          YAML → canonical JSON bundles
+ *   release [dirs…] [--check]                      publish the bundles of public packages (DEC-21)
  *   derive <character.yaml> [--json|--text]
  *   fixtures [dirs…] [--update] [--filter <name>] [--coverage]   golden characters and play sessions
  */
@@ -15,6 +16,7 @@ import { FORMAT_VERSION } from "@byloth/dnd-platform-schema";
 import { runBuild } from "./commands/build.js";
 import { runDerive } from "./commands/derive.js";
 import { runFixturesCommand } from "./commands/fixtures.js";
+import { runRelease } from "./commands/release.js";
 import { runValidate } from "./commands/validate.js";
 
 const HELP = `dnd — dnd-platform command-line tools (content format v${FORMAT_VERSION})
@@ -27,6 +29,10 @@ Commands:
              no directory or --all: discover packages/content/* and content-private/*;
              --references: also load them into the engine and resolve every reference
   build      convert YAML packages to canonical JSON      (M0.8)
+  release [dirs…] [--check] [--json]
+             write releases/content/<id>@<version>.json for every public package
+             (packages/content/*); a released version is never rewritten;
+             --check: write nothing, fail if the current version is not released
   derive     compute a character sheet                    (M0.8)
   fixtures [dirs…] [--update] [--filter <name>] [--json]
              run the golden character fixtures (fixtures/characters) and the
@@ -45,6 +51,7 @@ export function main(argv: readonly string[]): number
     }
     if (command === "validate") { return runValidate(rest); }
     if (command === "build") { return runBuild(rest); }
+    if (command === "release") { return runRelease(rest); }
     if (command === "derive") { return runDerive(rest); }
     if (command === "fixtures") { return runFixturesCommand(rest); }
 
