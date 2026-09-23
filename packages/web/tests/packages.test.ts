@@ -131,6 +131,19 @@ describe("usePackageLoader", () =>
         expect((await useBrowserStorage().packages.list()).length).toBe(2);
     });
 
+    it("keeps one version per package: a newer one replaces the stored one", async () =>
+    {
+        const source = readPackageSource(join(FIXTURES, "homebrew-feline"));
+        const newer = { ...source, manifest: { ...source.manifest, version: "0.2.0" } };
+        const { load } = usePackageLoader();
+
+        await load(bundleOf(source, "homebrew.byloth.json"));
+        await load(bundleOf(newer, "homebrew.byloth-0.2.0.json"));
+
+        const versions = (await useBrowserStorage().packages.list()).map((p) => p.source.manifest.version);
+        expect(versions).toEqual(["0.2.0"]);
+    });
+
     it("refuses a package whose dependency is neither on the site nor stored", async () =>
     {
         published = false;

@@ -136,6 +136,16 @@ async function _load(file: PackageFile): Promise<LoadedPackage>
     };
     await storage.packages.put(record);
 
+    // One version per package (DEC-21): characters follow the newest, and are told what it changed.
+    const { id, version } = source.manifest;
+    for (const { source: other } of await storage.packages.list())
+    {
+        if ((other.manifest.id === id) && (other.manifest.version !== version))
+        {
+            await storage.packages.remove(id, other.manifest.version);
+        }
+    }
+
     return { record: record, warnings: all };
 }
 
