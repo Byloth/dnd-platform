@@ -16,6 +16,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@byloth/core": "^3.0.2",
     "@byloth/dnd-platform-composer": "workspace:*",
     "@byloth/dnd-platform-engine": "workspace:*",
     "@byloth/dnd-platform-schema": "workspace:*",
@@ -34,6 +35,7 @@
     "@byloth/eslint-config-nuxt": "^4.0.2",
     "@nuxt/test-utils": "^4.3.2",
     "@vue/test-utils": "^2.4.6",
+    "fake-indexeddb": "^6.2.5",
     "happy-dom": "^20.14.5",
     "sass": "^1.104.1",
     "typescript": "^6.0.3",

@@ -212,6 +212,9 @@ importers:
 
   packages/web:
     dependencies:
+      '@byloth/core':
+        specifier: ^3.0.2
+        version: 3.0.2
       '@byloth/dnd-platform-composer':
         specifier: workspace:*
         version: link:../composer
@@ -261,6 +264,9 @@ importers:
       '@vue/test-utils':
         specifier: ^2.4.6
         version: 2.5.1(@vue/compiler-dom@3.5.43)(@vue/server-renderer@3.5.43)(vue@3.5.43(typescript@6.0.3))
+      fake-indexeddb:
+        specifier: ^6.2.5
+        version: 6.2.5
       happy-dom:
         specifier: ^20.14.5
         version: 20.14.5
