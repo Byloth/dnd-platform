@@ -23,6 +23,9 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - uses: pnpm/action-setup@v6
+        with:
+          # No packageManager field: the developer's own pnpm locally, the latest 12.x here.
+          version: 12
       - uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
