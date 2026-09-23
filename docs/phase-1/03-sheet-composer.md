@@ -75,7 +75,7 @@ A catalogue keyed by contribution kind and by common labels (`sheet.explain.*`, 
 2. Rewire the CLI text renderer on the tree; `sheet.txt` goldens unchanged; store `section-tree.json` goldens for the four characters — M1.1.
 3. Explain views: the three renderings and the condition-to-words function with its coverage test — M1.3 (done, M1.3a: `packages/composer/src/explain.ts`; the condition of an inactive contribution is found through the package set, from the contribution's source and effect index, so the engine is unchanged).
 4. The build-mode screen and its components, phone first — M1.3.
-5. Package-declared sections (`add-section` effects) placed in the middle band, with their localised titles — M1.3.
+5. Package-declared sections (`add-section` effects) placed in the middle band, with their localised titles — M1.3 (done, M1.3a-bis: the engine carries `texts` and `customSections`, declared sections sit after Features and before Equipment; the composer closes each section with a `reminders` block of its `add-text` texts and titles a declared section with its name and `layout`).
 6. Per-user pin/collapse preferences in the renderer — M1.3.
 
 ## Open points

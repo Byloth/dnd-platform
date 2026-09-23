@@ -115,7 +115,7 @@ Mode switch is instant and never loses state; play mode is specified in [09](09-
 
 ### Ordering and overrides
 
-- Default order is the catalogue priority; sections declared by packages are inserted at their declared priority, clamped so they never displace Identity, Vital block or Ability scores.
+- Default order is the catalogue priority; sections declared by packages are inserted at their declared priority, clamped so they never displace Identity, Vital block or Ability scores. As built (M1.3): the format has no priority field yet, so declared sections sit after Features and before Equipment, sorted by id.
 - Within Actions and Spells, order is activation type then cost then name; the player can pin favourites to the top.
 - The player can collapse sections and reorder within the middle band (priorities 6–16); the order is a per-character preference, not part of choices or state, and is not exported.
 - The composer emits a deterministic order for the same inputs, which is what print relies on.

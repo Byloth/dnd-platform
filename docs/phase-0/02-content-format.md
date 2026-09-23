@@ -361,8 +361,8 @@ Every effect has `kind`, optional `when` (condition), optional `note` (localised
 | `extend-spell-list` | `list`, `spells` | Add spells to a list from another package. |
 | `roll-advantage` / `roll-disadvantage` | `on: { type: attack\|check\|save\|initiative\|death-save, ability?, skill?, against?: [tags] }` | Conditional advantage or disadvantage; shown on the sheet, applied in play mode. `against` is a list of descriptive tags ("magic", "poison", "creatures of your favored enemy type") shown to the player; the engine does not evaluate it because it does not know the enemy. |
 | `defense` | `defense` (`resistance`, `immunity`, `vulnerability`, `condition-immunity`), `to: [damage type, condition id, disease, magical-sleep, or a spell id]` | Defensive traits. |
-| `add-text` | `section`, `text` | Narrative content placed in a section (Senses, Features…). |
-| `add-section` | `section`, `name`, `layout?` | Declare a custom sheet section; homebrew may need one. |
+| `add-text` | `section`, `text` | Narrative content placed in a section (Senses, Features…), or in a section declared by `add-section` (by its id). The sheet shows it as a reminder at the end of the section, named after what adds it (M1.3). |
+| `add-section` | `section`, `name`, `layout?` | Declare a custom sheet section; homebrew may need one. Its content is the `add-text` that targets it; a declared section with no content does not appear. |
 | `open-choice` | `choice`, `of` (`subclass`, `skill`, `spell`, `feat`, `asi-or-feat`, `fighting-style`, `language`, `tool`, `ability`, `equipment`, `option`), `count`, `from?` (ids), `filter?`, `options?` (inline option entities), `level?`, `prerequisites?` | Ask the player something; answers live in the character's `answers`. Inline `options` carry `id`, `name`, `text`, `effects`, `prerequisites`: a chosen option's effects apply (Fighting Style, Metamagic, Draconic Ancestry, Eldritch Invocations, Hunter's Prey). |
 | `define-table` | `table`, `by`, `rows` | A table addressable in formulas (alternative to `tables:` on a class). Duplicate keys are a validation error. |
 

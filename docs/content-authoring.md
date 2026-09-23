@@ -25,3 +25,5 @@ Every released version of a public package is published by the site and never ch
 3. runs `pnpm build && pnpm release:content`, which writes `releases/content/<id>@<version>.json`, and commits it with the change.
 
 CI runs `pnpm release:content:check`: changed content under a released version, or a version without its release file or changelog section, fails the build.
+
+Reminders (`add-text`) are shown to the player at the end of their section, with the name of the feature, item, condition or spell that adds them: write them as a sentence the player can act on, in the second person.
