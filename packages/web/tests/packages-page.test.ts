@@ -42,7 +42,7 @@ async function mountPage(): Promise<VueWrapper>
 /** The list item of a package, by its heading. */
 function packageItem(wrapper: VueWrapper, name: string): DOMWrapper<Element> | undefined
 {
-    return wrapper.findAll("li.package").find((li: DOMWrapper<Element>) => li.find("h3").text() === name);
+    return wrapper.findAll("li.package-card").find((li: DOMWrapper<Element>) => li.find("h3").text() === name);
 }
 
 describe("the packages page", () =>
@@ -74,9 +74,10 @@ describe("the packages page", () =>
         expect(feline.text()).toContain("Added from homebrew-feline.zip");
         expect(feline.text()).not.toContain("Private, loaded on this device");
 
-        const phb = wrapper.findAll("li.package").find((li: DOMWrapper<Element>) => li.text().includes("phb14.json"))!;
+        const phb = wrapper.findAll("li.package-card")
+            .find((li: DOMWrapper<Element>) => li.text().includes("phb14.json"))!;
         expect(phb.text()).toContain("Private, loaded on this device");
-        expect(wrapper.findAll("li.load.done").length).toBe(2);
+        expect(wrapper.findAll("li.load-entry--done").length).toBe(2);
     });
 
     it("explains a refused file in plain words, with the codes only in the details", async () =>
@@ -85,7 +86,7 @@ describe("the packages page", () =>
         await useContentStore().loadFiles([zipOf(join(FIXTURES, "invalid", "unknown-kind"), "unknown-kind")]);
         await flushPromises();
 
-        const load = wrapper.find("li.load.refused");
+        const load = wrapper.find("li.load-entry--refused");
         expect(load.find("[role=status]").text()).toContain("unknown-kind.zip is not a valid package");
         expect(load.find("[role=status]").text()).not.toContain("E_");
         expect(load.find("details").text()).toContain("E_SCHEMA");

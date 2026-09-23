@@ -1,16 +1,94 @@
-@use "./variables";
+@use "./mixins";
 
-:root
+/* Base: the page, text and headings on the tokens; every visible rule of a component lives in the component. */
+
+html
 {
-    --hidden-footer-height: 128px;
-    --navigation-bar-height: 64px;
+    background-color: var(--color-surface);
+    color: var(--color-ink);
+    font-family: var(--font-text);
+    font-size: 100%;
+    line-height: var(--leading-text);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 }
 
 body
 {
-    background-color: variables.$chrome-incognito-color;
-    box-shadow: 0px 0px 0.5em 0px rgba(0, 0, 0, 0.5);
-    color: variables.$not-quite-black;
-    font-family: variables.$font-family;
-    margin-bottom: var(--hidden-footer-height);
+    background-color: var(--color-surface);
+    min-height: 100dvh;
+    transition: background-color var(--duration) var(--easing), color var(--duration) var(--easing);
+}
+
+h1, h2, h3, h4
+{
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    line-height: var(--leading-tight);
+    margin: 0 0 var(--space-3);
+}
+h1 { font-size: var(--text-3xl); }
+h2 { font-size: var(--text-2xl); }
+h3 { font-size: var(--text-xl); }
+h4 { font-size: var(--text-lg); }
+
+p
+{
+    margin: 0 0 var(--space-3);
+}
+
+a
+{
+    color: var(--color-accent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.15em;
+
+    &:hover
+    {
+        text-decoration-thickness: 2px;
+    }
+}
+
+:focus-visible
+{
+    @include mixins.focus-ring;
+}
+
+::selection
+{
+    background-color: var(--color-brass-soft);
+    color: var(--color-ink);
+}
+
+button,
+input,
+select,
+textarea
+{
+    color: inherit;
+    font: inherit;
+}
+
+select
+{
+    background-color: var(--color-surface-raised);
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-md);
+    min-height: 44px;
+    padding: 0 var(--space-3);
+}
+
+code
+{
+    background-color: var(--color-surface-sunken);
+    border-radius: var(--radius-sm);
+    font-size: 0.9em;
+    padding: 0.05em 0.35em;
+}
+
+/* The one global helper: hidden but read (an element class, not a utility for layout). */
+.sr-only
+{
+    @include mixins.sr-only;
 }

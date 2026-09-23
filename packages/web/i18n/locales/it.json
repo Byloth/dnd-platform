@@ -10,10 +10,12 @@
     "characters": "Personaggi",
     "settings": "Impostazioni",
     "helpLevel": "Livello di aiuto",
-    "theme": "Tema"
+    "theme": "Tema",
+    "contrast": "Contrasto"
   },
   "footer": {
-    "attribution": "Quest'opera include materiale tratto dal System Reference Document 5.1 di Wizards of the Coast LLC, con licenza Creative Commons Attribution 4.0 International."
+    "attribution": "Quest'opera include materiale tratto dal System Reference Document 5.1 di Wizards of the Coast LLC, con licenza Creative Commons Attribution 4.0 International.",
+    "madeBy": "Fatto con"
   },
   "errors": {
     "network": {
@@ -85,6 +87,10 @@
       "system": "Come il dispositivo",
       "light": "Chiaro",
       "dark": "Scuro"
+    },
+    "contrast": {
+      "system": "Come il dispositivo",
+      "more": "Contrasto elevato"
     }
   },
   "characters": {
@@ -124,5 +130,8 @@
     "spellSlot": "Slot incantesimo",
     "shortRest": "Riposo breve",
     "longRest": "Riposo lungo"
+  },
+  "alerts": {
+    "close": "Chiudi"
   }
 }

@@ -37,7 +37,7 @@ describe("preferences", () =>
         await nextTick();
 
         expect(JSON.parse(localStorage.getItem(PREFERENCES_KEY)!)).toEqual({
-            language: "it", helpLevel: "expert", theme: "dark", pageSize: "a4"
+            language: "it", helpLevel: "expert", theme: "dark", contrast: "system", pageSize: "a4"
         });
 
         setActivePinia(createPinia());

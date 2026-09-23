@@ -1,9 +1,12 @@
 <script lang="ts" setup>
-    import { computed } from "vue";
+    import FontAwesome from "@/components/ui/FontAwesome.vue";
 
-    import ThemedElement from "@/components/core/ThemedElement.vue";
-
-    const props = defineProps({
+    /** A message box: `.alert-box` with a tone modifier (`--info`, `--success`, `--warning`, `--danger`). */
+    defineProps({
+        theme: {
+            default: "info",
+            type: String
+        },
         title: {
             default: "",
             type: String
@@ -20,74 +23,98 @@
     });
     defineEmits(["dismiss"]);
 
-    const classes = computed((): Record<string, boolean> => ({
-        "alert-dismissible": props.dismissible,
-        "flex-horizontal": !(props.title),
-        "flex-vertical": !!(props.title)
-    }));
+    const { t } = useI18n();
 </script>
 
 <template>
-    <ThemedElement class="alert flex"
-                   :class="classes"
-                   name="alert"
-                   role="alert">
-        <h3 v-if="title" class="alert-heading">
-            <span v-if="icon"
-                  class="fa-solid"
-                  :class="`fa-${icon}`">
-            </span>
-            {{ title }}
-        </h3>
-        <span v-else-if="icon"
-              class="fa-solid"
-              :class="`fa-${icon}`"></span>
-        <slot></slot>
+    <div class="alert-box"
+         :class="`alert-box--${theme}`"
+         role="alert">
+        <FontAwesome v-if="icon"
+                     class="alert-box__icon"
+                     :icon="icon"
+                     aria-hidden="true" />
+        <div class="alert-box__body">
+            <h3 v-if="title" class="alert-box__title">
+                {{ title }}
+            </h3>
+            <slot></slot>
+        </div>
         <button v-if="dismissible"
-                class="btn btn-close"
+                class="alert-box__close"
                 type="button"
+                :aria-label="t('alerts.close')"
                 @click="$emit('dismiss', $event)">
-            <span class="fa-solid fa-times"></span>
+            <FontAwesome icon="xmark" aria-hidden="true" />
         </button>
-    </ThemedElement>
+    </div>
 </template>
 
 <style lang="scss" scoped>
-    @use "@/assets/scss/variables";
+    @use "@/assets/scss/mixins";
 
-    .alert
+    .alert-box
     {
-        & > .alert-heading > .fa-solid
+        --alert-tone: var(--color-resource);
+        --alert-soft: var(--color-resource-soft);
+
+        @include mixins.card(3);
+
+        align-items: flex-start;
+        border-left: 6px solid var(--alert-tone);
+        display: flex;
+        gap: var(--space-3);
+        padding: var(--space-4);
+
+        &--success
         {
-            margin-right: 0.25em;
+            --alert-tone: var(--color-healing);
+            --alert-soft: var(--color-healing-soft);
         }
-        & > .btn-close
+        &--warning
         {
-            align-items: center;
-            background-image: unset;
-            display: flex;
-            filter: none;
-            font-size: 1.5rem;
-            justify-content: center;
-            padding: 0.75em;
+            --alert-tone: var(--color-warning);
+            --alert-soft: var(--color-warning-soft);
         }
-        & > .fa-solid
+        &--danger
         {
-            margin-right: 0.5em;
-            margin-top: 0.15em;
+            --alert-tone: var(--color-damage);
+            --alert-soft: var(--color-accent-soft);
         }
 
-        &.flex
+        &__icon
         {
-            display: flex;
+            color: var(--alert-tone);
+            font-size: var(--text-xl);
+            margin-top: 0.1em;
+        }
 
-            &.flex-horizontal
+        &__body
+        {
+            flex: 1;
+            min-width: 0;
+        }
+
+        &__title
+        {
+            font-size: var(--text-lg);
+        }
+
+        &__close
+        {
+            @include mixins.tap-target;
+
+            background: none;
+            border: 0;
+            border-radius: var(--radius-md);
+            color: var(--color-ink-muted);
+            cursor: pointer;
+            font-size: var(--text-lg);
+
+            &:hover
             {
-                flex-direction: row;
-            }
-            &.flex-vertical
-            {
-                flex-direction: column;
+                background-color: var(--alert-soft);
+                color: var(--color-ink);
             }
         }
     }

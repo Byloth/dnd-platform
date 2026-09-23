@@ -1,10 +1,10 @@
 <template>
     <div class="default-layout">
         <NavigationBar />
-        <div class="content">
+        <main class="default-layout__main">
             <slot></slot>
-        </div>
-        <HiddenFooter />
+        </main>
+        <SiteFooter />
     </div>
 </template>
 
@@ -13,13 +13,15 @@
     {
         display: flex;
         flex-direction: column;
-        width: 100%;
+        min-height: 100dvh;
 
-        .content
+        &__main
         {
-            background-color: var(--bs-tertiary-bg);
-            min-height: 100dvh;
             flex: 1;
+            margin: 0 auto;
+            max-width: var(--content-max-width);
+            padding: calc(var(--navigation-bar-height) + var(--space-5)) var(--space-4) var(--space-6);
+            width: 100%;
         }
     }
 </style>

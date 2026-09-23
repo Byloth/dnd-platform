@@ -55,7 +55,7 @@
 </script>
 
 <template>
-    <div id="character-page" class="page container">
+    <div class="character-page">
         <p v-if="status === 'pending'" role="status">
             {{ t("character.loading") }}
         </p>
@@ -81,10 +81,8 @@
 </template>
 
 <style lang="scss" scoped>
-    #character-page
+    .character-page
     {
-        min-height: 100dvh;
-        padding-bottom: 2em;
-        padding-top: calc(var(--navigation-bar-height) + 1em);
+        min-height: 60dvh;
     }
 </style>

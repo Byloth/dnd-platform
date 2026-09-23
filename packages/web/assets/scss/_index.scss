@@ -1,4 +1,6 @@
-@forward "./variables" as app-*;
+@forward "./variables";
+@forward "./mixins";
+@forward "./tokens";
 @forward "./vendors";
 
 @forward "./main";

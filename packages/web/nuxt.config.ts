@@ -10,6 +10,16 @@ export default defineNuxtConfig({
     pageTransition: { name: "page", mode: "out-in" }
   },
   compatibilityDate: "2026-09-22",
+  // A small normalize and the two bundled type families
+  // (no font from a third party, docs/phase-1/01-web-application.md).
+  css: [
+    "modern-normalize/modern-normalize.css",
+    "@fontsource/cinzel/600.css",
+    "@fontsource/cinzel/700.css",
+    "@fontsource/atkinson-hyperlegible/400.css",
+    "@fontsource/atkinson-hyperlegible/400-italic.css",
+    "@fontsource/atkinson-hyperlegible/700.css"
+  ],
   components: [
     { path: "@/components" },
     {
@@ -36,7 +46,7 @@ export default defineNuxtConfig({
   ],
   nitro: { preset: "github-pages" },
   vite: {
-    // Bootstrap's own stylesheets still use Sass features that Dart Sass deprecates; not our warnings to fix.
+    // Font Awesome's stylesheets still use Sass features that Dart Sass deprecates; not our warnings to fix.
     css: { preprocessorOptions: { scss: { quietDeps: true } } },
     // The vuert module's plugin imports @byloth/vuert from its own file, which Vite does not pre-bundle, while
     // the application's imports would get the pre-bundled copy: two instances, two injection keys, and

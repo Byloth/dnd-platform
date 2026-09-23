@@ -14,24 +14,16 @@
 </template>
 
 <style lang="scss">
-    @use "@/assets/scss/index" as *;
+    @use "@/assets/scss/index";
 
-    #__nuxt
+    .page-enter-from,
+    .page-leave-to
     {
-        .page-enter-from,
-        .page-leave-to
-        {
-            opacity: 0;
-        }
-        .page-enter-active,
-        .page-leave-active
-        {
-            transition: opacity $app-transition-duration $app-transition-timing-function;
-        }
-        .page-enter-to,
-        .page-leave-from
-        {
-            opacity: 1;
-        }
+        opacity: 0;
+    }
+    .page-enter-active,
+    .page-leave-active
+    {
+        transition: opacity var(--duration) var(--easing);
     }
 </style>

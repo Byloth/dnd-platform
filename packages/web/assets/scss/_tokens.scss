@@ -1,0 +1,149 @@
+/*
+ * Design tokens (docs/13-ux-and-accessibility.md): colour *roles*, not colours, for three looks —
+ * light "parchment and ink", dark "slate and brass", and a high-contrast variant of each. The root element
+ * carries `data-theme` (light | dark) and `data-contrast` (more), set by plugins/preferences.client.ts.
+ */
+
+:root
+{
+    /* Type */
+    --font-display: "Cinzel", "Georgia", serif;
+    --font-text: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+    --text-xs: 0.8125rem;
+    --text-sm: 0.875rem;
+    --text-md: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.375rem;
+    --text-2xl: 1.75rem;
+    --text-3xl: 2.25rem;
+    --text-vital: 2.25rem;
+
+    --leading-tight: 1.2;
+    --leading-text: 1.55;
+
+    /* Space and shape */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.5rem;
+    --space-6: 2rem;
+    --space-7: 3rem;
+
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --radius-round: 999px;
+
+    /* Motion (off when the device asks for less) */
+    --duration-fast: 120ms;
+    --duration: 200ms;
+    --duration-slow: 320ms;
+    --easing: cubic-bezier(0.2, 0.7, 0.2, 1);
+
+    /* Layout */
+    --navigation-bar-height: 64px;
+    --content-max-width: 1240px;
+
+    /* Light: parchment and ink */
+    --color-surface: #F7F1E4;
+    --color-surface-sunken: #EFE6D3;
+    --color-surface-raised: #FFFCF6;
+    --color-ink: #231C14;
+    --color-ink-muted: #625646;
+    --color-border: #DDD0B8;
+    --color-border-strong: #B9A583;
+
+    --color-accent: #8E2A1C;
+    --color-accent-ink: #FFF8EF;
+    --color-accent-soft: #F2DCD2;
+    --color-brass: #8A6420;
+    --color-brass-soft: #F1E3C4;
+
+    --color-resource: #24578A;
+    --color-resource-soft: #DCE8F3;
+    --color-damage: #A12F1B;
+    --color-healing: #256B43;
+    --color-healing-soft: #DCEEDF;
+    --color-warning: #7F5600;
+    --color-warning-soft: #F7E7BF;
+    --color-unavailable: #857C6E;
+    --color-focus: #C46A0B;
+
+    --shadow-1: 0 1px 2px rgba(60, 40, 10, 0.08), 0 1px 1px rgba(60, 40, 10, 0.05);
+    --shadow-2: 0 4px 12px rgba(60, 40, 10, 0.1), 0 2px 4px rgba(60, 40, 10, 0.06);
+    --shadow-3: 0 16px 40px rgba(60, 40, 10, 0.18), 0 4px 12px rgba(60, 40, 10, 0.08);
+
+    --backdrop: rgba(35, 28, 20, 0.45);
+
+    color-scheme: light;
+}
+
+:root[data-theme="dark"]
+{
+    /* Dark: slate and brass */
+    --color-surface: #13161C;
+    --color-surface-sunken: #0D0F13;
+    --color-surface-raised: #1C2029;
+    --color-ink: #EDE6D8;
+    --color-ink-muted: #A99F8F;
+    --color-border: #2D323D;
+    --color-border-strong: #4A5160;
+
+    --color-accent: #E2AA4F;
+    --color-accent-ink: #1B1307;
+    --color-accent-soft: #3A2F1C;
+    --color-brass: #E2AA4F;
+    --color-brass-soft: #3A2F1C;
+
+    --color-resource: #86B8EA;
+    --color-resource-soft: #1D2B3B;
+    --color-damage: #F2917A;
+    --color-healing: #7ACB9E;
+    --color-healing-soft: #18302A;
+    --color-warning: #F2C45A;
+    --color-warning-soft: #3A3017;
+    --color-unavailable: #726D64;
+    --color-focus: #F2C45A;
+
+    --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow-2: 0 6px 16px rgba(0, 0, 0, 0.45);
+    --shadow-3: 0 18px 44px rgba(0, 0, 0, 0.6);
+
+    --backdrop: rgba(0, 0, 0, 0.6);
+
+    color-scheme: dark;
+}
+
+:root[data-contrast="more"]
+{
+    --color-ink: #000000;
+    --color-ink-muted: #2B2218;
+    --color-surface: #FFFFFF;
+    --color-surface-raised: #FFFFFF;
+    --color-border: #5A4A33;
+    --color-border-strong: #000000;
+    --color-accent: #6E1A0E;
+}
+
+:root[data-theme="dark"][data-contrast="more"]
+{
+    --color-ink: #FFFFFF;
+    --color-ink-muted: #E3DACB;
+    --color-surface: #000000;
+    --color-surface-raised: #0B0D11;
+    --color-border: #9AA3B2;
+    --color-border-strong: #FFFFFF;
+    --color-accent: #FFC766;
+}
+
+@media (prefers-reduced-motion: reduce)
+{
+    :root
+    {
+        --duration-fast: 0ms;
+        --duration: 0ms;
+        --duration-slow: 0ms;
+    }
+}

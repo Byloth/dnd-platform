@@ -10,6 +10,8 @@ import type { HelpLevel } from "@byloth/dnd-platform-composer";
 
 export type Language = "en" | "it";
 export type Theme = "system" | "light" | "dark";
+/** `system` follows the device's `prefers-contrast`; `more` always uses the high-contrast variant. */
+export type Contrast = "system" | "more";
 export type PageSize = "a4" | "letter";
 
 export interface Preferences
@@ -17,6 +19,7 @@ export interface Preferences
     language: Language;
     helpLevel: HelpLevel;
     theme: Theme;
+    contrast: Contrast;
     pageSize: PageSize;
 }
 
@@ -27,6 +30,7 @@ export const DEFAULT_PREFERENCES: Readonly<Preferences> = {
     language: "en",
     helpLevel: "newcomer",
     theme: "system",
+    contrast: "system",
     pageSize: "a4"
 };
 
@@ -34,6 +38,7 @@ const ALLOWED: { readonly [K in keyof Preferences]: readonly Preferences[K][] } 
     language: ["en", "it"],
     helpLevel: ["newcomer", "regular", "expert"],
     theme: ["system", "light", "dark"],
+    contrast: ["system", "more"],
     pageSize: ["a4", "letter"]
 };
 
@@ -52,6 +57,7 @@ function _read(storage: JSONStorage): Preferences
         language: pick("language"),
         helpLevel: pick("helpLevel"),
         theme: pick("theme"),
+        contrast: pick("contrast"),
         pageSize: pick("pageSize")
     };
 }
@@ -64,17 +70,19 @@ export const usePreferencesStore = defineStore("preferences", () =>
     const language = ref<Language>(initial.language);
     const helpLevel = ref<HelpLevel>(initial.helpLevel);
     const theme = ref<Theme>(initial.theme);
+    const contrast = ref<Contrast>(initial.contrast);
     const pageSize = ref<PageSize>(initial.pageSize);
 
-    watch([language, helpLevel, theme, pageSize], () =>
+    watch([language, helpLevel, theme, contrast, pageSize], () =>
     {
         storage.set(PREFERENCES_KEY, {
             language: language.value,
             helpLevel: helpLevel.value,
             theme: theme.value,
+            contrast: contrast.value,
             pageSize: pageSize.value
         });
     });
 
-    return { language, helpLevel, theme, pageSize };
+    return { language, helpLevel, theme, contrast, pageSize };
 });

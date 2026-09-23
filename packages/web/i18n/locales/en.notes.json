@@ -10,10 +10,12 @@
     "characters": "Header navigation and settings; short labels, they share a phone-width bar.",
     "settings": "Header navigation and settings; short labels, they share a phone-width bar.",
     "helpLevel": "Header navigation and settings; short labels, they share a phone-width bar.",
-    "theme": "Header navigation and settings; short labels, they share a phone-width bar."
+    "theme": "Header navigation and settings; short labels, they share a phone-width bar.",
+    "contrast": "Header navigation and settings; short labels, they share a phone-width bar."
   },
   "footer": {
-    "attribution": "Legal attribution required by the SRD's licence (CC-BY-4.0); translate the sentence, keep the names and the licence name."
+    "attribution": "Legal attribution required by the SRD's licence (CC-BY-4.0); translate the sentence, keep the names and the licence name.",
+    "madeBy": "Footer signature, followed by a heart icon and the author's name."
   },
   "errors": {
     "network": {
@@ -85,6 +87,10 @@
       "system": "A colour theme in the settings menu.",
       "light": "A colour theme in the settings menu.",
       "dark": "A colour theme in the settings menu."
+    },
+    "contrast": {
+      "system": "A contrast setting in the settings menu.",
+      "more": "A contrast setting in the settings menu."
     }
   },
   "characters": {
@@ -124,5 +130,8 @@
     "spellSlot": "A game term: must be the official word of docs/03-glossary.md in this language (a test checks it).",
     "shortRest": "A game term: must be the official word of docs/03-glossary.md in this language (a test checks it).",
     "longRest": "A game term: must be the official word of docs/03-glossary.md in this language (a test checks it)."
+  },
+  "alerts": {
+    "close": "Accessible name of the button that closes an alert."
   }
 }

@@ -1,0 +1,44 @@
+@use "./variables";
+
+/* Above a breakpoint: `@include mixins.from(variables.$desktop-min) { … }`. */
+@mixin from($width)
+{
+    @media (min-width: $width) { @content; }
+}
+
+/* Hidden but read by screen readers. */
+@mixin sr-only
+{
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+/* The focus ring every control shares: visible, never colour alone (a 3px outline plus offset). */
+@mixin focus-ring
+{
+    outline: 3px solid var(--color-focus);
+    outline-offset: 2px;
+}
+
+/* A tappable surface: at least 44 × 44 px (docs/13-ux-and-accessibility.md). */
+@mixin tap-target
+{
+    min-height: 44px;
+    min-width: 44px;
+}
+
+/* A raised card surface. */
+@mixin card($elevation: 1)
+{
+    background-color: var(--color-surface-raised);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-#{$elevation});
+}
