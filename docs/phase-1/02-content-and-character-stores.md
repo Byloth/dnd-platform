@@ -6,24 +6,27 @@ This document fixes how the browser holds content and characters without a serve
 
 ## Decisions
 
-- **One storage interface, two backends.** `packages/web/composables/useStorage` exposes `packages`, `characters` and `exports` collections; the default backend is the browser's IndexedDB; the optional backend is a directory on disk through the File System Access API, used as a mirror when connected. The rest of the application never touches either API directly.
+- **One storage interface, two backends.** `useBrowserStorage` (`packages/web/composables/storage.ts`; not `useStorage`, which VueUse auto-imports) exposes `packages`, `characters` and `exports` collections; the default backend is the browser's IndexedDB through `IndexedDatabase` of `@byloth/core`, whose store definitions and migrations version the database schema; the optional backend is a directory on disk through the File System Access API, used as a mirror when connected. The rest of the application never touches either API directly.
 - **Packages are stored as bundles**, the `PackageSource` JSON of `dnd build`, keyed by `id@version`. Whatever the user loads (a zip of the package directory, or a bundle file) is converted to a bundle in the browser and validated before it is stored; an invalid package is refused with the same diagnostics `dnd validate` prints, pointing at the file and the path.
 - **The SRD is the base and always present**: fetched from the site, cached like any other bundle, replaced when the site ships a newer version (pinned characters keep computing with the version they pin, as [../10-progression.md](../10-progression.md) requires; the migration proposal is Phase 3).
 - **Privacy by construction.** A package with `redistributable: false` is stored, listed and used exactly like any other, with one difference: it is flagged "private, loaded locally" wherever it is listed, its attribution appears on the sheet and in print, and the export of a character lists it by id and version and never embeds it. Nothing is ever sent anywhere: the application makes no network request except for its own assets.
 - **Characters are documents**, stored as they are authored (the `Character` of the schema), never with derived values. The store keeps one entry per character plus its snapshots; derived sheets are memoised in memory only.
 - **Export is a file download, import is a file selection**; the document is defined in [05-print-and-export.md](05-print-and-export.md).
-- **Storage persistence is requested** (`navigator.storage.persist()`) at the first write; when it is refused or unknown, the interface says that the browser may evict the data and offers the export and the working directory.
+- **Storage persistence is requested** (`navigator.storage.persist()`) at the first write, once per session, and the answer is kept in `meta`; when it is refused or unknown, the interface says that the browser may evict the data and offers the export and the working directory.
 
 ## Design
 
 ### The content store
 
 ```
-IndexedDB "dnd-platform"
-  packages   key "srd51@0.1.0" → { manifest, ruleset?, entities, loadedAt, origin: "site" | "file", fileName? }
-  characters key id            → Character document (with snapshots)
+IndexedDB "dnd-platform", version 1
+  packages   key "srd51@0.1.0" → { source: PackageSource, loadedAt, origin: "site" | "file", fileName? }
+  characters keyPath "id"      → Character document (with snapshots)
   meta       key "srd51-version", "storage-persisted", …
 ```
+
+- **Loading is serialised**: every load (zip, bundle, the SRD refresh) goes through one `PromiseQueue` of `@byloth/core`, so two files dropped together never interleave their validation and writes. Long steps (unzipping, YAML parsing, Ajv on every file) call `yieldToEventLoop` every few files, so the page stays responsive and can show progress.
+- **Refusals are typed**: a refused package rejects with an exception of `@byloth/core` carrying the `dnd validate` code and the file and path, which the tests assert and the packages page lists inline.
 
 - **Loading a zip**: the zip is read in the browser (`fflate`), every entry under a single top-level directory or at the root is mapped to the package layout (`package.yaml`, `ruleset.yaml`, `<type>/…yaml`, `translations/<lang>/…yaml`); the YAML is parsed; the schema validation of the schema package runs on every file; the structural rules of `dnd validate` (`E_PRIVATE_PUBLIC`, base and dependencies, duplicate ids) run on the result; the bundle is built with the same sorting as `dnd build`; it is stored. The same code path serves a `.json` bundle, skipping the YAML step, and a directory of the working directory.
 - **Listing**: the packages page shows every stored bundle with name, id, version, kind, sources and licence, the private flag, the number of entities, and a "remove" action (refused while a stored character pins it, with the list of those characters).
@@ -69,7 +72,7 @@ Available in Chromium desktop browsers only; feature-detected, never required. W
 
 ## Tasks
 
-1. `useStorage` with the IndexedDB backend (`idb` library), the object stores above, and the persistence request — M1.2.
+1. `useBrowserStorage` with the IndexedDB backend (`IndexedDatabase` of `@byloth/core`), the object stores above, and the persistence request — M1.2.
 2. Package loading from zip and bundle: reading, YAML parsing, schema validation with the shared validator, structural checks, bundling, storing; the packages page; the private flag and attribution — M1.2.
 3. The SRD bundle as a stored package with version tracking — M1.2 (fetch at M1.1).
 4. Character store with list, create, update, delete, and the missing-package state — M1.5.
@@ -80,5 +83,5 @@ Available in Chromium desktop browsers only; feature-detected, never required. W
 ## Open points
 
 - Whether `packages/` in the working directory should hold the zips as loaded or the unpacked directories; unpacked is readable and editable by hand (a homebrew author's loop), zips are what the user loaded. Leaning: unpacked directories, and a zip is unpacked when copied there.
-- Storage quota on phones: Safari grants little and evicts; if the SRD bundle plus a book exceed what a device grants, the packages page must say so before the load fails. Measure at M1.2 on the reference devices.
+- Storage quota on phones: Safari grants little and evicts; if the SRD bundle plus a book exceed what a device grants, the packages page must say so before the load fails. The numbers come from `navigator.storage.estimate()`; `SystemInfo` of `@byloth/core` recognises Safari and iOS for the eviction warning, since the estimate alone does not tell it. Measure at M1.2 on the reference devices.
 - Whether to keep several versions of the same package (a character pinned to an older SRD version after a site update). Yes by key design; the packages page shows them grouped by id.

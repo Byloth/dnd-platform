@@ -42,7 +42,7 @@ Risks: Nuxt's own TypeScript setup and the monorepo's project references disagre
 ### M1.2 — Content store in the browser (≈ 3 sessions)
 
 Tasks (from [02-content-and-character-stores.md](02-content-and-character-stores.md)):
-1. `useStorage` with the IndexedDB backend and the persistence request.
+1. `useBrowserStorage` on `IndexedDatabase` of `@byloth/core`, and the persistence request. Alerts are not a prerequisite: the packages page reports inline until the vuert release (see 01).
 2. Package loading from zip and bundle with validation and bundling; the packages page; the private flag and attribution.
 3. The SRD as a stored package with version tracking; `useEngine` with memoisation.
 4. Tests: `homebrew-feline` and `phb14-stub` from zips, the invalid fixtures refused, the private Monk equal to the CLI snapshot.

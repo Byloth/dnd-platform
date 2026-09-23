@@ -62,14 +62,14 @@ The engine has no runtime dependency and no platform import; it bundles as is. T
 - `.github/workflows/pages.yml`: on push to the default branch, install, build the library packages, `pnpm web:generate`, upload the artifact, deploy with the Pages actions. Enabling Pages on the repository and the first push are the owner's (confirmation point of [08-workplan.md](08-workplan.md)).
 - The CI workflow gains `pnpm web:lint`, `pnpm web:typecheck`, `pnpm web:test` and `pnpm web:generate` as a build check on pull requests; no deployment from pull requests.
 - Site headers cannot be set on Pages: no service worker in Phase 1, cache control by hashed file names only.
-- The template's alert handler and errors composable (`@byloth/vuert` imported directly) are left out in M1.1: pnpm 12 links `@byloth/vuert@2.0.0-dev.1` (a prerelease with peers) to a store directory that does not exist, while the Nuxt module resolves fine. They return with the first screen that needs alerts (M1.2), once the link issue is settled (a hoist pattern, or a release of vuert).
+- The template's alert handler and errors composable (`@byloth/vuert` imported directly) are left out in M1.1: pnpm 12 links `@byloth/vuert@2.0.0-dev.1` (a prerelease with peers) to a store directory that does not exist, while the Nuxt module resolves fine. The cause is a pnpm bug: an incremental `pnpm add` of a package already present as a peer-resolved transitive dependency writes the importer entry without its peer suffix; `pnpm install --fix-lockfile` repairs it. The fix on vuert's side (the module exposing what apps import) is in progress outside this repository. Alerts are not a prerequisite of M1.2: the packages page shows errors and the quota state inline, and alerts are wired when the new vuert release lands. Every `pnpm add` in this workspace is followed by `pnpm install --fix-lockfile` and a check that the new link exists.
 
 ### What the shell guarantees
 
 - No network call other than fetching the site's own assets and the SRD bundle. No analytics, no fonts from third parties (Font Awesome and the text font are bundled).
 - The application works with the SRD alone; every other package is optional and loaded by the user ([02-content-and-character-stores.md](02-content-and-character-stores.md)).
 - The URL carries the character id and the wizard step, so reloads and shared links within the same browser keep the place; nothing else is in the URL.
-- Language, help level, page size and theme are preferences in the browser's storage, applied at render time only.
+- Language, help level, page size and theme are preferences in the browser's storage (`JSONStorage` of `@byloth/core`), applied at render time only.
 
 ## Tasks
 
