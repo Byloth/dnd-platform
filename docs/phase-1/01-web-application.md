@@ -34,8 +34,8 @@ packages/web/
       export.vue          # export document download (05)
     packages/index.vue    # content store: loaded packages, load from file, remove (02)
   components/             # value tile, provenance drawer, choice picker, section blocks… (03, 04)
-  composables/            # useEngine (derive with memoisation), useContentStore, useCharacterStore, useWorkingDirectory
-  stores/                 # Pinia: content, characters, preferences (language, help level, page size)
+  composables/            # useEngine (derive with memoisation), useBrowserStorage, usePackageLoader, useContent, useCharacterStore, useWorkingDirectory
+  stores/                 # Pinia: content (useContentStore, M1.2), characters, preferences (language, help level, page size)
   i18n/locales/{en,it}.json
   public/content/srd51.json   # copied at build time, git-ignored
   tests/                  # component and composable tests
@@ -51,6 +51,8 @@ character store (IndexedDB) ──► Character ──────► derive(cha
 ```
 
 `derive` is memoised per (character document, package versions, language, engine version): the same rule as the cache of [../15-logical-architecture.md](../15-logical-architecture.md). A change in the wizard produces a new character document and a new derivation; on the reference low-end phone this must stay under the 100 ms budget of [07-testing-accessibility-performance.md](07-testing-accessibility-performance.md) (the Phase 0 performance test measures a level 20 multiclass caster well under it on a laptop; the phone measurement is a Phase 1 task).
+
+Built in M1.2 as `composables/engine.ts`: `useEngine().sheet(character, sources, language)` goes through two small in-memory LRU caches, package sets keyed by the package versions and the pins, sheets by the character document (canonical JSON), the versions and the language. The engine version is constant within one page load, which is as long as these caches live; a cache that outlived the page would add it to the key.
 
 ### Loading the engine in the browser
 
@@ -78,7 +80,7 @@ The engine has no runtime dependency and no platform import; it bundles as is. T
 3. Move the Ajv setup of the CLI into the schema package and make `dnd validate` use it — M1.1.
 4. The SRD bundle as a static asset with its version; a first page that derives a fixture character and renders the composer's section tree unstyled — M1.1.
 5. Pages workflow and CI steps — M1.1.
-6. Memoised `useEngine` composable with the cache-invalidation rule — M1.2.
+6. Memoised `useEngine` composable with the cache-invalidation rule — M1.2 (done).
 7. Preferences store (language, help level, page size, theme) — M1.3.
 
 ## Open points
