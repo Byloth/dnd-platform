@@ -2,6 +2,7 @@ import { PromiseQueue, ValueException, yieldToEventLoop } from "@byloth/core";
 import {
     checkPackageAsync,
     checkReferences,
+    compareVersions,
     filesOfSource,
     parseBundle,
     readPackageZipAsync,
@@ -15,8 +16,9 @@ import type { StoredPackage } from "./storage";
 
 /**
  * Loading a package the user picks (docs/phase-1/02-content-and-character-stores.md): a zip of its
- * directory or a bundle is read, checked like `dnd validate` does, resolved against the stored packages it
- * depends on, and stored as a bundle. One load at a time; the page stays responsive during long checks.
+ * directory or a bundle is read, checked like `dnd validate` does, resolved against the packages it
+ * depends on (the site's public ones, the SRD, and the stored ones), and stored as a bundle. One load at a
+ * time; the page stays responsive during long checks.
  */
 
 /** A package refused by the checks; `diagnostics` are the ones `dnd validate` would print. */
@@ -73,47 +75,38 @@ async function _read(file: PackageFile): Promise<{ files: PackageFiles, source?:
     return { files: await readPackageZipAsync(bytes, _PAUSE) };
 }
 
-/** Numeric comparison of dotted versions (`0.10.0` after `0.9.0`). */
-function _compareVersions(a: string, b: string): number
-{
-    const left = a.split(".").map(Number);
-    const right = b.split(".").map(Number);
-    for (let i = 0; i < Math.max(left.length, right.length); i += 1)
-    {
-        const difference = (left[i] ?? 0) - (right[i] ?? 0);
-        if (difference !== 0) { return difference; }
-    }
-
-    return 0;
-}
-
 /**
- * The stored packages the new one needs next to it for the reference check: its dependencies by id, the
- * newest stored version of each (the version a character pins is chosen later, at creation).
+ * The packages the new one needs next to it for the reference check, its dependencies recursively: the
+ * site's latest release of a public package (the SRD, DEC-21), otherwise the newest stored version of a
+ * package the user loaded.
  */
-function _dependencies(source: PackageSource, stored: readonly StoredPackage[]): PackageSource[]
+async function _dependencies(source: PackageSource, stored: readonly StoredPackage[]): Promise<PackageSource[]>
 {
     const byId = new Map<string, PackageSource>();
     for (const { source: s } of stored)
     {
         const current = byId.get(s.manifest.id);
-        const newer = !current || _compareVersions(current.manifest.version, s.manifest.version) < 0;
+        const newer = !current || compareVersions(current.manifest.version, s.manifest.version) < 0;
         if (newer) { byId.set(s.manifest.id, s); }
     }
 
+    const { fetchIndex, fetchBundle } = useContent();
+    const published = (await fetchIndex()).packages;
     const needed = new Map<string, PackageSource>();
-    const visit = (manifest: PackageSource["manifest"]): void =>
+    const visit = async (manifest: PackageSource["manifest"]): Promise<void> =>
     {
         for (const dependency of manifest.dependencies ?? [])
         {
-            const found = byId.get(dependency.id);
-            if (!found || needed.has(dependency.id)) { continue; }
+            if (needed.has(dependency.id)) { continue; }
+
+            const found = (dependency.id in published) ? await fetchBundle(dependency.id) : byId.get(dependency.id);
+            if (!found) { continue; }
 
             needed.set(dependency.id, found);
-            visit(found.manifest);
+            await visit(found.manifest);
         }
     };
-    visit(source.manifest);
+    await visit(source.manifest);
 
     return [...needed.values()];
 }
@@ -130,7 +123,7 @@ async function _load(file: PackageFile): Promise<LoadedPackage>
     const storage = useBrowserStorage();
 
     // Only what concerns the new package: its own references, and set-wide errors (no base, a missing dependency).
-    const references = checkReferences([..._dependencies(source, await storage.packages.list()), source])
+    const references = checkReferences([...(await _dependencies(source, await storage.packages.list())), source])
         .filter((d) => d.package === source.manifest.id || d.package === "");
     const all = [...diagnostics, ...references];
     if (references.some((d) => d.severity === "error")) { throw new PackageRefusedException(file.name, all); }

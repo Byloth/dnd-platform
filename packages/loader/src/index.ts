@@ -14,4 +14,5 @@ export { DIAGNOSTIC_CODES, checkPackage, checkPackageAsync, checkReferences } fr
 export type { CheckOptions, DiagnosticCode, PackageDiagnostic } from "./check.js";
 export { bundleText, parseBundle, toBundle } from "./bundle.js";
 export { readPackageZip, readPackageZipAsync } from "./zip.js";
+export { compareVersions } from "./versions.js";
 export type { Pause, PauseOptions } from "./steps.js";

@@ -2,6 +2,7 @@
  * Loading packages in the browser (docs/phase-1/02-content-and-character-stores.md): zips of the fixture
  * packages load and are stored, a bundle loads like its directory, and every invalid fixture is refused
  * with the codes `dnd validate` reports for it (the repository guards aside, which need a repository).
+ * The SRD they depend on comes from the site (DEC-21), here endpoints serving the built bundle.
  */
 
 import "fake-indexeddb/auto";
@@ -12,6 +13,7 @@ import { join, relative, resolve } from "node:path";
 import { zipSync } from "fflate";
 import { parse } from "yaml";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
+import { registerEndpoint } from "@nuxt/test-utils/runtime";
 
 import { IndexedDatabase } from "@byloth/core";
 import { bundleText } from "@byloth/dnd-platform-loader";
@@ -60,15 +62,22 @@ function bundleOf(source: PackageSource, name: string): PackageFile
     return { name: name, arrayBuffer: async () => bytes.slice().buffer };
 }
 
-async function storeSrd(): Promise<void>
-{
-    const source = JSON.parse(readFileSync(resolve(ROOT, "build", "content", "srd51.json"), "utf8")) as PackageSource;
-    await useBrowserStorage().packages.put({ source: source, loadedAt: "2026-09-23T12:00:00.000Z", origin: "site" });
-}
+const SRD = JSON.parse(readFileSync(resolve(ROOT, "build", "content", "srd51.json"), "utf8")) as PackageSource;
 
-beforeEach(async () =>
+/** Whether the site publishes the SRD; the endpoints below read it at each request. */
+let published = true;
+
+registerEndpoint("/dnd-platform/content/index.json", () =>
 {
-    await storeSrd();
+    const { version } = SRD.manifest;
+
+    return { packages: published ? { srd51: { latest: version, versions: [version] } } : {} };
+});
+registerEndpoint("/dnd-platform/content/srd51.json", () => SRD);
+
+beforeEach(() =>
+{
+    published = true;
 });
 afterEach(async () =>
 {
@@ -119,13 +128,12 @@ describe("usePackageLoader", () =>
 
         const ids = [feline.record.source.manifest.id, stub.record.source.manifest.id];
         expect(ids).toEqual(["homebrew.byloth", "phb14"]);
-        expect((await useBrowserStorage().packages.list()).length).toBe(3);
+        expect((await useBrowserStorage().packages.list()).length).toBe(2);
     });
 
-    it("refuses a package whose dependency is not stored", async () =>
+    it("refuses a package whose dependency is neither on the site nor stored", async () =>
     {
-        await closeBrowserStorage();
-        await IndexedDatabase.Delete(DATABASE_NAME);
+        published = false;
 
         const refusal = await usePackageLoader().load(zipOf(join(FIXTURES, "homebrew-feline"), "homebrew-feline"))
             .catch((error: unknown) => error);

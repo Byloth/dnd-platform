@@ -10,7 +10,8 @@ describe("loader contract", () =>
             .sort();
 
         const contract = [
-            "bundleText", "checkPackage", "checkReferences", "loadPackages", "parseBundle", "readPackageFiles",
+            "bundleText", "checkPackage", "checkReferences", "compareVersions", "loadPackages", "parseBundle",
+            "readPackageFiles",
             "readPackageZip", "toBundle", "toPackageSource", "validate"
         ];
 
