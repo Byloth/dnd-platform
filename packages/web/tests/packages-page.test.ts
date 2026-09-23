@@ -9,6 +9,7 @@ import "fake-indexeddb/auto";
 import { join } from "node:path";
 
 import { flushPromises } from "@vue/test-utils";
+import type { DOMWrapper, VueWrapper } from "@vue/test-utils";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { mountSuspended } from "@nuxt/test-utils/runtime";
 
@@ -30,7 +31,7 @@ afterEach(async () =>
     await clearBrowserStorage();
 });
 
-async function mountPage(): Promise<Awaited<ReturnType<typeof mountSuspended>>>
+async function mountPage(): Promise<VueWrapper>
 {
     const wrapper = await mountSuspended(PackagesPage);
     await flushPromises();
@@ -39,9 +40,9 @@ async function mountPage(): Promise<Awaited<ReturnType<typeof mountSuspended>>>
 }
 
 /** The list item of a package, by its heading. */
-function packageItem(wrapper: Awaited<ReturnType<typeof mountSuspended>>, name: string)
+function packageItem(wrapper: VueWrapper, name: string): DOMWrapper<Element> | undefined
 {
-    return wrapper.findAll("li.package").find((li) => li.find("h3").text() === name);
+    return wrapper.findAll("li.package").find((li: DOMWrapper<Element>) => li.find("h3").text() === name);
 }
 
 describe("the packages page", () =>
@@ -73,7 +74,7 @@ describe("the packages page", () =>
         expect(feline.text()).toContain("Added from homebrew-feline.zip");
         expect(feline.text()).not.toContain("Private, loaded on this device");
 
-        const phb = wrapper.findAll("li.package").find((li) => li.text().includes("phb14.json"))!;
+        const phb = wrapper.findAll("li.package").find((li: DOMWrapper<Element>) => li.text().includes("phb14.json"))!;
         expect(phb.text()).toContain("Private, loaded on this device");
         expect(wrapper.findAll("li.load.done").length).toBe(2);
     });
