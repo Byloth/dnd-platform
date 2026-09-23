@@ -2275,6 +2275,44 @@
       }
     }
   ],
+  "texts": [
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.cleric",
+        "feature": "srd51.feature.cleric.destroy-undead",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "When an undead fails its saving throw against your Turn Undead feature, the creature is instantly destroyed if its challenge rating is at or below a threshold: 1/2 at 5th level, 1 at 8th, 2 at 11th, 3 at 14th, 4 at 17th."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.subclass.cleric.life-domain",
+        "feature": "srd51.feature.life-domain.disciple-of-life",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Whenever you use a spell of 1st level or higher to restore hit points to a creature, the creature regains additional hit points equal to 2 + the spell's level."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.subclass.wizard.school-of-evocation",
+        "feature": "srd51.feature.school-of-evocation.sculpt-spells",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "When you cast an evocation spell that affects other creatures that you can see, you can choose a number of them equal to 1 + the spell's level. The chosen creatures automatically succeed on their saving throws against the spell, and they take no damage if they would normally take half damage on a successful save."
+      }
+    }
+  ],
   "toggles": [],
   "values": {
     "ability.cha": {

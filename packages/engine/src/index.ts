@@ -292,6 +292,21 @@ export interface DeriveOptions
     readonly language?: string;
     readonly includeText?: boolean;
 }
+/** A reminder a feature, item, condition or spell adds to a section of the sheet (`add-text`). */
+export interface TextView
+{
+    readonly section: string;
+    readonly text: LocalizedString;
+    readonly source: ContributionSource;
+}
+/** A section a package declares (`add-section`), placed in the middle band of the sheet. */
+export interface CustomSectionView
+{
+    readonly id: string;
+    readonly name: LocalizedString;
+    readonly layout?: "list" | "cards" | "table" | "text";
+    readonly source: ContributionSource;
+}
 export interface ComputedSheet
 {
     readonly meta: SheetMeta;
@@ -310,6 +325,10 @@ export interface ComputedSheet
     readonly toggles: readonly ToggleView[];
     readonly choices: readonly ChoiceView[];
     readonly sections: readonly string[];
+    /** Reminders added to sections, in the order the effects were applied; absent when there are none. */
+    readonly texts?: readonly TextView[];
+    /** Sections declared by packages that have content; absent when there are none. */
+    readonly customSections?: readonly CustomSectionView[];
     readonly play: PlayRules;
     readonly warnings: readonly Diagnostic[];
 }

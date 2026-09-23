@@ -2088,6 +2088,44 @@
       }
     }
   ],
+  "texts": [
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 2,
+        "entity": "srd51.subclass.sorcerer.draconic-bloodline",
+        "feature": "srd51.feature.draconic-bloodline.dragon-ancestor",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Whenever you make a Charisma check when interacting with dragons, your proficiency bonus is doubled if it applies to the check."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.subclass.sorcerer.draconic-bloodline",
+        "feature": "srd51.feature.draconic-bloodline.elemental-affinity",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "When you cast a spell that deals damage of the type associated with your draconic ancestry, you can add your Charisma modifier to one damage roll of that spell."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.subclass.sorcerer.draconic-bloodline",
+        "feature": "red",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Draconic ancestry: red dragon (fire)."
+      }
+    }
+  ],
   "toggles": [
     {
       "expires": {

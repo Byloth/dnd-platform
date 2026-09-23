@@ -14,9 +14,10 @@ import type { Facts } from "../conditions/evaluate.js";
 import { stableStringify } from "@byloth/dnd-platform-schema";
 import { evaluateFormula, formatValue } from "../formula/evaluate.js";
 import type {
-    ActionView, ChoiceView, ComputedSheet, ConditionRef, Contribution, ContributionSource, DefenseView, DeriveOptions,
-    DerivedValue, Diagnostic, FeatureView, HitDicePool, PackageSet, PlayRules, ProficiencyView, Provenance,
-    ResolvedRoll, ResourceView, RollModifierView, SlotView, SpellcastingView, SpellView, ToggleView, ValuePath
+    ActionView, ChoiceView, ComputedSheet, ConditionRef, Contribution, ContributionSource, CustomSectionView,
+    DefenseView, DeriveOptions, DerivedValue, Diagnostic, FeatureView, HitDicePool, PackageSet, PlayRules,
+    ProficiencyView, Provenance, ResolvedRoll, ResourceView, RollModifierView, SlotView, SpellcastingView, SpellView,
+    TextView, ToggleView, ValuePath
 } from "../index.js";
 import { baseAbilityScores, buildFacts, classLevelsOf, equippedItems, totalLevel } from "./facts.js";
 import { assembleAttacks } from "./attacks.js";
@@ -506,6 +507,8 @@ export function derive(character: Character, set: PackageSet, options: DeriveOpt
     };
     const spells: SpellView[] = [];
     const sections = new Set<string>(ALWAYS_SECTIONS);
+    const texts: TextView[] = [];
+    const declared = new Map<string, CustomSectionView>();
     const spellEntity = (spellId: string): Spell | undefined =>
     {
         const resolved = set.entities.get(spellId);
@@ -703,10 +706,24 @@ export function derive(character: Character, set: PackageSet, options: DeriveOpt
                 if (ctx.applied) { defenses.push({ defense: e.defense, to: e.to, source: ctx.source }); }
                 break;
             case "add-text":
-                if (ctx.applied) { sections.add(e.section); }
+                if (!ctx.applied) { break; }
+                sections.add(e.section);
+                if (options.includeText !== false)
+                {
+                    texts.push({ section: e.section, text: e.text, source: ctx.source });
+                }
                 break;
             case "add-section":
-                if (ctx.applied) { sections.add(e.section); }
+                // The first declaration of an id wins; the section shows only once something is added to it.
+                if (ctx.applied && !declared.has(e.section))
+                {
+                    declared.set(e.section, {
+                        id: e.section,
+                        name: e.name,
+                        ...(e.layout ? { layout: e.layout } : {}),
+                        source: ctx.source
+                    });
+                }
                 break;
             case "grant-spellcasting":
             {
@@ -1019,9 +1036,15 @@ export function derive(character: Character, set: PackageSet, options: DeriveOpt
         "identity", "core", "abilities", "saves", "skills", "senses", "combat", "attacks", "actions", "resources",
         "spellcasting", "spells", "features", "equipment", "personality", "conditions", "notes", "credits"
     ];
-    const known = sectionOrder.filter((s) => sections.has(s));
+    // Sections declared by packages sit in the middle band, after Features and before Equipment
+    // (docs/08-dynamic-sheet.md), sorted by id; a declared section with no content is left out.
     const custom = [...sections].filter((s) => !sectionOrder.includes(s)).sort();
-    const orderedSections = [...known, ...custom];
+    const known = sectionOrder.filter((s) => sections.has(s));
+    const middle = known.indexOf("equipment");
+    const orderedSections = [...known.slice(0, middle), ...custom, ...known.slice(middle)];
+    const customSections = custom
+        .map((id) => declared.get(id))
+        .filter((s) => s !== undefined);
 
     return {
         meta: {
@@ -1052,6 +1075,8 @@ export function derive(character: Character, set: PackageSet, options: DeriveOpt
         toggles: [...toggles.values()],
         choices: col.choices,
         sections: orderedSections,
+        ...(texts.length > 0 ? { texts: texts } : {}),
+        ...(customSections.length > 0 ? { customSections: customSections } : {}),
         play: play,
         warnings: [...set.diagnostics.entries.filter((d) => d.severity !== "info"), ...dedupeExcluded(warnings)]
     };

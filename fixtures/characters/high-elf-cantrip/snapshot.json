@@ -1079,6 +1079,32 @@
       }
     }
   ],
+  "texts": [
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.species.elf",
+        "feature": "srd51.feature.elf.trance",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You don't need to sleep; meditating deeply for 4 hours a day gives you the same benefit a human gets from 8 hours of sleep."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.class.rogue",
+        "feature": "srd51.feature.rogue.thieves-cant",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You understand a set of secret signs and symbols used to convey short, simple messages, such as whether an area is dangerous or the territory of a thieves' guild, whether loot is nearby, or whether the people in an area are easy marks or will provide a safe house for thieves on the run."
+      }
+    }
+  ],
   "toggles": [],
   "values": {
     "ability.cha": {

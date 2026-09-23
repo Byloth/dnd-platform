@@ -1034,6 +1034,20 @@
   ],
   "spellcasting": [],
   "spells": [],
+  "texts": [
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.species.half-orc",
+        "feature": "srd51.feature.half-orc.savage-attacks",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "When you score a critical hit with a melee weapon attack, roll one of the weapon's damage dice one additional time and add it to the extra damage of the critical hit."
+      }
+    }
+  ],
   "toggles": [
     {
       "expires": {

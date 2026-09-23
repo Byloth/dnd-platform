@@ -1579,6 +1579,80 @@
   ],
   "spellcasting": [],
   "spells": [],
+  "texts": [
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.species.half-orc",
+        "feature": "srd51.feature.half-orc.savage-attacks",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "When you score a critical hit with a melee weapon attack, roll one of the weapon's damage dice one additional time and add it to the extra damage of the critical hit."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.class.barbarian",
+        "feature": "srd51.feature.barbarian.feral-instinct",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "If you are surprised at the beginning of combat and aren't incapacitated, you can act normally on your first turn, but only if you enter your rage before doing anything else on that turn."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.barbarian",
+        "feature": "srd51.feature.barbarian.brutal-critical",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You can roll one additional weapon damage die when determining the extra damage for a critical hit with a melee attack. This increases to two additional dice at 13th level and three additional dice at 17th level."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.class.barbarian",
+        "feature": "srd51.feature.barbarian.relentless-rage",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "If you drop to 0 hit points while you're raging and don't die outright, you can make a DC 10 Constitution saving throw. If you succeed, you drop to 1 hit point instead. Each time you use this feature after the first, the DC increases by 5. When you finish a short or long rest, the DC resets to 10."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.subclass.barbarian.path-of-the-berserker",
+        "feature": "srd51.feature.path-of-the-berserker.frenzy",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "When your rage ends after a frenzy, you suffer one level of exhaustion."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.subclass.barbarian.path-of-the-berserker",
+        "feature": "srd51.feature.path-of-the-berserker.mindless-rage",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "If you are charmed or frightened when you enter your rage, the effect is suspended for the duration of the rage."
+      }
+    }
+  ],
   "toggles": [
     {
       "expires": {

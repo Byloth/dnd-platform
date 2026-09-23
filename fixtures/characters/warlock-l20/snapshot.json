@@ -2461,6 +2461,68 @@
       }
     }
   ],
+  "texts": [
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 8,
+        "entity": "srd51.class.warlock",
+        "feature": "srd51.feature.warlock.mystic-arcanum",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You can cast each arcanum spell once without expending a spell slot. You must finish a long rest before you can do so again."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.warlock",
+        "feature": "agonizing-blast",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "When you cast eldritch blast, add your Charisma modifier to the damage it deals on a hit."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.warlock",
+        "feature": "lifedrinker",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "When you hit a creature with your pact weapon, the creature takes extra necrotic damage equal to your Charisma modifier (minimum 1)."
+      }
+    },
+    {
+      "section": "senses",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.warlock",
+        "feature": "witch-sight",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You can see the true form of any shapechanger or creature concealed by illusion or transmutation magic while the creature is within 30 feet of you and within line of sight."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.class.warlock",
+        "feature": "pact-of-the-blade",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You can transform one magic weapon into your pact weapon by performing a special ritual while you hold the weapon, over the course of 1 hour (possible during a short rest). You can then dismiss the weapon, shunting it into an extradimensional space, and it appears whenever you create your pact weapon thereafter. You can't affect an artifact or a sentient weapon in this way. The weapon ceases being your pact weapon if you die, if you perform the 1-hour ritual on a different weapon, or if you use a 1-hour ritual to break your bond to it."
+      }
+    }
+  ],
   "toggles": [],
   "values": {
     "ability.cha": {

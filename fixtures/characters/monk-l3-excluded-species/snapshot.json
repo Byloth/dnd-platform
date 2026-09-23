@@ -1224,6 +1224,20 @@
   ],
   "spellcasting": [],
   "spells": [],
+  "texts": [
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.species.dwarf",
+        "feature": "srd51.feature.dwarf.stonecunning",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Double proficiency bonus on Intelligence (History) checks about the origin of stonework."
+      }
+    }
+  ],
   "toggles": [
     {
       "expires": {

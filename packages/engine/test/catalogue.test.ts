@@ -675,16 +675,50 @@ describe("roll modifiers and defenses", () =>
 
 describe("sections", () =>
 {
-    it("add-text activates its section and add-section adds a custom one, ordered last", () =>
+    it("add-text activates its section and keeps its text as a reminder, with its source", () =>
+    {
+        const sheet = sheetWith([{ kind: "add-text", section: "senses", text: { en: "You hear well." } }]);
+
+        expect(sheet.sections.indexOf("senses")).toBeLessThan(sheet.sections.indexOf("combat"));
+        expect(sheet.texts).toEqual([{
+            section: "senses",
+            text: { en: "You hear well." },
+            source: expect.objectContaining({ feature: F("test"), effectIndex: 0 })
+        }]);
+    });
+
+    it("a reminder whose condition fails is left out, and a sheet without reminders has no texts", () =>
     {
         const sheet = sheetWith([
-            { kind: "add-text", section: "senses", text: { en: "You hear well." } },
-            { kind: "add-section", section: "ki-log", name: { en: "Ki log" } }
+            { kind: "add-text", section: "combat", text: { en: "Raging." }, when: { toggled: "rage" } }
         ]);
 
-        expect(sheet.sections).toContain("senses");
-        expect(sheet.sections.at(-1)).toBe("ki-log");
-        expect(sheet.sections.indexOf("senses")).toBeLessThan(sheet.sections.indexOf("combat"));
+        expect(sheet.texts).toBeUndefined();
+        expect(sheet.customSections).toBeUndefined();
+    });
+
+    it("a declared section with content sits after Features and before Equipment, with its name and layout", () =>
+    {
+        const sheet = sheetWith([
+            { kind: "add-section", section: "ki-log", name: { en: "Ki log" }, layout: "list" },
+            { kind: "add-text", section: "ki-log", text: { en: "Note every Ki point spent." } }
+        ]);
+
+        const at = sheet.sections.indexOf("ki-log");
+        expect(at).toBe(sheet.sections.indexOf("features") + 1);
+        expect(sheet.sections[at + 1]).toBe("equipment");
+        expect(sheet.customSections).toEqual([
+            expect.objectContaining({ id: "ki-log", name: { en: "Ki log" }, layout: "list" })
+        ]);
+        expect(sheet.texts?.map((t) => t.section)).toEqual(["ki-log"]);
+    });
+
+    it("a declared section with nothing in it is not on the sheet", () =>
+    {
+        const sheet = sheetWith([{ kind: "add-section", section: "ki-log", name: { en: "Ki log" } }]);
+
+        expect(sheet.sections).not.toContain("ki-log");
+        expect(sheet.customSections).toBeUndefined();
     });
 });
 

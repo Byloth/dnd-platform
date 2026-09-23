@@ -1953,6 +1953,56 @@
       }
     }
   ],
+  "texts": [
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.species.dwarf",
+        "feature": "srd51.feature.dwarf.stonecunning",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Double proficiency bonus on Intelligence (History) checks about the origin of stonework."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.cleric",
+        "feature": "srd51.feature.cleric.destroy-undead",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "When an undead fails its saving throw against your Turn Undead feature, the creature is instantly destroyed if its challenge rating is at or below a threshold: 1/2 at 5th level, 1 at 8th, 2 at 11th, 3 at 14th, 4 at 17th."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.subclass.cleric.life-domain",
+        "feature": "srd51.feature.life-domain.disciple-of-life",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Whenever you use a spell of 1st level or higher to restore hit points to a creature, the creature regains additional hit points equal to 2 + the spell's level."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.background.acolyte",
+        "feature": "srd51.feature.acolyte.shelter-of-the-faithful",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You and your companions can expect free healing and care at temples of your faith."
+      }
+    }
+  ],
   "toggles": [],
   "values": {
     "ability.cha": {

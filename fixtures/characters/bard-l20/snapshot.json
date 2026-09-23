@@ -2702,6 +2702,20 @@
       }
     }
   ],
+  "texts": [
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.bard",
+        "feature": "srd51.feature.bard.superior-inspiration",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "When you roll initiative and have no uses of Bardic Inspiration left, you regain one use."
+      }
+    }
+  ],
   "toggles": [
     {
       "expires": {

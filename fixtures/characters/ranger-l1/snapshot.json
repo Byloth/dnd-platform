@@ -933,6 +933,80 @@
   ],
   "spellcasting": [],
   "spells": [],
+  "texts": [
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.species.halfling",
+        "feature": "srd51.feature.halfling.halfling-nimbleness",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You can move through the space of any creature that is of a size larger than yours."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.species.halfling.lightfoot",
+        "feature": "srd51.feature.lightfoot.naturally-stealthy",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You can attempt to hide even when you are obscured only by a creature that is at least one size larger than you."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 3,
+        "entity": "srd51.class.ranger",
+        "feature": "srd51.feature.ranger.natural-explorer",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "When you make an Intelligence or Wisdom check related to your favored terrain, your proficiency bonus is doubled if you are using a skill that you're proficient in."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 4,
+        "entity": "srd51.class.ranger",
+        "feature": "srd51.feature.ranger.natural-explorer",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "While traveling for an hour or more in your favored terrain: difficult terrain doesn't slow your group's travel; your group can't become lost except by magical means; even when engaged in another activity while traveling (such as foraging, navigating, or tracking) you remain alert to danger; if traveling alone you can move stealthily at a normal pace; when you forage you find twice as much food as you normally would; while tracking other creatures you also learn their exact number, their sizes, and how long ago they passed through the area."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.ranger",
+        "feature": "fiends",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Favored enemy: fiends."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.ranger",
+        "feature": "forest",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Favored terrain: forest."
+      }
+    }
+  ],
   "toggles": [],
   "values": {
     "ability.cha": {

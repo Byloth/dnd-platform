@@ -1279,6 +1279,32 @@
   ],
   "spellcasting": [],
   "spells": [],
+  "texts": [
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.species.half-orc",
+        "feature": "srd51.feature.half-orc.savage-attacks",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "When you score a critical hit with a melee weapon attack, roll one of the weapon's damage dice one additional time and add it to the extra damage of the critical hit."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.subclass.barbarian.path-of-the-berserker",
+        "feature": "srd51.feature.path-of-the-berserker.frenzy",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "When your rage ends after a frenzy, you suffer one level of exhaustion."
+      }
+    }
+  ],
   "toggles": [
     {
       "expires": {

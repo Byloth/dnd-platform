@@ -774,25 +774,31 @@ export interface AddText {
     kind: "add-text";
     when?: Condition;
     note?: LocalizedString;
+    /**
+     * A built-in section of the sheet, or a section declared by an add-section effect (by its id).
+     */
     section:
-        | "identity"
-        | "core"
-        | "abilities"
-        | "saves"
-        | "skills"
-        | "senses"
-        | "combat"
-        | "attacks"
-        | "actions"
-        | "resources"
-        | "spellcasting"
-        | "spells"
-        | "features"
-        | "equipment"
-        | "personality"
-        | "conditions"
-        | "notes"
-        | "credits";
+        | (
+              | "identity"
+              | "core"
+              | "abilities"
+              | "saves"
+              | "skills"
+              | "senses"
+              | "combat"
+              | "attacks"
+              | "actions"
+              | "resources"
+              | "spellcasting"
+              | "spells"
+              | "features"
+              | "equipment"
+              | "personality"
+              | "conditions"
+              | "notes"
+              | "credits"
+          )
+        | string;
     text: LocalizedString;
 }
 export interface AddSection {

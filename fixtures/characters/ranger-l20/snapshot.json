@@ -2109,6 +2109,200 @@
       }
     }
   ],
+  "texts": [
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.species.halfling",
+        "feature": "srd51.feature.halfling.halfling-nimbleness",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You can move through the space of any creature that is of a size larger than yours."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.species.halfling.lightfoot",
+        "feature": "srd51.feature.lightfoot.naturally-stealthy",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You can attempt to hide even when you are obscured only by a creature that is at least one size larger than you."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 3,
+        "entity": "srd51.class.ranger",
+        "feature": "srd51.feature.ranger.natural-explorer",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "When you make an Intelligence or Wisdom check related to your favored terrain, your proficiency bonus is doubled if you are using a skill that you're proficient in."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 4,
+        "entity": "srd51.class.ranger",
+        "feature": "srd51.feature.ranger.natural-explorer",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "While traveling for an hour or more in your favored terrain: difficult terrain doesn't slow your group's travel; your group can't become lost except by magical means; even when engaged in another activity while traveling (such as foraging, navigating, or tracking) you remain alert to danger; if traveling alone you can move stealthily at a normal pace; when you forage you find twice as much food as you normally would; while tracking other creatures you also learn their exact number, their sizes, and how long ago they passed through the area."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.class.ranger",
+        "feature": "srd51.feature.ranger.lands-stride",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Moving through nonmagical difficult terrain costs you no extra movement. You can also pass through nonmagical plants without being slowed by them and without taking damage from them if they have thorns, spines, or a similar hazard."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.class.ranger",
+        "feature": "srd51.feature.ranger.vanish",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You can't be tracked by nonmagical means, unless you choose to leave a trail."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.ranger",
+        "feature": "srd51.feature.ranger.feral-senses",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "When you attack a creature you can't see, your inability to see it doesn't impose disadvantage on your attack rolls against it."
+      }
+    },
+    {
+      "section": "senses",
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.class.ranger",
+        "feature": "srd51.feature.ranger.feral-senses",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You are aware of the location of any invisible creature within 30 feet of you, provided that the creature isn't hidden from you and you aren't blinded or deafened."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.ranger",
+        "feature": "fiends",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Favored enemy: fiends."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.ranger",
+        "feature": "undead",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Favored enemy: undead."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.ranger",
+        "feature": "dragons",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Favored enemy: dragons."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.ranger",
+        "feature": "forest",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Favored terrain: forest."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.ranger",
+        "feature": "mountain",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Favored terrain: mountain."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.ranger",
+        "feature": "swamp",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Favored terrain: swamp."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.subclass.ranger.hunter",
+        "feature": "multiattack-defense",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "When a creature hits you with an attack, you gain a +4 bonus to AC against all subsequent attacks made by that creature for the rest of the turn."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.subclass.ranger.hunter",
+        "feature": "evasion",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "When you are subjected to an effect that allows you to make a Dexterity saving throw to take only half damage, you instead take no damage if you succeed on the saving throw, and only half damage if you fail."
+      }
+    }
+  ],
   "toggles": [
     {
       "expires": {

@@ -2404,6 +2404,56 @@
       }
     }
   ],
+  "texts": [
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.species.elf",
+        "feature": "srd51.feature.elf.trance",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You don't need to sleep; meditating deeply for 4 hours a day gives you the same benefit a human gets from 8 hours of sleep."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 3,
+        "entity": "srd51.class.druid",
+        "feature": "srd51.feature.druid.wild-shape",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "While transformed by Wild Shape your game statistics are replaced by the statistics of the beast; you retain your alignment, personality, Intelligence, Wisdom and Charisma scores, your skill and saving throw proficiencies, and the benefit of your class, race and other features if the new form is physically capable of using them. You can't use your special senses unless the form has them, and you can't cast spells. Your equipment falls to the ground, merges into the form, or is worn by it."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.subclass.druid.circle-of-the-land",
+        "feature": "srd51.feature.circle-of-the-land.lands-stride",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Moving through nonmagical difficult terrain costs you no extra movement. You can also pass through nonmagical plants without being slowed by them and without taking damage from them if they have thorns, spines, or a similar hazard."
+      }
+    },
+    {
+      "section": "conditions",
+      "source": {
+        "effectIndex": 2,
+        "entity": "srd51.subclass.druid.circle-of-the-land",
+        "feature": "srd51.feature.circle-of-the-land.natures-ward",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You can't be charmed or frightened by elementals or fey."
+      }
+    }
+  ],
   "toggles": [
     {
       "expires": {

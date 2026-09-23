@@ -2350,6 +2350,56 @@
       }
     }
   ],
+  "texts": [
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 2,
+        "entity": "srd51.class.wizard",
+        "feature": "srd51.feature.wizard.spell-mastery",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You can cast your Spell Mastery spells at their lowest level without expending a spell slot when you have them prepared. If you want to cast either spell at a higher level, you must expend a spell slot as normal. By spending 8 hours in study, you can exchange one or both of the spells you chose for different spells of the same levels."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 2,
+        "entity": "srd51.class.wizard",
+        "feature": "srd51.feature.wizard.signature-spells",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You can cast each of your signature spells once at 3rd level without expending a spell slot. When you do so, you can't do so again until you finish a short or long rest. If you want to cast either spell at a higher level, you must expend a spell slot as normal."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.subclass.wizard.school-of-evocation",
+        "feature": "srd51.feature.school-of-evocation.sculpt-spells",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "When you cast an evocation spell that affects other creatures that you can see, you can choose a number of them equal to 1 + the spell's level. The chosen creatures automatically succeed on their saving throws against the spell, and they take no damage if they would normally take half damage on a successful save."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.subclass.wizard.school-of-evocation",
+        "feature": "srd51.feature.school-of-evocation.potent-cantrip",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "When a creature succeeds on a saving throw against your cantrip, the creature takes half the cantrip's damage (if any) but suffers no additional effect from the cantrip."
+      }
+    }
+  ],
   "toggles": [],
   "values": {
     "ability.cha": {

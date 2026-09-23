@@ -2049,6 +2049,56 @@
       }
     }
   ],
+  "texts": [
+    {
+      "section": "saves",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.monk",
+        "feature": "srd51.feature.monk.evasion",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Evasion: when you are subjected to an effect that allows you to make a Dexterity saving throw to take only half damage, you instead take no damage if you succeed on the saving throw, and only half damage if you fail."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.monk",
+        "feature": "srd51.feature.monk.tongue-of-the-sun-and-moon",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You understand all spoken languages. Moreover, any creature that can understand a language can understand what you say."
+      }
+    },
+    {
+      "section": "resources",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.monk",
+        "feature": "srd51.feature.monk.perfect-self",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Perfect Self: when you roll for initiative and have no ki points remaining, you regain 4 ki points."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.subclass.monk.way-of-the-open-hand",
+        "feature": "srd51.feature.way-of-the-open-hand.tranquility",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "At the end of a long rest, you gain the effect of a sanctuary spell that lasts until the start of your next long rest (the spell can end early as normal). The saving throw DC for the spell equals 8 + your Wisdom modifier + your proficiency bonus."
+      }
+    }
+  ],
   "toggles": [
     {
       "expires": {

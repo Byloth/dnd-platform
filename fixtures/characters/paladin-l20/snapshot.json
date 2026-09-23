@@ -2898,6 +2898,56 @@
       }
     }
   ],
+  "texts": [
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.class.paladin",
+        "feature": "srd51.feature.paladin.aura-of-protection",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Friendly creatures within 10 feet of you (30 feet at 18th level) gain the same bonus to their saving throws while you are conscious."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.class.paladin",
+        "feature": "srd51.feature.paladin.aura-of-courage",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Friendly creatures within 10 feet of you (30 feet at 18th level) can't be frightened while you are conscious."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.subclass.paladin.oath-of-devotion",
+        "feature": "srd51.feature.oath-of-devotion.aura-of-devotion",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Friendly creatures within 10 feet of you (30 feet at 18th level) can't be charmed while you are conscious."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.subclass.paladin.oath-of-devotion",
+        "feature": "srd51.feature.oath-of-devotion.purity-of-spirit",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You are always under the effects of a protection from evil and good spell."
+      }
+    }
+  ],
   "toggles": [
     {
       "expires": {

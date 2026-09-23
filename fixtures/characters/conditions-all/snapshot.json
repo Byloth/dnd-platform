@@ -1327,6 +1327,129 @@
   ],
   "spellcasting": [],
   "spells": [],
+  "texts": [
+    {
+      "section": "conditions",
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.condition.blinded",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Attack rolls against you have advantage; you automatically fail checks that require sight."
+      }
+    },
+    {
+      "section": "conditions",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.condition.charmed",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You can't attack the charmer; the charmer has advantage on social checks against you."
+      }
+    },
+    {
+      "section": "conditions",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.condition.deafened",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You automatically fail any ability check that requires hearing."
+      }
+    },
+    {
+      "section": "conditions",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.condition.incapacitated",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You can't take actions or reactions."
+      }
+    },
+    {
+      "section": "conditions",
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.condition.invisible",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Attack rolls against you have disadvantage; you are heavily obscured for hiding."
+      }
+    },
+    {
+      "section": "conditions",
+      "source": {
+        "effectIndex": 5,
+        "entity": "srd51.condition.paralyzed",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Incapacitated; you automatically fail Strength and Dexterity saves; attacks against you have advantage and are critical hits within 5 feet."
+      }
+    },
+    {
+      "section": "conditions",
+      "source": {
+        "effectIndex": 8,
+        "entity": "srd51.condition.petrified",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Incapacitated, unaware of your surroundings; you automatically fail Strength and Dexterity saves; attacks against you have advantage."
+      }
+    },
+    {
+      "section": "conditions",
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.condition.prone",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Attacks against you have advantage within 5 feet, disadvantage otherwise; crawling only."
+      }
+    },
+    {
+      "section": "conditions",
+      "source": {
+        "effectIndex": 7,
+        "entity": "srd51.condition.restrained",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Attack rolls against you have advantage."
+      }
+    },
+    {
+      "section": "conditions",
+      "source": {
+        "effectIndex": 5,
+        "entity": "srd51.condition.stunned",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Incapacitated; you automatically fail Strength and Dexterity saves; attacks against you have advantage."
+      }
+    },
+    {
+      "section": "conditions",
+      "source": {
+        "effectIndex": 5,
+        "entity": "srd51.condition.unconscious",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Incapacitated, prone, unaware; you automatically fail Strength and Dexterity saves; attacks against you have advantage and are critical hits within 5 feet."
+      }
+    }
+  ],
   "toggles": [],
   "values": {
     "ability.cha": {

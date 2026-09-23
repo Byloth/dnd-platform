@@ -1274,6 +1274,32 @@
       }
     }
   ],
+  "texts": [
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.warlock",
+        "feature": "agonizing-blast",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "When you cast eldritch blast, add your Charisma modifier to the damage it deals on a hit."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.class.warlock",
+        "feature": "pact-of-the-blade",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You can transform one magic weapon into your pact weapon by performing a special ritual while you hold the weapon, over the course of 1 hour (possible during a short rest). You can then dismiss the weapon, shunting it into an extradimensional space, and it appears whenever you create your pact weapon thereafter. You can't affect an artifact or a sentient weapon in this way. The weapon ceases being your pact weapon if you die, if you perform the 1-hour ritual on a different weapon, or if you use a 1-hour ritual to break your bond to it."
+      }
+    }
+  ],
   "toggles": [],
   "values": {
     "ability.cha": {

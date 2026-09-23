@@ -2977,7 +2977,16 @@ export const SCHEMAS = {
                         "$ref": "common.schema.json#/$defs/localizedString"
                     },
                     "section": {
-                        "$ref": "common.schema.json#/$defs/section"
+                        "description": "A built-in section of the sheet, or a section declared by an add-section effect (by its id).",
+                        "anyOf": [
+                            {
+                                "$ref": "common.schema.json#/$defs/section"
+                            },
+                            {
+                                "type": "string",
+                                "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+                            }
+                        ]
                     },
                     "text": {
                         "$ref": "common.schema.json#/$defs/localizedString"
