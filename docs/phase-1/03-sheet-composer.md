@@ -43,7 +43,7 @@ type Block =
     | { kind: "choices"; open: ChoiceItem[] }                  // notes: choices still open
     | { kind: "credits"; packages: CreditItem[] };
 interface ValueItem { readonly label: string; readonly shown: string; readonly value?: DerivedValue; readonly explain?: Explanation }
-interface Explanation { readonly newcomer: readonly string[]; readonly regular: readonly RegularLine[]; readonly expert: Provenance; readonly notes: readonly string[] }
+interface Explanation { readonly newcomer?: readonly string[]; readonly notes?: readonly string[]; readonly regular: readonly ExplanationLine[]; readonly expert: readonly ExplanationLine[]; readonly provenance: Provenance }
 ```
 
 Every `Item` carries `summary` (one line, help level *newcomer*), `detail` (the expanded view of [../08-dynamic-sheet.md](../08-dynamic-sheet.md)'s detail layer: full text, cost, activation, prerequisites, rolls) and `source` (package, entity). The tree of the CLI's four golden characters is stored as `section-tree.json` next to their `sheet.txt`; `dnd fixtures` compares it like a snapshot.
@@ -54,10 +54,12 @@ Every `Item` carries `summary` (one line, help level *newcomer*), `detail` (the 
 - *play*: reserved for Phase 2; the composer returns the build tree until then.
 - *print*: the same tree; the print renderer decides pagination ([05-print-and-export.md](05-print-and-export.md)).
 - Help level changes what the tree carries as `summary`: *newcomer* fills it for every item and adds the newcomer explanation sentences; *regular* leaves summaries empty; *expert* adds raw values to labels (the CLI text renderer is the regular level).
+- **As built (M1.3a).** `compose(sheet, { character, packages, language?, translate?, mode?, helpLevel? })`; `helpLevel` defaults to *regular*, which is the golden tree and the CLI's, byte-identical to M1.1. *Newcomer* explains every value, with `explain.newcomer` (one sentence per applied contribution) and `explain.notes` ("would apply if…"), and fills `summary` (the first sentence of the text) on features, actions and spells. *Expert* explains every value and adds `raw` ("16 Chain mail, +2 Shield"). `explain(sheet, path, options)` always returns every view, for the drawer. Goldens: `section-tree.json` (regular) for three fixtures, `section-tree.newcomer.json` and `section-tree.expert.json` for `cleric-l5`, checked by `dnd fixtures`.
+- **Interface strings** live in the composer package, `SHEET_MESSAGES` (`packages/composer/src/messages/en.ts`, `it.ts`, vue-i18n syntax, under the `sheet` key): the CLI uses them through the composer's own translator with no setup; the web merges them into its catalogues and passes its `translate` (M1.3b), so one catalogue serves both (06-localisation.md).
 
 ### The newcomer wording of provenance
 
-A catalogue keyed by contribution kind and by common labels, in [06-localisation.md](06-localisation.md): `base` → "Everyone starts from {value}."; `add` with an ability label → "Your {ability} ({score}) gives {value}."; `set-formula` with a feature → "{feature}: {text of the feature's first sentence} → {value}."; `mul`, `min`, `max` likewise; an inactive contribution → "{feature} would apply if {condition in words}." The condition-to-words function lives in the composer and covers every key of the condition language (a test enumerates them, as the vocabulary coverage test does for the engine).
+A catalogue keyed by contribution kind and by common labels (`sheet.explain.*`, `sheet.when.*` of `SHEET_MESSAGES`): `base` → "Everyone starts from {value}." (a labelled starting value: "{label} sets the starting value at {value}."); `add` with an ability label → "Your {ability} ({score}) gives {value}."; `set-formula` with a feature → "{feature}: {text of the feature's first sentence} → {value}."; `mul`, `min`, `max` likewise; an inactive contribution → "{feature} would apply if {condition in words}." The condition-to-words function lives in the composer and covers every key of the condition language (a test enumerates them, as the vocabulary coverage test does for the engine).
 
 ### The build-mode screen (M1.3)
 
@@ -71,7 +73,7 @@ A catalogue keyed by contribution kind and by common labels, in [06-localisation
 
 1. Create `packages/composer` with the tree types, the composer over the sections the CLI renders today, and the newcomer wording catalogue in English — M1.1.
 2. Rewire the CLI text renderer on the tree; `sheet.txt` goldens unchanged; store `section-tree.json` goldens for the four characters — M1.1.
-3. Explain views: the three renderings and the condition-to-words function with its coverage test — M1.3.
+3. Explain views: the three renderings and the condition-to-words function with its coverage test — M1.3 (done, M1.3a: `packages/composer/src/explain.ts`; the condition of an inactive contribution is found through the package set, from the contribution's source and effect index, so the engine is unchanged).
 4. The build-mode screen and its components, phone first — M1.3.
 5. Package-declared sections (`add-section` effects) placed in the middle band, with their localised titles — M1.3.
 6. Per-user pin/collapse preferences in the renderer — M1.3.
@@ -79,5 +81,5 @@ A catalogue keyed by contribution kind and by common labels, in [06-localisation
 ## Open points
 
 - Whether `detail` texts should be rendered as Markdown (content texts are multi-line Markdown-ish strings); a minimal renderer (paragraphs, bold, lists) is enough and avoids a dependency. Decide at M1.3.
-- The condition-to-words function will meet conditions no sentence fits (`wieldingOnly`); a generic fallback ("while {condition}") is acceptable, listed as a known limitation.
+- The condition-to-words function covers every key of the condition language, `wieldingOnly` included ("you wield only {weapon}"); the generic fallback ("{condition} holds") is left for keys added to the language later, and the coverage test fails until they get a sentence. Known limitations: toggle and resource ids read as words ("hide in plain sight is on"), and content labels keep their own case ("perception bonus adds +4").
 - Whether the play-mode tree should already differ (pinning) so that Phase 2 changes only the renderer; leaning no, the composer grows with the play engine's needs then.
