@@ -17,6 +17,12 @@ import type {
     ActionView, AttackView, Character, ComputedSheet, Contribution, DerivedValue, Provenance, SpellView
 } from "@byloth/dnd-platform-engine";
 
+import { createTranslate } from "./messages/index.js";
+import type { Translate, TranslateParams } from "./messages/index.js";
+
+export { SHEET_MESSAGES, createTranslate } from "./messages/index.js";
+export type { SheetMessages, Translate, TranslateParams } from "./messages/index.js";
+
 // ---- options ------------------------------------------------------------------------
 
 export interface ComposeOptions
@@ -25,6 +31,11 @@ export interface ComposeOptions
     readonly packages: PackageSet;
     /** Language of every label; default the sheet's. */
     readonly language?: string;
+    /**
+     * The translation of the interface strings (`sheet.*` keys of `SHEET_MESSAGES`); default the composer's
+     * own translator in `language`. A key the function does not know may come back unchanged.
+     */
+    readonly translate?: Translate;
 }
 
 // ---- the tree -------------------------------------------------------------------------
@@ -246,48 +257,17 @@ export type Block =
 
 // ---- wording ------------------------------------------------------------------------
 
-const ABILITY_NAMES: Record<string, string> = {
-    str: "Strength", dex: "Dexterity", con: "Constitution", int: "Intelligence", wis: "Wisdom", cha: "Charisma"
-};
-const ACTIVATION_NAMES: Record<string, string> = {
-    "action": "Actions", "bonus-action": "Bonus actions", "reaction": "Reactions", "free": "Free", "special": "Special"
-};
-const ORIGIN_NAMES: Record<string, string> = {
-    species: "Species",
-    subspecies: "Subspecies",
-    class: "Class",
-    subclass: "Subclass",
-    background: "Background",
-    feat: "Feats",
-    item: "Items",
-    condition: "Conditions",
-    option: "Options",
-    spell: "Active spells",
-    custom: "Custom effects"
-};
-const ORIGIN_ORDER = Object.keys(ORIGIN_NAMES);
+const ABILITIES = ["str", "dex", "con", "int", "wis", "cha"];
+const ACTIVATIONS = ["action", "bonus-action", "reaction", "free", "special"];
+const ORIGIN_ORDER = [
+    "species", "subspecies", "class", "subclass", "background", "feat", "item", "condition", "option", "spell", "custom"
+];
 const OWNED_ORIGINS = new Set(["class", "subclass", "species", "subspecies", "background"]);
-const ORDINALS = ["Cantrips", "1st level", "2nd level", "3rd level", "4th level", "5th level", "6th level", "7th level",
-    "8th level", "9th level"];
-const SECTION_TITLES: Record<string, string> = {
-    identity: "",
-    core: "Core",
-    abilities: "Abilities",
-    skills: "Skills",
-    senses: "Senses",
-    combat: "Combat",
-    attacks: "Attacks",
-    actions: "Actions",
-    resources: "Resources",
-    spellcasting: "Spellcasting",
-    spells: "Spells",
-    features: "Features & traits",
-    equipment: "Equipment",
-    personality: "Personality",
-    conditions: "Conditions & effects",
-    notes: "Notes",
-    credits: "Credits"
-};
+/** Sections whose title the composer knows; the identity section has none. */
+const TITLED_SECTIONS = new Set([
+    "core", "abilities", "skills", "senses", "combat", "attacks", "actions", "resources", "spellcasting", "spells",
+    "features", "equipment", "personality", "conditions", "notes", "credits"
+]);
 
 /** `+3`, `−1`; strings pass through. */
 export function signed(value: number | string): string
@@ -350,10 +330,35 @@ type Text = Readonly<Record<string, string | undefined>>;
 class Composer
 {
     private readonly _language: string;
+    private readonly _translate: Translate;
 
     public constructor(private readonly _sheet: ComputedSheet, private readonly _options: ComposeOptions)
     {
         this._language = _options.language ?? _sheet.meta.language;
+        this._translate = _options.translate ?? createTranslate(this._language);
+    }
+
+    /** An interface string; `fallback` when the translation does not know the key. */
+    private t(key: string, params?: TranslateParams, fallback?: string): string
+    {
+        const text = this._translate(`sheet.${key}`, params);
+
+        return (text === `sheet.${key}` && fallback !== undefined) ? fallback : text;
+    }
+
+    private abilityName(ability: string): string
+    {
+        return ABILITIES.includes(ability) ? this.t(`abilities.${ability}`) : ability.toUpperCase();
+    }
+
+    private skillName(skill: string): string
+    {
+        return this.t(`skills.${skill}`, undefined, words(skill));
+    }
+
+    private feet(value: number | string): string
+    {
+        return this.t("units.feet", { value: value });
     }
 
     // ---- lookups ----
@@ -489,29 +494,38 @@ class Composer
         const sheet = this._sheet;
         const state = this._options.character.state;
         const items: ValueItem[] = [];
-        items.push(this.valueItem("ac", "Armor Class", "ac", plain(this.number("ac"))));
-        items.push(this.valueItem("initiative", "Initiative", "initiative", signed(this.number("initiative"))));
+        items.push(this.valueItem("ac", this.t("core.ac"), "ac", plain(this.number("ac"))));
+        const initiative = signed(this.number("initiative"));
+        items.push(this.valueItem("initiative", this.t("core.initiative"), "initiative", initiative));
         const speeds = Object.keys(sheet.values)
             .filter((p) => p.startsWith("speed.") && this.number(p) > 0)
             .sort((a, b) => (a === "speed.walk" ? -1 : b === "speed.walk" ? 1 : a.localeCompare(b)))
-            .map((p) => (p === "speed.walk" ? `${this.number(p)} ft` : `${p.slice(6)} ${this.number(p)} ft`));
-        items.push(this.valueItem("speed", "Speed", "speed.walk", speeds.join(", ")));
-        const temporary = state.hp.temporary > 0 ? ` (+${state.hp.temporary} temporary)` : "";
+            .map((p) => (p === "speed.walk" ?
+                this.feet(this.number(p)) :
+                this.t("core.speedOther", { type: p.slice(6), value: this.number(p) })));
+        items.push(this.valueItem("speed", this.t("core.speed"), "speed.walk", speeds.join(", ")));
+        const temporary = state.hp.temporary > 0 ? ` (${this.t("core.temporary", { value: state.hp.temporary })})` : "";
         const hp = `${state.hp.current} / ${this.number("hp.max")}${temporary}`;
-        items.push(this.valueItem("hp", "Hit Points", "hp.max", hp));
+        items.push(this.valueItem("hp", this.t("core.hp"), "hp.max", hp));
         const dice = sheet.play.hitDice.map((d) => `${d.total}d${d.die}`).join(" + ");
-        const spent = state.hitDice.spent > 0 ? ` (${state.hitDice.spent} spent)` : "";
-        items.push({ id: "hit-dice", label: "Hit Dice", shown: `${dice}${spent}` });
+        const spent = state.hitDice.spent > 0 ? ` (${this.t("core.spent", { count: state.hitDice.spent })})` : "";
+        items.push({ id: "hit-dice", label: this.t("core.hitDice"), shown: `${dice}${spent}` });
         const proficiency = signed(this.number("proficiencyBonus"));
-        items.push(this.valueItem("proficiency", "Proficiency Bonus", "proficiencyBonus", proficiency));
+        items.push(this.valueItem("proficiency", this.t("core.proficiency"), "proficiencyBonus", proficiency));
         const perception = this.value("passive.perception");
         if (perception)
         {
             items.push({
-                id: "passive-perception", label: "Passive Perception", shown: plain(perception.value), value: perception
+                id: "passive-perception",
+                label: this.t("core.passivePerception"),
+                shown: plain(perception.value),
+                value: perception
             });
         }
-        if (state.inspiration) { items.push({ id: "inspiration", label: "Inspiration", shown: "yes" }); }
+        if (state.inspiration)
+        {
+            items.push({ id: "inspiration", label: this.t("core.inspiration"), shown: this.t("core.yes") });
+        }
 
         return [{ kind: "values", items: items }];
     }
@@ -527,7 +541,7 @@ class Composer
 
             return {
                 id: ability,
-                name: ABILITY_NAMES[ability] ?? ability.toUpperCase(),
+                name: this.abilityName(ability),
                 score: plain(this.number(`ability.${ability}`)),
                 modifier: signed(this.number(`mod.${ability}`)),
                 save: signed(this.number(`save.${ability}`)),
@@ -554,21 +568,19 @@ class Composer
 
             return {
                 id: skill.id,
-                name: words(skill.id),
+                name: this.skillName(skill.id),
                 ability: skill.ability.toUpperCase(),
                 mark: mark,
                 bonus: signed(value?.value ?? 0),
                 ...(value ? { value: value } : {})
             };
         });
-        const groups: [string, string][] = [
-            ["armor", "Armor"], ["weapon", "Weapons"], ["tool", "Tools"], ["language", "Languages"]
-        ];
         const proficiencies: ProficiencyGroup[] = [];
-        for (const [type, label] of groups)
+        for (const type of ["armor", "weapon", "tool", "language"])
         {
             const items = this._sheet.proficiencies.filter((p) => p.type === type).map((p) => words(p.item));
-            if (items.length > 0) { proficiencies.push({ type: type, label: label, items: items }); }
+            if (items.length === 0) { continue; }
+            proficiencies.push({ type: type, label: this.t(`proficiencies.${type}`), items: items });
         }
 
         return [{ kind: "skills", rows: rows, proficiencies: proficiencies }];
@@ -581,12 +593,13 @@ class Composer
             .sort())
         {
             const value = this.number(path);
-            if (value > 0) { parts.push(`${words(path.slice(6))} ${value} ft`); }
+            if (value > 0) { parts.push(this.t("senses.sense", { name: words(path.slice(6)), value: value })); }
         }
         for (const skill of ["perception", "investigation", "insight"])
         {
             const value = this.value(`passive.${skill}`);
-            if (value) { parts.push(`Passive ${words(skill)} ${plain(value.value)}`); }
+            if (!value) { continue; }
+            parts.push(this.t("senses.passive", { skill: this.skillName(skill), value: plain(value.value) }));
         }
 
         return parts.length === 0 ? [] : [{ kind: "text", items: parts }];
@@ -597,23 +610,33 @@ class Composer
         const sheet = this._sheet;
         const rows: { label: string, text: string }[] = [];
         const perAction = this.number("attacks.perAction", 1);
-        if (perAction > 1) { rows.push({ label: "Attacks per action", text: String(perAction) }); }
+        if (perAction > 1) { rows.push({ label: this.t("combat.attacksPerAction"), text: String(perAction) }); }
         for (const defense of sheet.defenses)
         {
-            rows.push({ label: capitalise(defense.defense.replace("-", " ")), text: defense.to.map(words).join(", ") });
+            const fallback = capitalise(defense.defense.replace("-", " "));
+            const label = this.t(`combat.defenses.${defense.defense}`, undefined, fallback);
+            rows.push({ label: label, text: defense.to.map(words).join(", ") });
         }
         for (const modifier of sheet.rollModifiers.filter((m) => m.applied))
         {
             const on = modifier.on;
-            const target = [on.type, on.ability?.toUpperCase(), on.skill ? words(on.skill) : undefined,
-                on.against ? `against ${on.against.map(words).join(", ")}` : undefined]
+            const against = on.against ?
+                this.t("combat.against", { list: on.against.map(words).join(", ") }) :
+                undefined;
+            const skill = on.skill ? this.skillName(on.skill) : undefined;
+            const target = [on.type, on.ability?.toUpperCase(), skill, against]
                 .filter((s) => s !== undefined)
                 .join(" ");
             const note = modifier.note ? ` (${this.text(modifier.note)})` : "";
-            rows.push({ label: capitalise(modifier.kind), text: `on ${target}${note}` });
+            const label = this.t(`combat.modifiers.${modifier.kind}`, undefined, capitalise(modifier.kind));
+            rows.push({ label: label, text: `${this.t("combat.on", { target: target })}${note}` });
         }
         const carry = this.value("carry.capacity");
-        if (carry) { rows.push({ label: "Carrying capacity", text: `${plain(carry.value)} lb` }); }
+        if (carry)
+        {
+            const weight = this.t("units.pounds", { value: plain(carry.value) });
+            rows.push({ label: this.t("combat.carrying"), text: weight });
+        }
 
         return rows.length === 0 ? [] : [{ kind: "pairs", rows: rows }];
     }
@@ -623,10 +646,10 @@ class Composer
         const rows: AttackRow[] = this._sheet.attacks.map((attack) =>
         {
             const notes = [
-                attack.ranged ? "ranged" : "melee",
+                this.t(attack.ranged ? "attacks.ranged" : "attacks.melee"),
                 attack.ability.toUpperCase(),
-                attack.magical ? "magical" : undefined,
-                attack.critRange < 20 ? `crit ${attack.critRange}–20` : undefined,
+                attack.magical ? this.t("attacks.magical") : undefined,
+                attack.critRange < 20 ? this.t("attacks.crit", { range: attack.critRange }) : undefined,
                 ...attack.extraDamage.map((x) =>
                     `+${x.dice ?? x.formula ?? ""}${x.damageType ? ` ${x.damageType}` : ""}`)
 
@@ -648,24 +671,35 @@ class Composer
     private actionItem(action: ActionView): ActionItem
     {
         const cost = action.cost
-            .map((c) => "amount" in c ? `${c.amount} ${c.resource}` : `level ${c.level} slot`)
+            .map((c) => "amount" in c ?
+                this.t("actions.resourceCost", { amount: c.amount, resource: c.resource }) :
+                this.t("actions.slotCost", { level: c.level }))
             .join(" + ");
         const details: string[] = [];
-        if (action.requires?.afterAction) { details.push(`after ${words(action.requires.afterAction)}`); }
-        if (action.dc) { details.push(`DC ${plain(action.dc.value)}`); }
+        if (action.requires?.afterAction)
+        {
+            details.push(this.t("actions.after", { action: words(action.requires.afterAction) }));
+        }
+        if (action.dc) { details.push(this.t("actions.dc", { value: plain(action.dc.value) })); }
         for (const roll of action.rolls ?? [])
         {
-            if (roll.type === "attack" && roll.bonus) { details.push(`attack ${signed(roll.bonus.value)}`); }
+            if (roll.type === "attack" && roll.bonus)
+            {
+                details.push(this.t("actions.attack", { value: signed(roll.bonus.value) }));
+            }
             else if (roll.type === "damage")
             {
                 const bonus = roll.bonus && roll.bonus.value !== 0 ? ` ${signed(roll.bonus.value)}` : "";
                 const dice = (roll.dice ?? "").replace(/table\(([^)]+)\)/g, (_m, id: string) =>
-                    `${words(id.split(".").pop() ?? id).toLowerCase()} die`);
+                    this.t("actions.die", { name: words(id.split(".").pop() ?? id).toLowerCase() }));
                 details.push(`${dice}${bonus}${roll.damageType ? ` ${roll.damageType}` : ""}`.trim());
             }
-            else if (roll.type === "save" && roll.dc) { details.push(`save DC ${plain(roll.dc.value)}`); }
+            else if (roll.type === "save" && roll.dc)
+            {
+                details.push(this.t("actions.saveDc", { value: plain(roll.dc.value) }));
+            }
         }
-        if (action.toggle) { details.push(`toggles ${words(action.toggle)}`); }
+        if (action.toggle) { details.push(this.t("actions.toggles", { state: words(action.toggle) })); }
 
         return {
             id: action.id,
@@ -686,13 +720,13 @@ class Composer
             .filter((a) => a.source.entity?.includes(".rule.") && a.cost.length === 0 && !a.rolls);
         const granted = sheet.actions.filter((a) => !base.includes(a));
         const groups: { activation: string, label: string, items: ActionItem[] }[] = [];
-        for (const activation of ["action", "bonus-action", "reaction", "free", "special"])
+        for (const activation of ACTIVATIONS)
         {
             const group = granted.filter((a) => a.activation === activation);
             if (group.length === 0) { continue; }
             groups.push({
                 activation: activation,
-                label: ACTIVATION_NAMES[activation] ?? activation,
+                label: this.t(`activations.${activation}`),
                 items: group.map((a) => this.actionItem(a))
             });
         }
@@ -708,10 +742,12 @@ class Composer
             const current = resource.current ?? (typeof max === "number" ? max : null);
             const recharge = resource.recharge.map((r) =>
             {
-                const amount = r.amount === "full" ? "all" : String(r.amount);
-                const on = r.on === "short-rest" ? "short rest" : r.on === "long-rest" ? "long rest" : r.on;
+                const amount = r.amount === "full" ? this.t("resources.all") : String(r.amount);
+                const on = r.on === "short-rest" ?
+                    this.t("resources.shortRest") :
+                    r.on === "long-rest" ? this.t("resources.longRest") : r.on;
 
-                return `${amount} on a ${on}`;
+                return this.t("resources.on", { amount: amount, rest: on });
             }).join(", ");
             // The declared maximum alone is not worth explaining; modifiers to it are.
             const modifiers = (applied: readonly Contribution[]): number =>
@@ -725,7 +761,7 @@ class Composer
                 max: max,
                 shownMax: plain(max),
                 pips: typeof max === "number" && resource.display === "pips" && max <= 12 && current !== null,
-                recharge: recharge === "" ? "" : `regains ${recharge}`,
+                recharge: recharge === "" ? "" : this.t("resources.regains", { list: recharge }),
                 ...(explanation ? { explain: explanation } : {})
             };
         });
@@ -738,21 +774,31 @@ class Composer
         const state = this._options.character.state;
         const casters: CasterItem[] = this._sheet.spellcasting.map((casting) =>
         {
-            const parts = [`save DC ${plain(casting.dc.value)}`, `spell attack ${signed(casting.attackBonus.value)}`,
-                `${casting.preparation} spells`, casting.ritual ? "ritual casting" : undefined]
-                .filter((p) => p !== undefined);
-            const known = [casting.cantripsKnown !== undefined ? `${casting.cantripsKnown} cantrips` : undefined,
-                casting.spellsKnown !== undefined ? `${casting.spellsKnown} spells known` : undefined]
-                .filter((p) => p !== undefined);
+            const parts = [
+                this.t("spellcasting.saveDc", { value: plain(casting.dc.value) }),
+                this.t("spellcasting.spellAttack", { value: signed(casting.attackBonus.value) }),
+                this.t("spellcasting.preparation", { type: casting.preparation }),
+                casting.ritual ? this.t("spellcasting.ritual") : undefined
+
+            ].filter((p) => p !== undefined);
+            const known = [
+                casting.cantripsKnown !== undefined ?
+                    this.t("spellcasting.cantrips", { count: casting.cantripsKnown }) :
+                    undefined,
+                casting.spellsKnown !== undefined ?
+                    this.t("spellcasting.known", { count: casting.spellsKnown }) :
+                    undefined
+
+            ].filter((p) => p !== undefined);
             const slots: SlotItem[] = casting.slots.map((slot) => ({
-                label: ORDINALS[slot.level]?.replace(" level", "") ?? String(slot.level),
+                label: this.t(`slotLevels.${slot.level}`, undefined, String(slot.level)),
                 current: state.spellSlots?.[String(slot.level)] ?? slot.max,
                 max: slot.max
             }));
             if (casting.pact)
             {
                 slots.push({
-                    label: `pact (level ${casting.pact.level})`,
+                    label: this.t("spellcasting.pact", { level: casting.pact.level }),
                     current: state.spellSlots?.["pact"] ?? casting.pact.slots,
                     max: casting.pact.slots
                 });
@@ -761,7 +807,7 @@ class Composer
             return {
                 id: casting.class,
                 name: this.entityName(casting.class),
-                ability: ABILITY_NAMES[casting.ability] ?? casting.ability,
+                ability: ABILITIES.includes(casting.ability) ? this.abilityName(casting.ability) : casting.ability,
                 parts: parts,
                 known: known,
                 slots: slots
@@ -774,11 +820,14 @@ class Composer
     private spellLabel(spell: SpellView): string
     {
         const paid = spell.paidWith;
+        const recharge = (r: string): string => (r === "long-rest" ? this.t("spells.longRest") : r);
         const payment = "free" in paid ?
-            (spell.level > 0 ? " (at will)" : "") :
+            (spell.level > 0 ? ` (${this.t("spells.atWill")})` : "") :
             "resource" in paid ?
-                ` (${paid.amount} ${paid.resource})` :
-                "uses" in paid ? ` (${paid.uses}/${paid.recharge === "long-rest" ? "long rest" : paid.recharge})` : "";
+                ` (${this.t("actions.resourceCost", { amount: paid.amount, resource: paid.resource })})` :
+                "uses" in paid ?
+                    ` (${this.t("spells.uses", { uses: paid.uses, recharge: recharge(paid.recharge) })})` :
+                    "";
         const concentration = spell.duration.concentration ? " ©" : "";
         const ritual = spell.as === "always-prepared" ? "*" : "";
 
@@ -798,7 +847,7 @@ class Composer
             if (spells.length === 0) { continue; }
             levels.push({
                 level: level,
-                label: ORDINALS[level] ?? String(level),
+                label: this.t(`spellLevels.${level}`, undefined, String(level)),
                 items: spells.map((s) => ({ id: s.id, name: this.text(s.name), label: this.spellLabel(s), spell: s }))
             });
         }
@@ -821,7 +870,7 @@ class Composer
 
             return {
                 origin: origin,
-                label: `${ORIGIN_NAMES[origin] ?? capitalise(origin)}${ownerNames}`,
+                label: `${this.t(`origins.${origin}`, undefined, capitalise(origin))}${ownerNames}`,
                 items: group.map((f) => ({
                     id: f.id,
                     name: this.text(f.name),
@@ -842,7 +891,10 @@ class Composer
             id: entry.item,
             name: this.entityName(entry.item),
             quantity: entry.quantity ?? 1,
-            flags: [entry.equipped ? "equipped" : undefined, entry.attuned ? "attuned" : undefined]
+            flags: [
+                entry.equipped ? this.t("equipment.equipped") : undefined,
+                entry.attuned ? this.t("equipment.attuned") : undefined
+            ]
                 .filter((f) => f !== undefined)
         }));
 
@@ -854,11 +906,14 @@ class Composer
         const choices = this._options.character.choices;
         const fields: { label: string, text: string }[] = [];
         const p = choices.personality;
-        if (p?.traits) { fields.push({ label: "Traits", text: this.text(p.traits) }); }
-        if (p?.ideals) { fields.push({ label: "Ideals", text: this.text(p.ideals) }); }
-        if (p?.bonds) { fields.push({ label: "Bonds", text: this.text(p.bonds) }); }
-        if (p?.flaws) { fields.push({ label: "Flaws", text: this.text(p.flaws) }); }
-        if (choices.appearance) { fields.push({ label: "Appearance", text: this.text(choices.appearance) }); }
+        if (p?.traits) { fields.push({ label: this.t("personality.traits"), text: this.text(p.traits) }); }
+        if (p?.ideals) { fields.push({ label: this.t("personality.ideals"), text: this.text(p.ideals) }); }
+        if (p?.bonds) { fields.push({ label: this.t("personality.bonds"), text: this.text(p.bonds) }); }
+        if (p?.flaws) { fields.push({ label: this.t("personality.flaws"), text: this.text(p.flaws) }); }
+        if (choices.appearance)
+        {
+            fields.push({ label: this.t("personality.appearance"), text: this.text(choices.appearance) });
+        }
 
         return fields.length === 0 ? [] : [{ kind: "personality", fields: fields }];
     }
@@ -873,17 +928,24 @@ class Composer
             if (x === undefined) { return ""; }
             const [key, value] = Object.entries(x)[0] ?? ["", ""];
 
-            return key === "manual" ? " (until removed)" : ` (${key} ${String(value).replace(/-/g, " ")})`;
+            return key === "manual" ?
+                ` (${this.t("conditions.untilRemoved")})` :
+                ` (${key} ${String(value).replace(/-/g, " ")})`;
         };
         for (const c of state.conditions)
         {
-            const level = c.level !== undefined ? ` level ${c.level}` : "";
+            const level = c.level !== undefined ? ` ${this.t("conditions.level", { level: c.level })}` : "";
             items.push(`${this.entityName(c.condition)}${level}${expiry(c)}`);
         }
-        for (const t of state.toggles ?? []) { items.push(`${words(t.state)} (on)${expiry(t)}`); }
+        for (const t of state.toggles ?? [])
+        {
+            items.push(`${words(t.state)} (${this.t("conditions.on")})${expiry(t)}`);
+        }
         for (const s of state.activeSpells ?? [])
         {
-            const concentrating = state.concentration?.spell === s.spell ? ", concentrating" : "";
+            const concentrating = state.concentration?.spell === s.spell ?
+                `, ${this.t("conditions.concentrating")}` :
+                "";
             items.push(`${this.entityName(s.spell)}${expiry(s)}${concentrating}`);
         }
         for (const e of state.customEffects ?? []) { items.push(`${this.text(e.name)}${expiry(e)}`); }
@@ -903,7 +965,7 @@ class Composer
             open: open.map((c) => ({
                 key: c.key,
                 label: `${this.entityName(c.owner)}: ${words(c.choice)}`,
-                progress: `${c.answers.length} of ${c.count} ${c.of}(s)`
+                progress: this.t("notes.progress", { answered: c.answers.length, count: c.count, of: c.of })
             }))
         }];
     }
@@ -950,7 +1012,7 @@ class Composer
         };
         const sections: Section[] = this._sheet.sections.map((id) => ({
             id: id,
-            title: SECTION_TITLES[id] ?? words(id),
+            title: TITLED_SECTIONS.has(id) ? this.t(`sections.${id}`) : (id === "identity" ? "" : words(id)),
             blocks: handlers[id]?.() ?? []
         }));
 
