@@ -58,7 +58,7 @@ Tasks (from [03-sheet-composer.md](03-sheet-composer.md), [06-localisation.md](0
 3. Sheet catalogue strings in both languages; the newcomer provenance wording in Italian.
 4. Accessibility helpers (axe, keyboard, contrast) and the first manual pass; Lighthouse step and the derive performance mark.
 
-Progress: split into M1.3a (composer: help levels, the three explain views, the EN/IT sheet catalogue), M1.3a-bis (content reminders and declared sections on the sheet), M1.3b (preferences, the sheet in the interface language and help level, demo characters and the character route): done 2026-09-23/24. Left: M1.3c (the build-mode screen and its components), M1.3d (accessibility helpers, performance mark, Lighthouse, close).
+Progress: split into M1.3a (composer: help levels, the three explain views, the EN/IT sheet catalogue), M1.3a-bis (content reminders and declared sections on the sheet), M1.3b (preferences, the sheet in the interface language and help level, demo characters and the character route): done 2026-09-23/24; M1.3c (our design system without Bootstrap, BEM, the build-mode screen and its components, Markdown with marked + DOMPurify): done 2026-09-24. Left: M1.3d (accessibility helpers, performance mark, Lighthouse, close).
 
 Done: the criteria of M1.3. Release: `v0.3.3`.
 Risks: the newcomer wording of provenance meets contributions no sentence fits; the generic fallback is acceptable and listed; the sentences are content-independent (labels come from content), so a package never needs code.

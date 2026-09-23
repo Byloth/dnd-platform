@@ -74,12 +74,12 @@ A catalogue keyed by contribution kind and by common labels (`sheet.explain.*`, 
 1. Create `packages/composer` with the tree types, the composer over the sections the CLI renders today, and the newcomer wording catalogue in English — M1.1.
 2. Rewire the CLI text renderer on the tree; `sheet.txt` goldens unchanged; store `section-tree.json` goldens for the four characters — M1.1.
 3. Explain views: the three renderings and the condition-to-words function with its coverage test — M1.3 (done, M1.3a: `packages/composer/src/explain.ts`; the condition of an inactive contribution is found through the package set, from the contribution's source and effect index, so the engine is unchanged).
-4. The build-mode screen and its components, phone first — M1.3.
+4. The build-mode screen and its components, phone first — M1.3 (done, M1.3c: `components/sheet/SheetView.vue` and one component per block kind; the vital strip sticky on a phone; the explanation drawer is a native `<dialog>` with the three views, opening on the view of the help level).
 5. Package-declared sections (`add-section` effects) placed in the middle band, with their localised titles — M1.3 (done, M1.3a-bis: the engine carries `texts` and `customSections`, declared sections sit after Features and before Equipment; the composer closes each section with a `reminders` block of its `add-text` texts and titles a declared section with its name and `layout`).
-6. Per-user pin/collapse preferences in the renderer — M1.3.
+6. Per-user pin/collapse preferences in the renderer — M1.3 (done, M1.3c: per character in the preferences, key `sheet-layouts`; pinned sections go above the columns).
 
 ## Open points
 
-- Whether `detail` texts should be rendered as Markdown (content texts are multi-line Markdown-ish strings); a minimal renderer (paragraphs, bold, lists) is enough and avoids a dependency. Decide at M1.3.
+- ~~Whether `detail` texts should be rendered as Markdown~~ — yes, decided by the owner on 2026-09-24: a library plus sanitisation (`marked` + `DOMPurify`, with raw HTML never passed through), in `components/sheet/RichText.vue`; print (M1.6) reuses it.
 - The condition-to-words function covers every key of the condition language, `wieldingOnly` included ("you wield only {weapon}"); the generic fallback ("{condition} holds") is left for keys added to the language later, and the coverage test fails until they get a sentence. Known limitations: toggle and resource ids read as words ("hide in plain sight is on"), and content labels keep their own case ("perception bonus adds +4").
 - Whether the play-mode tree should already differ (pinning) so that Phase 2 changes only the renderer; leaning no, the composer grows with the play engine's needs then.
