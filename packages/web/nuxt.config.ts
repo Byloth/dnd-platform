@@ -37,7 +37,11 @@ export default defineNuxtConfig({
   nitro: { preset: "github-pages" },
   vite: {
     // Bootstrap's own stylesheets still use Sass features that Dart Sass deprecates; not our warnings to fix.
-    css: { preprocessorOptions: { scss: { quietDeps: true } } }
+    css: { preprocessorOptions: { scss: { quietDeps: true } } },
+    // The vuert module's plugin imports @byloth/vuert from its own file, which Vite does not pre-bundle, while
+    // the application's imports would get the pre-bundled copy: two instances, two injection keys, and
+    // useVuert() finds nothing (dev only; the generated site has one bundle). Serve the one file to both.
+    optimizeDeps: { exclude: ["@byloth/vuert"] }
   },
   typescript: {
     typeCheck: true,
