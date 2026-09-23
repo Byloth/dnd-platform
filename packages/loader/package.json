@@ -1,0 +1,32 @@
+{
+  "name": "@byloth/dnd-platform-loader",
+  "version": "0.0.0",
+  "description": "Package loader: the files of a package, a zip or a bundle → a validated package source → the package set the rules engine computes with.",
+  "private": true,
+  "license": "AGPL-3.0-only",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./node": {
+      "types": "./dist/node.d.ts",
+      "import": "./dist/node.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc --build"
+  },
+  "dependencies": {
+    "@byloth/dnd-platform-schema": "workspace:*",
+    "fflate": "^0.8.3",
+    "yaml": "^2.9.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.6"
+  }
+}

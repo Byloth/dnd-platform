@@ -10,7 +10,7 @@ This document is the public contract of the `engine` package: its functions, its
 - **The sheet always renders.** Problems become entries in `warnings`; only a malformed package set (unresolvable dependency, schema violation) makes `loadPackages`/`validate` fail, and even then `derive` accepts a set with warnings.
 - **Every derived value carries provenance.** There is no "fast path" that skips it.
 - **Canonical output.** `derive` returns objects whose JSON serialisation is stable: sorted keys, arrays ordered by a documented key (id, level, package order). Golden tests compare serialised output.
-- **Names are fixed here** and reused verbatim in every other document and in code: `loadPackages`, `validate`, `derive`, `apply`, `undo`, `explain`.
+- **Names are fixed here** and reused verbatim in every other document and in code: `loadPackages`, `validate`, `derive`, `apply`, `undo`, `explain`. Since M1.2 `loadPackages` and `validate` live in `@byloth/dnd-platform-loader` with the same names and signatures ([../phase-1/02-content-and-character-stores.md](../phase-1/02-content-and-character-stores.md)).
 
 ## Design
 

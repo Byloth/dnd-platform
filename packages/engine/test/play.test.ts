@@ -7,7 +7,8 @@
 
 import { describe, expect, it } from "vitest";
 
-import { apply, derive, loadPackages, undo } from "../src/index.js";
+import { loadPackages } from "@byloth/dnd-platform-loader";
+import { apply, derive, undo } from "../src/index.js";
 import type { ApplyResult, CharacterState, ComputedSheet, PlayEvent } from "../src/index.js";
 import { MINI, character, cls, feature, miniPackage, spell } from "./helpers.js";
 import type { CharacterOptions, MiniEntity } from "./helpers.js";

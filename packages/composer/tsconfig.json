@@ -6,5 +6,5 @@
     "tsBuildInfoFile": "../../node_modules/.tmp/composer.tsbuildinfo"
   },
   "include": ["src/**/*"],
-  "references": [{ "path": "../schema" }, { "path": "../engine" }]
+  "references": [{ "path": "../schema" }, { "path": "../loader" }, { "path": "../engine" }]
 }

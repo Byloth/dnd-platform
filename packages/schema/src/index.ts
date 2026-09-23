@@ -8,6 +8,7 @@
  * `schemas/common.schema.json`.
  */
 
+export { canonicalize, stableStringify } from "./canonical.js";
 export { checkFormula, parseFormula, FORMULA_FUNCTIONS, FORMULA_VARIABLES } from "./formula.js";
 export { SCHEMAS } from "./generated/schemas.js";
 export type * from "./generated/types.js";

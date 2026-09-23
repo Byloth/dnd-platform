@@ -1,7 +1,8 @@
 import { compose } from "@byloth/dnd-platform-composer";
 import type { SectionTree } from "@byloth/dnd-platform-composer";
 import { derive } from "@byloth/dnd-platform-engine";
-import type { Character, ComputedSheet, PackageSet } from "@byloth/dnd-platform-engine";
+import type { PackageSet } from "@byloth/dnd-platform-loader";
+import type { Character, ComputedSheet } from "@byloth/dnd-platform-engine";
 
 export interface ComposedSheet
 {

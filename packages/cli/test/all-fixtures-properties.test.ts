@@ -6,10 +6,13 @@ import { join, resolve } from "node:path";
 import { parse } from "yaml";
 import { describe, expect, it } from "vitest";
 
-import { derive, explain, loadPackages, stableStringify } from "@byloth/dnd-platform-engine";
-import type { Character, PackageSource } from "@byloth/dnd-platform-engine";
+import { stableStringify } from "@byloth/dnd-platform-schema";
+import { loadPackages } from "@byloth/dnd-platform-loader";
+import { derive, explain } from "@byloth/dnd-platform-engine";
+import type { PackageSource } from "@byloth/dnd-platform-loader";
+import type { Character } from "@byloth/dnd-platform-engine";
 
-import { toPackageSource } from "../src/io/to-package-source.js";
+import { readPackageSource } from "@byloth/dnd-platform-loader/node";
 
 const ROOT = resolve(import.meta.dirname, "..", "..", "..");
 const FIXTURES = resolve(ROOT, "fixtures", "characters");
@@ -31,7 +34,7 @@ const source = (path: string): PackageSource =>
 {
     const cached = cache.get(path);
     if (cached) { return cached; }
-    const loaded = toPackageSource(path);
+    const loaded = readPackageSource(path);
     cache.set(path, loaded);
 
     return loaded;

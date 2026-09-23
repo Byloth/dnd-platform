@@ -19,6 +19,7 @@
     "@byloth/core": "^3.0.2",
     "@byloth/dnd-platform-composer": "workspace:*",
     "@byloth/dnd-platform-engine": "workspace:*",
+    "@byloth/dnd-platform-loader": "workspace:*",
     "@byloth/dnd-platform-schema": "workspace:*",
     "@byloth/exceptions": "^2.3.1",
     "@byloth/nuxt-vuert-module": "^2.0.0-dev.1",

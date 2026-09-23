@@ -6,8 +6,10 @@
 
 import { describe, expect, it } from "vitest";
 
-import { derive, loadPackages } from "../src/index.js";
-import type { ComputedSheet, PackageSource } from "../src/index.js";
+import { loadPackages } from "@byloth/dnd-platform-loader";
+import { derive } from "../src/index.js";
+import type { PackageSource } from "@byloth/dnd-platform-loader";
+import type { ComputedSheet } from "../src/index.js";
 import { MINI, character, cls, feature, item, miniPackage, spell } from "./helpers.js";
 import type { CharacterOptions, MiniEntity } from "./helpers.js";
 

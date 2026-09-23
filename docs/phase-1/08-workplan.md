@@ -43,7 +43,7 @@ Risks: Nuxt's own TypeScript setup and the monorepo's project references disagre
 
 Tasks (from [02-content-and-character-stores.md](02-content-and-character-stores.md)):
 1. `useBrowserStorage` on `IndexedDatabase` of `@byloth/core`, and the persistence request. The template's alert handler is back (pnpm 12.5.1, see 01).
-2. Package loading from zip and bundle with validation and bundling; the packages page; the private flag and attribution.
+2. Package loading from zip and bundle with validation and bundling, on the new `packages/loader` (engine → loader → schema; `loadPackages` and `validate` moved there); the packages page; the private flag and attribution.
 3. The SRD as a stored package with version tracking; `useEngine` with memoisation.
 4. Tests: `homebrew-feline` and `phb14-stub` from zips, the invalid fixtures refused, the private Monk equal to the CLI snapshot.
 

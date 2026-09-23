@@ -24,10 +24,13 @@ import { join, resolve } from "node:path";
 
 import { parse } from "yaml";
 
-import { apply, derive, loadPackages, stableStringify, undo } from "@byloth/dnd-platform-engine";
-import type { Character, CharacterState, ComputedSheet, LogEntry, PlayEvent, Selection } from "@byloth/dnd-platform-engine";
+import { stableStringify } from "@byloth/dnd-platform-schema";
+import { loadPackages } from "@byloth/dnd-platform-loader";
+import { apply, derive, undo } from "@byloth/dnd-platform-engine";
+import type { Selection } from "@byloth/dnd-platform-loader";
+import type { Character, CharacterState, ComputedSheet, LogEntry, PlayEvent } from "@byloth/dnd-platform-engine";
 
-import { toPackageSource } from "../io/to-package-source.js";
+import { readPackageSource } from "@byloth/dnd-platform-loader/node";
 
 export interface SessionReport
 {
@@ -125,7 +128,7 @@ export function runSession(root: string, directory: string, name: string): Sessi
     {
         return { name: name, directory: directory, status: "skip", details: [`missing package directories: ${missing.join(", ")}`] };
     }
-    const sources = packagesFile.packages.map((path) => toPackageSource(resolve(root, path)));
+    const sources = packagesFile.packages.map((path) => readPackageSource(resolve(root, path)));
     const loadedIds = new Set(sources.map((s) => s.manifest.id));
     const missingIds = (packagesFile.requires ?? []).filter((id) => !loadedIds.has(id));
     if (missingIds.length > 0)

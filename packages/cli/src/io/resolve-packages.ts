@@ -12,10 +12,11 @@ import { dirname, join, resolve } from "node:path";
 
 import { parse } from "yaml";
 
-import type { Character, PackageSource, Selection } from "@byloth/dnd-platform-engine";
+import type { PackageSource, Selection } from "@byloth/dnd-platform-loader";
+import type { Character } from "@byloth/dnd-platform-engine";
 
 import { discoverPackages } from "./repository.js";
-import { toPackageSource } from "./to-package-source.js";
+import { readPackageSource } from "@byloth/dnd-platform-loader/node";
 
 interface PackagesFile
 {
@@ -50,7 +51,7 @@ export function resolvePackages(characterPath: string, character: Character, opt
         const directories = file.packages.map((p) => resolve(options.repoRoot, p));
         const missing = directories.filter((d) => !existsSync(d));
         if (missing.length > 0) { throw new ResolveError(`${sibling}: missing package directories: ${missing.join(", ")}`); }
-        const sources = directories.map(toPackageSource);
+        const sources = directories.map(readPackageSource);
         const ids = new Set(sources.map((s) => s.manifest.id));
         const absent = (file.requires ?? []).filter((id) => !ids.has(id));
         if (absent.length > 0) { throw new ResolveError(`${sibling}: required packages not loaded: ${absent.join(", ")}`); }
@@ -67,7 +68,7 @@ export function resolvePackages(characterPath: string, character: Character, opt
     for (const dir of options.extra ?? [])
     {
         const directory = resolve(dir);
-        explicit.set(toPackageSource(directory).manifest.id, directory);
+        explicit.set(readPackageSource(directory).manifest.id, directory);
     }
     const wanted = character.packages.map((p) => p.id);
     const directories: string[] = [];
@@ -85,5 +86,5 @@ export function resolvePackages(characterPath: string, character: Character, opt
             "pass --package <dir> or put a packages.yaml next to the character)");
     }
 
-    return { sources: directories.map(toPackageSource), directories: directories };
+    return { sources: directories.map(readPackageSource), directories: directories };
 }

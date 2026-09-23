@@ -17,7 +17,8 @@ import { compose, explain, plain } from "@byloth/dnd-platform-composer";
 import type {
     Block, ComposeOptions, Explanation, ExplanationLine, Section, SectionTree
 } from "@byloth/dnd-platform-composer";
-import type { Character, ComputedSheet, PackageSet } from "@byloth/dnd-platform-engine";
+import type { PackageSet } from "@byloth/dnd-platform-loader";
+import type { Character, ComputedSheet } from "@byloth/dnd-platform-engine";
 
 export interface RenderOptions
 {

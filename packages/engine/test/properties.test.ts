@@ -1,9 +1,9 @@
 /**
  * Property-style tests of the engine's public API (docs/phase-0/04-testing-strategy.md, level 4).
  *
- * Package sources are built from the fixture directories with a local reader
- * that mirrors packages/cli/src/io/read-package.ts, so the engine package
- * keeps zero runtime dependencies while its tests read the disk.
+ * Package sources are read from the fixture directories by the loader; the
+ * loading properties (patches, dependencies, duplicates, pins) are the
+ * loader's tests, canonical JSON the schema package's.
  */
 
 import { join, resolve } from "node:path";
@@ -12,9 +12,11 @@ import { describe, expect, it } from "vitest";
 
 import type { Character } from "@byloth/dnd-platform-schema";
 
-import { canonicalize, derive, explain, loadPackages, stableStringify } from "../src/index.js";
-import type { PackageSource } from "../src/index.js";
-import { makeManifest, readPackage, seeded, shuffled } from "./helpers.js";
+import { stableStringify } from "@byloth/dnd-platform-schema";
+import { loadPackages } from "@byloth/dnd-platform-loader";
+import { derive, explain } from "../src/index.js";
+import type { PackageSource } from "@byloth/dnd-platform-loader";
+import { readPackage, seeded, shuffled } from "./helpers.js";
 
 const ROOT = resolve(import.meta.dirname, "..", "..", "..");
 const FIXTURES = resolve(ROOT, "fixtures", "packages");
@@ -87,77 +89,6 @@ describe("engine properties", () =>
                 expect(deriveCanonical(reordered)).toBe(reference);
             }
         }
-    });
-
-    it("canonicalize sorts object keys recursively and keeps array order", () =>
-    {
-        const value = { b: [3, { z: 1, a: 2 }, 1], a: { y: null, x: "s" } };
-
-        const expected = "{\"a\":{\"x\":\"s\",\"y\":null},\"b\":[3,{\"a\":2,\"z\":1},1]}";
-
-        expect(JSON.stringify(canonicalize(value))).toBe(expected);
-        expect(stableStringify(value)).toBe(stableStringify({ a: { x: "s", y: null }, b: [3, { a: 2, z: 1 }, 1] }));
-    });
-
-    it("patches are applied in dependency order and recorded in patchedBy", () =>
-    {
-        const patch: PackageSource = {
-            manifest: makeManifest("patchtest", "extension", [{ id: "srd51", version: "^0.1.0" }]),
-            entities: [{
-                type: "patch",
-                id: "patchtest.patch.monk-text",
-                data: { id: "patchtest.patch.monk-text", target: "srd51.class.monk", set: { "text.en": "Patched." } }
-            }]
-        };
-        const set = loadPackages([...sources, patch]);
-        const monk = set.entities.get("srd51.class.monk");
-
-        expect(set.diagnostics.entries.filter((d) => d.severity === "error")).toEqual([]);
-        expect(monk?.patchedBy).toContain("patchtest.patch.monk-text");
-        expect((monk?.data as { text: { en: string } }).text.en).toBe("Patched.");
-    });
-
-    it("reports a missing dependency", () =>
-    {
-        const orphan: PackageSource = {
-            manifest: makeManifest("orphan", "extension", [{ id: "nope", version: "^1.0.0" }]),
-            entities: []
-        };
-        const set = loadPackages([srd51, orphan]);
-
-        expect(set.diagnostics.entries.map((d) => d.code)).toContain("E_MISSING_DEPENDENCY");
-    });
-
-    it("reports two base packages", () =>
-    {
-        const second: PackageSource = {
-            manifest: makeManifest("otherbase", "base", []),
-            ruleset: srd51.ruleset!,
-            entities: []
-        };
-        const set = loadPackages([srd51, second]);
-
-        expect(set.diagnostics.entries.map((d) => d.code)).toContain("E_MULTIPLE_BASE");
-    });
-
-    it("reports a duplicate entity id across packages", () =>
-    {
-        const shortsword = srd51.entities.find((entity) => entity.id === "srd51.item.shortsword")!;
-        const duplicate: PackageSource = {
-            manifest: makeManifest("dup", "extension", [{ id: "srd51", version: "^0.1.0" }]),
-            entities: [{ ...shortsword }]
-        };
-        const set = loadPackages([srd51, duplicate]);
-
-        expect(set.diagnostics.entries.map((d) => d.code)).toContain("E_DUPLICATE_ID");
-    });
-
-    it("warns on a version pin mismatch", () =>
-    {
-        const set = loadPackages(sources, { pins: { srd51: "9.9.9" } });
-
-        expect(set.diagnostics.entries.map((d) => d.code)).toContain("W_VERSION_MISMATCH");
-        expect(set.diagnostics.ok).toBe(true);
     });
 
     it("explain returns the provenance stored in the sheet", () =>

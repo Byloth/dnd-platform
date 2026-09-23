@@ -5,6 +5,9 @@
       "path": "./packages/schema"
     },
     {
+      "path": "./packages/loader"
+    },
+    {
       "path": "./packages/engine"
     },
     {

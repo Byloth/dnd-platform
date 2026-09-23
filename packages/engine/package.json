@@ -11,12 +11,16 @@
       "import": "./dist/index.js"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc --build"
   },
-  "dependencies": {},
   "devDependencies": {
+    "@byloth/dnd-platform-loader": "workspace:*"
+  },
+  "dependencies": {
     "@byloth/dnd-platform-schema": "workspace:*"
   }
 }

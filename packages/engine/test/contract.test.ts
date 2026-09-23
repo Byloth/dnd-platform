@@ -4,12 +4,12 @@ import * as engine from "../src/index.js";
 
 describe("engine contract", () =>
 {
-    it("exposes the six contract functions", () =>
+    it("exposes the four contract functions (loadPackages and validate are the loader's)", () =>
     {
         const exported = Object.keys(engine).filter((key) => typeof engine[key as keyof typeof engine] === "function")
             .sort();
 
-        const contract = ["apply", "derive", "explain", "loadPackages", "undo", "validate"];
+        const contract = ["apply", "derive", "explain", "undo"];
 
         expect(exported).toEqual(expect.arrayContaining(contract));
     });

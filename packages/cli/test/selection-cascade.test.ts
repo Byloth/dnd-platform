@@ -9,10 +9,10 @@ import { resolve } from "node:path";
 
 import { describe, expect, it } from "vitest";
 
-import { loadPackages, validate } from "@byloth/dnd-platform-engine";
+import { loadPackages, validate } from "@byloth/dnd-platform-loader";
 
 import { discoverPackages } from "../src/io/repository.js";
-import { toPackageSource } from "../src/io/to-package-source.js";
+import { readPackageSource } from "@byloth/dnd-platform-loader/node";
 
 const ROOT = resolve(import.meta.dirname, "..", "..", "..");
 
@@ -22,7 +22,7 @@ describe("content selection over every package present", () =>
 
     it("loads with an empty selection, no cascade, every entity active and every reference resolved", () =>
     {
-        const sources = found.map((p) => toPackageSource(p.directory));
+        const sources = found.map((p) => readPackageSource(p.directory));
         const set = loadPackages(sources, { selection: { exclude: [] } });
         const errors = validate(set).entries
             .filter((d) => d.severity === "error")

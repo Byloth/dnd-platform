@@ -4,10 +4,11 @@ import { resolve } from "node:path";
 import { parse } from "yaml";
 import { describe, expect, it } from "vitest";
 
-import { derive, loadPackages } from "@byloth/dnd-platform-engine";
+import { loadPackages } from "@byloth/dnd-platform-loader";
+import { derive } from "@byloth/dnd-platform-engine";
 import type { Character } from "@byloth/dnd-platform-engine";
 
-import { toPackageSource } from "../src/io/to-package-source.js";
+import { readPackageSource } from "@byloth/dnd-platform-loader/node";
 
 const ROOT = resolve(import.meta.dirname, "..", "..", "..");
 const SOFT_MS = 100;
@@ -17,7 +18,7 @@ describe("derivation performance on the base package", () =>
 {
     it("derives a level 20 character well under the budget", () =>
     {
-        const set = loadPackages([toPackageSource(resolve(ROOT, "packages/content/srd51"))]);
+        const set = loadPackages([readPackageSource(resolve(ROOT, "packages/content/srd51"))]);
         const fixture = resolve(ROOT, "fixtures/characters", "perf-caster-l20", "character.yaml");
         const fallback = resolve(ROOT, "fixtures/characters", "cleric-l1-base", "character.yaml");
         // The level 20 fixture arrives with the class fixtures; fall back meanwhile.

@@ -8,7 +8,7 @@ import type { EntityType, PackageManifest, Ruleset } from "@byloth/dnd-platform-
 
 import type {
     Diagnostic, Diagnostics, LoadOptions, PackageSet, PackageSource, ResolvedEntity, Selection, SourceEntity
-} from "../index.js";
+} from "../types.js";
 import { EMPTY_CASCADE, applySelection } from "./select.js";
 
 interface PatchData

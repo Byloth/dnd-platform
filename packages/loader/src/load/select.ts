@@ -10,8 +10,8 @@
 import type {
     CascadeEntry, CascadeReport, Diagnostic, EntityId, ExclusionFilter, ExclusionMatch, InactiveReason,
     PrunedReference, ResolvedEntity, Selection
-} from "../index.js";
-import { compareForSplicing, enclosingArrayElement, spliceAt, walkReferences } from "./references.js";
+} from "../types.js";
+import { compareForSplicing, enclosingArrayElement, spliceAt, walkReferences } from "../references/walk.js";
 
 export const EMPTY_CASCADE: CascadeReport = { exclusions: [], inactive: [], pruned: [], empty: true };
 

@@ -14,7 +14,9 @@ import { resolve } from "node:path";
 import pc from "picocolors";
 import { parse } from "yaml";
 
-import { derive, loadPackages, stableStringify } from "@byloth/dnd-platform-engine";
+import { stableStringify } from "@byloth/dnd-platform-schema";
+import { loadPackages } from "@byloth/dnd-platform-loader";
+import { derive } from "@byloth/dnd-platform-engine";
 import type { Character } from "@byloth/dnd-platform-engine";
 
 import { tryRepositoryRoot } from "../io/repository.js";

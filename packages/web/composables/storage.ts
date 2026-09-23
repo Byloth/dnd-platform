@@ -1,6 +1,7 @@
 import { IndexedDatabase } from "@byloth/core";
 import type { JSONValue, StoreDefinition } from "@byloth/core";
-import type { Character, PackageSource } from "@byloth/dnd-platform-engine";
+import type { PackageSource } from "@byloth/dnd-platform-loader";
+import type { Character } from "@byloth/dnd-platform-engine";
 
 /**
  * The browser's storage of the application (docs/phase-1/02-content-and-character-stores.md):

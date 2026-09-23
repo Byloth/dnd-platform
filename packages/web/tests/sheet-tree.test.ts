@@ -11,7 +11,8 @@ import { parse } from "yaml";
 import { describe, expect, it } from "vitest";
 import { mountSuspended } from "@nuxt/test-utils/runtime";
 
-import type { Character, PackageSource } from "@byloth/dnd-platform-engine";
+import type { PackageSource } from "@byloth/dnd-platform-loader";
+import type { Character } from "@byloth/dnd-platform-engine";
 
 import SheetTree from "@/components/sheet/SheetTree.vue";
 import { composeSheet } from "@/composables/sheet";

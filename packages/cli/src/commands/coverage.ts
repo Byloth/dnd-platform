@@ -8,10 +8,10 @@ import { join, resolve } from "node:path";
 
 import { parse } from "yaml";
 
-import { loadPackages } from "@byloth/dnd-platform-engine";
+import { loadPackages } from "@byloth/dnd-platform-loader";
 import type { Character } from "@byloth/dnd-platform-engine";
 
-import { toPackageSource } from "../io/to-package-source.js";
+import { readPackageSource } from "@byloth/dnd-platform-loader/node";
 
 const TYPES = ["class", "subclass", "species", "background", "feat", "condition", "item", "spell"] as const;
 /** Entity types that must reach 100 %. */
@@ -47,7 +47,7 @@ function referencedIds(character: Character): Set<string>
 
 export function computeCoverage(root: string, fixturesDir: string, basePackageDir: string): CoverageReport
 {
-    const set = loadPackages([toPackageSource(basePackageDir)]);
+    const set = loadPackages([readPackageSource(basePackageDir)]);
     const used = new Set<string>();
     for (const name of readdirSync(fixturesDir).sort())
     {

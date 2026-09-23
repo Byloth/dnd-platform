@@ -12,7 +12,7 @@ import { resolve } from "node:path";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { IndexedDatabase } from "@byloth/core";
-import type { PackageSource } from "@byloth/dnd-platform-engine";
+import type { PackageSource } from "@byloth/dnd-platform-loader";
 
 import {
     closeBrowserStorage,

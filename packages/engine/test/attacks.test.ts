@@ -2,7 +2,8 @@
 
 import { describe, expect, it } from "vitest";
 
-import { derive, loadPackages } from "../src/index.js";
+import { loadPackages } from "@byloth/dnd-platform-loader";
+import { derive } from "../src/index.js";
 import type { ComputedSheet } from "../src/index.js";
 import { MINI, character, cls, feature, item, miniPackage } from "./helpers.js";
 

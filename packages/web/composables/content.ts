@@ -1,5 +1,5 @@
-import type { PackageSet, PackageSource } from "@byloth/dnd-platform-engine";
-import { loadPackages } from "@byloth/dnd-platform-engine";
+import type { PackageSet, PackageSource } from "@byloth/dnd-platform-loader";
+import { loadPackages } from "@byloth/dnd-platform-loader";
 
 /**
  * The packages available to the application. In M1.1 only the SRD bundle

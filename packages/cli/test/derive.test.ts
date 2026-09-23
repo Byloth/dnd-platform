@@ -11,7 +11,9 @@ import { join, resolve } from "node:path";
 import { parse } from "yaml";
 import { afterAll, describe, expect, it } from "vitest";
 
-import { derive, loadPackages, stableStringify } from "@byloth/dnd-platform-engine";
+import { stableStringify } from "@byloth/dnd-platform-schema";
+import { loadPackages } from "@byloth/dnd-platform-loader";
+import { derive } from "@byloth/dnd-platform-engine";
 import type { Character } from "@byloth/dnd-platform-engine";
 
 import { ResolveError, resolvePackages } from "../src/io/resolve-packages.js";

@@ -53,6 +53,9 @@ importers:
       '@byloth/dnd-platform-engine':
         specifier: workspace:*
         version: link:../engine
+      '@byloth/dnd-platform-loader':
+        specifier: workspace:*
+        version: link:../loader
       '@byloth/dnd-platform-schema':
         specifier: workspace:*
         version: link:../schema
@@ -75,6 +78,9 @@ importers:
       '@byloth/dnd-platform-engine':
         specifier: workspace:*
         version: link:../engine
+      '@byloth/dnd-platform-loader':
+        specifier: workspace:*
+        version: link:../loader
       '@byloth/dnd-platform-schema':
         specifier: workspace:*
         version: link:../schema
@@ -82,10 +88,30 @@ importers:
   packages/content/srd51: {}
 
   packages/engine:
-    devDependencies:
+    dependencies:
       '@byloth/dnd-platform-schema':
         specifier: workspace:*
         version: link:../schema
+    devDependencies:
+      '@byloth/dnd-platform-loader':
+        specifier: workspace:*
+        version: link:../loader
+
+  packages/loader:
+    dependencies:
+      '@byloth/dnd-platform-schema':
+        specifier: workspace:*
+        version: link:../schema
+      fflate:
+        specifier: ^0.8.3
+        version: 0.8.3
+      yaml:
+        specifier: ^2.9.1
+        version: 2.9.1
+    devDependencies:
+      '@types/node':
+        specifier: ^24.13.6
+        version: 24.13.6
 
   packages/schema:
     dependencies:
@@ -117,6 +143,9 @@ importers:
       '@byloth/dnd-platform-engine':
         specifier: workspace:*
         version: link:../engine
+      '@byloth/dnd-platform-loader':
+        specifier: workspace:*
+        version: link:../loader
       '@byloth/dnd-platform-schema':
         specifier: workspace:*
         version: link:../schema
@@ -2978,6 +3007,9 @@ packages:
     peerDependenciesMeta:
       picomatch:
         optional: true
+
+  fflate@0.8.3:
+    resolution: {integrity: sha512-tbZNuJrLwGUp3zshBtdy4W+ORxZuIh8a5ilyIEQDC5rY1f3U20JMry0Ll3WBzU58EZKsEuJFXhb5gwv8CsPvgA==}
 
   file-entry-cache@11.1.5:
     resolution: {integrity: sha512-+PFTHITI08JIGhnNpGNI8T8inUpgZfk3GNEqfT9R2zZV2iFXg3CvqzSl/uEhs7TSGujYRELEANyDvS8Fj7+S7Q==}
@@ -8305,6 +8337,8 @@ snapshots:
   fdir@6.5.0(picomatch@4.0.7):
     optionalDependencies:
       picomatch: 4.0.7
+
+  fflate@0.8.3: {}
 
   file-entry-cache@11.1.5:
     dependencies:

@@ -30,21 +30,36 @@ export default [
     rules: {
       "no-restricted-imports": ["error", {
         patterns: [{
-          regex: "^(?!\\.|@byloth/dnd-platform-(schema|engine)($|/)).*",
-          message: "The composer may import only relative modules and the schema and engine packages."
+          regex: "^(?!\\.|@byloth/dnd-platform-(schema|loader|engine)($|/)).*",
+          message: "The composer may import only relative modules and the schema, loader and engine packages."
         }]
       }]
     }
   },
   {
     // The rules engine is pure: no I/O, no platform modules, no runtime
-    // dependencies. It may import only the schema package and itself.
+    // dependencies. It may import only the schema package, the loader's
+    // types (the package set it computes with) and itself.
     files: ["packages/engine/src/**/*.ts"],
     rules: {
       "no-restricted-imports": ["error", {
         patterns: [{
-          regex: "^(?!\\.|@byloth/dnd-platform-schema($|/)).*",
-          message: "The engine may import only relative modules and @byloth/dnd-platform-schema."
+          regex: "^(?!\\.|@byloth/dnd-platform-(schema|loader)$|@byloth/dnd-platform-schema/).*",
+          message: "The engine may import only relative modules, @byloth/dnd-platform-schema and the loader's types."
+        }]
+      }]
+    }
+  },
+  {
+    // The loader is pure and browser-safe: the schema package, a YAML parser and an unzipper.
+    // Only src/node.ts, the `./node` entry, reads the disk.
+    files: ["packages/loader/src/**/*.ts"],
+    ignores: ["packages/loader/src/node.ts"],
+    rules: {
+      "no-restricted-imports": ["error", {
+        patterns: [{
+          regex: "^(?!\\.|@byloth/dnd-platform-schema($|/)|yaml$|fflate$).*",
+          message: "The loader may import only relative modules, @byloth/dnd-platform-schema, yaml and fflate."
         }]
       }]
     }

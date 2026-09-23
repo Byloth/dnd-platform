@@ -17,6 +17,7 @@
   "dependencies": {
     "@byloth/dnd-platform-composer": "workspace:*",
     "@byloth/dnd-platform-engine": "workspace:*",
+    "@byloth/dnd-platform-loader": "workspace:*",
     "@byloth/dnd-platform-schema": "workspace:*",
     "picocolors": "^1.1.1",
     "string-width": "^8.2.2",

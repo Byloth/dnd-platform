@@ -1,11 +1,11 @@
 /**
  * `validate`: referential integrity of a loaded package set on top of the
- * loading diagnostics. Schema conformance is the CLI's job (`dnd validate`).
+ * loading diagnostics. Schema conformance is `checkPackage` (../check.ts).
  */
 
-import type { Diagnostic, Diagnostics, PackageSet } from "../index.js";
-import { walkReferences } from "../load/references.js";
-import type { Reference } from "../load/references.js";
+import type { Diagnostic, Diagnostics, PackageSet } from "../types.js";
+import { walkReferences } from "./walk.js";
+import type { Reference } from "./walk.js";
 
 /**
  * Every reference must name a loaded entity. Under a selection (DEC-20)

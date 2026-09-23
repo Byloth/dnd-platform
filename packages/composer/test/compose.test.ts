@@ -10,8 +10,11 @@ import { join, resolve } from "node:path";
 import { parse } from "yaml";
 import { describe, expect, it } from "vitest";
 
-import { derive, loadPackages, stableStringify } from "@byloth/dnd-platform-engine";
-import type { Character, PackageSource } from "@byloth/dnd-platform-engine";
+import { stableStringify } from "@byloth/dnd-platform-schema";
+import { loadPackages } from "@byloth/dnd-platform-loader";
+import { derive } from "@byloth/dnd-platform-engine";
+import type { PackageSource } from "@byloth/dnd-platform-loader";
+import type { Character } from "@byloth/dnd-platform-engine";
 
 import { compose, explain } from "../src/index.js";
 import { readPackage } from "./helpers.js";

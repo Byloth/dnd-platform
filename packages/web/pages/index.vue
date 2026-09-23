@@ -1,5 +1,6 @@
 <script lang="ts" setup>
-    import type { Character, PackageSet } from "@byloth/dnd-platform-engine";
+    import type { PackageSet } from "@byloth/dnd-platform-loader";
+    import type { Character } from "@byloth/dnd-platform-engine";
 
     import SheetTree from "@/components/sheet/SheetTree.vue";
 

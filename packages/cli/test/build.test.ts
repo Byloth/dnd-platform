@@ -11,11 +11,14 @@ import { join, resolve } from "node:path";
 import { parse } from "yaml";
 import { afterAll, describe, expect, it } from "vitest";
 
-import { derive, loadPackages, stableStringify } from "@byloth/dnd-platform-engine";
-import type { Character, PackageSource } from "@byloth/dnd-platform-engine";
+import { stableStringify } from "@byloth/dnd-platform-schema";
+import { loadPackages } from "@byloth/dnd-platform-loader";
+import { derive } from "@byloth/dnd-platform-engine";
+import type { PackageSource } from "@byloth/dnd-platform-loader";
+import type { Character } from "@byloth/dnd-platform-engine";
 
 import { buildPackages, bundleText } from "../src/commands/build.js";
-import { toPackageSource } from "../src/io/to-package-source.js";
+import { readPackageSource } from "@byloth/dnd-platform-loader/node";
 
 const ROOT = resolve(import.meta.dirname, "..", "..", "..");
 const FIXTURES = resolve(ROOT, "fixtures", "characters");
@@ -38,7 +41,7 @@ const fromBundle = (path: string): PackageSource =>
 {
     const cached = bundles.get(path);
     if (cached) { return cached; }
-    const parsed = JSON.parse(bundleText(toPackageSource(path))) as PackageSource;
+    const parsed = JSON.parse(bundleText(readPackageSource(path))) as PackageSource;
     bundles.set(path, parsed);
 
     return parsed;
@@ -108,7 +111,7 @@ describe("dnd build", () =>
                 const raw = readFileSync(join(FIXTURES, fixture.name, "character.yaml"), "utf8");
                 const character = parse(raw) as Character;
                 const pins = Object.fromEntries(character.packages.map((p) => [p.id, p.version]));
-                const fromYaml = derive(character, loadPackages(fixture.paths.map(toPackageSource), { pins: pins }));
+                const fromYaml = derive(character, loadPackages(fixture.paths.map(readPackageSource), { pins: pins }));
                 const fromJson = derive(character, loadPackages(fixture.paths.map(fromBundle), { pins: pins }));
 
                 expect(stableStringify(fromJson)).toBe(stableStringify(fromYaml));

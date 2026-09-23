@@ -14,7 +14,7 @@
 
 import type { PlayEffect } from "@byloth/dnd-platform-schema";
 
-import { stableStringify } from "../canonical.js";
+import { stableStringify } from "@byloth/dnd-platform-schema";
 import { assertNever } from "../effects.js";
 import { formatValue, isDice } from "../formula/evaluate.js";
 import type {

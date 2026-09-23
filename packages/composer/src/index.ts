@@ -12,8 +12,9 @@
  */
 
 import type { LocalizedString } from "@byloth/dnd-platform-schema";
+import type { PackageSet } from "@byloth/dnd-platform-loader";
 import type {
-    ActionView, AttackView, Character, ComputedSheet, Contribution, DerivedValue, PackageSet, Provenance, SpellView
+    ActionView, AttackView, Character, ComputedSheet, Contribution, DerivedValue, Provenance, SpellView
 } from "@byloth/dnd-platform-engine";
 
 // ---- options ------------------------------------------------------------------------

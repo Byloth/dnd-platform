@@ -11,7 +11,7 @@ import type {
 
 import { evaluateWhen, ConditionError } from "../conditions/evaluate.js";
 import type { Facts } from "../conditions/evaluate.js";
-import { stableStringify } from "../canonical.js";
+import { stableStringify } from "@byloth/dnd-platform-schema";
 import { evaluateFormula, formatValue } from "../formula/evaluate.js";
 import type {
     ActionView, ChoiceView, ComputedSheet, ConditionRef, Contribution, ContributionSource, DefenseView, DeriveOptions,

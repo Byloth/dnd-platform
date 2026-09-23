@@ -13,7 +13,9 @@ import { describe, expect, it } from "vitest";
 
 import type { Character } from "@byloth/dnd-platform-schema";
 
-import { PLAY_EVENT_TYPES, apply, derive, loadPackages, stableStringify, undo } from "../src/index.js";
+import { stableStringify } from "@byloth/dnd-platform-schema";
+import { loadPackages } from "@byloth/dnd-platform-loader";
+import { PLAY_EVENT_TYPES, apply, derive, undo } from "../src/index.js";
 import type { CharacterState, ComputedSheet, PlayEvent } from "../src/index.js";
 import { readPackage, seeded } from "./helpers.js";
 

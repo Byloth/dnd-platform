@@ -16,11 +16,14 @@
 import { existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { join, relative, resolve } from "node:path";
 
-import { stableStringify } from "@byloth/dnd-platform-engine";
-import type { PackageSource } from "@byloth/dnd-platform-engine";
+import { bundleText } from "@byloth/dnd-platform-loader";
+import type { PackageSource } from "@byloth/dnd-platform-loader";
+import { readPackageSource } from "@byloth/dnd-platform-loader/node";
 
 import { PRIVATE_ROOT, discoverPackages, isUnderPrivateRoot, tryRepositoryRoot } from "../io/repository.js";
-import { toPackageSource } from "../io/to-package-source.js";
+
+// The bundle itself is the loader's (canonical JSON, entities sorted); the CLI finds, guards and writes.
+export { bundleText, toBundle } from "@byloth/dnd-platform-loader";
 
 export const PUBLIC_BUILD_DIR = "build/content";
 export const PRIVATE_BUILD_DIR = `${PRIVATE_ROOT}/build`;
@@ -55,21 +58,6 @@ export interface BuildOptions
     readonly write?: boolean;
 }
 
-const TYPE_ORDER = (a: string, b: string): number => a < b ? -1 : a > b ? 1 : 0;
-
-/** The bundle of a package source: entities sorted by type then id, every key sorted by the serialiser. */
-export function toBundle(source: PackageSource): PackageSource
-{
-    const entities = [...source.entities].sort((a, b) => TYPE_ORDER(a.type, b.type) || TYPE_ORDER(a.id, b.id));
-
-    return { ...source, entities: entities };
-}
-
-export function bundleText(source: PackageSource): string
-{
-    return stableStringify(toBundle(source));
-}
-
 export function buildPackages(options: BuildOptions = {}): BuildReport
 {
     const repoRoot = options.repoRoot ?? tryRepositoryRoot();
@@ -85,7 +73,7 @@ export function buildPackages(options: BuildOptions = {}): BuildReport
     for (const directory of dirs)
     {
         let source: PackageSource;
-        try { source = toPackageSource(directory); }
+        try { source = readPackageSource(directory); }
         catch (error)
         {
             errors.push({ code: "E_READ", directory: directory, message: (error as Error).message });
