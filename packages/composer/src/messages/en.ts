@@ -9,6 +9,7 @@ export const en = {
     sections: {
         core: "Core",
         abilities: "Abilities",
+        saves: "Saving throws",
         skills: "Skills",
         senses: "Senses",
         combat: "Combat",
@@ -192,6 +193,9 @@ export const en = {
         untilRemoved: "until removed",
         on: "on",
         concentrating: "concentrating"
+    },
+    reminders: {
+        label: "Reminders"
     },
     notes: {
         progress: "{answered} of {count} {of}(s)"

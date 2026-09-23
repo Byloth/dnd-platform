@@ -68,6 +68,8 @@ export interface Section
     readonly id: string;
     /** Localised title; empty for the identity section, which has none. */
     readonly title: string;
+    /** For a section a package declares: how its author wants it rendered. */
+    readonly layout?: "list" | "cards" | "table" | "text";
     readonly blocks: readonly Block[];
 }
 export interface WarningItem { readonly code: string, readonly message: string }
@@ -282,11 +284,15 @@ export interface CreditItem
     readonly sources: readonly { readonly title: string, readonly line: string }[];
 }
 export interface CreditsBlock { readonly kind: "credits", readonly packages: readonly CreditItem[] }
+/** A reminder the content adds to a section (`add-text`), with the name of what adds it. */
+export interface ReminderItem { readonly text: string, readonly source: string }
+/** The reminders of a section, after its own blocks; the whole content of a section a package declares. */
+export interface RemindersBlock { readonly kind: "reminders", readonly items: readonly ReminderItem[] }
 
 export type Block =
     IdentityBlock | ValuesBlock | AbilitiesBlock | SkillsBlock | TextBlock | PairsBlock | AttacksBlock | ActionsBlock |
     ResourcesBlock | SpellcastingBlock | SpellsBlock | FeaturesBlock | EquipmentBlock | PersonalityBlock |
-    ConditionsBlock | NotesBlock | CreditsBlock;
+    ConditionsBlock | NotesBlock | CreditsBlock | RemindersBlock;
 
 // ---- wording ------------------------------------------------------------------------
 
@@ -298,7 +304,8 @@ const ORIGIN_ORDER = [
 const OWNED_ORIGINS = new Set(["class", "subclass", "species", "subspecies", "background"]);
 /** Sections whose title the composer knows; the identity section has none. */
 const TITLED_SECTIONS = new Set([
-    "core", "abilities", "skills", "senses", "combat", "attacks", "actions", "resources", "spellcasting", "spells",
+    "core", "abilities", "saves", "skills", "senses", "combat", "attacks", "actions", "resources", "spellcasting",
+    "spells",
     "features", "equipment", "personality", "conditions", "notes", "credits"
 ]);
 
@@ -1124,6 +1131,18 @@ class Composer
         return [{ kind: "credits", packages: packages }];
     }
 
+    private reminders(section: string): Block[]
+    {
+        const items: ReminderItem[] = (this._sheet.texts ?? [])
+            .filter((t) => t.section === section)
+            .map((t) => ({
+                text: this.text(t.text),
+                source: this.entityName(t.source.feature ?? t.source.entity) || t.source.package
+            }));
+
+        return items.length === 0 ? [] : [{ kind: "reminders", items: items }];
+    }
+
     public compose(): SectionTree
     {
         const handlers: Record<string, () => Block[]> = {
@@ -1145,11 +1164,21 @@ class Composer
             notes: () => this.notes(),
             credits: () => this.credits()
         };
-        const sections: Section[] = this._sheet.sections.map((id) => ({
-            id: id,
-            title: TITLED_SECTIONS.has(id) ? this.t(`sections.${id}`) : (id === "identity" ? "" : words(id)),
-            blocks: handlers[id]?.() ?? []
-        }));
+        const declared = new Map((this._sheet.customSections ?? []).map((s) => [s.id, s]));
+        const sections: Section[] = this._sheet.sections.map((id) =>
+        {
+            const custom = declared.get(id);
+            const title = custom ?
+                this.text(custom.name) :
+                TITLED_SECTIONS.has(id) ? this.t(`sections.${id}`) : (id === "identity" ? "" : words(id));
+
+            return {
+                id: id,
+                title: title,
+                ...(custom?.layout ? { layout: custom.layout } : {}),
+                blocks: [...(handlers[id]?.() ?? []), ...this.reminders(id)]
+            };
+        });
 
         return {
             sections: sections,

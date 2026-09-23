@@ -427,6 +427,12 @@ class TextRenderer
                     this._canvas.table(block.open.map((c): Cell[] => [{ text: c.label }, { text: c.progress, style: "dim" }]), 4);
                 }
                 break;
+            case "reminders":
+                for (const item of block.items)
+                {
+                    this._canvas.paragraph(`• ${item.text}  (${item.source})`, 2, undefined, 2);
+                }
+                break;
             case "credits":
                 for (const pkg of block.packages)
                 {

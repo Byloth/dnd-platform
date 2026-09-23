@@ -814,7 +814,7 @@
     {
       "blocks": [],
       "id": "saves",
-      "title": "Saves"
+      "title": "Saving throws"
     },
     {
       "blocks": [
@@ -2620,6 +2620,27 @@
             }
           ],
           "kind": "features"
+        },
+        {
+          "items": [
+            {
+              "source": "Stonecunning",
+              "text": "Double proficiency bonus on Intelligence (History) checks about the origin of stonework."
+            },
+            {
+              "source": "Destroy Undead",
+              "text": "When an undead fails its saving throw against your Turn Undead feature, the creature is instantly destroyed if its challenge rating is at or below a threshold: 1/2 at 5th level, 1 at 8th, 2 at 11th, 3 at 14th, 4 at 17th."
+            },
+            {
+              "source": "Disciple of Life",
+              "text": "Whenever you use a spell of 1st level or higher to restore hit points to a creature, the creature regains additional hit points equal to 2 + the spell's level."
+            },
+            {
+              "source": "Shelter of the Faithful",
+              "text": "You and your companions can expect free healing and care at temples of your faith."
+            }
+          ],
+          "kind": "reminders"
         }
       ],
       "id": "features",

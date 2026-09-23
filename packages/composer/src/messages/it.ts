@@ -9,6 +9,7 @@ export const it: SheetMessages = {
     sections: {
         core: "Valori principali",
         abilities: "Caratteristiche",
+        saves: "Tiri salvezza",
         skills: "Abilità",
         senses: "Sensi",
         combat: "Combattimento",
@@ -192,6 +193,9 @@ export const it: SheetMessages = {
         untilRemoved: "finché non viene rimossa",
         on: "attivo",
         concentrating: "in concentrazione"
+    },
+    reminders: {
+        label: "Promemoria"
     },
     notes: {
         progress: "{answered} di {count}"

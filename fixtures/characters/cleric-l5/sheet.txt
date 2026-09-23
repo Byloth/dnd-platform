@@ -119,6 +119,15 @@ FEATURES & TRAITS
     Channel Divinity: Preserve Life  L2  Starting at 2nd level, you can use your Channel Divinity…
   Background — Acolyte
     Shelter of the Faithful    As an acolyte, you command the respect of those who share your…
+  • Double proficiency bonus on Intelligence (History) checks about the origin of stonework.
+    (Stonecunning)
+  • When an undead fails its saving throw against your Turn Undead feature, the creature is
+    instantly destroyed if its challenge rating is at or below a threshold: 1/2 at 5th level, 1 at
+    8th, 2 at 11th, 3 at 14th, 4 at 17th. (Destroy Undead)
+  • Whenever you use a spell of 1st level or higher to restore hit points to a creature, the
+    creature regains additional hit points equal to 2 + the spell's level. (Disciple of Life)
+  • You and your companions can expect free healing and care at temples of your faith. (Shelter of
+    the Faithful)
 
 EQUIPMENT
 ────────────────────────────────────────────────────────────────────────────────────────────────────

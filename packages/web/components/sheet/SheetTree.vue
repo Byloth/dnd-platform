@@ -228,6 +228,11 @@
                         </li>
                     </ul>
                 </div>
+                <ul v-else-if="block.kind === 'reminders'" class="reminders">
+                    <li v-for="(item, i) in block.items" :key="i">
+                        {{ item.text }} <small class="text-muted">— {{ item.source }}</small>
+                    </li>
+                </ul>
                 <div v-else-if="block.kind === 'credits'">
                     <div v-for="pkg in block.packages" :key="pkg.id">
                         <h3>{{ pkg.name }} <small class="text-muted">({{ pkg.id }} {{ pkg.version }})</small></h3>
