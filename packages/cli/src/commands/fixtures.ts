@@ -317,14 +317,20 @@ function runOne(root: string, directory: string, name: string, update: boolean):
     // The composer's section tree and the readable sheet are golden too, where a fixture keeps them
     // (the reference for the web sheet): checked when present, refreshed by --update.
     const tree = compose(sheet, { character: character, packages: set });
-    const goldens: [string, string][] = [
-        ["section-tree.json", stableStringify(tree)],
-        ["sheet.txt", renderTree(tree, { color: false })]
+    // The newcomer and expert trees (help levels) where a fixture keeps them; the regular tree is the default.
+    const level = (helpLevel: "newcomer" | "expert"): string =>
+        stableStringify(compose(sheet, { character: character, packages: set, helpLevel: helpLevel }));
+    const goldens: [string, () => string][] = [
+        ["section-tree.json", () => stableStringify(tree)],
+        ["section-tree.newcomer.json", () => level("newcomer")],
+        ["section-tree.expert.json", () => level("expert")],
+        ["sheet.txt", () => renderTree(tree, { color: false })]
     ];
-    for (const [file, content] of goldens)
+    for (const [file, render] of goldens)
     {
         const path = join(directory, file);
         if (!existsSync(path)) { continue; }
+        const content = render();
         if (readFileSync(path, "utf8") === content) { continue; }
         if (update)
         {

@@ -195,6 +195,75 @@ export const en = {
     },
     notes: {
         progress: "{answered} of {count} {of}(s)"
+    },
+    explain: {
+        base: "Everyone starts from {value}.",
+        baseFrom: "{label} sets the starting value at {value}.",
+        ability: "Your {ability} ({score}) gives {value}.",
+        proficiency: "Your proficiency bonus gives {value}.",
+        add: "{label} adds {value}.",
+        set: "{label} sets it to {value}.",
+        setFormula: "{label}: {rule} → {value}.",
+        mul: "{label} multiplies it by {value}.",
+        min: "{label} makes it at least {value}.",
+        max: "{label} caps it at {value}.",
+        patch: "{label} changes it to {value}.",
+        inactive: "{label} would apply if {condition}.",
+        inactiveUnknown: "{label} would apply in other circumstances."
+    },
+    when: {
+        and: "and",
+        or: "or",
+        not: "it is not true that {condition}",
+        level: {
+            min: "you are level {min} or higher",
+            max: "you are level {max} or lower",
+            range: "you are between level {min} and level {max}",
+            any: "you have a level"
+        },
+        classLevel: {
+            min: "you have {min} or more levels in {class}",
+            max: "you have {max} or fewer levels in {class}",
+            range: "you have between {min} and {max} levels in {class}",
+            any: "you have levels in {class}"
+        },
+        hasFeature: "you have {feature}",
+        armorNone: "you wear no armor",
+        armorAny: "you wear armor",
+        armor: "you wear {category} armor",
+        armorCategories: {
+            light: "light",
+            medium: "medium",
+            heavy: "heavy"
+        },
+        shield: "you carry a shield",
+        noShield: "you carry no shield",
+        wielding: "you wield {weapon}",
+        wieldingOnly: "you wield only {weapon}",
+        weapon: {
+            any: "a weapon",
+            with: "a weapon ({traits})",
+            count: "{count} × {weapon}",
+            unarmed: "your unarmed strikes",
+            simple: "simple",
+            martial: "martial",
+            twoHanded: "two-handed",
+            ranged: "ranged",
+            melee: "melee",
+            monk: "monk weapon"
+        },
+        armorStrengthUnmet: "your Strength is below what your armor requires",
+        armorStrengthMet: "your Strength meets what your armor requires",
+        conditionActive: "you are affected by {condition}",
+        toggled: "{state} is on",
+        resourceAtLeast: "you have at least {amount} {resource} left",
+        answer: "you chose {option} for {choice}",
+        knowsSpell: "you know {spell}",
+        ability: "your {ability} is {min} or higher",
+        proficient: "you are proficient in {item}",
+        species: "you are {species}",
+        class: "you have levels in {class}",
+        fallback: "{condition} holds"
     }
 };
 

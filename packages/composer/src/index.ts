@@ -14,16 +14,30 @@
 import type { LocalizedString } from "@byloth/dnd-platform-schema";
 import type { PackageSet } from "@byloth/dnd-platform-loader";
 import type {
-    ActionView, AttackView, Character, ComputedSheet, Contribution, DerivedValue, Provenance, SpellView
+    ActionView, AttackView, Character, ComputedSheet, Condition, Contribution, DerivedValue, Provenance, SpellView
 } from "@byloth/dnd-platform-engine";
 
-import { createTranslate } from "./messages/index.js";
+import { firstSentence, newcomerWording } from "./explain.js";
+import type { WordingContext } from "./explain.js";
+import { createTranslate, SHEET_MESSAGES } from "./messages/index.js";
 import type { Translate, TranslateParams } from "./messages/index.js";
 
 export { SHEET_MESSAGES, createTranslate } from "./messages/index.js";
+export { CONDITION_KEYS, conditionWords, firstSentence } from "./explain.js";
+export type { WordingContext } from "./explain.js";
 export type { SheetMessages, Translate, TranslateParams } from "./messages/index.js";
 
 // ---- options ------------------------------------------------------------------------
+
+/** What the tree is for: `build` (every section, explanations), `play` and `print` (the build tree until Phase 2). */
+export type ComposeMode = "build" | "play" | "print";
+
+/**
+ * How much the tree explains (docs/phase-1/03-sheet-composer.md): *newcomer* fills a one-line summary for every
+ * item and explains every value in words; *regular* is the sheet as the CLI prints it; *expert* explains every
+ * value and adds its raw contributions.
+ */
+export type HelpLevel = "newcomer" | "regular" | "expert";
 
 export interface ComposeOptions
 {
@@ -36,6 +50,10 @@ export interface ComposeOptions
      * own translator in `language`. A key the function does not know may come back unchanged.
      */
     readonly translate?: Translate;
+    /** Default `build`. */
+    readonly mode?: ComposeMode;
+    /** Default `regular`, the level of the golden trees and of the CLI. */
+    readonly helpLevel?: HelpLevel;
 }
 
 // ---- the tree -------------------------------------------------------------------------
@@ -65,6 +83,13 @@ export interface ExplanationLine
 }
 export interface Explanation
 {
+    /**
+     * One sentence per applied contribution, for a newcomer ("Your Dexterity (16) gives +3."). Present in
+     * `explain()` and in the newcomer and expert trees; the regular tree leaves it out.
+     */
+    readonly newcomer?: readonly string[];
+    /** "Would apply if…" sentences for the inactive contributions; present with `newcomer`. */
+    readonly notes?: readonly string[];
     /** The applied contributions, in the sheet's wording. */
     readonly regular: readonly ExplanationLine[];
     /** Every contribution, inactive ones included, with their formulas. */
@@ -78,8 +103,10 @@ export interface ValueItem
     readonly label: string;
     readonly shown: string;
     readonly value?: DerivedValue;
-    /** Present when the value has more than one applied contribution. */
+    /** Present when the value has more than one applied contribution; for every value above the regular level. */
     readonly explain?: Explanation;
+    /** Expert level: the applied contributions in one line ("16 Chain mail, +2 Shield"). */
+    readonly raw?: string;
 }
 export interface ClassRef
 {
@@ -153,6 +180,8 @@ export interface ActionItem
     readonly details: readonly string[];
     readonly available: boolean;
     readonly text?: string;
+    /** Newcomer level: the first sentence of the text. */
+    readonly summary?: string;
     readonly action: ActionView;
 }
 export interface ActionGroup
@@ -198,6 +227,8 @@ export interface SpellItem
     readonly name: string;
     /** Name with its marks: `Bless* ©`, `Darkness (2 ki)`. */
     readonly label: string;
+    /** Newcomer level: the first sentence of the spell's text. */
+    readonly summary?: string;
     readonly spell: SpellView;
 }
 export interface SpellLevel { readonly level: number, readonly label: string, readonly items: readonly SpellItem[] }
@@ -213,6 +244,8 @@ export interface FeatureItem
     readonly level?: number;
     /** The full text; renderers summarise it. */
     readonly text: string;
+    /** Newcomer level: the first sentence of the text. */
+    readonly summary?: string;
 }
 export interface FeatureGroup
 {
@@ -327,16 +360,88 @@ export function contributionText(c: Contribution): string
 
 type Text = Readonly<Record<string, string | undefined>>;
 
+/** What the wording reads from the entity or option behind a contribution. */
+interface Origin
+{
+    readonly text?: Text;
+    readonly effects?: readonly { readonly when?: Condition }[];
+}
+
 class Composer
 {
     private readonly _language: string;
     private readonly _translate: Translate;
+    private readonly _level: HelpLevel;
 
     public constructor(private readonly _sheet: ComputedSheet, private readonly _options: ComposeOptions)
     {
         this._language = _options.language ?? _sheet.meta.language;
         this._translate = _options.translate ?? createTranslate(this._language);
+        this._level = _options.helpLevel ?? "regular";
     }
+
+    // ---- the words of provenance ----
+
+    /** The entity or inline option a contribution comes from, with its text and effects. */
+    private origin(c: Contribution): Origin | undefined
+    {
+        const id = c.source.feature ?? c.source.entity;
+        if (id === undefined) { return undefined; }
+
+        const entities = this._options.packages.entities;
+        const direct = entities.get(id)?.data;
+        if (direct !== undefined) { return direct as never; }
+
+        // An option of a choice is not an entity: look for it inside the entity that offers it.
+        const search = (node: unknown): unknown =>
+        {
+            if (Array.isArray(node)) { return node.map(search).find((n) => n !== undefined); }
+            if (typeof node !== "object" || node === null) { return undefined; }
+            if ((node as { id?: unknown }).id === id) { return node; }
+
+            return Object.values(node).map(search)
+                .find((n) => n !== undefined);
+        };
+
+        return (c.source.entity ? search(entities.get(c.source.entity)?.data) : undefined) as never;
+    }
+
+    private fromRuleset(c: Contribution): boolean
+    {
+        const entity = c.source.entity;
+
+        return entity === undefined || entity === this._options.packages.ruleset.id;
+    }
+
+    private wording(): WordingContext
+    {
+        const english = SHEET_MESSAGES["en"]!.sheet.abilities as Record<string, string>;
+        const modifierOf = new Map(Object.entries(english).map(([id, name]) => [`${name} modifier`, id]));
+
+        return {
+            t: (key, params, fallback) => this.t(key, params, fallback),
+            name: (id) => this.entityName(id),
+            label: (c) => this.text(c.label),
+            abilityOf: (c) => (this.fromRuleset(c) ? modifierOf.get((c.label as Text)["en"] ?? "") : undefined),
+            score: (ability) => this.number(`ability.${ability}`),
+            rule: (c) =>
+            {
+                const text = this.origin(c)?.text;
+
+                return text ? firstSentence(this.text(text)) || undefined : undefined;
+            },
+            condition: (c) =>
+            {
+                const index = c.source.effectIndex;
+
+                return index !== undefined ? this.origin(c)?.effects?.[index]?.when : undefined;
+            },
+            fromRuleset: (c) => this.fromRuleset(c)
+        };
+    }
+
+    /** Whether the tree carries the full explanations (newcomer sentences) and explains every value. */
+    private get explainsAll(): boolean { return this._level !== "regular"; }
 
     /** An interface string; `fallback` when the translation does not know the key. */
     private t(key: string, params?: TranslateParams, fallback?: string): string
@@ -411,7 +516,7 @@ class Composer
         };
     }
 
-    public explanation(value: DerivedValue): Explanation
+    public explanation(value: DerivedValue, full = true): Explanation
     {
         const expert = value.provenance.map((c) =>
         {
@@ -423,7 +528,10 @@ class Composer
             return { ...line, shown: shown };
         });
 
+        const wording = full ? newcomerWording(value.provenance, this.wording()) : undefined;
+
         return {
+            ...(wording ? { newcomer: wording.newcomer, notes: wording.notes } : {}),
             regular: value.provenance.filter((c) => c.applied).map((c) => this.line(c)),
             expert: expert,
             provenance: value.provenance
@@ -437,9 +545,19 @@ class Composer
     ): Explanation | undefined
     {
         if (value === undefined) { return undefined; }
+        if (this.explainsAll) { return this.explanation(value); }
         const applied = value.provenance.filter((c) => c.applied);
 
-        return when(applied) ? this.explanation(value) : undefined;
+        return when(applied) ? this.explanation(value, false) : undefined;
+    }
+
+    /** The first sentence of a text, above the regular level. */
+    private summary(text: string | undefined): { summary: string } | Record<string, never>
+    {
+        if (this._level !== "newcomer" || !text) { return {}; }
+        const sentence = firstSentence(text);
+
+        return sentence === "" ? {} : { summary: sentence };
     }
 
     private valueItem(id: string, label: string, path: string, shown: string): ValueItem
@@ -447,12 +565,17 @@ class Composer
         const value = this.value(path);
         const explanation = this.explainIf(value, (applied) => applied.length > 1);
 
+        const raw = (this._level === "expert" && explanation) ?
+            explanation.regular.map((l) => `${l.shown} ${l.label}`).join(", ") :
+            undefined;
+
         return {
             id: id,
             label: label,
             shown: shown,
             ...(value ? { value: value } : {}),
-            ...(explanation ? { explain: explanation } : {})
+            ...(explanation ? { explain: explanation } : {}),
+            ...(raw ? { raw: raw } : {})
         };
     }
 
@@ -515,12 +638,11 @@ class Composer
         const perception = this.value("passive.perception");
         if (perception)
         {
-            items.push({
-                id: "passive-perception",
-                label: this.t("core.passivePerception"),
-                shown: plain(perception.value),
-                value: perception
-            });
+            const label = this.t("core.passivePerception");
+            // The regular tree shows it unexplained, as the CLI always has; the other levels explain every value.
+            items.push(this.explainsAll ?
+                this.valueItem("passive-perception", label, "passive.perception", plain(perception.value)) :
+                { id: "passive-perception", label: label, shown: plain(perception.value), value: perception });
         }
         if (state.inspiration)
         {
@@ -708,6 +830,7 @@ class Composer
             details: details,
             available: action.available,
             ...(action.text ? { text: this.text(action.text) } : {}),
+            ...this.summary(action.text ? this.text(action.text) : undefined),
             action: action
         };
     }
@@ -848,7 +971,13 @@ class Composer
             levels.push({
                 level: level,
                 label: this.t(`spellLevels.${level}`, undefined, String(level)),
-                items: spells.map((s) => ({ id: s.id, name: this.text(s.name), label: this.spellLabel(s), spell: s }))
+                items: spells.map((s) => ({
+                    id: s.id,
+                    name: this.text(s.name),
+                    label: this.spellLabel(s),
+                    ...this.summary(this.entityText(s.id)),
+                    spell: s
+                }))
             });
         }
 
@@ -871,12 +1000,18 @@ class Composer
             return {
                 origin: origin,
                 label: `${this.t(`origins.${origin}`, undefined, capitalise(origin))}${ownerNames}`,
-                items: group.map((f) => ({
-                    id: f.id,
-                    name: this.text(f.name),
-                    ...(f.level !== undefined ? { level: f.level } : {}),
-                    text: f.text ? this.text(f.text) : this.entityText(f.id)
-                }))
+                items: group.map((f) =>
+                {
+                    const text = f.text ? this.text(f.text) : this.entityText(f.id);
+
+                    return {
+                        id: f.id,
+                        name: this.text(f.name),
+                        ...(f.level !== undefined ? { level: f.level } : {}),
+                        text: text,
+                        ...this.summary(text)
+                    };
+                })
             };
         });
 

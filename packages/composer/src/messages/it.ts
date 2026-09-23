@@ -195,5 +195,74 @@ export const it: SheetMessages = {
     },
     notes: {
         progress: "{answered} di {count}"
+    },
+    explain: {
+        base: "Tutti partono da {value}.",
+        baseFrom: "{label} fissa il valore di partenza a {value}.",
+        ability: "La tua {ability} ({score}) dà {value}.",
+        proficiency: "Il tuo bonus di competenza dà {value}.",
+        add: "{label} aggiunge {value}.",
+        set: "{label} lo porta a {value}.",
+        setFormula: "{label}: {rule} → {value}.",
+        mul: "{label} lo moltiplica per {value}.",
+        min: "{label} lo porta almeno a {value}.",
+        max: "{label} lo limita a {value}.",
+        patch: "{label} lo cambia in {value}.",
+        inactive: "{label} si applicherebbe se {condition}.",
+        inactiveUnknown: "{label} si applicherebbe in altre circostanze."
+    },
+    when: {
+        and: "e",
+        or: "o",
+        not: "non è vero che {condition}",
+        level: {
+            min: "sei di livello {min} o superiore",
+            max: "sei di livello {max} o inferiore",
+            range: "sei tra il livello {min} e il livello {max}",
+            any: "hai un livello"
+        },
+        classLevel: {
+            min: "hai {min} o più livelli da {class}",
+            max: "hai {max} o meno livelli da {class}",
+            range: "hai tra {min} e {max} livelli da {class}",
+            any: "hai livelli da {class}"
+        },
+        hasFeature: "hai {feature}",
+        armorNone: "non indossi un'armatura",
+        armorAny: "indossi un'armatura",
+        armor: "indossi un'armatura {category}",
+        armorCategories: {
+            light: "leggera",
+            medium: "media",
+            heavy: "pesante"
+        },
+        shield: "imbracci uno scudo",
+        noShield: "non imbracci uno scudo",
+        wielding: "impugni {weapon}",
+        wieldingOnly: "impugni soltanto {weapon}",
+        weapon: {
+            any: "un'arma",
+            with: "un'arma ({traits})",
+            count: "{count} × {weapon}",
+            unarmed: "i tuoi colpi senz'armi",
+            simple: "semplice",
+            martial: "da guerra",
+            twoHanded: "a due mani",
+            ranged: "a distanza",
+            melee: "da mischia",
+            monk: "arma da monaco"
+        },
+        armorStrengthUnmet: "la tua Forza è inferiore a quella richiesta dalla tua armatura",
+        armorStrengthMet: "la tua Forza soddisfa quella richiesta dalla tua armatura",
+        conditionActive: "sei sotto l'effetto di {condition}",
+        toggled: "{state} è attivo",
+        resourceAtLeast: "ti restano almeno {amount} {resource}",
+        answer: "hai scelto {option} per {choice}",
+        knowsSpell: "conosci {spell}",
+        ability: "la tua {ability} è {min} o superiore",
+        proficient: "hai competenza in {item}",
+        species: "sei {species}",
+        class: "hai livelli da {class}",
+        fallback: "vale {condition}"
     }
 };
