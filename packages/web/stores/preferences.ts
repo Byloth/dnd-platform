@@ -14,6 +14,13 @@ export type Theme = "system" | "light" | "dark";
 export type Contrast = "system" | "more";
 export type PageSize = "a4" | "letter";
 
+/** How one character's sheet is arranged: sections pinned to the top, sections collapsed. Never exported. */
+export interface SheetLayout
+{
+    pinned: string[];
+    collapsed: string[];
+}
+
 export interface Preferences
 {
     language: Language;
@@ -24,6 +31,7 @@ export interface Preferences
 }
 
 export const PREFERENCES_KEY = "preferences";
+export const SHEETS_KEY = "sheet-layouts";
 
 /** The platform is for newcomers first (docs/01-vision.md): the default help level explains everything. */
 export const DEFAULT_PREFERENCES: Readonly<Preferences> = {
@@ -62,6 +70,21 @@ function _read(storage: JSONStorage): Preferences
     };
 }
 
+/** The stored sheet layouts, keeping only well-formed entries. */
+function _readSheets(storage: JSONStorage): Record<string, SheetLayout>
+{
+    const stored = storage.get<Record<string, unknown>>(SHEETS_KEY) ?? {};
+    const strings = (value: unknown): string[] =>
+        (Array.isArray(value) ? value.filter((v): v is string => typeof v === "string") : []);
+
+    return Object.fromEntries(Object.entries(stored).map(([id, layout]) =>
+    {
+        const l = (layout ?? {}) as Record<string, unknown>;
+
+        return [id, { pinned: strings(l["pinned"]), collapsed: strings(l["collapsed"]) }];
+    }));
+}
+
 export const usePreferencesStore = defineStore("preferences", () =>
 {
     const storage = new JSONStorage();
@@ -72,6 +95,7 @@ export const usePreferencesStore = defineStore("preferences", () =>
     const theme = ref<Theme>(initial.theme);
     const contrast = ref<Contrast>(initial.contrast);
     const pageSize = ref<PageSize>(initial.pageSize);
+    const sheets = ref<Record<string, SheetLayout>>(_readSheets(storage));
 
     watch([language, helpLevel, theme, contrast, pageSize], () =>
     {
@@ -83,6 +107,27 @@ export const usePreferencesStore = defineStore("preferences", () =>
             pageSize: pageSize.value
         });
     });
+    watch(sheets, () => storage.set(SHEETS_KEY, sheets.value), { deep: true });
 
-    return { language, helpLevel, theme, contrast, pageSize };
+    /** The layout of one character's sheet (created empty on first use). */
+    const sheetLayout = (characterId: string): SheetLayout =>
+    {
+        sheets.value[characterId] ??= { pinned: [], collapsed: [] };
+
+        return sheets.value[characterId];
+    };
+    const toggle = (list: string[], section: string): void =>
+    {
+        const at = list.indexOf(section);
+        if (at >= 0) { list.splice(at, 1); }
+        else { list.push(section); }
+    };
+    const togglePinned = (characterId: string, section: string): void =>
+        toggle(sheetLayout(characterId).pinned, section);
+    const toggleCollapsed = (characterId: string, section: string): void =>
+        toggle(sheetLayout(characterId).collapsed, section);
+
+    return {
+        language, helpLevel, theme, contrast, pageSize, sheets, sheetLayout, togglePinned, toggleCollapsed
+    };
 });

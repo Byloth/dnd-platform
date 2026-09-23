@@ -30,6 +30,8 @@
     "@nuxtjs/i18n": "^10.6.0",
     "@pinia/nuxt": "1.0.2",
     "@vueuse/nuxt": "^15.0.0",
+    "dompurify": "^3.4.15",
+    "marked": "^18.0.14",
     "modern-normalize": "^3.0.1",
     "nuxt": "^4.5.2",
     "pinia": "^4.0.3",

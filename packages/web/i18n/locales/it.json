@@ -133,5 +133,71 @@
   },
   "alerts": {
     "close": "Chiudi"
+  },
+  "sheetView": {
+    "level": "Livello {level}",
+    "vital": "Valori vitali",
+    "pin": "Fissa {section} in alto",
+    "unpin": "Sblocca {section}",
+    "collapse": "Comprimi {section}",
+    "expand": "Espandi {section}",
+    "explainHint": "Tocca un numero per vedere come è calcolato.",
+    "warnings": {
+      "heading": "Da controllare | Da controllare ({count})",
+      "goTo": "Vai a {section}"
+    },
+    "drawer": {
+      "title": "Come si calcola",
+      "close": "Chiudi",
+      "words": "A parole",
+      "lines": "Riga per riga",
+      "raw": "Grezzo",
+      "total": "Totale",
+      "inactive": "Si applicherebbe",
+      "formula": "Formula",
+      "source": "Fonte",
+      "none": "Questo valore ha una sola fonte: non c'è altro da spiegare."
+    },
+    "abilities": {
+      "score": "Punteggio",
+      "modifier": "Modificatore",
+      "save": "Tiro salvezza",
+      "proficient": "Competenza nel tiro salvezza"
+    },
+    "skills": {
+      "untrained": "Senza competenza",
+      "proficient": "Competenza",
+      "expertise": "Maestria",
+      "legend": "○ senza competenza · ● competenza · ◉ maestria"
+    },
+    "attacks": {
+      "toHit": "Colpire",
+      "damage": "Danni"
+    },
+    "actions": {
+      "base": "Tutti possono anche",
+      "unavailable": "Non disponibile ora",
+      "cost": "Costo",
+      "showRule": "Mostra la regola"
+    },
+    "resources": {
+      "pips": "{current} di {max} {name}"
+    },
+    "spells": {
+      "legend": "© concentrazione · * sempre preparato",
+      "slots": "Slot incantesimo"
+    },
+    "features": {
+      "level": "dal livello {level}"
+    },
+    "conditions": {
+      "none": "Niente ti sta influenzando."
+    },
+    "notes": {
+      "open": "Scelte ancora aperte"
+    },
+    "equipment": {
+      "quantity": "× {count}"
+    }
   }
 }

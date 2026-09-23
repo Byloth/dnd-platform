@@ -42,19 +42,17 @@ async function open(id: string)
 
 describe("the character page", () =>
 {
-    it("shows the sheet in words for a newcomer, and without them at the regular level", async () =>
+    it("shows the sheet, with summaries for a newcomer and none at the regular level", async () =>
     {
         const wrapper = await open("fixture-cleric-l5");
 
         expect(wrapper.find("h1").text()).toBe("Stone Lantern");
-        expect(wrapper.find("#section-core .explain").text()).toContain("Chain mail sets the starting value at 16.");
-        expect(wrapper.findAll(".summary").length).toBeGreaterThan(0);
+        expect(wrapper.find("[aria-label='Armor Class, 18']").exists()).toBe(true);
+        expect(wrapper.findAll(".feature-card__line").length).toBeGreaterThan(0);
 
         usePreferencesStore().helpLevel = "regular";
         await flushPromises();
-        expect(wrapper.findAll(".summary").length).toBe(0);
-        expect(wrapper.find("#section-core .explain").text()).toContain("Chain mail");
-        expect(wrapper.find("#section-core .explain").text()).not.toContain("sets the starting value");
+        expect(wrapper.findAll(".feature-card__line").length).toBe(0);
     });
 
     it("speaks Italian when the interface does", async () =>
@@ -62,7 +60,7 @@ describe("the character page", () =>
         await useNuxtApp().$i18n.setLocale("it");
         const wrapper = await open("fixture-cleric-l5");
 
-        expect(wrapper.find("#section-core h2").text()).toBe("Valori principali");
+        expect(wrapper.find("#title-core").text()).toBe("Valori principali");
         expect(wrapper.text()).toContain("Classe Armatura");
     });
 

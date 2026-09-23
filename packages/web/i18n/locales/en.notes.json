@@ -133,5 +133,71 @@
   },
   "alerts": {
     "close": "Accessible name of the button that closes an alert."
+  },
+  "sheetView": {
+    "level": "The build-mode sheet screen: labels, accessible names and states around the composer's content. Parameters: {level}.",
+    "vital": "The build-mode sheet screen: labels, accessible names and states around the composer's content.",
+    "pin": "Accessible name of a section's button; {section} is the section's title. Parameters: {section}.",
+    "unpin": "Accessible name of a section's button; {section} is the section's title. Parameters: {section}.",
+    "collapse": "Accessible name of a section's button; {section} is the section's title. Parameters: {section}.",
+    "expand": "Accessible name of a section's button; {section} is the section's title. Parameters: {section}.",
+    "explainHint": "The build-mode sheet screen: labels, accessible names and states around the composer's content.",
+    "warnings": {
+      "heading": "The list of warnings at the top of the sheet. Parameters: {count}. Plural forms separated by | (one | other).",
+      "goTo": "The list of warnings at the top of the sheet. Parameters: {section}."
+    },
+    "drawer": {
+      "title": "The explanation drawer's heading, under the name of the value (shown above it).",
+      "close": "The explanation drawer that opens when a number is tapped.",
+      "words": "The explanation drawer that opens when a number is tapped.",
+      "lines": "The explanation drawer that opens when a number is tapped.",
+      "raw": "The explanation drawer that opens when a number is tapped.",
+      "total": "The explanation drawer that opens when a number is tapped.",
+      "inactive": "The explanation drawer that opens when a number is tapped.",
+      "formula": "The explanation drawer that opens when a number is tapped.",
+      "source": "The explanation drawer that opens when a number is tapped.",
+      "none": "The explanation drawer that opens when a number is tapped."
+    },
+    "abilities": {
+      "score": "The build-mode sheet screen: labels, accessible names and states around the composer's content.",
+      "modifier": "The build-mode sheet screen: labels, accessible names and states around the composer's content.",
+      "save": "The build-mode sheet screen: labels, accessible names and states around the composer's content.",
+      "proficient": "The build-mode sheet screen: labels, accessible names and states around the composer's content."
+    },
+    "skills": {
+      "untrained": "The build-mode sheet screen: labels, accessible names and states around the composer's content.",
+      "proficient": "The build-mode sheet screen: labels, accessible names and states around the composer's content.",
+      "expertise": "The build-mode sheet screen: labels, accessible names and states around the composer's content.",
+      "legend": "The build-mode sheet screen: labels, accessible names and states around the composer's content."
+    },
+    "attacks": {
+      "toHit": "The build-mode sheet screen: labels, accessible names and states around the composer's content.",
+      "damage": "The build-mode sheet screen: labels, accessible names and states around the composer's content."
+    },
+    "actions": {
+      "base": "The build-mode sheet screen: labels, accessible names and states around the composer's content.",
+      "unavailable": "The build-mode sheet screen: labels, accessible names and states around the composer's content.",
+      "cost": "The build-mode sheet screen: labels, accessible names and states around the composer's content.",
+      "showRule": "The build-mode sheet screen: labels, accessible names and states around the composer's content."
+    },
+    "resources": {
+      "pips": "The build-mode sheet screen: labels, accessible names and states around the composer's content. Parameters: {current}, {max}, {name}."
+    },
+    "spells": {
+      "legend": "The build-mode sheet screen: labels, accessible names and states around the composer's content.",
+      "slots": "The build-mode sheet screen: labels, accessible names and states around the composer's content."
+    },
+    "features": {
+      "level": "The build-mode sheet screen: labels, accessible names and states around the composer's content. Parameters: {level}."
+    },
+    "conditions": {
+      "none": "The build-mode sheet screen: labels, accessible names and states around the composer's content."
+    },
+    "notes": {
+      "open": "The build-mode sheet screen: labels, accessible names and states around the composer's content."
+    },
+    "equipment": {
+      "quantity": "The build-mode sheet screen: labels, accessible names and states around the composer's content. Parameters: {count}."
+    }
   }
 }

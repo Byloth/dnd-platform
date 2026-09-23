@@ -133,5 +133,71 @@
   },
   "alerts": {
     "close": "Close"
+  },
+  "sheetView": {
+    "level": "Level {level}",
+    "vital": "Vital statistics",
+    "pin": "Pin {section} to the top",
+    "unpin": "Unpin {section}",
+    "collapse": "Collapse {section}",
+    "expand": "Expand {section}",
+    "explainHint": "Tap a number to see how it is calculated.",
+    "warnings": {
+      "heading": "Things to check | Things to check ({count})",
+      "goTo": "Go to {section}"
+    },
+    "drawer": {
+      "title": "How it is calculated",
+      "close": "Close",
+      "words": "In words",
+      "lines": "Line by line",
+      "raw": "Raw",
+      "total": "Total",
+      "inactive": "Would apply",
+      "formula": "Formula",
+      "source": "Source",
+      "none": "This value has a single source: nothing to explain."
+    },
+    "abilities": {
+      "score": "Score",
+      "modifier": "Modifier",
+      "save": "Save",
+      "proficient": "Proficient in saves"
+    },
+    "skills": {
+      "untrained": "Untrained",
+      "proficient": "Proficient",
+      "expertise": "Expertise",
+      "legend": "○ untrained · ● proficient · ◉ expertise"
+    },
+    "attacks": {
+      "toHit": "To hit",
+      "damage": "Damage"
+    },
+    "actions": {
+      "base": "Everyone can also",
+      "unavailable": "Not available now",
+      "cost": "Cost",
+      "showRule": "Show the rule"
+    },
+    "resources": {
+      "pips": "{current} of {max} {name}"
+    },
+    "spells": {
+      "legend": "© concentration · * always prepared",
+      "slots": "Spell slots"
+    },
+    "features": {
+      "level": "from level {level}"
+    },
+    "conditions": {
+      "none": "Nothing is affecting you."
+    },
+    "notes": {
+      "open": "Choices still open"
+    },
+    "equipment": {
+      "quantity": "× {count}"
+    }
   }
 }

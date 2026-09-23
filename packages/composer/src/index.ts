@@ -317,9 +317,11 @@ export function signed(value: number | string): string
     return value < 0 ? `−${-value}` : `+${value}`;
 }
 
-/** `15`, `−1`; strings pass through. */
+/** `15`, `−1`, `∞`; strings pass through. */
 export function plain(value: number | string): string
 {
+    if (value === Infinity) { return "∞"; }
+
     return typeof value === "number" && value < 0 ? `−${-value}` : String(value);
 }
 
@@ -1191,6 +1193,12 @@ class Composer
 export function compose(sheet: ComputedSheet, options: ComposeOptions): SectionTree
 {
     return new Composer(sheet, options).compose();
+}
+
+/** The explanation of one derived value (a row's score, save or bonus), every view included. */
+export function explainValue(sheet: ComputedSheet, value: DerivedValue, options: ComposeOptions): Explanation
+{
+    return new Composer(sheet, options).explanation(value);
 }
 
 /** The explanation of one value path, inactive contributions included; `undefined` when the path has no value. */

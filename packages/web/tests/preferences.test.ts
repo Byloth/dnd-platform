@@ -24,7 +24,8 @@ describe("preferences", () =>
     {
         const preferences = usePreferencesStore();
 
-        expect({ ...preferences.$state }).toEqual({ ...DEFAULT_PREFERENCES });
+        const { language, helpLevel, theme, contrast, pageSize } = preferences;
+        expect({ language, helpLevel, theme, contrast, pageSize }).toEqual({ ...DEFAULT_PREFERENCES });
         expect(preferences.helpLevel).toBe("newcomer");
     });
 

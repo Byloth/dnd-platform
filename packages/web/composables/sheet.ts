@@ -8,6 +8,8 @@ export interface ComposedSheet
 {
     readonly sheet: ComputedSheet;
     readonly tree: SectionTree;
+    /** The package set the sheet was derived with (names, texts and the explanations of the drawer). */
+    readonly packages: PackageSet;
 }
 
 export interface ComposeSheetOptions
@@ -32,7 +34,7 @@ export function composeSheet(
         ...(translate !== undefined ? { translate: translate } : {})
     });
 
-    return { sheet, tree };
+    return { sheet, tree, packages };
 }
 
 /** vue-i18n's `t`, in the two forms the adapter uses. */

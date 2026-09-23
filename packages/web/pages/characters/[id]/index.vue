@@ -2,11 +2,11 @@
     import type { Character } from "@byloth/dnd-platform-engine";
     import type { PackageSource } from "@byloth/dnd-platform-loader";
 
-    import SheetTree from "@/components/sheet/SheetTree.vue";
+    import SheetView from "@/components/sheet/SheetView.vue";
     import { MissingPackageException } from "@/stores/content";
 
     // A character's build-mode sheet (docs/phase-1/03-sheet-composer.md): derived in the interface language and at
-    // the help level of the preferences. M1.3c replaces the unstyled tree with the screen's components.
+    // the help level of the preferences.
 
     type Loaded =
         { readonly state: "ready", readonly character: Character, readonly sources: PackageSource[] } |
@@ -76,7 +76,12 @@
         <p v-else-if="status === 'error'" role="alert">
             {{ t("character.failed") }}
         </p>
-        <SheetTree v-else-if="composed" :tree="composed.tree" />
+        <SheetView v-else-if="composed && data?.state === 'ready'"
+                   :character="data.character"
+                   :composed="composed"
+                   :help-level="preferences.helpLevel"
+                   :language="locale"
+                   :translate="translate" />
     </div>
 </template>
 
