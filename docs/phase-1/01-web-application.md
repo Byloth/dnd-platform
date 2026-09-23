@@ -35,9 +35,12 @@ packages/web/
     packages/index.vue    # content store: loaded packages, load from file, remove (02)
   components/             # value tile, provenance drawer, choice picker, section blocks… (03, 04)
   composables/            # useEngine (derive with memoisation), useBrowserStorage, usePackageLoader, useContent, useCharacterStore, useWorkingDirectory
-  stores/                 # Pinia: content (useContentStore, M1.2), characters, preferences (language, help level, page size)
-  i18n/locales/{en,it}.json
-  public/content/srd51.json   # copied at build time, git-ignored
+  stores/                 # Pinia: content (useContentStore, M1.2), preferences (usePreferencesStore, M1.3b), characters
+  plugins/preferences.client.ts   # applies language and colour mode at start (M1.3b)
+  i18n/i18n.config.ts     # merges the composer's SHEET_MESSAGES under `sheet` (M1.3b)
+  i18n/locales/{en,it}.json, en.notes.json
+  public/content/         # written by web:prepare-content, git-ignored: srd51.json, releases, index.json,
+                          # characters/ (the demo characters until M1.5)
   tests/                  # component and composable tests
 ```
 
@@ -81,7 +84,7 @@ The engine has no runtime dependency and no platform import; it bundles as is. T
 4. The SRD bundle as a static asset with its version; a first page that derives a fixture character and renders the composer's section tree unstyled — M1.1.
 5. Pages workflow and CI steps — M1.1.
 6. Memoised `useEngine` composable with the cache-invalidation rule — M1.2 (done).
-7. Preferences store (language, help level, page size, theme) — M1.3.
+7. Preferences store (language, help level, page size, theme) — M1.3 (done, M1.3b: `stores/preferences.ts` on `JSONStorage`, help level *newcomer* by default, theme `system` / `light` / `dark` through Bootstrap's `data-bs-theme`; the header's Settings menu writes them). Until the character store (M1.5) the home page lists the site's demo characters (six SRD-only fixtures published by `web:prepare-content`) and `/characters/[id]` shows their sheet through `useCharacters`, the seam the stored characters will join.
 
 ## Open points
 

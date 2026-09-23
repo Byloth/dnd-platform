@@ -45,8 +45,8 @@ i18n/locales/en.json
 
 ## Tasks
 
-1. `@nuxtjs/i18n` setup, the two catalogues, the missing-key test, the glossary term test — M1.1 (setup), M1.3 (sheet strings), M1.4 (wizard copy).
-2. The newcomer provenance wording catalogue in English and Italian, consumed by the composer — M1.3.
+1. `@nuxtjs/i18n` setup, the two catalogues, the missing-key test, the glossary term test — M1.1 (setup), M1.3 (sheet strings), M1.4 (wizard copy). As built in M1.3b: the sheet strings are the composer's `SHEET_MESSAGES`, merged by `i18n/i18n.config.ts` and handed back to the composer as `translate` (`sheetTranslate`); `terms.*` holds the game terms the interface uses and `tests/glossary.test.ts` checks them, and the sheet labels that name a term, against docs/03-glossary.md; `en.notes.json` carries a note for every key, checked by the i18n test.
+2. The newcomer provenance wording catalogue in English and Italian, consumed by the composer — M1.3 (done, M1.3a: `sheet.explain.*` and `sheet.when.*`).
 3. Extend `translation-skeleton` to manifest and ruleset strings and to emit a package directory with its manifest — M1.7.
 4. OCR the Italian SRD PDF into the private text area; write the packet partition script (reuse `tools/import/src/phb-scope.ts`'s pattern) — M1.7.
 5. **Confirmation point.** Present the packet count and the brief to the owner; launch the agents only after confirmation; review; coverage report at 100 % — M1.7.
