@@ -141,6 +141,11 @@ export function useBrowserStorage()
             (await _open()).delete("packages", packageKey(id, version))
     };
 
+    /** The stored characters (written from M1.5; read here to know which packages are in use). */
+    const characters = {
+        list: async (): Promise<Character[]> => (await _open()).getAll("characters")
+    };
+
     const meta = {
         get: async <T extends JSONValue>(key: string): Promise<T | undefined> =>
             (await _open()).get("meta", key) as Promise<T | undefined>,
@@ -163,5 +168,5 @@ export function useBrowserStorage()
         };
     };
 
-    return { packages, meta, persistence };
+    return { packages, characters, meta, persistence };
 }

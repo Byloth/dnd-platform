@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-    import type { PackageSet } from "@byloth/dnd-platform-loader";
     import type { Character } from "@byloth/dnd-platform-engine";
 
     import SheetTree from "@/components/sheet/SheetTree.vue";
 
-    const { fetchBundle, load } = useContent();
+    const { fetchBundle } = useContent();
+    const engine = useEngine();
     const { t, locale } = useI18n();
     const runtimeConfig = useRuntimeConfig();
 
@@ -14,17 +14,14 @@
             fetchBundle("srd51"),
             $fetch<Character>(`${runtimeConfig.app.baseURL}content/sample-character.json`, { responseType: "json" })
         ]);
-        const pins = Object.fromEntries(character.packages.map((p) => [p.id, p.version]));
-        const packages: PackageSet = load([srd51], pins);
-
-        return { character, packages };
+        return { character: character, sources: [srd51] };
     });
 
     const composed = computed(() =>
     {
         if (!data.value) { return undefined; }
 
-        return composeSheet(data.value.character, data.value.packages, locale.value);
+        return engine.sheet(data.value.character, data.value.sources, locale.value);
     });
 </script>
 

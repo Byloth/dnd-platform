@@ -15,7 +15,6 @@ import type { PackageSource } from "@byloth/dnd-platform-loader";
 import type { Character } from "@byloth/dnd-platform-engine";
 
 import SheetTree from "@/components/sheet/SheetTree.vue";
-import { composeSheet } from "@/composables/sheet";
 
 const ROOT = resolve(import.meta.dirname, "..", "..", "..");
 
@@ -33,9 +32,7 @@ describe("SheetTree", () =>
     it("renders the composed sheet of the sample character", async () =>
     {
         const { character, bundle } = sample();
-        const { load } = useContent();
-        const pins = Object.fromEntries(character.packages.map((p) => [p.id, p.version]));
-        const { sheet, tree } = composeSheet(character, load([bundle], pins));
+        const { sheet, tree } = useEngine().sheet(character, [bundle]);
         const wrapper = await mountSuspended(SheetTree, { props: { tree } });
 
         const headings = wrapper.findAll("h2").map((h) => h.text());

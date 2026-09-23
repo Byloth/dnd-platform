@@ -6,7 +6,8 @@
   "nav": {
     "sheet": "Scheda",
     "packages": "Pacchetti",
-    "language": "Lingua"
+    "language": "Lingua",
+    "main": "Principale"
   },
   "sample": {
     "heading": "Personaggio di esempio",
@@ -25,6 +26,56 @@
     "unexpected": {
       "title": "Qualcosa è andato storto",
       "message": "Ricarica la pagina."
+    }
+  },
+  "packages": {
+    "heading": "Pacchetti",
+    "intro": "Un pacchetto è un insieme di contenuti di regole: classi, specie, incantesimi, oggetti. L'SRD 5.1 è incluso nel sito ed è sempre disponibile. Puoi aggiungere i tuoi pacchetti, homebrew o manuali che possiedi, da un file: vengono controllati, restano solo in questo browser e non vengono mai inviati da nessuna parte.",
+    "load": {
+      "heading": "Aggiungi un pacchetto",
+      "hint": "Scegli lo .zip della cartella di un pacchetto, oppure un bundle .json. Puoi sceglierne più di uno alla volta.",
+      "choose": "Scegli i file",
+      "checking": "Controllo di {file}…",
+      "done": "{name} {version} aggiunto.",
+      "remarks": "Mostra l'osservazione | Mostra le {count} osservazioni",
+      "refused": "{file} non è un pacchetto valido, quindi non è stato aggiunto.",
+      "refusedNext": "Correggi i problemi qui sotto e aggiungilo di nuovo, oppure chiedi un file corretto a chi te l'ha dato.",
+      "problems": "Mostra il problema | Mostra i {count} problemi",
+      "failed": "Impossibile leggere {file}: forse non è un file .zip o .json.",
+      "dismiss": "Chiudi"
+    },
+    "list": {
+      "heading": "Pacchetti installati",
+      "site": "Incluso nel sito",
+      "file": "Aggiunto da {file}",
+      "private": "Privato, caricato su questo dispositivo",
+      "id": "Id",
+      "version": "Versione",
+      "kind": "Tipo",
+      "content": "Contenuto",
+      "entries": "nessuna voce | 1 voce | {count} voci",
+      "sources": "Fonti",
+      "source": "{title}, licenza {license}"
+    },
+    "kind": {
+      "base": "Regole di base",
+      "extension": "Estensione",
+      "translation": "Traduzione"
+    },
+    "remove": {
+      "action": "Rimuovi",
+      "confirm": "Rimuovere {name} da questo browser? Potrai aggiungerlo di nuovo dal suo file.",
+      "yes": "Sì, rimuovi",
+      "no": "Annulla",
+      "inUse": "{name} è usato da {characters}: rimuovi o modifica prima quei personaggi."
+    },
+    "storage": {
+      "heading": "Spazio su questo dispositivo",
+      "persisted": "Questo browser conserva i tuoi pacchetti e personaggi.",
+      "notPersisted": "Questo browser potrebbe cancellare i tuoi pacchetti e personaggi quando resta con poco spazio.",
+      "unknown": "Questo browser non dice se conserva i tuoi pacchetti e personaggi.",
+      "usage": "In uso {used} dei {quota} disponibili.",
+      "safari": "Safari cancella i dati dei siti che non apri da qualche settimana. Conserva i file dei tuoi pacchetti; l'esportazione dei personaggi su file arriverà con una prossima versione."
     }
   }
 }

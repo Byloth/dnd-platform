@@ -6,7 +6,8 @@
   "nav": {
     "sheet": "Sheet",
     "packages": "Packages",
-    "language": "Language"
+    "language": "Language",
+    "main": "Main"
   },
   "sample": {
     "heading": "Sample character",
@@ -25,6 +26,56 @@
     "unexpected": {
       "title": "Something went wrong",
       "message": "Please reload the page."
+    }
+  },
+  "packages": {
+    "heading": "Packages",
+    "intro": "A package is a set of rules content: classes, species, spells, items. The SRD 5.1 comes with the site and is always here. You can add your own packages, homebrew or books you own, from a file: they are checked, kept in this browser only, and never sent anywhere.",
+    "load": {
+      "heading": "Add a package",
+      "hint": "Choose the .zip of a package folder, or a .json bundle. You can choose several files at once.",
+      "choose": "Choose files",
+      "checking": "Checking {file}…",
+      "done": "{name} {version} added.",
+      "remarks": "Show the remark | Show the {count} remarks",
+      "refused": "{file} is not a valid package, so it was not added.",
+      "refusedNext": "Fix the problems below and add it again, or ask whoever gave it to you for a corrected file.",
+      "problems": "Show the problem | Show the {count} problems",
+      "failed": "{file} could not be read: it may not be a .zip or a .json file.",
+      "dismiss": "Dismiss"
+    },
+    "list": {
+      "heading": "Installed packages",
+      "site": "Comes with the site",
+      "file": "Added from {file}",
+      "private": "Private, loaded on this device",
+      "id": "Id",
+      "version": "Version",
+      "kind": "Kind",
+      "content": "Content",
+      "entries": "no entries | 1 entry | {count} entries",
+      "sources": "Sources",
+      "source": "{title}, licence {license}"
+    },
+    "kind": {
+      "base": "Base rules",
+      "extension": "Extension",
+      "translation": "Translation"
+    },
+    "remove": {
+      "action": "Remove",
+      "confirm": "Remove {name} from this browser? You can add it again from its file.",
+      "yes": "Yes, remove",
+      "no": "Cancel",
+      "inUse": "{name} is used by {characters}: remove or change those characters first."
+    },
+    "storage": {
+      "heading": "Storage on this device",
+      "persisted": "This browser keeps your packages and characters.",
+      "notPersisted": "This browser may delete your packages and characters when it runs short of space.",
+      "unknown": "This browser does not say whether it keeps your packages and characters.",
+      "usage": "Using {used} of the {quota} available.",
+      "safari": "Safari deletes the data of sites you have not opened for a few weeks. Keep the files of your packages; exporting characters to a file comes with a next version."
     }
   }
 }

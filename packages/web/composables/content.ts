@@ -1,5 +1,4 @@
-import { loadPackages } from "@byloth/dnd-platform-loader";
-import type { PackageSet, PackageSource } from "@byloth/dnd-platform-loader";
+import type { PackageSource } from "@byloth/dnd-platform-loader";
 
 /** The site's index of its public packages: every released version of each (DEC-21). */
 export interface ContentIndex
@@ -28,8 +27,5 @@ export function useContent()
         return $fetch<PackageSource>(`${base}content/${file}`, { responseType: "json" });
     };
 
-    const load = (sources: readonly PackageSource[], pins: Readonly<Record<string, string>>): PackageSet =>
-        loadPackages(sources, { pins: pins });
-
-    return { fetchIndex, fetchBundle, load };
+    return { fetchIndex, fetchBundle };
 }

@@ -8,82 +8,31 @@
 import "fake-indexeddb/auto";
 
 import { readdirSync, readFileSync, statSync } from "node:fs";
-import { join, relative, resolve } from "node:path";
+import { join, resolve } from "node:path";
 
-import { zipSync } from "fflate";
 import { parse } from "yaml";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
-import { registerEndpoint } from "@nuxt/test-utils/runtime";
 
-import { IndexedDatabase } from "@byloth/core";
 import { bundleText } from "@byloth/dnd-platform-loader";
-import type { PackageSource } from "@byloth/dnd-platform-loader";
 import { readPackageSource } from "@byloth/dnd-platform-loader/node";
 
 import { PackageRefusedException, usePackageLoader } from "@/composables/packages";
-import type { PackageFile } from "@/composables/packages";
-import { closeBrowserStorage, DATABASE_NAME, useBrowserStorage } from "@/composables/storage";
+import { useBrowserStorage } from "@/composables/storage";
 
-const ROOT = resolve(import.meta.dirname, "..", "..", "..");
-const FIXTURES = resolve(ROOT, "fixtures", "packages");
+import { bundleOf, clearBrowserStorage, FIXTURES, serveSite, zipOf } from "./helpers";
+
 const INVALID = resolve(FIXTURES, "invalid");
 
 /** Codes that only a repository can raise: `dnd validate` reports them, the browser cannot. */
 const REPOSITORY_CODES = new Set(["E_PRIVATE_OUTSIDE_ROOT", "E_PRIVATE_TRACKED"]);
 
-function* files(dir: string): Generator<string>
-{
-    for (const entry of readdirSync(dir))
-    {
-        const path = join(dir, entry);
-        if (statSync(path).isDirectory()) { yield* files(path); }
-        else { yield path; }
-    }
-}
-
-/** A zip of a package directory, under a top-level folder as "compress this folder" makes it, or at the root. */
-function zipOf(dir: string, folder?: string): PackageFile
-{
-    const entries: Record<string, Uint8Array> = {};
-    for (const path of files(dir))
-    {
-        const name = relative(dir, path).replaceAll("\\", "/");
-        entries[folder ? `${folder}/${name}` : name] = new Uint8Array(readFileSync(path));
-    }
-    const bytes = zipSync(entries);
-
-    return { name: `${folder ?? "package"}.zip`, arrayBuffer: async () => bytes.slice().buffer };
-}
-
-function bundleOf(source: PackageSource, name: string): PackageFile
-{
-    const bytes = new TextEncoder().encode(bundleText(source));
-
-    return { name: name, arrayBuffer: async () => bytes.slice().buffer };
-}
-
-const SRD = JSON.parse(readFileSync(resolve(ROOT, "build", "content", "srd51.json"), "utf8")) as PackageSource;
-
-/** Whether the site publishes the SRD; the endpoints below read it at each request. */
-let published = true;
-
-registerEndpoint("/dnd-platform/content/index.json", () =>
-{
-    const { version } = SRD.manifest;
-
-    return { packages: published ? { srd51: { latest: version, versions: [version] } } : {} };
-});
-registerEndpoint("/dnd-platform/content/srd51.json", () => SRD);
+const site = serveSite();
 
 beforeEach(() =>
 {
-    published = true;
+    site.publish(true);
 });
-afterEach(async () =>
-{
-    await closeBrowserStorage();
-    await IndexedDatabase.Delete(DATABASE_NAME);
-});
+afterEach(clearBrowserStorage);
 
 describe("usePackageLoader", () =>
 {
@@ -146,7 +95,7 @@ describe("usePackageLoader", () =>
 
     it("refuses a package whose dependency is neither on the site nor stored", async () =>
     {
-        published = false;
+        site.publish(false);
 
         const refusal = await usePackageLoader().load(zipOf(join(FIXTURES, "homebrew-feline"), "homebrew-feline"))
             .catch((error: unknown) => error);

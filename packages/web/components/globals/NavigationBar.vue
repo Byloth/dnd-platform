@@ -8,11 +8,14 @@
 </script>
 
 <template>
-    <nav class="navigation-bar" :aria-label="t('nav.sheet')">
+    <nav class="navigation-bar" :aria-label="t('nav.main')">
         <div class="container row">
             <div class="col">
                 <RouterLink :to="{ name: 'index' }" class="link bold">
                     {{ t("app.title") }}
+                </RouterLink>
+                <RouterLink :to="{ name: 'packages' }" class="link">
+                    {{ t("nav.packages") }}
                 </RouterLink>
             </div>
             <div class="col right">
@@ -52,7 +55,13 @@
         .link
         {
             display: inline-block;
-            padding: 0.75em 1.5em;
+            min-height: 44px;
+            padding: 0.75em 1em;
+
+            &.router-link-exact-active:not(.bold)
+            {
+                text-decoration: underline;
+            }
 
             &.bold
             {
