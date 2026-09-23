@@ -17,6 +17,7 @@ This directory is the execution plan: concrete enough to start work, still free 
 | DEC-13 | Taken 2026-09-22: **the print mode of the sheet is a paginated print stylesheet; the PDF is the browser's "print to PDF".** Pen-fillable fields in Phase 1, digital form fields in Phase 3. |
 | DEC-15 | Taken 2026-09-22: **standard array** by default; point buy and rolling available. |
 | DEC-20 | Content selection (from Phase 0): a character or campaign carries the packages it uses, their order and exclusions; the engine prunes and reports. |
+| DEC-21 | Taken 2026-09-23: **an edition is a package, an implementation is a version, and versions propagate by themselves.** Fixes reach every character; the user is told only when their sheet changed, with the changelog. Every release of a public package is published by the site as a static file; the SRD is never stored in the browser. |
 
 Recorded in [../17-open-decisions.md](../17-open-decisions.md). Three scope adjustments taken with them, recorded in [../16-roadmap.md](../16-roadmap.md) and [../12-print-and-export.md](../12-print-and-export.md): Phase 1 prints Part 2 (the sheet), Part 3 (feature and spell cards) and the credits page, not the tactical guide (Phase 5), the rules cheat sheet (Phase 2) or the compact variant (Phase 3); the roadmap's "simplest persistent account" waits for a back end; low-end phone testing is a Phase 1 criterion.
 

@@ -30,6 +30,7 @@ When a decision is taken, its status becomes **Decided**, the chosen option and 
 | DEC-18 | Ruleset selection granularity (per character, per campaign, both) | 3 | Open |
 | DEC-19 | Strategy for authoring mechanical effects of SRD content (by hand, agent-assisted, hybrid) | 0 | Decided (2026-09-19, hybrid) |
 | DEC-20 | Package compatibility and content selection | 0 | Decided (2026-09-21) |
+| DEC-21 | Content versions and updates (editions, automatic fixes, published releases) | 1 | Decided (2026-09-23) |
 
 ## Entries
 
@@ -165,6 +166,19 @@ When a decision is taken, its status becomes **Decided**, the chosen option and 
 - **Options known (originally):** hard `conflicts` declared in the manifest; conflicts computed at load and blocking; the chosen model (soft, computed, with declared presets).
 - **Unblocks:** private packages that are settings (Historia) and partial adoption of a book; the campaign allowed-package model of Phase 6 ([14](14-accounts-sharing-and-campaigns.md)).
 - **Referenced by:** [06](06-homebrew-and-extensibility.md), [14](14-accounts-sharing-and-campaigns.md), [phase-0/06-private-packages.md](phase-0/06-private-packages.md).
+
+### DEC-21 — Content versions and updates
+- **What:** what a package version means for a character: whether characters stay pinned to the exact version they were built with and upgrade by hand, or follow updates; and where old versions live.
+- **Decided (2026-09-23):** **an edition is a package, an implementation is a version, and versions propagate by themselves.**
+  - A new rules edition is a different base package with its own id: SRD 5.1 (2014) is `srd51`; SRD 5.2 (the 2024 rules, "5.5", planned by DEC-02) will be `srd52`. Switching edition is the user's choice, with the level-up diff of [10](10-progression.md).
+  - A new version of a package (a fix, a better-modelled effect, text) applies to every character automatically. The character records the version it was last seen with. When a newer version derives different values for it, the next time the user opens it an alert names what changed ("because of a rules update, your hit points went from 38 to 41"), with a link to the changelog; nothing is shown when nothing changed.
+  - Every released version of a public package is published by the site as a static file (`content/<id>@<version>.json`, with `content/index.json` and the changelog), kept in the repository under `releases/content/`, written once and never rewritten. The old version is what lets the application derive the character before and after. The SRD is never stored in the browser.
+  - A version always means the same bytes: any change to a public package's content is a new version with a `CHANGELOG.md` section, released with `dnd release`; CI refuses changed content under a released version (`dnd release --check`).
+  - Packages the user loads follow the same rule: a newer version of the same id replaces the stored one, and the characters that use it get the same alert.
+- **Options known:** exact pins with an "update available" badge and a manual upgrade (the Phase 0 design of [10](10-progression.md), superseded); pins with a semver range and silent updates; the chosen model.
+- **Replaces:** the manual errata upgrade and the campaign minimum version of [10](10-progression.md).
+- **Unblocks:** fixing the base package without leaving players on wrong numbers; the changelog page and the update alert (M1.5); a site with no per-user storage of the SRD.
+- **Referenced by:** [05](05-content-model-and-sources.md), [10](10-progression.md), [phase-1/02-content-and-character-stores.md](phase-1/02-content-and-character-stores.md), [content-authoring.md](content-authoring.md).
 
 ## How to add a decision
 

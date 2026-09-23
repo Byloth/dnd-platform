@@ -53,7 +53,7 @@ Done when:
 - A character exported and re-imported produces a byte-identical computed sheet.
 - The sheet is usable on a phone in portrait orientation.
 
-Decisions taken at the start (2026-09-22, recorded in [17](17-open-decisions.md)): DEC-01 (Phase 1 part: the application shell), DEC-04 Hosting and deployment model, DEC-09 Supported languages, DEC-12 Authentication and account model (no accounts until a back end exists), DEC-13 PDF generation approach, DEC-15 Default ability score method. Execution plan: [phase-1/](phase-1/00-README.md).
+Decisions taken at the start (2026-09-22, recorded in [17](17-open-decisions.md)): DEC-01 (Phase 1 part: the application shell), DEC-04 Hosting and deployment model, DEC-09 Supported languages, DEC-12 Authentication and account model (no accounts until a back end exists), DEC-13 PDF generation approach, DEC-15 Default ability score method. Taken during Phase 1 (2026-09-23): DEC-21 Content versions and updates. Execution plan: [phase-1/](phase-1/00-README.md).
 
 ### Phase 2 — Play mode
 

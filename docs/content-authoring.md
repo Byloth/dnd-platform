@@ -15,3 +15,13 @@ Short map of the content workflow; the detailed rules are in [tools/import/AUTHO
 Homebrew and private packages follow the same layout and the same schemas; they are validated by `dnd validate <dir>` and loaded next to the base package by pinning them in a character's `packages`.
 
 The format is frozen at `formatVersion: 0`. Changes to the catalogue are recorded as candidates for version 1 in [docs/phase-0/inventory/authoring-review.md](phase-0/inventory/authoring-review.md).
+
+## Releasing a change to a public package (DEC-21)
+
+Every released version of a public package is published by the site and never changes, and characters follow new versions automatically. So any change to the content of `packages/content/<id>/`:
+
+1. bumps `version` in `package.yaml` (patch for fixes, minor for additions);
+2. adds a `## <version> — <date>` section at the top of the package's `CHANGELOG.md`, in words a player understands (what changes on a sheet, not which file);
+3. runs `pnpm build && pnpm release:content`, which writes `releases/content/<id>@<version>.json`, and commits it with the change.
+
+CI runs `pnpm release:content:check`: changed content under a released version, or a version without its release file or changelog section, fails the build.

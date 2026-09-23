@@ -79,13 +79,13 @@ The wizard can be left and resumed; nothing is applied until confirmed.
 
 Restoring a snapshot copies its choices into a new snapshot ("restored from level 3"); the current state is reconciled: HP clamped to the new maximum, resources clamped, resources that no longer exist dropped with a log note, conditions kept. XP is untouched; the "level available" banner reappears if applicable.
 
-### Package pinning and errata upgrade
+### Package versions and rules updates (DEC-21)
 
-- A character records the exact version of every package it uses.
-- When a newer version of a pinned package exists, the character shows an "update available" badge, not a change.
-- Upgrade flow: the engine derives the sheet with the new versions in a dry run and produces the same diff view as a level up ("Darkness now costs 2 Ki (was 3)", "Feature text updated, no mechanical change"). The player accepts (new snapshot, pins moved) or stays pinned.
+- A character records the id of every package it uses and the version it was last seen with. The ids bind: a character built on `srd51` stays on SRD 5.1.
+- **Updates propagate by themselves.** A newer version of a package (errata, a fix of our encoding, a better-modelled effect) applies to every character. When the character is opened with a newer version, the application fetches the version it was last seen with (the site publishes every release), derives the sheet with both, and compares.
+- **The player is told only when their sheet changed**, with the same diff wording as a level up: "Because of a rules update, your hit points went from 38 to 41", "Darkness now costs 2 Ki (was 3)", with a link to the package's changelog. The recorded version then moves to the new one. Nothing is shown when nothing changed.
+- **A new edition is a new package** (SRD 5.2, the 2024 rules, will be `srd52`, not a version of `srd51`). Moving a character to it is the player's choice, through the same dry run and diff as a level up, accepted or not.
 - A package removed or unavailable leaves the character renderable from its last snapshot's computed sheet with a warning; nothing is lost.
-- In a campaign the DM can require a minimum package version; the player still sees and accepts the diff.
 
 ### Next milestones preview
 
@@ -95,7 +95,7 @@ A panel on the sheet and in the printed playbook listing the next three levels o
 
 - Generating the wizard from the class table means a homebrew class levels up with exactly the same guidance as an official one (Principle 6), and no per-class code exists to go stale.
 - Snapshots make level up, respec and errata the same operation (produce a new snapshot with a diff), which keeps history honest and rollback trivial.
-- Pinning package versions is what makes it safe for a group to keep improving their private book packages without breaking characters mid-campaign ([05](05-content-model-and-sources.md)).
+- Propagating fixes while telling each player what changed on their own sheet is what keeps numbers right without surprising anyone; binding the edition by package id is what keeps a campaign on the rules it chose ([05](05-content-model-and-sources.md), DEC-21).
 - The diff in newcomer language is the moment the player learns what a level actually is; the playbook's "next milestones" panel did the same for motivation, and the preview keeps it.
 - Recording HP method and respecs, rather than forbidding options, keeps the DM in control without making the platform a police officer.
 

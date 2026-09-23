@@ -28,7 +28,7 @@ The ruleset itself is content. The base package for SRD 5.1 is the first; a base
 └──────────────────────────────────────────────┘
 ```
 
-Loading order is dependency order. A character records the exact package versions it was built with. Packages higher in the stack may **extend** lower ones (add a subclass to an SRD class, add spells to a class list) or **patch** them (replace text, fix an effect), see [06](06-homebrew-and-extensibility.md).
+Loading order is dependency order. A character records the packages it uses and the version it last saw of each; newer versions apply automatically and the player is told what they changed (DEC-21). Packages higher in the stack may **extend** lower ones (add a subclass to an SRD class, add spells to a class list) or **patch** them (replace text, fix an effect), see [06](06-homebrew-and-extensibility.md).
 
 ### What the base package must contain
 
@@ -91,7 +91,7 @@ A source has: identifier, title, publisher/author, edition, licence (e.g. CC-BY-
 
 - Treating official books as private packages is the single decision that keeps the public project clean, lets a private group use all their books, and forces the homebrew format to be as expressive as the books (the user's stated requirement: "the PHB is homebrew that extends the base").
 - Separating text from mechanics is what makes the Italian print output possible without duplicating the rules engine or the content.
-- Recording exact package versions on the character is what makes errata and package updates safe ([10](10-progression.md)).
+- Recording the last version seen on the character, and publishing every release, is what makes errata and package updates safe: they apply to everyone and each player sees what changed ([10](10-progression.md), DEC-21).
 
 ## Deferred decisions
 
