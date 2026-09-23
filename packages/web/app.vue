@@ -1,11 +1,16 @@
 <script setup lang="ts">
-    // Alerts and the errors handler of the template return with the first screen that needs them (M1.2).
+    import AlertHandler from "./components/handlers/AlertHandler.vue";
+
+    useErrorsHandler();
 </script>
 
 <template>
+    <!-- eslint-disable vue/no-multiple-template-root -->
+
     <NuxtLayout>
         <NuxtPage />
     </NuxtLayout>
+    <AlertHandler />
 </template>
 
 <style lang="scss">

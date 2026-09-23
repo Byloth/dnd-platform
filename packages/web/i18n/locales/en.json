@@ -16,5 +16,15 @@
   },
   "footer": {
     "attribution": "This work includes material taken from the System Reference Document 5.1 by Wizards of the Coast LLC, licensed under the Creative Commons Attribution 4.0 International License."
+  },
+  "errors": {
+    "network": {
+      "title": "Network error",
+      "message": "{message} Please try again later."
+    },
+    "unexpected": {
+      "title": "Something went wrong",
+      "message": "Please reload the page."
+    }
   }
 }

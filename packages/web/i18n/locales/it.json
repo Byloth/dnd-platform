@@ -16,5 +16,15 @@
   },
   "footer": {
     "attribution": "Quest'opera include materiale tratto dal System Reference Document 5.1 di Wizards of the Coast LLC, con licenza Creative Commons Attribution 4.0 International."
+  },
+  "errors": {
+    "network": {
+      "title": "Errore di rete",
+      "message": "{message} Riprova più tardi."
+    },
+    "unexpected": {
+      "title": "Qualcosa è andato storto",
+      "message": "Ricarica la pagina."
+    }
   }
 }
