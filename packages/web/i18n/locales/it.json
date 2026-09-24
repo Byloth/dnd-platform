@@ -356,6 +356,71 @@
       },
       "cantrip": "Trucchetto",
       "freeLanguage": "Lingua {n}"
+    },
+    "equipment": {
+      "purpose": "Quello che porti quando comincia l'avventura: armatura, armi, gli strumenti del mestiere, una dotazione di cose utili.",
+      "consequence": "Armatura e scudo fissano la tua Classe Armatura, le armi i tuoi attacchi; il resto c'è quando una situazione lo chiede.",
+      "recommendation": "Le prime opzioni sono una buona partenza; prendi monete al posto di un oggetto solo se sai già cosa comprare.",
+      "fromClass": "Dalla tua classe",
+      "chooseOne": "Scelta {n}",
+      "granted": "Quello che ricevi",
+      "sources": {
+        "class": "Dalla tua classe",
+        "background": "Dal tuo background",
+        "added": "Comprato"
+      },
+      "remove": "Togli",
+      "putBack": "Rimetti",
+      "backgroundSays": "Il tuo background cita anche:",
+      "quantity": "{quantity} × {item}",
+      "shop": {
+        "title": "Aggiungi oggetti",
+        "search": "Cerca nel negozio (almeno 2 lettere)",
+        "add": "Aggiungi"
+      },
+      "carried": "Quello che porti",
+      "equipped": "Equipaggiato",
+      "coins": {
+        "title": "Monete",
+        "suggested": "Suggerite: {amount}",
+        "why": "Le monete del tuo background, più il valore degli oggetti che hai tolto, meno quello che hai comprato.",
+        "use": "Usa il suggerimento",
+        "names": {
+          "copper": "Rame (mr)",
+          "silver": "Argento (ma)",
+          "electrum": "Electrum (me)",
+          "gold": "Oro (mo)",
+          "platinum": "Platino (mp)"
+        },
+        "short": {
+          "gold": "{n} mo",
+          "silver": "{n} ma",
+          "copper": "{n} mr"
+        }
+      },
+      "filters": {
+        "weapon": {
+          "simple": "Un'arma semplice a scelta",
+          "simpleMelee": "Un'arma semplice da mischia a scelta",
+          "martial": "Un'arma da guerra a scelta",
+          "martialMelee": "Un'arma da guerra da mischia a scelta",
+          "any": "Un'arma a scelta",
+          "anyMelee": "Un'arma da mischia a scelta"
+        },
+        "armor": {
+          "light": "Un'armatura leggera a scelta",
+          "medium": "Un'armatura media a scelta",
+          "heavy": "Un'armatura pesante a scelta",
+          "any": "Un'armatura a scelta"
+        },
+        "category": {
+          "holy-symbols": "Un simbolo sacro",
+          "arcane-foci": "Un focus arcano",
+          "druidic-foci": "Un focus druidico",
+          "musical-instruments": "Uno strumento musicale",
+          "melee-weapons": "Un'arma da mischia"
+        }
+      }
     }
   }
 }

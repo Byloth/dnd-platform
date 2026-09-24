@@ -356,6 +356,71 @@
       },
       "cantrip": "Fact on a cantrip, before its school; singular.",
       "freeLanguage": "Label of a language written by hand, when the ruleset lists none. Parameter: {n}."
+    },
+    "equipment": {
+      "purpose": "Step 7 (equipment): newcomer copy.",
+      "consequence": "Step 7 (equipment): newcomer copy.",
+      "recommendation": "Step 7 (equipment): newcomer copy.",
+      "fromClass": "Step 7 (equipment): label or phrase; keep {placeholders}.",
+      "chooseOne": "Step 7 (equipment): label or phrase; keep {placeholders}.",
+      "granted": "Step 7 (equipment): label or phrase; keep {placeholders}.",
+      "sources": {
+        "class": "Step 7 (equipment): label or phrase; keep {placeholders}.",
+        "background": "Step 7 (equipment): label or phrase; keep {placeholders}.",
+        "added": "Step 7 (equipment): label or phrase; keep {placeholders}."
+      },
+      "remove": "Step 7 (equipment): label or phrase; keep {placeholders}.",
+      "putBack": "Step 7 (equipment): label or phrase; keep {placeholders}.",
+      "backgroundSays": "Step 7 (equipment): label or phrase; keep {placeholders}.",
+      "quantity": "Step 7 (equipment): label or phrase; keep {placeholders}.",
+      "shop": {
+        "title": "Step 7 (equipment): label or phrase; keep {placeholders}.",
+        "search": "Step 7 (equipment): label or phrase; keep {placeholders}.",
+        "add": "Step 7 (equipment): label or phrase; keep {placeholders}."
+      },
+      "carried": "Step 7 (equipment): label or phrase; keep {placeholders}.",
+      "equipped": "Step 7 (equipment): label or phrase; keep {placeholders}.",
+      "coins": {
+        "title": "Step 7 (equipment): label or phrase; keep {placeholders}.",
+        "suggested": "Step 7 (equipment): label or phrase; keep {placeholders}.",
+        "why": "Step 7 (equipment): label or phrase; keep {placeholders}.",
+        "use": "Step 7 (equipment): label or phrase; keep {placeholders}.",
+        "names": {
+          "copper": "Label of a coin field, with its abbreviation as the manuals use it.",
+          "silver": "Label of a coin field, with its abbreviation as the manuals use it.",
+          "electrum": "Label of a coin field, with its abbreviation as the manuals use it.",
+          "gold": "Label of a coin field, with its abbreviation as the manuals use it.",
+          "platinum": "Label of a coin field, with its abbreviation as the manuals use it."
+        },
+        "short": {
+          "gold": "A coin amount in short form, as players write it. Parameter: {n}.",
+          "silver": "A coin amount in short form, as players write it. Parameter: {n}.",
+          "copper": "A coin amount in short form, as players write it. Parameter: {n}."
+        }
+      },
+      "filters": {
+        "weapon": {
+          "simple": "Step 7 (equipment): label or phrase; keep {placeholders}.",
+          "simpleMelee": "Step 7 (equipment): label or phrase; keep {placeholders}.",
+          "martial": "Step 7 (equipment): label or phrase; keep {placeholders}.",
+          "martialMelee": "Step 7 (equipment): label or phrase; keep {placeholders}.",
+          "any": "Step 7 (equipment): label or phrase; keep {placeholders}.",
+          "anyMelee": "Step 7 (equipment): label or phrase; keep {placeholders}."
+        },
+        "armor": {
+          "light": "Step 7 (equipment): label or phrase; keep {placeholders}.",
+          "medium": "Step 7 (equipment): label or phrase; keep {placeholders}.",
+          "heavy": "Step 7 (equipment): label or phrase; keep {placeholders}.",
+          "any": "Step 7 (equipment): label or phrase; keep {placeholders}."
+        },
+        "category": {
+          "holy-symbols": "Step 7 (equipment): label or phrase; keep {placeholders}.",
+          "arcane-foci": "Step 7 (equipment): label or phrase; keep {placeholders}.",
+          "druidic-foci": "Step 7 (equipment): label or phrase; keep {placeholders}.",
+          "musical-instruments": "Step 7 (equipment): label or phrase; keep {placeholders}.",
+          "melee-weapons": "Step 7 (equipment): label or phrase; keep {placeholders}."
+        }
+      }
     }
   }
 }

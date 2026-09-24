@@ -189,6 +189,23 @@ describe.each(LANGUAGES)("accessibility, in %s", (language) =>
         await useWizardStore().discard();
     });
 
+    it.each(["sword-and-shield", "evoker", "steadfast-healer"])("the wizard's step 7 for the %s", async (archetype) =>
+    {
+        await speak(language);
+        await useWizardStore().discard();
+        await useWizardStore().start();
+        useWizardStore().chooseArchetype(`srd51.archetype.${archetype}`);
+        const wrapper = await render(WizardPage, { route: "/characters/new?step=equipment" });
+        for (let i = 0; (i < 50) && !wrapper.find(".step-equipment").exists(); i += 1)
+        {
+            await new Promise((done) => setTimeout(done, 10));
+            await flushPromises();
+        }
+        expect(wrapper.find(".step-equipment__group").exists()).toBe(true);
+        await expectAccessible(wrapper);
+        await useWizardStore().discard();
+    });
+
     it("the navigation bar and the footer", async () =>
     {
         await speak(language);

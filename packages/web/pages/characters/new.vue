@@ -1,6 +1,7 @@
 <script lang="ts" setup>
     import AppButton from "@/components/ui/AppButton.vue";
     import StepAbilities from "@/components/wizard/steps/StepAbilities.vue";
+    import StepEquipment from "@/components/wizard/steps/StepEquipment.vue";
     import StepChoices from "@/components/wizard/steps/StepChoices.vue";
     import StepBackground from "@/components/wizard/steps/StepBackground.vue";
     import StepClass from "@/components/wizard/steps/StepClass.vue";
@@ -35,7 +36,8 @@
         class: StepClass,
         background: StepBackground,
         abilities: StepAbilities,
-        choices: StepChoices
+        choices: StepChoices,
+        equipment: StepEquipment
     };
     const view = computed(() => STEP_VIEWS[wizard.step] ?? StepPending);
 

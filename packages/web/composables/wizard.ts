@@ -62,6 +62,7 @@ export function stepDone(step: StepId): boolean
 
             return sheet.choices.every((c) => c.answered || (c.of === "asi-or-feat"));
         }
+        case "equipment": return wizard.character?.state.currency !== undefined;
         default: return false;
     }
 }

@@ -137,7 +137,7 @@ describe("the creation wizard", () =>
         expect(byName(wrapper, "1. Content, done")).toBeDefined();
         expect(wrapper.find("[aria-current='step']").text()).toContain("5");
 
-        byName(wrapper, "8. Equipment")!.click();
+        byName(wrapper, "9. Personality")!.click();
         await settle();
         expect(wrapper.find(".wizard-pending").exists()).toBe(true);
     });
@@ -352,6 +352,76 @@ describe("the creation wizard", () =>
             expect(wrapper.find("h1").text()).toBe("Altre scelte");
             expect(wrapper.text()).toContain("Scegline 3");
             expect(wrapper.text()).toContain("Invocazione");
+            expect(wrapper.text()).not.toMatch(/wizard\.|sheet\.[a-z]/);
+        });
+    });
+
+    describe("step 7, equipment", () =>
+    {
+        async function equipment(archetype: string): Promise<VueWrapper>
+        {
+            await useWizardStore().start();
+            useWizardStore().chooseArchetype(`srd51.archetype.${archetype}`);
+
+            return open("equipment");
+        }
+
+        it("offers the class's options, a holy symbol to pick and the pack's contents", async () =>
+        {
+            const wrapper = await equipment("steadfast-healer");
+
+            expect(wrapper.find("h1").text()).toBe("Equipment");
+            expect(wrapper.text()).toContain("A holy symbol");
+            const symbols = wrapper.findAll(".step-equipment__row select").at(-1)!;
+            expect(symbols.findAll("option").map((o) => o.text())).toEqual(["Amulet", "Emblem", "Reliquary"]);
+            expect(wrapper.text()).toContain("Priest's Pack:");
+            expect(wrapper.text()).toContain("10 × Candle");
+        });
+
+        it("fills the coins with the suggestion and moves it when an item is removed", async () =>
+        {
+            const wrapper = await equipment("sword-and-shield");
+            await settle();
+
+            expect(useWizardStore().character?.state.currency).toEqual({ gold: 15 });
+            expect(wrapper.find(".step-equipment__suggested").text()).toBe("Suggested: 15 gp");
+
+            byName(wrapper, "Remove Pouch")!.click();
+            await settle();
+            expect(wrapper.find(".step-equipment__suggested").text()).toBe("Suggested: 15 gp, 5 sp");
+            byName(wrapper, "Use the suggestion")!.click();
+            await settle();
+            expect(useWizardStore().character?.state.currency).toEqual({ gold: 15, silver: 5 });
+            expect(stepDone("equipment")).toBe(true);
+        });
+
+        it("adds an item from the shop and lets it be unequipped", async () =>
+        {
+            const wrapper = await equipment("sword-and-shield");
+            await wrapper.find(".step-equipment__search input").setValue("dagg");
+            await settle();
+            byName(wrapper, "Add Dagger")!.click();
+            await settle();
+
+            expect(useWizardStore().equipment.added).toEqual([{ item: "srd51.item.dagger", quantity: 1 }]);
+            const toggle = wrapper.findAll(".step-equipment__equip")
+                .find((l) => l.text().includes("Chain mail"))!.find("input");
+            await toggle.setValue(false);
+            await settle();
+            const carried = useWizardStore().character?.choices.equipment ?? [];
+            expect(carried.find((e) => e.item === "srd51.item.chain-mail")?.equipped).toBe(false);
+        });
+
+        it("speaks Italian", async () =>
+        {
+            usePreferencesStore().language = "it";
+            await useNuxtApp().$i18n.setLocale("it");
+            const wrapper = await equipment("sword-and-shield");
+            await settle();
+
+            expect(wrapper.find("h1").text()).toBe("Equipaggiamento");
+            expect(wrapper.text()).toContain("Un'arma da guerra a scelta");
+            expect(wrapper.find(".step-equipment__suggested").text()).toBe("Suggerite: 15 mo");
             expect(wrapper.text()).not.toMatch(/wizard\.|sheet\.[a-z]/);
         });
     });

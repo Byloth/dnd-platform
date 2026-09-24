@@ -356,6 +356,71 @@
       },
       "cantrip": "Cantrip",
       "freeLanguage": "Language {n}"
+    },
+    "equipment": {
+      "purpose": "What you carry when the adventure starts: armor, weapons, the tools of your trade, a pack of useful things.",
+      "consequence": "Armor and a shield set your Armor Class, weapons your attacks; the rest is there when a situation calls for it.",
+      "recommendation": "The first options are a sound start; take coins instead of an item only if you know what you want to buy.",
+      "fromClass": "From your class",
+      "chooseOne": "Choice {n}",
+      "granted": "Given to you",
+      "sources": {
+        "class": "From your class",
+        "background": "From your background",
+        "added": "Bought"
+      },
+      "remove": "Remove",
+      "putBack": "Put back",
+      "backgroundSays": "Your background also mentions:",
+      "quantity": "{quantity} × {item}",
+      "shop": {
+        "title": "Add items",
+        "search": "Search the shop (at least 2 letters)",
+        "add": "Add"
+      },
+      "carried": "What you carry",
+      "equipped": "Equipped",
+      "coins": {
+        "title": "Coins",
+        "suggested": "Suggested: {amount}",
+        "why": "The coins your background gives, plus what the items you removed are worth, minus what you bought.",
+        "use": "Use the suggestion",
+        "names": {
+          "copper": "Copper (cp)",
+          "silver": "Silver (sp)",
+          "electrum": "Electrum (ep)",
+          "gold": "Gold (gp)",
+          "platinum": "Platinum (pp)"
+        },
+        "short": {
+          "gold": "{n} gp",
+          "silver": "{n} sp",
+          "copper": "{n} cp"
+        }
+      },
+      "filters": {
+        "weapon": {
+          "simple": "Any simple weapon",
+          "simpleMelee": "Any simple melee weapon",
+          "martial": "Any martial weapon",
+          "martialMelee": "Any martial melee weapon",
+          "any": "Any weapon",
+          "anyMelee": "Any melee weapon"
+        },
+        "armor": {
+          "light": "Any light armor",
+          "medium": "Any medium armor",
+          "heavy": "Any heavy armor",
+          "any": "Any armor"
+        },
+        "category": {
+          "holy-symbols": "A holy symbol",
+          "arcane-foci": "An arcane focus",
+          "druidic-foci": "A druidic focus",
+          "musical-instruments": "A musical instrument",
+          "melee-weapons": "A melee weapon"
+        }
+      }
     }
   }
 }
