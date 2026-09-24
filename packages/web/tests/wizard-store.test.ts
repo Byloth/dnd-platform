@@ -140,4 +140,85 @@ describe("the creation wizard's store", () =>
         expect(await wizard.stored()).toBeUndefined();
         expect(await wizard.resume()).toBe(false);
     });
+
+    describe("step 5, ability scores", () =>
+    {
+        const scores = () => useWizardStore().character!.choices.abilityScores!;
+
+        it("keeps a valid dealing across methods and deals again when it does not fit", () =>
+        {
+            const wizard = useWizardStore();
+            wizard.chooseArchetype(MONK);
+            const monk = { ...scores().base };
+
+            wizard.chooseMethod("point-buy");
+            expect(scores()).toEqual({ method: "point-buy", base: monk });
+
+            wizard.buy("dex", 13);
+            wizard.chooseMethod("standard-array");
+            expect(scores().base).toEqual(monk);
+        });
+
+        it("swaps a value between two abilities", () =>
+        {
+            const wizard = useWizardStore();
+            wizard.chooseArchetype(MONK);
+            wizard.assign("str", 15);
+
+            expect(scores().base["str"]).toBe(15);
+            expect(scores().base["dex"]).toBe(12);
+        });
+
+        it("refuses a point buy beyond the budget or outside the costs", () =>
+        {
+            const wizard = useWizardStore();
+            wizard.chooseArchetype(MONK);
+            wizard.chooseMethod("point-buy");
+
+            expect(wizard.buy("cha", 9)).toBe(false);
+            expect(wizard.buy("dex", 16)).toBe(false);
+            expect(wizard.buy("dex", 14)).toBe(true);
+            expect(wizard.buy("cha", 10)).toBe(true);
+        });
+
+        it("deals the rolls once all six are valid, and keeps them in the draft", async () =>
+        {
+            const wizard = useWizardStore();
+            wizard.chooseArchetype(MONK);
+            wizard.chooseMethod("roll");
+            wizard.setRolls([17, 9, 12]);
+            expect(scores().base["dex"]).toBe(15);
+
+            wizard.setRolls([17, 9, 12, 16, 11, 7]);
+            expect(scores()).toMatchObject({
+                method: "roll",
+                base: { dex: 17, wis: 16, con: 12, str: 11, int: 9, cha: 7 }
+            });
+
+            await wizard.save();
+            wizard.$patch({ rolls: [] });
+            await wizard.resume();
+            expect(wizard.rolls).toEqual([17, 9, 12, 16, 11, 7]);
+        });
+
+        it("writes an adjustment and forgets it at zero", () =>
+        {
+            const wizard = useWizardStore();
+            wizard.chooseArchetype(MONK);
+            wizard.adjust("str", 2);
+            expect(scores().bonuses).toEqual({ str: 2 });
+
+            wizard.adjust("str", 0);
+            expect(scores()).not.toHaveProperty("bonuses");
+        });
+
+        it("orders by the class's primary abilities without an archetype", () =>
+        {
+            const wizard = useWizardStore();
+            wizard.chooseArchetype(null);
+            wizard.chooseClass("srd51.class.wizard");
+
+            expect(wizard.recommendedOrder.slice(0, 2)).toEqual(["int", "str"]);
+        });
+    });
 });

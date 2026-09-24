@@ -1,10 +1,13 @@
 import { defineStore } from "pinia";
 
-import type { Archetype } from "@byloth/dnd-platform-schema";
+import type { Archetype, Class } from "@byloth/dnd-platform-schema";
 import type { Character } from "@byloth/dnd-platform-engine";
 import type { PackageSet, PackageSource } from "@byloth/dnd-platform-loader";
 import type { JSONValue } from "@byloth/core";
 import { localize } from "@byloth/dnd-platform-composer";
+
+import { deal, isPermutation, pointBuyCost, swap } from "@/composables/ability-scores";
+import type { Scores } from "@/composables/ability-scores";
 
 /**
  * The creation wizard (docs/phase-1/04-character-creation.md): a draft character document, the step on screen
@@ -29,10 +32,16 @@ export interface WizardDraft
     readonly step: StepId;
     /** The archetype the draft started from; `null` when the player chose to skip them. */
     readonly archetype?: string | null;
+    /** The six totals the player rolled, as typed, when the method is "roll"; never part of the character. */
+    readonly rolls?: readonly number[];
     readonly savedAt: string;
 }
 
 type Choices = Character["choices"];
+type Method = NonNullable<Choices["abilityScores"]>["method"];
+
+/** A rolled total: three to eighteen (4d6, the lowest dropped). */
+const isRoll = (value: number): boolean => Number.isInteger(value) && (value >= 3) && (value <= 18);
 
 function emptyCharacter(ruleset: { id: string, version: string }): Character
 {
@@ -66,6 +75,7 @@ export const useWizardStore = defineStore("wizard", () =>
     const step = ref<StepId>("content");
     /** Undefined until the concept step is answered; `null` when the player skipped the archetypes. */
     const archetype = ref<string | null>();
+    const rolls = ref<number[]>([]);
     const sources = shallowRef<PackageSource[]>([]);
 
     let _saveTimer: ReturnType<typeof setTimeout> | undefined;
@@ -105,6 +115,7 @@ export const useWizardStore = defineStore("wizard", () =>
             character: current,
             step: step.value,
             archetype: archetype.value,
+            rolls: rolls.value.length ? [...rolls.value] : undefined,
             savedAt: new Date().toISOString()
         });
         _saving = _saving.then(() => useBrowserStorage().meta.set(DRAFT_KEY, draft as unknown as JSONValue));
@@ -164,6 +175,7 @@ export const useWizardStore = defineStore("wizard", () =>
         character.value = emptyCharacter({ id: base.manifest.id, version: base.manifest.version });
         step.value = "content";
         archetype.value = undefined;
+        rolls.value = [];
         await _loadSources();
         await save();
     };
@@ -181,6 +193,7 @@ export const useWizardStore = defineStore("wizard", () =>
         character.value = draft.character;
         step.value = draft.step;
         archetype.value = draft.archetype;
+        rolls.value = [...draft.rolls ?? []];
         await _loadSources();
 
         return true;
@@ -192,6 +205,7 @@ export const useWizardStore = defineStore("wizard", () =>
         _cancelSave();
         character.value = undefined;
         archetype.value = undefined;
+        rolls.value = [];
         step.value = "content";
         await useBrowserStorage().meta.set(DRAFT_KEY, null);
     };
@@ -215,6 +229,24 @@ export const useWizardStore = defineStore("wizard", () =>
     const _archetype = (id: string | null | undefined): Archetype | undefined =>
         (id ? packageSet.value?.entities.get(id)?.data as Archetype | undefined : undefined);
 
+    /** The given abilities first, then the ruleset's others in its order. */
+    const _order = (first: readonly string[]): string[] =>
+        [...first, ...packageSet.value?.ruleset.abilities ?? []].filter((a, i, all) => all.indexOf(a) === i);
+
+    /**
+     * The order the highest scores go in: the archetype's priority, else the class's primary abilities, then the
+     * ruleset's other abilities.
+     */
+    const recommendedOrder = computed((): string[] =>
+    {
+        const priority = _archetype(archetype.value)?.recommends.abilityPriority;
+        if (priority?.length) { return _order(priority); }
+        const cls = character.value?.choices.classes?.[0]?.class;
+        const primary = cls ? (packageSet.value?.entities.get(cls)?.data as Class | undefined)?.primaryAbilities : [];
+
+        return _order(primary ?? []);
+    });
+
     /** Starts from an archetype, prefilling its recommendations; `null` means "I'll choose myself". */
     const chooseArchetype = (id: string | null): void =>
     {
@@ -228,8 +260,7 @@ export const useWizardStore = defineStore("wizard", () =>
         }
 
         const array = packageSet.value?.ruleset.abilityScores?.standardArray;
-        const abilities = packageSet.value?.ruleset.abilities ?? [];
-        const order = [...(recommends.abilityPriority ?? []), ...abilities].filter((a, i, all) => all.indexOf(a) === i);
+        const order = _order(recommends.abilityPriority ?? []);
 
         _choices((choices) => ({
             ...choices,
@@ -239,9 +270,7 @@ export const useWizardStore = defineStore("wizard", () =>
                 [defined({ class: recommends.class, subclass: recommends.subclass, levels: 1 })] :
                 choices.classes,
             background: recommends.background,
-            abilityScores: array ?
-                { method: "standard-array", base: Object.fromEntries(order.map((a, i) => [a, array[i] ?? 8])) } :
-                choices.abilityScores,
+            abilityScores: array ? { method: "standard-array", base: deal(array, order) } : choices.abilityScores,
             answers: { ...choices.answers, ...recommends.answers }
         }));
     };
@@ -303,6 +332,112 @@ export const useWizardStore = defineStore("wizard", () =>
             }));
     };
 
+    const _scores = (change: (scores: NonNullable<Choices["abilityScores"]>) => Choices["abilityScores"]): void =>
+    {
+        _choices((choices) => ({
+            ...choices,
+            abilityScores: change(choices.abilityScores ?? { method: "standard-array", base: {} })
+        }));
+    };
+
+    const _base = (): Record<string, number> =>
+        Object.fromEntries(Object.entries(character.value?.choices.abilityScores?.base ?? {})
+            .filter((entry): entry is [string, number] => entry[1] !== undefined));
+
+    /** The scores a method starts from: the current ones when they fit it, else a fresh dealing. */
+    const chooseMethod = (method: Method): void =>
+    {
+        const methods = packageSet.value?.ruleset.abilityScores;
+        const abilities = packageSet.value?.ruleset.abilities ?? [];
+        const array = methods?.standardArray ?? [];
+        const base = _base();
+        const complete = abilities.every((a) => base[a] !== undefined);
+
+        let next = base;
+        if (method === "standard-array")
+        {
+            if (!isPermutation(base, abilities, array)) { next = deal(array, recommendedOrder.value); }
+        }
+        else if (method === "point-buy")
+        {
+            const costs = methods?.pointBuy?.costs ?? {};
+            const budget = methods?.pointBuy?.budget ?? 0;
+            const fits = (scores: Scores): boolean => (pointBuyCost(scores, costs) ?? Infinity) <= budget;
+            if (!complete || !fits(base))
+            {
+                const dealt = deal(array, recommendedOrder.value);
+                const cheapest = Math.min(...Object.keys(costs).map(Number));
+                next = fits(dealt) ? dealt : Object.fromEntries(abilities.map((a) => [a, cheapest]));
+            }
+        }
+        else if (method === "roll")
+        {
+            if (rolls.value.length === abilities.length && rolls.value.every(isRoll))
+            {
+                next = isPermutation(base, abilities, rolls.value) ? base : deal(rolls.value, recommendedOrder.value);
+            }
+        }
+
+        _scores((scores) => defined({ method: method, base: next, bonuses: scores.bonuses }));
+    };
+
+    /** An ability takes a value of the array or of the rolls; the ability that held it takes the old one. */
+    const assign = (ability: string, value: number): void =>
+    {
+        _scores((scores) => ({ ...scores, base: swap(_base(), ability, value) }));
+    };
+
+    /** The rolled totals as typed; once all are valid, they are dealt (kept as they are when already dealt). */
+    const setRolls = (values: readonly number[]): void =>
+    {
+        rolls.value = [...values];
+        const abilities = packageSet.value?.ruleset.abilities ?? [];
+        const valid = (values.length === abilities.length) && values.every(isRoll);
+        if (valid && !isPermutation(_base(), abilities, values))
+        {
+            _scores((scores) => ({ ...scores, method: "roll", base: deal(values, recommendedOrder.value) }));
+        }
+        else { _scheduleSave(); }
+    };
+
+    /** Point buy: an ability at a score, refused outside the costs or beyond the budget. */
+    const buy = (ability: string, score: number): boolean =>
+    {
+        const pointBuy = packageSet.value?.ruleset.abilityScores?.pointBuy;
+        if (!pointBuy) { return false; }
+        const next = { ..._base(), [ability]: score };
+        const cost = pointBuyCost(next, pointBuy.costs);
+        if ((cost === undefined) || (cost > pointBuy.budget)) { return false; }
+
+        _scores((scores) => ({ ...scores, method: "point-buy", base: next }));
+
+        return true;
+    };
+
+    /** The player's own adjustment of a score; zero removes it. */
+    const adjust = (ability: string, amount: number): void =>
+    {
+        _scores((scores) =>
+        {
+            const bonuses = Object.fromEntries(Object.entries({ ...scores.bonuses, [ability]: amount })
+                .filter(([, v]) => (v !== undefined) && (v !== 0)));
+
+            return defined({ ...scores, bonuses: Object.keys(bonuses).length ? bonuses : undefined });
+        });
+    };
+
+    /** Deals the current method's values again in the recommended order. */
+    const dealRecommended = (): void =>
+    {
+        const method = character.value?.choices.abilityScores?.method ?? "standard-array";
+        const values = method === "roll" ?
+            rolls.value :
+            (method === "point-buy" ? Object.values(_base()) : packageSet.value?.ruleset.abilityScores?.standardArray);
+        if (!values?.length) { return; }
+
+        _scores((scores) => ({ ...scores, base: deal(values, recommendedOrder.value) }));
+    };
+
     /** The archetype's recommendation for a key (`species`, `class`…) and why, when the draft started from one. */
     const recommendation = (key: keyof Archetype["recommends"]): { value: unknown, why?: string } | undefined =>
     {
@@ -318,6 +453,7 @@ export const useWizardStore = defineStore("wizard", () =>
         character,
         step,
         archetype,
+        rolls,
         sources,
         packageSet,
         start,
@@ -332,6 +468,13 @@ export const useWizardStore = defineStore("wizard", () =>
         chooseSubspecies,
         chooseClass,
         chooseBackground,
+        recommendedOrder,
+        chooseMethod,
+        assign,
+        setRolls,
+        buy,
+        adjust,
+        dealRecommended,
         recommendation
     };
 });

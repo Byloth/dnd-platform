@@ -101,6 +101,7 @@ describe("the creation wizard", () =>
         await next(wrapper);
         expect(wrapper.find("h1").text()).toBe("Background");
         expect(useWizardStore().character?.choices.background).toBe("srd51.background.acolyte");
+        await until(() => useRoute().query["step"] === "background");
         expect(useRoute().query["step"]).toBe("background");
     });
 
