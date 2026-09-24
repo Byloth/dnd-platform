@@ -86,6 +86,10 @@ M1.4d is split into d1 (step 6), d2 (step 7) and d3 (steps 8–9, the character 
 - `ChoiceView.optionDetails`;
 - step 6, with every remaining choice named and counted.
 
+M1.4d2 was done on 2026-09-24:
+- item category tags for the grants' filters, `matchesItemFilter`, srd51 0.4.0;
+- step 7, with the class options, filters as menus, unpacked packs, removable granted items, the shop, equipped toggles and the coins beside the suggested purse.
+
 M1.4c was done on 2026-09-24: step 5, with the standard array, point buy and roll, the swap menus, species bonuses and totals from the derived sheet, and the manual adjustments.
 
 Done: the criteria of M1.4. Release: `v0.3.4`.

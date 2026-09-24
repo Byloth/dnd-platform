@@ -80,6 +80,10 @@ Steps can be revisited in any order from a stepper; a change in step 0 re-valida
    - The count is respected by disabling the rest once it is reached.
    - Long lists are searchable.
    - The files are `composables/choice-options.ts`, `components/wizard/ChoiceGroup.vue` and `components/wizard/steps/StepChoices.vue`.
+   Step 7 done in M1.4d2 (owner, 2026-09-24):
+   - The wizard's draft keeps the player's selections: an option per group, an item per filter, removed slots, added items, equipped overrides. `choices.equipment` is rebuilt from them after every change, with packs unpacked, so a different option or pack swaps its items with nothing left behind.
+   - The coins are five fields beside the suggested purse: the grants' gold, plus what removed items are worth, minus what was bought.
+   - The files are `composables/equipment.ts` and `components/wizard/steps/StepEquipment.vue`.
 5. Expert mode as the single-page rendering of the same steps; editing from the sheet — M1.4.
 6. The twelve-classes component test and the private Monk test — M1.4.
 
