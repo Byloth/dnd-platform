@@ -1,9 +1,9 @@
 formatVersion: 0
 id: fixture-paladin-l5
 name: Steady Ember
-ruleset: { id: srd51, version: 0.3.0 }
+ruleset: { id: srd51, version: 0.4.0 }
 packages:
-  - { id: srd51, version: 0.3.0 }
+  - { id: srd51, version: 0.4.0 }
 choices:
   species: srd51.species.dragonborn
   classes:

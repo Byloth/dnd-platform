@@ -16,3 +16,5 @@ damage: 1d8
 damageType: piercing
 properties:
   - finesse
+tags:
+  - melee-weapons

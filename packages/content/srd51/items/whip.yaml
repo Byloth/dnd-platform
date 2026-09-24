@@ -17,3 +17,5 @@ damageType: slashing
 properties:
   - finesse
   - reach
+tags:
+  - melee-weapons

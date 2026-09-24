@@ -7,7 +7,7 @@
 import { describe, expect, it } from "vitest";
 
 import { loadPackages } from "@byloth/dnd-platform-loader";
-import { derive } from "../src/index.js";
+import { derive, matchesItemFilter } from "../src/index.js";
 import type { PackageSource } from "@byloth/dnd-platform-loader";
 import type { ComputedSheet } from "../src/index.js";
 import { MINI, character, cls, feature, item, miniPackage, spell } from "./helpers.js";
@@ -828,5 +828,24 @@ describe("the player's own ability numbers", () =>
             ["add", "Adjustment", -1]
         ]);
         expect(sheet.values["ability.dex"]!.provenance).toHaveLength(1);
+    });
+});
+
+describe("item filters of equipment grants", () =>
+{
+    const sword = {
+        id: "x.item.longsword", name: { en: "Longsword" }, type: "weapon", category: "martial", tags: ["melee-weapons"]
+    };
+    const amulet = { id: "x.item.amulet", name: { en: "Amulet" }, type: "gear", tags: ["holy-symbols"] };
+
+    it("matches weapons by kind and items by their category tags", () =>
+    {
+        const melee = { weapon: "martial", category: "melee-weapons" } as const;
+
+        expect(matchesItemFilter(sword.id, sword as never, melee)).toBe(true);
+        expect(matchesItemFilter(sword.id, sword as never, { weapon: "simple" })).toBe(false);
+        expect(matchesItemFilter(amulet.id, amulet as never, { category: "holy-symbols" })).toBe(true);
+        expect(matchesItemFilter(amulet.id, amulet as never, { weapon: "any" })).toBe(false);
+        expect(matchesItemFilter(amulet.id, amulet as never, { tool: "amulet" })).toBe(true);
     });
 });

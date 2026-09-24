@@ -23,7 +23,9 @@ Allowed keys per entity type:
 | class | `primaryAbilities` (from the multiclassing prerequisites; Open5e leaves them empty) |
 
 Packs are not authored here: the map stage writes their `contents` from the 5e-database, and emits the items a
-pack holds that no dataset sells on their own (a censer, a small knife).
+pack holds that no dataset sells on their own (a censer, a small knife). Items also carry, as tags, the 5e-database
+equipment categories a starting-equipment filter names (holy symbols, arcane and druidic foci, musical
+instruments, melee weapons), so a grant's `filter: { category }` finds them; engine's `matchesItemFilter` is the rule.
 
 ## The vocabulary
 

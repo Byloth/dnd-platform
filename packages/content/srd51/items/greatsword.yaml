@@ -16,3 +16,5 @@ damageType: slashing
 properties:
   - heavy
   - two-handed
+tags:
+  - melee-weapons

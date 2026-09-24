@@ -11,3 +11,5 @@ cost:
   currency: gp
 weight: 3
 type: gear
+tags:
+  - arcane-foci

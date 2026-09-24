@@ -35,7 +35,7 @@ startingEquipment:
         - - item: srd51.item.greataxe
         - - filter:
               weapon: martial
-              category: melee
+              category: melee-weapons
     - options:
         - - item: srd51.item.handaxe
             quantity: 2

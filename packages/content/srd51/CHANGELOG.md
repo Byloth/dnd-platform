@@ -7,6 +7,13 @@ improvement of the content is a new version: bump `version` in
 release file. Characters follow new versions automatically; the application
 tells the player what changed on their sheet.
 
+## 0.4.0 — 2026-09-24
+
+- **Starting equipment finds its items**: holy symbols, arcane and druidic
+  foci, musical instruments and melee weapons are now marked as such, so
+  "a holy symbol" or "any simple melee weapon" in a class or background
+  offers the right items to choose from.
+
 ## 0.3.0 — 2026-09-24
 
 - **The languages a character can learn**, eight standard and eight exotic

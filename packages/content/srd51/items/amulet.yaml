@@ -11,3 +11,5 @@ cost:
   currency: gp
 weight: 1
 type: gear
+tags:
+  - holy-symbols

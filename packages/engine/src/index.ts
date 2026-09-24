@@ -29,6 +29,7 @@ export { derive, explain } from "./derive/index.js";
 export { evaluateFormula, formulaReferences } from "./formula/evaluate.js";
 export type { DiceExpression, FormulaEnvironment, FormulaValue } from "./formula/evaluate.js";
 export { evaluateWhen } from "./conditions/evaluate.js";
+export { matchesItemFilter } from "./items.js";
 export { PLAY_EVENT_TYPES, apply, undo } from "./play/index.js";
 export type { ApplyOptions } from "./play/index.js";
 export type { Facts, WieldedWeapon } from "./conditions/evaluate.js";

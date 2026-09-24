@@ -17,3 +17,5 @@ damageType: slashing
 properties:
   - finesse
   - light
+tags:
+  - melee-weapons

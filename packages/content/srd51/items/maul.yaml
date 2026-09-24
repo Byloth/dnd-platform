@@ -17,3 +17,5 @@ damageType: bludgeoning
 properties:
   - heavy
   - two-handed
+tags:
+  - melee-weapons

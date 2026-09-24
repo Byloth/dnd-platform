@@ -20,3 +20,5 @@ range:
   normal: 30
   long: 120
 monkWeapon: true
+tags:
+  - melee-weapons

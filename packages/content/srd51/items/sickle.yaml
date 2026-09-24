@@ -17,3 +17,5 @@ damageType: slashing
 properties:
   - light
 monkWeapon: true
+tags:
+  - melee-weapons

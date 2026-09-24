@@ -1,9 +1,9 @@
 formatVersion: 0
 id: fixture-cleric-l11
 name: Stone Lantern
-ruleset: { id: srd51, version: 0.3.0 }
+ruleset: { id: srd51, version: 0.4.0 }
 packages:
-  - { id: srd51, version: 0.3.0 }
+  - { id: srd51, version: 0.4.0 }
 choices:
   species: srd51.species.dwarf
   subspecies: srd51.species.dwarf.hill-dwarf

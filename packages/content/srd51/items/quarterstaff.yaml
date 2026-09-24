@@ -18,3 +18,5 @@ properties:
   - versatile
 versatile: 1d8
 monkWeapon: true
+tags:
+  - melee-weapons

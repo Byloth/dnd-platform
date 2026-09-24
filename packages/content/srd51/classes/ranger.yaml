@@ -41,7 +41,7 @@ startingEquipment:
             quantity: 2
         - - filter:
               weapon: simple
-              category: melee
+              category: melee-weapons
             quantity: 2
     - options:
         - - item: srd51.item.dungeoneers-pack

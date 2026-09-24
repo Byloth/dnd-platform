@@ -15,3 +15,5 @@ category: simple
 damage: 1d6
 damageType: bludgeoning
 monkWeapon: true
+tags:
+  - melee-weapons

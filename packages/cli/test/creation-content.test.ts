@@ -10,9 +10,9 @@ import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 
 import { loadPackages } from "@byloth/dnd-platform-loader";
-import { derive } from "@byloth/dnd-platform-engine";
+import { derive, matchesItemFilter } from "@byloth/dnd-platform-engine";
 import type { Character } from "@byloth/dnd-platform-engine";
-import type { Archetype, Class, Item } from "@byloth/dnd-platform-schema";
+import type { Archetype, Background, Class, EquipmentGrant, Item, ItemFilter } from "@byloth/dnd-platform-schema";
 
 import { readPackageSource } from "@byloth/dnd-platform-loader/node";
 
@@ -128,6 +128,28 @@ describe("the base package's creation content", () =>
             {
                 expect(ids.has(language), `${id}: ${language}`).toBe(true);
             }
+        }
+    });
+
+    it("finds an item for every filter of the class and background grants", () =>
+    {
+        const items = entities<Item>("item");
+        const grants: [string, EquipmentGrant | undefined][] = [
+            ...classes.map((c) => [c.id, c.data.startingEquipment] as [string, EquipmentGrant | undefined]),
+            ...entities<Background>("background")
+                .map((b) => [b.id, b.data.equipment] as [string, EquipmentGrant | undefined])
+        ];
+        const filters = grants.flatMap(([owner, grant]) => [
+            ...grant?.fixed ?? [],
+            ...(grant?.choices ?? []).flatMap((c) => c.options.flat())
+
+        ].filter((ref): ref is { filter: ItemFilter } => "filter" in ref).map((ref) => [owner, ref.filter] as const));
+
+        expect(filters.length).toBeGreaterThan(10);
+        for (const [owner, filter] of filters)
+        {
+            const found = items.filter((i) => matchesItemFilter(i.id, i.data, filter));
+            expect(found.length, `${owner}: ${JSON.stringify(filter)}`).toBeGreaterThan(0);
         }
     });
 

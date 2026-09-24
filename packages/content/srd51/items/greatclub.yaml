@@ -16,3 +16,5 @@ damage: 1d8
 damageType: bludgeoning
 properties:
   - two-handed
+tags:
+  - melee-weapons

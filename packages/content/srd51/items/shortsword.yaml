@@ -18,3 +18,5 @@ properties:
   - finesse
   - light
 monkWeapon: true
+tags:
+  - melee-weapons

@@ -10,3 +10,5 @@ cost:
   amount: 1
   currency: gp
 type: gear
+tags:
+  - druidic-foci

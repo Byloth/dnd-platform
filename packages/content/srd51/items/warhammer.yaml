@@ -17,3 +17,5 @@ damageType: bludgeoning
 properties:
   - versatile
 versatile: 1d10
+tags:
+  - melee-weapons

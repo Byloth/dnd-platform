@@ -29,7 +29,7 @@ startingEquipment:
       quantity: 2
     - item: srd51.item.leather-armor
     - filter:
-        category: simple-weapons
+        weapon: simple
   choices:
     - options:
         - - item: srd51.item.crossbow-light

@@ -30,8 +30,60 @@ let count = 0;
 
 function write(dir: string, file: string, entity: Entity): void
 {
-    emit(`${dir}/${file}.yaml`, applyOverlays(entity, overlays, usedOverlays));
+    const tagged = dir === "items" ? withCategoryTags(file, entity) : entity;
+    emit(`${dir}/${file}.yaml`, applyOverlays(tagged, overlays, usedOverlays));
     count += 1;
+}
+
+// The 5e-database equipment categories a starting-equipment filter names (a holy symbol, an arcane focus…): every
+// item in one of them carries it as a tag, so the grant's `filter: { category }` finds it. Only those categories,
+// to keep the items' tags about what the content uses.
+let _categoryMembers: Map<string, Set<string>> | undefined;
+function categoryMembers(): Map<string, Set<string>>
+{
+    if (_categoryMembers) { return _categoryMembers; }
+
+    interface DbCategory { index: string, equipment: { index: string }[] }
+    const named = new Set<string>();
+    const walk = (node: unknown): void =>
+    {
+        if (Array.isArray(node)) { node.forEach(walk); }
+        else if (node && typeof node === "object")
+        {
+            const record = node as Record<string, unknown>;
+            const category = (record["equipment_category"] as { index?: string } | undefined)?.index;
+            if (category) { named.add(category); }
+            Object.values(record).forEach(walk);
+        }
+    };
+    [...db.rows<Entity>("Classes"), ...db.rows<Entity>("Backgrounds")]
+        .forEach((row) => walk([row["starting_equipment_options"], row["starting_equipment"]]));
+    // A category the filters turn into a weapon kind needs no tag; the one they keep (melee weapons) does.
+    const tags = new Set([...named].flatMap((c) =>
+    {
+        const filter = EQUIPMENT_FILTERS[c];
+
+        return filter ? [filter["category"]].filter((t): t is string => typeof t === "string") : [c];
+    }));
+    _categoryMembers = new Map();
+    for (const category of db.rows<DbCategory>("Equipment-Categories").filter((c) => tags.has(c.index)))
+    {
+        for (const { index } of category.equipment)
+        {
+            _categoryMembers.set(index, new Set([..._categoryMembers.get(index) ?? [], category.index]));
+        }
+    }
+
+    return _categoryMembers;
+}
+
+function withCategoryTags(index: string, entity: Entity): Entity
+{
+    const categories = [...categoryMembers().get(index) ?? []].sort();
+    if (!categories.length) { return entity; }
+    const tags = [...new Set([...(entity["tags"] as string[] | undefined) ?? [], ...categories])];
+
+    return { ...entity, tags: tags };
 }
 
 function compact<T extends object>(value: T): T
@@ -167,6 +219,14 @@ function itemRef(index: string, quantity: number): Entity
     return quantity > 1 ? { item: id("item", index), quantity: quantity } : { item: id("item", index) };
 }
 
+/** A 5e-database equipment category as a grant's filter; any other category is an item tag of the same name. */
+const EQUIPMENT_FILTERS: Record<string, Entity> = {
+    "simple-weapons": { weapon: "simple" },
+    "martial-weapons": { weapon: "martial" },
+    "simple-melee-weapons": { weapon: "simple", category: "melee-weapons" },
+    "martial-melee-weapons": { weapon: "martial", category: "melee-weapons" }
+};
+
 function equipmentOption(option: db.Option): Entity[] | undefined
 {
     switch (option.option_type)
@@ -184,13 +244,7 @@ function equipmentOption(option: db.Option): Entity[] | undefined
         {
             const category = option.choice?.from.equipment_category?.index;
             if (!category) { return undefined; }
-            const FILTERS: Record<string, Entity> = {
-                "simple-weapons": { weapon: "simple" },
-                "martial-weapons": { weapon: "martial" },
-                "simple-melee-weapons": { weapon: "simple", category: "melee" },
-                "martial-melee-weapons": { weapon: "martial", category: "melee" }
-            };
-            const filter = FILTERS[category] ?? { category: category };
+            const filter = EQUIPMENT_FILTERS[category] ?? { category: category };
             const quantity = option.choice?.choose ?? 1;
 
             return [quantity > 1 ? { filter: filter, quantity: quantity } : { filter: filter }];
@@ -212,7 +266,11 @@ function startingEquipment(
         const mapped = (block.from.options ?? []).map(equipmentOption);
         if (block.from.option_set_type === "equipment_category" && block.from.equipment_category)
         {
-            (out["fixed"] as Entity[]).push({ filter: { category: block.from.equipment_category.index }, ...(block.choose > 1 ? { quantity: block.choose } : {}) });
+            const category = block.from.equipment_category.index;
+            (out["fixed"] as Entity[]).push({
+                filter: EQUIPMENT_FILTERS[category] ?? { category: category },
+                ...(block.choose > 1 ? { quantity: block.choose } : {})
+            });
 
             continue;
         }

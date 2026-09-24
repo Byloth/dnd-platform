@@ -21,3 +21,5 @@ versatile: 1d8
 range:
   normal: 20
   long: 60
+tags:
+  - melee-weapons

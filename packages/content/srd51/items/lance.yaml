@@ -20,3 +20,5 @@ damageType: piercing
 properties:
   - reach
   - special
+tags:
+  - melee-weapons

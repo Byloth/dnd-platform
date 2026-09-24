@@ -52,7 +52,7 @@ startingEquipment:
         - - item: srd51.item.scimitar
         - - filter:
               weapon: simple
-              category: melee
+              category: melee-weapons
 multiclass:
   prerequisites:
     wis: 13

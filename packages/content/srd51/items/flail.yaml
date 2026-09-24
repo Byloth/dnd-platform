@@ -14,3 +14,5 @@ type: weapon
 category: martial
 damage: 1d8
 damageType: bludgeoning
+tags:
+  - melee-weapons
