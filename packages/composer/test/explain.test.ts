@@ -41,4 +41,19 @@ describe("explain", () =>
         expect(ac.newcomer).toEqual(["Tutti partono da 10.", "La tua Destrezza (14) dà +2."]);
         expect(ac.notes).toEqual(["Defense si applicherebbe se indossi un'armatura."]);
     });
+
+    it("words the player's own score and adjustment, in both languages", () =>
+    {
+        const { character, packages, sheet } = fixture("barbarian-l5");
+        const context = { character: character, packages: packages };
+        const str = explain(sheet, "ability.str", context)!;
+        const italian = explain(sheet, "ability.str", { ...context, language: "it" })!;
+
+        expect(str.newcomer).toEqual(expect.arrayContaining([
+            "You chose a score of 15.", "Your own adjustment adds +2."
+        ]));
+        expect(italian.newcomer).toEqual(expect.arrayContaining([
+            "Hai scelto un punteggio di 15.", "La tua correzione aggiunge +2."
+        ]));
+    });
 });

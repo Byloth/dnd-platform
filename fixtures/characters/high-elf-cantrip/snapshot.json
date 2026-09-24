@@ -369,6 +369,10 @@
       ],
       "choice": "cantrip",
       "count": 1,
+      "filter": {
+        "level": 0,
+        "list": "srd51.spell-list.wizard"
+      },
       "key": "srd51.feature.high-elf.cantrip#cantrip",
       "of": "spell",
       "options": [],
@@ -693,7 +697,7 @@
     "packages": [
       {
         "id": "srd51",
-        "version": "0.1.0"
+        "version": "0.2.0"
       }
     ],
     "ruleset": "srd51"

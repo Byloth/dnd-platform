@@ -203,6 +203,8 @@ export const en = {
     explain: {
         base: "Everyone starts from {value}.",
         baseFrom: "{label} sets the starting value at {value}.",
+        score: "You chose a score of {value}.",
+        adjustment: "Your own adjustment adds {value}.",
         ability: "Your {ability} ({score}) gives {value}.",
         proficiency: "Your proficiency bonus gives {value}.",
         add: "{label} adds {value}.",

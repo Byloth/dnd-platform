@@ -1,0 +1,30 @@
+id: srd51.archetype.keeper-of-the-wilds
+name:
+  en: Keeper of the wilds
+source: srd51
+pitch:
+  en: A guardian of nature who talks to animals, heals, and calls on wind, thorns and moonlight in battle.
+recommends:
+  species: srd51.species.human
+  class: srd51.class.druid
+  background: srd51.background.acolyte
+  abilityPriority:
+  - wis
+  - con
+  - dex
+  - int
+  - cha
+  - str
+  answers:
+    srd51.class.druid#skills:
+    - nature
+    - perception
+why:
+  class:
+    en: 'Druids cast spells from nature and can turn into animals: a class full of options, with Wisdom doing most of the work.'
+  species:
+    en: 'A human gets a little better at everything (+1 to every score) and an extra language: no weak spot to worry about.'
+  abilityPriority:
+    en: Wisdom powers your spells; Constitution keeps your concentration and your hit points; Dexterity protects you in light armour.
+  background:
+    en: Acolyte, the one background of the SRD, gives Insight and Religion and two languages.

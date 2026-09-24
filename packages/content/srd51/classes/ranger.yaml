@@ -1183,3 +1183,6 @@ tables:
         - 0
         - 0
         - 0
+primaryAbilities:
+  - dex
+  - wis

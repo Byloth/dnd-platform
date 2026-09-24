@@ -502,6 +502,10 @@
       ],
       "choice": "mystic-arcanum-6",
       "count": 1,
+      "filter": {
+        "level": 6,
+        "list": "srd51.spell-list.warlock"
+      },
       "key": "srd51.feature.warlock.mystic-arcanum#mystic-arcanum-6",
       "of": "spell",
       "options": [],
@@ -517,6 +521,11 @@
       ],
       "choice": "cantrips",
       "count": 4,
+      "filter": {
+        "level": 0,
+        "list": "srd51.spell-list.warlock",
+        "type": "spell"
+      },
       "key": "srd51.class.warlock#cantrips",
       "of": "spell",
       "options": [],
@@ -539,6 +548,10 @@
       ],
       "choice": "spells",
       "count": 11,
+      "filter": {
+        "list": "srd51.spell-list.warlock",
+        "type": "spell"
+      },
       "key": "srd51.class.warlock#spells",
       "of": "spell",
       "options": [],
@@ -860,7 +873,7 @@
     "packages": [
       {
         "id": "srd51",
-        "version": "0.1.0"
+        "version": "0.2.0"
       }
     ],
     "ruleset": "srd51"
@@ -2002,7 +2015,18 @@
           "source": {
             "package": ""
           },
-          "value": 19
+          "value": 15
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Adjustment"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 4
         },
         {
           "applied": true,

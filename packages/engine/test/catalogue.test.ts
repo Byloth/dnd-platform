@@ -808,3 +808,21 @@ describe("define-table", () =>
         expect(at(6)).toBe(6);
     });
 });
+
+describe("the player's own ability numbers", () =>
+{
+    it("shows an adjustment of a score as its own line after the base score", () =>
+    {
+        const c = character({ scores: { str: 15, dex: 10, con: 10, int: 10, wis: 10, cha: 10 } });
+        const scores = { ...c.choices.abilityScores!, bonuses: { str: -1 } };
+        const sheet = derive({ ...c, choices: { ...c.choices, abilityScores: scores } }, loadPackages([miniPackage()]));
+        const str = sheet.values["ability.str"]!;
+
+        expect(str.value).toBe(14);
+        expect(str.provenance.map((p) => [p.kind, p.label["en"], p.value])).toEqual([
+            ["base", "Base score", 15],
+            ["add", "Adjustment", -1]
+        ]);
+        expect(sheet.values["ability.dex"]!.provenance).toHaveLength(1);
+    });
+});

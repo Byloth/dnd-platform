@@ -616,6 +616,10 @@
       ],
       "choice": "mystic-arcanum-6",
       "count": 1,
+      "filter": {
+        "level": 6,
+        "list": "srd51.spell-list.warlock"
+      },
       "key": "srd51.feature.warlock.mystic-arcanum#mystic-arcanum-6",
       "of": "spell",
       "options": [],
@@ -628,6 +632,10 @@
       ],
       "choice": "mystic-arcanum-7",
       "count": 1,
+      "filter": {
+        "level": 7,
+        "list": "srd51.spell-list.warlock"
+      },
       "key": "srd51.feature.warlock.mystic-arcanum#mystic-arcanum-7",
       "of": "spell",
       "options": [],
@@ -640,6 +648,10 @@
       ],
       "choice": "mystic-arcanum-8",
       "count": 1,
+      "filter": {
+        "level": 8,
+        "list": "srd51.spell-list.warlock"
+      },
       "key": "srd51.feature.warlock.mystic-arcanum#mystic-arcanum-8",
       "of": "spell",
       "options": [],
@@ -652,6 +664,10 @@
       ],
       "choice": "mystic-arcanum-9",
       "count": 1,
+      "filter": {
+        "level": 9,
+        "list": "srd51.spell-list.warlock"
+      },
       "key": "srd51.feature.warlock.mystic-arcanum#mystic-arcanum-9",
       "of": "spell",
       "options": [],
@@ -667,6 +683,11 @@
       ],
       "choice": "cantrips",
       "count": 4,
+      "filter": {
+        "level": 0,
+        "list": "srd51.spell-list.warlock",
+        "type": "spell"
+      },
       "key": "srd51.class.warlock#cantrips",
       "of": "spell",
       "options": [],
@@ -693,6 +714,10 @@
       ],
       "choice": "spells",
       "count": 15,
+      "filter": {
+        "list": "srd51.spell-list.warlock",
+        "type": "spell"
+      },
       "key": "srd51.class.warlock#spells",
       "of": "spell",
       "options": [],
@@ -1048,7 +1073,7 @@
     "packages": [
       {
         "id": "srd51",
-        "version": "0.1.0"
+        "version": "0.2.0"
       }
     ],
     "ruleset": "srd51"
@@ -2536,7 +2561,18 @@
           "source": {
             "package": ""
           },
-          "value": 19
+          "value": 15
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Adjustment"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 4
         },
         {
           "applied": true,
@@ -2566,7 +2602,18 @@
           "source": {
             "package": ""
           },
-          "value": 15
+          "value": 13
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Adjustment"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 2
         },
         {
           "applied": true,
@@ -2596,7 +2643,18 @@
           "source": {
             "package": ""
           },
-          "value": 15
+          "value": 13
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Adjustment"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 2
         },
         {
           "applied": true,
@@ -2686,7 +2744,18 @@
           "source": {
             "package": ""
           },
-          "value": 13
+          "value": 11
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Adjustment"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 2
         },
         {
           "applied": true,

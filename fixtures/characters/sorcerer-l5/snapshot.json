@@ -462,6 +462,11 @@
       ],
       "choice": "cantrips",
       "count": 5,
+      "filter": {
+        "level": 0,
+        "list": "srd51.spell-list.sorcerer",
+        "type": "spell"
+      },
       "key": "srd51.class.sorcerer#cantrips",
       "of": "spell",
       "options": [],
@@ -479,6 +484,10 @@
       ],
       "choice": "spells",
       "count": 6,
+      "filter": {
+        "list": "srd51.spell-list.sorcerer",
+        "type": "spell"
+      },
       "key": "srd51.class.sorcerer#spells",
       "of": "spell",
       "options": [],
@@ -780,7 +789,7 @@
     "packages": [
       {
         "id": "srd51",
-        "version": "0.1.0"
+        "version": "0.2.0"
       }
     ],
     "ruleset": "srd51"
@@ -1579,7 +1588,18 @@
           "source": {
             "package": ""
           },
-          "value": 17
+          "value": 15
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Adjustment"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 2
         },
         {
           "applied": true,

@@ -1,9 +1,9 @@
 formatVersion: 0
 id: fixture-monk-l5
 name: Still Water
-ruleset: { id: srd51, version: 0.1.0 }
+ruleset: { id: srd51, version: 0.2.0 }
 packages:
-  - { id: srd51, version: 0.1.0 }
+  - { id: srd51, version: 0.2.0 }
   - { id: homebrew.byloth, version: 0.1.0 }
 choices:
   species: homebrew.byloth.species.feline

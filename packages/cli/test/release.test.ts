@@ -104,8 +104,14 @@ describe("dnd release", () =>
     {
         const report = releasePackages({ repoRoot: ROOT, check: true });
 
+        const { version } = readPackageSource(resolve(ROOT, "packages", "content", "srd51")).manifest;
+
         expect(report.errors).toEqual([]);
-        expect(report.releases.map((r) => `${r.id}@${r.version}`)).toContain("srd51@0.1.0");
-        expect(existsSync(resolve(ROOT, RELEASES_DIR, "srd51@0.1.0.json"))).toBe(true);
+        expect(report.releases.map((r) => `${r.id}@${r.version}`)).toContain(`srd51@${version}`);
+        // Every earlier release stays published (DEC-21).
+        for (const earlier of ["0.1.0", version])
+        {
+            expect(existsSync(resolve(ROOT, RELEASES_DIR, `srd51@${earlier}.json`)), earlier).toBe(true);
+        }
     });
 });

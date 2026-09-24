@@ -1,0 +1,30 @@
+id: srd51.archetype.raging-defender
+name:
+  en: Raging defender
+source: srd51
+pitch:
+  en: A hard-hitting warrior who shrugs off blows, charges in first and keeps the enemy busy while friends do their work.
+recommends:
+  species: srd51.species.half-orc
+  class: srd51.class.barbarian
+  background: srd51.background.acolyte
+  abilityPriority:
+  - str
+  - con
+  - dex
+  - wis
+  - cha
+  - int
+  answers:
+    srd51.class.barbarian#skills:
+    - athletics
+    - intimidation
+why:
+  class:
+    en: 'Barbarians hit hard, have the most hit points and fight without heavy armour: one clear job and few rules to track.'
+  species:
+    en: A half-orc is strong and hard to bring down (Relentless Endurance keeps you at 1 hit point once per long rest).
+  abilityPriority:
+    en: Strength drives your attacks and your Rage damage; Constitution gives you hit points and, with Dexterity, your armour class.
+  background:
+    en: Acolyte, the one background of the SRD, gives Insight and Religion and two languages.

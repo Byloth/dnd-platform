@@ -1,9 +1,9 @@
 formatVersion: 0
 id: fixture-multiclass-pact
 name: Ember Whisper
-ruleset: { id: srd51, version: 0.1.0 }
+ruleset: { id: srd51, version: 0.2.0 }
 packages:
-  - { id: srd51, version: 0.1.0 }
+  - { id: srd51, version: 0.2.0 }
 choices:
   species: srd51.species.half-elf
   # First class listed = the class taken at level 1 (its hit die is the level-1 hit points, its saves are the only ones).

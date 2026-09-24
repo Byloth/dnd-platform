@@ -1,0 +1,36 @@
+id: srd51.archetype.steadfast-healer
+name:
+  en: Steadfast healer
+source: srd51
+pitch:
+  en: A sturdy servant of a god who wears heavy armour, heals the wounded and keeps the group alive.
+recommends:
+  species: srd51.species.dwarf
+  subspecies: srd51.species.dwarf.hill-dwarf
+  class: srd51.class.cleric
+  subclass: srd51.subclass.cleric.life-domain
+  background: srd51.background.acolyte
+  abilityPriority:
+  - wis
+  - con
+  - str
+  - dex
+  - cha
+  - int
+  answers:
+    srd51.class.cleric#skills:
+    - insight
+    - medicine
+    srd51.class.cleric#divine-domain:
+    - srd51.subclass.cleric.life-domain
+why:
+  class:
+    en: 'A Life cleric is the best healer of the game, wears heavy armour and still fights well: every group is glad to have one.'
+  species:
+    en: 'A hill dwarf adds to Wisdom and Constitution and gets extra hit points at every level: hard to take down.'
+  abilityPriority:
+    en: Wisdom powers your spells and your healing; Constitution gives hit points; Strength lets you wear heavy armour without slowing down.
+  subclass:
+    en: The Life Domain makes every healing spell stronger and gives you heavy armour.
+  background:
+    en: Acolyte, the one background of the SRD, gives Insight and Religion and two languages.

@@ -434,3 +434,5 @@ tables:
       "9": 1
       "13": 2
       "17": 3
+primaryAbilities:
+  - str

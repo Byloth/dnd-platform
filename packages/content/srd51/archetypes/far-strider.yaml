@@ -1,0 +1,32 @@
+id: srd51.archetype.far-strider
+name:
+  en: Far strider
+source: srd51
+pitch:
+  en: A tracker and archer who knows the wild, hunts dangerous beasts and never misses a shot.
+recommends:
+  species: srd51.species.elf
+  subspecies: srd51.species.elf.high-elf
+  class: srd51.class.ranger
+  background: srd51.background.acolyte
+  abilityPriority:
+  - dex
+  - wis
+  - con
+  - str
+  - int
+  - cha
+  answers:
+    srd51.class.ranger#skills:
+    - perception
+    - stealth
+    - survival
+why:
+  class:
+    en: 'Rangers shoot well from far away, track anything and have a few useful spells: a good mix of fighting and exploring.'
+  species:
+    en: An elf adds to Dexterity, sees in the dark and is hard to charm; a high elf also knows a wizard cantrip.
+  abilityPriority:
+    en: Dexterity drives your bow and your armour class; Wisdom powers your spells and your senses; Constitution keeps you standing.
+  background:
+    en: Acolyte, the one background of the SRD, gives Insight and Religion and two languages.

@@ -1,0 +1,39 @@
+id: srd51.archetype.dragon-blooded
+name:
+  en: Dragon-blooded
+source: srd51
+pitch:
+  en: 'A spellcaster with a dragon in the family: magic comes from the blood, and so does the fire.'
+recommends:
+  species: srd51.species.dragonborn
+  class: srd51.class.sorcerer
+  subclass: srd51.subclass.sorcerer.draconic-bloodline
+  background: srd51.background.acolyte
+  abilityPriority:
+  - cha
+  - con
+  - dex
+  - wis
+  - int
+  - str
+  answers:
+    srd51.class.sorcerer#skills:
+    - arcana
+    - intimidation
+    srd51.class.sorcerer#sorcerous-origin:
+    - srd51.subclass.sorcerer.draconic-bloodline
+    srd51.feature.dragonborn.draconic-ancestry#draconic-ancestry:
+    - red
+    srd51.feature.draconic-bloodline.dragon-ancestor#dragon-ancestor:
+    - red
+why:
+  class:
+    en: 'Sorcerers know few spells and cast them often: fewer choices to make, and Metamagic makes each spell stronger later.'
+  species:
+    en: A dragonborn adds to Charisma and breathes fire; a red dragon ancestor matches the Draconic Bloodline.
+  abilityPriority:
+    en: Charisma powers your spells; Constitution gives hit points and keeps your concentration; Dexterity protects you without armour.
+  subclass:
+    en: The Draconic Bloodline gives you tougher skin (a better armour class) and more hit points, the two things a spellcaster lacks.
+  background:
+    en: Acolyte, the one background of the SRD, gives Insight and Religion and two languages.

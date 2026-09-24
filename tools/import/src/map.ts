@@ -877,12 +877,25 @@ for (const item of items)
     write("items", index, entity);
 }
 const producedItems = new Set(items.map((i) => o5e.slug(i.pk)));
+// The 5e-database's index of an item Open5e names differently.
+const DB_ITEM_ALIASES: Record<string, string> = { "oil-flask": "lamp-oil-flask" };
+const dbItemIndex = (index: string): string => DB_ITEM_ALIASES[index] ?? index;
+interface DbContents { contents?: { item: db.Ref, quantity: number }[] }
+// Items a pack holds that no dataset sells on their own (a censer, a small knife): emitted from the 5e-database.
+const heldOnly = new Set<string>();
+for (const equipment of dbEquipment.values())
+{
+    for (const { item } of (equipment as unknown as DbContents).contents ?? [])
+    {
+        if (!producedItems.has(dbItemIndex(item.index))) { heldOnly.add(item.index); }
+    }
+}
 for (const equipment of dbEquipment.values())
 {
     if (producedItems.has(equipment.index)) { continue; }
     const category = equipment.gear_category?.index ?? equipment.equipment_category.index;
-    if (!["equipment-packs", "ammunition"].includes(category)) { continue; }
-    const contents = (equipment as unknown as { contents?: { item: db.Ref, quantity: number }[] }).contents ?? [];
+    if (!["equipment-packs", "ammunition"].includes(category) && !heldOnly.has(equipment.index)) { continue; }
+    const contents = (equipment as unknown as DbContents).contents ?? [];
     const description = (equipment as unknown as { desc?: string[] }).desc?.join("\n\n") ?? "";
     const list = contents.length ? `Includes: ${contents.map((c) => `${c.quantity} × ${c.item.name}`).join(", ")}.` : "";
     write("items", equipment.index, compact({
@@ -890,10 +903,16 @@ for (const equipment of dbEquipment.values())
         name: { en: equipment.name },
         source: PKG,
         text: text([description, list].filter(Boolean).join("\n\n")),
-        cost: equipment.cost ? { amount: equipment.cost.quantity, currency: equipment.cost.unit } : undefined,
+        cost: equipment.cost?.quantity ? { amount: equipment.cost.quantity, currency: equipment.cost.unit } : undefined,
         weight: equipment.weight || undefined,
+        contents: contents.length ?
+            contents.map((c) => compact({
+                item: id("item", dbItemIndex(c.item.index)),
+                quantity: c.quantity > 1 ? c.quantity : undefined
+            })) :
+            undefined,
         type: category === "ammunition" ? "ammunition" : "gear",
-        tags: [category]
+        tags: category === "equipment-packs" || category === "ammunition" ? [category] : undefined
     }));
 }
 for (const magic of dbMagic)

@@ -9,6 +9,21 @@ text:
 cost:
   amount: 39
   currency: gp
+contents:
+  - item: srd51.item.chest
+  - item: srd51.item.case-map-or-scroll
+    quantity: 2
+  - item: srd51.item.clothes-fine
+  - item: srd51.item.ink-1-ounce-bottle
+  - item: srd51.item.ink-pen
+  - item: srd51.item.lamp
+  - item: srd51.item.lamp-oil-flask
+    quantity: 2
+  - item: srd51.item.paper-one-sheet
+    quantity: 5
+  - item: srd51.item.perfume-vial
+  - item: srd51.item.sealing-wax
+  - item: srd51.item.soap
 type: gear
 tags:
   - equipment-packs

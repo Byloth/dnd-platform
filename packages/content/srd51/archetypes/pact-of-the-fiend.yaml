@@ -1,0 +1,35 @@
+id: srd51.archetype.pact-of-the-fiend
+name:
+  en: Pact of the fiend
+source: srd51
+pitch:
+  en: 'A spellcaster who made a deal with a fiend: few spells, but always ready, and a patron who wants something in return.'
+recommends:
+  species: srd51.species.tiefling
+  class: srd51.class.warlock
+  subclass: srd51.subclass.warlock.the-fiend
+  background: srd51.background.acolyte
+  abilityPriority:
+  - cha
+  - con
+  - dex
+  - wis
+  - int
+  - str
+  answers:
+    srd51.class.warlock#skills:
+    - deception
+    - intimidation
+    srd51.class.warlock#otherworldly-patron:
+    - srd51.subclass.warlock.the-fiend
+why:
+  class:
+    en: Warlocks have few spell slots that come back after a short rest, and Eldritch Blast is one of the best cantrips of the game.
+  species:
+    en: 'A tiefling adds to Charisma, resists fire and knows a little infernal magic: a natural fit for a fiend''s pact.'
+  abilityPriority:
+    en: Charisma powers your spells and Eldritch Blast; Constitution gives hit points; Dexterity protects you in light armour.
+  subclass:
+    en: 'The Fiend gives you temporary hit points each time you defeat an enemy: it keeps you in the fight.'
+  background:
+    en: Acolyte, the one background of the SRD, gives Insight and Religion and two languages.

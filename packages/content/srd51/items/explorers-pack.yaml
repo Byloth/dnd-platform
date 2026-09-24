@@ -9,6 +9,17 @@ text:
 cost:
   amount: 10
   currency: gp
+contents:
+  - item: srd51.item.backpack
+  - item: srd51.item.bedroll
+  - item: srd51.item.mess-kit
+  - item: srd51.item.tinderbox
+  - item: srd51.item.torch
+    quantity: 10
+  - item: srd51.item.rations-1-day
+    quantity: 10
+  - item: srd51.item.waterskin
+  - item: srd51.item.rope-hempen-50-feet
 type: gear
 tags:
   - equipment-packs

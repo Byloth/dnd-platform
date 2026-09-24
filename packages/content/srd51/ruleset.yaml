@@ -46,6 +46,12 @@ skills:
 proficiencyBonus:
   table: srd51.table.proficiency-bonus
 abilityModifier: floor((score - 10) / 2)
+# The standard array and point buy are not in SRD 5.1; these numbers are SRD 5.2's (CC-BY-4.0, see package.yaml).
+abilityScores:
+  standardArray: [15, 14, 13, 12, 10, 8]
+  pointBuy:
+    budget: 27
+    costs: { 8: 0, 9: 1, 10: 2, 11: 3, 12: 4, 13: 5, 14: 7, 15: 9 }
 hitPoints:
   firstLevel: hitDie + mod(con)
   perLevel: average(hitDie) + mod(con)

@@ -337,6 +337,11 @@
       ],
       "choice": "cantrips",
       "count": 2,
+      "filter": {
+        "level": 0,
+        "list": "srd51.spell-list.warlock",
+        "type": "spell"
+      },
       "key": "srd51.class.warlock#cantrips",
       "of": "spell",
       "options": [],
@@ -350,6 +355,10 @@
       ],
       "choice": "spells",
       "count": 2,
+      "filter": {
+        "list": "srd51.spell-list.warlock",
+        "type": "spell"
+      },
       "key": "srd51.class.warlock#spells",
       "of": "spell",
       "options": [],
@@ -556,7 +565,7 @@
     "packages": [
       {
         "id": "srd51",
-        "version": "0.1.0"
+        "version": "0.2.0"
       }
     ],
     "ruleset": "srd51"

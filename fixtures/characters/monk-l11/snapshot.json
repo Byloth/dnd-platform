@@ -1271,7 +1271,7 @@
     "packages": [
       {
         "id": "srd51",
-        "version": "0.1.0"
+        "version": "0.2.0"
       },
       {
         "id": "homebrew.byloth",
@@ -1764,7 +1764,18 @@
           "source": {
             "package": ""
           },
-          "value": 20
+          "value": 16
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Adjustment"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 4
         }
       ],
       "value": 20

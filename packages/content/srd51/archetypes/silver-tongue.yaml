@@ -1,0 +1,31 @@
+id: srd51.archetype.silver-tongue
+name:
+  en: Silver tongue
+source: srd51
+pitch:
+  en: A charming performer who talks their way through trouble, inspires friends and casts spells that change the course of a fight.
+recommends:
+  species: srd51.species.half-elf
+  class: srd51.class.bard
+  background: srd51.background.acolyte
+  abilityPriority:
+  - cha
+  - dex
+  - con
+  - wis
+  - int
+  - str
+  answers:
+    srd51.class.bard#skills:
+    - persuasion
+    - deception
+    - performance
+why:
+  class:
+    en: 'Bards help everyone at the table: Bardic Inspiration, healing and a spell for most situations.'
+  species:
+    en: 'A half-elf adds to Charisma and two more scores of your choice, and gets two extra skills: the most flexible species.'
+  abilityPriority:
+    en: Charisma powers your spells and your inspiration; Dexterity protects you in light armour; Constitution keeps you standing.
+  background:
+    en: Acolyte, the one background of the SRD, gives Insight and Religion and two languages.

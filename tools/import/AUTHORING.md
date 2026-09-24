@@ -20,6 +20,10 @@ Allowed keys per entity type:
 | item (magic) | `features` (each with `effects`), `charges`, `attunement`, weapon/armour properties the item overrides, `onUse` |
 | condition | `effects`, `levels`, `cumulative` |
 | feat | `prerequisites`, `effects` on its inline feature |
+| class | `primaryAbilities` (from the multiclassing prerequisites; Open5e leaves them empty) |
+
+Packs are not authored here: the map stage writes their `contents` from the 5e-database, and emits the items a
+pack holds that no dataset sells on their own (a censer, a small knife).
 
 ## The vocabulary
 

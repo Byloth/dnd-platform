@@ -13,6 +13,7 @@
 
 import type {
     Character,
+    Choice,
     Condition,
     Effect,
     LocalizedString,
@@ -152,6 +153,8 @@ export interface DefenseView
     readonly to: readonly string[];
     readonly source: ContributionSource;
 }
+/** What an option must be when a choice lists none (`options: []`): spells of a list, of a level… */
+export type ChoiceFilter = NonNullable<Choice["filter"]>;
 export interface ChoiceView
 {
     /** `<owner id>#<choice id>`, the key used in `character.choices.answers`. */
@@ -161,6 +164,8 @@ export interface ChoiceView
     readonly of: string;
     readonly count: number;
     readonly options: readonly string[];
+    /** When `options` is empty: what the options are (a class's spells up to a level, a list's cantrips). */
+    readonly filter?: ChoiceFilter;
     readonly answers: readonly string[];
     readonly answered: boolean;
     readonly level?: number;

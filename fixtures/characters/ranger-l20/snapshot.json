@@ -854,6 +854,10 @@
       ],
       "choice": "spells",
       "count": 11,
+      "filter": {
+        "list": "srd51.spell-list.ranger",
+        "type": "spell"
+      },
       "key": "srd51.class.ranger#spells",
       "of": "spell",
       "options": [],
@@ -1344,7 +1348,7 @@
     "packages": [
       {
         "id": "srd51",
-        "version": "0.1.0"
+        "version": "0.2.0"
       }
     ],
     "ruleset": "srd51"
@@ -2362,7 +2366,18 @@
           "source": {
             "package": ""
           },
-          "value": 16
+          "value": 14
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Adjustment"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 2
         }
       ],
       "value": 16
@@ -2378,7 +2393,18 @@
           "source": {
             "package": ""
           },
-          "value": 18
+          "value": 15
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Adjustment"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 3
         },
         {
           "applied": true,
@@ -2440,7 +2466,18 @@
           "source": {
             "package": ""
           },
-          "value": 20
+          "value": 15
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Adjustment"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 5
         }
       ],
       "value": 20

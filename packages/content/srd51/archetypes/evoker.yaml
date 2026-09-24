@@ -1,0 +1,31 @@
+id: srd51.archetype.evoker
+name:
+  en: Evoker
+source: srd51
+pitch:
+  en: A scholar of magic with a spellbook full of fire, lightning and tricks, who solves problems by knowing more.
+recommends:
+  species: srd51.species.gnome
+  subspecies: srd51.species.gnome.rock-gnome
+  class: srd51.class.wizard
+  background: srd51.background.acolyte
+  abilityPriority:
+  - int
+  - con
+  - dex
+  - wis
+  - cha
+  - str
+  answers:
+    srd51.class.wizard#skills:
+    - arcana
+    - investigation
+why:
+  class:
+    en: Wizards have the most spells of all; your spellbook grows as you play, and you prepare each day what you need.
+  species:
+    en: A rock gnome adds to Intelligence and Constitution and resists magic that targets the mind.
+  abilityPriority:
+    en: Intelligence powers your spells; Constitution gives hit points and keeps your concentration; Dexterity protects you without armour.
+  background:
+    en: Acolyte, the one background of the SRD, gives Insight and Religion and two languages.

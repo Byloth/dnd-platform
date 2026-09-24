@@ -523,6 +523,11 @@
       ],
       "choice": "cantrips",
       "count": 3,
+      "filter": {
+        "level": 0,
+        "list": "srd51.spell-list.bard",
+        "type": "spell"
+      },
       "key": "srd51.class.bard#cantrips",
       "of": "spell",
       "options": [],
@@ -542,6 +547,10 @@
       ],
       "choice": "spells",
       "count": 8,
+      "filter": {
+        "list": "srd51.spell-list.bard",
+        "type": "spell"
+      },
       "key": "srd51.class.bard#spells",
       "of": "spell",
       "options": [],
@@ -894,7 +903,7 @@
     "packages": [
       {
         "id": "srd51",
-        "version": "0.1.0"
+        "version": "0.2.0"
       }
     ],
     "ruleset": "srd51"
@@ -1810,7 +1819,18 @@
           "source": {
             "package": ""
           },
-          "value": 17
+          "value": 15
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Adjustment"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 2
         },
         {
           "applied": true,
@@ -1840,7 +1860,18 @@
           "source": {
             "package": ""
           },
-          "value": 14
+          "value": 13
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Adjustment"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 1
         }
       ],
       "value": 14
@@ -1856,7 +1887,18 @@
           "source": {
             "package": ""
           },
-          "value": 15
+          "value": 14
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Adjustment"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 1
         }
       ],
       "value": 15

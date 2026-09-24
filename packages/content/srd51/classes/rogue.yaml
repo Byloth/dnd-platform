@@ -408,3 +408,5 @@ tables:
       "15": 8d6
       "17": 9d6
       "19": 10d6
+primaryAbilities:
+  - dex

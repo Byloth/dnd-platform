@@ -1,0 +1,31 @@
+id: srd51.archetype.open-hand-wanderer
+name:
+  en: Open-hand wanderer
+source: srd51
+pitch:
+  en: A quick, quiet fighter who needs no armour and no weapons, watches first and strikes second.
+recommends:
+  species: srd51.species.dwarf
+  subspecies: srd51.species.dwarf.hill-dwarf
+  class: srd51.class.monk
+  background: srd51.background.acolyte
+  abilityPriority:
+  - dex
+  - wis
+  - con
+  - str
+  - int
+  - cha
+  answers:
+    srd51.class.monk#skills:
+    - acrobatics
+    - insight
+why:
+  class:
+    en: 'Monks fight with their hands and feet, move fast and never worry about armour: fewer things to learn on day one.'
+  species:
+    en: A hill dwarf is tough (extra hit points, poison resistance, darkvision), which forgives early mistakes.
+  abilityPriority:
+    en: Dexterity drives your attacks and your armour class; Wisdom adds to your armour class and your ki; Constitution keeps you standing.
+  background:
+    en: Acolyte, the one background of the SRD, gives Insight and Religion and two languages.

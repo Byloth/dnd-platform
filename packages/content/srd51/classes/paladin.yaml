@@ -642,3 +642,6 @@ tables:
         - 0
         - 0
         - 0
+primaryAbilities:
+  - str
+  - cha

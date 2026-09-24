@@ -9,6 +9,20 @@ text:
 cost:
   amount: 19
   currency: gp
+contents:
+  - item: srd51.item.backpack
+  - item: srd51.item.blanket
+  - item: srd51.item.candle
+    quantity: 10
+  - item: srd51.item.tinderbox
+  - item: srd51.item.rations-1-day
+    quantity: 2
+  - item: srd51.item.waterskin
+  - item: srd51.item.alms-box
+  - item: srd51.item.block-of-incense
+    quantity: 2
+  - item: srd51.item.censer
+  - item: srd51.item.vestments
 type: gear
 tags:
   - equipment-packs

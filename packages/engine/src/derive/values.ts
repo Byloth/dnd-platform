@@ -44,6 +44,8 @@ export interface GraphInput
     readonly classLevels: Readonly<Record<string, number>>;
     readonly classes: readonly { readonly id: string, readonly data: Class, readonly levels: number }[];
     readonly baseScores: Readonly<Record<string, number>>;
+    /** The player's own adjustment of each score (`choices.abilityScores.bonuses`), already in `baseScores`. */
+    readonly abilityAdjustments: Readonly<Record<string, number | undefined>>;
     readonly species?: Species;
     readonly subspecies?: { readonly speed?: Species["speed"], readonly size?: Species["size"] };
     readonly equipment: Equipment;
@@ -239,7 +241,18 @@ export class ValueGraph
 
         if ((head === "ability") && tail && (third === undefined))
         {
-            return base(this._input.baseScores[tail] ?? 10, "Base score", { package: "" });
+            const total = this._input.baseScores[tail] ?? 10;
+            const adjustment = this._input.abilityAdjustments[tail] ?? 0;
+            const result = base(total - adjustment, "Base score", { package: "" });
+            if (adjustment !== 0)
+            {
+                result.contributions.push({
+                    kind: "add", value: adjustment, label: label("Adjustment"), source: { package: "" }, applied: true
+                });
+                result.value = total;
+            }
+
+            return result;
         }
         if ((head === "ability") && tail && (third === "max")) { return base(20, "Score cap"); }
         if ((head === "mod") && tail)

@@ -475,6 +475,10 @@
       ],
       "choice": "cantrip",
       "count": 1,
+      "filter": {
+        "level": 0,
+        "list": "srd51.spell-list.wizard"
+      },
       "key": "srd51.feature.high-elf.cantrip#cantrip",
       "of": "spell",
       "options": [],
@@ -499,6 +503,11 @@
       ],
       "choice": "bonus-cantrip",
       "count": 1,
+      "filter": {
+        "level": 0,
+        "list": "srd51.spell-list.druid",
+        "type": "spell"
+      },
       "key": "srd51.feature.circle-of-the-land.bonus-cantrip#bonus-cantrip",
       "of": "spell",
       "options": [],
@@ -514,6 +523,11 @@
       ],
       "choice": "cantrips",
       "count": 4,
+      "filter": {
+        "level": 0,
+        "list": "srd51.spell-list.druid",
+        "type": "spell"
+      },
       "key": "srd51.class.druid#cantrips",
       "of": "spell",
       "options": [],
@@ -550,6 +564,10 @@
       ],
       "choice": "spells",
       "count": 25,
+      "filter": {
+        "list": "srd51.spell-list.druid",
+        "type": "spell"
+      },
       "key": "srd51.class.druid#spells",
       "of": "spell",
       "options": [],
@@ -1075,7 +1093,7 @@
     "packages": [
       {
         "id": "srd51",
-        "version": "0.1.0"
+        "version": "0.2.0"
       }
     ],
     "ruleset": "srd51"
@@ -2937,7 +2955,18 @@
           "source": {
             "package": ""
           },
-          "value": 16
+          "value": 14
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Adjustment"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 2
         }
       ],
       "value": 16
@@ -2953,7 +2982,18 @@
           "source": {
             "package": ""
           },
-          "value": 16
+          "value": 14
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Adjustment"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 2
         },
         {
           "applied": true,
@@ -2983,7 +3023,18 @@
           "source": {
             "package": ""
           },
-          "value": 13
+          "value": 11
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Adjustment"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 2
         },
         {
           "applied": true,
@@ -3029,7 +3080,18 @@
           "source": {
             "package": ""
           },
-          "value": 20
+          "value": 16
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Adjustment"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 4
         }
       ],
       "value": 20

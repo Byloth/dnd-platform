@@ -9,6 +9,15 @@ text:
 cost:
   amount: 40
   currency: gp
+contents:
+  - item: srd51.item.backpack
+  - item: srd51.item.book
+  - item: srd51.item.ink-1-ounce-bottle
+  - item: srd51.item.ink-pen
+  - item: srd51.item.parchment-one-sheet
+    quantity: 10
+  - item: srd51.item.little-bag-of-sand
+  - item: srd51.item.small-knife
 type: gear
 tags:
   - equipment-packs

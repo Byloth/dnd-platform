@@ -1,0 +1,33 @@
+id: srd51.archetype.quick-fingers
+name:
+  en: Quick fingers
+source: srd51
+pitch:
+  en: A small, sly expert who sneaks, picks locks and strikes where it hurts most.
+recommends:
+  species: srd51.species.halfling
+  subspecies: srd51.species.halfling.lightfoot
+  class: srd51.class.rogue
+  background: srd51.background.acolyte
+  abilityPriority:
+  - dex
+  - con
+  - int
+  - wis
+  - cha
+  - str
+  answers:
+    srd51.class.rogue#skills:
+    - stealth
+    - sleight-of-hand
+    - perception
+    - acrobatics
+why:
+  class:
+    en: 'Rogues deal big damage with Sneak Attack and are the best at skills: clear choices every turn.'
+  species:
+    en: 'A lightfoot halfling adds to Dexterity, can hide behind friends and is Lucky: rolling a 1 is rarely a disaster.'
+  abilityPriority:
+    en: Dexterity drives your attacks, your armour class and your best skills; Constitution keeps you standing; Intelligence helps with Investigation.
+  background:
+    en: Acolyte, the one background of the SRD, gives Insight and Religion and two languages.

@@ -385,6 +385,11 @@
       ],
       "choice": "cantrips",
       "count": 3,
+      "filter": {
+        "level": 0,
+        "list": "srd51.spell-list.wizard",
+        "type": "spell"
+      },
       "key": "srd51.class.wizard#cantrips",
       "of": "spell",
       "options": [],
@@ -400,6 +405,10 @@
       ],
       "choice": "spells",
       "count": 4,
+      "filter": {
+        "list": "srd51.spell-list.wizard",
+        "type": "spell"
+      },
       "key": "srd51.class.wizard#spells",
       "of": "spell",
       "options": [],
@@ -634,7 +643,7 @@
     "packages": [
       {
         "id": "srd51",
-        "version": "0.1.0"
+        "version": "0.2.0"
       }
     ],
     "ruleset": "srd51"

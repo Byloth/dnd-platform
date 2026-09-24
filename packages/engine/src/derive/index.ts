@@ -153,6 +153,7 @@ function choiceView(pending: PendingChoice, answers: Record<string, readonly str
         of: c.of,
         count: c.count ?? 1,
         options: c.from ?? [],
+        ...(c.filter ? { filter: c.filter } : {}),
         ...(pending.level !== undefined ? { level: pending.level } : {})
     });
 }
@@ -410,7 +411,8 @@ export function derive(character: Character, set: PackageSet, options: DeriveOpt
                 choice: ctx.effect.choice,
                 of: ctx.effect.of,
                 count: ctx.effect.count ?? 1,
-                options: ctx.effect.from ?? []
+                options: ctx.effect.from ?? [],
+                ...(ctx.effect.filter ? { filter: ctx.effect.filter } : {})
             });
             if ((ctx.effect.of === "skill") || (ctx.effect.of === "tool") || (ctx.effect.of === "language"))
             {
@@ -474,6 +476,7 @@ export function derive(character: Character, set: PackageSet, options: DeriveOpt
         classLevels: classLevelsOf(character),
         classes: classes,
         baseScores: baseScores,
+        abilityAdjustments: character.choices.abilityScores?.bonuses ?? {},
         ...(species ? { species: species } : {}),
         ...(subspecies ? { subspecies: subspecies } : {}),
         equipment: equippedItems(character, set),
@@ -814,7 +817,8 @@ export function derive(character: Character, set: PackageSet, options: DeriveOpt
                         choice: "cantrips",
                         of: "spell",
                         count: cantripsKnown ?? 0,
-                        options: []
+                        options: [],
+                        filter: { type: "spell", list: e.list, level: 0 }
                     }) :
                     (answers[`${classId}#cantrips`] ?? []);
                 const chosen = registerChoice(col, answers, {
@@ -823,7 +827,8 @@ export function derive(character: Character, set: PackageSet, options: DeriveOpt
                     choice: "spells",
                     of: "spell",
                     count: preparedCount,
-                    options: []
+                    options: [],
+                    filter: { type: "spell", list: e.list }
                 });
                 const chosenAs = e.preparation === "known" ? "known" : "prepared";
                 for (const spellId of cantrips)

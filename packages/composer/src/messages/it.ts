@@ -203,6 +203,8 @@ export const it: SheetMessages = {
     explain: {
         base: "Tutti partono da {value}.",
         baseFrom: "{label} fissa il valore di partenza a {value}.",
+        score: "Hai scelto un punteggio di {value}.",
+        adjustment: "La tua correzione aggiunge {value}.",
         ability: "La tua {ability} ({score}) dà {value}.",
         proficiency: "Il tuo bonus di competenza dà {value}.",
         add: "{label} aggiunge {value}.",

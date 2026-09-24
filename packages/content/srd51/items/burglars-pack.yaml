@@ -9,6 +9,25 @@ text:
 cost:
   amount: 16
   currency: gp
+contents:
+  - item: srd51.item.backpack
+  - item: srd51.item.ball-bearings-bag-of-1000
+  - item: srd51.item.string-10-feet
+  - item: srd51.item.bell
+  - item: srd51.item.candle
+    quantity: 5
+  - item: srd51.item.crowbar
+  - item: srd51.item.hammer
+  - item: srd51.item.piton
+    quantity: 10
+  - item: srd51.item.lantern-hooded
+  - item: srd51.item.lamp-oil-flask
+    quantity: 2
+  - item: srd51.item.rations-1-day
+    quantity: 5
+  - item: srd51.item.tinderbox
+  - item: srd51.item.waterskin
+  - item: srd51.item.rope-hempen-50-feet
 type: gear
 tags:
   - equipment-packs

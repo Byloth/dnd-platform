@@ -1,0 +1,30 @@
+id: srd51.archetype.sword-and-shield
+name:
+  en: Sword and shield
+source: srd51
+pitch:
+  en: 'A trained soldier in heavy armour, with a sword and a shield: simple to play and hard to beat.'
+recommends:
+  species: srd51.species.human
+  class: srd51.class.fighter
+  background: srd51.background.acolyte
+  abilityPriority:
+  - str
+  - con
+  - dex
+  - wis
+  - cha
+  - int
+  answers:
+    srd51.class.fighter#skills:
+    - athletics
+    - perception
+why:
+  class:
+    en: 'Fighters are the simplest class to start with: great armour, many weapons, and features that work without planning.'
+  species:
+    en: 'A human gets a little better at everything (+1 to every score): good at whatever your fighter ends up doing.'
+  abilityPriority:
+    en: Strength drives your attacks and lets you wear heavy armour; Constitution gives hit points; Dexterity helps with initiative and saving throws.
+  background:
+    en: Acolyte, the one background of the SRD, gives Insight and Religion and two languages.

@@ -1,0 +1,32 @@
+id: srd51.archetype.oathbound-champion
+name:
+  en: Oathbound champion
+source: srd51
+pitch:
+  en: A holy knight in shining armour who protects the weak, smites evil and heals with a touch.
+recommends:
+  species: srd51.species.dragonborn
+  class: srd51.class.paladin
+  background: srd51.background.acolyte
+  abilityPriority:
+  - str
+  - cha
+  - con
+  - wis
+  - dex
+  - int
+  answers:
+    srd51.class.paladin#skills:
+    - athletics
+    - persuasion
+    srd51.feature.dragonborn.draconic-ancestry#draconic-ancestry:
+    - gold
+why:
+  class:
+    en: 'Paladins combine heavy armour, strong attacks and healing: forgiving to play and useful in every fight.'
+  species:
+    en: A dragonborn adds to Strength and Charisma, the two scores a paladin needs, and breathes fire (gold dragon ancestry).
+  abilityPriority:
+    en: Strength drives your attacks and your heavy armour; Charisma powers your spells and, later, your aura; Constitution gives hit points.
+  background:
+    en: Acolyte, the one background of the SRD, gives Insight and Religion and two languages.

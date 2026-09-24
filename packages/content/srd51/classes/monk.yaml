@@ -672,3 +672,6 @@ tables:
       "10": 20
       "14": 25
       "18": 30
+primaryAbilities:
+  - dex
+  - wis

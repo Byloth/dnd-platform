@@ -664,6 +664,10 @@
       ],
       "choice": "magical-secrets-10",
       "count": 2,
+      "filter": {
+        "maxLevel": 5,
+        "type": "spell"
+      },
       "key": "srd51.feature.bard.magical-secrets#magical-secrets-10",
       "of": "spell",
       "options": [],
@@ -677,6 +681,10 @@
       ],
       "choice": "magical-secrets-14",
       "count": 2,
+      "filter": {
+        "maxLevel": 7,
+        "type": "spell"
+      },
       "key": "srd51.feature.bard.magical-secrets#magical-secrets-14",
       "of": "spell",
       "options": [],
@@ -690,6 +698,10 @@
       ],
       "choice": "magical-secrets-18",
       "count": 2,
+      "filter": {
+        "maxLevel": 9,
+        "type": "spell"
+      },
       "key": "srd51.feature.bard.magical-secrets#magical-secrets-18",
       "of": "spell",
       "options": [],
@@ -703,6 +715,10 @@
       ],
       "choice": "additional-magical-secrets",
       "count": 2,
+      "filter": {
+        "maxLevel": 3,
+        "type": "spell"
+      },
       "key": "srd51.feature.college-of-lore.additional-magical-secrets#additional-magical-secrets",
       "of": "spell",
       "options": [],
@@ -718,6 +734,11 @@
       ],
       "choice": "cantrips",
       "count": 4,
+      "filter": {
+        "level": 0,
+        "list": "srd51.spell-list.bard",
+        "type": "spell"
+      },
       "key": "srd51.class.bard#cantrips",
       "of": "spell",
       "options": [],
@@ -751,6 +772,10 @@
       ],
       "choice": "spells",
       "count": 22,
+      "filter": {
+        "list": "srd51.spell-list.bard",
+        "type": "spell"
+      },
       "key": "srd51.class.bard#spells",
       "of": "spell",
       "options": [],
@@ -1188,7 +1213,7 @@
     "packages": [
       {
         "id": "srd51",
-        "version": "0.1.0"
+        "version": "0.2.0"
       }
     ],
     "ruleset": "srd51"
@@ -2745,7 +2770,18 @@
           "source": {
             "package": ""
           },
-          "value": 18
+          "value": 15
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Adjustment"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 3
         },
         {
           "applied": true,
@@ -2775,7 +2811,18 @@
           "source": {
             "package": ""
           },
-          "value": 16
+          "value": 13
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Adjustment"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 3
         }
       ],
       "value": 16
@@ -2791,7 +2838,18 @@
           "source": {
             "package": ""
           },
-          "value": 20
+          "value": 14
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Adjustment"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 6
         }
       ],
       "value": 20

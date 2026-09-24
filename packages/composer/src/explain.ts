@@ -179,6 +179,13 @@ export function conditionWords(condition: Condition, ctx: WordingContext): strin
 function sentence(c: Contribution, ctx: WordingContext): string
 {
     const label = ctx.label(c);
+    // The player's own numbers: the score they chose and the adjustment they typed (the engine's ability base).
+    const own = (c.source.package === "") && (c.source.entity === undefined) ? c.label["en"] : undefined;
+    if ((own === "Base score") && (c.kind === "base")) { return ctx.t("explain.score", { value: plainText(c.value) }); }
+    if ((own === "Adjustment") && (c.kind === "add"))
+    {
+        return ctx.t("explain.adjustment", { value: signedText(c.value) });
+    }
     switch (c.kind)
     {
         case "base":
