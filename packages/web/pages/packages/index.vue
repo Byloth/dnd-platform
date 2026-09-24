@@ -449,6 +449,11 @@
             &--spinning
             {
                 animation: spin 1s linear infinite;
+
+                @media (prefers-reduced-motion: reduce)
+                {
+                    animation: none;
+                }
             }
         }
 
