@@ -1,9 +1,9 @@
 formatVersion: 0
 id: fixture-multiclass-caster
 name: Twin Candle
-ruleset: { id: srd51, version: 0.4.0 }
+ruleset: { id: srd51, version: 0.5.0 }
 packages:
-  - { id: srd51, version: 0.4.0 }
+  - { id: srd51, version: 0.5.0 }
 choices:
   species: srd51.species.human
   # First class listed = the class taken at level 1 (its hit die is the level-1 hit points, its saves are the only ones).

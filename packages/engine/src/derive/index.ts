@@ -422,6 +422,22 @@ export function derive(character: Character, set: PackageSet, options: DeriveOpt
             {
                 for (const item of given) { addProficiency(col, ctx.effect.of, item, ctx.source); }
             }
+            // A choice of ability scores with an amount raises each chosen score (the variant human's two +1): a
+            // modify of the feature's own, so the explanation names it like any species bonus.
+            if ((ctx.effect.of === "ability") && (ctx.effect.amount !== undefined))
+            {
+                const allowed = ctx.effect.from ?? set.ruleset.abilities;
+                for (const ability of new Set(given.filter((a) => allowed.includes(a))))
+                {
+                    contexts.push({
+                        feature: ctx.feature,
+                        index: ctx.index,
+                        effect: { kind: "modify", target: `ability.${ability}`, op: "add", value: ctx.effect.amount },
+                        applied: true,
+                        source: ctx.source
+                    });
+                }
+            }
             if (ctx.effect.of === "spell")
             {
                 for (const id of given)

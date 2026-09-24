@@ -1,0 +1,11 @@
+effects:
+  - kind: modify
+    target: ability.cha
+    op: add
+    value: 2
+  - kind: open-choice
+    choice: ability-scores
+    of: ability
+    count: 2
+    amount: 1
+    from: [str, dex, con, int, wis]

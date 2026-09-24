@@ -1,9 +1,9 @@
 formatVersion: 0
 id: fixture-multiclass-pact
 name: Ember Whisper
-ruleset: { id: srd51, version: 0.4.0 }
+ruleset: { id: srd51, version: 0.5.0 }
 packages:
-  - { id: srd51, version: 0.4.0 }
+  - { id: srd51, version: 0.5.0 }
 choices:
   species: srd51.species.half-elf
   # First class listed = the class taken at level 1 (its hit die is the level-1 hit points, its saves are the only ones).
@@ -12,11 +12,11 @@ choices:
     - { class: srd51.class.sorcerer, subclass: srd51.subclass.sorcerer.draconic-bloodline, levels: 2 }
   abilityScores:
     method: manual
-    # half-elf: +2 CHA generated from the species trait; the two +1 of choice (DEX, CON) are not a choice the
-    # engine can register, so they go into `bonuses` → STR 8, DEX 15, CON 15, INT 10, WIS 12, CHA 17
+    # half-elf: +2 CHA generated from the species trait, +1 DEX +1 CON its ability choice (answered below)
+    # → STR 8, DEX 15, CON 15, INT 10, WIS 12, CHA 17
     base: { str: 8, dex: 14, con: 14, int: 10, wis: 12, cha: 15 }
-    bonuses: { dex: 1, con: 1 }
   answers:
+    "srd51.feature.half-elf.ability-score-increase#ability-scores": [dex, con]
     "srd51.class.warlock#skills": [arcana, deception]
     "srd51.class.warlock#otherworldly-patron": [srd51.subclass.warlock.the-fiend]
     # warlock cantrips known at class level 3: table row 1 → 2

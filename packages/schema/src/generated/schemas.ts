@@ -3085,6 +3085,11 @@ export const SCHEMAS = {
                         "type": "integer",
                         "minimum": 1
                     },
+                    "amount": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "description": "For a choice of ability scores: how much each chosen score increases (the variant human's two +1). Absent: the choice only records the answer."
+                    },
                     "from": {
                         "type": "array",
                         "items": {

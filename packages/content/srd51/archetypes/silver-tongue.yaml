@@ -20,6 +20,9 @@ recommends:
     - persuasion
     - deception
     - performance
+    srd51.feature.half-elf.ability-score-increase#ability-scores:
+    - dex
+    - con
 why:
   class:
     en: 'Bards help everyone at the table: Bardic Inspiration, healing and a spell for most situations.'

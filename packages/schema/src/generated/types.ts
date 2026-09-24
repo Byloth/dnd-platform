@@ -828,6 +828,10 @@ export interface OpenChoice {
         | "option";
     count?: number;
     /**
+     * For a choice of ability scores: how much each chosen score increases (the variant human's two +1). Absent: the choice only records the answer.
+     */
+    amount?: number;
+    /**
      * @minItems 1
      */
     from?: [string, ...string[]];

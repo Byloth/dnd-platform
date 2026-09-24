@@ -589,6 +589,25 @@
     {
       "answered": true,
       "answers": [
+        "dex",
+        "con"
+      ],
+      "choice": "ability-scores",
+      "count": 2,
+      "key": "srd51.feature.half-elf.ability-score-increase#ability-scores",
+      "of": "ability",
+      "options": [
+        "str",
+        "dex",
+        "con",
+        "int",
+        "wis"
+      ],
+      "owner": "srd51.feature.half-elf.ability-score-increase"
+    },
+    {
+      "answered": true,
+      "answers": [
         "srd51.spell.fireball",
         "srd51.spell.counterspell"
       ],
@@ -1068,7 +1087,7 @@
     "packages": [
       {
         "id": "srd51",
-        "version": "0.4.0"
+        "version": "0.5.0"
       }
     ],
     "ruleset": "srd51"
@@ -2395,10 +2414,13 @@
           "applied": true,
           "kind": "add",
           "label": {
-            "en": "Adjustment"
+            "en": "Ability Score Increase"
           },
           "source": {
-            "package": ""
+            "effectIndex": 1,
+            "entity": "srd51.species.half-elf",
+            "feature": "srd51.feature.half-elf.ability-score-increase",
+            "package": "srd51"
           },
           "value": 1
         }
@@ -2427,7 +2449,21 @@
           "source": {
             "package": ""
           },
-          "value": 2
+          "value": 1
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Ability Score Increase"
+          },
+          "source": {
+            "effectIndex": 1,
+            "entity": "srd51.species.half-elf",
+            "feature": "srd51.feature.half-elf.ability-score-increase",
+            "package": "srd51"
+          },
+          "value": 1
         }
       ],
       "value": 16

@@ -754,6 +754,28 @@ describe("open-choice", () =>
         });
     });
 
+    it("raises the chosen ability scores by the choice's amount, and names the feature", () =>
+    {
+        const choice = {
+            kind: "open-choice",
+            choice: "ability-scores",
+            of: "ability",
+            count: 2,
+            amount: 1,
+            from: ["str", "dex", "con", "int", "wis"]
+        };
+        const answers = { [`${F("test")}#ability-scores`]: ["dex", "con", "cha"] };
+        const before = sheetWith([choice]);
+        const sheet = sheetWith([choice], { character: { answers: answers } });
+        const score = (s: ComputedSheet, a: string): number => Number(s.values[`ability.${a}`]?.value);
+
+        expect(score(sheet, "dex")).toBe(score(before, "dex") + 1);
+        expect(score(sheet, "con")).toBe(score(before, "con") + 1);
+        expect(score(sheet, "cha")).toBe(score(before, "cha"));
+        expect(sheet.values["ability.dex"]?.provenance.map((c) => c.kind)).toEqual(["base", "add"]);
+        expect(sheet.choices.find((c) => c.key === `${F("test")}#ability-scores`)?.answered).toBe(true);
+    });
+
     it("accepts a filter with no listed options", () =>
     {
         const choice = {

@@ -1,9 +1,9 @@
 formatVersion: 0
 id: fixture-bard-l5
 name: Willow Verse
-ruleset: { id: srd51, version: 0.4.0 }
+ruleset: { id: srd51, version: 0.5.0 }
 packages:
-  - { id: srd51, version: 0.4.0 }
+  - { id: srd51, version: 0.5.0 }
 choices:
   species: srd51.species.half-elf
   classes:
@@ -12,9 +12,10 @@ choices:
     method: manual
     # half-elf: +2 CHA generated from the species trait
     base: { str: 8, dex: 14, con: 13, int: 10, wis: 12, cha: 15 }
-    # half-elf +1 DEX +1 CON (the two +1 of choice, not modelled by the engine); ASI 4: +2 CHA → 19
-    bonuses: { dex: 1, con: 1, cha: 2 }
+    # ASI 4: +2 CHA → 19 (the half-elf's +1 DEX +1 CON are the answer to its ability choice)
+    bonuses: { cha: 2 }
   answers:
+    "srd51.feature.half-elf.ability-score-increase#ability-scores": [dex, con]
     "srd51.class.bard#skills": [performance, persuasion, deception]
     "srd51.class.bard#tools": [lute, flute, drum]
     "srd51.feature.half-elf.skill-versatility#skill": [insight, perception]

@@ -7,6 +7,14 @@ improvement of the content is a new version: bump `version` in
 release file. Characters follow new versions automatically; the application
 tells the player what changed on their sheet.
 
+## 0.5.0 — 2026-09-24
+
+- **Half-elves get their two +1**: "two other ability scores of your
+  choice increase by 1" is now a choice the sheet asks and applies, instead
+  of numbers to add by hand. A half-elf character made before this version
+  asks for the two scores; its totals do not change once they are chosen
+  (take them out of any manual adjustment).
+
 ## 0.4.0 — 2026-09-24
 
 - **Starting equipment finds its items**: holy symbols, arcane and druidic
