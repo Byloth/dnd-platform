@@ -7,6 +7,8 @@ import type { JSONValue } from "@byloth/core";
 import { localize } from "@byloth/dnd-platform-composer";
 
 import { deal, isPermutation, pointBuyCost, swap } from "@/composables/ability-scores";
+import { EMPTY_SELECTION, coins, useEquipment } from "@/composables/equipment";
+import type { EquipmentSelection, Source } from "@/composables/equipment";
 import type { Scores } from "@/composables/ability-scores";
 
 /**
@@ -34,6 +36,8 @@ export interface WizardDraft
     readonly archetype?: string | null;
     /** The six totals the player rolled, as typed, when the method is "roll"; never part of the character. */
     readonly rolls?: readonly (number | null)[];
+    /** The player's equipment selections, from which `choices.equipment` is rebuilt. */
+    readonly equipment?: EquipmentSelection;
     readonly savedAt: string;
 }
 
@@ -78,6 +82,7 @@ export const useWizardStore = defineStore("wizard", () =>
     const archetype = ref<string | null>();
     /** The rolled totals as typed, one place per ability; `null` where nothing is typed yet. */
     const rolls = ref<(number | null)[]>([]);
+    const equipment = ref<EquipmentSelection>(structuredClone(EMPTY_SELECTION));
     const sources = shallowRef<PackageSource[]>([]);
 
     let _saveTimer: ReturnType<typeof setTimeout> | undefined;
@@ -118,6 +123,8 @@ export const useWizardStore = defineStore("wizard", () =>
             step: step.value,
             archetype: archetype.value,
             rolls: rolls.value.length ? [...rolls.value] : undefined,
+            // A plain copy: the selections are reactive all the way down, which IndexedDB cannot clone.
+            equipment: JSON.parse(JSON.stringify(equipment.value)) as EquipmentSelection,
             savedAt: new Date().toISOString()
         });
         _saving = _saving.then(() => useBrowserStorage().meta.set(DRAFT_KEY, draft as unknown as JSONValue));
@@ -178,6 +185,7 @@ export const useWizardStore = defineStore("wizard", () =>
         step.value = "content";
         archetype.value = undefined;
         rolls.value = [];
+        equipment.value = structuredClone(EMPTY_SELECTION);
         await _loadSources();
         await save();
     };
@@ -196,6 +204,7 @@ export const useWizardStore = defineStore("wizard", () =>
         step.value = draft.step;
         archetype.value = draft.archetype;
         rolls.value = [...draft.rolls ?? []];
+        equipment.value = structuredClone(draft.equipment ?? EMPTY_SELECTION);
         await _loadSources();
 
         return true;
@@ -208,6 +217,7 @@ export const useWizardStore = defineStore("wizard", () =>
         character.value = undefined;
         archetype.value = undefined;
         rolls.value = [];
+        equipment.value = structuredClone(EMPTY_SELECTION);
         step.value = "content";
         await useBrowserStorage().meta.set(DRAFT_KEY, null);
     };
@@ -226,6 +236,35 @@ export const useWizardStore = defineStore("wizard", () =>
 
         _write({ ...current, packages: [current.ruleset, ...packages.filter((p) => p.id !== current.ruleset.id)] });
         await _loadSources();
+    };
+
+    const _equipment = () =>
+        (packageSet.value ? useEquipment(packageSet.value, useNuxtApp().$i18n.locale.value) : undefined);
+
+    /** Rebuilds `choices.equipment` from the grants and the selections (packs unpacked). */
+    const _rebuildEquipment = (): void =>
+    {
+        const tools = _equipment();
+        const current = character.value;
+        if (!tools || !current) { return; }
+        const entries = tools.build(current, equipment.value);
+
+        const choices = defined({ ...current.choices, equipment: entries.length ? entries : undefined });
+
+        _write({ ...current, choices: choices });
+    };
+
+    /** Forgets the selections that belonged to a grant the player replaced. */
+    const _resetEquipment = (source: Source): void =>
+    {
+        const own = (key: string): boolean => key.startsWith(`${source}#`);
+        const selection = equipment.value;
+        equipment.value = {
+            ...selection,
+            options: Object.fromEntries(Object.entries(selection.options).filter(([k]) => !own(k))),
+            picks: Object.fromEntries(Object.entries(selection.picks).filter(([k]) => !own(k))),
+            removed: selection.removed.filter((k) => !own(k))
+        };
     };
 
     const _archetype = (id: string | null | undefined): Archetype | undefined =>
@@ -275,6 +314,9 @@ export const useWizardStore = defineStore("wizard", () =>
             abilityScores: array ? { method: "standard-array", base: deal(array, order) } : choices.abilityScores,
             answers: { ...choices.answers, ...recommends.answers }
         }));
+        _resetEquipment("class");
+        _resetEquipment("background");
+        _rebuildEquipment();
     };
 
     const chooseSpecies = (id: string): void =>
@@ -321,6 +363,8 @@ export const useWizardStore = defineStore("wizard", () =>
                 answers: _withoutAnswersOf(choices.answers, [current?.class, current?.subclass])
             };
         });
+        _resetEquipment("class");
+        _rebuildEquipment();
     };
 
     const chooseBackground = (id: string): void =>
@@ -332,6 +376,8 @@ export const useWizardStore = defineStore("wizard", () =>
                 background: id,
                 answers: _withoutAnswersOf(choices.answers, [choices.background])
             }));
+        _resetEquipment("background");
+        _rebuildEquipment();
     };
 
     const _scores = (change: (scores: NonNullable<Choices["abilityScores"]>) => Choices["abilityScores"]): void =>
@@ -467,6 +513,64 @@ export const useWizardStore = defineStore("wizard", () =>
         });
     };
 
+    const _select = (change: (selection: EquipmentSelection) => EquipmentSelection): void =>
+    {
+        equipment.value = change(equipment.value);
+        _rebuildEquipment();
+    };
+
+    /** An option of a choice group of the class or background grant. */
+    const chooseOption = (group: string, index: number): void =>
+        _select((s) => ({ ...s, options: { ...s.options, [group]: index } }));
+
+    /** The item a filter slot gives ("any martial weapon" → a longsword). */
+    const pick = (slot: string, item: string): void => _select((s) => ({ ...s, picks: { ...s.picks, [slot]: item } }));
+
+    /** Takes a granted item out, or puts it back. */
+    const removeSlot = (slot: string, removed: boolean): void =>
+        _select((s) => ({
+            ...s,
+            removed: removed ? [...new Set([...s.removed, slot])] : s.removed.filter((k) => k !== slot)
+        }));
+
+    const addItem = (item: string): void =>
+        _select((s) =>
+        {
+            const existing = s.added.findIndex((a) => a.item === item);
+            const added = existing < 0 ?
+                [...s.added, { item: item, quantity: 1 }] :
+                s.added.map((a, i) => (i === existing ? { ...a, quantity: a.quantity + 1 } : a));
+
+            return { ...s, added: added };
+        });
+
+    const dropItem = (item: string): void => _select((s) => ({ ...s, added: s.added.filter((a) => a.item !== item) }));
+
+    const equip = (item: string, on: boolean): void =>
+        _select((s) => ({ ...s, equipped: { ...s.equipped, [item]: on } }));
+
+    /** The suggested purse, in copper: the grants' gold, plus removed items, minus added ones. */
+    const suggestedCopper = computed((): number =>
+    {
+        const tools = _equipment();
+
+        return tools && character.value ? tools.suggestedCopper(character.value, equipment.value) : 0;
+    });
+
+    type Currency = NonNullable<Character["state"]["currency"]>;
+
+    /** The coins the character starts with; zeros are left out. */
+    const setCoins = (currency: Currency): void =>
+    {
+        const current = character.value;
+        if (!current) { return; }
+        const kept = Object.fromEntries(Object.entries(currency).filter(([, v]) => (v ?? 0) > 0)) as Currency;
+
+        _write({ ...current, state: { ...current.state, currency: kept } });
+    };
+
+    const useSuggestedCoins = (): void => setCoins(coins(suggestedCopper.value));
+
     /** The archetype's recommendation for a key (`species`, `class`…) and why, when the draft started from one. */
     const recommendation = (key: keyof Archetype["recommends"]): { value: unknown, why?: string } | undefined =>
     {
@@ -483,6 +587,7 @@ export const useWizardStore = defineStore("wizard", () =>
         step,
         archetype,
         rolls,
+        equipment,
         sources,
         packageSet,
         start,
@@ -505,6 +610,15 @@ export const useWizardStore = defineStore("wizard", () =>
         adjust,
         dealRecommended,
         answer,
+        chooseOption,
+        pick,
+        removeSlot,
+        addItem,
+        dropItem,
+        equip,
+        suggestedCopper,
+        setCoins,
+        useSuggestedCoins,
         recommendation
     };
 });
