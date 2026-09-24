@@ -9,7 +9,13 @@ This document fixes the creation wizard of [../07-character-creation.md](../07-c
 - **The wizard edits a character document and derives after every change.** There is no wizard state apart from the current step: every input writes `character.choices`, the engine derives, the sheet's `choices` and `warnings` drive what the step shows next. The review step is the build-mode sheet of [03-sheet-composer.md](03-sheet-composer.md).
 - **Archetypes are content.** `packages/content/srd51/archetypes/<name>.yaml` (schema `archetype.schema.json`, already in the format): `id`, `name`, `pitch`, `recommends: { species, class, subclass?, background, abilityPriority, answers }`, `why` with one sentence per recommendation. Phase 1 authors at least one archetype per SRD class, in English with Italian in the translation package; a private or homebrew package may add its own.
 - **Recommendations are marks, never constraints.** A recommended option is listed first with its reason; every other option stays selectable. Step 1 may be skipped: without an archetype nothing is marked.
-- **Standard array by default (DEC-15)**; point buy and rolling are the other two tabs of step 5; rolling enters the numbers by hand (dice are the player's).
+- **Standard array by default (DEC-15)**; point buy and rolling are the other two tabs of step 5; rolling enters the numbers by hand (dice are the player's). The array and the point-buy budget and costs are content, `ruleset.abilityScores` (additive v0, M1.4a). SRD 5.1 has neither, so srd51 0.2.0 carries SRD 5.2's numbers (CC-BY-4.0, credited). Decided by the owner on 2026-09-24.
+- **The player may adjust each ability score by hand** (owner, 2026-09-24): a free number added to the score, stored in `choices.abilityScores.bonuses` and shown in the explanation as the player's own adjustment. It is offered in step 5 and on the sheet. Adjusting other values (armour class, hit points, speed) is a later candidate, not Phase 1.
+- **Starting equipment is content, and so is the money** (owner, 2026-09-24):
+  - Classes and backgrounds already declare structured grants: fixed items, option groups, filters such as "any martial weapon", `gold`.
+  - Packs list their items (`item.contents`, additive v0), so a pack is shown with what it holds, and a campaign package can define its own packs for its players.
+  - The coins go in `state.currency: { copper, silver, electrum, gold, platinum }` (additive v0), with the names spelled out.
+  - Step 7 suggests a starting purse and the player can type any amount. The suggestion is the grants' `gold`, plus the cost of every default item the player removes, minus the cost of every item they add.
 - **Warn, never block.** Every warning of the sheet (`W_UNANSWERED_CHOICE`, unmet prerequisite, missing package) is shown next to the field or step that can fix it, in plain language with the fix stated, and in the review; "save" and "next" are always available.
 - **Expert mode is the same steps on one page**, with dense lists, no recommendations highlighted, no explanatory copy, direct score entry; it is the help level *expert* of the preferences, not a different wizard.
 - **Editing after creation reopens the wizard at the step**, from the sheet, with the same components.
@@ -27,7 +33,7 @@ This document fixes the creation wizard of [../07-character-creation.md](../07-c
 | 4 | Background | `background` | `choices.background`, its choices | cards |
 | 5 | Ability scores | class primary abilities, species bonuses from the derived sheet | `choices.abilityScores` (method, base, assignment) | three tabs: standard array (drag or pick per ability, recommended assignment prefilled from `abilityPriority`), point buy (budget and costs from the ruleset), roll (six inputs) |
 | 6 | Remaining choices | the sheet's `choices` with `answered: false` | `choices.answers[key]` | one card per open choice, options from `ChoiceView.options`, spells filtered by list and level |
-| 7 | Equipment | class and background starting equipment, `item` entities | `choices.equipment` | packs as presented by content, shop for expert; equipped toggles |
+| 7 | Equipment | class `startingEquipment` and background `equipment` grants, `item` entities with their `contents` | `choices.equipment`, `state.currency` | one group per option of the class grant (a filter becomes a picker of matching items; a pack shows its contents); the background's fixed items; items added or removed; the suggested purse beside an editable one; equipped toggles |
 | 8 | Personality | background suggestions | `name`, `alignment`, `personality`, `appearance`, `notes` | free text with suggestions |
 | 9 | Review | the derived sheet | a snapshot "as created"; the character is stored | the build-mode sheet with the warnings on top, "print" and "export" |
 
@@ -53,7 +59,7 @@ Steps can be revisited in any order from a stepper; a change in step 0 re-valida
 
 ## Tasks
 
-1. Author the archetypes for the twelve SRD classes (English), with `why` sentences, and the class `primaryAbilities` where missing in the base package — M1.4 (content).
+1. Author the archetypes for the twelve SRD classes (English), with `why` sentences, and the class `primaryAbilities` where missing in the base package — M1.4 (content; done in M1.4a with srd51 0.2.0: the archetypes, `primaryAbilities` from the multiclassing prerequisites, the ability-score methods, the pack contents).
 2. The wizard route and stepper, steps 0–4 with cards and marks — M1.4.
 3. Step 5 with the three methods, standard array default, point-buy rules read from the ruleset (a `pointBuy` table in `ruleset.yaml`, additive v0 field, if the SRD ruleset lacks one) — M1.4.
 4. Steps 6–8 and the review; the "as created" snapshot; storing the character — M1.4 (store in M1.5).
@@ -62,6 +68,7 @@ Steps can be revisited in any order from a stepper; a change in step 0 re-valida
 
 ## Open points
 
-- Point buy needs costs and a budget: the SRD text has them as prose; an additive ruleset field (`abilityScores: { standardArray, pointBuy: { budget, costs } }`) keeps them out of code, recorded like the M0.7 additions. Confirm when M1.4 starts.
+- ~~Point buy needs costs and a budget~~. Decided at M1.4a: `ruleset.abilityScores`, with SRD 5.2's numbers in srd51 0.2.0. The SRD 5.1 text had neither the array nor point buy.
 - Whether the archetype should also prefill equipment (the original playbook did); the schema has no field for it; propose it for v1 if the newcomer test asks for it.
-- Starting equipment as "packs" is prose in the SRD classes; Phase 1 may present the pack text and let the player pick items from the shop list, with the recommended pack pre-ticked where the content declares it. Decide at M1.4 against the content.
+- ~~Starting equipment as "packs" is prose in the SRD classes~~. It was not: the class and background grants are structured, and only the pack contents were prose. Since M1.4a packs list their items (`item.contents`) and the coins have their place (`state.currency`); see the decisions.
+- Manual adjustment of values other than the ability scores (armour class, hit points, speed, skills), with an override or a bonus as D&D Beyond offers. It is a later candidate, noted by the owner on 2026-09-24.

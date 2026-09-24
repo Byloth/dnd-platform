@@ -109,7 +109,7 @@ interface ComputedSheet {
   attacks: AttackView[];                // one row per equipped weapon (plus versatile), one unarmed strike, shaped by modify-attacks               // id, name, activation, cost, requires, dc, rolls with resolved bonuses, toggle, onUse/onHit, source, available
   rollModifiers: RollModifierView[];   // advantage/disadvantage rules, conditional (applied flag)
   defenses: DefenseView[];
-  choices: ChoiceView[];               // key '<owner id>#<choice id>', owner, choice, of, count, options, answers, answered, level
+  choices: ChoiceView[];               // key '<owner id>#<choice id>', owner, choice, of, count, options, filter (when options is empty: a spell list, a level; M1.4), answers, answered, level
   sections: string[];                  // active sections in display order (docs/08)
   toggles: ToggleView[];               // player-controlled states declared by actions and features: state, name, expires, source
   play: PlayRules;                     // what apply reads from the ruleset, evaluated for this character (M0.7)

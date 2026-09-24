@@ -26,4 +26,10 @@ Every released version of a public package is published by the site and never ch
 
 CI runs `pnpm release:content:check`: changed content under a released version, or a version without its release file or changelog section, fails the build.
 
+## Archetypes and packs
+
+**Archetypes** (`archetypes/<name>.yaml`) are the creation wizard's starting ideas for a newcomer: `pitch`, `recommends` (species, subspecies, class, subclass when chosen at level 1, background, `abilityPriority` in the order the standard array is dealt, `answers` keyed like `choices.answers`) and a `why` sentence per recommendation, in words a newcomer understands. They are hand-written, not generated. The base package test (`packages/cli/test/creation-content.test.ts`) builds each archetype's level 1 character and requires a clean derivation, answers that fit the choices the engine opens, and a first ability among the class's `primaryAbilities`. Every class of a package that ships archetypes should have at least one.
+
+**Packs** are items with `contents: [{ item, quantity? }]`. In srd51 the import writes them from the 5e-database, together with the items only a pack holds; a homebrew or campaign package defines its own packs the same way, with the items it wants.
+
 Reminders (`add-text`) are shown to the player at the end of their section, with the name of the feature, item, condition or spell that adds them: write them as a sentence the player can act on, in the second person.

@@ -102,6 +102,9 @@ skills:
   # ... all 18
 proficiencyBonus: { table: srd51.table.proficiency-bonus }
 abilityModifier: "floor((score - 10) / 2)"
+abilityScores:                                       # read by the creation wizard (M1.4); absent: scores are rolled or typed
+  standardArray: [15, 14, 13, 12, 10, 8]
+  pointBuy: { budget: 27, costs: { 8: 0, 9: 1, 10: 2, 11: 3, 12: 4, 13: 5, 14: 7, 15: 9 } }   # the keys are the scores allowed
 hitPoints:
   firstLevel: "hitDie + mod(con)"
   perLevel: "average(hitDie) + mod(con)"          # default; rolling handled in play/progression
@@ -323,7 +326,7 @@ effects:
 
 **Spell list**: `{ id: srd51.spell-list.cleric, spells: [ids] }`. Extension packages add to it with an `extend-spell-list` effect or a patch.
 
-**Item**: `type` (weapon, armor, shield, tool, gear, consumable, wondrous), `cost`, `weight`; weapons: `category` (simple/martial), `damage`, `damageType`, `properties` (finesse, light, two-handed, versatile: "1d10", range: {normal, long}); armor: `category` (light/medium/heavy), `ac: { base: 12, addDex: true, dexMax: 2 }`, `strengthMin`, `stealthDisadvantage`; magic items: `features` with effects applied while equipped/attuned, `attunement: true` (or `{ by: "a dwarf" }`), `charges: { max, recharge }` as a resource declared on the item, `baseItem` as a reference for naming only: a magic variant declares its **own** full weapon or armour properties (Mithral Armor has no Stealth disadvantage, Sun Blade is finesse and radiant), so no "modify the item" mechanism exists.
+**Item**: `type` (weapon, armor, shield, tool, gear, consumable, wondrous), `cost`, `weight`; a pack or kit lists what it holds, `contents: [{ item, quantity? }]` (M1.4), so the creation wizard shows and unpacks it and a homebrew package can define its own packs; weapons: `category` (simple/martial), `damage`, `damageType`, `properties` (finesse, light, two-handed, versatile: "1d10", range: {normal, long}); armor: `category` (light/medium/heavy), `ac: { base: 12, addDex: true, dexMax: 2 }`, `strengthMin`, `stealthDisadvantage`; magic items: `features` with effects applied while equipped/attuned, `attunement: true` (or `{ by: "a dwarf" }`), `charges: { max, recharge }` as a resource declared on the item, `baseItem` as a reference for naming only: a magic variant declares its **own** full weapon or armour properties (Mithral Armor has no Stealth disadvantage, Sun Blade is finesse and radiant), so no "modify the item" mechanism exists.
 
 **Condition**: `text` plus `effects` active while applied. A leveled condition (Exhaustion) declares `levels: { 1: { text, effects }, … }` and `cumulative: true` (all lower levels apply too). The custom one:
 
@@ -465,7 +468,7 @@ choices:
   classes:
     - { class: srd51.class.monk, subclass: phb14.subclass.monk.way-of-shadow, levels: 3 }
   background: srd51.background.acolyte
-  abilityScores: { method: standard-array, base: { str: 11, dex: 15, con: 14, int: 8, wis: 13, cha: 8 }, bonuses: { dex: 2, wis: 2 } }
+  abilityScores: { method: standard-array, base: { str: 11, dex: 15, con: 14, int: 8, wis: 13, cha: 8 }, bonuses: { dex: 2, wis: 2 } }   # bonuses: the player's own adjustment, added to the base and shown as its own line
   answers:
     "srd51.class.monk#skills": [stealth, acrobatics]
     "srd51.class.monk#monastic-tradition": [phb14.subclass.monk.way-of-shadow]
@@ -480,6 +483,7 @@ state:
   conditions: []
   deathSaves: { successes: 0, failures: 0 }
   inspiration: false
+  currency: { gold: 15, silver: 4 }   # optional (M1.4): copper, silver, electrum, gold, platinum; names spelled out
   concentration: null
   toggles: []                   # [{ state: raging, since: <log id>, expires: { turns: 10 } }]
   activeSpells: []              # [{ spell, caster, slotLevel, expires }]

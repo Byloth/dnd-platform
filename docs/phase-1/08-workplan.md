@@ -74,8 +74,13 @@ Tasks (from [04-character-creation.md](04-character-creation.md)):
 6. Wizard copy for the newcomer level in both languages.
 7. Flow test of the twelve classes; the private Monk through the edit flow.
 
+Progress: split into M1.4a (content and format), M1.4b (wizard shell, steps 0–4), M1.4c (step 5), M1.4d (steps 6–9, the character stored), M1.4e (expert mode, editing, copy, the twelve-class test, close). M1.4a was done on 2026-09-24:
+- srd51 0.2.0: twelve archetypes, `primaryAbilities`, `ruleset.abilityScores` (from SRD 5.2) and pack contents;
+- the additive fields `item.contents` and `state.currency`;
+- the ability adjustment in the explanation and `ChoiceView.filter` in the engine.
+
 Done: the criteria of M1.4. Release: `v0.3.4`.
-Risks: starting equipment is prose in the SRD; the step may have to present pack text plus a shop; decide against the content, never invent items in code.
+Risks: starting equipment turned out to be structured content, with only the pack contents in prose; M1.4a made those data too. The rule stands: never invent items in code.
 
 ### M1.5 — Character store, export and import (≈ 2 sessions)
 
