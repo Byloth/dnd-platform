@@ -7,6 +7,12 @@ improvement of the content is a new version: bump `version` in
 release file. Characters follow new versions automatically; the application
 tells the player what changed on their sheet.
 
+## 0.3.0 — 2026-09-24
+
+- **The languages a character can learn**, eight standard and eight exotic
+  (Common, Dwarvish, Elvish… Abyssal, Celestial, Draconic…), so the creation
+  can offer them by name instead of asking you to type them.
+
 ## 0.2.0 — 2026-09-24
 
 For the guided character creation:

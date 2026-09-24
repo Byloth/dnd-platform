@@ -687,7 +687,7 @@
     "packages": [
       {
         "id": "srd51",
-        "version": "0.2.0"
+        "version": "0.1.0"
       }
     ],
     "ruleset": "srd51"
@@ -2550,13 +2550,6 @@
       "value": 25
     }
   },
-  "warnings": [
-    {
-      "code": "W_VERSION_MISMATCH",
-      "message": "character pins \"srd51\" at 0.2.0, loaded 0.1.0",
-      "package": "srd51",
-      "severity": "warning"
-    }
-  ]
+  "warnings": []
 }
 

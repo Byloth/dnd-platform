@@ -4079,6 +4079,32 @@ export const SCHEMAS = {
                 },
                 "minItems": 1
             },
+            "languages": {
+                "type": "array",
+                "description": "The languages a character may learn, read by the creation wizard's language choices; absent: languages are typed freely.",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string",
+                            "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+                        },
+                        "name": {
+                            "$ref": "common.schema.json#/$defs/localizedString"
+                        },
+                        "exotic": {
+                            "type": "boolean",
+                            "description": "An exotic language, offered after the standard ones."
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                        "id",
+                        "name"
+                    ]
+                },
+                "minItems": 1
+            },
             "proficiencyBonus": {
                 "type": "object",
                 "properties": {

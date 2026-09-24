@@ -9,8 +9,13 @@
  * proficiencies and equipment, level tables, race bonuses, backgrounds).
  */
 
+import { readFileSync, writeFileSync } from "node:fs";
+import { resolve } from "node:path";
+
+import { parseDocument } from "yaml";
+
 import * as db from "./fivedb.ts";
-import { cleanGenerated, emit, slug, text } from "./emit.ts";
+import { CONTENT_DIR, cleanGenerated, emit, slug, text } from "./emit.ts";
 import * as o5e from "./open5e.ts";
 import { applyOverlays, readOverlays } from "./overlay.ts";
 
@@ -1040,6 +1045,22 @@ for (const level of dbLevels.filter((l) => l.class.index === "warlock" && !l.sub
     pact[String(level.level)] = [slots[slotLevel - 1] ?? 0, slotLevel];
 }
 slotTable("pact", "Pact Magic slots", "classLevel", pact, "Rows are [slots, slot level].");
+
+// ---- the ruleset's languages ----------------------------------------------------------------------------------
+
+// ruleset.yaml is hand-authored: only its `languages` key is written, through a YAML document that keeps the
+// file's comments and layout.
+interface DbLanguage { index: string, name: string, type: "Standard" | "Exotic" }
+const rulesetPath = resolve(CONTENT_DIR, "ruleset.yaml");
+const ruleset = parseDocument(readFileSync(rulesetPath, "utf8"));
+ruleset.set("languages", db.rows<DbLanguage>("Languages").map((l) => compact({
+    id: l.index,
+    name: { en: l.name },
+    exotic: l.type === "Exotic" || undefined
+})));
+const languages = ruleset.get("languages", true) as { commentBefore?: string | null };
+languages.commentBefore = " Written by tools/import (map stage) from the 5e-database's SRD languages; edit them there.";
+writeFileSync(rulesetPath, ruleset.toString({ lineWidth: 0, indentSeq: false, flowCollectionPadding: false }));
 
 const unused = [...overlays.keys()].filter((k) => !usedOverlays.has(k));
 const unusedNote = unused.length ? `; unused: ${unused.join(", ")}` : "";

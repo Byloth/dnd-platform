@@ -845,7 +845,7 @@
     "packages": [
       {
         "id": "srd51",
-        "version": "0.2.0"
+        "version": "0.1.0"
       },
       {
         "id": "homebrew.byloth",
@@ -2871,12 +2871,6 @@
     }
   },
   "warnings": [
-    {
-      "code": "W_VERSION_MISMATCH",
-      "message": "character pins \"srd51\" at 0.2.0, loaded 0.1.0",
-      "package": "srd51",
-      "severity": "warning"
-    },
     {
       "code": "W_EXCLUDED_CONTENT",
       "entity": "srd51.species.dwarf",

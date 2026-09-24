@@ -1522,6 +1522,29 @@ export interface Ruleset {
             ability: "str" | "dex" | "con" | "int" | "wis" | "cha";
         }[]
     ];
+    /**
+     * The languages a character may learn, read by the creation wizard's language choices; absent: languages are typed freely.
+     *
+     * @minItems 1
+     */
+    languages?: [
+        {
+            id: string;
+            name: LocalizedString;
+            /**
+             * An exotic language, offered after the standard ones.
+             */
+            exotic?: boolean;
+        },
+        ...{
+            id: string;
+            name: LocalizedString;
+            /**
+             * An exotic language, offered after the standard ones.
+             */
+            exotic?: boolean;
+        }[]
+    ];
     proficiencyBonus: {
         table: string;
     };

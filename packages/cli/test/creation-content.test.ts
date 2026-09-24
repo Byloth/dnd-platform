@@ -114,6 +114,23 @@ describe("the base package's creation content", () =>
         }
     });
 
+    it("lists the languages, standard and exotic, and every language the content grants", () =>
+    {
+        const languages = SET.ruleset.languages ?? [];
+        const ids = new Set(languages.map((l) => l.id));
+
+        expect(languages).toHaveLength(16);
+        expect(languages.filter((l) => l.exotic)).toHaveLength(8);
+        for (const { id, data } of [...entities<{ languages?: { fixed?: string[] } }>("species"),
+            ...entities<{ languages?: { fixed?: string[] } }>("background")])
+        {
+            for (const language of data.languages?.fixed ?? [])
+            {
+                expect(ids.has(language), `${id}: ${language}`).toBe(true);
+            }
+        }
+    });
+
     it("describes every pack by the items it holds", () =>
     {
         const packs = entities<Item>("item").filter((i) => i.data.tags?.includes("equipment-packs"));

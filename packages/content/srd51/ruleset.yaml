@@ -51,7 +51,7 @@ abilityScores:
   standardArray: [15, 14, 13, 12, 10, 8]
   pointBuy:
     budget: 27
-    costs: { 8: 0, 9: 1, 10: 2, 11: 3, 12: 4, 13: 5, 14: 7, 15: 9 }
+    costs: {8: 0, 9: 1, 10: 2, 11: 3, 12: 4, 13: 5, 14: 7, 15: 9}
 hitPoints:
   firstLevel: hitDie + mod(con)
   perLevel: average(hitDie) + mod(con)
@@ -115,3 +115,60 @@ deathSaves:
     failures: 2
   damage:
     failures: 1
+languages:
+- id: common
+  name:
+    en: Common
+- id: dwarvish
+  name:
+    en: Dwarvish
+- id: elvish
+  name:
+    en: Elvish
+- id: giant
+  name:
+    en: Giant
+- id: gnomish
+  name:
+    en: Gnomish
+- id: goblin
+  name:
+    en: Goblin
+- id: halfling
+  name:
+    en: Halfling
+- id: orc
+  name:
+    en: Orc
+- id: abyssal
+  name:
+    en: Abyssal
+  exotic: true
+- id: celestial
+  name:
+    en: Celestial
+  exotic: true
+- id: draconic
+  name:
+    en: Draconic
+  exotic: true
+- id: deep-speech
+  name:
+    en: Deep Speech
+  exotic: true
+- id: infernal
+  name:
+    en: Infernal
+  exotic: true
+- id: primordial
+  name:
+    en: Primordial
+  exotic: true
+- id: sylvan
+  name:
+    en: Sylvan
+  exotic: true
+- id: undercommon
+  name:
+    en: Undercommon
+  exotic: true

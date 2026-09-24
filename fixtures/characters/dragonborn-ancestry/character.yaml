@@ -1,9 +1,9 @@
 formatVersion: 0
 id: fixture-dragonborn-ancestry
 name: Red Standard
-ruleset: { id: srd51, version: 0.2.0 }
+ruleset: { id: srd51, version: 0.3.0 }
 packages:
-  - { id: srd51, version: 0.2.0 }
+  - { id: srd51, version: 0.3.0 }
 choices:
   species: srd51.species.dragonborn
   # Sacred Oath comes at paladin 3: no subclass yet.

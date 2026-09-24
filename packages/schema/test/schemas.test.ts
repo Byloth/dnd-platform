@@ -91,6 +91,15 @@ describe("additive v0 extensions of M1.4 (docs/phase-1/04-character-creation.md)
         expect(validate({ ...ruleset, abilityScores: { pointBuy: { budget: 27, costs: { eight: 0 } } } })).toBe(false);
     });
 
+    it("a ruleset lists its languages", () =>
+    {
+        const validate = validatorFor(ajv, "ruleset");
+
+        expect(validate({ ...ruleset, languages: [{ id: "deep-speech", name: { en: "Deep Speech" }, exotic: true }] }))
+            .toBe(true);
+        expect(validate({ ...ruleset, languages: [{ id: "Deep Speech", name: { en: "Deep Speech" } }] })).toBe(false);
+    });
+
     it("an item lists what a pack holds", () =>
     {
         const validate = validatorFor(ajv, "item");
