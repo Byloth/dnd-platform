@@ -17,6 +17,14 @@ import type { ComposedSheet } from "./sheet";
 
 const CAPACITY = 16;
 
+/**
+ * The performance measure around a derivation and its composition, package loading excluded (the budget of
+ * docs/phase-1/07-testing-accessibility-performance.md: under 100 ms on the reference phone). Only the last one
+ * is kept, so the timeline never grows.
+ */
+export const DERIVE_MEASURE = "dnd:derive";
+const _DERIVE_START = `${DERIVE_MEASURE}:start`;
+
 /** A map that forgets its least recently used entry past its capacity. */
 class LeastRecentlyUsed<V>
 {
@@ -99,7 +107,13 @@ export function useEngine()
         const cached = _sheets.get(key);
         if (cached) { return cached; }
 
-        const composed = composeSheet(character, packageSet(sources, _pins(character)), options);
+        const set = packageSet(sources, _pins(character));
+
+        performance.mark(_DERIVE_START);
+        const composed = composeSheet(character, set, options);
+        performance.clearMeasures(DERIVE_MEASURE);
+        performance.measure(DERIVE_MEASURE, _DERIVE_START);
+        performance.clearMarks(_DERIVE_START);
         _stats.sheets += 1;
         _sheets.set(key, composed);
 
