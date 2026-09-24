@@ -369,6 +369,16 @@ export function contributionText(c: Contribution): string
 
 type Text = Readonly<Record<string, string | undefined>>;
 
+/** A localized string in a language: that language, else English, else any; "" when absent. */
+export function localize(label: Text | LocalizedString | undefined, language: string): string
+{
+    if (label === undefined) { return ""; }
+    const map = label as Text;
+    const any = Object.values(map).find((v) => v !== undefined);
+
+    return map[language] ?? map["en"] ?? any ?? "";
+}
+
 /** What the wording reads from the entity or option behind a contribution. */
 interface Origin
 {
@@ -479,11 +489,7 @@ class Composer
 
     private text(label: Text | LocalizedString | undefined): string
     {
-        if (label === undefined) { return ""; }
-        const map = label as Text;
-        const any = Object.values(map).find((v) => v !== undefined);
-
-        return map[this._language] ?? map["en"] ?? any ?? "";
+        return localize(label, this._language);
     }
 
     private entityName(id: string | undefined): string

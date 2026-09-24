@@ -5,7 +5,7 @@
 
 import { describe, expect, it } from "vitest";
 
-import { explain } from "../src/index.js";
+import { explain, localize } from "../src/index.js";
 import { fixture } from "./helpers.js";
 
 describe("explain", () =>
@@ -55,5 +55,16 @@ describe("explain", () =>
         expect(italian.newcomer).toEqual(expect.arrayContaining([
             "Hai scelto un punteggio di 15.", "La tua correzione aggiunge +2."
         ]));
+    });
+});
+
+describe("localize", () =>
+{
+    it("picks the language, then English, then any", () =>
+    {
+        expect(localize({ en: "Monk", it: "Monaco" }, "it")).toBe("Monaco");
+        expect(localize({ en: "Monk" }, "it")).toBe("Monk");
+        expect(localize({ de: "Mönch" }, "it")).toBe("Mönch");
+        expect(localize(undefined, "it")).toBe("");
     });
 });
