@@ -457,6 +457,64 @@
       "count": 1,
       "key": "srd51.feature.circle-of-the-land.circle-spells#land",
       "of": "option",
+      "optionDetails": {
+        "arctic": {
+          "name": {
+            "en": "Arctic"
+          },
+          "text": {
+            "en": "Circle spells of the arctic: 3rd level, hold person and spike growth; 5th level, sleet storm and slow; 7th level, freedom of movement and ice storm; 9th level, commune with nature and cone of cold."
+          }
+        },
+        "coast": {
+          "name": {
+            "en": "Coast"
+          },
+          "text": {
+            "en": "Circle spells of the coast: 3rd level, mirror image and misty step; 5th level, water breathing and water walk; 7th level, control water and freedom of movement; 9th level, conjure elemental and scrying."
+          }
+        },
+        "desert": {
+          "name": {
+            "en": "Desert"
+          },
+          "text": {
+            "en": "Circle spells of the desert: 3rd level, blur and silence; 5th level, create food and water and protection from energy; 7th level, blight and hallucinatory terrain; 9th level, insect plague and wall of stone."
+          }
+        },
+        "forest": {
+          "name": {
+            "en": "Forest"
+          },
+          "text": {
+            "en": "Circle spells of the forest: 3rd level, barkskin and spider climb; 5th level, call lightning and plant growth; 7th level, divination and freedom of movement; 9th level, commune with nature and tree stride."
+          }
+        },
+        "grassland": {
+          "name": {
+            "en": "Grassland"
+          },
+          "text": {
+            "en": "Circle spells of the grassland: 3rd level, invisibility and pass without trace; 5th level, daylight and haste; 7th level, divination and freedom of movement; 9th level, dream and insect plague."
+          }
+        },
+        "mountain": {
+          "name": {
+            "en": "Mountain"
+          },
+          "text": {
+            "en": "Circle spells of the mountain: 3rd level, spider climb and spike growth; 5th level, lightning bolt and meld into stone; 7th level, stone shape and stoneskin; 9th level, passwall and wall of stone."
+          }
+        },
+        "swamp": {
+          "name": {
+            "en": "Swamp"
+          },
+          "text": {
+            "en": "Circle spells of the swamp: 3rd level, acid arrow and darkness; 5th level, water walk and stinking cloud; 7th level, freedom of movement and locate creature; 9th level, insect plague and scrying."
+          }
+        }
+      },
       "options": [
         "arctic",
         "coast",

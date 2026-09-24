@@ -748,6 +748,10 @@ describe("open-choice", () =>
         expect(sheet.values["ac"]?.value).toBe(13);
         expect(sheet.values["attack.ranged.bonus"]?.value ?? 0).toBe(0);
         expect(chosen?.source.feature).toBe("defense");
+        expect(sheet.choices.find((c) => c.key === `${F("test")}#style`)?.optionDetails).toEqual({
+            archery: { name: { en: "Archery" } },
+            defense: { name: { en: "Defense" } }
+        });
     });
 
     it("accepts a filter with no listed options", () =>

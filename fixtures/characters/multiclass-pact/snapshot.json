@@ -454,6 +454,264 @@
       "count": 2,
       "key": "srd51.feature.warlock.eldritch-invocations#eldritch-invocations",
       "of": "option",
+      "optionDetails": {
+        "agonizing-blast": {
+          "name": {
+            "en": "Agonizing Blast"
+          },
+          "text": {
+            "en": "Prerequisite: eldritch blast cantrip. When you cast eldritch blast, add your Charisma modifier to the damage it deals on a hit."
+          }
+        },
+        "armor-of-shadows": {
+          "name": {
+            "en": "Armor of Shadows"
+          },
+          "text": {
+            "en": "You can cast mage armor on yourself at will, without expending a spell slot or material components."
+          }
+        },
+        "ascendant-step": {
+          "name": {
+            "en": "Ascendant Step"
+          },
+          "text": {
+            "en": "Prerequisite: 9th level. You can cast levitate on yourself at will, without expending a spell slot or material components."
+          }
+        },
+        "beast-speech": {
+          "name": {
+            "en": "Beast Speech"
+          },
+          "text": {
+            "en": "You can cast speak with animals at will, without expending a spell slot."
+          }
+        },
+        "beguiling-influence": {
+          "name": {
+            "en": "Beguiling Influence"
+          },
+          "text": {
+            "en": "You gain proficiency in the Deception and Persuasion skills."
+          }
+        },
+        "bewitching-whispers": {
+          "name": {
+            "en": "Bewitching Whispers"
+          },
+          "text": {
+            "en": "Prerequisite: 7th level. You can cast compulsion once using a warlock spell slot. You can't do so again until you finish a long rest."
+          }
+        },
+        "book-of-ancient-secrets": {
+          "name": {
+            "en": "Book of Ancient Secrets"
+          },
+          "text": {
+            "en": "Prerequisite: Pact of the Tome feature. You can now inscribe magical rituals in your Book of Shadows. Choose two 1st-level spells that have the ritual tag from any class's spell list (the two needn't be from the same list). The spells appear in the book and don't count against the number of spells you know. With your Book of Shadows in hand, you can cast the chosen spells as rituals. You can't cast the spells except as rituals, unless you've learned them by some other means. You can also cast a warlock spell you know as a ritual if it has the ritual tag. On your adventures, you can add other ritual spells to your Book of Shadows if the spell's level is equal to or less than half your warlock level (rounded up); for each level of the spell, the transcription takes 2 hours and costs 50 gp."
+          }
+        },
+        "chains-of-carceri": {
+          "name": {
+            "en": "Chains of Carceri"
+          },
+          "text": {
+            "en": "Prerequisite: 15th level, Pact of the Chain feature. You can cast hold monster at will, targeting a celestial, fiend, or elemental, without expending a spell slot or material components. You must finish a long rest before you can use this invocation on the same creature again."
+          }
+        },
+        "devils-sight": {
+          "name": {
+            "en": "Devil's Sight"
+          },
+          "text": {
+            "en": "You can see normally in darkness, both magical and nonmagical, to a distance of 120 feet."
+          }
+        },
+        "dreadful-word": {
+          "name": {
+            "en": "Dreadful Word"
+          },
+          "text": {
+            "en": "Prerequisite: 7th level. You can cast confusion once using a warlock spell slot. You can't do so again until you finish a long rest."
+          }
+        },
+        "eldritch-sight": {
+          "name": {
+            "en": "Eldritch Sight"
+          },
+          "text": {
+            "en": "You can cast detect magic at will, without expending a spell slot."
+          }
+        },
+        "eldritch-spear": {
+          "name": {
+            "en": "Eldritch Spear"
+          },
+          "text": {
+            "en": "Prerequisite: eldritch blast cantrip. When you cast eldritch blast, its range is 300 feet."
+          }
+        },
+        "eyes-of-the-rune-keeper": {
+          "name": {
+            "en": "Eyes of the Rune Keeper"
+          },
+          "text": {
+            "en": "You can read all writing."
+          }
+        },
+        "fiendish-vigor": {
+          "name": {
+            "en": "Fiendish Vigor"
+          },
+          "text": {
+            "en": "You can cast false life on yourself at will as a 1st-level spell, without expending a spell slot or material components."
+          }
+        },
+        "gaze-of-two-minds": {
+          "name": {
+            "en": "Gaze of Two Minds"
+          },
+          "text": {
+            "en": "You can use your action to touch a willing humanoid and perceive through its senses until the end of your next turn. As long as the creature is on the same plane of existence as you, you can use your action on subsequent turns to maintain this connection, extending the duration until the end of your next turn. While perceiving through the other creature's senses, you benefit from any special senses possessed by that creature, and you are blinded and deafened to your own surroundings."
+          }
+        },
+        "lifedrinker": {
+          "name": {
+            "en": "Lifedrinker"
+          },
+          "text": {
+            "en": "Prerequisite: 12th level, Pact of the Blade feature. When you hit a creature with your pact weapon, the creature takes extra necrotic damage equal to your Charisma modifier (minimum 1)."
+          }
+        },
+        "mask-of-many-faces": {
+          "name": {
+            "en": "Mask of Many Faces"
+          },
+          "text": {
+            "en": "You can cast disguise self at will, without expending a spell slot."
+          }
+        },
+        "master-of-myriad-forms": {
+          "name": {
+            "en": "Master of Myriad Forms"
+          },
+          "text": {
+            "en": "Prerequisite: 15th level. You can cast alter self at will, without expending a spell slot."
+          }
+        },
+        "minions-of-chaos": {
+          "name": {
+            "en": "Minions of Chaos"
+          },
+          "text": {
+            "en": "Prerequisite: 9th level. You can cast conjure elemental once using a warlock spell slot. You can't do so again until you finish a long rest."
+          }
+        },
+        "mire-the-mind": {
+          "name": {
+            "en": "Mire the Mind"
+          },
+          "text": {
+            "en": "Prerequisite: 5th level. You can cast slow once using a warlock spell slot. You can't do so again until you finish a long rest."
+          }
+        },
+        "misty-visions": {
+          "name": {
+            "en": "Misty Visions"
+          },
+          "text": {
+            "en": "You can cast silent image at will, without expending a spell slot or material components."
+          }
+        },
+        "one-with-shadows": {
+          "name": {
+            "en": "One with Shadows"
+          },
+          "text": {
+            "en": "Prerequisite: 5th level. When you are in an area of dim light or darkness, you can use your action to become invisible until you move or take an action or a reaction."
+          }
+        },
+        "otherworldly-leap": {
+          "name": {
+            "en": "Otherworldly Leap"
+          },
+          "text": {
+            "en": "Prerequisite: 9th level. You can cast jump on yourself at will, without expending a spell slot or material components."
+          }
+        },
+        "repelling-blast": {
+          "name": {
+            "en": "Repelling Blast"
+          },
+          "text": {
+            "en": "Prerequisite: eldritch blast cantrip. When you hit a creature with eldritch blast, you can push the creature up to 10 feet away from you in a straight line."
+          }
+        },
+        "sculptor-of-flesh": {
+          "name": {
+            "en": "Sculptor of Flesh"
+          },
+          "text": {
+            "en": "Prerequisite: 7th level. You can cast polymorph once using a warlock spell slot. You can't do so again until you finish a long rest."
+          }
+        },
+        "sign-of-ill-omen": {
+          "name": {
+            "en": "Sign of Ill Omen"
+          },
+          "text": {
+            "en": "Prerequisite: 5th level. You can cast bestow curse once using a warlock spell slot. You can't do so again until you finish a long rest."
+          }
+        },
+        "thief-of-five-fates": {
+          "name": {
+            "en": "Thief of Five Fates"
+          },
+          "text": {
+            "en": "You can cast bane once using a warlock spell slot. You can't do so again until you finish a long rest."
+          }
+        },
+        "thirsting-blade": {
+          "name": {
+            "en": "Thirsting Blade"
+          },
+          "text": {
+            "en": "Prerequisite: 5th level, Pact of the Blade feature. You can attack with your pact weapon twice, instead of once, whenever you take the Attack action on your turn."
+          }
+        },
+        "visions-of-distant-realms": {
+          "name": {
+            "en": "Visions of Distant Realms"
+          },
+          "text": {
+            "en": "Prerequisite: 15th level. You can cast arcane eye at will, without expending a spell slot."
+          }
+        },
+        "voice-of-the-chain-master": {
+          "name": {
+            "en": "Voice of the Chain Master"
+          },
+          "text": {
+            "en": "Prerequisite: Pact of the Chain feature. You can communicate telepathically with your familiar and perceive through your familiar's senses as long as you are on the same plane of existence. Additionally, while perceiving through your familiar's senses, you can also speak through your familiar in your own voice, even if your familiar is normally incapable of speech."
+          }
+        },
+        "whispers-of-the-grave": {
+          "name": {
+            "en": "Whispers of the Grave"
+          },
+          "text": {
+            "en": "Prerequisite: 9th level. You can cast speak with dead at will, without expending a spell slot."
+          }
+        },
+        "witch-sight": {
+          "name": {
+            "en": "Witch Sight"
+          },
+          "text": {
+            "en": "Prerequisite: 15th level. You can see the true form of any shapechanger or creature concealed by illusion or transmutation magic while the creature is within 30 feet of you and within line of sight."
+          }
+        }
+      },
       "options": [
         "agonizing-blast",
         "armor-of-shadows",
@@ -499,6 +757,32 @@
       "count": 1,
       "key": "srd51.feature.warlock.pact-boon#pact-boon",
       "of": "option",
+      "optionDetails": {
+        "pact-of-the-blade": {
+          "name": {
+            "en": "Pact of the Blade"
+          },
+          "text": {
+            "en": "You can use your action to create a pact weapon in your empty hand. You can choose the form that this melee weapon takes each time you create it. You are proficient with it while you wield it. This weapon counts as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage. Your pact weapon disappears if it is more than 5 feet away from you for 1 minute or more, if you use this feature again, if you dismiss the weapon (no action required), or if you die. You can transform one magic weapon into your pact weapon by performing a special ritual over the course of 1 hour, which can be done during a short rest."
+          }
+        },
+        "pact-of-the-chain": {
+          "name": {
+            "en": "Pact of the Chain"
+          },
+          "text": {
+            "en": "You learn the find familiar spell and can cast it as a ritual. The spell doesn't count against your number of spells known. When you cast the spell, you can choose one of the normal forms for your familiar or one of the following special forms: imp, pseudodragon, quasit, or sprite. Additionally, when you take the Attack action, you can forgo one of your own attacks to allow your familiar to make one attack of its own with its reaction."
+          }
+        },
+        "pact-of-the-tome": {
+          "name": {
+            "en": "Pact of the Tome"
+          },
+          "text": {
+            "en": "Your patron gives you a grimoire called a Book of Shadows. When you gain this feature, choose three cantrips from any class's spell list (the three needn't be from the same list). While the book is on your person, you can cast those cantrips at will. They don't count against your number of cantrips known. If they don't appear on the warlock spell list, they are nonetheless warlock spells for you."
+          }
+        }
+      },
       "options": [
         "pact-of-the-chain",
         "pact-of-the-blade",
@@ -515,6 +799,88 @@
       "count": 1,
       "key": "srd51.feature.draconic-bloodline.dragon-ancestor#dragon-ancestor",
       "of": "option",
+      "optionDetails": {
+        "black": {
+          "name": {
+            "en": "Black dragon"
+          },
+          "text": {
+            "en": "Damage type acid."
+          }
+        },
+        "blue": {
+          "name": {
+            "en": "Blue dragon"
+          },
+          "text": {
+            "en": "Damage type lightning."
+          }
+        },
+        "brass": {
+          "name": {
+            "en": "Brass dragon"
+          },
+          "text": {
+            "en": "Damage type fire."
+          }
+        },
+        "bronze": {
+          "name": {
+            "en": "Bronze dragon"
+          },
+          "text": {
+            "en": "Damage type lightning."
+          }
+        },
+        "copper": {
+          "name": {
+            "en": "Copper dragon"
+          },
+          "text": {
+            "en": "Damage type acid."
+          }
+        },
+        "gold": {
+          "name": {
+            "en": "Gold dragon"
+          },
+          "text": {
+            "en": "Damage type fire."
+          }
+        },
+        "green": {
+          "name": {
+            "en": "Green dragon"
+          },
+          "text": {
+            "en": "Damage type poison."
+          }
+        },
+        "red": {
+          "name": {
+            "en": "Red dragon"
+          },
+          "text": {
+            "en": "Damage type fire."
+          }
+        },
+        "silver": {
+          "name": {
+            "en": "Silver dragon"
+          },
+          "text": {
+            "en": "Damage type cold."
+          }
+        },
+        "white": {
+          "name": {
+            "en": "White dragon"
+          },
+          "text": {
+            "en": "Damage type cold."
+          }
+        }
+      },
       "options": [
         "black",
         "blue",

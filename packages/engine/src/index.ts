@@ -155,6 +155,7 @@ export interface DefenseView
 }
 /** What an option must be when a choice lists none (`options: []`): spells of a list, of a level… */
 export type ChoiceFilter = NonNullable<Choice["filter"]>;
+export interface OptionDetail { readonly name?: LocalizedString, readonly text?: LocalizedString }
 export interface ChoiceView
 {
     /** `<owner id>#<choice id>`, the key used in `character.choices.answers`. */
@@ -166,6 +167,8 @@ export interface ChoiceView
     readonly options: readonly string[];
     /** When `options` is empty: what the options are (a class's spells up to a level, a list's cantrips). */
     readonly filter?: ChoiceFilter;
+    /** The name and text of options declared inside the choice (a fighting style, a favored enemy). */
+    readonly optionDetails?: Readonly<Record<string, OptionDetail>>;
     readonly answers: readonly string[];
     readonly answered: boolean;
     readonly level?: number;

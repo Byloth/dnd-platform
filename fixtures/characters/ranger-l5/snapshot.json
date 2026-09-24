@@ -425,6 +425,81 @@
       "count": 1,
       "key": "srd51.feature.ranger.favored-enemy#favored-enemy-1",
       "of": "option",
+      "optionDetails": {
+        "aberrations": {
+          "name": {
+            "en": "Aberrations"
+          }
+        },
+        "beasts": {
+          "name": {
+            "en": "Beasts"
+          }
+        },
+        "celestials": {
+          "name": {
+            "en": "Celestials"
+          }
+        },
+        "constructs": {
+          "name": {
+            "en": "Constructs"
+          }
+        },
+        "dragons": {
+          "name": {
+            "en": "Dragons"
+          }
+        },
+        "elementals": {
+          "name": {
+            "en": "Elementals"
+          }
+        },
+        "fey": {
+          "name": {
+            "en": "Fey"
+          }
+        },
+        "fiends": {
+          "name": {
+            "en": "Fiends"
+          }
+        },
+        "giants": {
+          "name": {
+            "en": "Giants"
+          }
+        },
+        "monstrosities": {
+          "name": {
+            "en": "Monstrosities"
+          }
+        },
+        "oozes": {
+          "name": {
+            "en": "Oozes"
+          }
+        },
+        "plants": {
+          "name": {
+            "en": "Plants"
+          }
+        },
+        "two-humanoid-races": {
+          "name": {
+            "en": "Two races of humanoid"
+          },
+          "text": {
+            "en": "Select two races of humanoid (such as gnolls and orcs) as favored enemies."
+          }
+        },
+        "undead": {
+          "name": {
+            "en": "Undead"
+          }
+        }
+      },
       "options": [
         "aberrations",
         "beasts",
@@ -452,6 +527,43 @@
       "count": 1,
       "key": "srd51.feature.ranger.natural-explorer#favored-terrain-1",
       "of": "option",
+      "optionDetails": {
+        "arctic": {
+          "name": {
+            "en": "Arctic"
+          }
+        },
+        "coast": {
+          "name": {
+            "en": "Coast"
+          }
+        },
+        "desert": {
+          "name": {
+            "en": "Desert"
+          }
+        },
+        "forest": {
+          "name": {
+            "en": "Forest"
+          }
+        },
+        "grassland": {
+          "name": {
+            "en": "Grassland"
+          }
+        },
+        "mountain": {
+          "name": {
+            "en": "Mountain"
+          }
+        },
+        "swamp": {
+          "name": {
+            "en": "Swamp"
+          }
+        }
+      },
       "options": [
         "arctic",
         "coast",
@@ -472,6 +584,40 @@
       "count": 1,
       "key": "srd51.feature.ranger.fighting-style#fighting-style",
       "of": "fighting-style",
+      "optionDetails": {
+        "archery": {
+          "name": {
+            "en": "Archery"
+          },
+          "text": {
+            "en": "You gain a +2 bonus to attack rolls you make with ranged weapons."
+          }
+        },
+        "defense": {
+          "name": {
+            "en": "Defense"
+          },
+          "text": {
+            "en": "While you are wearing armor, you gain a +1 bonus to AC."
+          }
+        },
+        "dueling": {
+          "name": {
+            "en": "Dueling"
+          },
+          "text": {
+            "en": "When you are wielding a melee weapon in one hand and no other weapons, you gain a +2 bonus to damage rolls with that weapon."
+          }
+        },
+        "two-weapon-fighting": {
+          "name": {
+            "en": "Two-Weapon Fighting"
+          },
+          "text": {
+            "en": "When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack."
+          }
+        }
+      },
       "options": [
         "archery",
         "defense",
@@ -489,6 +635,32 @@
       "count": 1,
       "key": "srd51.feature.hunter.hunters-prey#hunters-prey",
       "of": "option",
+      "optionDetails": {
+        "colossus-slayer": {
+          "name": {
+            "en": "Colossus Slayer"
+          },
+          "text": {
+            "en": "Your tenacity can wear down the most potent foes. When you hit a creature with a weapon attack, the creature takes an extra 1d8 damage if it's below its hit point maximum. You can deal this extra damage only once per turn."
+          }
+        },
+        "giant-killer": {
+          "name": {
+            "en": "Giant Killer"
+          },
+          "text": {
+            "en": "When a Large or larger creature within 5 feet of you hits or misses you with an attack, you can use your reaction to attack that creature immediately after its attack, provided that you can see the creature."
+          }
+        },
+        "horde-breaker": {
+          "name": {
+            "en": "Horde Breaker"
+          },
+          "text": {
+            "en": "Once on each of your turns when you make a weapon attack, you can make another attack with the same weapon against a different creature that is within 5 feet of the original target and within range of your weapon."
+          }
+        }
+      },
       "options": [
         "colossus-slayer",
         "giant-killer",

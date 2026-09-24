@@ -589,6 +589,81 @@
       "count": 1,
       "key": "srd51.feature.ranger.favored-enemy#favored-enemy-1",
       "of": "option",
+      "optionDetails": {
+        "aberrations": {
+          "name": {
+            "en": "Aberrations"
+          }
+        },
+        "beasts": {
+          "name": {
+            "en": "Beasts"
+          }
+        },
+        "celestials": {
+          "name": {
+            "en": "Celestials"
+          }
+        },
+        "constructs": {
+          "name": {
+            "en": "Constructs"
+          }
+        },
+        "dragons": {
+          "name": {
+            "en": "Dragons"
+          }
+        },
+        "elementals": {
+          "name": {
+            "en": "Elementals"
+          }
+        },
+        "fey": {
+          "name": {
+            "en": "Fey"
+          }
+        },
+        "fiends": {
+          "name": {
+            "en": "Fiends"
+          }
+        },
+        "giants": {
+          "name": {
+            "en": "Giants"
+          }
+        },
+        "monstrosities": {
+          "name": {
+            "en": "Monstrosities"
+          }
+        },
+        "oozes": {
+          "name": {
+            "en": "Oozes"
+          }
+        },
+        "plants": {
+          "name": {
+            "en": "Plants"
+          }
+        },
+        "two-humanoid-races": {
+          "name": {
+            "en": "Two races of humanoid"
+          },
+          "text": {
+            "en": "Select two races of humanoid (such as gnolls and orcs) as favored enemies."
+          }
+        },
+        "undead": {
+          "name": {
+            "en": "Undead"
+          }
+        }
+      },
       "options": [
         "aberrations",
         "beasts",
@@ -616,6 +691,81 @@
       "count": 1,
       "key": "srd51.feature.ranger.favored-enemy#favored-enemy-2",
       "of": "option",
+      "optionDetails": {
+        "aberrations": {
+          "name": {
+            "en": "Aberrations"
+          }
+        },
+        "beasts": {
+          "name": {
+            "en": "Beasts"
+          }
+        },
+        "celestials": {
+          "name": {
+            "en": "Celestials"
+          }
+        },
+        "constructs": {
+          "name": {
+            "en": "Constructs"
+          }
+        },
+        "dragons": {
+          "name": {
+            "en": "Dragons"
+          }
+        },
+        "elementals": {
+          "name": {
+            "en": "Elementals"
+          }
+        },
+        "fey": {
+          "name": {
+            "en": "Fey"
+          }
+        },
+        "fiends": {
+          "name": {
+            "en": "Fiends"
+          }
+        },
+        "giants": {
+          "name": {
+            "en": "Giants"
+          }
+        },
+        "monstrosities": {
+          "name": {
+            "en": "Monstrosities"
+          }
+        },
+        "oozes": {
+          "name": {
+            "en": "Oozes"
+          }
+        },
+        "plants": {
+          "name": {
+            "en": "Plants"
+          }
+        },
+        "two-humanoid-races": {
+          "name": {
+            "en": "Two races of humanoid"
+          },
+          "text": {
+            "en": "Select two races of humanoid (such as gnolls and orcs) as favored enemies."
+          }
+        },
+        "undead": {
+          "name": {
+            "en": "Undead"
+          }
+        }
+      },
       "options": [
         "aberrations",
         "beasts",
@@ -643,6 +793,81 @@
       "count": 1,
       "key": "srd51.feature.ranger.favored-enemy#favored-enemy-3",
       "of": "option",
+      "optionDetails": {
+        "aberrations": {
+          "name": {
+            "en": "Aberrations"
+          }
+        },
+        "beasts": {
+          "name": {
+            "en": "Beasts"
+          }
+        },
+        "celestials": {
+          "name": {
+            "en": "Celestials"
+          }
+        },
+        "constructs": {
+          "name": {
+            "en": "Constructs"
+          }
+        },
+        "dragons": {
+          "name": {
+            "en": "Dragons"
+          }
+        },
+        "elementals": {
+          "name": {
+            "en": "Elementals"
+          }
+        },
+        "fey": {
+          "name": {
+            "en": "Fey"
+          }
+        },
+        "fiends": {
+          "name": {
+            "en": "Fiends"
+          }
+        },
+        "giants": {
+          "name": {
+            "en": "Giants"
+          }
+        },
+        "monstrosities": {
+          "name": {
+            "en": "Monstrosities"
+          }
+        },
+        "oozes": {
+          "name": {
+            "en": "Oozes"
+          }
+        },
+        "plants": {
+          "name": {
+            "en": "Plants"
+          }
+        },
+        "two-humanoid-races": {
+          "name": {
+            "en": "Two races of humanoid"
+          },
+          "text": {
+            "en": "Select two races of humanoid (such as gnolls and orcs) as favored enemies."
+          }
+        },
+        "undead": {
+          "name": {
+            "en": "Undead"
+          }
+        }
+      },
       "options": [
         "aberrations",
         "beasts",
@@ -670,6 +895,43 @@
       "count": 1,
       "key": "srd51.feature.ranger.natural-explorer#favored-terrain-1",
       "of": "option",
+      "optionDetails": {
+        "arctic": {
+          "name": {
+            "en": "Arctic"
+          }
+        },
+        "coast": {
+          "name": {
+            "en": "Coast"
+          }
+        },
+        "desert": {
+          "name": {
+            "en": "Desert"
+          }
+        },
+        "forest": {
+          "name": {
+            "en": "Forest"
+          }
+        },
+        "grassland": {
+          "name": {
+            "en": "Grassland"
+          }
+        },
+        "mountain": {
+          "name": {
+            "en": "Mountain"
+          }
+        },
+        "swamp": {
+          "name": {
+            "en": "Swamp"
+          }
+        }
+      },
       "options": [
         "arctic",
         "coast",
@@ -690,6 +952,43 @@
       "count": 1,
       "key": "srd51.feature.ranger.natural-explorer#favored-terrain-2",
       "of": "option",
+      "optionDetails": {
+        "arctic": {
+          "name": {
+            "en": "Arctic"
+          }
+        },
+        "coast": {
+          "name": {
+            "en": "Coast"
+          }
+        },
+        "desert": {
+          "name": {
+            "en": "Desert"
+          }
+        },
+        "forest": {
+          "name": {
+            "en": "Forest"
+          }
+        },
+        "grassland": {
+          "name": {
+            "en": "Grassland"
+          }
+        },
+        "mountain": {
+          "name": {
+            "en": "Mountain"
+          }
+        },
+        "swamp": {
+          "name": {
+            "en": "Swamp"
+          }
+        }
+      },
       "options": [
         "arctic",
         "coast",
@@ -710,6 +1009,43 @@
       "count": 1,
       "key": "srd51.feature.ranger.natural-explorer#favored-terrain-3",
       "of": "option",
+      "optionDetails": {
+        "arctic": {
+          "name": {
+            "en": "Arctic"
+          }
+        },
+        "coast": {
+          "name": {
+            "en": "Coast"
+          }
+        },
+        "desert": {
+          "name": {
+            "en": "Desert"
+          }
+        },
+        "forest": {
+          "name": {
+            "en": "Forest"
+          }
+        },
+        "grassland": {
+          "name": {
+            "en": "Grassland"
+          }
+        },
+        "mountain": {
+          "name": {
+            "en": "Mountain"
+          }
+        },
+        "swamp": {
+          "name": {
+            "en": "Swamp"
+          }
+        }
+      },
       "options": [
         "arctic",
         "coast",
@@ -730,6 +1066,40 @@
       "count": 1,
       "key": "srd51.feature.ranger.fighting-style#fighting-style",
       "of": "fighting-style",
+      "optionDetails": {
+        "archery": {
+          "name": {
+            "en": "Archery"
+          },
+          "text": {
+            "en": "You gain a +2 bonus to attack rolls you make with ranged weapons."
+          }
+        },
+        "defense": {
+          "name": {
+            "en": "Defense"
+          },
+          "text": {
+            "en": "While you are wearing armor, you gain a +1 bonus to AC."
+          }
+        },
+        "dueling": {
+          "name": {
+            "en": "Dueling"
+          },
+          "text": {
+            "en": "When you are wielding a melee weapon in one hand and no other weapons, you gain a +2 bonus to damage rolls with that weapon."
+          }
+        },
+        "two-weapon-fighting": {
+          "name": {
+            "en": "Two-Weapon Fighting"
+          },
+          "text": {
+            "en": "When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack."
+          }
+        }
+      },
       "options": [
         "archery",
         "defense",
@@ -747,6 +1117,32 @@
       "count": 1,
       "key": "srd51.feature.hunter.hunters-prey#hunters-prey",
       "of": "option",
+      "optionDetails": {
+        "colossus-slayer": {
+          "name": {
+            "en": "Colossus Slayer"
+          },
+          "text": {
+            "en": "Your tenacity can wear down the most potent foes. When you hit a creature with a weapon attack, the creature takes an extra 1d8 damage if it's below its hit point maximum. You can deal this extra damage only once per turn."
+          }
+        },
+        "giant-killer": {
+          "name": {
+            "en": "Giant Killer"
+          },
+          "text": {
+            "en": "When a Large or larger creature within 5 feet of you hits or misses you with an attack, you can use your reaction to attack that creature immediately after its attack, provided that you can see the creature."
+          }
+        },
+        "horde-breaker": {
+          "name": {
+            "en": "Horde Breaker"
+          },
+          "text": {
+            "en": "Once on each of your turns when you make a weapon attack, you can make another attack with the same weapon against a different creature that is within 5 feet of the original target and within range of your weapon."
+          }
+        }
+      },
       "options": [
         "colossus-slayer",
         "giant-killer",
@@ -763,6 +1159,32 @@
       "count": 1,
       "key": "srd51.feature.hunter.defensive-tactics#defensive-tactics",
       "of": "option",
+      "optionDetails": {
+        "escape-the-horde": {
+          "name": {
+            "en": "Escape the Horde"
+          },
+          "text": {
+            "en": "Opportunity attacks against you are made with disadvantage."
+          }
+        },
+        "multiattack-defense": {
+          "name": {
+            "en": "Multiattack Defense"
+          },
+          "text": {
+            "en": "When a creature hits you with an attack, you gain a +4 bonus to AC against all subsequent attacks made by that creature for the rest of the turn."
+          }
+        },
+        "steel-will": {
+          "name": {
+            "en": "Steel Will"
+          },
+          "text": {
+            "en": "You have advantage on saving throws against being frightened."
+          }
+        }
+      },
       "options": [
         "escape-the-horde",
         "multiattack-defense",
@@ -779,6 +1201,24 @@
       "count": 1,
       "key": "srd51.feature.hunter.multiattack#multiattack",
       "of": "option",
+      "optionDetails": {
+        "volley": {
+          "name": {
+            "en": "Volley"
+          },
+          "text": {
+            "en": "You can use your action to make a ranged attack against any number of creatures within 10 feet of a point you can see within your weapon's range. You must have ammunition for each target, as normal, and you make a separate attack roll for each target."
+          }
+        },
+        "whirlwind-attack": {
+          "name": {
+            "en": "Whirlwind Attack"
+          },
+          "text": {
+            "en": "You can use your action to make a melee attack against any number of creatures within 5 feet of you, with a separate attack roll for each target."
+          }
+        }
+      },
       "options": [
         "volley",
         "whirlwind-attack"
@@ -794,6 +1234,32 @@
       "count": 1,
       "key": "srd51.feature.hunter.superior-hunters-defense#superior-hunters-defense",
       "of": "option",
+      "optionDetails": {
+        "evasion": {
+          "name": {
+            "en": "Evasion"
+          },
+          "text": {
+            "en": "When you are subjected to an effect, such as a red dragon's fiery breath or a lightning bolt spell, that allows you to make a Dexterity saving throw to take only half damage, you instead take no damage if you succeed on the saving throw, and only half damage if you fail."
+          }
+        },
+        "stand-against-the-tide": {
+          "name": {
+            "en": "Stand Against the Tide"
+          },
+          "text": {
+            "en": "When a hostile creature misses you with a melee attack, you can use your reaction to force that creature to repeat the same attack against another creature (other than itself) of your choice."
+          }
+        },
+        "uncanny-dodge": {
+          "name": {
+            "en": "Uncanny Dodge"
+          },
+          "text": {
+            "en": "When an attacker that you can see hits you with an attack, you can use your reaction to halve the attack's damage against you."
+          }
+        }
+      },
       "options": [
         "evasion",
         "stand-against-the-tide",

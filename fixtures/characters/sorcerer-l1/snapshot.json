@@ -301,6 +301,88 @@
       "count": 1,
       "key": "srd51.feature.draconic-bloodline.dragon-ancestor#dragon-ancestor",
       "of": "option",
+      "optionDetails": {
+        "black": {
+          "name": {
+            "en": "Black dragon"
+          },
+          "text": {
+            "en": "Damage type acid."
+          }
+        },
+        "blue": {
+          "name": {
+            "en": "Blue dragon"
+          },
+          "text": {
+            "en": "Damage type lightning."
+          }
+        },
+        "brass": {
+          "name": {
+            "en": "Brass dragon"
+          },
+          "text": {
+            "en": "Damage type fire."
+          }
+        },
+        "bronze": {
+          "name": {
+            "en": "Bronze dragon"
+          },
+          "text": {
+            "en": "Damage type lightning."
+          }
+        },
+        "copper": {
+          "name": {
+            "en": "Copper dragon"
+          },
+          "text": {
+            "en": "Damage type acid."
+          }
+        },
+        "gold": {
+          "name": {
+            "en": "Gold dragon"
+          },
+          "text": {
+            "en": "Damage type fire."
+          }
+        },
+        "green": {
+          "name": {
+            "en": "Green dragon"
+          },
+          "text": {
+            "en": "Damage type poison."
+          }
+        },
+        "red": {
+          "name": {
+            "en": "Red dragon"
+          },
+          "text": {
+            "en": "Damage type fire."
+          }
+        },
+        "silver": {
+          "name": {
+            "en": "Silver dragon"
+          },
+          "text": {
+            "en": "Damage type cold."
+          }
+        },
+        "white": {
+          "name": {
+            "en": "White dragon"
+          },
+          "text": {
+            "en": "Damage type cold."
+          }
+        }
+      },
       "options": [
         "black",
         "blue",

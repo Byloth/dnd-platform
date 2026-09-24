@@ -544,6 +544,88 @@
       "count": 1,
       "key": "srd51.feature.dragonborn.draconic-ancestry#draconic-ancestry",
       "of": "option",
+      "optionDetails": {
+        "black": {
+          "name": {
+            "en": "Black"
+          },
+          "text": {
+            "en": "Acid damage. Breath weapon: 5 by 30 ft. line (Dex. save)."
+          }
+        },
+        "blue": {
+          "name": {
+            "en": "Blue"
+          },
+          "text": {
+            "en": "Lightning damage. Breath weapon: 5 by 30 ft. line (Dex. save)."
+          }
+        },
+        "brass": {
+          "name": {
+            "en": "Brass"
+          },
+          "text": {
+            "en": "Fire damage. Breath weapon: 5 by 30 ft. line (Dex. save)."
+          }
+        },
+        "bronze": {
+          "name": {
+            "en": "Bronze"
+          },
+          "text": {
+            "en": "Lightning damage. Breath weapon: 5 by 30 ft. line (Dex. save)."
+          }
+        },
+        "copper": {
+          "name": {
+            "en": "Copper"
+          },
+          "text": {
+            "en": "Acid damage. Breath weapon: 5 by 30 ft. line (Dex. save)."
+          }
+        },
+        "gold": {
+          "name": {
+            "en": "Gold"
+          },
+          "text": {
+            "en": "Fire damage. Breath weapon: 15 ft. cone (Dex. save)."
+          }
+        },
+        "green": {
+          "name": {
+            "en": "Green"
+          },
+          "text": {
+            "en": "Poison damage. Breath weapon: 15 ft. cone (Con. save)."
+          }
+        },
+        "red": {
+          "name": {
+            "en": "Red"
+          },
+          "text": {
+            "en": "Fire damage. Breath weapon: 15 ft. cone (Dex. save)."
+          }
+        },
+        "silver": {
+          "name": {
+            "en": "Silver"
+          },
+          "text": {
+            "en": "Cold damage. Breath weapon: 15 ft. cone (Con. save)."
+          }
+        },
+        "white": {
+          "name": {
+            "en": "White"
+          },
+          "text": {
+            "en": "Cold damage. Breath weapon: 15 ft. cone (Con. save)."
+          }
+        }
+      },
       "options": [
         "black",
         "blue",

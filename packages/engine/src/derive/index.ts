@@ -370,7 +370,11 @@ export function derive(character: Character, set: PackageSet, options: DeriveOpt
             choice: ctx.effect.choice,
             of: ctx.effect.of,
             count: ctx.effect.count ?? 1,
-            options: ctx.effect.options.map((o) => o.id)
+            options: ctx.effect.options.map((o) => o.id),
+            optionDetails: Object.fromEntries(ctx.effect.options.map((o) => [
+                o.id,
+                { ...(o.name ? { name: o.name } : {}), ...(o.text ? { text: o.text } : {}) }
+            ]))
         });
         for (const option of ctx.effect.options.filter((o) => chosen.includes(o.id)))
         {

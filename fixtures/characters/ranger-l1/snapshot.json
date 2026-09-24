@@ -326,6 +326,81 @@
       "count": 1,
       "key": "srd51.feature.ranger.favored-enemy#favored-enemy-1",
       "of": "option",
+      "optionDetails": {
+        "aberrations": {
+          "name": {
+            "en": "Aberrations"
+          }
+        },
+        "beasts": {
+          "name": {
+            "en": "Beasts"
+          }
+        },
+        "celestials": {
+          "name": {
+            "en": "Celestials"
+          }
+        },
+        "constructs": {
+          "name": {
+            "en": "Constructs"
+          }
+        },
+        "dragons": {
+          "name": {
+            "en": "Dragons"
+          }
+        },
+        "elementals": {
+          "name": {
+            "en": "Elementals"
+          }
+        },
+        "fey": {
+          "name": {
+            "en": "Fey"
+          }
+        },
+        "fiends": {
+          "name": {
+            "en": "Fiends"
+          }
+        },
+        "giants": {
+          "name": {
+            "en": "Giants"
+          }
+        },
+        "monstrosities": {
+          "name": {
+            "en": "Monstrosities"
+          }
+        },
+        "oozes": {
+          "name": {
+            "en": "Oozes"
+          }
+        },
+        "plants": {
+          "name": {
+            "en": "Plants"
+          }
+        },
+        "two-humanoid-races": {
+          "name": {
+            "en": "Two races of humanoid"
+          },
+          "text": {
+            "en": "Select two races of humanoid (such as gnolls and orcs) as favored enemies."
+          }
+        },
+        "undead": {
+          "name": {
+            "en": "Undead"
+          }
+        }
+      },
       "options": [
         "aberrations",
         "beasts",
@@ -353,6 +428,43 @@
       "count": 1,
       "key": "srd51.feature.ranger.natural-explorer#favored-terrain-1",
       "of": "option",
+      "optionDetails": {
+        "arctic": {
+          "name": {
+            "en": "Arctic"
+          }
+        },
+        "coast": {
+          "name": {
+            "en": "Coast"
+          }
+        },
+        "desert": {
+          "name": {
+            "en": "Desert"
+          }
+        },
+        "forest": {
+          "name": {
+            "en": "Forest"
+          }
+        },
+        "grassland": {
+          "name": {
+            "en": "Grassland"
+          }
+        },
+        "mountain": {
+          "name": {
+            "en": "Mountain"
+          }
+        },
+        "swamp": {
+          "name": {
+            "en": "Swamp"
+          }
+        }
+      },
       "options": [
         "arctic",
         "coast",
