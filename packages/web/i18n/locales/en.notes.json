@@ -330,7 +330,8 @@
         "option": "Heading of a choice when its owner is a species, class or background (the owner is shown above it).",
         "subclass": "Heading of a choice when its owner is a species, class or background (the owner is shown above it).",
         "ability": "Heading of a choice when its owner is a species, class or background (the owner is shown above it).",
-        "other": "Heading of a choice when its owner is a species, class or background (the owner is shown above it)."
+        "other": "Heading of a choice when its owner is a species, class or background (the owner is shown above it).",
+        "feat": "Heading of a choice when its owner is a species, class or background (the owner is shown above it)."
       },
       "kinds": {
         "language": "Newcomer line under a choice's heading: what this kind of choice does.",
@@ -342,7 +343,8 @@
         "option": "Newcomer line under a choice's heading: what this kind of choice does.",
         "subclass": "Newcomer line under a choice's heading: what this kind of choice does.",
         "ability": "Newcomer line under a choice's heading: what this kind of choice does.",
-        "other": "Newcomer line under a choice's heading: what this kind of choice does."
+        "other": "Newcomer line under a choice's heading: what this kind of choice does.",
+        "feat": "Newcomer line under a choice's heading: what this kind of choice does."
       },
       "schools": {
         "abjuration": "School of magic, as the Italian manuals name it.",
@@ -355,7 +357,8 @@
         "transmutation": "School of magic, as the Italian manuals name it."
       },
       "cantrip": "Fact on a cantrip, before its school; singular.",
-      "freeLanguage": "Label of a language written by hand, when the ruleset lists none. Parameter: {n}."
+      "freeLanguage": "Label of a language written by hand, when the ruleset lists none. Parameter: {n}.",
+      "noOptions": "When a package asks a choice and nothing loaded offers an option for it."
     },
     "equipment": {
       "purpose": "Step 7 (equipment): newcomer copy.",

@@ -330,7 +330,8 @@
         "option": "Options",
         "subclass": "Subclass",
         "ability": "Ability scores",
-        "other": "Choice"
+        "other": "Choice",
+        "feat": "Feat"
       },
       "kinds": {
         "language": "Languages you speak, read and write; the common ones first, the exotic ones for creatures of other planes.",
@@ -342,7 +343,8 @@
         "option": "A way your feature works for you; each option says what it does.",
         "subclass": "The path your class takes: it adds features now and at later levels.",
         "ability": "An ability score this feature raises.",
-        "other": "A choice this feature asks you to make."
+        "other": "A choice this feature asks you to make.",
+        "feat": "A special talent that gives your character an extra ability; each one says what it does."
       },
       "schools": {
         "abjuration": "Abjuration",
@@ -355,7 +357,8 @@
         "transmutation": "Transmutation"
       },
       "cantrip": "Cantrip",
-      "freeLanguage": "Language {n}"
+      "freeLanguage": "Language {n}",
+      "noOptions": "The packages you chose offer nothing for this choice: ask your game master, or load the package it comes from."
     },
     "equipment": {
       "purpose": "What you carry when the adventure starts: armor, weapons, the tools of your trade, a pack of useful things.",

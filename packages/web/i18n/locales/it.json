@@ -330,7 +330,8 @@
         "option": "Opzioni",
         "subclass": "Sottoclasse",
         "ability": "Punteggi di caratteristica",
-        "other": "Scelta"
+        "other": "Scelta",
+        "feat": "Talento"
       },
       "kinds": {
         "language": "Lingue che parli, leggi e scrivi; prima quelle comuni, le esotiche per le creature di altri piani.",
@@ -342,7 +343,8 @@
         "option": "Un modo in cui il privilegio lavora per te; ogni opzione dice cosa fa.",
         "subclass": "La strada che prende la tua classe: aggiunge privilegi ora e ai livelli successivi.",
         "ability": "Un punteggio di caratteristica che questo privilegio aumenta.",
-        "other": "Una scelta che questo privilegio ti chiede."
+        "other": "Una scelta che questo privilegio ti chiede.",
+        "feat": "Un talento speciale che dà al tuo personaggio una capacità in più; ognuno dice cosa fa."
       },
       "schools": {
         "abjuration": "Abiurazione",
@@ -355,7 +357,8 @@
         "transmutation": "Trasmutazione"
       },
       "cantrip": "Trucchetto",
-      "freeLanguage": "Lingua {n}"
+      "freeLanguage": "Lingua {n}",
+      "noOptions": "I pacchetti scelti non offrono nulla per questa scelta: chiedi al tuo master, o carica il pacchetto da cui viene."
     },
     "equipment": {
       "purpose": "Quello che porti quando comincia l'avventura: armatura, armi, gli strumenti del mestiere, una dotazione di cose utili.",

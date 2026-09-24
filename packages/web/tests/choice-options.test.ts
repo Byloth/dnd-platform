@@ -84,4 +84,30 @@ describe("the options of a choice", () =>
         expect(styles.find((o) => o.id === "defense")).toMatchObject({ name: "Defense" });
         expect(styles.find((o) => o.id === "defense")?.summary).toMatch(/armor/);
     });
+
+    it("fills a choice a package leaves without options: abilities, feats, any skill, any tool", () =>
+    {
+        const { naming } = build("srd51.species.human", "srd51.class.fighter");
+        const open = (of: string, choice = of): ChoiceView => ({
+            key: `x.feature.y#${choice}`,
+            owner: "x.feature.y",
+            choice: choice,
+            of: of,
+            count: 1,
+            options: [],
+            answers: [],
+            answered: false
+        });
+
+        expect(naming.options(open("ability")).map((o) => o.name))
+            .toEqual(["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]);
+        expect(naming.options(open("feat")).map((o) => o.name)).toContain("Grappler");
+        expect(choiceKind(open("feat"))).toBe("feat");
+        const skills = naming.options(open("skill")).map((o) => o.id);
+        expect(skills).toContain("stealth");
+        expect(skills).not.toContain("insight");
+        expect(skills).toHaveLength(16);
+        expect(naming.options(open("tool")).map((o) => o.name)).toContain("Thieves' tools");
+        expect(naming.options(open("option"))).toEqual([]);
+    });
 });

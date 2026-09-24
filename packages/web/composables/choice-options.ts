@@ -21,7 +21,8 @@ export interface ChoiceOption
 
 /** What a choice is about, for its heading and its explanation. */
 export type ChoiceKind =
-    "language" | "tool" | "skill" | "expertise" | "cantrip" | "spell" | "option" | "subclass" | "ability" | "other";
+    "language" | "tool" | "skill" | "expertise" | "cantrip" | "spell" | "option" | "subclass" | "ability" | "feat" |
+    "other";
 
 type Translate = (key: string, params?: Record<string, unknown>) => string;
 
@@ -35,7 +36,7 @@ export function choiceKind(choice: ChoiceView): ChoiceKind
     }
     if (choice.of === "skill") { return choice.choice.startsWith("expertise") ? "expertise" : "skill"; }
     if ((choice.of === "option") || (choice.of === "fighting-style")) { return "option"; }
-    if (["language", "tool", "subclass", "ability"].includes(choice.of)) { return choice.of as ChoiceKind; }
+    if (["language", "tool", "subclass", "ability", "feat"].includes(choice.of)) { return choice.of as ChoiceKind; }
 
     return "other";
 }
@@ -119,8 +120,37 @@ export function useChoiceOptions(set: PackageSet, sheet: ComputedSheet, language
                 facts: []
             }));
 
+    /**
+     * The ids a choice offers: those it lists, else what its kind means when a package leaves the list out (a
+     * choice of two ability scores, of a feat, of any skill): the format allows it and the engine registers it.
+     */
+    const offered = (choice: ChoiceView): string[] =>
+    {
+        if (choice.options.length) { return [...choice.options]; }
+        const entitiesOf = (type: string): string[] => [...set.entities.values()]
+            .filter((e) => (e.type === type) && e.active && (e.inline === undefined))
+            .map((e) => e.id);
+
+        switch (choiceKind(choice))
+        {
+            case "ability": return [...set.ruleset.abilities];
+            case "skill":
+            {
+                const already = known("skill");
+
+                return set.ruleset.skills.map((s) => s.id)
+                    .filter((id) => choice.answers.includes(id) || !already.has(id));
+            }
+            case "expertise": return [...known("skill")];
+            case "tool": return [...items].filter(([, id]) => data<{ type?: string }>(id)?.type === "tool")
+                .map(([short]) => short);
+            case "feat": return entitiesOf("feat");
+            default: return choice.filter?.type ? entitiesOf(choice.filter.type) : [];
+        }
+    };
+
     const listed = (choice: ChoiceView, named: (id: string) => ChoiceOption): ChoiceOption[] =>
-        choice.options.map(named);
+        offered(choice).map(named);
 
     const options = (choice: ChoiceView): ChoiceOption[] =>
     {
@@ -151,6 +181,13 @@ export function useChoiceOptions(set: PackageSet, sheet: ComputedSheet, language
                     id: id,
                     name: text(choice.optionDetails?.[id]?.name) || words(id),
                     summary: firstSentence(text(choice.optionDetails?.[id]?.text)),
+                    facts: []
+                }));
+            case "feat":
+                return listed(choice, (id) => ({
+                    id: id,
+                    name: name(id),
+                    summary: firstSentence(text(data<{ text?: LocalizedString }>(id)?.text)),
                     facts: []
                 }));
             default: return listed(choice, (id) => ({ id: id, name: name(id), summary: "", facts: [] }));

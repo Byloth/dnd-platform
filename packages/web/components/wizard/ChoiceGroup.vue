@@ -158,6 +158,9 @@
                        @change="typed(i - 1, $event)" />
             </label>
         </div>
+        <p v-else-if="!options.length" class="wizard-options__empty">
+            {{ t("wizard.choices.noOptions") }}
+        </p>
         <p v-else-if="!visible.length" class="wizard-options__empty">
             {{ t("wizard.choices.noMatch") }}
         </p>
