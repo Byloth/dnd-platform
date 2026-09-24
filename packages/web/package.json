@@ -9,6 +9,7 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "budgets": "node scripts/check-budgets.ts",
+    "lighthouse": "lhci autorun; status=$?; rm -rf -- *AppData*lighthouse.*; exit $status",
     "preview": "nuxt preview",
     "lint": "eslint .",
     "typecheck": "nuxt typecheck",
@@ -41,6 +42,7 @@
   },
   "devDependencies": {
     "@byloth/eslint-config-nuxt": "^4.0.2",
+    "@lhci/cli": "^0.15.1",
     "@nuxt/test-utils": "^4.3.2",
     "@vue/test-utils": "^2.5.1",
     "axe-core": "^4.13.0",

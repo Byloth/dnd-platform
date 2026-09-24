@@ -1,0 +1,81 @@
+{
+  "ci": {
+    "collect": {
+      "startServerCommand": "node scripts/serve-site.ts 4173",
+      "startServerReadyPattern": "Serving the site",
+      "url": [
+        "http://localhost:4173/dnd-platform/",
+        "http://localhost:4173/dnd-platform/characters/fixture-perf-caster-l20"
+      ],
+      "numberOfRuns": 3,
+      "settings": {
+        "formFactor": "mobile",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 360,
+          "height": 740,
+          "deviceScaleFactor": 3,
+          "disabled": false
+        },
+        "throttlingMethod": "simulate",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.56,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "onlyCategories": [
+          "performance",
+          "accessibility"
+        ],
+        "chromeFlags": "--headless=new --no-sandbox"
+      }
+    },
+    "assert": {
+      "assertMatrix": [
+        {
+          "matchingUrlPattern": "/dnd-platform/$",
+          "assertions": {
+            "interactive": [
+              "error",
+              {
+                "maxNumericValue": 3500
+              }
+            ],
+            "categories:accessibility": [
+              "error",
+              {
+                "minScore": 1
+              }
+            ]
+          },
+          "aggregationMethod": "median-run"
+        },
+        {
+          "matchingUrlPattern": "/characters/",
+          "assertions": {
+            "interactive": [
+              "error",
+              {
+                "maxNumericValue": 7000
+              }
+            ],
+            "categories:accessibility": [
+              "error",
+              {
+                "minScore": 1
+              }
+            ]
+          },
+          "aggregationMethod": "median-run"
+        }
+      ]
+    },
+    "upload": {
+      "target": "filesystem",
+      "outputDir": ".lighthouseci"
+    }
+  }
+}
