@@ -22,14 +22,20 @@
 
 <template>
     <div class="value-tile" :class="{ 'value-tile--vital': vital }">
-        <component :is="value ? 'button' : 'div'"
-                   class="value-tile__face"
-                   :type="value ? 'button' : undefined"
-                   :aria-label="`${label}, ${shown}`"
-                   @click="explain">
+        <button v-if="value"
+                class="value-tile__face"
+                type="button"
+                :aria-label="`${label}, ${shown}`"
+                @click="explain">
             <span class="value-tile__label" aria-hidden="true">{{ label }}</span>
             <span class="value-tile__value" aria-hidden="true">{{ shown }}</span>
-        </component>
+        </button>
+        <!-- A number without an explanation is plain text: "label, value" read in order, no name to override. -->
+        <div v-else class="value-tile__face">
+            <span class="value-tile__label">{{ label }}</span>
+            <span class="value-tile__separator">, </span>
+            <span class="value-tile__value">{{ shown }}</span>
+        </div>
         <small v-if="raw" class="value-tile__raw">{{ raw }}</small>
     </div>
 </template>
@@ -59,6 +65,11 @@
             padding: var(--space-3);
             text-align: left;
             width: 100%;
+        }
+
+        &__separator
+        {
+            @include mixins.sr-only;
         }
 
         button.value-tile__face
