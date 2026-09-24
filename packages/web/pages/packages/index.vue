@@ -12,6 +12,8 @@
     const { t, locale } = useI18n();
     const store = useContentStore();
 
+    useHead({ title: () => t("nav.packages") });
+
     // Read again on every visit: the store may have changed from another page (or another tab).
     await store.refresh();
 

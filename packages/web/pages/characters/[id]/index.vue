@@ -41,6 +41,18 @@
 
     }, { watch: [id] });
 
+    useHead({
+        title: () =>
+        {
+            const loaded = data.value;
+            if (loaded?.state === "ready") { return loaded.character.name; }
+            if (loaded?.state === "not-found") { return t("character.notFound.heading"); }
+            if (loaded?.state === "missing") { return t("character.missing.heading"); }
+
+            return undefined;
+        }
+    });
+
     const composed = computed(() =>
     {
         const loaded = data.value;

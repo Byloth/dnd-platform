@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "dnd-platform",
+    "title": "D&D Platform",
     "tagline": "Una piattaforma D&D 5e per chi inizia, a partire dal personaggio."
   },
   "nav": {
@@ -14,8 +14,9 @@
     "contrast": "Contrasto"
   },
   "footer": {
-    "attribution": "Quest'opera include materiale tratto dal System Reference Document 5.1 di Wizards of the Coast LLC, con licenza Creative Commons Attribution 4.0 International.",
-    "madeBy": "Fatto con"
+    "attribution": "Quest'opera include materiale tratto dai System Reference Document 5.1 e 5.2 di Wizards of the Coast LLC, con licenza Creative Commons Attribution 4.0 International.",
+    "madeBy": "Fatto con",
+    "by": "da"
   },
   "errors": {
     "network": {

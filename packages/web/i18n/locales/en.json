@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "dnd-platform",
+    "title": "D&D Platform",
     "tagline": "A character-first D&D 5e platform for newcomers."
   },
   "nav": {
@@ -14,8 +14,9 @@
     "contrast": "Contrast"
   },
   "footer": {
-    "attribution": "This work includes material taken from the System Reference Document 5.1 by Wizards of the Coast LLC, licensed under the Creative Commons Attribution 4.0 International License.",
-    "madeBy": "Made with"
+    "attribution": "This work includes material taken from the System Reference Documents 5.1 and 5.2 by Wizards of the Coast LLC, licensed under the Creative Commons Attribution 4.0 International License.",
+    "madeBy": "Made with",
+    "by": "by"
   },
   "errors": {
     "network": {

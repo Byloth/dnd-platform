@@ -6,7 +6,8 @@ export default defineNuxtConfig({
   ssr: false,
   app: {
     baseURL: process.env["NUXT_APP_BASE_URL"] ?? "/dnd-platform/",
-    head: { title: "dnd-platform" },
+    // The name until the application sets the page's own title (app.vue).
+    head: { title: "D&D Platform" },
     pageTransition: { name: "page", mode: "out-in" }
   },
   compatibilityDate: "2026-09-22",

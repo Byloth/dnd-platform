@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "The application's name, shown in the header; keep it as is unless the project is renamed.",
+    "title": "The application's name, shown in the header and at the end of every page title; keep it as is unless the project is renamed.",
     "tagline": "One line under the name: what the platform is, for a newcomer."
   },
   "nav": {
@@ -15,7 +15,8 @@
   },
   "footer": {
     "attribution": "Legal attribution required by the SRD's licence (CC-BY-4.0); translate the sentence, keep the names and the licence name.",
-    "madeBy": "Footer signature, followed by a heart icon and the author's name."
+    "madeBy": "Footer signature, before a heart icon: \"Made with ❤ by Byloth\".",
+    "by": "Footer signature, after the heart icon and before the author's name."
   },
   "errors": {
     "network": {

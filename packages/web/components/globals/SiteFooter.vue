@@ -15,6 +15,7 @@
                 <FontAwesome class="site-footer__heart"
                              icon="heart"
                              aria-hidden="true" />
+                {{ t("footer.by") }}
                 <a href="https://www.byloth.dev/" rel="noopener">Byloth</a>
             </p>
         </div>
@@ -50,6 +51,26 @@
         &__heart
         {
             color: var(--color-damage);
+            transform-origin: center;
         }
+
+        // The heart beats while the signature is hovered or its link has the keyboard's focus.
+        &__signature:hover &__heart,
+        &__signature:focus-within &__heart
+        {
+            animation: heartbeat 900ms var(--easing) infinite;
+
+            @media (prefers-reduced-motion: reduce)
+            {
+                animation: none;
+            }
+        }
+    }
+
+    @keyframes heartbeat
+    {
+        0%, 50%, 100% { transform: scale(1); }
+        15%, 35% { transform: scale(1.25); }
+        25% { transform: scale(1.1); }
     }
 </style>
