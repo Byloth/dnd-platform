@@ -79,6 +79,8 @@ Progress: split into M1.4a (content and format), M1.4b (wizard shell, steps 0–
 - the additive fields `item.contents` and `state.currency`;
 - the ability adjustment in the explanation and `ChoiceView.filter` in the engine.
 
+M1.4b was done on 2026-09-24: the wizard's route, store and self-saving draft, the dots and the step list, the choice cards, steps 0–4 in both languages, and the entry points. Lighthouse runs on the wizard too: accessibility 100, and 3.9 s to interactive cold, guarded at 5 s.
+
 Done: the criteria of M1.4. Release: `v0.3.4`.
 Risks: starting equipment turned out to be structured content, with only the pack contents in prose; M1.4a made those data too. The rule stands: never invent items in code.
 

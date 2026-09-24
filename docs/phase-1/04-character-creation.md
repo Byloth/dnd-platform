@@ -19,6 +19,9 @@ This document fixes the creation wizard of [../07-character-creation.md](../07-c
 - **Warn, never block.** Every warning of the sheet (`W_UNANSWERED_CHOICE`, unmet prerequisite, missing package) is shown next to the field or step that can fix it, in plain language with the fix stated, and in the review; "save" and "next" are always available.
 - **Expert mode is the same steps on one page**, with dense lists, no recommendations highlighted, no explanatory copy, direct score entry; it is the help level *expert* of the preferences, not a different wizard.
 - **Editing after creation reopens the wizard at the step**, from the sheet, with the same components.
+- **Choosing an archetype prefills** (owner, 2026-09-24): species, subspecies, class and subclass, background, its answers and the standard array in its ability order are written at once, stay marked "recommended" with their reason, and can all be changed; a newcomer can reach the end with "Next" alone. "I'll choose myself" skips the archetypes and leaves every step empty.
+- **The stepper is a row of numbered dots on every width**, with the step names beside the wizard on desktop (owner, 2026-09-24).
+- **The draft saves itself in the browser** (owner, 2026-09-24): the `meta` store, key `wizard-draft`, shortly after every change; opening the wizard with a stored draft asks "resume or start again".
 
 ## Design
 
@@ -60,7 +63,11 @@ Steps can be revisited in any order from a stepper; a change in step 0 re-valida
 ## Tasks
 
 1. Author the archetypes for the twelve SRD classes (English), with `why` sentences, and the class `primaryAbilities` where missing in the base package — M1.4 (content; done in M1.4a with srd51 0.2.0: the archetypes, `primaryAbilities` from the multiclassing prerequisites, the ability-score methods, the pack contents).
-2. The wizard route and stepper, steps 0–4 with cards and marks — M1.4.
+2. The wizard route and stepper, steps 0–4 with cards and marks — M1.4 (done in M1.4b). As built:
+   - `pages/characters/new.vue`, with the step in the address (`?step=class`).
+   - `stores/wizard.ts`: the draft; the choices, where changing one drops the answers of what it replaces; the self-saving draft.
+   - `composables/entities.ts`: the entity lists, named with the composer's `localize`.
+   - `components/wizard/`: `WizardStepper` (the dots), `WizardStepList` (the names), `WizardStep` (heading, copy by help level, Back and Next), `ChoiceCard` (a native radio or checkbox in a card, with the recommendation and its reason by help level), and `steps/` for steps 0–4 plus the pending panel of 5–9.
 3. Step 5 with the three methods, standard array default, point-buy rules read from the ruleset (a `pointBuy` table in `ruleset.yaml`, additive v0 field, if the SRD ruleset lacks one) — M1.4.
 4. Steps 6–8 and the review; the "as created" snapshot; storing the character — M1.4 (store in M1.5).
 5. Expert mode as the single-page rendering of the same steps; editing from the sheet — M1.4.
