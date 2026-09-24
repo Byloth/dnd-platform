@@ -305,6 +305,33 @@
         "inspiration": {
           "type": "boolean"
         },
+        "currency": {
+          "type": "object",
+          "description": "The coins the character carries, by kind.",
+          "properties": {
+            "copper": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "silver": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "electrum": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "gold": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "platinum": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "additionalProperties": false
+        },
         "concentration": {
           "anyOf": [
             {

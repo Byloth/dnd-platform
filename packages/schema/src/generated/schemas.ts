@@ -477,6 +477,33 @@ export const SCHEMAS = {
                     "inspiration": {
                         "type": "boolean"
                     },
+                    "currency": {
+                        "type": "object",
+                        "description": "The coins the character carries, by kind.",
+                        "properties": {
+                            "copper": {
+                                "type": "integer",
+                                "minimum": 0
+                            },
+                            "silver": {
+                                "type": "integer",
+                                "minimum": 0
+                            },
+                            "electrum": {
+                                "type": "integer",
+                                "minimum": 0
+                            },
+                            "gold": {
+                                "type": "integer",
+                                "minimum": 0
+                            },
+                            "platinum": {
+                                "type": "integer",
+                                "minimum": 0
+                            }
+                        },
+                        "additionalProperties": false
+                    },
                     "concentration": {
                         "anyOf": [
                             {
@@ -3369,6 +3396,27 @@ export const SCHEMAS = {
             "weight": {
                 "type": "number"
             },
+            "contents": {
+                "type": "array",
+                "description": "What the item holds when it is a pack or a kit: the items it stands for, each with its quantity.",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "item": {
+                            "$ref": "common.schema.json#/$defs/entityId"
+                        },
+                        "quantity": {
+                            "type": "integer",
+                            "minimum": 1
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                        "item"
+                    ]
+                },
+                "minItems": 1
+            },
             "category": {
                 "type": "string",
                 "enum": [
@@ -4045,6 +4093,49 @@ export const SCHEMAS = {
             },
             "abilityModifier": {
                 "$ref": "common.schema.json#/$defs/formula"
+            },
+            "abilityScores": {
+                "type": "object",
+                "description": "How a new character's ability scores are generated, read by the creation wizard; absent: only rolled or typed scores.",
+                "properties": {
+                    "standardArray": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer",
+                            "minimum": 1
+                        },
+                        "minItems": 1,
+                        "description": "The scores a player assigns, one per ability."
+                    },
+                    "pointBuy": {
+                        "type": "object",
+                        "properties": {
+                            "budget": {
+                                "type": "integer",
+                                "minimum": 1,
+                                "description": "The points a player spends."
+                            },
+                            "costs": {
+                                "type": "object",
+                                "propertyNames": {
+                                    "pattern": "^[0-9]+$"
+                                },
+                                "additionalProperties": {
+                                    "type": "integer",
+                                    "minimum": 0
+                                },
+                                "minProperties": 1,
+                                "description": "The cost of each score a player may buy; the keys are the only scores allowed."
+                            }
+                        },
+                        "additionalProperties": false,
+                        "required": [
+                            "budget",
+                            "costs"
+                        ]
+                    }
+                },
+                "additionalProperties": false
             },
             "hitPoints": {
                 "type": "object",

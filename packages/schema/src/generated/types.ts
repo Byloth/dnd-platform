@@ -1086,6 +1086,16 @@ export interface Character {
             failures: number;
         };
         inspiration: boolean;
+        /**
+         * The coins the character carries, by kind.
+         */
+        currency?: {
+            copper?: number;
+            silver?: number;
+            electrum?: number;
+            gold?: number;
+            platinum?: number;
+        };
         concentration?: null | {
             spell: string;
             since?: string;
@@ -1328,6 +1338,21 @@ export interface Item {
         currency: "cp" | "sp" | "ep" | "gp" | "pp";
     };
     weight?: number;
+    /**
+     * What the item holds when it is a pack or a kit: the items it stands for, each with its quantity.
+     *
+     * @minItems 1
+     */
+    contents?: [
+        {
+            item: string;
+            quantity?: number;
+        },
+        ...{
+            item: string;
+            quantity?: number;
+        }[]
+    ];
     category?: "simple" | "martial" | "light" | "medium" | "heavy";
     damage?: string;
     damageType?:
@@ -1501,6 +1526,29 @@ export interface Ruleset {
         table: string;
     };
     abilityModifier: string;
+    /**
+     * How a new character's ability scores are generated, read by the creation wizard; absent: only rolled or typed scores.
+     */
+    abilityScores?: {
+        /**
+         * The scores a player assigns, one per ability.
+         *
+         * @minItems 1
+         */
+        standardArray?: [number, ...number[]];
+        pointBuy?: {
+            /**
+             * The points a player spends.
+             */
+            budget: number;
+            /**
+             * The cost of each score a player may buy; the keys are the only scores allowed.
+             */
+            costs: {
+                [k: string]: number | undefined;
+            };
+        };
+    };
     hitPoints: {
         firstLevel: string;
         perLevel: string;

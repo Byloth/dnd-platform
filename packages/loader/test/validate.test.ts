@@ -3,7 +3,7 @@
 import { describe, expect, it } from "vitest";
 
 import { loadPackages, validate } from "../src/index.js";
-import { MINI, cls, feature, miniPackage, spell } from "./helpers.js";
+import { MINI, cls, feature, item, miniPackage, spell } from "./helpers.js";
 
 const FIGHTER = `${MINI}.class.fighter`;
 
@@ -48,6 +48,20 @@ describe("validate", () =>
             { kind: "modify", target: "attack.spell.bonus", op: "add", value: 1 },
             { kind: "modify", target: "ac", op: "set-formula", formula: `table(${MINI}.table.proficiency-bonus)` }
         ])).toEqual([]);
+    });
+
+    it("reports an item a pack holds that no package defines", () =>
+    {
+        const pack = item(`${MINI}.item.pack`, {
+            type: "gear",
+            contents: [{ item: `${MINI}.item.torch`, quantity: 10 }, { item: `${MINI}.item.nope` }]
+        });
+        const torch = item(`${MINI}.item.torch`, { type: "gear" });
+        const set = loadPackages([miniPackage({ entities: [pack, torch] })]);
+        const errors = validate(set).entries.filter((d) => d.severity === "error").map((d) => `${d.code}:${d.message}`);
+
+        expect(errors).toHaveLength(1);
+        expect(errors[0]).toContain(`E_MISSING_REFERENCE:"${MINI}.item.nope"`);
     });
 
     it("keeps the loading diagnostics and reports a patch target as a reference too", () =>
