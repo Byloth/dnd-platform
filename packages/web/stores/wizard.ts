@@ -33,7 +33,7 @@ export interface WizardDraft
     /** The archetype the draft started from; `null` when the player chose to skip them. */
     readonly archetype?: string | null;
     /** The six totals the player rolled, as typed, when the method is "roll"; never part of the character. */
-    readonly rolls?: readonly number[];
+    readonly rolls?: readonly (number | null)[];
     readonly savedAt: string;
 }
 
@@ -41,7 +41,8 @@ type Choices = Character["choices"];
 type Method = NonNullable<Choices["abilityScores"]>["method"];
 
 /** A rolled total: three to eighteen (4d6, the lowest dropped). */
-const isRoll = (value: number): boolean => Number.isInteger(value) && (value >= 3) && (value <= 18);
+const isRoll = (value: number | null | undefined): value is number =>
+    Number.isInteger(value) && (value! >= 3) && (value! <= 18);
 
 function emptyCharacter(ruleset: { id: string, version: string }): Character
 {
@@ -75,7 +76,8 @@ export const useWizardStore = defineStore("wizard", () =>
     const step = ref<StepId>("content");
     /** Undefined until the concept step is answered; `null` when the player skipped the archetypes. */
     const archetype = ref<string | null>();
-    const rolls = ref<number[]>([]);
+    /** The rolled totals as typed, one place per ability; `null` where nothing is typed yet. */
+    const rolls = ref<(number | null)[]>([]);
     const sources = shallowRef<PackageSource[]>([]);
 
     let _saveTimer: ReturnType<typeof setTimeout> | undefined;
@@ -372,10 +374,8 @@ export const useWizardStore = defineStore("wizard", () =>
         }
         else if (method === "roll")
         {
-            if (rolls.value.length === abilities.length && rolls.value.every(isRoll))
-            {
-                next = isPermutation(base, abilities, rolls.value) ? base : deal(rolls.value, recommendedOrder.value);
-            }
+            const typed = _validRolls();
+            if (typed) { next = isPermutation(base, abilities, typed) ? base : deal(typed, recommendedOrder.value); }
         }
 
         _scores((scores) => defined({ method: method, base: next, bonuses: scores.bonuses }));
@@ -387,15 +387,23 @@ export const useWizardStore = defineStore("wizard", () =>
         _scores((scores) => ({ ...scores, base: swap(_base(), ability, value) }));
     };
 
+    /** The rolls, when one valid total is typed for every ability. */
+    const _validRolls = (): number[] | undefined =>
+    {
+        const abilities = packageSet.value?.ruleset.abilities ?? [];
+        const typed = rolls.value;
+
+        return (typed.length === abilities.length) && typed.every(isRoll) ? typed as number[] : undefined;
+    };
+
     /** The rolled totals as typed; once all are valid, they are dealt (kept as they are when already dealt). */
-    const setRolls = (values: readonly number[]): void =>
+    const setRolls = (values: readonly (number | null)[]): void =>
     {
         rolls.value = [...values];
-        const abilities = packageSet.value?.ruleset.abilities ?? [];
-        const valid = (values.length === abilities.length) && values.every(isRoll);
-        if (valid && !isPermutation(_base(), abilities, values))
+        const typed = _validRolls();
+        if (typed && !isPermutation(_base(), packageSet.value?.ruleset.abilities ?? [], typed))
         {
-            _scores((scores) => ({ ...scores, method: "roll", base: deal(values, recommendedOrder.value) }));
+            _scores((scores) => ({ ...scores, method: "roll", base: deal(typed, recommendedOrder.value) }));
         }
         else { _scheduleSave(); }
     };
@@ -431,7 +439,7 @@ export const useWizardStore = defineStore("wizard", () =>
     {
         const method = character.value?.choices.abilityScores?.method ?? "standard-array";
         const values = method === "roll" ?
-            rolls.value :
+            _validRolls() :
             (method === "point-buy" ? Object.values(_base()) : packageSet.value?.ruleset.abilityScores?.standardArray);
         if (!values?.length) { return; }
 

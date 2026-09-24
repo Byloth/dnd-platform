@@ -1,5 +1,6 @@
 <script lang="ts" setup>
     import AppButton from "@/components/ui/AppButton.vue";
+    import StepAbilities from "@/components/wizard/steps/StepAbilities.vue";
     import StepBackground from "@/components/wizard/steps/StepBackground.vue";
     import StepClass from "@/components/wizard/steps/StepClass.vue";
     import StepConcept from "@/components/wizard/steps/StepConcept.vue";
@@ -31,7 +32,8 @@
         concept: StepConcept,
         species: StepSpecies,
         class: StepClass,
-        background: StepBackground
+        background: StepBackground,
+        abilities: StepAbilities
     };
     const view = computed(() => STEP_VIEWS[wizard.step] ?? StepPending);
 

@@ -186,7 +186,7 @@ describe("the creation wizard's store", () =>
             const wizard = useWizardStore();
             wizard.chooseArchetype(MONK);
             wizard.chooseMethod("roll");
-            wizard.setRolls([17, 9, 12]);
+            wizard.setRolls([17, null, 12, 16, 11, 7]);
             expect(scores().base["dex"]).toBe(15);
 
             wizard.setRolls([17, 9, 12, 16, 11, 7]);

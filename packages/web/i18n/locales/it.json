@@ -270,6 +270,43 @@
       "purpose": "Il background è ciò che il tuo personaggio faceva prima di diventare un avventuriero.",
       "consequence": "Aggiunge abilità, lingue o strumenti, un po' di equipaggiamento e un privilegio.",
       "recommendation": "Scegli la storia che ti piace: conta meno della specie e della classe."
+    },
+    "abilities": {
+      "purpose": "I punteggi di caratteristica dicono quanto il tuo personaggio è forte, agile, resistente, intelligente, saggio e affascinante.",
+      "consequence": "A ogni tiro aggiungi il modificatore di uno di questi punteggi: più è alto, più sei bravo in quella cosa.",
+      "recommendation": "Metti i punteggi migliori nelle caratteristiche primarie della tua classe (★): i numeri sono già sistemati così.",
+      "method": "Come ottenere i punteggi",
+      "methods": {
+        "standard-array": "Serie standard",
+        "point-buy": "Acquisto a punti",
+        "roll": "Tiro"
+      },
+      "hints": {
+        "standard-array": "Sei numeri fissi da dividere tra le caratteristiche: scegli dove va ciascuno.",
+        "point-buy": "Ogni punteggio parte da 8 e alzarlo costa punti; spendili come vuoi.",
+        "roll": "Tira 4d6 sei volte, scarta ogni volta il dado più basso, e scrivi i sei totali."
+      },
+      "rolls": "I tuoi tiri",
+      "roll": "Tiro {n}",
+      "typeRolls": "Scrivi tutti e sei i tiri per poterli assegnare.",
+      "pointsLeft": "Punti rimasti: {left} su {budget}",
+      "cost": "Costo {cost}",
+      "headers": {
+        "ability": "Caratteristica",
+        "score": "Punteggio",
+        "bonuses": "Bonus",
+        "total": "Totale"
+      },
+      "primary": "caratteristica primaria",
+      "primaryLegend": "Caratteristica primaria della tua classe",
+      "dealRecommended": "Assegna come consigliato",
+      "scoreOf": "Punteggio di {ability}",
+      "lower": "Abbassa {ability}",
+      "raise": "Alza {ability}",
+      "adjustments": {
+        "title": "Correzioni manuali",
+        "note": "Un numero tuo, sommato al totale del punteggio e mostrato nella sua spiegazione: per un oggetto magico, una regola della casa o una decisione del tavolo."
+      }
     }
   }
 }

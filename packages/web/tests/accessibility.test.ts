@@ -128,7 +128,7 @@ describe.each(LANGUAGES)("accessibility, in %s", (language) =>
             await useWizardStore().discard();
             await useWizardStore().start();
             useWizardStore().chooseArchetype("srd51.archetype.open-hand-wanderer");
-            for (const step of ["content", "concept", "species", "class", "background", "equipment"])
+            for (const step of ["content", "concept", "species", "class", "background", "abilities", "equipment"])
             {
                 const wrapper = await render(WizardPage, { route: `/characters/new?step=${step}` });
                 for (let i = 0; (i < 50) && !wrapper.find(".wizard-step").exists(); i += 1)
@@ -142,6 +142,31 @@ describe.each(LANGUAGES)("accessibility, in %s", (language) =>
                 wrapper.unmount();
                 document.body.innerHTML = "";
             }
+        }
+        _mounted = undefined;
+        await useWizardStore().discard();
+    });
+
+    it("the creation wizard's step 5 with each method", async () =>
+    {
+        await speak(language);
+        await useWizardStore().discard();
+        await useWizardStore().start();
+        useWizardStore().chooseArchetype("srd51.archetype.open-hand-wanderer");
+        for (const method of ["point-buy", "roll"] as const)
+        {
+            useWizardStore().chooseMethod(method);
+            if (method === "roll") { useWizardStore().setRolls([14, 9, 17, 12, 11, 15]); }
+            const wrapper = await render(WizardPage, { route: "/characters/new?step=abilities" });
+            for (let i = 0; (i < 50) && !wrapper.find(".step-abilities").exists(); i += 1)
+            {
+                await new Promise((done) => setTimeout(done, 10));
+                await flushPromises();
+            }
+            await expectAccessible(wrapper);
+
+            wrapper.unmount();
+            document.body.innerHTML = "";
         }
         _mounted = undefined;
         await useWizardStore().discard();

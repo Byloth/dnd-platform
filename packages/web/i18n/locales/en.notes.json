@@ -270,6 +270,43 @@
       "purpose": "Newcomer copy: what the step is for.",
       "consequence": "Newcomer copy: what the choice changes.",
       "recommendation": "Newcomer copy: what to choose when unsure."
+    },
+    "abilities": {
+      "purpose": "Newcomer copy: what the step is for.",
+      "consequence": "Newcomer copy: what the choice changes.",
+      "recommendation": "Newcomer copy: what to choose when unsure; ★ marks primary abilities.",
+      "method": "Accessible name of the method switch.",
+      "methods": {
+        "standard-array": "Method name (DEC-15 default).",
+        "point-buy": "Method name.",
+        "roll": "Method name."
+      },
+      "hints": {
+        "standard-array": "One line under the switch explaining the method.",
+        "point-buy": "One line under the switch explaining the method.",
+        "roll": "One line under the switch explaining how to roll."
+      },
+      "rolls": "Heading of the six roll inputs.",
+      "roll": "Label of one roll input. Parameter: {n}.",
+      "typeRolls": "Shown until six valid rolls are typed.",
+      "pointsLeft": "Point-buy budget, announced when it changes. Parameters: {left}, {budget}.",
+      "cost": "Point cost of a score. Parameter: {cost}.",
+      "headers": {
+        "ability": "Table column.",
+        "score": "Table column: the chosen score.",
+        "bonuses": "Table column: species and trait bonuses.",
+        "total": "Table column: total and modifier."
+      },
+      "primary": "Read by screen readers after a primary ability's name.",
+      "primaryLegend": "Legend of the ★ mark.",
+      "dealRecommended": "Button that places the values in the recommended order again.",
+      "scoreOf": "Accessible label of a score menu. Parameter: {ability}.",
+      "lower": "Accessible name of the point-buy minus button. Parameter: {ability}.",
+      "raise": "Accessible name of the point-buy plus button. Parameter: {ability}.",
+      "adjustments": {
+        "title": "The collapsible section of manual adjustments.",
+        "note": "Explains what an adjustment is for."
+      }
     }
   }
 }

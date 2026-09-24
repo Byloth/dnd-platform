@@ -47,6 +47,12 @@ export function stepDone(step: StepId): boolean
         }
         case "class": return (choices.classes?.length ?? 0) > 0;
         case "background": return choices.background !== undefined;
+        case "abilities":
+        {
+            const base = choices.abilityScores?.base ?? {};
+
+            return (wizard.packageSet?.ruleset.abilities ?? []).every((a) => base[a] !== undefined);
+        }
         default: return false;
     }
 }

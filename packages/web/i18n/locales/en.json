@@ -270,6 +270,43 @@
       "purpose": "Your background is what your character did before becoming an adventurer.",
       "consequence": "It adds skills, languages or tools, some equipment and a feature.",
       "recommendation": "Pick the story you like: it matters less than species and class."
+    },
+    "abilities": {
+      "purpose": "Your ability scores say how strong, quick, tough, clever, wise and charming your character is.",
+      "consequence": "Every roll you make adds the modifier of one of these scores: the higher the score, the better you are at it.",
+      "recommendation": "Put your best scores in your class's primary abilities (★); the numbers are already placed that way.",
+      "method": "How to get the scores",
+      "methods": {
+        "standard-array": "Standard array",
+        "point-buy": "Point buy",
+        "roll": "Roll"
+      },
+      "hints": {
+        "standard-array": "Six fixed numbers to share among the abilities: pick where each one goes.",
+        "point-buy": "Every score starts at 8 and costs points to raise; spend them as you like.",
+        "roll": "Roll 4d6 six times, drop the lowest die each time, and type the six totals."
+      },
+      "rolls": "Your rolls",
+      "roll": "Roll {n}",
+      "typeRolls": "Type all six rolls to place them.",
+      "pointsLeft": "Points left: {left} of {budget}",
+      "cost": "Cost {cost}",
+      "headers": {
+        "ability": "Ability",
+        "score": "Score",
+        "bonuses": "Bonuses",
+        "total": "Total"
+      },
+      "primary": "primary ability",
+      "primaryLegend": "Primary ability of your class",
+      "dealRecommended": "Assign as recommended",
+      "scoreOf": "{ability} score",
+      "lower": "Lower {ability}",
+      "raise": "Raise {ability}",
+      "adjustments": {
+        "title": "Manual adjustments",
+        "note": "A number of your own, added to the score's total and shown in its explanation: for a magic item, a house rule or a table decision."
+      }
     }
   }
 }

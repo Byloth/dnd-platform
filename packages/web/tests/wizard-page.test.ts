@@ -176,4 +176,106 @@ describe("the creation wizard", () =>
         expect(wrapper.text()).toContain("Caratteristiche primarie");
         expect(wrapper.text()).not.toMatch(/wizard\.|terms\.|sheet\.[a-z]/);
     });
+
+    describe("step 5, ability scores", () =>
+    {
+        async function abilities(): Promise<VueWrapper>
+        {
+            await useWizardStore().start();
+            useWizardStore().chooseArchetype(MONK);
+
+            return open("abilities");
+        }
+
+        const row = (wrapper: VueWrapper, name: string) =>
+            wrapper.findAll(".step-abilities__row").find((r) => r.find("th").text()
+                .startsWith(name))!;
+        const total = (wrapper: VueWrapper, name: string): string =>
+            row(wrapper, name).find(".step-abilities__total")
+                .text()
+                .replace(/\s+/g, " ");
+
+        it("shows the dealt array with the species bonuses and the totals", async () =>
+        {
+            const wrapper = await abilities();
+
+            expect(wrapper.find("h1").text()).toBe("Ability scores");
+            expect(row(wrapper, "Dexterity").find("select").element.value).toBe("15");
+            expect(row(wrapper, "Dexterity").text()).toContain("primary ability");
+            expect(total(wrapper, "Constitution")).toBe("15 (+2)");
+            expect(row(wrapper, "Constitution").find(".step-abilities__bonus")
+                .text()).toBe("+2");
+        });
+
+        it("swaps two scores from one menu", async () =>
+        {
+            const wrapper = await abilities();
+            await row(wrapper, "Strength").find("select")
+                .setValue("15");
+            await settle();
+
+            expect(row(wrapper, "Strength").find("select").element.value).toBe("15");
+            expect(row(wrapper, "Dexterity").find("select").element.value).toBe("12");
+        });
+
+        it("buys with points and says how many are left", async () =>
+        {
+            const wrapper = await abilities();
+            await wrapper.find("input[value='point-buy']").setValue(true);
+            await settle();
+
+            expect(wrapper.find(".step-abilities__points").text()).toBe("Points left: 0 of 27");
+            byName(wrapper, "Lower Dexterity")!.click();
+            await settle();
+            expect(wrapper.find(".step-abilities__points").text()).toBe("Points left: 2 of 27");
+            expect(total(wrapper, "Dexterity")).toBe("14 (+2)");
+        });
+
+        it("places six typed rolls, highest in the recommended order", async () =>
+        {
+            const wrapper = await abilities();
+            await wrapper.find("input[value='roll']").setValue(true);
+            await settle();
+            const inputs = wrapper.findAll(".step-abilities__roll-input");
+            for (const [i, value] of ["14", "9", "17", "12", "11", "15"].entries())
+            {
+                await inputs[i]!.setValue(value);
+                await inputs[i]!.trigger("change");
+            }
+            await settle();
+
+            expect(row(wrapper, "Dexterity").find("select").element.value).toBe("17");
+            expect(row(wrapper, "Wisdom").find("select").element.value).toBe("15");
+        });
+
+        it("keeps adjustments closed for a newcomer, open for an expert, and adds them to the total", async () =>
+        {
+            const wrapper = await abilities();
+            const details = (): HTMLDetailsElement =>
+                wrapper.find<HTMLDetailsElement>(".step-abilities__adjustments").element;
+            expect(details().open).toBe(false);
+
+            usePreferencesStore().helpLevel = "expert";
+            await settle();
+            expect(details().open).toBe(true);
+
+            const strength = wrapper.findAll(".step-abilities__adjust")
+                .find((a) => a.text().startsWith("Strength"))!.find("input");
+            await strength.setValue("2");
+            await strength.trigger("change");
+            await settle();
+            expect(total(wrapper, "Strength")).toBe("14 (+2)");
+        });
+
+        it("speaks Italian", async () =>
+        {
+            usePreferencesStore().language = "it";
+            await useNuxtApp().$i18n.setLocale("it");
+            const wrapper = await abilities();
+
+            expect(wrapper.find("h1").text()).toBe("Caratteristiche");
+            expect(wrapper.text()).toContain("Serie standard");
+            expect(wrapper.text()).not.toMatch(/wizard\.|sheet\.[a-z]/);
+        });
+    });
 });
