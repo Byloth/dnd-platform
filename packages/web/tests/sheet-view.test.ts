@@ -18,6 +18,7 @@ import type { Character } from "@byloth/dnd-platform-engine";
 
 import SheetView from "@/components/sheet/SheetView.vue";
 
+import { byName } from "./accessibility";
 import { ROOT, SRD } from "./helpers";
 
 function character(name: string): Character
@@ -59,8 +60,8 @@ describe("the sheet screen", () =>
             expect(heading.exists()).toBe(true);
             expect(heading.text().length).toBeGreaterThan(0);
         }
-        expect(wrapper.find("[aria-label='Armor Class, 18']").exists()).toBe(true);
-        expect(wrapper.find("[aria-label='Stealth, +0']").exists()).toBe(true);
+        expect(byName(wrapper, "Armor Class, 18")).toBeDefined();
+        expect(byName(wrapper, "Stealth, +0")).toBeDefined();
         expect(wrapper.text()).not.toMatch(/sheetView\.|sheet\.[a-z]/);
     });
 
@@ -68,7 +69,7 @@ describe("the sheet screen", () =>
     {
         const wrapper = await mountSheet("cleric-l5");
 
-        await wrapper.find("[aria-label='Armor Class, 18']").trigger("click");
+        byName(wrapper, "Armor Class, 18")!.click();
         await flushPromises();
 
         const drawer = wrapper.find(".provenance-drawer");
@@ -83,7 +84,7 @@ describe("the sheet screen", () =>
     {
         const wrapper = await mountSheet("barbarian-l5");
 
-        expect(wrapper.find("[aria-label='3 of 3 Rages']").exists()).toBe(true);
+        expect(byName(wrapper, "3 of 3 Rages")).toBeDefined();
     });
 
     it("keeps pin and collapse per character in the preferences", async () =>

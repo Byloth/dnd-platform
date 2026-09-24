@@ -31,18 +31,13 @@
     <div class="resource-pips">
         <div class="resource-pips__head">
             <span class="resource-pips__name">{{ item.name }}</span>
-            <button v-if="item.explain"
-                    type="button"
-                    class="resource-pips__count"
-                    :aria-label="label"
-                    @click="explain">
-                {{ item.current ?? item.shownMax }} / {{ item.shownMax }}
-            </button>
-            <span v-else
-                  class="resource-pips__count"
-                  :aria-label="label">
-                {{ item.current ?? item.shownMax }} / {{ item.shownMax }}
-            </span>
+            <component :is="item.explain ? 'button' : 'span'"
+                       class="resource-pips__count"
+                       :type="item.explain ? 'button' : undefined"
+                       @click="item.explain && explain()">
+                <span aria-hidden="true">{{ item.current ?? item.shownMax }} / {{ item.shownMax }}</span>
+                <span class="resource-pips__spoken">{{ label }}</span>
+            </component>
         </div>
         <ol v-if="item.pips"
             class="resource-pips__pips"
@@ -59,11 +54,18 @@
 </template>
 
 <style lang="scss" scoped>
+    @use "@/assets/scss/mixins";
+
     .resource-pips
     {
         background-color: var(--color-surface-sunken);
         border-radius: var(--radius-md);
         padding: var(--space-3) var(--space-4);
+
+        &__spoken
+        {
+            @include mixins.sr-only;
+        }
 
         &__head
         {

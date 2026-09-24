@@ -11,6 +11,7 @@ import { mountSuspended, registerEndpoint } from "@nuxt/test-utils/runtime";
 
 import CharacterPage from "@/pages/characters/[id]/index.vue";
 
+import { byName } from "./accessibility";
 import { clearBrowserStorage, serveDemoCharacters, serveSite } from "./helpers";
 
 serveSite();
@@ -47,7 +48,7 @@ describe("the character page", () =>
         const wrapper = await open("fixture-cleric-l5");
 
         expect(wrapper.find("h1").text()).toBe("Stone Lantern");
-        expect(wrapper.find("[aria-label='Armor Class, 18']").exists()).toBe(true);
+        expect(byName(wrapper, "Armor Class, 18")).toBeDefined();
         expect(wrapper.findAll(".feature-card__line").length).toBeGreaterThan(0);
 
         usePreferencesStore().helpLevel = "regular";

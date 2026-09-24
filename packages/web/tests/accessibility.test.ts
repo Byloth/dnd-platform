@@ -127,6 +127,17 @@ describe.each(LANGUAGES)("accessibility, in %s", (language) =>
     });
 });
 
+describe("the document", () =>
+{
+    it("speaks the interface language", async () =>
+    {
+        await speak("it");
+        expect(document.documentElement.lang).toBe("it");
+        await speak("en");
+        expect(document.documentElement.lang).toBe("en");
+    });
+});
+
 describe("the sheet's accessible tree", () =>
 {
     it("names its sections and values, and starts from the character's name", async () =>

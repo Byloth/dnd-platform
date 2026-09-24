@@ -22,20 +22,15 @@
 
 <template>
     <div class="value-tile" :class="{ 'value-tile--vital': vital }">
-        <button v-if="value"
-                class="value-tile__face"
-                type="button"
-                :aria-label="`${label}, ${shown}`"
-                @click="explain">
-            <span class="value-tile__label" aria-hidden="true">{{ label }}</span>
-            <span class="value-tile__value" aria-hidden="true">{{ shown }}</span>
-        </button>
-        <!-- A number without an explanation is plain text: "label, value" read in order, no name to override. -->
-        <div v-else class="value-tile__face">
+        <!-- Named by its content, "label, value", the comma for the ear only (docs/13-ux-and-accessibility.md). -->
+        <component :is="value ? 'button' : 'div'"
+                   class="value-tile__face"
+                   :type="value ? 'button' : undefined"
+                   @click="explain">
             <span class="value-tile__label">{{ label }}</span>
             <span class="value-tile__separator">, </span>
             <span class="value-tile__value">{{ shown }}</span>
-        </div>
+        </component>
         <small v-if="raw" class="value-tile__raw">{{ raw }}</small>
     </div>
 </template>

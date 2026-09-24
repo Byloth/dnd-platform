@@ -21,10 +21,11 @@
             <span class="attack-table__name">{{ row.name }}</span>
             <button type="button"
                     class="attack-table__to-hit"
-                    :aria-label="`${row.name}, ${t('sheetView.attacks.toHit')} ${row.toHit}`"
                     @click="explain(row)">
-                <small class="attack-table__caption" aria-hidden="true">{{ t("sheetView.attacks.toHit") }}</small>
-                <span aria-hidden="true">{{ row.toHit }}</span>
+                <span class="attack-table__spoken">{{ row.name }}, </span>
+                <small class="attack-table__caption">{{ t("sheetView.attacks.toHit") }}</small>
+                <span class="attack-table__spoken"> </span>
+                <span>{{ row.toHit }}</span>
             </button>
             <span class="attack-table__damage">
                 <small class="attack-table__caption">{{ t("sheetView.attacks.damage") }}</small>
@@ -42,6 +43,8 @@
 </template>
 
 <style lang="scss" scoped>
+    @use "@/assets/scss/mixins";
+
     .attack-table
     {
         display: grid;
@@ -49,6 +52,11 @@
         list-style: none;
         margin: 0;
         padding: 0;
+
+        &__spoken
+        {
+            @include mixins.sr-only;
+        }
 
         &__row
         {

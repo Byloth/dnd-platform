@@ -3,9 +3,11 @@
  * over a rendered screen, keyboard operability of its controls, and its accessible tree reduced to the roles and
  * names of landmarks, headings and controls.
  *
- * happy-dom has no layout, so axe's colour-contrast rule cannot run here: contrast is tested on the theme tokens
- * (contrast.test.ts). The page-level rules (one main landmark, a level-one heading, the document title and
- * language) belong to the whole document, not to a component, and are asserted on the pages that own them.
+ * happy-dom has no layout, so the axe rules that need one cannot run here: colour contrast is tested on the
+ * theme tokens (contrast.test.ts), and "label in name" (WCAG 2.5.3, experimental in axe) by
+ * `expectKeyboardOperable` on the text of each named control; Lighthouse runs both in a real browser. The
+ * page-level rules (one main landmark, a level-one heading, the document title and language) belong to the whole
+ * document, not to a component: Lighthouse checks them on the generated site, the tests the document's language.
  */
 
 import axe from "axe-core";
@@ -52,7 +54,7 @@ const INTERACTIVE_ROLES = ["button", "link", "tab", "checkbox", "radio", "switch
 /**
  * Every control is in the tab order the document gives it (no positive tabindex), and a control built from a
  * non-native element with an interactive role can take focus: tabindex 0, or -1 inside a group that keeps one
- * member at 0 (roving focus, as in a tab list).
+ * member at 0 (roving focus, as in a tab list). A control named by aria-label holds its shown text in the name.
  */
 export function expectKeyboardOperable(rendered: Rendered): void
 {
@@ -75,7 +77,25 @@ export function expectKeyboardOperable(rendered: Rendered): void
         if (tabindex !== "0" && !roving) { problems.push(`not focusable: ${node.outerHTML}`); }
     }
 
+    // Label in name: a control named by aria-label says what it shows, as it shows it (speech input users say it).
+    for (const node of element.querySelectorAll(`${NATIVE_CONTROLS}, ${selector}`))
+    {
+        const name = node.getAttribute("aria-label");
+        const shown = _text(node);
+        if (name !== null && shown && !_text(name).toLowerCase()
+            .includes(shown.toLowerCase()))
+        {
+            problems.push(`name "${name}" does not hold the text shown, "${shown}": ${node.outerHTML}`);
+        }
+    }
+
     expect(problems).toEqual([]);
+}
+
+/** Text as shown: whitespace collapsed; for an element, all its text (happy-dom cannot tell what is visible). */
+function _text(source: Element | string): string
+{
+    return (typeof source === "string" ? source : source.textContent ?? "").replace(/\s+/g, " ").trim();
 }
 
 export interface AccessibleNode { readonly role: string, readonly name: string }
@@ -95,21 +115,35 @@ const TREE_ROLES: Readonly<Record<string, string>> = {
     "input, select, textarea": "control"
 };
 
-function _name(node: Element): string
+/** Text for the ear: aria-hidden parts left out, whitespace collapsed. */
+function _spoken(node: Node): string
+{
+    if (node.nodeType === node.TEXT_NODE) { return node.textContent ?? ""; }
+    if (node instanceof Element && node.getAttribute("aria-hidden") === "true") { return ""; }
+
+    return [...node.childNodes].map(_spoken).join("");
+}
+
+/** The accessible name: aria-label, then aria-labelledby, then the content as it is read. */
+export function accessibleName(node: Element): string
 {
     const label = node.getAttribute("aria-label");
     if (label) { return label; }
 
     const labelledBy = node.getAttribute("aria-labelledby");
-    if (labelledBy)
-    {
-        return labelledBy.split(/\s+/).map((id) => node.ownerDocument.getElementById(id)?.textContent ?? "")
-            .join(" ")
-            .replace(/\s+/g, " ")
-            .trim();
-    }
+    const text = labelledBy ?
+        labelledBy.split(/\s+/).map((id) => node.ownerDocument.getElementById(id))
+            .map((target) => (target ? _spoken(target) : ""))
+            .join(" ") :
+        _spoken(node);
 
-    return (node.textContent ?? "").replace(/\s+/g, " ").trim();
+    return text.replace(/\s+/g, " ").trim();
+}
+
+/** The element with an accessible name, among those the selector matches; undefined when none has it. */
+export function byName(rendered: Rendered, name: string, selector = "button"): HTMLElement | undefined
+{
+    return [..._element(rendered).querySelectorAll<HTMLElement>(selector)].find((n) => accessibleName(n) === name);
 }
 
 /** The landmarks, headings and controls of a screen, in document order, as roles and accessible names. */
@@ -122,6 +156,6 @@ export function accessibleTree(rendered: Rendered): AccessibleNode[]
     {
         const [, role] = Object.entries(TREE_ROLES).find(([s]) => node.matches(s))!;
 
-        return { role: node.getAttribute("role") ?? role, name: _name(node) };
+        return { role: node.getAttribute("role") ?? role, name: accessibleName(node) };
     });
 }
