@@ -68,7 +68,13 @@ Steps can be revisited in any order from a stepper; a change in step 0 re-valida
    - `stores/wizard.ts`: the draft; the choices, where changing one drops the answers of what it replaces; the self-saving draft.
    - `composables/entities.ts`: the entity lists, named with the composer's `localize`.
    - `components/wizard/`: `WizardStepper` (the dots), `WizardStepList` (the names), `WizardStep` (heading, copy by help level, Back and Next), `ChoiceCard` (a native radio or checkbox in a card, with the recommendation and its reason by help level), and `steps/` for steps 0–4 plus the pending panel of 5–9.
-3. Step 5 with the three methods, standard array default, point-buy rules read from the ruleset (a `pointBuy` table in `ruleset.yaml`, additive v0 field, if the SRD ruleset lacks one) — M1.4.
+3. Step 5 with the three methods, standard array default, point-buy rules read from the ruleset (a `pointBuy` table in `ruleset.yaml`, additive v0 field, if the SRD ruleset lacks one) — M1.4 (done in M1.4c). As built, by the owner's decisions of 2026-09-24:
+   - The array and the rolls are assigned with one menu per ability, and picking a value another ability holds swaps the two.
+   - Rolls are six totals typed in any order, kept in the wizard's draft (never in the character) and placed highest first once all are valid.
+   - Point buy has minus and plus per ability within the costs and budget.
+   - The recommended order is the archetype's `abilityPriority`, else the class's `primaryAbilities`.
+   - The manual adjustments sit in a closed section, open for an expert.
+   - The arithmetic is in `composables/ability-scores.ts`, the step in `components/wizard/steps/StepAbilities.vue`.
 4. Steps 6–8 and the review; the "as created" snapshot; storing the character — M1.4 (store in M1.5).
 5. Expert mode as the single-page rendering of the same steps; editing from the sheet — M1.4.
 6. The twelve-classes component test and the private Monk test — M1.4.

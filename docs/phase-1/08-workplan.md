@@ -81,6 +81,8 @@ Progress: split into M1.4a (content and format), M1.4b (wizard shell, steps 0–
 
 M1.4b was done on 2026-09-24: the wizard's route, store and self-saving draft, the dots and the step list, the choice cards, steps 0–4 in both languages, and the entry points. Lighthouse runs on the wizard too: accessibility 100, and 3.9 s to interactive cold, guarded at 5 s.
 
+M1.4c was done on 2026-09-24: step 5, with the standard array, point buy and roll, the swap menus, species bonuses and totals from the derived sheet, and the manual adjustments.
+
 Done: the criteria of M1.4. Release: `v0.3.4`.
 Risks: starting equipment turned out to be structured content, with only the pack contents in prose; M1.4a made those data too. The rule stands: never invent items in code.
 
