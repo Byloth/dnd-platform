@@ -81,6 +81,11 @@ Progress: split into M1.4a (content and format), M1.4b (wizard shell, steps 0–
 
 M1.4b was done on 2026-09-24: the wizard's route, store and self-saving draft, the dots and the step list, the choice cards, steps 0–4 in both languages, and the entry points. Lighthouse runs on the wizard too: accessibility 100, and 3.9 s to interactive cold, guarded at 5 s.
 
+M1.4d is split into d1 (step 6), d2 (step 7) and d3 (steps 8–9, the character stored), by the owner on 2026-09-24. M1.4d1 was done that day:
+- `ruleset.languages` and srd51 0.3.0;
+- `ChoiceView.optionDetails`;
+- step 6, with every remaining choice named and counted.
+
 M1.4c was done on 2026-09-24: step 5, with the standard array, point buy and roll, the swap menus, species bonuses and totals from the derived sheet, and the manual adjustments.
 
 Done: the criteria of M1.4. Release: `v0.3.4`.

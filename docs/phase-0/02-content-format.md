@@ -102,6 +102,10 @@ skills:
   # ... all 18
 proficiencyBonus: { table: srd51.table.proficiency-bonus }
 abilityModifier: "floor((score - 10) / 2)"
+languages:                                           # read by the creation wizard (M1.4d); absent: languages are written by hand
+  - { id: common, name: { en: Common } }
+  - { id: draconic, name: { en: Draconic }, exotic: true }
+  # ... the SRD's 16
 abilityScores:                                       # read by the creation wizard (M1.4); absent: scores are rolled or typed
   standardArray: [15, 14, 13, 12, 10, 8]
   pointBuy: { budget: 27, costs: { 8: 0, 9: 1, 10: 2, 11: 3, 12: 4, 13: 5, 14: 7, 15: 9 } }   # the keys are the scores allowed

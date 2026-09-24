@@ -75,7 +75,11 @@ Steps can be revisited in any order from a stepper; a change in step 0 re-valida
    - The recommended order is the archetype's `abilityPriority`, else the class's `primaryAbilities`.
    - The manual adjustments sit in a closed section, open for an expert.
    - The arithmetic is in `composables/ability-scores.ts`, the step in `components/wizard/steps/StepAbilities.vue`.
-4. Steps 6–8 and the review; the "as created" snapshot; storing the character — M1.4 (store in M1.5).
+4. Steps 6–8 and the review; the "as created" snapshot; storing the character — M1.4 (store in M1.5). Step 6 done in M1.4d1:
+   - One group per choice the sheet asks, answered or not: languages from the ruleset, tools, skills and expertise, inline feature options, cantrips and spells by list and level, and a subclass not set by an archetype.
+   - The count is respected by disabling the rest once it is reached.
+   - Long lists are searchable.
+   - The files are `composables/choice-options.ts`, `components/wizard/ChoiceGroup.vue` and `components/wizard/steps/StepChoices.vue`.
 5. Expert mode as the single-page rendering of the same steps; editing from the sheet — M1.4.
 6. The twelve-classes component test and the private Monk test — M1.4.
 
@@ -84,4 +88,5 @@ Steps can be revisited in any order from a stepper; a change in step 0 re-valida
 - ~~Point buy needs costs and a budget~~. Decided at M1.4a: `ruleset.abilityScores`, with SRD 5.2's numbers in srd51 0.2.0. The SRD 5.1 text had neither the array nor point buy.
 - Whether the archetype should also prefill equipment (the original playbook did); the schema has no field for it; propose it for v1 if the newcomer test asks for it.
 - ~~Starting equipment as "packs" is prose in the SRD classes~~. It was not: the class and background grants are structured, and only the pack contents were prose. Since M1.4a packs list their items (`item.contents`) and the coins have their place (`state.currency`); see the decisions.
+- ~~Where the language choices take their options~~. Decided by the owner on 2026-09-24: the ruleset's `languages` list (additive v0, srd51 0.3.0).
 - Manual adjustment of values other than the ability scores (armour class, hit points, speed, skills), with an override or a bonus as D&D Beyond offers. It is a later candidate, noted by the owner on 2026-09-24.
