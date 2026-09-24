@@ -172,6 +172,23 @@ describe.each(LANGUAGES)("accessibility, in %s", (language) =>
         await useWizardStore().discard();
     });
 
+    it.each(["evoker", "far-strider", "silver-tongue"])("the creation wizard's step 6 for the %s", async (archetype) =>
+    {
+        await speak(language);
+        await useWizardStore().discard();
+        await useWizardStore().start();
+        useWizardStore().chooseArchetype(`srd51.archetype.${archetype}`);
+        const wrapper = await render(WizardPage, { route: "/characters/new?step=choices" });
+        for (let i = 0; (i < 50) && !wrapper.find(".step-choices").exists(); i += 1)
+        {
+            await new Promise((done) => setTimeout(done, 10));
+            await flushPromises();
+        }
+        expect(wrapper.find(".choice-group").exists()).toBe(true);
+        await expectAccessible(wrapper);
+        await useWizardStore().discard();
+    });
+
     it("the navigation bar and the footer", async () =>
     {
         await speak(language);

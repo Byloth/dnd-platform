@@ -446,6 +446,27 @@ export const useWizardStore = defineStore("wizard", () =>
         _scores((scores) => ({ ...scores, base: deal(values, recommendedOrder.value) }));
     };
 
+    /**
+     * The answers of a choice the sheet asks; none forgets it. The level 1 class's subclass choice also writes
+     * the class entry's subclass, as a character document carries it.
+     */
+    const answer = (key: string, values: readonly string[], of?: string): void =>
+    {
+        _choices((choices) =>
+        {
+            const answers: Record<string, string[]> = Object.fromEntries(Object.entries(choices.answers ?? {})
+                .filter((entry): entry is [string, string[]] => (entry[0] !== key) && (entry[1] !== undefined)));
+            if (values.length) { answers[key] = [...values]; }
+
+            const first = choices.classes?.[0];
+            const classes = (of === "subclass") && first && key.startsWith(`${first.class}#`) ?
+                [defined({ ...first, subclass: values[0] }), ...choices.classes!.slice(1)] as Choices["classes"] :
+                choices.classes;
+
+            return { ...choices, classes: classes, answers: Object.keys(answers).length ? answers : undefined };
+        });
+    };
+
     /** The archetype's recommendation for a key (`species`, `class`…) and why, when the draft started from one. */
     const recommendation = (key: keyof Archetype["recommends"]): { value: unknown, why?: string } | undefined =>
     {
@@ -483,6 +504,7 @@ export const useWizardStore = defineStore("wizard", () =>
         buy,
         adjust,
         dealRecommended,
+        answer,
         recommendation
     };
 });

@@ -307,6 +307,55 @@
         "title": "Correzioni manuali",
         "note": "Un numero tuo, sommato al totale del punteggio e mostrato nella sua spiegazione: per un oggetto magico, una regola della casa o una decisione del tavolo."
       }
+    },
+    "choices": {
+      "purpose": "Alcuni privilegi ti lasciano scegliere: una lingua, uno strumento, un'abilità, i tuoi primi incantesimi.",
+      "consequence": "Quello che scegli qui va sulla scheda: le abilità e gli strumenti in cui sei bravo, le lingue che parli, gli incantesimi che sai lanciare.",
+      "recommendation": "Nel dubbio, scegli quello che si adatta al personaggio che immagini: qui non ci sono risposte sbagliate.",
+      "progress": "Scegline {count} · {chosen} su {count} scelti",
+      "search": "Cerca per nome",
+      "exotic": "Mostra le lingue esotiche",
+      "limit": "Li hai scelti tutti: togline uno per sceglierne un altro.",
+      "noMatch": "Nessun risultato per la ricerca.",
+      "none": "Nient'altro da scegliere: le tue scelte sono complete.",
+      "concentration": "Concentrazione",
+      "ritual": "Rituale",
+      "titles": {
+        "language": "Lingue",
+        "tool": "Strumenti",
+        "skill": "Abilità",
+        "expertise": "Maestria",
+        "cantrip": "Trucchetti",
+        "spell": "Incantesimi",
+        "option": "Opzioni",
+        "subclass": "Sottoclasse",
+        "ability": "Punteggi di caratteristica",
+        "other": "Scelta"
+      },
+      "kinds": {
+        "language": "Lingue che parli, leggi e scrivi; prima quelle comuni, le esotiche per le creature di altri piani.",
+        "tool": "Uno strumento che sai usare: aggiungi il bonus di competenza quando lo usi.",
+        "skill": "Un'abilità in cui sei addestrato: aggiungi il bonus di competenza alle sue prove.",
+        "expertise": "Due abilità in cui sei particolarmente bravo: il bonus di competenza conta doppio.",
+        "cantrip": "I trucchetti sono piccoli incantesimi che puoi lanciare quante volte vuoi.",
+        "spell": "Gli incantesimi costano uno slot; gli slot tornano dopo un riposo lungo.",
+        "option": "Un modo in cui il privilegio lavora per te; ogni opzione dice cosa fa.",
+        "subclass": "La strada che prende la tua classe: aggiunge privilegi ora e ai livelli successivi.",
+        "ability": "Un punteggio di caratteristica che questo privilegio aumenta.",
+        "other": "Una scelta che questo privilegio ti chiede."
+      },
+      "schools": {
+        "abjuration": "Abiurazione",
+        "conjuration": "Evocazione",
+        "divination": "Divinazione",
+        "enchantment": "Ammaliamento",
+        "evocation": "Invocazione",
+        "illusion": "Illusione",
+        "necromancy": "Necromanzia",
+        "transmutation": "Trasmutazione"
+      },
+      "cantrip": "Trucchetto",
+      "freeLanguage": "Lingua {n}"
     }
   }
 }

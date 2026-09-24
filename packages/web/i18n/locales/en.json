@@ -307,6 +307,55 @@
         "title": "Manual adjustments",
         "note": "A number of your own, added to the score's total and shown in its explanation: for a magic item, a house rule or a table decision."
       }
+    },
+    "choices": {
+      "purpose": "Some features let you pick: a language, a tool, a skill, your first spells.",
+      "consequence": "What you pick here goes on your sheet: skills and tools you are good at, languages you speak, spells you can cast.",
+      "recommendation": "When unsure, pick what fits the character you imagine; nothing here is a wrong answer.",
+      "progress": "Choose {count} · {chosen} of {count} chosen",
+      "search": "Search by name",
+      "exotic": "Show exotic languages",
+      "limit": "You have chosen them all: remove one to choose another.",
+      "noMatch": "Nothing matches the search.",
+      "none": "Nothing else to choose: your choices are complete.",
+      "concentration": "Concentration",
+      "ritual": "Ritual",
+      "titles": {
+        "language": "Languages",
+        "tool": "Tools",
+        "skill": "Skills",
+        "expertise": "Expertise",
+        "cantrip": "Cantrips",
+        "spell": "Spells",
+        "option": "Options",
+        "subclass": "Subclass",
+        "ability": "Ability scores",
+        "other": "Choice"
+      },
+      "kinds": {
+        "language": "Languages you speak, read and write; the common ones first, the exotic ones for creatures of other planes.",
+        "tool": "A tool you know how to use, adding your proficiency bonus when you use it.",
+        "skill": "A skill you are trained in: you add your proficiency bonus to its checks.",
+        "expertise": "Two skills you are especially good at: your proficiency bonus counts twice for them.",
+        "cantrip": "Cantrips are small spells you can cast as often as you like.",
+        "spell": "Spells cost a spell slot; you get your slots back after a long rest.",
+        "option": "A way your feature works for you; each option says what it does.",
+        "subclass": "The path your class takes: it adds features now and at later levels.",
+        "ability": "An ability score this feature raises.",
+        "other": "A choice this feature asks you to make."
+      },
+      "schools": {
+        "abjuration": "Abjuration",
+        "conjuration": "Conjuration",
+        "divination": "Divination",
+        "enchantment": "Enchantment",
+        "evocation": "Evocation",
+        "illusion": "Illusion",
+        "necromancy": "Necromancy",
+        "transmutation": "Transmutation"
+      },
+      "cantrip": "Cantrip",
+      "freeLanguage": "Language {n}"
     }
   }
 }

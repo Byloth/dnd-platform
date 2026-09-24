@@ -53,6 +53,15 @@ export function stepDone(step: StepId): boolean
 
             return (wizard.packageSet?.ruleset.abilities ?? []).every((a) => base[a] !== undefined);
         }
+        case "choices":
+        {
+            if (!wizard.character || !wizard.sources.length) { return false; }
+            const sheet = useEngine().sheet(wizard.character, wizard.sources, {
+                language: useNuxtApp().$i18n.locale.value
+            }).sheet;
+
+            return sheet.choices.every((c) => c.answered || (c.of === "asi-or-feat"));
+        }
         default: return false;
     }
 }

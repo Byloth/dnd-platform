@@ -278,4 +278,81 @@ describe("the creation wizard", () =>
             expect(wrapper.text()).not.toMatch(/wizard\.|sheet\.[a-z]/);
         });
     });
+
+    describe("step 6, the remaining choices", () =>
+    {
+        async function choices(archetype: string): Promise<VueWrapper>
+        {
+            await useWizardStore().start();
+            useWizardStore().chooseArchetype(`srd51.archetype.${archetype}`);
+
+            return open("choices");
+        }
+
+        const group = (wrapper: VueWrapper, eyebrow: string, title: string) =>
+            wrapper.findAll(".choice-group").find((g) => g.find(".choice-group__eyebrow").text() === eyebrow &&
+                g.find(".choice-group__title").text() === title)!;
+
+        it("counts the Acolyte's two languages and holds the others once both are chosen", async () =>
+        {
+            const wrapper = await choices("raging-defender");
+            const languages = group(wrapper, "Acolyte", "Languages");
+            expect(languages.find(".choice-group__progress").text()).toBe("Choose 2 · 0 of 2 chosen");
+
+            await languages.find("input[value='dwarvish']").setValue(true);
+            await languages.find("input[value='giant']").setValue(true);
+            await settle();
+
+            const after = group(wrapper, "Acolyte", "Languages");
+            expect(after.find(".choice-group__progress").text()).toBe("Choose 2 · 2 of 2 chosen");
+            expect(after.find<HTMLInputElement>("input[value='goblin']").element.disabled).toBe(true);
+            expect(after.text()).toContain("remove one to choose another");
+            expect(useWizardStore().character?.choices.answers?.["srd51.background.acolyte#languages"])
+                .toEqual(["dwarvish", "giant"]);
+        });
+
+        it("searches an evoker's cantrips and names the fighter's fighting styles", async () =>
+        {
+            const wrapper = await choices("evoker");
+            const cantrips = group(wrapper, "Wizard", "Cantrips");
+            await cantrips.find("input[type='search']").setValue("fire");
+            await settle();
+            expect(group(wrapper, "Wizard", "Cantrips").findAll(".choice-card__title")
+                .map((c) => c.text()))
+                .toEqual(["Fire Bolt"]);
+
+            wrapper.unmount();
+            _mounted = undefined;
+            const fighter = await choices("sword-and-shield");
+            const styles = group(fighter, "Fighter", "Fighting Style");
+            expect(styles.text()).toContain("Defense");
+            expect(styles.text()).toContain("While you are wearing armor");
+        });
+
+        it("marks the step done once every choice is answered", async () =>
+        {
+            const wrapper = await choices("oathbound-champion");
+            expect(stepDone("choices")).toBe(false);
+
+            const languages = group(wrapper, "Acolyte", "Languages");
+            await languages.find("input[value='dwarvish']").setValue(true);
+            await languages.find("input[value='giant']").setValue(true);
+            await settle();
+
+            expect(stepDone("choices")).toBe(true);
+            expect(byName(wrapper, "7. Other choices, done")).toBeDefined();
+        });
+
+        it("speaks Italian", async () =>
+        {
+            usePreferencesStore().language = "it";
+            await useNuxtApp().$i18n.setLocale("it");
+            const wrapper = await choices("evoker");
+
+            expect(wrapper.find("h1").text()).toBe("Altre scelte");
+            expect(wrapper.text()).toContain("Scegline 3");
+            expect(wrapper.text()).toContain("Invocazione");
+            expect(wrapper.text()).not.toMatch(/wizard\.|sheet\.[a-z]/);
+        });
+    });
 });

@@ -221,4 +221,20 @@ describe("the creation wizard's store", () =>
             expect(wizard.recommendedOrder.slice(0, 2)).toEqual(["int", "str"]);
         });
     });
+
+    it("answers a choice, and writes a subclass twice as the document carries it", () =>
+    {
+        const wizard = useWizardStore();
+        wizard.chooseArchetype(null);
+        wizard.chooseClass("srd51.class.cleric");
+        wizard.answer("srd51.class.cleric#divine-domain", ["srd51.subclass.cleric.life-domain"], "subclass");
+
+        expect(wizard.character?.choices.classes?.[0]?.subclass).toBe("srd51.subclass.cleric.life-domain");
+        expect(wizard.character?.choices.answers?.["srd51.class.cleric#divine-domain"])
+            .toEqual(["srd51.subclass.cleric.life-domain"]);
+
+        wizard.answer("srd51.class.cleric#divine-domain", [], "subclass");
+        expect(wizard.character?.choices.classes?.[0]).not.toHaveProperty("subclass");
+        expect(wizard.character?.choices).not.toHaveProperty("answers");
+    });
 });

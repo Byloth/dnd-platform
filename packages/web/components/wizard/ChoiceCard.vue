@@ -98,6 +98,11 @@
             @include mixins.focus-ring;
         }
 
+        &--disabled:not(&--checked)
+        {
+            opacity: 0.55;
+        }
+
         &--recommended
         {
             border-color: var(--color-brass);

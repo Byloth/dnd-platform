@@ -1,6 +1,7 @@
 <script lang="ts" setup>
     import AppButton from "@/components/ui/AppButton.vue";
     import StepAbilities from "@/components/wizard/steps/StepAbilities.vue";
+    import StepChoices from "@/components/wizard/steps/StepChoices.vue";
     import StepBackground from "@/components/wizard/steps/StepBackground.vue";
     import StepClass from "@/components/wizard/steps/StepClass.vue";
     import StepConcept from "@/components/wizard/steps/StepConcept.vue";
@@ -33,7 +34,8 @@
         species: StepSpecies,
         class: StepClass,
         background: StepBackground,
-        abilities: StepAbilities
+        abilities: StepAbilities,
+        choices: StepChoices
     };
     const view = computed(() => STEP_VIEWS[wizard.step] ?? StepPending);
 
@@ -207,16 +209,16 @@
             @include mixins.sr-only;
         }
 
+        // A legend in a grid fieldset spans every column: it heads the options, it is not one of them.
         &__title
         {
             color: var(--color-ink-muted);
-            float: left;
             font-size: var(--text-lg);
+            grid-column: 1 / -1;
             letter-spacing: 0.08em;
-            margin-bottom: var(--space-3);
+            margin-bottom: var(--space-1);
             padding: 0;
             text-transform: uppercase;
-            width: 100%;
         }
 
         &__facts
