@@ -35,6 +35,7 @@
     "web:test": "pnpm --filter @byloth/dnd-platform-web run test",
     "web:prepare-content": "pnpm --filter @byloth/dnd-platform-web run prepare-content",
     "web:generate": "pnpm --filter @byloth/dnd-platform-web run generate",
+    "web:budgets": "pnpm --filter @byloth/dnd-platform-web run budgets",
     "web:preview": "pnpm --filter @byloth/dnd-platform-web run preview"
   },
   "devDependencies": {

@@ -33,5 +33,7 @@ jobs:
       - run: pnpm fixtures
       - run: pnpm web:prepare-content
       - run: pnpm web:generate
+      # First load under 300 KB, the SRD under 500 KB, compressed (docs/phase-1/07-testing-accessibility-performance.md).
+      - run: pnpm web:budgets
       # Public content only: content-private/ never exists here.
       # Fixtures that require a private package are reported as skipped.
