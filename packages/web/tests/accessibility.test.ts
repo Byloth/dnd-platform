@@ -25,6 +25,7 @@ import type { Language } from "@/stores/preferences";
 import CharactersPage from "@/pages/index.vue";
 import CharacterPage from "@/pages/characters/[id]/index.vue";
 import PackagesPage from "@/pages/packages/index.vue";
+import WizardPage from "@/pages/characters/new.vue";
 
 import { accessibleTree, expectKeyboardOperable, expectNoAxeViolations } from "./accessibility";
 import { clearBrowserStorage, ROOT, serveDemoCharacters, serveSite, SRD } from "./helpers";
@@ -116,6 +117,34 @@ describe.each(LANGUAGES)("accessibility, in %s", (language) =>
     {
         await speak(language);
         await expectAccessible(await render(PackagesPage));
+    });
+
+    it("the creation wizard's steps 0-4, as a newcomer and as a regular player", async () =>
+    {
+        await speak(language);
+        for (const helpLevel of ["newcomer", "regular"] as const)
+        {
+            usePreferencesStore().helpLevel = helpLevel;
+            await useWizardStore().discard();
+            await useWizardStore().start();
+            useWizardStore().chooseArchetype("srd51.archetype.open-hand-wanderer");
+            for (const step of ["content", "concept", "species", "class", "background", "equipment"])
+            {
+                const wrapper = await render(WizardPage, { route: `/characters/new?step=${step}` });
+                for (let i = 0; (i < 50) && !wrapper.find(".wizard-step").exists(); i += 1)
+                {
+                    await new Promise((done) => setTimeout(done, 10));
+                    await flushPromises();
+                }
+                expect(wrapper.find(".wizard-step").exists(), step).toBe(true);
+                await expectAccessible(wrapper);
+
+                wrapper.unmount();
+                document.body.innerHTML = "";
+            }
+        }
+        _mounted = undefined;
+        await useWizardStore().discard();
     });
 
     it("the navigation bar and the footer", async () =>

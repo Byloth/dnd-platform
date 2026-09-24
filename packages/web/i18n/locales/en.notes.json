@@ -11,7 +11,8 @@
     "settings": "Header navigation and settings; short labels, they share a phone-width bar.",
     "helpLevel": "Header navigation and settings; short labels, they share a phone-width bar.",
     "theme": "Header navigation and settings; short labels, they share a phone-width bar.",
-    "contrast": "Header navigation and settings; short labels, they share a phone-width bar."
+    "contrast": "Header navigation and settings; short labels, they share a phone-width bar.",
+    "newCharacter": "Header link to the creation wizard."
   },
   "footer": {
     "attribution": "Legal attribution required by the SRD's licence (CC-BY-4.0); translate the sentence, keep the names and the licence name.",
@@ -199,6 +200,76 @@
     },
     "equipment": {
       "quantity": "The build-mode sheet screen: labels, accessible names and states around the composer's content. Parameters: {count}."
+    }
+  },
+  "wizard": {
+    "title": "The creation wizard's page title and heading.",
+    "create": "Button on the characters page that starts the creation wizard.",
+    "loading": "Shown while the wizard loads the packages.",
+    "progress": "Accessible name of the row of numbered step dots.",
+    "stepList": "Accessible name of the list of steps beside the wizard, on desktop.",
+    "stepOf": "Under the step dots: which step is on screen. Parameters: {n}, {total}.",
+    "done": "Read by screen readers after a completed step's name.",
+    "back": "Button to the previous step.",
+    "next": "Button to the next step; never disabled.",
+    "recommended": "Badge on a recommended option; short.",
+    "why": "Disclosure that shows why an option is recommended (regular help level).",
+    "empty": "When the selected packages offer no option for a step.",
+    "resume": {
+      "heading": "When a draft is found in the browser.",
+      "text": "Explains the two buttons below.",
+      "resume": "Loads the saved draft.",
+      "restart": "Discards the draft and starts a new character."
+    },
+    "pending": {
+      "heading": "Steps not built yet.",
+      "text": "Reassures that the draft is kept."
+    },
+    "steps": {
+      "content": "The step's name, in the stepper and as its heading; short.",
+      "concept": "The step's name, in the stepper and as its heading; short.",
+      "species": "The step's name, in the stepper and as its heading; short.",
+      "class": "The step's name, in the stepper and as its heading; short.",
+      "background": "The step's name, in the stepper and as its heading; short.",
+      "abilities": "The step's name, in the stepper and as its heading; short.",
+      "choices": "The step's name, in the stepper and as its heading; short.",
+      "equipment": "The step's name, in the stepper and as its heading; short.",
+      "personality": "The step's name, in the stepper and as its heading; short.",
+      "review": "The step's name, in the stepper and as its heading; short."
+    },
+    "content": {
+      "purpose": "Newcomer copy: what the step is for.",
+      "consequence": "Newcomer copy: what the choice changes.",
+      "recommendation": "Newcomer copy: what to choose when unsure.",
+      "site": "Beside a package published by the site, which cannot be removed.",
+      "private": "Badge on a private package."
+    },
+    "concept": {
+      "purpose": "Newcomer copy: what the step is for.",
+      "consequence": "Newcomer copy: what the choice changes.",
+      "recommendation": "Newcomer copy: what to choose when unsure.",
+      "skip": "The card that skips the archetypes.",
+      "skipText": "Under the skip card's title.",
+      "builds": "Under an archetype's pitch: its class and species. Parameters: {class}, {species}."
+    },
+    "species": {
+      "purpose": "Newcomer copy: what the step is for.",
+      "consequence": "Newcomer copy: what the choice changes.",
+      "recommendation": "Newcomer copy: what to choose when unsure.",
+      "subspecies": "Heading of the subspecies options of the chosen species; use the glossary's word."
+    },
+    "class": {
+      "purpose": "Newcomer copy: what the step is for.",
+      "consequence": "Newcomer copy: what the choice changes.",
+      "recommendation": "Newcomer copy: what to choose when unsure.",
+      "hitDie": "A class card fact. Parameters: {term} (the glossary's Hit Dice), {die}.",
+      "primary": "A class card fact. Parameters: {list} of ability names.",
+      "saves": "A class card fact. Parameters: {list} of ability names."
+    },
+    "background": {
+      "purpose": "Newcomer copy: what the step is for.",
+      "consequence": "Newcomer copy: what the choice changes.",
+      "recommendation": "Newcomer copy: what to choose when unsure."
     }
   }
 }

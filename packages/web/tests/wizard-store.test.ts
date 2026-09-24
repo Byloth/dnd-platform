@@ -62,7 +62,8 @@ describe("the creation wizard's store", () =>
     it("leaves the choices alone when the player skips the archetypes", () =>
     {
         const wizard = useWizardStore();
-        wizard.chooseArchetype(undefined);
+        wizard.chooseArchetype(null);
+        expect(wizard.archetype).toBeNull();
 
         expect(wizard.character?.choices).toEqual({});
         expect(wizard.recommendation("class")).toBeUndefined();

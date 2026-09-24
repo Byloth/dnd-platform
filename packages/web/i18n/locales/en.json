@@ -11,7 +11,8 @@
     "settings": "Settings",
     "helpLevel": "Help level",
     "theme": "Theme",
-    "contrast": "Contrast"
+    "contrast": "Contrast",
+    "newCharacter": "New character"
   },
   "footer": {
     "attribution": "This work includes material taken from the System Reference Documents 5.1 and 5.2 by Wizards of the Coast LLC, licensed under the Creative Commons Attribution 4.0 International License.",
@@ -96,7 +97,7 @@
   },
   "characters": {
     "heading": "Characters",
-    "intro": "Your characters will live here: creating one with guidance arrives with the next versions. Meanwhile, open one of the demo characters to see how a sheet explains every number.",
+    "intro": "Create a character with guidance: every step explains what it changes, and an idea to start from fills in the rest. Or open one of the demo characters to see how a sheet explains every number.",
     "demos": "Demo characters",
     "loading": "Loading the characters…",
     "failed": "The characters could not be loaded."
@@ -199,6 +200,76 @@
     },
     "equipment": {
       "quantity": "× {count}"
+    }
+  },
+  "wizard": {
+    "title": "New character",
+    "create": "Create a character",
+    "loading": "Preparing the creation…",
+    "progress": "Progress",
+    "stepList": "Steps",
+    "stepOf": "Step {n} of {total}",
+    "done": "done",
+    "back": "Back",
+    "next": "Next",
+    "recommended": "Recommended",
+    "why": "Why?",
+    "empty": "The selected packages have nothing to choose from here.",
+    "resume": {
+      "heading": "You have a character in progress",
+      "text": "Pick up where you left off, or start again from the beginning.",
+      "resume": "Resume",
+      "restart": "Start again"
+    },
+    "pending": {
+      "heading": "Arriving soon",
+      "text": "This step arrives with the next version. Your choices so far are saved in this browser."
+    },
+    "steps": {
+      "content": "Content",
+      "concept": "Concept",
+      "species": "Species",
+      "class": "Class",
+      "background": "Background",
+      "abilities": "Ability scores",
+      "choices": "Other choices",
+      "equipment": "Equipment",
+      "personality": "Personality",
+      "review": "Review"
+    },
+    "content": {
+      "purpose": "Choose the books your character is built from.",
+      "consequence": "Only what these packages contain appears in the next steps; the SRD always comes with the site.",
+      "recommendation": "If this is your first character, the SRD alone is plenty.",
+      "site": "Comes with the site",
+      "private": "Private"
+    },
+    "concept": {
+      "purpose": "Pick an idea to start from, or skip and choose everything yourself.",
+      "consequence": "An idea fills in species, class, background and ability scores for you; you can change any of it later.",
+      "recommendation": "Pick the one that sounds most fun to play: there is no wrong answer.",
+      "skip": "I'll choose myself",
+      "skipText": "No idea to start from: every step starts empty.",
+      "builds": "{class} · {species}"
+    },
+    "species": {
+      "purpose": "Your species is where your character comes from: their body, their senses, a few gifts.",
+      "consequence": "It raises some ability scores and gives traits such as darkvision or resistances.",
+      "recommendation": "Choose the one you like to imagine; the recommended one suits your class best.",
+      "subspecies": "Subspecies"
+    },
+    "class": {
+      "purpose": "Your class is the biggest decision: it sets what you can do in a fight and what you are good at.",
+      "consequence": "It gives your hit points, your proficiencies and the features you gain as you level up.",
+      "recommendation": "A class's primary abilities are the scores it needs most.",
+      "hitDie": "{term}: d{die}",
+      "primary": "Primary abilities: {list}",
+      "saves": "Saving throws: {list}"
+    },
+    "background": {
+      "purpose": "Your background is what your character did before becoming an adventurer.",
+      "consequence": "It adds skills, languages or tools, some equipment and a feature.",
+      "recommendation": "Pick the story you like: it matters less than species and class."
     }
   }
 }

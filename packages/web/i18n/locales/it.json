@@ -11,7 +11,8 @@
     "settings": "Impostazioni",
     "helpLevel": "Livello di aiuto",
     "theme": "Tema",
-    "contrast": "Contrasto"
+    "contrast": "Contrasto",
+    "newCharacter": "Nuovo personaggio"
   },
   "footer": {
     "attribution": "Quest'opera include materiale tratto dai System Reference Document 5.1 e 5.2 di Wizards of the Coast LLC, con licenza Creative Commons Attribution 4.0 International.",
@@ -96,7 +97,7 @@
   },
   "characters": {
     "heading": "Personaggi",
-    "intro": "Qui vivranno i tuoi personaggi: la creazione guidata arriva con le prossime versioni. Nel frattempo apri uno dei personaggi dimostrativi per vedere come la scheda spiega ogni numero.",
+    "intro": "Crea un personaggio con una guida: ogni passo spiega cosa cambia, e un'idea da cui partire compila il resto. Oppure apri uno dei personaggi dimostrativi per vedere come una scheda spiega ogni numero.",
     "demos": "Personaggi dimostrativi",
     "loading": "Caricamento dei personaggi…",
     "failed": "Impossibile caricare i personaggi."
@@ -199,6 +200,76 @@
     },
     "equipment": {
       "quantity": "× {count}"
+    }
+  },
+  "wizard": {
+    "title": "Nuovo personaggio",
+    "create": "Crea un personaggio",
+    "loading": "Preparo la creazione…",
+    "progress": "Avanzamento",
+    "stepList": "Passi",
+    "stepOf": "Passo {n} di {total}",
+    "done": "fatto",
+    "back": "Indietro",
+    "next": "Avanti",
+    "recommended": "Consigliato",
+    "why": "Perché?",
+    "empty": "I pacchetti scelti non hanno niente da scegliere qui.",
+    "resume": {
+      "heading": "Hai un personaggio in corso",
+      "text": "Riprendi da dove eri rimasto, oppure ricomincia dall'inizio.",
+      "resume": "Riprendi",
+      "restart": "Ricomincia"
+    },
+    "pending": {
+      "heading": "In arrivo",
+      "text": "Questo passo arriva con la prossima versione. Le scelte fatte finora sono salvate in questo browser."
+    },
+    "steps": {
+      "content": "Contenuti",
+      "concept": "Idea",
+      "species": "Specie",
+      "class": "Classe",
+      "background": "Background",
+      "abilities": "Caratteristiche",
+      "choices": "Altre scelte",
+      "equipment": "Equipaggiamento",
+      "personality": "Personalità",
+      "review": "Riepilogo"
+    },
+    "content": {
+      "purpose": "Scegli i libri da cui nasce il tuo personaggio.",
+      "consequence": "Nei passi successivi compare solo quello che contengono questi pacchetti; l'SRD c'è sempre, insieme al sito.",
+      "recommendation": "Se è il tuo primo personaggio, basta l'SRD.",
+      "site": "Incluso nel sito",
+      "private": "Privato"
+    },
+    "concept": {
+      "purpose": "Scegli un'idea da cui partire, oppure salta e scegli tutto da te.",
+      "consequence": "Un'idea compila per te specie, classe, background e punteggi di caratteristica; puoi cambiare tutto dopo.",
+      "recommendation": "Scegli quella che ti sembra più divertente da giocare: non esiste una risposta sbagliata.",
+      "skip": "Scelgo da me",
+      "skipText": "Nessuna idea di partenza: ogni passo parte vuoto.",
+      "builds": "{class} · {species}"
+    },
+    "species": {
+      "purpose": "La specie è l'origine del tuo personaggio: il corpo, i sensi, qualche dono.",
+      "consequence": "Aumenta alcuni punteggi di caratteristica e dà tratti come la scurovisione o delle resistenze.",
+      "recommendation": "Scegli quella che ti piace immaginare; quella consigliata è la più adatta alla tua classe.",
+      "subspecies": "Sottospecie"
+    },
+    "class": {
+      "purpose": "La classe è la scelta più importante: decide cosa sai fare in combattimento e in cosa sei bravo.",
+      "consequence": "Dà i punti ferita, le competenze e i privilegi che ottieni salendo di livello.",
+      "recommendation": "Le caratteristiche primarie di una classe sono i punteggi di cui ha più bisogno.",
+      "hitDie": "{term}: d{die}",
+      "primary": "Caratteristiche primarie: {list}",
+      "saves": "Tiri salvezza: {list}"
+    },
+    "background": {
+      "purpose": "Il background è ciò che il tuo personaggio faceva prima di diventare un avventuriero.",
+      "consequence": "Aggiunge abilità, lingue o strumenti, un po' di equipaggiamento e un privilegio.",
+      "recommendation": "Scegli la storia che ti piace: conta meno della specie e della classe."
     }
   }
 }

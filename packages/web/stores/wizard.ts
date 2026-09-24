@@ -27,7 +27,8 @@ export interface WizardDraft
 {
     readonly character: Character;
     readonly step: StepId;
-    readonly archetype?: string;
+    /** The archetype the draft started from; `null` when the player chose to skip them. */
+    readonly archetype?: string | null;
     readonly savedAt: string;
 }
 
@@ -63,7 +64,8 @@ export const useWizardStore = defineStore("wizard", () =>
 {
     const character = shallowRef<Character>();
     const step = ref<StepId>("content");
-    const archetype = ref<string>();
+    /** Undefined until the concept step is answered; `null` when the player skipped the archetypes. */
+    const archetype = ref<string | null>();
     const sources = shallowRef<PackageSource[]>([]);
 
     let _saveTimer: ReturnType<typeof setTimeout> | undefined;
@@ -210,11 +212,11 @@ export const useWizardStore = defineStore("wizard", () =>
         await _loadSources();
     };
 
-    const _archetype = (id: string | undefined): Archetype | undefined =>
+    const _archetype = (id: string | null | undefined): Archetype | undefined =>
         (id ? packageSet.value?.entities.get(id)?.data as Archetype | undefined : undefined);
 
-    /** Starts from an archetype, prefilling its recommendations; `undefined` means "I'll choose myself". */
-    const chooseArchetype = (id: string | undefined): void =>
+    /** Starts from an archetype, prefilling its recommendations; `null` means "I'll choose myself". */
+    const chooseArchetype = (id: string | null): void =>
     {
         archetype.value = id;
         const recommends = _archetype(id)?.recommends;

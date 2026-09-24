@@ -5,7 +5,8 @@
       "startServerReadyPattern": "Serving the site",
       "url": [
         "http://localhost:4173/dnd-platform/",
-        "http://localhost:4173/dnd-platform/characters/fixture-perf-caster-l20"
+        "http://localhost:4173/dnd-platform/characters/fixture-perf-caster-l20",
+        "http://localhost:4173/dnd-platform/characters/new"
       ],
       "numberOfRuns": 3,
       "settings": {
@@ -54,7 +55,7 @@
           "aggregationMethod": "median-run"
         },
         {
-          "matchingUrlPattern": "/characters/",
+          "matchingUrlPattern": "/characters/fixture-",
           "assertions": {
             "interactive": [
               "error",
@@ -70,6 +71,24 @@
             ]
           },
           "aggregationMethod": "median-run"
+        },
+        {
+          "matchingUrlPattern": "/characters/new",
+          "aggregationMethod": "median-run",
+          "assertions": {
+            "interactive": [
+              "error",
+              {
+                "maxNumericValue": 5000
+              }
+            ],
+            "categories:accessibility": [
+              "error",
+              {
+                "minScore": 1
+              }
+            ]
+          }
         }
       ]
     },

@@ -6,6 +6,7 @@
 import {
     faBolt,
     faChevronDown,
+    faChevronLeft,
     faChevronRight,
     faCircle,
     faCircleCheck,
@@ -34,6 +35,7 @@ import type { IconDefinition } from "@fortawesome/free-solid-svg-icons";
 const _icons: readonly IconDefinition[] = [
     faBolt,
     faChevronDown,
+    faChevronLeft,
     faChevronRight,
     faCircle,
     faCircleCheck,

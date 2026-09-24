@@ -36,6 +36,10 @@
                 <RouterLink :to="{ name: 'index' }" class="navigation-bar__link">
                     {{ t("nav.characters") }}
                 </RouterLink>
+                <!-- On a phone the characters page's button is the way in: the bar has no room for a fourth entry. -->
+                <RouterLink :to="{ name: 'characters-new' }" class="navigation-bar__link navigation-bar__link--wide">
+                    {{ t("nav.newCharacter") }}
+                </RouterLink>
                 <RouterLink :to="{ name: 'packages' }" class="navigation-bar__link">
                     {{ t("nav.packages") }}
                 </RouterLink>
@@ -175,6 +179,11 @@
             {
                 background-color: var(--color-accent-soft);
                 color: var(--color-accent);
+            }
+
+            &--wide
+            {
+                @media (max-width: variables.$phone-max) { display: none; }
             }
         }
 

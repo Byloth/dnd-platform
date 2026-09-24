@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+    import AppButton from "@/components/ui/AppButton.vue";
     import FontAwesome from "@/components/ui/FontAwesome.vue";
 
     // The characters page: until the user's own characters (M1.5), the site's demo characters, each linking its sheet.
@@ -18,6 +19,10 @@
             <p class="characters-page__intro">
                 {{ t("characters.intro") }}
             </p>
+            <AppButton :to="{ name: 'characters-new' }">
+                <FontAwesome icon="dice-d20" aria-hidden="true" />
+                {{ t("wizard.create") }}
+            </AppButton>
         </header>
         <p v-if="status === 'pending'" role="status">
             {{ t("characters.loading") }}
