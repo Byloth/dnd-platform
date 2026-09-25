@@ -39,6 +39,7 @@ IndexedDB "dnd-platform", version 1
 
 - Create, read, update, delete, list; each write also refreshes `updatedAt` and, when a working directory is connected, writes the document as `characters/<id>.yaml` (YAML for readability, the same document).
 - Snapshots stay inside the document as the schema defines them; Phase 1 writes one at the end of creation ("as created") and none after.
+- As built in M1.4d3: `useBrowserStorage().characters` has `get`, `list` and `put`; the creation wizard writes through `put`, and `useCharacters()` lists the stored characters before the site's demo ones (`origin: "stored" | "demo"`), naming their classes from the content. Update, delete and the missing-package state for stored characters remain M1.5.
 - Deleting a character deletes its document only; packages are never deleted implicitly.
 - On start, the application lists the store; with a connected working directory it reconciles both ways by `updatedAt`, newest wins, and shows what changed.
 

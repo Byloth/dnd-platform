@@ -90,6 +90,11 @@ M1.4d2 was done on 2026-09-24:
 - item category tags for the grants' filters, `matchesItemFilter`, srd51 0.4.0;
 - step 7, with the class options, filters as menus, unpacked packs, removable granted items, the shop, equipped toggles and the coins beside the suggested purse.
 
+M1.4d3 was done on 2026-09-25:
+- `ruleset.alignments`, the acolyte's ideals, srd51 0.6.0;
+- step 8, with the name needed to save (owner), the alignment menu and the background's suggestions that fill the fields;
+- step 9, the sheet under what is still open, each with its step; saving stores the character at full hit points with its "as created" snapshot, and the characters page lists it.
+
 M1.4c was done on 2026-09-24: step 5, with the standard array, point buy and roll, the swap menus, species bonuses and totals from the derived sheet, and the manual adjustments.
 
 Done: the criteria of M1.4. Release: `v0.3.4`.

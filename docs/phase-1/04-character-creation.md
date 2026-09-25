@@ -22,6 +22,8 @@ This document fixes the creation wizard of [../07-character-creation.md](../07-c
 - **Choosing an archetype prefills** (owner, 2026-09-24): species, subspecies, class and subclass, background, its answers and the standard array in its ability order are written at once, stay marked "recommended" with their reason, and can all be changed; a newcomer can reach the end with "Next" alone. "I'll choose myself" skips the archetypes and leaves every step empty.
 - **The stepper is a row of numbered dots on every width**, with the step names beside the wizard on desktop (owner, 2026-09-24).
 - **The draft saves itself in the browser** (owner, 2026-09-24): the `meta` store, key `wizard-draft`, shortly after every change; opening the wizard with a stored draft asks "resume or start again".
+- **The name is the one thing the wizard asks before saving** (owner, 2026-09-25), the single exception to "warn, never block": the review's save button is disabled without it, with the reason beside it. Everything else open is listed and can be saved as it is.
+- **Alignments are content** (owner, 2026-09-25): `ruleset.alignments` (additive v0, srd51 0.6.0), offered as a menu; `choices.alignment` holds the id, or the player's own words when the ruleset lists none.
 
 ## Design
 
@@ -37,7 +39,7 @@ This document fixes the creation wizard of [../07-character-creation.md](../07-c
 | 5 | Ability scores | class primary abilities, species bonuses from the derived sheet | `choices.abilityScores` (method, base, assignment) | three tabs: standard array (drag or pick per ability, recommended assignment prefilled from `abilityPriority`), point buy (budget and costs from the ruleset), roll (six inputs) |
 | 6 | Remaining choices | the sheet's `choices` with `answered: false` | `choices.answers[key]` | one card per open choice, options from `ChoiceView.options`, spells filtered by list and level |
 | 7 | Equipment | class `startingEquipment` and background `equipment` grants, `item` entities with their `contents` | `choices.equipment`, `state.currency` | one group per option of the class grant (a filter becomes a picker of matching items; a pack shows its contents); the background's fixed items; items added or removed; the suggested purse beside an editable one; equipped toggles |
-| 8 | Personality | background suggestions | `name`, `alignment`, `personality`, `appearance`, `notes` | free text with suggestions |
+| 8 | Personality | background suggestions, `ruleset.alignments` | `name`, `alignment`, `personality`, `appearance`, `notes` | free text with suggestions; the alignment as a menu |
 | 9 | Review | the derived sheet | a snapshot "as created"; the character is stored | the build-mode sheet with the warnings on top, "print" and "export" |
 
 Steps can be revisited in any order from a stepper; a change in step 0 re-validates everything after it (the derivation does that by itself; the wizard only re-reads the sheet).
@@ -84,6 +86,10 @@ Steps can be revisited in any order from a stepper; a change in step 0 re-valida
    - The wizard's draft keeps the player's selections: an option per group, an item per filter, removed slots, added items, equipped overrides. `choices.equipment` is rebuilt from them after every change, with packs unpacked, so a different option or pack swaps its items with nothing left behind.
    - The coins are five fields beside the suggested purse: the grants' gold, plus what removed items are worth, minus what was bought.
    - The files are `composables/equipment.ts` and `components/wizard/steps/StepEquipment.vue`.
+   Steps 8–9 and storing done in M1.4d3 (owner, 2026-09-25):
+   - Step 8: the name, marked as needed to save; the alignment menu with the chosen one's sentence; traits, ideals, bonds and flaws as free text, the background's suggestions below each as buttons that fill the field or add a line; appearance and notes. The player's texts keep the language they were first written in. `components/wizard/steps/StepPersonality.vue`.
+   - Step 9: the build-mode sheet (`SheetView` with `embedded`: the name as a second-level heading, no technical warning list) under what is still open, each in plain words with a button to its step: a step not done, a choice not answered ("Cleric, Skills: 2 more to choose"), content not loaded, the name. The engine's message shows to an expert only. `components/wizard/steps/StepReview.vue`.
+   - Saving (`wizard.finish()`): the document goes to the `characters` store at full hit points, with a snapshot `{ at, level, label: "as created", choices }`; the draft is forgotten and the sheet opens. The characters page lists the stored characters above the demo ones. Print and export arrive with M1.6 and M1.5.
 5. Expert mode as the single-page rendering of the same steps; editing from the sheet — M1.4.
 6. The twelve-classes component test and the private Monk test — M1.4.
 
