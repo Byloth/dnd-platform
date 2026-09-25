@@ -96,15 +96,71 @@ export const it: SheetMessages = {
         8: "8°",
         9: "9°"
     },
+    abbreviations: {
+        str: "FOR",
+        dex: "DES",
+        con: "COS",
+        int: "INT",
+        wis: "SAG",
+        cha: "CAR"
+    },
+    damage: {
+        acid: "acido",
+        bludgeoning: "contundenti",
+        cold: "freddo",
+        fire: "fuoco",
+        force: "forza",
+        lightning: "fulmine",
+        necrotic: "necrotici",
+        piercing: "perforanti",
+        poison: "veleno",
+        psychic: "psichici",
+        radiant: "radiosi",
+        slashing: "taglienti",
+        thunder: "tuono"
+    },
+    proficiencyNames: {
+        tool: { "vehicles-land": "Veicoli (terrestri)", "vehicles-water": "Veicoli (acquatici)" },
+        weapon: { simple: "Armi semplici", martial: "Armi da guerra" },
+        armor: { light: "Armature leggere", medium: "Armature medie", heavy: "Armature pesanti", shield: "Scudi" }
+    },
+    engineLabels: {
+        baseScore: "Punteggio base",
+        adjustment: "Correzione",
+        scoreCap: "Punteggio massimo",
+        proficiencyByLevel: "Bonus di competenza per livello",
+        proficiency: "Bonus di competenza",
+        expertise: "Maestria",
+        allSaves: "Bonus a tutti i tiri salvezza",
+        allChecks: "Bonus a tutte le prove di caratteristica",
+        base: "Base",
+        speciesSpeed: "Velocità della specie",
+        defaultSpeed: "Velocità standard",
+        none: "Nessuno",
+        oneAttack: "Un attacco per azione di Attacco",
+        longJump: "Punteggio di Forza in piedi",
+        highJump: "3 + modificatore di Forza",
+        carrying: "Punteggio di Forza × 15",
+        speciesSize: "Taglia della specie",
+        saveDc: "CD del tiro salvezza",
+        rollBonus: "Bonus al tiro",
+        modifier: "Modificatore di {ability}",
+        firstLevel: "1° livello ({class})",
+        moreLevel: "1 livello in più ({class})",
+        moreLevels: "{n} livelli in più ({class})"
+    },
     units: {
         feet: "{value} ft",
-        pounds: "{value} lb"
+        pounds: "{value} lb",
+        metres: "{value} m",
+        kilograms: "{value} kg"
     },
     core: {
         ac: "Classe Armatura",
         initiative: "Iniziativa",
         speed: "Velocità",
-        speedOther: "{type} {value} ft",
+        speedOther: "{type} {value}",
+        speedTypes: { climb: "scalare", fly: "volare", swim: "nuotare", burrow: "scavare" },
         hp: "Punti ferita",
         temporary: "+{value} temporanei",
         hitDice: "Dadi vita",
@@ -121,7 +177,13 @@ export const it: SheetMessages = {
         language: "Lingue"
     },
     senses: {
-        sense: "{name} {value} ft",
+        names: {
+            darkvision: "Scurovisione",
+            blindsight: "Vista cieca",
+            tremorsense: "Percezione tellurica",
+            truesight: "Vista pura"
+        },
+        sense: "{name} {value}",
         passive: "{skill} passiva {value}"
     },
     combat: {
@@ -129,6 +191,7 @@ export const it: SheetMessages = {
         carrying: "Capacità di carico",
         on: "su {target}",
         against: "contro {list}",
+        rolls: { save: "tiri salvezza", attack: "tiri per colpire", check: "prove", damage: "danni" },
         defenses: {
             "resistance": "Resistenza",
             "immunity": "Immunità",
@@ -144,7 +207,9 @@ export const it: SheetMessages = {
         ranged: "a distanza",
         melee: "in mischia",
         magical: "magico",
-        crit: "critico {range}–20"
+        crit: "critico {range}–20",
+        unarmed: "Colpo senz'armi",
+        twoHanded: "{name} (a due mani)"
     },
     actions: {
         resourceCost: "{amount} {resource}",

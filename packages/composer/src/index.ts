@@ -54,6 +54,11 @@ export interface ComposeOptions
     readonly mode?: ComposeMode;
     /** Default `regular`, the level of the golden trees and of the CLI. */
     readonly helpLevel?: HelpLevel;
+    /**
+     * Default `imperial`. `metric` shows distances and weights the way the Italian manuals do: 5 ft = 1,5 m
+     * (feet × 0.3), 1 lb = 0.5 kg (docs/phase-1/09-interface-revisions.md). Display only.
+     */
+    readonly units?: "imperial" | "metric";
 }
 
 // ---- the tree -------------------------------------------------------------------------
@@ -302,6 +307,29 @@ const ORIGIN_ORDER = [
     "species", "subspecies", "class", "subclass", "background", "feat", "item", "condition", "option", "spell", "custom"
 ];
 const OWNED_ORIGINS = new Set(["class", "subclass", "species", "subspecies", "background"]);
+/** The engine's fixed English labels of the values it builds itself, by their catalogue key. */
+const ENGINE_LABELS: Readonly<Record<string, string>> = {
+    "Base score": "baseScore",
+    "Adjustment": "adjustment",
+    "Score cap": "scoreCap",
+    "Proficiency bonus by level": "proficiencyByLevel",
+    "Proficiency bonus": "proficiency",
+    "Expertise": "expertise",
+    "Bonus to all saving throws": "allSaves",
+    "Bonus to all ability checks": "allChecks",
+    "Base": "base",
+    "Species speed": "speciesSpeed",
+    "Default speed": "defaultSpeed",
+    "None": "none",
+    "One attack per Attack action": "oneAttack",
+    "Strength score in feet": "longJump",
+    "3 + Strength modifier": "highJump",
+    "Strength score × 15": "carrying",
+    "Species size": "speciesSize",
+    "Save DC": "saveDc",
+    "Roll bonus": "rollBonus"
+};
+
 /** Sections whose title the composer knows; the identity section has none. */
 const TITLED_SECTIONS = new Set([
     "core", "abilities", "saves", "skills", "senses", "combat", "attacks", "actions", "resources", "spellcasting",
@@ -440,7 +468,7 @@ class Composer
         return {
             t: (key, params, fallback) => this.t(key, params, fallback),
             name: (id) => this.entityName(id),
-            label: (c) => this.text(c.label),
+            label: (c) => this.contributionLabel(c.label),
             abilityOf: (c) => (this.fromRuleset(c) ? modifierOf.get((c.label as Text)["en"] ?? "") : undefined),
             score: (ability) => this.number(`ability.${ability}`),
             rule: (c) =>
@@ -480,9 +508,140 @@ class Composer
         return this.t(`skills.${skill}`, undefined, words(skill));
     }
 
+    /** `DES` in Italian, `DEX` in English: the ability's abbreviation in the sheet's language. */
+    private abilityAbbr(ability: string): string
+    {
+        return this.t(`abbreviations.${ability}`, undefined, ability.toUpperCase());
+    }
+
+    private damageName(type: string): string
+    {
+        return this.t(`damage.${type}`, undefined, type);
+    }
+
+    /** An entity of the loaded packages whose id ends with this segment (`.item.shortsword`), by its name. */
+    private nameBySuffix(suffix: string): string | undefined
+    {
+        for (const [id] of this._options.packages.entities)
+        {
+            if (id.endsWith(suffix)) { return this.entityName(id); }
+        }
+
+        return undefined;
+    }
+
+    /** A damage type, else a condition (`poisoned`), by name: what a resistance or an immunity is against. */
+    private defenseName(target: string): string
+    {
+        const key = `damage.${target}`;
+        const damage = this.t(key, undefined, key);
+
+        return damage !== key ? damage : (this.nameBySuffix(`.condition.${target}`) ?? words(target));
+    }
+
+    /** A proficiency's name: a language from the ruleset, a category from the catalogue, else the item's name. */
+    private proficiencyName(type: string, item: string): string
+    {
+        if (type === "language")
+        {
+            const language = this._options.packages.ruleset.languages?.find((l) => l.id === item);
+
+            return language ? this.text(language.name) : words(item);
+        }
+        const key = `proficiencyNames.${type}.${item}`;
+        const category = this.t(key, undefined, key);
+        if (category !== key) { return category; }
+
+        return this.nameBySuffix(`.item.${item}`) ?? words(item);
+    }
+
+    /** The engine's own attack rows (the unarmed strike, the two-handed grip) in the sheet's language. */
+    private attackName(attack: AttackView): string
+    {
+        if (attack.unarmed && (attack.id === "unarmed-strike")) { return this.t("attacks.unarmed"); }
+        if (attack.item && attack.id.endsWith("-two-handed"))
+        {
+            return this.t("attacks.twoHanded", { name: this.entityName(attack.item) });
+        }
+
+        return this.text(attack.name);
+    }
+
+    /**
+     * A contribution's label: content's own in the sheet's language; the engine's fixed English labels ("Dexterity
+     * modifier", "Level 1 (Cleric)") through the catalogue.
+     */
+    private contributionLabel(label: Text | LocalizedString | undefined): string
+    {
+        const english = (label as Text | undefined)?.["en"];
+        const own = this.text(label);
+        if ((english === undefined) || (own !== english)) { return own; }
+
+        const fixed = ENGINE_LABELS[english];
+        if (fixed) { return this.t(`engineLabels.${fixed}`); }
+        const modifier = /^(\w+) modifier$/.exec(english);
+        if (modifier)
+        {
+            const names = SHEET_MESSAGES["en"]!.sheet.abilities as Record<string, string>;
+            const ability = Object.entries(names).find(([, n]) => n === modifier[1])?.[0] ??
+                (ABILITIES.includes(modifier[1]!.toLowerCase()) ? modifier[1]!.toLowerCase() : undefined);
+            if (ability) { return this.t("engineLabels.modifier", { ability: this.abilityName(ability) }); }
+        }
+        const className = (name: string): string =>
+        {
+            const cls = this._sheet.classes.find((c) =>
+            {
+                const data = this._options.packages.entities.get(c.class)?.data as { name?: Text } | undefined;
+
+                return data?.name?.["en"] === name;
+            });
+
+            return cls ? this.entityName(cls.class) : name;
+        };
+        const first = /^Level 1 \((.+)\)$/.exec(english);
+        if (first) { return this.t("engineLabels.firstLevel", { class: className(first[1]!) }); }
+        const more = /^(\d+) more levels? \((.+)\)$/.exec(english);
+        if (more)
+        {
+            const count = Number(more[1]);
+            const key = count === 1 ? "engineLabels.moreLevel" : "engineLabels.moreLevels";
+
+            return this.t(key, { n: count, class: className(more[2]!) });
+        }
+
+        return own;
+    }
+
+    /** A table (`monk.martial-arts`) by the name its content gives it, in lower case: "arti marziali". */
+    private tableName(ref: string): string
+    {
+        // A class's table (`monk.martial-arts`) has no name of its own: the feature it belongs to has.
+        const named = this.nameBySuffix(`.feature.${ref}`) ?? this.nameBySuffix(`.table.${ref}`);
+
+        return (named ?? words(ref.split(".").pop() ?? ref)).toLowerCase();
+    }
+
+    private get metric(): boolean { return this._options.units === "metric"; }
+
+    private number_(value: number): string
+    {
+        return new Intl.NumberFormat(this._language, { maximumFractionDigits: 1 }).format(value);
+    }
+
+    /** A distance in feet, in the sheet's units. */
     private feet(value: number | string): string
     {
-        return this.t("units.feet", { value: value });
+        if (!this.metric || (typeof value !== "number")) { return this.t("units.feet", { value: value }); }
+
+        return this.t("units.metres", { value: this.number_(value * 0.3) });
+    }
+
+    /** A weight in pounds, in the sheet's units. */
+    private pounds(value: number | string): string
+    {
+        if (!this.metric || (typeof value !== "number")) { return this.t("units.pounds", { value: value }); }
+
+        return this.t("units.kilograms", { value: this.number_(value * 0.5) });
     }
 
     // ---- lookups ----
@@ -533,7 +692,7 @@ class Composer
     {
         return {
             shown: contributionText(c),
-            label: this.text(c.label),
+            label: this.contributionLabel(c.label),
             source: sourceLabel(c, this._options.packages.ruleset.id),
             ...(c.formula !== undefined ? { formula: c.formula } : {}),
             applied: c.applied
@@ -650,7 +809,10 @@ class Composer
             .sort((a, b) => (a === "speed.walk" ? -1 : b === "speed.walk" ? 1 : a.localeCompare(b)))
             .map((p) => (p === "speed.walk" ?
                 this.feet(this.number(p)) :
-                this.t("core.speedOther", { type: p.slice(6), value: this.number(p) })));
+                this.t("core.speedOther", {
+                    type: this.t(`core.speedTypes.${p.slice(6)}`, undefined, p.slice(6)),
+                    value: this.feet(this.number(p))
+                })));
         items.push(this.valueItem("speed", this.t("core.speed"), "speed.walk", speeds.join(", ")));
         const temporary = state.hp.temporary > 0 ? ` (${this.t("core.temporary", { value: state.hp.temporary })})` : "";
         const hp = `${state.hp.current} / ${this.number("hp.max")}${temporary}`;
@@ -716,7 +878,7 @@ class Composer
             return {
                 id: skill.id,
                 name: this.skillName(skill.id),
-                ability: skill.ability.toUpperCase(),
+                ability: this.abilityAbbr(skill.ability),
                 mark: mark,
                 bonus: signed(value?.value ?? 0),
                 ...(value ? { value: value } : {})
@@ -725,7 +887,8 @@ class Composer
         const proficiencies: ProficiencyGroup[] = [];
         for (const type of ["armor", "weapon", "tool", "language"])
         {
-            const items = this._sheet.proficiencies.filter((p) => p.type === type).map((p) => words(p.item));
+            const items = this._sheet.proficiencies.filter((p) => p.type === type)
+                .map((p) => this.proficiencyName(type, p.item));
             if (items.length === 0) { continue; }
             proficiencies.push({ type: type, label: this.t(`proficiencies.${type}`), items: items });
         }
@@ -740,7 +903,8 @@ class Composer
             .sort())
         {
             const value = this.number(path);
-            if (value > 0) { parts.push(this.t("senses.sense", { name: words(path.slice(6)), value: value })); }
+            const name = this.t(`senses.names.${path.slice(6)}`, undefined, words(path.slice(6)));
+            if (value > 0) { parts.push(this.t("senses.sense", { name: name, value: this.feet(value) })); }
         }
         for (const skill of ["perception", "investigation", "insight"])
         {
@@ -762,16 +926,17 @@ class Composer
         {
             const fallback = capitalise(defense.defense.replace("-", " "));
             const label = this.t(`combat.defenses.${defense.defense}`, undefined, fallback);
-            rows.push({ label: label, text: defense.to.map(words).join(", ") });
+            rows.push({ label: label, text: defense.to.map((t) => capitalise(this.defenseName(t))).join(", ") });
         }
         for (const modifier of sheet.rollModifiers.filter((m) => m.applied))
         {
             const on = modifier.on;
             const against = on.against ?
-                this.t("combat.against", { list: on.against.map(words).join(", ") }) :
+                this.t("combat.against", { list: on.against.map((t) => this.defenseName(t)).join(", ") }) :
                 undefined;
             const skill = on.skill ? this.skillName(on.skill) : undefined;
-            const target = [on.type, on.ability?.toUpperCase(), skill, against]
+            const type = on.type ? this.t(`combat.rolls.${on.type}`, undefined, on.type) : undefined;
+            const target = [type, on.ability ? this.abilityAbbr(on.ability) : undefined, skill, against]
                 .filter((s) => s !== undefined)
                 .join(" ");
             const note = modifier.note ? ` (${this.text(modifier.note)})` : "";
@@ -781,7 +946,7 @@ class Composer
         const carry = this.value("carry.capacity");
         if (carry)
         {
-            const weight = this.t("units.pounds", { value: plain(carry.value) });
+            const weight = typeof carry.value === "number" ? this.pounds(carry.value) : this.pounds(plain(carry.value));
             rows.push({ label: this.t("combat.carrying"), text: weight });
         }
 
@@ -794,19 +959,19 @@ class Composer
         {
             const notes = [
                 this.t(attack.ranged ? "attacks.ranged" : "attacks.melee"),
-                attack.ability.toUpperCase(),
+                this.abilityAbbr(attack.ability),
                 attack.magical ? this.t("attacks.magical") : undefined,
                 attack.critRange < 20 ? this.t("attacks.crit", { range: attack.critRange }) : undefined,
                 ...attack.extraDamage.map((x) =>
-                    `+${x.dice ?? x.formula ?? ""}${x.damageType ? ` ${x.damageType}` : ""}`)
+                    `+${x.dice ?? x.formula ?? ""}${x.damageType ? ` ${this.damageName(x.damageType)}` : ""}`)
 
             ].filter((n) => n !== undefined);
 
             return {
                 id: attack.id,
-                name: this.text(attack.name),
+                name: this.attackName(attack),
                 toHit: signed(attack.attackBonus.value),
-                damage: `${attack.damage} ${attack.damageType}`,
+                damage: `${attack.damage} ${this.damageName(attack.damageType)}`,
                 notes: notes,
                 attack: attack
             };
@@ -825,7 +990,10 @@ class Composer
         const details: string[] = [];
         if (action.requires?.afterAction)
         {
-            details.push(this.t("actions.after", { action: words(action.requires.afterAction) }));
+            const after = action.requires.afterAction;
+            const named = this._options.packages.ruleset.baseActions
+                ?.find((id) => id.endsWith(`.action.${after}`));
+            details.push(this.t("actions.after", { action: named ? this.entityName(named) : words(after) }));
         }
         if (action.dc) { details.push(this.t("actions.dc", { value: plain(action.dc.value) })); }
         for (const roll of action.rolls ?? [])
@@ -838,8 +1006,9 @@ class Composer
             {
                 const bonus = roll.bonus && roll.bonus.value !== 0 ? ` ${signed(roll.bonus.value)}` : "";
                 const dice = (roll.dice ?? "").replace(/table\(([^)]+)\)/g, (_m, id: string) =>
-                    this.t("actions.die", { name: words(id.split(".").pop() ?? id).toLowerCase() }));
-                details.push(`${dice}${bonus}${roll.damageType ? ` ${roll.damageType}` : ""}`.trim());
+                    this.t("actions.die", { name: this.tableName(id) }));
+                const type = roll.damageType ? ` ${this.damageName(roll.damageType)}` : "";
+                details.push(`${dice}${bonus}${type}`.trim());
             }
             else if (roll.type === "save" && roll.dc)
             {

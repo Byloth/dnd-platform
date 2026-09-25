@@ -146,6 +146,25 @@ describe("compose", () =>
         expect(feats?.items.map((i) => i.name)).toEqual(["Grappler"]);
     });
 
+    it("writes the engine's own labels, damage, proficiencies and units in Italian, metric", () =>
+    {
+        const { character, sources } = load("monk-l3-base");
+        const italian = readPackage(resolve(ROOT, "packages", "content", "srd51-it"));
+        const set = loadPackages([...sources, italian]);
+        const options = { character: character, packages: set, language: "it", units: "metric" as const };
+        const tree = compose(derive(character, set), options);
+        // What the sheet shows, without the engine's raw data the tree carries alongside.
+        const raw = new Set(["value", "provenance", "attack", "action", "raw", "explain"]);
+        const shown = JSON.stringify(tree, (key, v: unknown) => (raw.has(key) ? undefined : v));
+
+        expect(shown).toContain("Colpo senz'armi");
+        expect(shown).toContain("contundenti");
+        expect(shown).toContain("Armi semplici");
+        expect(shown).toContain("dopo Attacco");
+        expect(shown).toMatch(/Scurovisione 18 m/);
+        expect(shown).not.toMatch(/\bft\b|\blb\b|bludgeoning|Unarmed strike|"DEX"/);
+    });
+
     it("explains one value path, inactive contributions included", () =>
     {
         const { character, sources } = load("monk-l3-base");

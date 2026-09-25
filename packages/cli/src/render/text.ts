@@ -25,6 +25,7 @@ export interface RenderOptions
     readonly character: Character;
     readonly packages: PackageSet;
     readonly language?: string;
+    readonly units?: "imperial" | "metric";
     readonly color?: boolean;
     readonly width?: number;
 }
@@ -470,7 +471,8 @@ function composeOptions(options: RenderOptions): ComposeOptions
     return {
         character: options.character,
         packages: options.packages,
-        ...(options.language !== undefined ? { language: options.language } : {})
+        ...(options.language !== undefined ? { language: options.language } : {}),
+        ...(options.units !== undefined ? { units: options.units } : {})
     };
 }
 

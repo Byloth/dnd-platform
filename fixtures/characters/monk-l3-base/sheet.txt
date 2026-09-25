@@ -42,7 +42,7 @@ SKILLS
   ○  Investigation (INT)    −1       ○  Survival (WIS)         +2
   ○ untrained  ● proficient  ◉ expertise
 
-  Weapons    Shortsword, Simple
+  Weapons    Shortsword, Simple weapons
   Tools      Musical instrument
   Languages  Common
 
@@ -52,7 +52,7 @@ SENSES
 
 COMBAT
 ────────────────────────────────────────────────────────────────────────────────────────────────────
-  Advantage          on check Stealth (to move silently)
+  Advantage          on checks Stealth (to move silently)
   Carrying capacity  165 lb
 
 ATTACKS

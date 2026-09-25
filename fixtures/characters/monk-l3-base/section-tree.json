@@ -873,7 +873,7 @@
             {
               "items": [
                 "Shortsword",
-                "Simple"
+                "Simple weapons"
               ],
               "label": "Weapons",
               "type": "weapon"
@@ -1378,7 +1378,7 @@
           "rows": [
             {
               "label": "Advantage",
-              "text": "on check Stealth (to move silently)"
+              "text": "on checks Stealth (to move silently)"
             },
             {
               "label": "Carrying capacity",

@@ -1,6 +1,6 @@
 /**
  * `dnd derive <character.yaml> [--json | --text] [--package <dir>]… [--explain <path>] [--language <code>]
- *              [--no-color] [--width <n>]`
+ *              [--units imperial|metric] [--no-color] [--width <n>]`
  *
  * Computes the sheet of a character. `--text` (the default) prints the
  * readable sheet (render/text.ts); `--json` prints the canonical JSON, byte
@@ -39,7 +39,7 @@ function optionValues(argv: readonly string[], name: string): string[]
 
 export function runDerive(argv: readonly string[]): number
 {
-    const valued = new Set(["--package", "--explain", "--language", "--width"]);
+    const valued = new Set(["--package", "--explain", "--language", "--units", "--width"]);
     const positional = argv.filter((arg, index) => !arg.startsWith("--") && !valued.has(argv[index - 1] ?? ""));
     const characterPath = positional[0];
     if (characterPath === undefined || positional.length > 1)
@@ -60,6 +60,14 @@ export function runDerive(argv: readonly string[]): number
     const json = argv.includes("--json");
     const explain = option(argv, "--explain");
     const language = option(argv, "--language");
+    const unitsText = option(argv, "--units");
+    if ((unitsText !== undefined) && (unitsText !== "imperial") && (unitsText !== "metric"))
+    {
+        process.stderr.write("dnd derive: --units must be imperial or metric\n");
+
+        return 2;
+    }
+    const units = unitsText as "imperial" | "metric" | undefined;
     const widthText = option(argv, "--width");
     const width = widthText === undefined ? undefined : Number(widthText);
     if (width !== undefined && (!Number.isInteger(width) || width < 60))
@@ -132,6 +140,7 @@ export function runDerive(argv: readonly string[]): number
         packages: set,
         color: color,
         ...(language !== undefined ? { language: language } : {}),
+        ...(units !== undefined ? { units: units } : {}),
         ...(width !== undefined ? { width: width } : {})
     };
 

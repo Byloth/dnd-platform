@@ -40,9 +40,9 @@ SKILLS
   ○  Investigation (INT)    +0       ○  Survival (WIS)         +4
   ○ untrained  ● proficient  ◉ expertise
 
-  Armor      Heavy, Light, Medium, Shield
-  Weapons    Battleaxe, Handaxe, Light hammer, Simple, Warhammer
-  Tools      Smiths tools
+  Armor      Heavy armor, Light armor, Medium armor, Shields
+  Weapons    Battleaxe, Handaxe, Light hammer, Simple weapons, Warhammer
+  Tools      Smith's tools
   Languages  Celestial, Common, Dwarvish, Elvish
 
 SENSES
@@ -52,7 +52,7 @@ SENSES
 COMBAT
 ────────────────────────────────────────────────────────────────────────────────────────────────────
   Resistance         Poison
-  Advantage          on save against Poison
+  Advantage          on saves against poison
   Carrying capacity  210 lb
 
 ATTACKS

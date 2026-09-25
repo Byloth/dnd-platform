@@ -879,17 +879,17 @@
           "proficiencies": [
             {
               "items": [
-                "Heavy",
-                "Light",
-                "Medium",
-                "Shield"
+                "Heavy armor",
+                "Light armor",
+                "Medium armor",
+                "Shields"
               ],
               "label": "Armor",
               "type": "armor"
             },
             {
               "items": [
-                "Simple"
+                "Simple weapons"
               ],
               "label": "Weapons",
               "type": "weapon"

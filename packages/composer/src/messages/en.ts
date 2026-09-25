@@ -96,15 +96,71 @@ export const en = {
         8: "8th",
         9: "9th"
     },
+    abbreviations: {
+        str: "STR",
+        dex: "DEX",
+        con: "CON",
+        int: "INT",
+        wis: "WIS",
+        cha: "CHA"
+    },
+    damage: {
+        acid: "acid",
+        bludgeoning: "bludgeoning",
+        cold: "cold",
+        fire: "fire",
+        force: "force",
+        lightning: "lightning",
+        necrotic: "necrotic",
+        piercing: "piercing",
+        poison: "poison",
+        psychic: "psychic",
+        radiant: "radiant",
+        slashing: "slashing",
+        thunder: "thunder"
+    },
+    proficiencyNames: {
+        tool: { "vehicles-land": "Vehicles (land)", "vehicles-water": "Vehicles (water)" },
+        weapon: { simple: "Simple weapons", martial: "Martial weapons" },
+        armor: { light: "Light armor", medium: "Medium armor", heavy: "Heavy armor", shield: "Shields" }
+    },
+    engineLabels: {
+        baseScore: "Base score",
+        adjustment: "Adjustment",
+        scoreCap: "Score cap",
+        proficiencyByLevel: "Proficiency bonus by level",
+        proficiency: "Proficiency bonus",
+        expertise: "Expertise",
+        allSaves: "Bonus to all saving throws",
+        allChecks: "Bonus to all ability checks",
+        base: "Base",
+        speciesSpeed: "Species speed",
+        defaultSpeed: "Default speed",
+        none: "None",
+        oneAttack: "One attack per Attack action",
+        longJump: "Strength score in feet",
+        highJump: "3 + Strength modifier",
+        carrying: "Strength score × 15",
+        speciesSize: "Species size",
+        saveDc: "Save DC",
+        rollBonus: "Roll bonus",
+        modifier: "{ability} modifier",
+        firstLevel: "Level 1 ({class})",
+        moreLevel: "1 more level ({class})",
+        moreLevels: "{n} more levels ({class})"
+    },
     units: {
         feet: "{value} ft",
-        pounds: "{value} lb"
+        pounds: "{value} lb",
+        metres: "{value} m",
+        kilograms: "{value} kg"
     },
     core: {
         ac: "Armor Class",
         initiative: "Initiative",
         speed: "Speed",
-        speedOther: "{type} {value} ft",
+        speedOther: "{type} {value}",
+        speedTypes: { climb: "climb", fly: "fly", swim: "swim", burrow: "burrow" },
         hp: "Hit Points",
         temporary: "+{value} temporary",
         hitDice: "Hit Dice",
@@ -121,7 +177,10 @@ export const en = {
         language: "Languages"
     },
     senses: {
-        sense: "{name} {value} ft",
+        names: {
+            darkvision: "Darkvision", blindsight: "Blindsight", tremorsense: "Tremorsense", truesight: "Truesight"
+        },
+        sense: "{name} {value}",
         passive: "Passive {skill} {value}"
     },
     combat: {
@@ -129,6 +188,7 @@ export const en = {
         carrying: "Carrying capacity",
         on: "on {target}",
         against: "against {list}",
+        rolls: { save: "saves", attack: "attacks", check: "checks", damage: "damage" },
         defenses: {
             "resistance": "Resistance",
             "immunity": "Immunity",
@@ -144,7 +204,9 @@ export const en = {
         ranged: "ranged",
         melee: "melee",
         magical: "magical",
-        crit: "crit {range}–20"
+        crit: "crit {range}–20",
+        unarmed: "Unarmed strike",
+        twoHanded: "{name} (two-handed)"
     },
     actions: {
         resourceCost: "{amount} {resource}",

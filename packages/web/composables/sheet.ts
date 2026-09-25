@@ -17,6 +17,8 @@ export interface ComposeSheetOptions
     readonly language?: string;
     readonly helpLevel?: HelpLevel;
     readonly translate?: Translate;
+    /** Default: metric in Italian, imperial otherwise, until the units setting (docs/phase-1/09). */
+    readonly units?: "imperial" | "metric";
 }
 
 /** Derive a character and compose its section tree; pure, memoised by `useEngine`. */
@@ -25,13 +27,15 @@ export function composeSheet(
 ): ComposedSheet
 {
     const { language, helpLevel, translate } = options;
+    const units = options.units ?? (language === "it" ? "metric" : "imperial");
     const sheet = derive(character, packages, language !== undefined ? { language } : {});
     const tree = compose(sheet, {
         character: character,
         packages: packages,
         ...(language !== undefined ? { language: language } : {}),
         ...(helpLevel !== undefined ? { helpLevel: helpLevel } : {}),
-        ...(translate !== undefined ? { translate: translate } : {})
+        ...(translate !== undefined ? { translate: translate } : {}),
+        units: units
     });
 
     return { sheet, tree, packages };

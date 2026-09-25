@@ -834,10 +834,10 @@
           "proficiencies": [
             {
               "items": [
-                "Heavy",
-                "Light",
-                "Medium",
-                "Shield"
+                "Heavy armor",
+                "Light armor",
+                "Medium armor",
+                "Shields"
               ],
               "label": "Armor",
               "type": "armor"
@@ -847,7 +847,7 @@
                 "Battleaxe",
                 "Handaxe",
                 "Light hammer",
-                "Simple",
+                "Simple weapons",
                 "Warhammer"
               ],
               "label": "Weapons",
@@ -855,7 +855,7 @@
             },
             {
               "items": [
-                "Smiths tools"
+                "Smith's tools"
               ],
               "label": "Tools",
               "type": "tool"
@@ -1384,7 +1384,7 @@
             },
             {
               "label": "Advantage",
-              "text": "on save against Poison"
+              "text": "on saves against poison"
             },
             {
               "label": "Carrying capacity",

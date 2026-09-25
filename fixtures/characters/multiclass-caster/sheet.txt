@@ -40,8 +40,8 @@ SKILLS
   ○  Investigation (INT)    +3       ○  Survival (WIS)         +3
   ○ untrained  ● proficient  ◉ expertise
 
-  Armor      Heavy, Light, Medium, Shield
-  Weapons    Simple
+  Armor      Heavy armor, Light armor, Medium armor, Shields
+  Weapons    Simple weapons
   Languages  Common, Elvish
 
 COMBAT
