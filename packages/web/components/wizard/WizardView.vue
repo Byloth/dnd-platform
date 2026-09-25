@@ -20,6 +20,9 @@
      * The creation wizard (docs/phase-1/04-character-creation.md), for a new character or, with `editing`, for a
      * stored one reopened from its sheet: a draft that saves itself, the step in the address (`?step=class`), the
      * dots over the steps and, on desktop, their names beside them. A draft found in the browser is offered back.
+     * At the expert help level the steps are one scrolling form instead (docs/07-character-creation.md, "Expert
+     * mode"): every step but the concept in its own section, the names beside them as in-page links, the address's
+     * step scrolled to.
      */
     const props = defineProps<{ editing?: string }>();
 
@@ -46,6 +49,20 @@
     };
     const view = computed(() => STEP_VIEWS[wizard.step]);
 
+    const expert = computed(() => preferences.helpLevel === "expert");
+    /** The steps of the expert page: an expert chooses directly, without an archetype. */
+    const pageSteps = computed(() => wizard.steps.filter((s) => s !== "concept"));
+    const heading = computed(() => (props.editing ?
+        t("wizard.edit.title", { name: wizard.character?.name || t("wizard.edit.unnamed") }) :
+        t("wizard.title")));
+
+    const scrollToSection = (step: StepId): void =>
+    {
+        if (!import.meta.client) { return; }
+        void nextTick(() => document.getElementById(`step-${step}`)
+            ?.scrollIntoView({ behavior: "smooth", block: "start" }));
+    };
+
     const done = (step: StepId): boolean => stepDone(step);
     const isStep = (value: unknown): value is StepId => STEPS.includes(value as StepId);
     const asked = (): StepId | undefined =>
@@ -59,8 +76,15 @@
     {
         wizard.goTo(step);
         void router.replace({ query: { ...route.query, step: step } });
-        if (import.meta.client) { window.scrollTo({ top: 0, behavior: "smooth" }); }
+        if (expert.value) { scrollToSection(step); }
+        else if (import.meta.client) { window.scrollTo({ top: 0, behavior: "smooth" }); }
     };
+
+    // A step asked from inside a section (the review's "Go to…") is a place on the expert page.
+    watch(() => wizard.step, (step) =>
+    {
+        if (expert.value && (phase.value === "ready")) { scrollToSection(step); }
+    });
 
     /** The step the address asks for, or the draft's own written into the address. */
     const followAddress = (): void =>
@@ -92,6 +116,7 @@
                 followAddress();
             }
             phase.value = "ready";
+            if (expert.value && asked()) { scrollToSection(wizard.step); }
         }
         catch
         {
@@ -145,6 +170,29 @@
                 </AppButton>
             </div>
         </section>
+        <div v-else-if="expert" class="wizard-page__body">
+            <aside class="wizard-page__aside">
+                <WizardStepList :steps="pageSteps"
+                                :current="wizard.step"
+                                :done="done"
+                                @go="go" />
+            </aside>
+            <div class="wizard-page__form">
+                <h1 class="wizard-page__title">
+                    {{ heading }}
+                </h1>
+                <section v-for="step in pageSteps"
+                         :id="`step-${step}`"
+                         :key="step"
+                         class="wizard-page__section"
+                         :aria-labelledby="`step-${step}-title`">
+                    <h2 :id="`step-${step}-title`" class="wizard-page__section-title">
+                        {{ t(`wizard.steps.${step}`) }}
+                    </h2>
+                    <component :is="STEP_VIEWS[step]" />
+                </section>
+            </div>
+        </div>
         <template v-else>
             <WizardStepper :steps="wizard.steps"
                            :current="wizard.step"
@@ -196,6 +244,32 @@
                 position: sticky;
                 top: calc(var(--navigation-bar-height) + var(--space-5));
             }
+        }
+
+        &__form
+        {
+            display: grid;
+            gap: var(--space-6);
+            min-width: 0;
+        }
+
+        &__title
+        {
+            margin: 0;
+        }
+
+        &__section
+        {
+            border-top: 1px solid var(--color-border);
+            display: grid;
+            gap: var(--space-4);
+            padding-top: var(--space-5);
+            scroll-margin-top: calc(var(--navigation-bar-height) + var(--space-4));
+        }
+
+        &__section-title
+        {
+            margin: 0;
         }
 
         &__resume

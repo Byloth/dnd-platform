@@ -243,6 +243,24 @@ describe.each(LANGUAGES)("accessibility, in %s", (language) =>
         await useWizardStore().discard();
     });
 
+    it("the expert's single-page wizard", async () =>
+    {
+        await speak(language);
+        usePreferencesStore().helpLevel = "expert";
+        await useWizardStore().discard();
+        await useWizardStore().start();
+        useWizardStore().chooseArchetype("srd51.archetype.steadfast-healer");
+        const wrapper = await render(WizardPage, { route: "/characters/new" });
+        for (let i = 0; (i < 50) && !wrapper.find("#step-review .step-review").exists(); i += 1)
+        {
+            await new Promise((done) => setTimeout(done, 10));
+            await flushPromises();
+        }
+        expect(wrapper.findAll(".wizard-page__section").length).toBe(9);
+        await expectAccessible(wrapper);
+        await useWizardStore().discard();
+    });
+
     it("a stored character's sheet, with its edit links", async () =>
     {
         await speak(language);

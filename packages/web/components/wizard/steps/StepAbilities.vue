@@ -11,7 +11,8 @@
      * that swaps a value with the ability holding it, so a value never appears twice. Every row shows the bonuses
      * of species and traits and the total with its modifier, from the derived sheet. The player's own adjustment
      * of a score sits behind "Manual adjustments", open for an expert. A character whose scores were typed as they
-     * are (the `manual` method, e.g. one reopened for editing) shows them as six fields, a fourth method.
+     * are (the `manual` method, e.g. one reopened for editing) shows them as six fields, a fourth method an expert
+     * is always offered.
      */
     const { wizard, entities, helpLevel } = useWizardContext();
     const { t, locale } = useI18n();
@@ -23,7 +24,7 @@
     const abilities = computed(() => set.value?.ruleset.abilities ?? []);
     const methods = computed(() => set.value?.ruleset.abilityScores);
     const available = computed(() => METHODS.filter((m) => (m === "roll") ||
-        ((m === "manual") && (scores.value?.method === "manual")) ||
+        ((m === "manual") && ((scores.value?.method === "manual") || (helpLevel.value === "expert"))) ||
         ((m === "standard-array") && methods.value?.standardArray?.length) ||
         ((m === "point-buy") && methods.value?.pointBuy)));
 

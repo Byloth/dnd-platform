@@ -132,14 +132,14 @@ describe("the creation wizard", () =>
     {
         const wrapper = await open();
         byName(wrapper, "5. Background")!.click();
-        await settle();
+        await until(() => wrapper.find("h1").text() === "Background");
 
         expect(wrapper.find("h1").text()).toBe("Background");
         expect(byName(wrapper, "1. Content, done")).toBeDefined();
         expect(wrapper.find("[aria-current='step']").text()).toContain("5");
 
         byName(wrapper, "9. Personality")!.click();
-        await settle();
+        await until(() => wrapper.find(".step-personality").exists());
         expect(wrapper.find(".step-personality").exists()).toBe(true);
         expect(byName(wrapper, "9. Personality, done")).toBeUndefined();
     });
@@ -600,7 +600,7 @@ describe("the creation wizard", () =>
             const wrapper = await edit(id, "personality");
 
             expect(wrapper.find("h1").text()).toBe("Personality");
-            expect(byName(wrapper, "2. Concept")).toBeUndefined();
+            expect(wrapper.findAll(".wizard-step-list__name").map((n) => n.text())).not.toContain("Concept");
             await wrapper.find(".step-personality select").setValue("neutral-good");
             await settle();
             byName(wrapper, "Next")!.click();
@@ -672,6 +672,64 @@ describe("the creation wizard", () =>
             await settle();
             expect(useWizardStore().character?.choices.abilityScores)
                 .toMatchObject({ method: "manual", base: { dex: 18 } });
+        });
+    });
+
+    describe("the expert's single page", () =>
+    {
+        beforeEach(() => { usePreferencesStore().helpLevel = "expert"; });
+
+        it("shows every step but the concept at once, dense and without copy, and saves from the bottom", async () =>
+        {
+            const wrapper = await open();
+            await settle();
+
+            expect(wrapper.find("h1").text()).toBe("New character");
+            expect(wrapper.findAll(".wizard-page__section").map((s) => s.attributes("id"))).toEqual([
+                "step-content", "step-species", "step-class", "step-background", "step-abilities", "step-choices",
+                "step-equipment", "step-personality", "step-review"
+            ]);
+            expect(wrapper.find(".wizard-stepper").exists()).toBe(false);
+            expect(byName(wrapper, "Next")).toBeUndefined();
+            expect(wrapper.find(".wizard-step__purpose").exists()).toBe(false);
+            expect(wrapper.find(".choice-card--dense").exists()).toBe(true);
+            expect(wrapper.find("#step-abilities").text()).toContain("Typed");
+
+            await wrapper.find("#step-class input[value='srd51.class.fighter']").setValue(true);
+            await wrapper.find("#step-personality .step-personality__input").setValue("Vex");
+            await settle();
+            byName(wrapper, "Save the character")!.click();
+            await until(() => useRouter().currentRoute.value.name === "characters-id");
+
+            expect((await useBrowserStorage().characters.list()).map((c) => c.name)).toEqual(["Vex"]);
+        });
+
+        it("moves between sections from the list of steps", async () =>
+        {
+            const wrapper = await open("equipment");
+            await settle();
+
+            expect(useWizardStore().step).toBe("equipment");
+            await wrapper.findAll(".wizard-step-list__step").find((b) => b.text().includes("Class"))!.trigger("click");
+            await until(() => useRouter().currentRoute.value.query["step"] === "class");
+            expect(useWizardStore().step).toBe("class");
+            expect(useRouter().currentRoute.value.query["step"]).toBe("class");
+        });
+
+        it("keeps untyped coins on the suggestion as the class and background change", async () =>
+        {
+            await open();
+            await settle();
+            const wizard = useWizardStore();
+
+            wizard.chooseBackground("srd51.background.acolyte");
+            await settle();
+            expect(wizard.character?.state.currency).toEqual({ gold: 15 });
+
+            wizard.setCoins({ gold: 3 });
+            wizard.chooseClass("srd51.class.fighter");
+            await settle();
+            expect(wizard.character?.state.currency).toEqual({ gold: 3 });
         });
     });
 });

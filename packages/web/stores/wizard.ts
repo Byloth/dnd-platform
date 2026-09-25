@@ -42,6 +42,8 @@ export interface WizardDraft
     readonly equipment?: EquipmentSelection;
     /** Whether `choices.equipment` is the stored character's own list, edited as it is, not rebuilt. */
     readonly keptEquipment?: boolean;
+    /** Whether the player typed the coins; until then they follow the suggested purse. */
+    readonly coinsTyped?: boolean;
     /** The id of the stored character this draft edits; absent for a new character. */
     readonly editing?: string;
     readonly savedAt: string;
@@ -91,6 +93,8 @@ export const useWizardStore = defineStore("wizard", () =>
     const equipment = ref<EquipmentSelection>(structuredClone(EMPTY_SELECTION));
     /** True while the equipment is a stored character's own list (edited as it is) rather than rebuilt. */
     const keptEquipment = ref(false);
+    /** True once the player typed the coins (or they are a stored character's): they stop following the suggestion. */
+    const coinsTyped = ref(false);
     /** The id of the stored character being edited; undefined while creating one. */
     const editing = ref<string>();
     const sources = shallowRef<PackageSource[]>([]);
@@ -140,6 +144,7 @@ export const useWizardStore = defineStore("wizard", () =>
             // A plain copy: the selections are reactive all the way down, which IndexedDB cannot clone.
             equipment: JSON.parse(JSON.stringify(equipment.value)) as EquipmentSelection,
             keptEquipment: keptEquipment.value || undefined,
+            coinsTyped: coinsTyped.value || undefined,
             editing: editing.value,
             savedAt: new Date().toISOString()
         });
@@ -210,6 +215,7 @@ export const useWizardStore = defineStore("wizard", () =>
         rolls.value = [];
         equipment.value = structuredClone(EMPTY_SELECTION);
         keptEquipment.value = false;
+        coinsTyped.value = false;
         await _loadSources();
         await save();
     };
@@ -231,6 +237,7 @@ export const useWizardStore = defineStore("wizard", () =>
         rolls.value = [];
         equipment.value = structuredClone(EMPTY_SELECTION);
         keptEquipment.value = true;
+        coinsTyped.value = true;
         await _loadSources();
         await save();
 
@@ -260,6 +267,7 @@ export const useWizardStore = defineStore("wizard", () =>
         rolls.value = [...draft.rolls ?? []];
         equipment.value = structuredClone(draft.equipment ?? EMPTY_SELECTION);
         keptEquipment.value = draft.keptEquipment ?? false;
+        coinsTyped.value = draft.coinsTyped ?? false;
         await _loadSources();
 
         return true;
@@ -276,6 +284,7 @@ export const useWizardStore = defineStore("wizard", () =>
         rolls.value = [];
         equipment.value = structuredClone(EMPTY_SELECTION);
         keptEquipment.value = false;
+        coinsTyped.value = false;
         step.value = "content";
         await useBrowserStorage().meta.set(key, null);
     };
@@ -668,8 +677,7 @@ export const useWizardStore = defineStore("wizard", () =>
 
     type Currency = NonNullable<Character["state"]["currency"]>;
 
-    /** The coins the character starts with; zeros are left out. */
-    const setCoins = (currency: Currency): void =>
+    const _writeCoins = (currency: Currency): void =>
     {
         const current = character.value;
         if (!current) { return; }
@@ -678,7 +686,26 @@ export const useWizardStore = defineStore("wizard", () =>
         _write({ ...current, state: { ...current.state, currency: kept } });
     };
 
-    const useSuggestedCoins = (): void => setCoins(coins(suggestedCopper.value));
+    /** The coins the player typed; zeros are left out. */
+    const setCoins = (currency: Currency): void =>
+    {
+        coinsTyped.value = true;
+        _writeCoins(currency);
+    };
+
+    /** The suggested purse, which the coins then follow until the player types them. */
+    const useSuggestedCoins = (): void =>
+    {
+        coinsTyped.value = false;
+        _writeCoins(coins(suggestedCopper.value));
+    };
+
+    // Coins not typed follow the suggestion, once there are coins at all (step 7 was reached): on the expert page
+    // the equipment is on screen before the class and the background are chosen.
+    watch(suggestedCopper, () =>
+    {
+        if (!coinsTyped.value && !keptEquipment.value && character.value?.state.currency) { useSuggestedCoins(); }
+    });
 
     type Personal = "traits" | "ideals" | "bonds" | "flaws" | "appearance" | "notes";
 
@@ -786,6 +813,7 @@ export const useWizardStore = defineStore("wizard", () =>
         rolls,
         equipment,
         keptEquipment,
+        coinsTyped,
         editing,
         steps,
         sources,

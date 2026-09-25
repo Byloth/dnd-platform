@@ -6,7 +6,8 @@
     /**
      * One option of a wizard step: a native radio (or checkbox) inside a card, so the keyboard and the arrow keys
      * work as the browser makes them. A recommended option carries a badge and, by help level, its reason: inline
-     * for a newcomer, behind "Why?" for a regular player, not at all for an expert.
+     * for a newcomer, behind "Why?" for a regular player, not at all for an expert, who gets a dense card: the
+     * name and the facts, no summary.
      */
     const props = withDefaults(defineProps<{
         name: string;
@@ -33,7 +34,8 @@
          :class="{
              'choice-card--checked': checked,
              'choice-card--recommended': recommended && helpLevel !== 'expert',
-             'choice-card--disabled': disabled
+             'choice-card--disabled': disabled,
+             'choice-card--dense': helpLevel === 'expert'
          }">
         <label class="choice-card__main">
             <input class="choice-card__input"
@@ -54,7 +56,7 @@
                         {{ t("wizard.recommended") }}
                     </span>
                 </span>
-                <span v-if="summary" class="choice-card__summary">{{ summary }}</span>
+                <span v-if="summary && helpLevel !== 'expert'" class="choice-card__summary">{{ summary }}</span>
                 <slot></slot>
             </span>
         </label>
@@ -124,6 +126,17 @@
             display: flex;
             gap: var(--space-3);
             padding: var(--space-4);
+        }
+
+        &--dense &__main
+        {
+            gap: var(--space-2);
+            padding: var(--space-2) var(--space-3);
+        }
+
+        &--dense &__title
+        {
+            font-size: var(--text-md);
         }
 
         &--disabled &__main
