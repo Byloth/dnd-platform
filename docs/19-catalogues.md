@@ -31,7 +31,7 @@ The full item catalogue opens after creation. From the sheet (the inventory) a p
 
 ## Content
 
-- **SRD first, public.** srd51 already holds 493 items, 236 of them magic (with a rarity). The SRD's monsters are in the 5e-database data of the import pipeline and were left out of the import so far (`tools/import/sources.lock.yaml`). Importing them needs the `creature` entity type of DEC-24.
+- **SRD first, public.** srd51 already holds 493 items, 236 of them magic (with a rarity). The SRD's 322 creatures are the public package `srd51-creatures` (2026-09-26), imported from the 5e-database data of the import pipeline in the `creature` entity type of DEC-24.
 - **Official books, private.** The Dungeon Master's Guide (magic items), the Monster Manual and the other bestiaries (creatures), and the player books' items, as private packages loaded by their owners ([05](05-content-model-and-sources.md), "Official source packages"). How the three core books are packaged is DEC-23.
 - **Adventure books, private** (owner's point 2.1). The starter sets, Curse of Strahd, Journeys through the Radiant Citadel and the other campaign books bring their own magic items and creatures, and sometimes player options. One private package per adventure, with the same rules as a rule book.
 - **Homebrew.** Homebrew packages add items and creatures in the same format, and appear in the catalogues like any other content.
@@ -40,7 +40,7 @@ The full item catalogue opens after creation. From the sheet (the inventory) a p
 
 - **Item catalogue for players: Phase 2** (play mode). Editing the inventory during play is play-mode state ([09](09-play-mode.md)); the catalogue is the "add item" of that inventory. The step 7 shop already has search, and its component can grow into the catalogue.
 - **Item and creature catalogues for game masters: Phase 6** (DM and campaigns). The roadmap keeps "further DM tools" out of scope until Phase 6 is evaluated ([16](16-roadmap.md)). These two are named as its first candidates, since the owner asked for them explicitly.
-- **Creature entity type: DEC-24.** It is needed before the creature catalogue. It could come earlier, when the sheet shows companions, familiars or wild shapes.
+- **Creature entity type: DEC-24**, decided 2026-09-26. The sheet can reuse it when it shows companions, familiars or wild shapes.
 
 ## Open points
 

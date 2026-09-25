@@ -53,7 +53,7 @@ Rules:
 4. The repository documents the format and provides tooling to *author* such packages; it does not provide the packages.
 5. When official content overlaps the SRD (e.g. the PHB's version of a class), the official package extends the base entity rather than duplicating it, so characters built on the SRD do not change when the book package is added.
 
-Extended by the owner (2026-09-25): the scope also covers **game-master material** for the item and creature catalogues of [19](19-catalogues.md). This means the Dungeon Master's Guide (magic items), the Monster Manual and other bestiaries (creatures), and **adventure books** (the starter sets, Curse of Strahd, Journeys through the Radiant Citadel and others), which bring magic items, creatures and sometimes player options. Whether the three core books are one package or three is DEC-23; creatures need an entity type, DEC-24.
+Extended by the owner (2026-09-25): the scope also covers **game-master material** for the item and creature catalogues of [19](19-catalogues.md). This means the Dungeon Master's Guide (magic items), the Monster Manual and other bestiaries (creatures), and **adventure books** (the starter sets, Curse of Strahd, Journeys through the Radiant Citadel and others), which bring magic items, creatures and sometimes player options. Whether the three core books are one package or three is DEC-23; creatures are the `creature` entity type of DEC-24 (decided 2026-09-26), and the plan for every owned book is [20](20-official-book-packages.md).
 
 #### Further sources
 

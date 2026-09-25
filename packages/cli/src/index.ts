@@ -8,7 +8,9 @@
  *   build                                          YAML → canonical JSON bundles
  *   release [dirs…] [--check]                      publish the bundles of public packages (DEC-21)
  *   derive <character.yaml> [--json|--text]
- *   fixtures [dirs…] [--update] [--filter <name>] [--coverage]   golden characters and play sessions
+ *   show <entity-id> [--package <dir>]… [--language <code>] [--units imperial|metric]
+             print a creature's stat block, in a language and in units
+  fixtures [dirs…] [--update] [--filter <name>] [--coverage]   golden characters and play sessions
  */
 
 import { FORMAT_VERSION } from "@byloth/dnd-platform-schema";
@@ -17,6 +19,7 @@ import { runBuild } from "./commands/build.js";
 import { runDerive } from "./commands/derive.js";
 import { runFixturesCommand } from "./commands/fixtures.js";
 import { runRelease } from "./commands/release.js";
+import { runShow } from "./commands/show.js";
 import { runValidate } from "./commands/validate.js";
 
 const HELP = `dnd — dnd-platform command-line tools (content format v${FORMAT_VERSION})
@@ -34,6 +37,8 @@ Commands:
              (packages/content/*); a released version is never rewritten;
              --check: write nothing, fail if the current version is not released
   derive     compute a character sheet                    (M0.8)
+  show <entity-id> [--package <dir>]… [--language <code>] [--units imperial|metric]
+             print a creature's stat block, in a language and in units
   fixtures [dirs…] [--update] [--filter <name>] [--json]
              run the golden character fixtures (fixtures/characters) and the
              play session fixtures (fixtures/sessions), plus the private ones when present
@@ -53,6 +58,7 @@ export function main(argv: readonly string[]): number
     if (command === "build") { return runBuild(rest); }
     if (command === "release") { return runRelease(rest); }
     if (command === "derive") { return runDerive(rest); }
+    if (command === "show") { return runShow(rest); }
     if (command === "fixtures") { return runFixturesCommand(rest); }
 
     process.stderr.write(`dnd: unknown or not yet implemented command "${command}"\n\n${HELP}`);

@@ -332,6 +332,153 @@ export const en = {
         species: "you are {species}",
         class: "you have levels in {class}",
         fallback: "{condition} holds"
+    },
+    creature: {
+        labels: {
+            ac: "Armor Class",
+            hp: "Hit Points",
+            speed: "Speed",
+            saves: "Saving Throws",
+            skills: "Skills",
+            vulnerabilities: "Damage Vulnerabilities",
+            resistances: "Damage Resistances",
+            immunities: "Damage Immunities",
+            conditionImmunities: "Condition Immunities",
+            senses: "Senses",
+            languages: "Languages",
+            challenge: "Challenge",
+            actions: "Actions",
+            bonusActions: "Bonus Actions",
+            reactions: "Reactions",
+            legendary: "Legendary Actions"
+        },
+        kind: "{size} {type}",
+        swarm: "{size} swarm of {of} {type}",
+        sizes: {
+            m: {
+                tiny: "Tiny",
+                small: "Small",
+                medium: "Medium",
+                large: "Large",
+                huge: "Huge",
+                gargantuan: "Gargantuan"
+            },
+            f: {
+                tiny: "Tiny",
+                small: "Small",
+                medium: "Medium",
+                large: "Large",
+                huge: "Huge",
+                gargantuan: "Gargantuan"
+            }
+        },
+        sizesPlural: {
+            m: {
+                tiny: "Tiny",
+                small: "Small",
+                medium: "Medium",
+                large: "Large",
+                huge: "Huge",
+                gargantuan: "Gargantuan"
+            },
+            f: {
+                tiny: "Tiny",
+                small: "Small",
+                medium: "Medium",
+                large: "Large",
+                huge: "Huge",
+                gargantuan: "Gargantuan"
+            }
+        },
+        types: {
+            aberration: "aberration",
+            beast: "beast",
+            celestial: "celestial",
+            construct: "construct",
+            dragon: "dragon",
+            elemental: "elemental",
+            fey: "fey",
+            fiend: "fiend",
+            giant: "giant",
+            humanoid: "humanoid",
+            monstrosity: "monstrosity",
+            ooze: "ooze",
+            plant: "plant",
+            undead: "undead"
+        },
+        typesPlural: {
+            aberration: "aberrations",
+            beast: "beasts",
+            celestial: "celestials",
+            construct: "constructs",
+            dragon: "dragons",
+            elemental: "elementals",
+            fey: "fey",
+            fiend: "fiends",
+            giant: "giants",
+            humanoid: "humanoids",
+            monstrosity: "monstrosities",
+            ooze: "oozes",
+            plant: "plants",
+            undead: "undead"
+        },
+        /** The grammatical gender of each type, for the size that agrees with it ("m" or "f"). */
+        typeGender: {
+            aberration: "m",
+            beast: "m",
+            celestial: "m",
+            construct: "m",
+            dragon: "m",
+            elemental: "m",
+            fey: "m",
+            fiend: "m",
+            giant: "m",
+            humanoid: "m",
+            monstrosity: "m",
+            ooze: "m",
+            plant: "m",
+            undead: "m",
+            swarm: "m"
+        },
+        subtypes: {
+            "any-race": "any race",
+            "demon": "demon",
+            "devil": "devil",
+            "dwarf": "dwarf",
+            "elf": "elf",
+            "gnoll": "gnoll",
+            "gnome": "gnome",
+            "goblinoid": "goblinoid",
+            "grimlock": "grimlock",
+            "human": "human",
+            "kobold": "kobold",
+            "lizardfolk": "lizardfolk",
+            "merfolk": "merfolk",
+            "orc": "orc",
+            "sahuagin": "sahuagin",
+            "shapechanger": "shapechanger",
+            "titan": "titan"
+        },
+        saveAbbreviations: { str: "Str", dex: "Dex", con: "Con", int: "Int", wis: "Wis", cha: "Cha" },
+        hover: "(hover)",
+        inForm: "{value} in {form} form",
+        blindBeyond: "(blind beyond this radius)",
+        passive: "passive Perception {value}",
+        /** "yes" when the language prints the passive Perception before the other senses. */
+        passiveFirst: "no",
+        challenge: "{cr} ({xp} XP)",
+        usage: {
+            perDay: "{n}/Day",
+            recharge: "Recharge {min}–6",
+            rechargeSix: "Recharge 6",
+            shortRest: "Recharges after a Short or Long Rest",
+            longRest: "Recharges after a Long Rest",
+            cost: "Costs {count} Actions"
+        },
+        save: "DC {dc} {ability}",
+        legendaryIntro: "The {name} can take {count} legendary actions, choosing from the options below. " +
+            "Only one legendary action option can be used at a time and only at the end of another creature's turn. " +
+            "The {name} regains spent legendary actions at the start of its turn."
     }
 };
 

@@ -33,6 +33,35 @@ describe("validate", () =>
         expect(errorsOf([grant], [spell(`${MINI}.spell.aid`, 2)] as never)).toEqual([]);
     });
 
+    it("reports a creature's spell that is not loaded, and accepts one that is", () =>
+    {
+        const creature = (spells: string[]): never => ({
+            type: "creature",
+            data: {
+                id: `${MINI}.creature.mage`,
+                name: { en: "Mage" },
+                source: MINI,
+                size: "medium",
+                creatureType: "humanoid",
+                armorClass: [{ value: 12 }],
+                hitPoints: { average: 40 },
+                abilities: { str: 9, dex: 14, con: 11, int: 17, wis: 12, cha: 11 },
+                senses: { passivePerception: 11 },
+                challenge: 6,
+                traits: [{
+                    name: { en: "Spellcasting" },
+                    text: { en: "The mage casts spells." },
+                    spellcasting: { ability: "int", spells: spells.map((s) => ({ spell: s })) }
+                }]
+            }
+
+        }) as never;
+
+        expect(errorsOf([], [creature([`${MINI}.spell.nope`])] as never)
+            .some((e) => e.includes(`E_MISSING_REFERENCE:"${MINI}.spell.nope"`))).toBe(true);
+        expect(errorsOf([], [creature([`${MINI}.spell.aid`]), spell(`${MINI}.spell.aid`, 2)] as never)).toEqual([]);
+    });
+
     it("reports an unknown global table inside a formula", () =>
     {
         const formula = `10 + table(${MINI}.table.nope)`;

@@ -148,6 +148,7 @@ export const ENTITY_TYPES = [
     "rule",
     "table",
     "archetype",
+    "creature",
     "patch"
 
 ] as const;
@@ -176,6 +177,7 @@ export const SCHEMA_NAMES = [
     "rule",
     "table",
     "archetype",
+    "creature",
     "patch",
     "translation",
     "package",
@@ -200,6 +202,7 @@ export const SCHEMA_FOR_DIRECTORY = {
     "rules": "rule",
     "tables": "table",
     "archetypes": "archetype",
+    "creatures": "creature",
     "patches": "patch",
     "translations": "translation"
 
@@ -221,6 +224,7 @@ export const ENTITY_TYPE_FOR_DIRECTORY = {
     "rules": "rule",
     "tables": "table",
     "archetypes": "archetype",
+    "creatures": "creature",
     "patches": "patch"
 
 } as const satisfies Partial<Record<EntityDirectory, EntityType>>;

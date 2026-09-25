@@ -33,7 +33,7 @@ When a decision is taken, its status becomes **Decided**, the chosen option and 
 | DEC-21 | Content versions and updates (editions, automatic fixes, published releases) | 1 | Decided (2026-09-23) |
 | DEC-22 | Usage statistics on the public site (Umami, opt-in consent) | 1 | Decided (2026-09-25) |
 | DEC-23 | Official books as packages: one per book, or one "core" package | 1–2 | Open |
-| DEC-24 | Creatures as content (a creature entity type) | 6 (or earlier) | Open |
+| DEC-24 | Creatures as content (a creature entity type) | 1 | Decided 2026-09-26 |
 
 ## Entries
 
@@ -225,6 +225,12 @@ When a decision is taken, its status becomes **Decided**, the chosen option and 
   - spellcasting;
   - the environment and the source.
   The SRD's monsters come first (public: the 5e-database of the import pipeline has them, excluded from the import so far), then the Monster Manual and other books and adventures in private packages. Familiars, companions and wild shapes can reuse it later.
+- **Decided (2026-09-26):** a `creature` entity type, additive at v0 (`creature.schema.json`, described in [phase-0/02-content-format.md](phase-0/02-content-format.md)).
+  - Each trait and action keeps its text as the authority, with structured `attack`, `damage`, `save`, `usage`, `multiattack` and `spellcasting` beside it. The effect language is not used: a stat block's actions are rolled, not applied to a sheet.
+  - Numbers accept formulas, so Tasha's summons that follow the spell's level fit without a new field.
+  - Shapechangers are one creature with `forms`.
+  - The SRD's 322 creatures are the public package `srd51-creatures` (owner, 2026-09-26), apart from srd51 so the sheet does not download them; a package of creatures only is catalogue content, never offered at creation. Its Italian is `srd51-creatures-it`.
+  - The composer writes the stat block in English and Italian (`composeCreature`); `dnd show <id>` prints it. The engine derives nothing from a creature yet.
 - **Unblocks:** the creature catalogue; later, companions and summons on the sheet.
 - **Update (2026-09-25):** the owner brought creatures into the first pass of the book packages; the schema comes first ([20](20-official-book-packages.md), step 1).
 - **Referenced by:** [19](19-catalogues.md), [16](16-roadmap.md), [20](20-official-book-packages.md).

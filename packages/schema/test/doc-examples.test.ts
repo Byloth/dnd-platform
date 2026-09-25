@@ -36,7 +36,7 @@ function isFragment(source: string): boolean
 
 const COMMON_FIELDS = ["id", "name", "text", "source", "tags", "page"];
 const ENTITY_TYPES = ["class", "subclass", "species", "background", "feat", "feature", "spell", "spell-list", "item",
-    "condition", "rule", "table", "archetype", "patch"];
+    "condition", "rule", "table", "archetype", "creature", "patch"];
 const PACKAGE_KINDS = ["base", "extension", "translation"];
 
 function example(block: Block, schema: string, data: unknown, asList = false): Example

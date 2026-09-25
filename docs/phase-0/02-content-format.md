@@ -40,6 +40,7 @@ Everything below is edition-neutral: nothing in the format assumes 2014 or 2024 
   rules/<name>.yaml
   tables/<name>.yaml
   archetypes/<name>.yaml        # newcomer recommendations (docs/07)
+  creatures/<name>.yaml         # stat blocks (DEC-24, additive v0)
   patches/<name>.yaml
   translations/<lang>/<entity-id>.yaml
 ```
@@ -349,6 +350,8 @@ effects:
 **Table**: `{ id, by: level|classLevel|casterLevel|slotLevel, rows: { key: value } }`; values may be numbers, dice strings or arrays (slot tables: `rows: { 1: [2], 2: [3], 3: [4, 2], ... }`).
 
 **Archetype**: a newcomer recommendation: `{ id, name, pitch, recommends: { species, class, subclass, background, abilityPriority, answers } , why: { ... } }`. Content, not code ([../07-character-creation.md](../07-character-creation.md)).
+
+**Creature** (DEC-24, additive v0): a stat block. `size`, `creatureType` (the 14 types), `subtypes`, `swarmOf` (a swarm's creature size), `alignment` (text), `armorClass: [{ value, note }]`, `hitPoints: { average, dice }`, `speed: { walk, fly, swim, climb, burrow, hover }` in feet, `abilities` (all six), `savingThrows` and `skills` (total bonuses), `vulnerabilities` / `resistances` / `immunities` (damage types, or `{ types, note }` for "bludgeoning, piercing and slashing *from nonmagical weapons*"), `conditionImmunities` (condition ids), `senses: { darkvision, blindsight, blindBeyond, tremorsense, truesight, passivePerception }`, `languages` (text), `challenge` (0, 0.125, 0.25, 0.5, 1–30), `xp`, `proficiencyBonus`; `traits`, `actions`, `bonusActions`, `reactions`, `legendary: { count, text, actions }`, `lair: { text, actions }` hold entries `{ name, text, usage: { perDay | recharge | rest }, cost, attack: { kind, source, bonus, reach, range }, damage: [{ dice, damageType | choose }], save: { ability, dc, onSuccess }, multiattack: [{ action, count }], spellcasting: { ability, dc, attack, casterLevel, innate, slots, spells: [{ spell, perDay, atWill }] } }`; `forms` for a shapechanger (the first is the stat block's own); `environments`. The entry's `text` is the authority; the structured fields let the application explain and roll it. Numbers accept formulas, so a summon whose statistics follow the spell's level (`slotLevel`) needs no new field. The engine derives nothing from a creature yet; the composer writes its stat block (`composeCreature`), and `dnd show <id>` prints it. The SRD's creatures are the package `srd51-creatures`, apart from srd51 so the sheet does not download them.
 
 **Patch**: `{ id: phb14.patch.monk-text, target: srd51.class.monk, set: { "text.en": "..." }, append: { "levels.3.features": [..] } }`. Applied in dependency order; every patched field records the patching package in provenance.
 

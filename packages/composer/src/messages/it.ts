@@ -335,5 +335,150 @@ export const it: SheetMessages = {
         species: "sei {species}",
         class: "hai livelli da {class}",
         fallback: "vale {condition}"
+    },
+    creature: {
+        labels: {
+            ac: "Classe Armatura",
+            hp: "Punti Ferita",
+            speed: "Velocità",
+            saves: "Tiri Salvezza",
+            skills: "Abilità",
+            vulnerabilities: "Vulnerabilità ai Danni",
+            resistances: "Resistenze ai Danni",
+            immunities: "Immunità ai Danni",
+            conditionImmunities: "Immunità alle Condizioni",
+            senses: "Sensi",
+            languages: "Linguaggi",
+            challenge: "Sfida",
+            actions: "Azioni",
+            bonusActions: "Azioni bonus",
+            reactions: "Reazioni",
+            legendary: "Azioni leggendarie"
+        },
+        kind: "{type} {size}",
+        swarm: "Sciame {size} di {type} {of}",
+        sizes: {
+            m: {
+                tiny: "Minuscolo",
+                small: "Piccolo",
+                medium: "Medio",
+                large: "Grande",
+                huge: "Enorme",
+                gargantuan: "Mastodontico"
+            },
+            f: {
+                tiny: "Minuscola",
+                small: "Piccola",
+                medium: "Media",
+                large: "Grande",
+                huge: "Enorme",
+                gargantuan: "Mastodontica"
+            }
+        },
+        sizesPlural: {
+            m: {
+                tiny: "Minuscoli",
+                small: "Piccoli",
+                medium: "Medi",
+                large: "Grandi",
+                huge: "Enormi",
+                gargantuan: "Mastodontici"
+            },
+            f: {
+                tiny: "Minuscole",
+                small: "Piccole",
+                medium: "Medie",
+                large: "Grandi",
+                huge: "Enormi",
+                gargantuan: "Mastodontiche"
+            }
+        },
+        types: {
+            aberration: "Aberrazione",
+            beast: "Bestia",
+            celestial: "Celestiale",
+            construct: "Costrutto",
+            dragon: "Drago",
+            elemental: "Elementale",
+            fey: "Folletto",
+            fiend: "Immondo",
+            giant: "Gigante",
+            humanoid: "Umanoide",
+            monstrosity: "Mostruosità",
+            ooze: "Melma",
+            plant: "Vegetale",
+            undead: "Non morto"
+        },
+        typesPlural: {
+            aberration: "aberrazioni",
+            beast: "bestie",
+            celestial: "celestiali",
+            construct: "costrutti",
+            dragon: "draghi",
+            elemental: "elementali",
+            fey: "folletti",
+            fiend: "immondi",
+            giant: "giganti",
+            humanoid: "umanoidi",
+            monstrosity: "mostruosità",
+            ooze: "melme",
+            plant: "vegetali",
+            undead: "non morti"
+        },
+        typeGender: {
+            aberration: "f",
+            beast: "f",
+            celestial: "m",
+            construct: "m",
+            dragon: "m",
+            elemental: "m",
+            fey: "m",
+            fiend: "m",
+            giant: "m",
+            humanoid: "m",
+            monstrosity: "f",
+            ooze: "f",
+            plant: "m",
+            undead: "m",
+            swarm: "m"
+        },
+        subtypes: {
+            "any-race": "qualsiasi razza",
+            "demon": "demone",
+            "devil": "diavolo",
+            "dwarf": "nano",
+            "elf": "elfo",
+            "gnoll": "gnoll",
+            "gnome": "gnomo",
+            "goblinoid": "goblinoide",
+            "grimlock": "grimlock",
+            "human": "umano",
+            "kobold": "coboldo",
+            "lizardfolk": "lucertoloide",
+            "merfolk": "tritone",
+            "orc": "orco",
+            "sahuagin": "sahuagin",
+            "shapechanger": "mutaforma",
+            "titan": "titano"
+        },
+        saveAbbreviations: { str: "For", dex: "Des", con: "Cos", int: "Int", wis: "Sag", cha: "Car" },
+        hover: "(fluttuare)",
+        inForm: "{value} in forma di {form}",
+        blindBeyond: "(cecità oltre questo raggio)",
+        passive: "Percezione passiva {value}",
+        passiveFirst: "yes",
+        challenge: "{cr} ({xp} PE)",
+        usage: {
+            perDay: "{n}/giorno",
+            recharge: "ricarica {min}–6",
+            rechargeSix: "ricarica 6",
+            shortRest: "ricarica dopo un riposo breve o lungo",
+            longRest: "ricarica dopo un riposo lungo",
+            cost: "costa {count} azioni"
+        },
+        save: "CD {dc} {ability}",
+        legendaryIntro: "La creatura può eseguire {count} azioni leggendarie a scelta tra le opzioni seguenti. " +
+            "È possibile utilizzare solo un'opzione di azione leggendaria alla volta e soltanto alla fine del turno " +
+            "di un'altra creatura. All'inizio del turno, la creatura recupera le azioni leggendarie effettuate."
     }
 };

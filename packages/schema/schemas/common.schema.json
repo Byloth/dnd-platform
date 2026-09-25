@@ -9,7 +9,7 @@
     },
     "entityId": {
       "type": "string",
-      "pattern": "^[a-z0-9]+(?:[-.][a-z0-9]+)*\\.(?:class|subclass|species|background|feat|feature|spell|spell-list|item|condition|rule|table|archetype|patch)\\.[a-z0-9]+(?:[-.][a-z0-9]+)*$"
+      "pattern": "^[a-z0-9]+(?:[-.][a-z0-9]+)*\\.(?:class|subclass|species|background|feat|feature|spell|spell-list|item|condition|rule|table|archetype|creature|patch)\\.[a-z0-9]+(?:[-.][a-z0-9]+)*$"
     },
     "rulesetId": {
       "type": "string",
@@ -218,6 +218,7 @@
         "rule",
         "table",
         "archetype",
+        "creature",
         "patch"
       ]
     },

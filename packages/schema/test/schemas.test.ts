@@ -127,3 +127,35 @@ describe("additive v0 extensions of M1.4 (docs/phase-1/04-character-creation.md)
         expect(validate({ ...character, state: { ...state, currency: { gp: 15 } } })).toBe(false);
     });
 });
+
+describe("the creature entity (DEC-24, docs/20-official-book-packages.md)", () =>
+{
+    const ajv = createAjv();
+    const file = resolve(ROOT, "packages/content/srd51-creatures/creatures/adult-red-dragon.yaml");
+    const dragon = parse(readFileSync(file, "utf8")) as Record<string, unknown>;
+
+    it("accepts an SRD stat block", () =>
+    {
+        expect(validatorFor(ajv, "creature")(dragon)).toBe(true);
+    });
+
+    it("rejects a stat block without its abilities, a challenge off the scale, a malformed damage roll", () =>
+    {
+        const validate = validatorFor(ajv, "creature");
+        const { abilities: _abilities, ...noAbilities } = dragon;
+        const bite = { name: { en: "Bite" }, text: { en: "…" }, damage: [{ dice: "2d10 plus 8" }] };
+
+        expect(validate(noAbilities)).toBe(false);
+        expect(validate({ ...dragon, challenge: 0.3 })).toBe(false);
+        expect(validate({ ...dragon, actions: [bite] })).toBe(false);
+    });
+
+    it("takes formulas for the numbers of a summon that scales with the spell's level", () =>
+    {
+        const validate = validatorFor(ajv, "creature");
+
+        const scaled = { armorClass: [{ value: "11 + slotLevel" }], hitPoints: { average: "30 + 10 * slotLevel" } };
+
+        expect(validate({ ...dragon, ...scaled })).toBe(true);
+    });
+});

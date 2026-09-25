@@ -7,7 +7,7 @@
 
 const ENTITY_TYPES = [
     "class", "subclass", "species", "background", "feat", "feature", "spell", "spell-list", "item", "condition", "rule",
-    "table", "archetype"
+    "table", "archetype", "creature"
 ];
 const SEGMENT = "[a-z0-9]+(?:[-.][a-z0-9]+)*";
 export const ENTITY_ID = new RegExp(`^${SEGMENT}\\.(?:${ENTITY_TYPES.join("|")})\\.${SEGMENT}$`);

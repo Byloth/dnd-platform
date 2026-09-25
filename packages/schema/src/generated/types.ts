@@ -35,6 +35,140 @@ export type Recharge = [
  * Play effect
  */
 export type PlayEffect = Heal | TempHp | ExtraDamage | RestoreResource | ApplyCondition | Reroll | Note;
+/**
+ * @minItems 1
+ */
+export type ArmorClass = [
+    {
+        value: number | string;
+        note?: LocalizedString1;
+    },
+    ...{
+        value: number | string;
+        note?: LocalizedString1;
+    }[]
+];
+/**
+ * Damage types, or a group of them with the words that qualify it ("from nonmagical attacks"); a group may name no type ("damage from spells").
+ *
+ * @minItems 1
+ */
+export type Defenses = [
+    (
+        | (
+              | "acid"
+              | "bludgeoning"
+              | "cold"
+              | "fire"
+              | "force"
+              | "lightning"
+              | "necrotic"
+              | "piercing"
+              | "poison"
+              | "psychic"
+              | "radiant"
+              | "slashing"
+              | "thunder"
+          )
+        | {
+              /**
+               * @minItems 1
+               */
+              types?: [
+                  (
+                      | "acid"
+                      | "bludgeoning"
+                      | "cold"
+                      | "fire"
+                      | "force"
+                      | "lightning"
+                      | "necrotic"
+                      | "piercing"
+                      | "poison"
+                      | "psychic"
+                      | "radiant"
+                      | "slashing"
+                      | "thunder"
+                  ),
+                  ...(
+                      | "acid"
+                      | "bludgeoning"
+                      | "cold"
+                      | "fire"
+                      | "force"
+                      | "lightning"
+                      | "necrotic"
+                      | "piercing"
+                      | "poison"
+                      | "psychic"
+                      | "radiant"
+                      | "slashing"
+                      | "thunder"
+                  )[]
+              ];
+              note: LocalizedString;
+          }
+    ),
+    ...(
+        | (
+              | "acid"
+              | "bludgeoning"
+              | "cold"
+              | "fire"
+              | "force"
+              | "lightning"
+              | "necrotic"
+              | "piercing"
+              | "poison"
+              | "psychic"
+              | "radiant"
+              | "slashing"
+              | "thunder"
+          )
+        | {
+              /**
+               * @minItems 1
+               */
+              types?: [
+                  (
+                      | "acid"
+                      | "bludgeoning"
+                      | "cold"
+                      | "fire"
+                      | "force"
+                      | "lightning"
+                      | "necrotic"
+                      | "piercing"
+                      | "poison"
+                      | "psychic"
+                      | "radiant"
+                      | "slashing"
+                      | "thunder"
+                  ),
+                  ...(
+                      | "acid"
+                      | "bludgeoning"
+                      | "cold"
+                      | "fire"
+                      | "force"
+                      | "lightning"
+                      | "necrotic"
+                      | "piercing"
+                      | "poison"
+                      | "psychic"
+                      | "radiant"
+                      | "slashing"
+                      | "thunder"
+                  )[]
+              ];
+              note: LocalizedString;
+          }
+    )[]
+];
+/**
+ * @minItems 1
+ */
+export type Actions = [Action, ...Action[]];
 export type Patch = {
     [k: string]: unknown | undefined;
 } & {
@@ -62,6 +196,7 @@ export interface Root {
     Common?: Common;
     Condition?: Condition;
     ConditionEntity?: ConditionEntity;
+    Creature?: Creature;
     Effect?: Effect;
     Feat?: Feat;
     Feature?: Feature;
@@ -856,6 +991,7 @@ export interface OpenChoice {
             | "rule"
             | "table"
             | "archetype"
+            | "creature"
             | "patch";
         list?: string;
         maxLevel?: number | string;
@@ -942,6 +1078,7 @@ export interface Choice {
             | "rule"
             | "table"
             | "archetype"
+            | "creature"
             | "patch";
         list?: string;
         maxLevel?: number | string;
@@ -1322,6 +1459,448 @@ export interface ConditionEntity {
             | undefined;
     };
     cumulative?: boolean;
+}
+/**
+ * A creature's stat block (DEC-24): monsters, NPCs and beasts. Distances are in feet, as every number of the format. The text of each trait and action is the authority; the structured fields beside it (attack, damage, save, usage) let a reader explain and roll it.
+ */
+export interface Creature {
+    id: string;
+    name: LocalizedString;
+    text?: LocalizedString;
+    source: string;
+    tags?: Tags;
+    page?: number;
+    size: "tiny" | "small" | "medium" | "large" | "huge" | "gargantuan";
+    creatureType:
+        | "aberration"
+        | "beast"
+        | "celestial"
+        | "construct"
+        | "dragon"
+        | "elemental"
+        | "fey"
+        | "fiend"
+        | "giant"
+        | "humanoid"
+        | "monstrosity"
+        | "ooze"
+        | "plant"
+        | "undead";
+    /**
+     * The words in parentheses after the type: "devil", "shapechanger", "any race".
+     *
+     * @minItems 1
+     */
+    subtypes?: [string, ...string[]];
+    /**
+     * A swarm: the size of the creatures it is made of ("swarm of Tiny beasts" is size medium, swarmOf tiny, creatureType beast).
+     */
+    swarmOf?: "tiny" | "small" | "medium" | "large" | "huge" | "gargantuan";
+    alignment?: LocalizedString;
+    armorClass: ArmorClass;
+    hitPoints: {
+        average: number | string;
+        /**
+         * Dice with a modifier of either sign ("2d10+8", "1d4-1"), a flat number, or a formula.
+         */
+        dice?: string | number;
+    };
+    speed?: Speed;
+    abilities: {
+        str: number | string;
+        dex: number | string;
+        con: number | string;
+        int: number | string;
+        wis: number | string;
+        cha: number | string;
+    };
+    /**
+     * The total bonus of each proficient saving throw.
+     */
+    savingThrows?: {
+        [k: string]: number | string | undefined;
+    };
+    /**
+     * The total bonus of each proficient skill.
+     */
+    skills?: {
+        [k: string]: number | string | undefined;
+    };
+    vulnerabilities?: Defenses;
+    resistances?: Defenses;
+    immunities?: Defenses;
+    /**
+     * @minItems 1
+     */
+    conditionImmunities?: [string, ...string[]];
+    senses: {
+        /**
+         * Feet.
+         */
+        darkvision?: number | string;
+        /**
+         * Feet.
+         */
+        blindsight?: number | string;
+        /**
+         * "blind beyond this radius" after the blindsight.
+         */
+        blindBeyond?: boolean;
+        /**
+         * Feet.
+         */
+        tremorsense?: number | string;
+        /**
+         * Feet.
+         */
+        truesight?: number | string;
+        passivePerception: number | string;
+    };
+    languages?: LocalizedString2;
+    challenge:
+        | 0
+        | 0.125
+        | 0.25
+        | 0.5
+        | 1
+        | 2
+        | 3
+        | 4
+        | 5
+        | 6
+        | 7
+        | 8
+        | 9
+        | 10
+        | 11
+        | 12
+        | 13
+        | 14
+        | 15
+        | 16
+        | 17
+        | 18
+        | 19
+        | 20
+        | 21
+        | 22
+        | 23
+        | 24
+        | 25
+        | 26
+        | 27
+        | 28
+        | 29
+        | 30;
+    xp?: number;
+    proficiencyBonus?: number | string;
+    traits?: Actions;
+    actions?: Actions;
+    bonusActions?: Actions;
+    reactions?: Actions;
+    legendary?: {
+        count?: number;
+        text?: LocalizedString;
+        actions: Actions;
+    };
+    lair?: {
+        text?: LocalizedString;
+        actions?: Actions;
+    };
+    /**
+     * The other forms of a shapechanger, each with what differs from the stat block (the traits and actions say in their text which form they belong to).
+     *
+     * @minItems 1
+     */
+    forms?: [
+        {
+            name: LocalizedString;
+            size?: "tiny" | "small" | "medium" | "large" | "huge" | "gargantuan";
+            armorClass?: ArmorClass;
+            speed?: Speed;
+        },
+        ...{
+            name: LocalizedString;
+            size?: "tiny" | "small" | "medium" | "large" | "huge" | "gargantuan";
+            armorClass?: ArmorClass;
+            speed?: Speed;
+        }[]
+    ];
+    /**
+     * @minItems 1
+     */
+    environments?: [string, ...string[]];
+}
+/**
+ * Where the value comes from, as the stat block prints it: "natural armor", "plate, shield", "15 with mage armor".
+ */
+export interface LocalizedString1 {
+    [k: string]: string | undefined;
+}
+export interface Speed {
+    /**
+     * Feet.
+     */
+    walk?: number | string;
+    /**
+     * Feet.
+     */
+    fly?: number | string;
+    /**
+     * Feet.
+     */
+    swim?: number | string;
+    /**
+     * Feet.
+     */
+    climb?: number | string;
+    /**
+     * Feet.
+     */
+    burrow?: number | string;
+    hover?: boolean;
+    note?: LocalizedString;
+}
+/**
+ * As the stat block prints them; absent when it prints "—".
+ */
+export interface LocalizedString2 {
+    [k: string]: string | undefined;
+}
+export interface Action {
+    name: LocalizedString;
+    text: LocalizedString;
+    usage?: {
+        perDay?: number;
+        /**
+         * "Recharge 5–6": the lowest d6 roll that recharges it.
+         */
+        recharge?: number;
+        /**
+         * "Recharges after a Short or Long Rest".
+         */
+        rest?: "short" | "long";
+    };
+    /**
+     * A legendary action's cost in actions.
+     */
+    cost?: number;
+    attack?: {
+        kind?: "melee" | "ranged" | "melee-or-ranged";
+        source?: "weapon" | "spell";
+        bonus: number | string;
+        /**
+         * Feet.
+         */
+        reach?: number | string;
+        range?: {
+            /**
+             * Feet.
+             */
+            normal: number | string;
+            /**
+             * Feet.
+             */
+            long?: number | string;
+        };
+    };
+    /**
+     * @minItems 1
+     */
+    damage?: [
+        {
+            /**
+             * Dice with a modifier of either sign ("2d10+8", "1d4-1"), a flat number, or a formula.
+             */
+            dice: string | number;
+            damageType?:
+                | "acid"
+                | "bludgeoning"
+                | "cold"
+                | "fire"
+                | "force"
+                | "lightning"
+                | "necrotic"
+                | "piercing"
+                | "poison"
+                | "psychic"
+                | "radiant"
+                | "slashing"
+                | "thunder";
+            /**
+             * One of these damage types, as the text says ("slashing, or piercing if used with two hands" is a text; this is a list of types).
+             *
+             * @minItems 2
+             */
+            choose?: [
+                (
+                    | "acid"
+                    | "bludgeoning"
+                    | "cold"
+                    | "fire"
+                    | "force"
+                    | "lightning"
+                    | "necrotic"
+                    | "piercing"
+                    | "poison"
+                    | "psychic"
+                    | "radiant"
+                    | "slashing"
+                    | "thunder"
+                ),
+                (
+                    | "acid"
+                    | "bludgeoning"
+                    | "cold"
+                    | "fire"
+                    | "force"
+                    | "lightning"
+                    | "necrotic"
+                    | "piercing"
+                    | "poison"
+                    | "psychic"
+                    | "radiant"
+                    | "slashing"
+                    | "thunder"
+                ),
+                ...(
+                    | "acid"
+                    | "bludgeoning"
+                    | "cold"
+                    | "fire"
+                    | "force"
+                    | "lightning"
+                    | "necrotic"
+                    | "piercing"
+                    | "poison"
+                    | "psychic"
+                    | "radiant"
+                    | "slashing"
+                    | "thunder"
+                )[]
+            ];
+        },
+        ...{
+            /**
+             * Dice with a modifier of either sign ("2d10+8", "1d4-1"), a flat number, or a formula.
+             */
+            dice: string | number;
+            damageType?:
+                | "acid"
+                | "bludgeoning"
+                | "cold"
+                | "fire"
+                | "force"
+                | "lightning"
+                | "necrotic"
+                | "piercing"
+                | "poison"
+                | "psychic"
+                | "radiant"
+                | "slashing"
+                | "thunder";
+            /**
+             * One of these damage types, as the text says ("slashing, or piercing if used with two hands" is a text; this is a list of types).
+             *
+             * @minItems 2
+             */
+            choose?: [
+                (
+                    | "acid"
+                    | "bludgeoning"
+                    | "cold"
+                    | "fire"
+                    | "force"
+                    | "lightning"
+                    | "necrotic"
+                    | "piercing"
+                    | "poison"
+                    | "psychic"
+                    | "radiant"
+                    | "slashing"
+                    | "thunder"
+                ),
+                (
+                    | "acid"
+                    | "bludgeoning"
+                    | "cold"
+                    | "fire"
+                    | "force"
+                    | "lightning"
+                    | "necrotic"
+                    | "piercing"
+                    | "poison"
+                    | "psychic"
+                    | "radiant"
+                    | "slashing"
+                    | "thunder"
+                ),
+                ...(
+                    | "acid"
+                    | "bludgeoning"
+                    | "cold"
+                    | "fire"
+                    | "force"
+                    | "lightning"
+                    | "necrotic"
+                    | "piercing"
+                    | "poison"
+                    | "psychic"
+                    | "radiant"
+                    | "slashing"
+                    | "thunder"
+                )[]
+            ];
+        }[]
+    ];
+    save?: {
+        ability: "str" | "dex" | "con" | "int" | "wis" | "cha";
+        dc: number | string;
+        onSuccess?: "half" | "none";
+    };
+    /**
+     * The attacks a Multiattack makes, by the names of the other actions.
+     *
+     * @minItems 1
+     */
+    multiattack?: [
+        {
+            action: LocalizedString;
+            count: number;
+        },
+        ...{
+            action: LocalizedString;
+            count: number;
+        }[]
+    ];
+    spellcasting?: {
+        ability: "str" | "dex" | "con" | "int" | "wis" | "cha";
+        dc?: number | string;
+        attack?: number | string;
+        casterLevel?: number;
+        innate?: boolean;
+        /**
+         * Spell slots by level.
+         */
+        slots?: {
+            [k: string]: number | undefined;
+        };
+        /**
+         * @minItems 1
+         */
+        spells: [
+            {
+                spell: string;
+                perDay?: number;
+                atWill?: boolean;
+            },
+            ...{
+                spell: string;
+                perDay?: number;
+                atWill?: boolean;
+            }[]
+        ];
+    };
 }
 export interface Feat {
     id: string;

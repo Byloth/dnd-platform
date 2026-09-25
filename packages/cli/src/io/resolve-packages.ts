@@ -46,7 +46,7 @@ export interface ResolveOptions
 }
 
 /** The translations of `language`, among the discovered and explicit packages, whose packages are all loaded. */
-function withTranslations(resolved: ResolvedPackages, options: ResolveOptions): ResolvedPackages
+export function withTranslations(resolved: ResolvedPackages, options: ResolveOptions): ResolvedPackages
 {
     if (options.language === undefined) { return resolved; }
     const candidates = [...discoverPackages(options.repoRoot).map((p) => p.directory), ...options.extra ?? []]

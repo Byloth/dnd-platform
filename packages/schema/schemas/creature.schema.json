@@ -1,0 +1,671 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dnd-platform.byloth.dev/schema/v0/creature.schema.json",
+  "title": "Creature",
+  "description": "A creature's stat block (DEC-24): monsters, NPCs and beasts. Distances are in feet, as every number of the format. The text of each trait and action is the authority; the structured fields beside it (attack, damage, save, usage) let a reader explain and roll it.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "$ref": "common.schema.json#/$defs/entityId"
+    },
+    "name": {
+      "$ref": "common.schema.json#/$defs/localizedString"
+    },
+    "text": {
+      "$ref": "common.schema.json#/$defs/localizedString"
+    },
+    "source": {
+      "$ref": "common.schema.json#/$defs/sourceRef"
+    },
+    "tags": {
+      "$ref": "common.schema.json#/$defs/tags"
+    },
+    "page": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "size": {
+      "$ref": "common.schema.json#/$defs/size"
+    },
+    "creatureType": {
+      "$ref": "#/$defs/creatureType"
+    },
+    "subtypes": {
+      "description": "The words in parentheses after the type: \"devil\", \"shapechanger\", \"any race\".",
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/slug"
+      },
+      "minItems": 1
+    },
+    "swarmOf": {
+      "description": "A swarm: the size of the creatures it is made of (\"swarm of Tiny beasts\" is size medium, swarmOf tiny, creatureType beast).",
+      "$ref": "common.schema.json#/$defs/size"
+    },
+    "alignment": {
+      "$ref": "common.schema.json#/$defs/localizedString"
+    },
+    "armorClass": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "common.schema.json#/$defs/formulaOrNumber"
+          },
+          "note": {
+            "description": "Where the value comes from, as the stat block prints it: \"natural armor\", \"plate, shield\", \"15 with mage armor\".",
+            "$ref": "common.schema.json#/$defs/localizedString"
+          }
+        },
+        "required": [
+          "value"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "hitPoints": {
+      "type": "object",
+      "properties": {
+        "average": {
+          "$ref": "common.schema.json#/$defs/formulaOrNumber"
+        },
+        "dice": {
+          "$ref": "#/$defs/damageDice"
+        }
+      },
+      "required": [
+        "average"
+      ],
+      "additionalProperties": false
+    },
+    "speed": {
+      "type": "object",
+      "properties": {
+        "walk": {
+          "$ref": "#/$defs/distance"
+        },
+        "fly": {
+          "$ref": "#/$defs/distance"
+        },
+        "swim": {
+          "$ref": "#/$defs/distance"
+        },
+        "climb": {
+          "$ref": "#/$defs/distance"
+        },
+        "burrow": {
+          "$ref": "#/$defs/distance"
+        },
+        "hover": {
+          "type": "boolean"
+        },
+        "note": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        }
+      },
+      "additionalProperties": false
+    },
+    "abilities": {
+      "type": "object",
+      "properties": {
+        "str": {
+          "$ref": "#/$defs/score"
+        },
+        "dex": {
+          "$ref": "#/$defs/score"
+        },
+        "con": {
+          "$ref": "#/$defs/score"
+        },
+        "int": {
+          "$ref": "#/$defs/score"
+        },
+        "wis": {
+          "$ref": "#/$defs/score"
+        },
+        "cha": {
+          "$ref": "#/$defs/score"
+        }
+      },
+      "required": [
+        "str",
+        "dex",
+        "con",
+        "int",
+        "wis",
+        "cha"
+      ],
+      "additionalProperties": false
+    },
+    "savingThrows": {
+      "description": "The total bonus of each proficient saving throw.",
+      "type": "object",
+      "propertyNames": {
+        "$ref": "common.schema.json#/$defs/ability"
+      },
+      "additionalProperties": {
+        "$ref": "common.schema.json#/$defs/formulaOrNumber"
+      },
+      "minProperties": 1
+    },
+    "skills": {
+      "description": "The total bonus of each proficient skill.",
+      "type": "object",
+      "propertyNames": {
+        "$ref": "common.schema.json#/$defs/skill"
+      },
+      "additionalProperties": {
+        "$ref": "common.schema.json#/$defs/formulaOrNumber"
+      },
+      "minProperties": 1
+    },
+    "vulnerabilities": {
+      "$ref": "#/$defs/defenses"
+    },
+    "resistances": {
+      "$ref": "#/$defs/defenses"
+    },
+    "immunities": {
+      "$ref": "#/$defs/defenses"
+    },
+    "conditionImmunities": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/entityId"
+      },
+      "minItems": 1
+    },
+    "senses": {
+      "type": "object",
+      "properties": {
+        "darkvision": {
+          "$ref": "#/$defs/distance"
+        },
+        "blindsight": {
+          "$ref": "#/$defs/distance"
+        },
+        "blindBeyond": {
+          "description": "\"blind beyond this radius\" after the blindsight.",
+          "type": "boolean"
+        },
+        "tremorsense": {
+          "$ref": "#/$defs/distance"
+        },
+        "truesight": {
+          "$ref": "#/$defs/distance"
+        },
+        "passivePerception": {
+          "$ref": "common.schema.json#/$defs/formulaOrNumber"
+        }
+      },
+      "required": [
+        "passivePerception"
+      ],
+      "additionalProperties": false
+    },
+    "languages": {
+      "description": "As the stat block prints them; absent when it prints \"—\".",
+      "$ref": "common.schema.json#/$defs/localizedString"
+    },
+    "challenge": {
+      "type": "number",
+      "enum": [
+        0,
+        0.125,
+        0.25,
+        0.5,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ]
+    },
+    "xp": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "proficiencyBonus": {
+      "$ref": "common.schema.json#/$defs/formulaOrNumber"
+    },
+    "traits": {
+      "$ref": "#/$defs/actions"
+    },
+    "actions": {
+      "$ref": "#/$defs/actions"
+    },
+    "bonusActions": {
+      "$ref": "#/$defs/actions"
+    },
+    "reactions": {
+      "$ref": "#/$defs/actions"
+    },
+    "legendary": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "text": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        },
+        "actions": {
+          "$ref": "#/$defs/actions"
+        }
+      },
+      "required": [
+        "actions"
+      ],
+      "additionalProperties": false
+    },
+    "lair": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        },
+        "actions": {
+          "$ref": "#/$defs/actions"
+        }
+      },
+      "additionalProperties": false
+    },
+    "forms": {
+      "description": "The forms of a shapechanger: the first is the stat block's own, each other one holds what differs from it (the traits and actions say in their names which forms they belong to).",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "$ref": "common.schema.json#/$defs/localizedString"
+          },
+          "size": {
+            "$ref": "common.schema.json#/$defs/size"
+          },
+          "armorClass": {
+            "$ref": "#/properties/armorClass"
+          },
+          "speed": {
+            "$ref": "#/properties/speed"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "environments": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/slug"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "source",
+    "size",
+    "creatureType",
+    "armorClass",
+    "hitPoints",
+    "abilities",
+    "senses",
+    "challenge"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "creatureType": {
+      "type": "string",
+      "enum": [
+        "aberration",
+        "beast",
+        "celestial",
+        "construct",
+        "dragon",
+        "elemental",
+        "fey",
+        "fiend",
+        "giant",
+        "humanoid",
+        "monstrosity",
+        "ooze",
+        "plant",
+        "undead"
+      ]
+    },
+    "score": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 30
+        },
+        {
+          "$ref": "common.schema.json#/$defs/formula"
+        }
+      ]
+    },
+    "distance": {
+      "description": "Feet.",
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "$ref": "common.schema.json#/$defs/formula"
+        }
+      ]
+    },
+    "damageDice": {
+      "description": "Dice with a modifier of either sign (\"2d10+8\", \"1d4-1\"), a flat number, or a formula.",
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^\\d+d\\d+(?:[+-]\\d+)?$"
+        },
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "$ref": "common.schema.json#/$defs/formula"
+        }
+      ]
+    },
+    "defenses": {
+      "description": "Damage types, or a group of them with the words that follow them (types bludgeoning, piercing, slashing; note \"from nonmagical weapons\"); a group with no types holds the whole phrase (\"damage from spells\").",
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "$ref": "common.schema.json#/$defs/damageType"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "types": {
+                "type": "array",
+                "items": {
+                  "$ref": "common.schema.json#/$defs/damageType"
+                },
+                "minItems": 1
+              },
+              "note": {
+                "$ref": "common.schema.json#/$defs/localizedString"
+              }
+            },
+            "required": [
+              "note"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "minItems": 1
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/action"
+      },
+      "minItems": 1
+    },
+    "action": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        },
+        "text": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        },
+        "usage": {
+          "type": "object",
+          "properties": {
+            "perDay": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "recharge": {
+              "description": "\"Recharge 5–6\": the lowest d6 roll that recharges it.",
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 6
+            },
+            "rest": {
+              "description": "\"Recharges after a Short or Long Rest\".",
+              "type": "string",
+              "enum": [
+                "short",
+                "long"
+              ]
+            }
+          },
+          "additionalProperties": false,
+          "minProperties": 1
+        },
+        "cost": {
+          "description": "A legendary action's cost in actions.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "attack": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "enum": [
+                "melee",
+                "ranged",
+                "melee-or-ranged"
+              ]
+            },
+            "source": {
+              "type": "string",
+              "enum": [
+                "weapon",
+                "spell"
+              ]
+            },
+            "bonus": {
+              "$ref": "common.schema.json#/$defs/formulaOrNumber"
+            },
+            "reach": {
+              "$ref": "#/$defs/distance"
+            },
+            "range": {
+              "type": "object",
+              "properties": {
+                "normal": {
+                  "$ref": "#/$defs/distance"
+                },
+                "long": {
+                  "$ref": "#/$defs/distance"
+                }
+              },
+              "required": [
+                "normal"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "bonus"
+          ],
+          "additionalProperties": false
+        },
+        "damage": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "dice": {
+                "$ref": "#/$defs/damageDice"
+              },
+              "damageType": {
+                "$ref": "common.schema.json#/$defs/damageType"
+              },
+              "choose": {
+                "description": "One of these damage types, as the text says (\"slashing, or piercing if used with two hands\" is a text; this is a list of types).",
+                "type": "array",
+                "items": {
+                  "$ref": "common.schema.json#/$defs/damageType"
+                },
+                "minItems": 2
+              }
+            },
+            "required": [
+              "dice"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        },
+        "save": {
+          "type": "object",
+          "properties": {
+            "ability": {
+              "$ref": "common.schema.json#/$defs/ability"
+            },
+            "dc": {
+              "$ref": "common.schema.json#/$defs/formulaOrNumber"
+            },
+            "onSuccess": {
+              "type": "string",
+              "enum": [
+                "half",
+                "none"
+              ]
+            }
+          },
+          "required": [
+            "ability",
+            "dc"
+          ],
+          "additionalProperties": false
+        },
+        "multiattack": {
+          "description": "The attacks a Multiattack makes, by the names of the other actions.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "$ref": "common.schema.json#/$defs/localizedString"
+              },
+              "count": {
+                "type": "integer",
+                "minimum": 1
+              }
+            },
+            "required": [
+              "action",
+              "count"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        },
+        "spellcasting": {
+          "type": "object",
+          "properties": {
+            "ability": {
+              "$ref": "common.schema.json#/$defs/ability"
+            },
+            "dc": {
+              "$ref": "common.schema.json#/$defs/formulaOrNumber"
+            },
+            "attack": {
+              "$ref": "common.schema.json#/$defs/formulaOrNumber"
+            },
+            "casterLevel": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 20
+            },
+            "innate": {
+              "type": "boolean"
+            },
+            "slots": {
+              "description": "Spell slots by level.",
+              "type": "object",
+              "propertyNames": {
+                "pattern": "^[1-9]$"
+              },
+              "additionalProperties": {
+                "type": "integer",
+                "minimum": 1
+              }
+            },
+            "spells": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "spell": {
+                    "$ref": "common.schema.json#/$defs/entityId"
+                  },
+                  "perDay": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "atWill": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "spell"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1
+            }
+          },
+          "required": [
+            "ability",
+            "spells"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "name",
+        "text"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

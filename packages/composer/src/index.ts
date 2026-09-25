@@ -23,6 +23,10 @@ import { createTranslate, SHEET_MESSAGES } from "./messages/index.js";
 import type { Translate, TranslateParams } from "./messages/index.js";
 
 export { SHEET_MESSAGES, createTranslate } from "./messages/index.js";
+export { composeCreature } from "./creature.js";
+export type {
+    CreatureData, CreatureOptions, StatBlock, StatBlockAbility, StatBlockEntry, StatBlockLine, StatBlockSection
+} from "./creature.js";
 export { CONDITION_KEYS, conditionWords, firstSentence } from "./explain.js";
 export type { WordingContext } from "./explain.js";
 export type { SheetMessages, Translate, TranslateParams } from "./messages/index.js";
