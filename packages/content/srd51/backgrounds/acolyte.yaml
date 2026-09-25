@@ -50,6 +50,13 @@ personality:
     - en: I am tolerant (or intolerant) of other faiths and respect (or condemn) the worship of other gods.
     - en: I've enjoyed fine food, drink, and high society among my temple's elite. Rough living grates on me.
     - en: I've spent so long in the temple that I have little practical experience dealing with people in the outside world.
+  ideals:
+    - en: Tradition. The ancient traditions of worship and sacrifice must be preserved and upheld.
+    - en: Charity. I always try to help those in need, no matter what the personal cost.
+    - en: Change. We must help bring about the changes the gods are constantly working in the world.
+    - en: Power. I hope to one day rise to the top of my faith's religious hierarchy.
+    - en: Faith. I trust that my deity will guide my actions. I have faith that if I work hard, things will go well.
+    - en: Aspiration. I seek to prove myself worthy of my god's favor by matching my actions against his or her teachings.
   bonds:
     - en: I would die to recover an ancient relic of my faith that was lost long ago.
     - en: I will someday get revenge on the corrupt temple hierarchy who branded me a heretic.

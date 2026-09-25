@@ -1,9 +1,9 @@
 formatVersion: 0
 id: fixture-wizard-l11
 name: Cog Whisper
-ruleset: { id: srd51, version: 0.5.0 }
+ruleset: { id: srd51, version: 0.6.0 }
 packages:
-  - { id: srd51, version: 0.5.0 }
+  - { id: srd51, version: 0.6.0 }
 choices:
   species: srd51.species.gnome
   subspecies: srd51.species.gnome.rock-gnome

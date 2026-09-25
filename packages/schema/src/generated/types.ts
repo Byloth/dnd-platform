@@ -1549,6 +1549,31 @@ export interface Ruleset {
             exotic?: boolean;
         }[]
     ];
+    /**
+     * The alignments a character may take, read by the creation wizard's personality step; absent: the alignment is typed freely.
+     *
+     * @minItems 1
+     */
+    alignments?: [
+        {
+            id: string;
+            name: LocalizedString;
+            /**
+             * The short form, e.g. LG.
+             */
+            abbreviation?: string;
+            text?: LocalizedString;
+        },
+        ...{
+            id: string;
+            name: LocalizedString;
+            /**
+             * The short form, e.g. LG.
+             */
+            abbreviation?: string;
+            text?: LocalizedString;
+        }[]
+    ];
     proficiencyBonus: {
         table: string;
     };

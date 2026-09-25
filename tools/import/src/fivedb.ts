@@ -18,13 +18,15 @@ export interface OptionSet
 }
 export interface Option
 {
-    option_type: "reference" | "choice" | "counted_reference" | "multiple" | "string";
+    option_type: "reference" | "choice" | "counted_reference" | "multiple" | "string" | "ideal";
     item?: Ref;
     of?: Ref;
     count?: number;
     choice?: ChoiceBlock;
     items?: Option[];
     string?: string;
+    /** An ideal's text (`option_type: "ideal"`). */
+    desc?: string;
     prerequisites?: { type: string, proficiency?: Ref }[];
 }
 export interface ChoiceBlock { desc?: string, choose: number, type: string, from: OptionSet }

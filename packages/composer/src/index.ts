@@ -500,6 +500,15 @@ class Composer
         return data?.name ? this.text(data.name) : id.split(".").pop() ?? id;
     }
 
+    /** The ruleset's name for an alignment id; a typed alignment is shown as it is. */
+    private alignmentName(alignment: string | undefined): string
+    {
+        if (alignment === undefined) { return ""; }
+        const known = this._options.packages.ruleset.alignments?.find((a) => a.id === alignment);
+
+        return known ? this.text(known.name) : alignment;
+    }
+
     private entityText(id: string | undefined): string
     {
         if (id === undefined) { return ""; }
@@ -610,7 +619,8 @@ class Composer
         }));
         const classParts = classes.map((c) => `${c.name} ${c.levels}${c.subclass ? `, ${c.subclass}` : ""}`);
         const background = this.entityName(choices.background);
-        const parts = [species, ...classParts, background, choices.alignment ?? ""].filter((p) => p !== "");
+        const alignment = this.alignmentName(choices.alignment);
+        const parts = [species, ...classParts, background, alignment].filter((p) => p !== "");
 
         return [{
             kind: "identity",
@@ -621,7 +631,7 @@ class Composer
             ...(choices.subspecies ? { subspecies: this.entityName(choices.subspecies) } : {}),
             classes: classes,
             ...(choices.background ? { background: background } : {}),
-            ...(choices.alignment ? { alignment: choices.alignment } : {}),
+            ...(alignment ? { alignment: alignment } : {}),
             ruleset: sheet.meta.ruleset,
             packages: sheet.meta.packages.map((p) => ({ id: p.id, version: p.version }))
         }];

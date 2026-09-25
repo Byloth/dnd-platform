@@ -172,3 +172,58 @@ languages:
   name:
     en: Undercommon
   exotic: true
+alignments:
+- id: lawful-good
+  name:
+    en: Lawful Good
+  abbreviation: LG
+  text:
+    en: Lawful good (LG) creatures can be counted on to do the right thing as expected by society. Gold dragons, paladins, and most dwarves are lawful good.
+- id: neutral-good
+  name:
+    en: Neutral Good
+  abbreviation: NG
+  text:
+    en: Neutral good (NG) folk do the best they can to help others according to their needs. Many celestials, some cloud giants, and most gnomes are neutral good.
+- id: chaotic-good
+  name:
+    en: Chaotic Good
+  abbreviation: CG
+  text:
+    en: Chaotic good (CG) creatures act as their conscience directs, with little regard for what others expect. Copper dragons, many elves, and unicorns are chaotic good.
+- id: lawful-neutral
+  name:
+    en: Lawful Neutral
+  abbreviation: LN
+  text:
+    en: Lawful neutral (LN) individuals act in accordance with law, tradition, or personal codes. Many monks and some wizards are lawful neutral.
+- id: neutral
+  name:
+    en: Neutral
+  abbreviation: N
+  text:
+    en: Neutral (N) is the alignment of those who prefer to steer clear of moral questions and don't take sides, doing what seems best at the time. Lizardfolk, most druids, and many humans are neutral.
+- id: chaotic-neutral
+  name:
+    en: Chaotic Neutral
+  abbreviation: CN
+  text:
+    en: Chaotic neutral (CN) creatures follow their whims, holding their personal freedom above all else. Many barbarians and rogues, and some bards, are chaotic neutral.
+- id: lawful-evil
+  name:
+    en: Lawful Evil
+  abbreviation: LE
+  text:
+    en: Lawful evil (LE) creatures methodically take what they want, within the limits of a code of tradition, loyalty, or order. Devils, blue dragons, and hobgoblins are lawful evil.
+- id: neutral-evil
+  name:
+    en: Neutral Evil
+  abbreviation: NE
+  text:
+    en: Neutral evil (NE) is the alignment of those who do whatever they can get away with, without compassion or qualms. Many drow, some cloud giants, and goblins are neutral evil.
+- id: chaotic-evil
+  name:
+    en: Chaotic Evil
+  abbreviation: CE
+  text:
+    en: Chaotic evil (CE) creatures act with arbitrary violence, spurred by their greed, hatred, or bloodlust. Demons, red dragons, and orcs are chaotic evil.

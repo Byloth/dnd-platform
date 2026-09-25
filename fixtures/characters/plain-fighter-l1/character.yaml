@@ -1,9 +1,9 @@
 formatVersion: 0
 id: fixture-plain-fighter-l1
 name: Iron Sparrow
-ruleset: { id: srd51, version: 0.5.0 }
+ruleset: { id: srd51, version: 0.6.0 }
 packages:
-  - { id: srd51, version: 0.5.0 }
+  - { id: srd51, version: 0.6.0 }
 choices:
   species: srd51.species.human
   # Martial Archetype comes at fighter 3: no subclass yet, and no subclass choice is registered before then.

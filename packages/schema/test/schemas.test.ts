@@ -100,6 +100,15 @@ describe("additive v0 extensions of M1.4 (docs/phase-1/04-character-creation.md)
         expect(validate({ ...ruleset, languages: [{ id: "Deep Speech", name: { en: "Deep Speech" } }] })).toBe(false);
     });
 
+    it("a ruleset lists its alignments", () =>
+    {
+        const validate = validatorFor(ajv, "ruleset");
+        const alignment = { id: "lawful-good", name: { en: "Lawful Good" }, abbreviation: "LG", text: { en: "…" } };
+
+        expect(validate({ ...ruleset, alignments: [alignment] })).toBe(true);
+        expect(validate({ ...ruleset, alignments: [{ ...alignment, abbreviation: "" }] })).toBe(false);
+    });
+
     it("an item lists what a pack holds", () =>
     {
         const validate = validatorFor(ajv, "item");

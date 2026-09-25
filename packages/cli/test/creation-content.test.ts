@@ -131,6 +131,19 @@ describe("the base package's creation content", () =>
         }
     });
 
+    it("lists the nine alignments, and every background suggests traits, ideals, bonds and flaws", () =>
+    {
+        expect(SET.ruleset.alignments?.map((a) => a.abbreviation))
+            .toEqual(["LG", "NG", "CG", "LN", "N", "CN", "LE", "NE", "CE"]);
+        for (const { id, data } of entities<Background>("background"))
+        {
+            for (const key of ["traits", "ideals", "bonds", "flaws"] as const)
+            {
+                expect(data.personality?.[key]?.length, `${id}: ${key}`).toBeGreaterThan(0);
+            }
+        }
+    });
+
     it("finds an item for every filter of the class and background grants", () =>
     {
         const items = entities<Item>("item");

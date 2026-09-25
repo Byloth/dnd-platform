@@ -3,9 +3,9 @@
 formatVersion: 0
 id: fixture-perf-caster-l20
 name: Long Ledger
-ruleset: { id: srd51, version: 0.5.0 }
+ruleset: { id: srd51, version: 0.6.0 }
 packages:
-  - { id: srd51, version: 0.5.0 }
+  - { id: srd51, version: 0.6.0 }
 choices:
   species: srd51.species.human
   classes:

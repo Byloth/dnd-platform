@@ -652,7 +652,8 @@ for (const background of backgrounds)
     const gold = equipmentText ? /(\d+) gp/.exec(equipmentText)?.[1] : undefined;
     const personalityList = (block: { from: db.OptionSet } | undefined): { en: string }[] | undefined =>
     {
-        const strings = (block?.from.options ?? []).map((o) => o.string).filter((s): s is string => Boolean(s));
+        const strings = (block?.from.options ?? []).map((o) => o.string ?? o.desc)
+            .filter((s): s is string => Boolean(s));
 
         return strings.length ? strings.map((s) => ({ en: s })) : undefined;
     };
@@ -1104,10 +1105,10 @@ for (const level of dbLevels.filter((l) => l.class.index === "warlock" && !l.sub
 }
 slotTable("pact", "Pact Magic slots", "classLevel", pact, "Rows are [slots, slot level].");
 
-// ---- the ruleset's languages ----------------------------------------------------------------------------------
+// ---- the ruleset's languages and alignments --------------------------------------------------------------------
 
-// ruleset.yaml is hand-authored: only its `languages` key is written, through a YAML document that keeps the
-// file's comments and layout.
+// ruleset.yaml is hand-authored: only its `languages` and `alignments` keys are written, through a YAML document
+// that keeps the file's comments and layout.
 interface DbLanguage { index: string, name: string, type: "Standard" | "Exotic" }
 const rulesetPath = resolve(CONTENT_DIR, "ruleset.yaml");
 const ruleset = parseDocument(readFileSync(rulesetPath, "utf8"));
@@ -1118,6 +1119,15 @@ ruleset.set("languages", db.rows<DbLanguage>("Languages").map((l) => compact({
 })));
 const languages = ruleset.get("languages", true) as { commentBefore?: string | null };
 languages.commentBefore = " Written by tools/import (map stage) from the 5e-database's SRD languages; edit them there.";
+interface DbAlignment { index: string, name: string, abbreviation: string, desc: string }
+ruleset.set("alignments", db.rows<DbAlignment>("Alignments").map((a) => ({
+    id: a.index,
+    name: { en: a.name },
+    abbreviation: a.abbreviation,
+    text: { en: a.desc }
+})));
+const alignments = ruleset.get("alignments", true) as { commentBefore?: string | null };
+alignments.commentBefore = " Written by tools/import (map stage) from the 5e-database's SRD alignments; edit them there.";
 writeFileSync(rulesetPath, ruleset.toString({ lineWidth: 0, indentSeq: false, flowCollectionPadding: false }));
 
 const unused = [...overlays.keys()].filter((k) => !usedOverlays.has(k));

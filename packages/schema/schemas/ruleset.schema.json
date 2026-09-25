@@ -60,6 +60,36 @@
       },
       "minItems": 1
     },
+    "alignments": {
+      "type": "array",
+      "description": "The alignments a character may take, read by the creation wizard's personality step; absent: the alignment is typed freely.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+          },
+          "name": {
+            "$ref": "common.schema.json#/$defs/localizedString"
+          },
+          "abbreviation": {
+            "type": "string",
+            "minLength": 1,
+            "description": "The short form, e.g. LG."
+          },
+          "text": {
+            "$ref": "common.schema.json#/$defs/localizedString"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name"
+        ]
+      },
+      "minItems": 1
+    },
     "proficiencyBonus": {
       "type": "object",
       "properties": {

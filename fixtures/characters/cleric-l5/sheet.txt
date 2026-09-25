@@ -1,6 +1,6 @@
 STONE LANTERN
 Dwarf (Hill Dwarf) · Cleric 5, Life Domain · Acolyte  —  level 5
-Ruleset srd51 · packages srd51 0.5.0
+Ruleset srd51 · packages srd51 0.6.0
 
 CORE
 ────────────────────────────────────────────────────────────────────────────────────────────────────
@@ -138,7 +138,7 @@ EQUIPMENT
 
 CREDITS
 ────────────────────────────────────────────────────────────────────────────────────────────────────
-  System Reference Document 5.1 (srd51 0.5.0)
+  System Reference Document 5.1 (srd51 0.6.0)
     System Reference Document 5.1, Wizards of the Coast — CC-BY-4.0. This work includes material
     taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and
     available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is

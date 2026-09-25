@@ -87,6 +87,23 @@ describe("compose", () =>
         expect(core.items.find((i) => i.id === "proficiency")?.explain).toBeUndefined();
     });
 
+    it("names an alignment the ruleset lists, and shows a typed one as it is", () =>
+    {
+        const { character, sources } = load("cleric-l1-base");
+        const pins = Object.fromEntries(character.packages.map((p) => [p.id, p.version]));
+        const set = loadPackages(sources, { pins: pins });
+        const identity = (alignment: string): unknown =>
+        {
+            const aligned = { ...character, choices: { ...character.choices, alignment: alignment } };
+            const tree = compose(derive(aligned, set), { character: aligned, packages: set });
+
+            return tree.sections.find((s) => s.id === "identity")?.blocks[0];
+        };
+
+        expect(identity("lawful-good")).toMatchObject({ alignment: "Lawful Good" });
+        expect(identity("Unaligned")).toMatchObject({ alignment: "Unaligned" });
+    });
+
     it("explains one value path, inactive contributions included", () =>
     {
         const { character, sources } = load("monk-l3-base");

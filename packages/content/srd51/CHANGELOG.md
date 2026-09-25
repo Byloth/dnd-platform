@@ -7,6 +7,15 @@ improvement of the content is a new version: bump `version` in
 release file. Characters follow new versions automatically; the application
 tells the player what changed on their sheet.
 
+## 0.6.0 — 2026-09-25
+
+- **The nine alignments**, from lawful good to chaotic evil, each with its
+  short form and a sentence on what it means, so the creation can offer
+  them by name.
+- **The acolyte's ideals** (Tradition, Charity, Change, Power, Faith,
+  Aspiration) are listed with the traits, bonds and flaws, as suggestions
+  for your character's personality.
+
 ## 0.5.0 — 2026-09-24
 
 - **Half-elves get their two +1**: "two other ability scores of your
