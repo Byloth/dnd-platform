@@ -1017,7 +1017,15 @@ class Composer
             .sort((a, b) => ORIGIN_ORDER.indexOf(a) - ORIGIN_ORDER.indexOf(b));
         const groups: FeaturesBlock["groups"] = origins.map((origin) =>
         {
-            const group = sheet.features.filter((f) => f.origin === origin);
+            // A feat is listed with its text; a feature inside it that only repeats its name (the PHB's feats carry
+            // their benefits as one such feature, for the effects) is not listed twice.
+            const listed = sheet.features.filter((f) => f.origin === origin);
+            const group = listed.filter((f) =>
+            {
+                const feat = listed.find((other) => (other.id === f.owner) && (other.id !== f.id));
+
+                return !feat || (this.text(feat.name) !== this.text(f.name));
+            });
             const owners = [...new Set(group.map((f) => f.owner))];
             const ownerList = owners.map((o) => this.entityName(o)).join(", ");
             const ownerNames = OWNED_ORIGINS.has(origin) ? ` — ${ownerList}` : "";

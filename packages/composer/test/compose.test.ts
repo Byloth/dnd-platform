@@ -104,6 +104,48 @@ describe("compose", () =>
         expect(identity("Unaligned")).toMatchObject({ alignment: "Unaligned" });
     });
 
+    it("lists a feat once, not again as the feature inside it that has its name", () =>
+    {
+        const { character, sources } = load("cleric-l1-base");
+        const pins = Object.fromEntries(character.packages.map((p) => [p.id, p.version]));
+        const set = loadPackages(sources, { pins: pins });
+        const feat = {
+            type: "feat",
+            id: "srd51.feat.grappler",
+            name: { en: "Grappler" },
+            features: [{ id: "srd51.feature.grappler.benefits", name: { en: "Grappler" }, text: { en: "Benefits." } }]
+        };
+        const sheet = derive(character, set);
+        const withFeat = {
+            ...sheet,
+            features: [
+                ...sheet.features,
+                {
+                    id: feat.id,
+                    data: feat,
+                    origin: "feat",
+                    owner: "answer",
+                    name: feat.name,
+                    source: { package: "srd51" }
+                },
+                {
+                    id: feat.features[0]!.id,
+                    origin: "feat",
+                    owner: feat.id,
+                    name: feat.features[0]!.name,
+                    text: feat.features[0]!.text,
+                    source: { package: "srd51" }
+                }
+            ]
+
+        } as unknown as typeof sheet;
+        const tree = compose(withFeat, { character: character, packages: set });
+        const block = tree.sections.find((s) => s.id === "features")?.blocks.find((b) => b.kind === "features");
+        const feats = block?.kind === "features" ? block.groups.find((g) => g.origin === "feat") : undefined;
+
+        expect(feats?.items.map((i) => i.name)).toEqual(["Grappler"]);
+    });
+
     it("explains one value path, inactive contributions included", () =>
     {
         const { character, sources } = load("monk-l3-base");
