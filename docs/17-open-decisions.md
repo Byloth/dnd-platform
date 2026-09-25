@@ -209,7 +209,8 @@ When a decision is taken, its status becomes **Decided**, the chosen option and 
   - A player may own only some of the books.
   - The DMG and the MM hold few player options; they matter mostly for the catalogues of [19](19-catalogues.md).
 - **Unblocks:** the next private packages (dmg14, mm14), the catalogues.
-- **Referenced by:** [05](05-content-model-and-sources.md), [19](19-catalogues.md), [phase-1/08-workplan.md](phase-1/08-workplan.md).
+- **Update (2026-09-25):** the owner chose one package per book and per language, gathered afterwards into collections built by a script; the plan is [20](20-official-book-packages.md).
+- **Referenced by:** [05](05-content-model-and-sources.md), [19](19-catalogues.md), [20](20-official-book-packages.md), [phase-1/08-workplan.md](phase-1/08-workplan.md).
 
 ### DEC-24 — Creatures as content
 - **What:** the format has no entity for creatures; the creature catalogue of [19](19-catalogues.md) needs one.
@@ -225,7 +226,8 @@ When a decision is taken, its status becomes **Decided**, the chosen option and 
   - the environment and the source.
   The SRD's monsters come first (public: the 5e-database of the import pipeline has them, excluded from the import so far), then the Monster Manual and other books and adventures in private packages. Familiars, companions and wild shapes can reuse it later.
 - **Unblocks:** the creature catalogue; later, companions and summons on the sheet.
-- **Referenced by:** [19](19-catalogues.md), [16](16-roadmap.md).
+- **Update (2026-09-25):** the owner brought creatures into the first pass of the book packages; the schema comes first ([20](20-official-book-packages.md), step 1).
+- **Referenced by:** [19](19-catalogues.md), [16](16-roadmap.md), [20](20-official-book-packages.md).
 
 ## How to add a decision
 
