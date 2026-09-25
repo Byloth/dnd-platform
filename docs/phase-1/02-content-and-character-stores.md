@@ -39,7 +39,7 @@ IndexedDB "dnd-platform", version 1
 
 - Create, read, update, delete, list; each write also refreshes `updatedAt` and, when a working directory is connected, writes the document as `characters/<id>.yaml` (YAML for readability, the same document).
 - Snapshots stay inside the document as the schema defines them; Phase 1 writes one at the end of creation ("as created") and none after.
-- As built in M1.4d3: `useBrowserStorage().characters` has `get`, `list` and `put`; the creation wizard writes through `put` (M1.4e1: editing replaces the document the same way), and `useCharacters()` lists the stored characters before the site's demo ones (`origin: "stored" | "demo"`), naming their classes from the content. Delete and the missing-package state for stored characters remain M1.5.
+- As built in M1.4d3: `useBrowserStorage().characters` has `get`, `list` and `put`; the creation wizard writes through `put` (M1.4e1: editing replaces the document the same way), and `useCharacters()` lists the stored characters before the site's demo ones (`origin: "stored" | "demo"`), naming their classes from the content. Deleting was brought forward by the owner (2026-09-25, M1.4e2): "Delete" on a stored character's sheet asks first (`components/ui/ConfirmDialog.vue`), then removes the document, its edit draft and its sheet layout, never a package; M1.5 adds the export to that confirmation. The missing-package state for stored characters remains M1.5.
 - Deleting a character deletes its document only; packages are never deleted implicitly.
 - On start, the application lists the store; with a connected working directory it reconciles both ways by `updatedAt`, newest wins, and shows what changed.
 
@@ -78,7 +78,7 @@ Available in Chromium desktop browsers only; feature-detected, never required. W
 1. `useBrowserStorage` with the IndexedDB backend (`IndexedDatabase` of `@byloth/core`), the object stores above, and the persistence request — M1.2.
 2. Package loading from zip and bundle: reading, YAML parsing, schema validation with the shared validator, structural checks, bundling, storing; the packages page; the private flag and attribution — M1.2.
 3. ~~The SRD bundle as a stored package with version tracking~~ — replaced by DEC-21: the site publishes every release (`dnd release`), the browser never stores the SRD — M1.2.
-4. Character store with list, create, update, delete, and the missing-package state — M1.5.
+4. Character store with list, create, update, delete, and the missing-package state — M1.5 (create and update in M1.4d3/e1, delete in M1.4e2).
 5. Export download and import from file with format version and package matching — M1.5.
 6. The working-directory backend: connect, README files, mirror of characters and exports, package loading from `packages/`, reconciliation at start — M1.8.
 7. Tests: a zip of `fixtures/packages/homebrew-feline` and of `phb14-stub` loads and validates; an invalid package from `fixtures/packages/invalid/*` is refused with the expected code; the reference Monk's sheet in the browser equals the CLI snapshot (private test, skipped without the book); export → import → derive equals the original derivation byte for byte — M1.2, M1.5.

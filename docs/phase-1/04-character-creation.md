@@ -96,6 +96,11 @@ Steps can be revisited in any order from a stepper; a change in step 0 re-valida
    - Step 3 offers the subclass once the class's level unlocks it (moved from step 6), so the level 3 reference Monk is offered Way of Shadow there when reopened (owner: checked on the fixture, no level control in Phase 1). Changing the class keeps its levels.
    - Step 5 shows typed scores (`manual`) as six fields; step 7 edits an edited character's own list, with "Choose the starting equipment again" (owner).
    - While editing, replacing species, subspecies, class or background names the answers it would forget and waits for "Change and reset them" or "Keep what I have" (`composables/reset-confirmation.ts`, `components/wizard/ResetNotice.vue`).
+   Expert mode done in M1.4e2:
+   - At the help level *expert*, `WizardView` renders every step but the concept as one page: a section per step (`#step-<id>`) under the page's heading, no dots, no Back and Next, no copy or reasons, the step names beside it as in-page links; the address's step, and the review's "Go to…", scroll to their section.
+   - Dense option cards (the name and the facts, no summary); typed scores always offered (the default stays the standard array, DEC-15).
+   - Left as they are, without asking: the concept step (an expert chooses directly) and the starting equipment options (content), with the shop below, rather than "shop instead of packs".
+   - Coins the player has not typed follow the suggested purse as it changes (on the single page the equipment is on screen before the class and background); typing a coin stops it, "Use the suggestion" resumes it.
 6. The twelve-classes component test and the private Monk test — M1.4.
 
 ## Open points

@@ -97,6 +97,8 @@ M1.4d3 was done on 2026-09-25:
 
 M1.4e is split into e1 (editing), e2 (expert mode) and e3 (the twelve-class test, the private Monk, the close), by the owner on 2026-09-25. M1.4e1 was done that day: the wizard reopens a stored character from its sheet, the subclass moves to step 3, typed scores and an owned equipment list are edited as they are, and a change that forgets answers names them first; the private test reopens the level 3 Monk and finds Way of Shadow at step 3.
 
+M1.4e2 was done on 2026-09-25: the expert's wizard as one page (dense cards, typed scores, coins following the suggestion until typed) and, asked by the owner ahead of M1.5, deleting a stored character after a confirmation.
+
 M1.4c was done on 2026-09-24: step 5, with the standard array, point buy and roll, the swap menus, species bonuses and totals from the derived sheet, and the manual adjustments.
 
 Done: the criteria of M1.4. Release: `v0.3.4`.
@@ -105,7 +107,7 @@ Risks: starting equipment turned out to be structured content, with only the pac
 ### M1.5 — Character store, export and import (≈ 2 sessions)
 
 Tasks (from [02-content-and-character-stores.md](02-content-and-character-stores.md), [05-print-and-export.md](05-print-and-export.md)):
-1. Character store: list, create, update, delete; the missing-package state.
+1. Character store: list, create, update, delete (create, update and delete arrived with M1.4); the missing-package state; the export offered before deleting.
 2. Export document schema (additive), download; import with matching and mismatch handling.
 3. Round trip test over every fixture character.
 4. The sheet interactive under two seconds on the repeat visit (owner's decision at M1.3d): the site's packages kept in the browser store, so that a second visit does not fetch the SRD, and the sheet route's JavaScript trimmed. Lighthouse measures the repeat visit, and the cold guards of M1.3d tighten with it.
