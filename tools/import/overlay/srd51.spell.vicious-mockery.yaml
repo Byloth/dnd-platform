@@ -1,3 +1,6 @@
 onCast:
   - kind: note
     text: { en: "Only if the target can hear you. On a failed save it also has disadvantage on the next attack roll it makes before the end of its next turn." }
+rolls:
+  - { type: save, ability: wis, onSuccess: none }
+  - { type: damage, dice: "1d4", damageType: psychic }

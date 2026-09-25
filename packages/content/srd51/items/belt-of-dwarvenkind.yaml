@@ -6,21 +6,20 @@ name:
 source: srd51
 text:
   en: |-
-    Wondrous Items, rare (requires attunement)
+    Wondrous item, rare (requires attunement)
 
     While wearing this belt, you gain the following benefits:
 
-    Your Constitution score increases by 2, to a maximum of 20.
+    - Your Constitution score increases by 2, to a maximum of 20.
+    - You have advantage on Charisma (Persuasion) checks made to interact with dwarves.
 
-    You have advantage on Charisma (Persuasion) checks made to interact with Dwarves.
+    In addition, while attuned to the belt, you have a 50 percent chance each day at dawn of growing a full beard if you’re capable of growing one, or a visibly thicker beard if you already have one.
 
-    In addition, while attuned to the belt, you have a 50 percent chance each day at dawn of growing a full beard if you're capable of growing one, or a visibly thicker beard if you already have one.
+    If you aren’t a dwarf, you gain the following additional benefits while wearing the belt:
 
-    If you aren't a dwarf, you gain the following additional benefits while wearing the belt:
-
-    You have advantage on Saving Throws against poison, and you have Resistance against poison damage.
-
-    You can speak, read, and write Dwarvish.
+    - You have advantage on saving throws against poison, and you have resistance against poison damage.
+    - You have darkvision out to a range of 60 feet.
+    - You can speak, read, and write Dwarvish.
 type: wondrous
 magical: true
 rarity: rare
@@ -38,13 +37,7 @@ features:
         op: add
         value: 2
         note:
-          en: Your Constitution score increases by 2, to a maximum of 20.
-      - kind: modify
-        target: ability.con
-        op: max
-        value: 20
-        note:
-          en: The belt's increase can't raise the score above 20; ignore this clamp if your Constitution was already higher without the belt.
+          en: "Your Constitution score increases by 2, to a maximum of 20. The sheet does not cap the score: keep it at 20 at most."
       - kind: roll-advantage
         on:
           type: check
@@ -73,6 +66,15 @@ features:
         defense: resistance
         to:
           - poison
+        when:
+          not:
+            species: srd51.species.dwarf
+      - kind: modify
+        target: sense.darkvision
+        op: max
+        value: 60
+        note:
+          en: You have darkvision out to a range of 60 feet.
         when:
           not:
             species: srd51.species.dwarf

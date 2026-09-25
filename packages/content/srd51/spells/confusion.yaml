@@ -15,7 +15,7 @@ components:
   v: true
   s: true
   m:
-    en: Three walnut shells.
+    en: Three nut shells.
 duration:
   type: timed
   minutes: 1
@@ -42,3 +42,6 @@ rolls:
     onSuccess: none
 tags:
   - area
+area:
+  shape: sphere
+  radius: 10

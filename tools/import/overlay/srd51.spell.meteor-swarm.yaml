@@ -1,0 +1,4 @@
+rolls:
+  - { type: save, ability: dex, onSuccess: half }
+  - { type: damage, dice: "20d6", damageType: fire }
+  - { type: damage, dice: "20d6", damageType: bludgeoning }

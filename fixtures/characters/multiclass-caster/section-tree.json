@@ -23,7 +23,7 @@
           "packages": [
             {
               "id": "srd51",
-              "version": "0.6.0"
+              "version": "0.7.0"
             }
           ],
           "parts": [
@@ -1625,6 +1625,49 @@
                         }
                       }
                     ],
+                    "rolls": [
+                      {
+                        "ability": "wis",
+                        "bonus": {
+                          "provenance": [
+                            {
+                              "applied": true,
+                              "formula": "mod(wis)",
+                              "kind": "base",
+                              "label": {
+                                "en": "Roll bonus"
+                              },
+                              "source": {
+                                "effectIndex": 1,
+                                "entity": "srd51.class.cleric",
+                                "feature": "srd51.feature.cleric.channel-divinity",
+                                "package": "srd51"
+                              },
+                              "value": 3
+                            }
+                          ],
+                          "value": 3
+                        },
+                        "dc": {
+                          "provenance": [
+                            {
+                              "applied": true,
+                              "formula": "8 + proficiencyBonus + mod(wis)",
+                              "kind": "base",
+                              "label": {
+                                "en": "Save DC"
+                              },
+                              "source": {
+                                "package": "srd51"
+                              },
+                              "value": 15
+                            }
+                          ],
+                          "value": 15
+                        },
+                        "type": "save"
+                      }
+                    ],
                     "source": {
                       "effectIndex": 1,
                       "entity": "srd51.class.cleric",
@@ -1638,7 +1681,8 @@
                   "available": true,
                   "cost": "1 channel-divinity",
                   "details": [
-                    "DC 15"
+                    "DC 15",
+                    "save DC 15"
                   ],
                   "id": "turn-undead",
                   "name": "Channel Divinity: Turn Undead",
@@ -2310,6 +2354,14 @@
                     "name": {
                       "en": "Magic Missile"
                     },
+                    "onCast": [
+                      {
+                        "kind": "note",
+                        "text": {
+                          "en": "Three darts, each hitting automatically for 1d4 + 1 force damage; one more dart for each slot level above 1st."
+                        }
+                      }
+                    ],
                     "paidWith": {
                       "slot": true
                     },
@@ -2899,7 +2951,7 @@
                   "id": "srd51.feature.wizard.arcane-tradition",
                   "level": 2,
                   "name": "Arcane Tradition",
-                  "text": "When you reach 2nd level, you choose an arcane tradition, shaping your practice of magic through one of eight schools: Abjuration, Conjuration, Divination, Enchantment, Evocation, Illusion, Necromancy, or Transmutation, all detailed at the end of the class description.\n\nYour choice grants you features at 2nd level and again at 6th, 10th, and 14th level."
+                  "text": "When you reach 2nd level, you choose an arcane tradition, shaping your practice of magic through one of eight schools, such as Evocation.\n\nYour choice grants you features at 2nd level and again at 6th, 10th, and 14th level."
                 },
                 {
                   "id": "srd51.feature.wizard.ability-score-improvement",
@@ -2965,6 +3017,10 @@
             {
               "source": "Disciple of Life",
               "text": "Whenever you use a spell of 1st level or higher to restore hit points to a creature, the creature regains additional hit points equal to 2 + the spell's level."
+            },
+            {
+              "source": "Evocation Savant",
+              "text": "The gold and time you must spend to copy an evocation spell into your spellbook is halved."
             },
             {
               "source": "Sculpt Spells",
@@ -3045,7 +3101,7 @@
                   "title": "System Reference Document 5.2"
                 }
               ],
-              "version": "0.6.0"
+              "version": "0.7.0"
             }
           ]
         }

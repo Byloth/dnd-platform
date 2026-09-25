@@ -4,3 +4,8 @@ onUse:
     target: self
     note:
       en: "Healing 2d4 + 2 (common). Greater healing (uncommon) 4d4 + 4, superior healing (rare) 8d4 + 8, supreme healing (very rare) 10d4 + 20."
+# SRD 5.1 Adventuring Gear table: Potion of healing 50 gp, 1/2 lb.
+cost:
+  amount: 50
+  currency: gp
+weight: 0.5

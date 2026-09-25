@@ -4,8 +4,6 @@ id: srd51.item.pike
 name:
   en: Pike
 source: srd51
-text:
-  en: A pike.
 cost:
   amount: 5
   currency: gp

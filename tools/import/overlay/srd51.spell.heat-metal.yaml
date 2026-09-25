@@ -9,3 +9,6 @@ effects:
 onCast:
   - kind: note
     text: { en: "No saving throw against the damage. A creature holding or wearing the object that takes the damage must succeed on a Constitution saving throw or drop the object if it can; if it doesn't drop it, it has disadvantage on attack rolls and ability checks until the start of your next turn." }
+rolls:
+  - { type: damage, dice: "2d8", damageType: fire }
+  - { type: save, ability: con }

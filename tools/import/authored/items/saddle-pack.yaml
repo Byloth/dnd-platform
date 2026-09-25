@@ -1,0 +1,11 @@
+id: srd51.item.saddle-pack
+name:
+  en: "Saddle, pack"
+source: srd51
+cost:
+  amount: 5
+  currency: gp
+weight: 15
+type: gear
+tags:
+  - tack-and-harness

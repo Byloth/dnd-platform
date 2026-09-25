@@ -4,8 +4,6 @@ id: srd51.item.pole-10-foot
 name:
   en: Pole (10-foot)
 source: srd51
-text:
-  en: A 10 foot pole.
 cost:
   amount: 0.05
   currency: gp

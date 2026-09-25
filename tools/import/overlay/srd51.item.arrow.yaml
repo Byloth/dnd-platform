@@ -1,0 +1,5 @@
+# SRD 5.1 sells Arrows (20) for 1 gp and 1 lb: each arrow is 1/20 of that.
+cost:
+  amount: 0.05
+  currency: gp
+weight: 0.05

@@ -4,8 +4,6 @@ id: srd51.item.clothes-travelers
 name:
   en: Clothes, traveler's
 source: srd51
-text:
-  en: Traveler's clothing.
 cost:
   amount: 2
   currency: gp

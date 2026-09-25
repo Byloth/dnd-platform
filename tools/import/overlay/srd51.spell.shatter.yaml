@@ -1,0 +1,3 @@
+components:
+  m: { en: "A chip of mica." }
+area: { shape: sphere, radius: 10 }

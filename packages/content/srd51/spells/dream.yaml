@@ -24,7 +24,7 @@ text:
 rolls:
   - type: save
     ability: wis
-    onSuccess: half
+    onSuccess: none
   - type: damage
     dice: 3d6
     damageType: psychic

@@ -16,7 +16,7 @@
           "packages": [
             {
               "id": "srd51",
-              "version": "0.6.0"
+              "version": "0.7.0"
             },
             {
               "id": "homebrew.byloth",
@@ -2087,7 +2087,7 @@
                   "id": "srd51.feature.monk.monastic-tradition",
                   "level": 3,
                   "name": "Monastic Tradition",
-                  "text": "When you reach 3rd level, you commit yourself to a monastic tradition such as the Way of the Open Hand. Your tradition grants you features at 3rd level and again at 6th, 11th, and 17th level."
+                  "text": "When you reach 3rd level, you commit yourself to a monastic tradition, such as the Way of the Open Hand. Your tradition grants you features at 3rd level and again at 6th, 11th, and 17th level.\n\n### Monastic Traditions\n\nThree traditions of monastic pursuit are common in the monasteries scattered across the multiverse. Most monasteries practice one tradition exclusively, but a few honor the three traditions and instruct each monk according to his or her aptitude and interest. All three traditions rely on the same basic techniques, diverging as the student grows more adept. Thus, a monk need choose a tradition only upon reaching 3rd level."
                 }
               ],
               "label": "Class — Monk",
@@ -2180,7 +2180,7 @@
                   "title": "System Reference Document 5.2"
                 }
               ],
-              "version": "0.6.0"
+              "version": "0.7.0"
             },
             {
               "id": "homebrew.byloth",

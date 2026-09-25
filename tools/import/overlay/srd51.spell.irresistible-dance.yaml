@@ -9,3 +9,5 @@ effects:
 onCast:
   - kind: note
     text: { en: "No saving throw when cast; creatures that can't be charmed are immune." }
+rolls:
+  - { type: save, ability: wis, onSuccess: none }

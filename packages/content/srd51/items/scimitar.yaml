@@ -4,8 +4,6 @@ id: srd51.item.scimitar
 name:
   en: Scimitar
 source: srd51
-text:
-  en: A scimitar.
 cost:
   amount: 25
   currency: gp

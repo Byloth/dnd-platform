@@ -1,0 +1,4 @@
+components:
+  m: { en: "Incense worth at least 250 gp, which the spell consumes, and four ivory strips worth at least 50 gp each." }
+  cost: 250
+  consumed: true

@@ -1,3 +1,4 @@
+weight: 4
 features:
   - id: srd51.feature.item.folding-boat.command-words
     name: { en: "Command words" }

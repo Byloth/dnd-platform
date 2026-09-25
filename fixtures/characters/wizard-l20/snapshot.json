@@ -829,7 +829,7 @@
         "package": "srd51"
       },
       "text": {
-        "en": "When you reach 2nd level, you choose an arcane tradition, shaping your practice of magic through one of eight schools: Abjuration, Conjuration, Divination, Enchantment, Evocation, Illusion, Necromancy, or Transmutation, all detailed at the end of the class description.\n\nYour choice grants you features at 2nd level and again at 6th, 10th, and 14th level."
+        "en": "When you reach 2nd level, you choose an arcane tradition, shaping your practice of magic through one of eight schools, such as Evocation.\n\nYour choice grants you features at 2nd level and again at 6th, 10th, and 14th level."
       }
     },
     {
@@ -978,7 +978,7 @@
     "packages": [
       {
         "id": "srd51",
-        "version": "0.6.0"
+        "version": "0.7.0"
       }
     ],
     "ruleset": "srd51"
@@ -1734,6 +1734,14 @@
       "name": {
         "en": "Magic Missile"
       },
+      "onCast": [
+        {
+          "kind": "note",
+          "text": {
+            "en": "Three darts, each hitting automatically for 1d4 + 1 force damage; one more dart for each slot level above 1st."
+          }
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -2192,6 +2200,14 @@
       "name": {
         "en": "Delayed Blast Fireball"
       },
+      "onCast": [
+        {
+          "kind": "note",
+          "text": {
+            "en": "The base damage increases by 1d6 at the end of each of your turns while the bead hasn't detonated."
+          }
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -2374,6 +2390,14 @@
       "name": {
         "en": "Magic Missile"
       },
+      "onCast": [
+        {
+          "kind": "note",
+          "text": {
+            "en": "Three darts, each hitting automatically for 1d4 + 1 force damage; one more dart for each slot level above 1st."
+          }
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -2498,6 +2522,18 @@
       },
       "text": {
         "en": "You can cast each of your signature spells once at 3rd level without expending a spell slot. When you do so, you can't do so again until you finish a short or long rest. If you want to cast either spell at a higher level, you must expend a spell slot as normal."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.subclass.wizard.school-of-evocation",
+        "feature": "srd51.feature.school-of-evocation.evocation-savant",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "The gold and time you must spend to copy an evocation spell into your spellbook is halved."
       }
     },
     {

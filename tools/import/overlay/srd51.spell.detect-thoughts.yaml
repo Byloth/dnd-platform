@@ -1,0 +1,2 @@
+rolls:
+  - { type: save, ability: wis, onSuccess: none }

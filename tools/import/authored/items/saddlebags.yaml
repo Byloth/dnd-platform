@@ -1,0 +1,11 @@
+id: srd51.item.saddlebags
+name:
+  en: "Saddlebags"
+source: srd51
+cost:
+  amount: 4
+  currency: gp
+weight: 8
+type: gear
+tags:
+  - tack-and-harness

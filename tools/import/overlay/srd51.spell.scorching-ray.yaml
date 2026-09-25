@@ -1,0 +1,1 @@
+scaling: { by: slotLevel, from: 3, add: { count: 1 } }

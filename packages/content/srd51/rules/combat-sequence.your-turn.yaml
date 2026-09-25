@@ -9,10 +9,10 @@ text:
   en: |-
     On your turn, you can **move** a distance up to your speed and **take one action**. You decide whether to move first or take your action first. Your speed---sometimes called your walking speed---is noted on your character sheet.
 
-    The most common actions you can take are described in srd:actions-in-combat. Many class features and other abilities provide additional options for your action.
+    The most common actions you can take are described in the “Actions in Combat” section. Many class features and other abilities provide additional options for your action.
 
-    srd:movement-and-position gives the rules for your move.
+    The “Movement and Position” section gives the rules for your move.
 
-    You can forgo moving, taking an action, or doing anything at all on your turn. If you can't decide what to do on your turn, consider taking the Dodge or Ready action, as described in srd:actions-in-combat.
+    You can forgo moving, taking an action, or doing anything at all on your turn. If you can't decide what to do on your turn, consider taking the Dodge or Ready action, as described in “Actions in Combat.”
 tags:
   - combat-sequence

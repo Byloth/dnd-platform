@@ -440,7 +440,7 @@ describe("the creation wizard", () =>
             const optimist = "Nothing can shake my optimistic attitude.";
             byName(wrapper, `Use for Personality traits: ${optimist}`)!.click();
             await settle();
-            const charity = "Charity. I always try to help those in need, no matter what the personal cost.";
+            const charity = "Charity. I always try to help those in need, no matter what the personal cost. (Good)";
             byName(wrapper, `Use for Ideals: ${charity}`)!.click();
             await settle();
 

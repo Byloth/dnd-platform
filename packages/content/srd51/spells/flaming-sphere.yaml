@@ -11,9 +11,6 @@ castingTime:
 range:
   type: creature
   distance: 60
-area:
-  shape: sphere
-  radius: 20
 components:
   v: true
   s: true

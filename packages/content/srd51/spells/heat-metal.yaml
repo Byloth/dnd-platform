@@ -25,12 +25,11 @@ text:
 higherLevel:
   en: When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 1d8 for each slot level above 2nd.
 rolls:
-  - type: save
-    ability: con
-    onSuccess: half
   - type: damage
     dice: 2d8
     damageType: fire
+  - type: save
+    ability: con
 scaling:
   by: slotLevel
   from: 3

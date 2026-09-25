@@ -246,7 +246,7 @@
         "value": 3
       },
       "damageDice": "1d6",
-      "damageType": "slashing",
+      "damageType": "piercing",
       "extraDamage": [],
       "id": "shortsword",
       "item": "srd51.item.shortsword",
@@ -863,7 +863,7 @@
     "packages": [
       {
         "id": "srd51",
-        "version": "0.6.0"
+        "version": "0.7.0"
       }
     ],
     "ruleset": "srd51"

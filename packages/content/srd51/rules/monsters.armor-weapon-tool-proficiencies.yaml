@@ -2,7 +2,7 @@
 # Mechanics come from tools/import/overlay/<entity-id>.yaml; edit those, then re-run `node tools/import/src/map.ts`.
 id: srd51.rule.monsters.armor-weapon-tool-proficiencies
 name:
-  en: Armor, Weapon and Tool Proficiency
+  en: Armor, Weapon, and Tool Proficiencies
 source: srd51
 category: general
 text:

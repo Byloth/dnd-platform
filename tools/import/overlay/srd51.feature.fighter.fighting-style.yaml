@@ -5,6 +5,11 @@ effects:
     count: 1
     options:
       - id: archery
+        prerequisites:
+          not:
+            answer:
+              choice: "srd51.feature.ranger.fighting-style#fighting-style"
+              is: archery
         name:
           en: Archery
         text:
@@ -15,6 +20,15 @@ effects:
             op: add
             value: 2
       - id: defense
+        prerequisites:
+          not:
+            any:
+              - answer:
+                  choice: "srd51.feature.paladin.fighting-style#fighting-style"
+                  is: defense
+              - answer:
+                  choice: "srd51.feature.ranger.fighting-style#fighting-style"
+                  is: defense
         name:
           en: Defense
         text:
@@ -28,6 +42,15 @@ effects:
               not:
                 armorCategory: none
       - id: dueling
+        prerequisites:
+          not:
+            any:
+              - answer:
+                  choice: "srd51.feature.paladin.fighting-style#fighting-style"
+                  is: dueling
+              - answer:
+                  choice: "srd51.feature.ranger.fighting-style#fighting-style"
+                  is: dueling
         name:
           en: Dueling
         text:
@@ -43,6 +66,11 @@ effects:
                 melee: true
                 count: 1
       - id: great-weapon-fighting
+        prerequisites:
+          not:
+            answer:
+              choice: "srd51.feature.paladin.fighting-style#fighting-style"
+              is: great-weapon-fighting
         name:
           en: Great Weapon Fighting
         text:
@@ -55,6 +83,11 @@ effects:
             note:
               en: "Play mode: rerolling individual damage dice of 1 or 2 is not executed by the engine."
       - id: protection
+        prerequisites:
+          not:
+            answer:
+              choice: "srd51.feature.paladin.fighting-style#fighting-style"
+              is: protection
         name:
           en: Protection
         text:
@@ -73,6 +106,11 @@ effects:
             text:
               en: Impose disadvantage on the attack roll. You must be wielding a shield.
       - id: two-weapon-fighting
+        prerequisites:
+          not:
+            answer:
+              choice: "srd51.feature.ranger.fighting-style#fighting-style"
+              is: two-weapon-fighting
         name:
           en: Two-Weapon Fighting
         text:

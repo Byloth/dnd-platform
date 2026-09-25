@@ -1,0 +1,19 @@
+actions:
+  - name:
+      en: Bite
+    text:
+      en: "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 1 piercing damage, and the target must make a DC 10 Constitution saving throw, taking 5 (2d4) poison damage on a failed save, or half as much damage on a successful one."
+    attack:
+      kind: melee
+      source: weapon
+      bonus: 5
+      reach: 5
+    damage:
+      - dice: 1
+        damageType: piercing
+      - dice: 2d4
+        damageType: poison
+    save:
+      ability: con
+      dc: 10
+      onSuccess: half

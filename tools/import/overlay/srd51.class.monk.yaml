@@ -1,2 +1,32 @@
 # The class's primary abilities, as the SRD 5.1 multiclassing prerequisites name them.
 primaryAbilities: [dex, wis]
+proficiencies:
+  tools:
+    from:
+      - alchemists-supplies
+      - brewers-supplies
+      - calligraphers-supplies
+      - carpenters-tools
+      - cartographers-tools
+      - cobblers-tools
+      - cooks-utensils
+      - glassblowers-tools
+      - jewelers-tools
+      - leatherworkers-tools
+      - masons-tools
+      - painters-supplies
+      - potters-tools
+      - smiths-tools
+      - tinkers-tools
+      - weavers-tools
+      - woodcarvers-tools
+      - bagpipes
+      - drum
+      - dulcimer
+      - flute
+      - lute
+      - lyre
+      - horn
+      - pan-flute
+      - shawm
+      - viol

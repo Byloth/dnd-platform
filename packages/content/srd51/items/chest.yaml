@@ -5,7 +5,7 @@ name:
   en: Chest
 source: srd51
 text:
-  en: "A chest. Capacity: 12 cubic feet/300 pounds of gear."
+  en: "Capacity: 12 cubic feet/300 pounds of gear."
 cost:
   amount: 5
   currency: gp

@@ -4,8 +4,6 @@ id: srd51.item.warhammer
 name:
   en: Warhammer
 source: srd51
-text:
-  en: A warhammer.
 cost:
   amount: 15
   currency: gp

@@ -27,6 +27,7 @@ rarity: very-rare
 tags:
   - magic-item
   - wondrous-items
+weight: 50
 features:
   - id: srd51.feature.item.mirror-of-life-trapping.activate
     name:

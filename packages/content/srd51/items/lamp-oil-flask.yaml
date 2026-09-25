@@ -11,3 +11,7 @@ cost:
   currency: gp
 weight: 1
 type: gear
+onUse:
+  - kind: note
+    text:
+      en: As an action, splash the oil onto a creature within 5 feet of you or throw the flask up to 20 feet, shattering it on impact. Make a ranged attack against a target creature or object, treating the oil as an improvised weapon. On a hit, the target is covered in oil; if it takes any fire damage before the oil dries (after 1 minute), it takes an additional 5 fire damage. Poured on level ground, the oil covers a 5-foot square; if lit, it burns for 2 rounds and deals 5 fire damage to any creature that enters the area or ends its turn there (once per turn).

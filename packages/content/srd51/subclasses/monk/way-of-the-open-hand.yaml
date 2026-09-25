@@ -28,6 +28,13 @@ levels:
             trigger:
               en: when you hit a creature with one of the attacks granted by your Flurry of Blows
             dc: 8 + proficiencyBonus + mod(wis)
+            rolls:
+              - type: save
+                ability: dex
+                dc: 8 + proficiencyBonus + mod(wis)
+              - type: save
+                ability: str
+                dc: 8 + proficiencyBonus + mod(wis)
             text:
               en: "Impose one of the following effects on the target: it must succeed on a Dexterity saving throw or be knocked prone; it must make a Strength saving throw or you can push it up to 15 feet away from you; it can't take reactions until the end of your next turn."
             onHit:
@@ -131,9 +138,14 @@ levels:
               - type: save
                 ability: con
                 dc: 8 + proficiencyBonus + mod(wis)
+              - type: damage
+                dice: 10d10
+                damageType: necrotic
             text:
               en: You and the target must be on the same plane of existence. The creature must make a Constitution saving throw. If it fails, it is reduced to 0 hit points. If it succeeds, it takes 10d10 necrotic damage.
             onUse:
               - kind: note
                 text:
                   en: "Failed save: the target is reduced to 0 hit points. Successful save: it takes 10d10 necrotic damage."
+text:
+  en: Monks of the Way of the Open Hand are the ultimate masters of martial arts combat, whether armed or unarmed. They learn techniques to push and trip their opponents, manipulate ki to heal damage to their bodies, and practice advanced meditation that can protect them from harm.

@@ -328,3 +328,8 @@ levels:
                   en: Choose awe (charmed) or fear (frightened). Each hostile creature that starts its turn within 60 feet makes a Wisdom saving throw; on a failure it is charmed or frightened until the aura ends, on a success it is immune to your aura for 24 hours.
             note:
               en: The text does not state the saving throw DC, so none is declared; the condition is imposed on other creatures at the start of their turns, which the play engine does not track.
+text:
+  en: |-
+    Different sorcerers claim different origins for their innate magic, such as a draconic bloodline.
+
+    Your innate magic comes from draconic magic that was mingled with your blood or that of your ancestors. Most often, sorcerers with this origin trace their descent back to a mighty sorcerer of ancient times who made a bargain with a dragon or who might even have claimed a dragon parent. Some of these bloodlines are well established in the world, but most are obscure. Any given sorcerer could be the first of a new bloodline, as a result of a pact or some other exceptional circumstance.

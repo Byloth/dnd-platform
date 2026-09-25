@@ -1,3 +1,4 @@
+weight: 1
 features:
   - id: srd51.feature.item.eversmoking-bottle.smoke
     name: { en: "Smoke" }

@@ -701,7 +701,7 @@
         "package": "srd51"
       },
       "text": {
-        "en": "When you reach 2nd level, you choose an arcane tradition, shaping your practice of magic through one of eight schools: Abjuration, Conjuration, Divination, Enchantment, Evocation, Illusion, Necromancy, or Transmutation, all detailed at the end of the class description.\n\nYour choice grants you features at 2nd level and again at 6th, 10th, and 14th level."
+        "en": "When you reach 2nd level, you choose an arcane tradition, shaping your practice of magic through one of eight schools, such as Evocation.\n\nYour choice grants you features at 2nd level and again at 6th, 10th, and 14th level."
       }
     },
     {
@@ -799,7 +799,7 @@
     "packages": [
       {
         "id": "srd51",
-        "version": "0.6.0"
+        "version": "0.7.0"
       }
     ],
     "ruleset": "srd51"
@@ -1434,6 +1434,14 @@
       "name": {
         "en": "Magic Missile"
       },
+      "onCast": [
+        {
+          "kind": "note",
+          "text": {
+            "en": "Three darts, each hitting automatically for 1d4 + 1 force damage; one more dart for each slot level above 1st."
+          }
+        }
+      ],
       "paidWith": {
         "slot": true
       },
@@ -1856,6 +1864,18 @@
       },
       "text": {
         "en": "Using tinker's tools, you can spend 1 hour and 10 gp worth of materials to construct a Tiny clockwork device (AC 5, 1 hp): a clockwork toy, a fire starter, or a music box. It ceases to function after 24 hours unless you spend 1 hour repairing it, or when you use your action to dismantle it and reclaim the materials. You can have up to three such devices active at a time."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.subclass.wizard.school-of-evocation",
+        "feature": "srd51.feature.school-of-evocation.evocation-savant",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "The gold and time you must spend to copy an evocation spell into your spellbook is halved."
       }
     },
     {

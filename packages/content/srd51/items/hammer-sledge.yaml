@@ -4,8 +4,6 @@ id: srd51.item.hammer-sledge
 name:
   en: Hammer, sledge
 source: srd51
-text:
-  en: A sledgehammer
 cost:
   amount: 2
   currency: gp

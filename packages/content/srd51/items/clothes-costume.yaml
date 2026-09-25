@@ -4,8 +4,6 @@ id: srd51.item.clothes-costume
 name:
   en: Clothes, costume
 source: srd51
-text:
-  en: A costume.
 cost:
   amount: 5
   currency: gp

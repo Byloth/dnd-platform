@@ -1,0 +1,11 @@
+id: srd51.item.feed-per-day
+name:
+  en: "Feed (per day)"
+source: srd51
+cost:
+  amount: 5
+  currency: cp
+weight: 10
+type: gear
+tags:
+  - tack-and-harness

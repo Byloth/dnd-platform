@@ -4,8 +4,6 @@ id: srd51.item.glaive
 name:
   en: Glaive
 source: srd51
-text:
-  en: A glaive.
 cost:
   amount: 20
   currency: gp

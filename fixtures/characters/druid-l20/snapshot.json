@@ -90,6 +90,84 @@
       }
     },
     {
+      "activation": "special",
+      "available": true,
+      "cost": [],
+      "dc": {
+        "provenance": [
+          {
+            "applied": true,
+            "formula": "8 + proficiencyBonus + mod(wis)",
+            "kind": "base",
+            "label": {
+              "en": "Save DC"
+            },
+            "source": {
+              "package": "srd51"
+            },
+            "value": 19
+          }
+        ],
+        "value": 19
+      },
+      "id": "natures-sanctuary",
+      "name": {
+        "en": "Nature's Sanctuary"
+      },
+      "rolls": [
+        {
+          "ability": "wis",
+          "bonus": {
+            "provenance": [
+              {
+                "applied": true,
+                "formula": "mod(wis)",
+                "kind": "base",
+                "label": {
+                  "en": "Roll bonus"
+                },
+                "source": {
+                  "effectIndex": 0,
+                  "entity": "srd51.subclass.druid.circle-of-the-land",
+                  "feature": "srd51.feature.circle-of-the-land.natures-sanctuary",
+                  "package": "srd51"
+                },
+                "value": 5
+              }
+            ],
+            "value": 5
+          },
+          "dc": {
+            "provenance": [
+              {
+                "applied": true,
+                "formula": "8 + proficiencyBonus + mod(wis)",
+                "kind": "base",
+                "label": {
+                  "en": "Save DC"
+                },
+                "source": {
+                  "package": "srd51"
+                },
+                "value": 19
+              }
+            ],
+            "value": 19
+          },
+          "type": "save"
+        }
+      ],
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.subclass.druid.circle-of-the-land",
+        "feature": "srd51.feature.circle-of-the-land.natures-sanctuary",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "When a beast or plant creature attacks you, that creature must make a Wisdom saving throw against your druid spell save DC. On a failed save, the creature must choose a different target, or the attack automatically misses. On a successful save, the creature is immune to this effect for 24 hours. The creature is aware of this effect before it makes its attack against you."
+      }
+    },
+    {
       "activation": "action",
       "available": true,
       "cost": [],
@@ -1151,7 +1229,7 @@
     "packages": [
       {
         "id": "srd51",
-        "version": "0.6.0"
+        "version": "0.7.0"
       }
     ],
     "ruleset": "srd51"
@@ -2355,7 +2433,7 @@
         {
           "kind": "note",
           "text": {
-            "en": "An unwilling creature makes a Wisdom saving throw to avoid the effect; a shapechanger automatically succeeds. The transformation ends at 0 hit points, when the creature returns to its previous hit points; excess damage carries over to its normal form."
+            "en": "An unwilling creature makes a Wisdom saving throw to avoid the effect. The spell has no effect on a shapechanger or a creature with 0 hit points. The transformation ends at 0 hit points, when the creature returns to its previous hit points; excess damage carries over to its normal form."
           }
         }
       ],
@@ -2953,18 +3031,6 @@
       },
       "text": {
         "en": "You can't be charmed or frightened by elementals or fey."
-      }
-    },
-    {
-      "section": "features",
-      "source": {
-        "effectIndex": 0,
-        "entity": "srd51.subclass.druid.circle-of-the-land",
-        "feature": "srd51.feature.circle-of-the-land.natures-sanctuary",
-        "package": "srd51"
-      },
-      "text": {
-        "en": "When a beast or plant creature attacks you, that creature must make a Wisdom saving throw against your druid spell save DC. On a failed save, the creature must choose a different target, or the attack automatically misses. On a successful save, the creature is immune to this effect for 24 hours. The creature is aware of this effect before it makes its attack against you."
       }
     }
   ],

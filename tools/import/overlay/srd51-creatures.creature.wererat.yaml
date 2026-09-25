@@ -1,0 +1,59 @@
+subtypes:
+  - human
+  - shapechanger
+languages:
+  en: Common (can't speak in rat form)
+actions:
+  - name:
+      en: Multiattack (Humanoid or Hybrid Form Only)
+    text:
+      en: The wererat makes two attacks, only one of which can be a bite.
+  - name:
+      en: Bite (Rat or Hybrid Form Only)
+    text:
+      en: "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (1d4 + 2) piercing damage. If the target is a humanoid, it must succeed on a DC 11 Constitution saving throw or be cursed with wererat lycanthropy."
+    attack:
+      kind: melee
+      source: weapon
+      bonus: 4
+      reach: 5
+    damage:
+      - dice: 1d4+2
+        damageType: piercing
+    save:
+      ability: con
+      dc: 11
+  - name:
+      en: Shortsword (Humanoid or Hybrid Form Only)
+    text:
+      en: "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) piercing damage."
+    attack:
+      kind: melee
+      source: weapon
+      bonus: 4
+      reach: 5
+    damage:
+      - dice: 1d6+2
+        damageType: piercing
+  - name:
+      en: Hand Crossbow (Humanoid or Hybrid Form Only)
+    text:
+      en: "Ranged Weapon Attack: +4 to hit, range 30/120 ft., one target. Hit: 5 (1d6 + 2) piercing damage."
+    attack:
+      kind: ranged
+      source: weapon
+      bonus: 4
+      range:
+        normal: 30
+        long: 120
+    damage:
+      - dice: 1d6+2
+        damageType: piercing
+forms:
+  - name:
+      en: Human
+  - name:
+      en: Hybrid
+  - name:
+      en: Rat
+    size: small

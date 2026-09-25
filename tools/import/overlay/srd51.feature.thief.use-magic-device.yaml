@@ -1,0 +1,7 @@
+effects:
+  - kind: add-text
+    section: features
+    text:
+      en: You ignore all class, race, and level requirements on the use of magic items.
+    note:
+      en: Magic item use requirements are not modelled; no catalogue kind.

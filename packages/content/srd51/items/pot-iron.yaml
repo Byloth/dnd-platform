@@ -5,7 +5,7 @@ name:
   en: Pot, iron
 source: srd51
 text:
-  en: "An iron pot. Capacity: 1 gallon liquid."
+  en: "Capacity: 1 gallon liquid."
 cost:
   amount: 2
   currency: gp

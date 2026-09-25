@@ -1,0 +1,8 @@
+conditionImmunities:
+  - srd51.condition.blinded
+  - srd51.condition.charmed
+  - srd51.condition.deafened
+  - srd51.condition.frightened
+  - srd51.condition.paralyzed
+  - srd51.condition.petrified
+  - srd51.condition.poisoned

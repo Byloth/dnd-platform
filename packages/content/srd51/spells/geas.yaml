@@ -26,7 +26,7 @@ higherLevel:
 rolls:
   - type: save
     ability: wis
-    onSuccess: half
+    onSuccess: none
   - type: damage
     dice: 5d10
     damageType: psychic

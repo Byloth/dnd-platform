@@ -5,7 +5,7 @@ name:
   en: Mass Heal
 source: srd51
 level: 9
-school: conjuration
+school: evocation
 castingTime:
   activation: action
 range:

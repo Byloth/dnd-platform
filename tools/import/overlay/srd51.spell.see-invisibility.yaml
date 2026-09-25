@@ -1,0 +1,8 @@
+components:
+  m: { en: "A pinch of talc and a small sprinkling of powdered silver." }
+text:
+  en: For the duration, you see invisible creatures and objects as if they were visible, and you can see into the Ethereal Plane. Ethereal creatures and objects appear ghostly and translucent.
+effects:
+  - kind: add-text
+    section: senses
+    text: { en: "Sees invisible creatures and objects as if they were visible, and can see into the Ethereal Plane." }

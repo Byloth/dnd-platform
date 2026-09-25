@@ -4,10 +4,10 @@ id: fixture-created-ranger
 name: Far strider
 ruleset:
   id: srd51
-  version: 0.6.0
+  version: 0.7.0
 packages:
   - id: srd51
-    version: 0.6.0
+    version: 0.7.0
 choices:
   species: srd51.species.elf
   subspecies: srd51.species.elf.high-elf
@@ -48,6 +48,9 @@ choices:
       equipped: true
     - item: srd51.item.arrow
       quantity: 20
+      equipped: false
+    - item: srd51.item.quiver
+      quantity: 1
       equipped: false
     - item: srd51.item.scale-mail
       quantity: 1
@@ -90,6 +93,12 @@ choices:
       equipped: false
     - item: srd51.item.amulet
       quantity: 1
+      equipped: false
+    - item: srd51.item.vestments
+      quantity: 1
+      equipped: false
+    - item: srd51.item.block-of-incense
+      quantity: 5
       equipped: false
 state:
   hp:
@@ -150,6 +159,9 @@ snapshots:
         - item: srd51.item.arrow
           quantity: 20
           equipped: false
+        - item: srd51.item.quiver
+          quantity: 1
+          equipped: false
         - item: srd51.item.scale-mail
           quantity: 1
           equipped: true
@@ -191,4 +203,10 @@ snapshots:
           equipped: false
         - item: srd51.item.amulet
           quantity: 1
+          equipped: false
+        - item: srd51.item.vestments
+          quantity: 1
+          equipped: false
+        - item: srd51.item.block-of-incense
+          quantity: 5
           equipped: false

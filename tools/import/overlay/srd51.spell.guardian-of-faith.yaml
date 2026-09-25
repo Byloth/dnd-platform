@@ -5,3 +5,6 @@ effects:
 onCast:
   - kind: note
     text: { en: "The guardian has no statistics; its damage is a flat 20 radiant (Dexterity saving throw for half)." }
+rolls:
+  - { type: save, ability: dex, onSuccess: half }
+  - { type: damage, dice: "20", damageType: radiant }

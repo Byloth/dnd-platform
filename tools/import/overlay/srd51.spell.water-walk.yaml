@@ -1,0 +1,6 @@
+components:
+  m: { en: "A piece of cork." }
+effects:
+  - kind: add-text
+    section: features
+    text: { en: "Can move across any liquid surface (such as water, acid, mud, snow, quicksand or lava) as if it were harmless solid ground; creatures crossing molten lava can still take damage from the heat. A submerged target is carried to the surface at 60 feet per round." }

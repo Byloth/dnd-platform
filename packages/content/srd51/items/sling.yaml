@@ -4,8 +4,6 @@ id: srd51.item.sling
 name:
   en: Sling
 source: srd51
-text:
-  en: A sling.
 cost:
   amount: 0.1
   currency: gp

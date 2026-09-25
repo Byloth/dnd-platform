@@ -1,0 +1,80 @@
+traits:
+  - name:
+      en: Rejuvenation
+    text:
+      en: If it dies, the naga returns to life in 1d6 days and regains all its hit points. Only a wish spell can prevent this trait from functioning.
+  - name:
+      en: Spellcasting
+    text:
+      en: |-
+        The naga is an 11th-level spellcaster. Its spellcasting ability is Wisdom (spell save DC 16, +8 to hit with spell attacks), and it needs only verbal components to cast its spells. It has the following cleric spells prepared:
+
+        - Cantrips (at will): mending, sacred flame, thaumaturgy
+        - 1st level (4 slots): command, cure wounds, shield of faith
+        - 2nd level (3 slots): calm emotions, hold person
+        - 3rd level (3 slots): bestow curse, clairvoyance
+        - 4th level (3 slots): banishment, freedom of movement
+        - 5th level (2 slots): flame strike, geas
+        - 6th level (1 slot): true seeing
+    spellcasting:
+      ability: wis
+      dc: 16
+      attack: 8
+      casterLevel: 11
+      slots:
+        "1": 4
+        "2": 3
+        "3": 3
+        "4": 3
+        "5": 2
+        "6": 1
+      spells:
+        - spell: srd51.spell.mending
+        - spell: srd51.spell.sacred-flame
+        - spell: srd51.spell.thaumaturgy
+        - spell: srd51.spell.command
+        - spell: srd51.spell.cure-wounds
+        - spell: srd51.spell.shield-of-faith
+        - spell: srd51.spell.calm-emotions
+        - spell: srd51.spell.hold-person
+        - spell: srd51.spell.bestow-curse
+        - spell: srd51.spell.clairvoyance
+        - spell: srd51.spell.banishment
+        - spell: srd51.spell.freedom-of-movement
+        - spell: srd51.spell.flame-strike
+        - spell: srd51.spell.geas
+        - spell: srd51.spell.true-seeing
+actions:
+  - name:
+      en: Bite
+    text:
+      en: "Melee Weapon Attack: +8 to hit, reach 10 ft., one creature. Hit: 8 (1d8 + 4) piercing damage, and the target must make a DC 15 Constitution saving throw, taking 45 (10d8) poison damage on a failed save, or half as much damage on a successful one."
+    attack:
+      kind: melee
+      source: weapon
+      bonus: 8
+      reach: 10
+    damage:
+      - dice: 1d8+4
+        damageType: piercing
+    save:
+      ability: con
+      dc: 15
+  - name:
+      en: Spit Poison
+    text:
+      en: "Ranged Weapon Attack: +8 to hit, range 15/30 ft., one creature. Hit: The target must make a DC 15 Constitution saving throw, taking 45 (10d8) poison damage on a failed save, or half as much damage on a successful one."
+    attack:
+      kind: ranged
+      source: weapon
+      bonus: 8
+      range:
+        normal: 15
+        long: 30
+    damage:
+      - dice: 10d8
+        damageType: poison
+    save:
+      ability: con
+      dc: 15
+      onSuccess: half

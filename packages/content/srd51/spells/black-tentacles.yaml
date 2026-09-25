@@ -25,7 +25,7 @@ text:
 rolls:
   - type: save
     ability: dex
-    onSuccess: half
+    onSuccess: none
   - type: damage
     dice: 3d6
     damageType: bludgeoning

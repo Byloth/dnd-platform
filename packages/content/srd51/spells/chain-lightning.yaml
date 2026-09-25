@@ -29,3 +29,8 @@ rolls:
   - type: damage
     dice: 10d8
     damageType: lightning
+scaling:
+  by: slotLevel
+  from: 7
+  add:
+    targets: 1

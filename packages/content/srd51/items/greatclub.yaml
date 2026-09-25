@@ -4,8 +4,6 @@ id: srd51.item.greatclub
 name:
   en: Greatclub
 source: srd51
-text:
-  en: A greatclub.
 cost:
   amount: 0.2
   currency: gp

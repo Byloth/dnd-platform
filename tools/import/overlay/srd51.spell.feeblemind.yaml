@@ -13,3 +13,6 @@ effects:
 onCast:
   - kind: note
     text: { en: "4d6 psychic damage regardless of the save; on a failed Intelligence saving throw the creature's Intelligence and Charisma become 1 and the effects above apply until it succeeds on the save repeated at the end of every 30 days, or greater restoration, heal or wish ends the spell. The spell is instantaneous, so the play engine does not track these effects as an active spell." }
+rolls:
+  - { type: damage, dice: 4d6, damageType: psychic }
+  - { type: save, ability: int }

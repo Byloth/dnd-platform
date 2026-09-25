@@ -15,16 +15,19 @@ components:
   v: true
   s: true
   m:
-    en: Seven sharp spines or seven twigs cut peak.
+    en: Seven sharp thorns or seven small twigs, each sharpened to a point.
 duration:
   type: timed
   minutes: 10
   concentration: true
 text:
-  en: The ground in a 20-foot radius centered on a point within range twists and sprouts hard spikes and thorns. The area becomes difficult terrain for the duration. When a creature moves into or within the area, it takes 2d4 piercing damage for every 5 feet it travels. The development of land is camouflaged to look natural. Any creature that does not see the area when the spell is spell casts must make a Wisdom (Perception) check against your spell save DC to recognize the terrain as hazardous before entering it.
+  en: The ground in a 20-foot radius centered on a point within range twists and sprouts hard spikes and thorns. The area becomes difficult terrain for the duration. When a creature moves into or within the area, it takes 2d4 piercing damage for every 5 feet it travels. The transformation of the ground is camouflaged to look natural. Any creature that can't see the area at the time the spell is cast must make a Wisdom (Perception) check against your spell save DC to recognize the terrain as hazardous before entering it.
 rolls:
   - type: damage
     dice: 2d4
     damageType: piercing
 tags:
   - area
+area:
+  shape: sphere
+  radius: 20

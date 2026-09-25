@@ -17,6 +17,8 @@ components:
   s: false
   m:
     en: Rare chalks and inks infused with precious gems with 50 gp, which the spell consumes.
+  cost: 50
+  consumed: true
 duration:
   type: timed
   rounds: 1

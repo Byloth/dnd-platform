@@ -1,3 +1,4 @@
+weight: 50
 features:
   - id: srd51.feature.item.mirror-of-life-trapping.activate
     name:

@@ -27,3 +27,8 @@ rolls:
   - type: damage
     dice: 4d4
     damageType: acid
+scaling:
+  by: slotLevel
+  from: 3
+  add:
+    dice: 1d4

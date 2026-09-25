@@ -4,8 +4,6 @@ id: srd51.item.flail
 name:
   en: Flail
 source: srd51
-text:
-  en: A flail.
 cost:
   amount: 10
   currency: gp

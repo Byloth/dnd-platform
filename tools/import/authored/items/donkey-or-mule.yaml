@@ -1,0 +1,12 @@
+id: srd51.item.donkey-or-mule
+name:
+  en: "Donkey or mule"
+source: srd51
+text:
+  en: "Speed 40 ft.; carrying capacity 420 lb."
+cost:
+  amount: 8
+  currency: gp
+type: gear
+tags:
+  - mount

@@ -29,10 +29,8 @@ features:
         trigger: { en: "when another creature casts a spell that targets only you" }
         text: { en: "The staff absorbs the magic of the spell, canceling its effect and gaining a number of charges equal to the absorbed spell's level. If doing so brings the staff above 50 charges, the staff explodes as if you activated its retributive strike." }
         onUse:
-          - kind: restoreResource
-            resource: charges
-            amount: 1
-            note: { en: "The staff regains charges equal to the absorbed spell's level, not 1; above 50 charges it explodes (Retributive Strike)." }
+          - kind: note
+            text: { en: "Add charges equal to the absorbed spell's level by hand; above 50 charges the staff explodes (Retributive Strike)." }
   - id: srd51.feature.item.staff-of-the-magi.spells
     name: { en: "Spells" }
     effects:

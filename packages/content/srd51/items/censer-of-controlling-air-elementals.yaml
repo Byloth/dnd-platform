@@ -17,6 +17,7 @@ rarity: rare
 tags:
   - magic-item
   - wondrous-items
+weight: 1
 charges:
   max: 1
   recharge:

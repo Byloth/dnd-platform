@@ -152,7 +152,7 @@ levels:
         source: srd51
         text:
           en: |-
-            When you reach 2nd level, you choose an arcane tradition, shaping your practice of magic through one of eight schools: Abjuration, Conjuration, Divination, Enchantment, Evocation, Illusion, Necromancy, or Transmutation, all detailed at the end of the class description.
+            When you reach 2nd level, you choose an arcane tradition, shaping your practice of magic through one of eight schools, such as Evocation.
 
             Your choice grants you features at 2nd level and again at 6th, 10th, and 14th level.
     choices:
@@ -262,19 +262,6 @@ levels:
             note:
               en: The filter cannot restrict the choice to spells in your spellbook, and a chosen spell cannot yet be marked always-prepared or granted with uses (grant-spells needs fixed spell ids); prepare them and spend the Signature Spells uses by hand.
 tables:
-  arcane-recovery-levels:
-    by: classLevel
-    rows:
-      "1": 1
-      "3": 2
-      "5": 3
-      "7": 4
-      "9": 5
-      "11": 6
-      "13": 7
-      "15": 8
-      "17": 9
-      "19": 10
   cantrips-known:
     by: classLevel
     rows:

@@ -925,7 +925,7 @@
         "package": "srd51"
       },
       "text": {
-        "en": "At 3rd level, you choose an archetype that you emulate in the exercise of your rogue abilities: Thief, Assassin, or Arcane Trickster, all detailed at the end of the class description. Your archetype choice grants you features at 3rd level and then again at 9th, 13th, and 17th level."
+        "en": "At 3rd level, you choose an archetype that you emulate in the exercise of your rogue abilities, such as Thief. Your archetype choice grants you features at 3rd level and then again at 9th, 13th, and 17th level."
       }
     },
     {
@@ -1159,7 +1159,7 @@
     "packages": [
       {
         "id": "srd51",
-        "version": "0.6.0"
+        "version": "0.7.0"
       }
     ],
     "ruleset": "srd51"
@@ -1403,15 +1403,6 @@
     },
     {
       "expertise": false,
-      "item": "hand-crossbows",
-      "source": {
-        "entity": "srd51.class.rogue",
-        "package": "srd51"
-      },
-      "type": "tool"
-    },
-    {
-      "expertise": false,
       "item": "thieves-tools",
       "source": {
         "entity": "srd51.class.rogue",
@@ -1428,6 +1419,15 @@
         "package": "srd51"
       },
       "type": "tool"
+    },
+    {
+      "expertise": false,
+      "item": "hand-crossbow",
+      "source": {
+        "entity": "srd51.class.rogue",
+        "package": "srd51"
+      },
+      "type": "weapon"
     },
     {
       "expertise": false,
@@ -1703,6 +1703,18 @@
       },
       "text": {
         "en": "You have advantage on a Dexterity (Stealth) check if you move no more than half your speed on the same turn."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.subclass.rogue.thief",
+        "feature": "srd51.feature.thief.use-magic-device",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You ignore all class, race, and level requirements on the use of magic items."
       }
     },
     {

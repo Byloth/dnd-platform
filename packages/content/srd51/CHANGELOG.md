@@ -7,6 +7,43 @@ improvement of the content is a new version: bump `version` in
 release file. Characters follow new versions automatically; the application
 tells the player what changed on their sheet.
 
+## 0.7.0 — 2026-09-26
+
+The whole package was checked against the official SRD 5.1, chapter by
+chapter, and corrected where it differed.
+
+- **Rules that were missing**: resting (short and long rest), saving
+  throws, dropping to 0 hit points and death saving throws, healing and
+  temporary hit points, cover, movement and position, creature size and
+  space, the order of combat and surprise, underwater combat, time, the
+  introductions of every chapter (conditions, languages with their tables,
+  multiclassing, alignment, backgrounds, feats, equipment, poisons with
+  their table, traps, diseases, madness, objects, magic items), selling
+  treasure, the wizard's spellbook and the paladin's broken oath.
+- **Mounts and tack**: camel, donkey or mule, elephant, draft and riding
+  horse, mastiff, pony, warhorse, saddles, saddlebags, bit and bridle, feed;
+  and the shield +1, +2 or +3.
+- **Classes**: the bard is proficient with hand crossbows; the druid takes
+  challenge 1 beast shapes from 8th level, not 7th; the warlock's invocations
+  and the sorcerer's metamagic come at the SRD's levels; the monk no longer
+  chooses a disguise or forgery kit; the ranger gets a quiver, the rogue's
+  shortbow comes with its quiver; each subclass has its introduction; Turn
+  Undead, Intimidating Presence, Open Hand Technique and others show the
+  saving throw they call for.
+- **Species**: the dragonborn's breath weapon grows with your level (2d6,
+  3d6 at 6th, 4d6 at 11th, 5d6 at 16th) and says it recharges after a rest.
+- **Spell lists**: Blindness/Deafness, Enlarge/Reduce, Antipathy/Sympathy,
+  Faerie Fire, Divination and Meld into Stone are on the lists the SRD puts
+  them on; spells that are not on a list are gone from it.
+- **Spells**: about a hundred corrections of saving throws, damage rolls,
+  areas, material costs and what a spell does at higher levels (Magic
+  Missile, Cure Wounds, Hold Person, Sacred Flame, Vicious Mockery, Flame
+  Strike, Ice Storm, Meteor Swarm among them), and texts copied word for
+  word where they were shortened or garbled.
+- **Items**: weapon damage types and weights (the shortsword pierces),
+  ammunition priced per piece, magic item weights and rarities, and the full
+  texts of the Deck of Many Things, the Belt of Dwarvenkind and others.
+
 ## 0.6.0 — 2026-09-25
 
 - **The nine alignments**, from lawful good to chaotic evil, each with its

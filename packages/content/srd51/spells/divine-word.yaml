@@ -19,11 +19,14 @@ duration:
   type: instantaneous
 text:
   en: |-
-    You utter a divine word, imbued with the power that shaped the world at the dawn of creation. Choose any number of creatures you can see within range. Each creature that can hear you must make a Charisma saving throw. On a failed save, a creature suffers an effect based on its current hit points: 
-    - 50hp or less: deafened for 1 minute 
-    - 40 hp or less: deafened and blinded for 10 minutes 
-    - 30 hp or less: blinded, deafened and dazed for 1 hour 
-    - 20 hp or less: killed instantly. Regardless of its current hit points, a celestial, an elemental, a fey, or a fiend that fails its save is forced back to its plane of origin (if it isn't there already) and can't return to your current plane for 24 hours by any means short of a wish spell.
+    You utter a divine word, imbued with the power that shaped the world at the dawn of creation. Choose any number of creatures you can see within range. Each creature that can hear you must make a Charisma saving throw. On a failed save, a creature suffers an effect based on its current hit points:
+
+    - 50 hit points or fewer: deafened for 1 minute
+    - 40 hit points or fewer: deafened and blinded for 10 minutes
+    - 30 hit points or fewer: blinded, deafened, and stunned for 1 hour
+    - 20 hit points or fewer: killed instantly
+
+    Regardless of its current hit points, a celestial, an elemental, a fey, or a fiend that fails its save is forced back to its plane of origin (if it isn't there already) and can't return to your current plane for 24 hours by any means short of a wish spell.
 rolls:
   - type: save
     ability: cha
@@ -35,7 +38,7 @@ onCast:
     expires:
       minutes: 1
     note:
-      en: "On a failed Charisma saving throw, by current hit points: 50 or fewer, deafened for 1 minute; 40 or fewer, deafened and blinded for 10 minutes; 30 or fewer, blinded, deafened and dazed for 1 hour; 20 or fewer, killed instantly."
+      en: "On a failed Charisma saving throw, by current hit points: 50 or fewer, deafened for 1 minute; 40 or fewer, deafened and blinded for 10 minutes; 30 or fewer, blinded, deafened and stunned for 1 hour; 20 or fewer, killed instantly."
   - kind: applyCondition
     condition: srd51.condition.blinded
     target: other
@@ -43,6 +46,13 @@ onCast:
       minutes: 10
     note:
       en: Only at 40 hit points or fewer (10 minutes) or 30 or fewer (1 hour).
+  - kind: applyCondition
+    condition: srd51.condition.stunned
+    target: other
+    expires:
+      hours: 1
+    note:
+      en: Only at 30 hit points or fewer.
   - kind: note
     text:
-      en: "'Dazed' is not a standard condition. A celestial, an elemental, a fey or a fiend that fails its save is forced back to its plane of origin and can't return for 24 hours by any means short of a wish spell."
+      en: A celestial, an elemental, a fey or a fiend that fails its save is forced back to its plane of origin and can't return for 24 hours by any means short of a wish spell.

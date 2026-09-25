@@ -8,7 +8,6 @@ spells:
   - srd51.spell.aid
   - srd51.spell.animate-dead
   - srd51.spell.antimagic-field
-  - srd51.spell.arcane-eye
   - srd51.spell.astral-projection
   - srd51.spell.augury
   - srd51.spell.bane
@@ -17,6 +16,7 @@ spells:
   - srd51.spell.bestow-curse
   - srd51.spell.blade-barrier
   - srd51.spell.bless
+  - srd51.spell.blindnessdeafness
   - srd51.spell.calm-emotions
   - srd51.spell.clairvoyance
   - srd51.spell.command
@@ -37,6 +37,7 @@ spells:
   - srd51.spell.detect-poison-and-disease
   - srd51.spell.dispel-evil-and-good
   - srd51.spell.dispel-magic
+  - srd51.spell.divination
   - srd51.spell.divine-word
   - srd51.spell.earthquake
   - srd51.spell.enhance-ability

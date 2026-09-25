@@ -1,0 +1,8 @@
+immunities:
+  - psychic
+  - types:
+      - bludgeoning
+      - piercing
+      - slashing
+    note:
+      en: from nonmagical attacks

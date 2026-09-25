@@ -30,3 +30,8 @@ effects:
     value: 60
     note:
       en: When the spell ends the target falls if it is still aloft. One additional target for each slot level above 3rd.
+scaling:
+  by: slotLevel
+  from: 4
+  add:
+    targets: 1

@@ -4,8 +4,6 @@ id: srd51.item.shortsword
 name:
   en: Shortsword
 source: srd51
-text:
-  en: A short sword.
 cost:
   amount: 10
   currency: gp
@@ -13,7 +11,7 @@ weight: 2
 type: weapon
 category: martial
 damage: 1d6
-damageType: slashing
+damageType: piercing
 properties:
   - finesse
   - light

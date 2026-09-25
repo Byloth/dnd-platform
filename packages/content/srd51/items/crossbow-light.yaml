@@ -4,8 +4,6 @@ id: srd51.item.crossbow-light
 name:
   en: Crossbow, light
 source: srd51
-text:
-  en: A light crossbow.
 cost:
   amount: 25
   currency: gp

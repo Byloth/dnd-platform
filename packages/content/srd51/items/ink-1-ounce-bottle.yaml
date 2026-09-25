@@ -4,8 +4,6 @@ id: srd51.item.ink-1-ounce-bottle
 name:
   en: Ink (1 ounce bottle)
 source: srd51
-text:
-  en: A bottle of ink.
 cost:
   amount: 10
   currency: gp

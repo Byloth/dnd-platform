@@ -28,7 +28,9 @@ text:
 rolls:
   - type: save
     ability: dex
-    onSuccess: none
+  - type: damage
+    dice: 2d4
+    damageType: fire
 tags:
   - area
 onCast:

@@ -25,6 +25,9 @@ effects:
       - type: save
         ability: con
         dc: 8 + proficiencyBonus + mod(wis)
+      - type: damage
+        dice: 10d10
+        damageType: necrotic
     text:
       en: You and the target must be on the same plane of existence. The creature must make a Constitution saving throw. If it fails, it is reduced to 0 hit points. If it succeeds, it takes 10d10 necrotic damage.
     onUse:

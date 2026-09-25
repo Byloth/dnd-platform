@@ -6,3 +6,4 @@ effects:
   - kind: add-text
     section: senses
     text: { en: "Notices secret doors hidden by magic and can see into the Ethereal Plane, out to 120 feet." }
+components: { cost: 25, consumed: true }

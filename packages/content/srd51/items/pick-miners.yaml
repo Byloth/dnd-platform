@@ -4,8 +4,6 @@ id: srd51.item.pick-miners
 name:
   en: Pick, miner's
 source: srd51
-text:
-  en: A pick for mining.
 cost:
   amount: 2
   currency: gp

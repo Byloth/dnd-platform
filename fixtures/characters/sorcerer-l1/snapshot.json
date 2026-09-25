@@ -615,7 +615,7 @@
         "package": "srd51"
       },
       "text": {
-        "en": "Choose a sorcerous origin, which describes the source of your innate magical power: Draconic Bloodline or Wild Magic, both detailed at the end of the class description.\n\nYour choice grants you features when you choose it at 1st level and again at 6th, 14th, and 18th level."
+        "en": "Choose a sorcerous origin, which describes the source of your innate magical power, such as Draconic Bloodline.\n\nYour choice grants you features when you choose it at 1st level and again at 6th, 14th, and 18th level."
       }
     },
     {
@@ -679,7 +679,7 @@
     "packages": [
       {
         "id": "srd51",
-        "version": "0.6.0"
+        "version": "0.7.0"
       }
     ],
     "ruleset": "srd51"
@@ -1176,6 +1176,14 @@
       "name": {
         "en": "Magic Missile"
       },
+      "onCast": [
+        {
+          "kind": "note",
+          "text": {
+            "en": "Three darts, each hitting automatically for 1d4 + 1 force damage; one more dart for each slot level above 1st."
+          }
+        }
+      ],
       "paidWith": {
         "slot": true
       },

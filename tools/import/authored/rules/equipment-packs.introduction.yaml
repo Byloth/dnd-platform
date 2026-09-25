@@ -1,0 +1,9 @@
+id: srd51.rule.equipment-packs.introduction
+name:
+  en: Equipment Packs
+source: srd51
+category: general
+text:
+  en: The starting equipment you get from your class includes a collection of useful adventuring gear, put together in a pack. The contents of these packs are listed here. If you are buying your starting equipment, you can purchase a pack for the price shown, which might be cheaper than buying the items individually.
+tags:
+  - equipment-packs

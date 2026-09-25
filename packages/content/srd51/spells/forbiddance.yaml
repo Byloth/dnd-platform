@@ -26,6 +26,5 @@ text:
 rolls:
   - type: damage
     dice: 5d10
-    damageType: necrotic
 tags:
   - area

@@ -27,6 +27,7 @@ rarity: very-rare
 tags:
   - magic-item
   - wondrous-items
+weight: 1
 features:
   - id: srd51.feature.item.efreeti-bottle.open
     name:

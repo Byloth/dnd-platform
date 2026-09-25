@@ -72,3 +72,8 @@ effects:
     section: features
     text:
       en: The hand is a Large object with AC 20, hit points equal to your hit point maximum, Strength 26 (+8) and Dexterity 10 (+0); if it drops to 0 hit points the spell ends.
+scaling:
+  by: slotLevel
+  from: 6
+  add:
+    dice: 2d8

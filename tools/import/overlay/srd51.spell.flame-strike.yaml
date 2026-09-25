@@ -1,0 +1,5 @@
+area: { shape: cylinder, radius: 10, height: 40 }
+rolls:
+  - { type: save, ability: dex, onSuccess: half }
+  - { type: damage, dice: 4d6, damageType: fire }
+  - { type: damage, dice: 4d6, damageType: radiant }

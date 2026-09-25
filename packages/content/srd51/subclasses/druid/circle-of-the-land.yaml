@@ -525,9 +525,21 @@ levels:
 
             The creature is aware of this effect before it makes its attack against you.
         effects:
-          - kind: add-text
-            section: features
+          - kind: add-action
+            action: natures-sanctuary
+            name:
+              en: Nature's Sanctuary
+            activation: special
+            trigger:
+              en: when a beast or plant creature attacks you
+            dc: 8 + proficiencyBonus + mod(wis)
+            rolls:
+              - type: save
+                ability: wis
+                dc: 8 + proficiencyBonus + mod(wis)
             text:
               en: When a beast or plant creature attacks you, that creature must make a Wisdom saving throw against your druid spell save DC. On a failed save, the creature must choose a different target, or the attack automatically misses. On a successful save, the creature is immune to this effect for 24 hours. The creature is aware of this effect before it makes its attack against you.
             note:
-              en: "Play mode: a passive effect resolved by the attacker's save against your spell save DC; nothing derived on the sheet beyond the DC."
+              en: "Play mode: a passive effect resolved by the attacker's Wisdom save against your druid spell save DC; choosing a different target or the automatic miss, and the 24-hour immunity on a success, are tracked in play."
+text:
+  en: The Circle of the Land is made up of mystics and sages who safeguard ancient knowledge and rites through a vast oral tradition. These druids meet within sacred circles of trees or standing stones to whisper primal secrets in Druidic. The circle's wisest members preside as the chief priests of communities that hold to the Old Faith and serve as advisors to the rulers of those folk. As a member of this circle, your magic is influenced by the land where you were initiated into the circle's mysterious rites.

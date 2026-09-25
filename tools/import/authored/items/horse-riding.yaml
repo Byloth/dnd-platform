@@ -1,0 +1,12 @@
+id: srd51.item.horse-riding
+name:
+  en: "Horse, riding"
+source: srd51
+text:
+  en: "Speed 60 ft.; carrying capacity 480 lb."
+cost:
+  amount: 75
+  currency: gp
+type: gear
+tags:
+  - mount

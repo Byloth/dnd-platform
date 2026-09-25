@@ -5,9 +5,9 @@ name:
   en: Sling bullet
 source: srd51
 cost:
-  amount: 4
+  amount: 0.2
   currency: cp
-weight: 1.5
+weight: 0.075
 type: ammunition
 tags:
   - ammunition

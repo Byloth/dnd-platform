@@ -1,0 +1,12 @@
+id: srd51.item.pony
+name:
+  en: Pony
+source: srd51
+text:
+  en: "Speed 40 ft.; carrying capacity 225 lb."
+cost:
+  amount: 30
+  currency: gp
+type: gear
+tags:
+  - mount

@@ -14,7 +14,7 @@ range:
   distance: 120
 area:
   shape: cube
-  size: 5
+  size: 10
 components:
   v: true
   s: true

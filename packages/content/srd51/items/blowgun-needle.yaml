@@ -5,9 +5,9 @@ name:
   en: Blowgun needle
 source: srd51
 cost:
-  amount: 1
+  amount: 0.02
   currency: gp
-weight: 1
+weight: 0.02
 type: ammunition
 tags:
   - ammunition

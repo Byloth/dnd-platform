@@ -1,0 +1,3 @@
+rolls:
+  - { type: save, ability: dex, onSuccess: none }
+  - { type: damage, dice: 1d6, damageType: acid }

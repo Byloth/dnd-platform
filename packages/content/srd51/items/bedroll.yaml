@@ -4,8 +4,6 @@ id: srd51.item.bedroll
 name:
   en: Bedroll
 source: srd51
-text:
-  en: A bedroll.
 cost:
   amount: 1
   currency: gp

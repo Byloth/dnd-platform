@@ -7,6 +7,15 @@ effects:
       en: You can't take a Fighting Style option more than once, even if you later get to choose again.
     options:
       - id: archery
+        prerequisites:
+          not:
+            any:
+              - answer:
+                  choice: "srd51.feature.fighter.fighting-style#fighting-style"
+                  is: archery
+              - answer:
+                  choice: "srd51.feature.champion.additional-fighting-style#additional-fighting-style"
+                  is: archery
         name:
           en: Archery
         text:
@@ -18,6 +27,18 @@ effects:
             set:
               attackBonus: 2
       - id: defense
+        prerequisites:
+          not:
+            any:
+              - answer:
+                  choice: "srd51.feature.fighter.fighting-style#fighting-style"
+                  is: defense
+              - answer:
+                  choice: "srd51.feature.champion.additional-fighting-style#additional-fighting-style"
+                  is: defense
+              - answer:
+                  choice: "srd51.feature.paladin.fighting-style#fighting-style"
+                  is: defense
         name:
           en: Defense
         text:
@@ -33,6 +54,18 @@ effects:
                 - armorCategory: medium
                 - armorCategory: heavy
       - id: dueling
+        prerequisites:
+          not:
+            any:
+              - answer:
+                  choice: "srd51.feature.fighter.fighting-style#fighting-style"
+                  is: dueling
+              - answer:
+                  choice: "srd51.feature.champion.additional-fighting-style#additional-fighting-style"
+                  is: dueling
+              - answer:
+                  choice: "srd51.feature.paladin.fighting-style#fighting-style"
+                  is: dueling
         name:
           en: Dueling
         text:
@@ -48,6 +81,15 @@ effects:
                 melee: true
                 count: 1
       - id: two-weapon-fighting
+        prerequisites:
+          not:
+            any:
+              - answer:
+                  choice: "srd51.feature.fighter.fighting-style#fighting-style"
+                  is: two-weapon-fighting
+              - answer:
+                  choice: "srd51.feature.champion.additional-fighting-style#additional-fighting-style"
+                  is: two-weapon-fighting
         name:
           en: Two-Weapon Fighting
         text:

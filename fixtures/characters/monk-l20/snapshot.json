@@ -587,6 +587,90 @@
           }
         }
       ],
+      "rolls": [
+        {
+          "ability": "dex",
+          "bonus": {
+            "provenance": [
+              {
+                "applied": true,
+                "formula": "mod(dex)",
+                "kind": "base",
+                "label": {
+                  "en": "Roll bonus"
+                },
+                "source": {
+                  "effectIndex": 0,
+                  "entity": "srd51.subclass.monk.way-of-the-open-hand",
+                  "feature": "srd51.feature.way-of-the-open-hand.open-hand-technique",
+                  "package": "srd51"
+                },
+                "value": 5
+              }
+            ],
+            "value": 5
+          },
+          "dc": {
+            "provenance": [
+              {
+                "applied": true,
+                "formula": "8 + proficiencyBonus + mod(wis)",
+                "kind": "base",
+                "label": {
+                  "en": "Save DC"
+                },
+                "source": {
+                  "package": "srd51"
+                },
+                "value": 19
+              }
+            ],
+            "value": 19
+          },
+          "type": "save"
+        },
+        {
+          "ability": "str",
+          "bonus": {
+            "provenance": [
+              {
+                "applied": true,
+                "formula": "mod(str)",
+                "kind": "base",
+                "label": {
+                  "en": "Roll bonus"
+                },
+                "source": {
+                  "effectIndex": 0,
+                  "entity": "srd51.subclass.monk.way-of-the-open-hand",
+                  "feature": "srd51.feature.way-of-the-open-hand.open-hand-technique",
+                  "package": "srd51"
+                },
+                "value": 0
+              }
+            ],
+            "value": 0
+          },
+          "dc": {
+            "provenance": [
+              {
+                "applied": true,
+                "formula": "8 + proficiencyBonus + mod(wis)",
+                "kind": "base",
+                "label": {
+                  "en": "Save DC"
+                },
+                "source": {
+                  "package": "srd51"
+                },
+                "value": 19
+              }
+            ],
+            "value": 19
+          },
+          "type": "save"
+        }
+      ],
       "source": {
         "effectIndex": 0,
         "entity": "srd51.subclass.monk.way-of-the-open-hand",
@@ -732,6 +816,31 @@
             "value": 19
           },
           "type": "save"
+        },
+        {
+          "bonus": {
+            "provenance": [
+              {
+                "applied": true,
+                "formula": "0",
+                "kind": "base",
+                "label": {
+                  "en": "Roll bonus"
+                },
+                "source": {
+                  "effectIndex": 1,
+                  "entity": "srd51.subclass.monk.way-of-the-open-hand",
+                  "feature": "srd51.feature.way-of-the-open-hand.quivering-palm",
+                  "package": "srd51"
+                },
+                "value": 0
+              }
+            ],
+            "value": 0
+          },
+          "damageType": "necrotic",
+          "dice": "10d10",
+          "type": "damage"
         }
       ],
       "source": {
@@ -987,8 +1096,6 @@
         "tinkers-tools",
         "weavers-tools",
         "woodcarvers-tools",
-        "disguise-kit",
-        "forgery-kit",
         "bagpipes",
         "drum",
         "dulcimer",
@@ -1291,7 +1398,7 @@
         "package": "srd51"
       },
       "text": {
-        "en": "When you reach 3rd level, you commit yourself to a monastic tradition such as the Way of the Open Hand. Your tradition grants you features at 3rd level and again at 6th, 11th, and 17th level."
+        "en": "When you reach 3rd level, you commit yourself to a monastic tradition, such as the Way of the Open Hand. Your tradition grants you features at 3rd level and again at 6th, 11th, and 17th level.\n\n### Monastic Traditions\n\nThree traditions of monastic pursuit are common in the monasteries scattered across the multiverse. Most monasteries practice one tradition exclusively, but a few honor the three traditions and instruct each monk according to his or her aptitude and interest. All three traditions rely on the same basic techniques, diverging as the student grows more adept. Thus, a monk need choose a tradition only upon reaching 3rd level."
       }
     },
     {
@@ -1593,7 +1700,7 @@
     "packages": [
       {
         "id": "srd51",
-        "version": "0.6.0"
+        "version": "0.7.0"
       },
       {
         "id": "homebrew.byloth",
@@ -2050,6 +2157,18 @@
     }
   ],
   "texts": [
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.class.monk",
+        "feature": "srd51.feature.monk.unarmored-movement",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Unarmored Movement: you gain the ability to move along vertical surfaces and across liquids on your turn without falling during the move."
+      }
+    },
     {
       "section": "saves",
       "source": {

@@ -5,10 +5,7 @@ name:
   en: Lance
 source: srd51
 text:
-  en: |-
-    A lance.
-
-    You have disadvantage when you use a lance to attack a target within 5 feet of you. Also, a lance requires two hands to wield when you aren't mounted.
+  en: You have disadvantage when you use a lance to attack a target within 5 feet of you. Also, a lance requires two hands to wield when you aren't mounted.
 cost:
   amount: 10
   currency: gp

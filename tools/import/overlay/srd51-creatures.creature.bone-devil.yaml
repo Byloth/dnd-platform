@@ -1,0 +1,58 @@
+resistances:
+  - cold
+  - types:
+      - bludgeoning
+      - piercing
+      - slashing
+    note:
+      en: from nonmagical attacks that aren't silvered
+traits:
+  - name:
+      en: Devil's Sight
+    text:
+      en: Magical darkness doesn't impede the devil's darkvision.
+  - name:
+      en: Magic Resistance
+    text:
+      en: The devil has advantage on saving throws against spells and other magical effects.
+actions:
+  - name:
+      en: Multiattack
+    text:
+      en: "The devil makes three attacks: two with its claws and one with its sting."
+    multiattack:
+      - action:
+          en: Claw
+        count: 2
+      - action:
+          en: Sting
+        count: 1
+  - name:
+      en: Claw
+    text:
+      en: "Melee Weapon Attack: +8 to hit, reach 10 ft., one target. Hit: 8 (1d8 + 4) slashing damage."
+    attack:
+      kind: melee
+      source: weapon
+      bonus: 8
+      reach: 10
+    damage:
+      - dice: 1d8+4
+        damageType: slashing
+  - name:
+      en: Sting
+    text:
+      en: "Melee Weapon Attack: +8 to hit, reach 10 ft., one target. Hit: 13 (2d8 + 4) piercing damage plus 17 (5d6) poison damage, and the target must succeed on a DC 14 Constitution saving throw or become poisoned for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
+    attack:
+      kind: melee
+      source: weapon
+      bonus: 8
+      reach: 10
+    damage:
+      - dice: 2d8+4
+        damageType: piercing
+      - dice: 5d6
+        damageType: poison
+    save:
+      ability: con
+      dc: 14

@@ -1,2 +1,8 @@
 # The class's primary abilities, as the SRD 5.1 multiclassing prerequisites name them.
 primaryAbilities: [cha]
+tables:
+  # Metamagic Known: 2 at 3rd, 3 at 10th, 4 at 17th (the SRD Sorcerer table).
+  metamagic-known:
+    rows:
+      "16": null
+      "17": 4

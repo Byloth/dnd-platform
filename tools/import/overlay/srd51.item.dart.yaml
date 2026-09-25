@@ -1,0 +1,4 @@
+# SRD 5.1: a simple ranged weapon; monk weapons are shortswords and simple melee weapons only.
+ranged: true
+monkWeapon: null
+text: null

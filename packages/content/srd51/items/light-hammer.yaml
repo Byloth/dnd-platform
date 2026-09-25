@@ -4,8 +4,6 @@ id: srd51.item.light-hammer
 name:
   en: Light hammer
 source: srd51
-text:
-  en: A light hammer.
 cost:
   amount: 2
   currency: gp

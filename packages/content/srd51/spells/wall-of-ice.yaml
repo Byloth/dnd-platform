@@ -33,3 +33,8 @@ rolls:
     damageType: cold
 tags:
   - area
+scaling:
+  by: slotLevel
+  from: 7
+  add:
+    dice: 2d6

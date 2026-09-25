@@ -38,6 +38,22 @@ levels:
         target: speed.walk
         op: mul
         value: 0.5
+      - kind: modify
+        target: speed.climb
+        op: mul
+        value: 0.5
+      - kind: modify
+        target: speed.fly
+        op: mul
+        value: 0.5
+      - kind: modify
+        target: speed.swim
+        op: mul
+        value: 0.5
+      - kind: modify
+        target: speed.burrow
+        op: mul
+        value: 0.5
   "3":
     text:
       en: Disadvantage on attack rolls and saving throws

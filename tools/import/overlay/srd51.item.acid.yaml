@@ -1,0 +1,9 @@
+# The same item as srd51.item.acid-vial: SRD 5.1 Adventuring Gear table, Acid (vial) 25 gp, 1 lb.
+cost:
+  amount: 25
+  currency: gp
+weight: 1
+onUse:
+  - kind: note
+    text:
+      en: As an action, splash the vial onto a creature within 5 feet of you or throw it up to 20 feet, shattering it on impact. Make a ranged attack against a creature or object, treating the acid as an improvised weapon. On a hit, the target takes 2d6 acid damage.

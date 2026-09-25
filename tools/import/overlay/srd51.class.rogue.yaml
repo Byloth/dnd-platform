@@ -1,2 +1,18 @@
 # The class's primary abilities, as the SRD 5.1 multiclassing prerequisites name them.
 primaryAbilities: [dex]
+# "(a) a shortbow and quiver of 20 arrows": the quiver goes with the bow.
+startingEquipment:
+  choices:
+    - options:
+        - - item: srd51.item.rapier
+        - - item: srd51.item.shortsword
+    - options:
+        - - item: srd51.item.shortbow
+          - item: srd51.item.quiver
+          - item: srd51.item.arrow
+            quantity: 20
+        - - item: srd51.item.shortsword
+    - options:
+        - - item: srd51.item.burglars-pack
+        - - item: srd51.item.dungeoneers-pack
+        - - item: srd51.item.explorers-pack

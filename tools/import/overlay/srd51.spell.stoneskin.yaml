@@ -3,3 +3,4 @@ effects:
     defense: resistance
     to: [bludgeoning, piercing, slashing]
     note: { en: "Nonmagical damage only." }
+components: { cost: 100, consumed: true }

@@ -25,6 +25,9 @@ rolls:
   - type: save
     ability: wis
     onSuccess: none
+  - type: damage
+    dice: 1d4
+    damageType: psychic
 scaling:
   by: level
   table:

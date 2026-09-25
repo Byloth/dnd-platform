@@ -4,8 +4,6 @@ id: srd51.item.war-pick
 name:
   en: War pick
 source: srd51
-text:
-  en: A war pick.
 cost:
   amount: 5
   currency: gp

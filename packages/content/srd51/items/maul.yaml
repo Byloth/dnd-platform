@@ -4,8 +4,6 @@ id: srd51.item.maul
 name:
   en: Maul
 source: srd51
-text:
-  en: A maul.
 cost:
   amount: 10
   currency: gp

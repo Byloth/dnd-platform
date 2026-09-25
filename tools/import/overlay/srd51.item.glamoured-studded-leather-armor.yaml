@@ -1,3 +1,5 @@
+name:
+  en: Glamoured Studded Leather
 type: armor
 category: light
 ac: { base: 12, addDex: true }

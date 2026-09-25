@@ -4,8 +4,6 @@ id: srd51.item.greatsword
 name:
   en: Greatsword
 source: srd51
-text:
-  en: A great sword.
 cost:
   amount: 50
   currency: gp
@@ -18,3 +16,4 @@ properties:
   - two-handed
 tags:
   - melee-weapons
+weight: 6

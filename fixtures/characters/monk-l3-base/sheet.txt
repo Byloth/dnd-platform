@@ -1,6 +1,6 @@
 QUIET PAW
 Feline (Puma) · Monk 3  —  level 3
-Ruleset srd51 · packages srd51 0.6.0, homebrew.byloth 0.1.0
+Ruleset srd51 · packages srd51 0.7.0, homebrew.byloth 0.1.0
 
 CORE
 ────────────────────────────────────────────────────────────────────────────────────────────────────
@@ -95,7 +95,7 @@ FEATURES & TRAITS
     Ki                  L2  Starting at 2nd level, your training allows you to harness the mystic…
     Unarmored Movement  L2  Starting at 2nd level, your speed increases by 10 feet while you are…
     Deflect Missiles    L3  Starting at 3rd level, you can use your reaction to deflect or catch…
-    Monastic Tradition  L3  When you reach 3rd level, you commit yourself to a monastic tradition…
+    Monastic Tradition  L3  When you reach 3rd level, you commit yourself to a monastic tradition,…
 
 EQUIPMENT
 ────────────────────────────────────────────────────────────────────────────────────────────────────
@@ -111,7 +111,7 @@ NOTES
 
 CREDITS
 ────────────────────────────────────────────────────────────────────────────────────────────────────
-  System Reference Document 5.1 (srd51 0.6.0)
+  System Reference Document 5.1 (srd51 0.7.0)
     System Reference Document 5.1, Wizards of the Coast — CC-BY-4.0. This work includes material
     taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and
     available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is

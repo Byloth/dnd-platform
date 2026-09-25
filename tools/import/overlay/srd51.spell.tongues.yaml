@@ -1,0 +1,4 @@
+effects:
+  - kind: add-text
+    section: features
+    text: { en: "Understands any spoken language it hears; when it speaks, any creature that knows at least one language and can hear it understands what it says." }

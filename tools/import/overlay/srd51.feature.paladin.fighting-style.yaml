@@ -7,6 +7,18 @@ effects:
       en: You can't take a Fighting Style option more than once, even if you later get to choose again.
     options:
       - id: defense
+        prerequisites:
+          not:
+            any:
+              - answer:
+                  choice: "srd51.feature.fighter.fighting-style#fighting-style"
+                  is: defense
+              - answer:
+                  choice: "srd51.feature.champion.additional-fighting-style#additional-fighting-style"
+                  is: defense
+              - answer:
+                  choice: "srd51.feature.ranger.fighting-style#fighting-style"
+                  is: defense
         name:
           en: Defense
         text:
@@ -22,6 +34,18 @@ effects:
                 - armorCategory: medium
                 - armorCategory: heavy
       - id: dueling
+        prerequisites:
+          not:
+            any:
+              - answer:
+                  choice: "srd51.feature.fighter.fighting-style#fighting-style"
+                  is: dueling
+              - answer:
+                  choice: "srd51.feature.champion.additional-fighting-style#additional-fighting-style"
+                  is: dueling
+              - answer:
+                  choice: "srd51.feature.ranger.fighting-style#fighting-style"
+                  is: dueling
         name:
           en: Dueling
         text:
@@ -37,6 +61,15 @@ effects:
                 melee: true
                 count: 1
       - id: great-weapon-fighting
+        prerequisites:
+          not:
+            any:
+              - answer:
+                  choice: "srd51.feature.fighter.fighting-style#fighting-style"
+                  is: great-weapon-fighting
+              - answer:
+                  choice: "srd51.feature.champion.additional-fighting-style#additional-fighting-style"
+                  is: great-weapon-fighting
         name:
           en: Great Weapon Fighting
         text:
@@ -49,6 +82,15 @@ effects:
             note:
               en: Rerolling individual damage dice of 1 or 2 has no catalogue kind; resolved in play.
       - id: protection
+        prerequisites:
+          not:
+            any:
+              - answer:
+                  choice: "srd51.feature.fighter.fighting-style#fighting-style"
+                  is: protection
+              - answer:
+                  choice: "srd51.feature.champion.additional-fighting-style#additional-fighting-style"
+                  is: protection
         name:
           en: Protection
         text:

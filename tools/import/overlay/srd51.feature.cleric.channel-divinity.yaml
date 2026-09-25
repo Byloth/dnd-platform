@@ -21,6 +21,10 @@ effects:
       - resource: channel-divinity
         amount: 1
     dc: 8 + proficiencyBonus + mod(wis)
+    rolls:
+      - type: save
+        ability: wis
+        dc: 8 + proficiencyBonus + mod(wis)
     range:
       type: point
       distance: 30

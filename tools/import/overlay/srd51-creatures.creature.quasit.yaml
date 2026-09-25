@@ -1,0 +1,52 @@
+subtypes:
+  - demon
+  - shapechanger
+actions:
+  - name:
+      en: Claw (Bite in Beast Form)
+    text:
+      en: "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d4 + 3) piercing damage, and the target must succeed on a DC 10 Constitution saving throw or take 5 (2d4) poison damage and become poisoned for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
+    attack:
+      kind: melee
+      source: weapon
+      bonus: 4
+      reach: 5
+    damage:
+      - dice: 1d4+3
+        damageType: piercing
+      - dice: 2d4
+        damageType: poison
+    save:
+      ability: con
+      dc: 10
+  - name:
+      en: Scare
+    text:
+      en: One creature of the quasit's choice within 20 ft. of it must succeed on a DC 10 Wisdom saving throw or be frightened for 1 minute. The target can repeat the saving throw at the end of each of its turns, with disadvantage if the quasit is within line of sight, ending the effect on itself on a success.
+    usage:
+      perDay: 1
+    save:
+      ability: wis
+      dc: 10
+  - name:
+      en: Invisibility
+    text:
+      en: The quasit magically turns invisible until it attacks or uses Scare, or until its concentration ends (as if concentrating on a spell). Any equipment the quasit wears or carries is invisible with it.
+forms:
+  - name:
+      en: Quasit
+  - name:
+      en: Bat
+    speed:
+      walk: 10
+      fly: 40
+  - name:
+      en: Centipede
+    speed:
+      walk: 40
+      climb: 40
+  - name:
+      en: Toad
+    speed:
+      walk: 40
+      swim: 40

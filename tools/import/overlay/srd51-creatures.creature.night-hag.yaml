@@ -1,0 +1,29 @@
+traits:
+  - name:
+      en: Innate Spellcasting
+    text:
+      en: |-
+        The hag's innate spellcasting ability is Charisma (spell save DC 14, +6 to hit with spell attacks). She can innately cast the following spells, requiring no material components:
+
+        At will: detect magic, magic missile
+        2/day each: plane shift (self only), ray of enfeeblement, sleep
+    spellcasting:
+      ability: cha
+      dc: 14
+      attack: 6
+      innate: true
+      spells:
+        - spell: srd51.spell.detect-magic
+          atWill: true
+        - spell: srd51.spell.magic-missile
+          atWill: true
+        - spell: srd51.spell.plane-shift
+          perDay: 2
+        - spell: srd51.spell.ray-of-enfeeblement
+          perDay: 2
+        - spell: srd51.spell.sleep
+          perDay: 2
+  - name:
+      en: Magic Resistance
+    text:
+      en: The hag has advantage on saving throws against spells and other magical effects.

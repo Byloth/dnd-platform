@@ -1,0 +1,20 @@
+subtypes:
+  - devil
+  - shapechanger
+forms:
+  - name:
+      en: Imp
+  - name:
+      en: Rat
+    speed:
+      walk: 20
+  - name:
+      en: Raven
+    speed:
+      walk: 20
+      fly: 60
+  - name:
+      en: Spider
+    speed:
+      walk: 20
+      climb: 20

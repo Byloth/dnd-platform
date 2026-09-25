@@ -4,8 +4,6 @@ id: srd51.item.perfume-vial
 name:
   en: Perfume (vial)
 source: srd51
-text:
-  en: A vial of perfume.
 cost:
   amount: 5
   currency: gp

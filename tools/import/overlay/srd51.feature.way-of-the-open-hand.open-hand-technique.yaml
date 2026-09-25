@@ -7,6 +7,13 @@ effects:
     trigger:
       en: when you hit a creature with one of the attacks granted by your Flurry of Blows
     dc: 8 + proficiencyBonus + mod(wis)
+    rolls:
+      - type: save
+        ability: dex
+        dc: 8 + proficiencyBonus + mod(wis)
+      - type: save
+        ability: str
+        dc: 8 + proficiencyBonus + mod(wis)
     text:
       en: "Impose one of the following effects on the target: it must succeed on a Dexterity saving throw or be knocked prone; it must make a Strength saving throw or you can push it up to 15 feet away from you; it can't take reactions until the end of your next turn."
     onHit:

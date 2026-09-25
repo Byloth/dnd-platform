@@ -824,7 +824,7 @@
         "package": "srd51"
       },
       "text": {
-        "en": "At 3rd level, you delve into the advanced techniques of a bard college of your choice: the College of Lore or the College of Valor, both detailed at the end of the class description. Your choice grants you features at 3rd level and again at 6th and 14th level."
+        "en": "At 3rd level, you delve into the advanced techniques of a bard college of your choice, such as the College of Lore. Your choice grants you features at 3rd level and again at 6th and 14th level."
       }
     },
     {
@@ -922,7 +922,7 @@
     "packages": [
       {
         "id": "srd51",
-        "version": "0.6.0"
+        "version": "0.7.0"
       }
     ],
     "ruleset": "srd51"
@@ -1218,6 +1218,15 @@
         "package": "srd51"
       },
       "type": "tool"
+    },
+    {
+      "expertise": false,
+      "item": "hand-crossbow",
+      "source": {
+        "entity": "srd51.class.bard",
+        "package": "srd51"
+      },
+      "type": "weapon"
     },
     {
       "expertise": false,

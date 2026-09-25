@@ -16,6 +16,7 @@ components:
   s: true
   m:
     en: A sapphire worth 1,000 gp.
+  cost: 1000
 duration:
   type: until-dispelled
 ritual: true

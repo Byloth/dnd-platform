@@ -1,2 +1,8 @@
 # The class's primary abilities, as the SRD 5.1 multiclassing prerequisites name them.
 primaryAbilities: [dex, wis]
+startingEquipment:
+  fixed:
+    - item: srd51.item.longbow
+    - item: srd51.item.arrow
+      quantity: 20
+    - item: srd51.item.quiver

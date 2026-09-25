@@ -23,6 +23,7 @@ rarity: rare
 tags:
   - magic-item
   - wondrous-items
+weight: 4
 features:
   - id: srd51.feature.item.folding-boat.command-words
     name:

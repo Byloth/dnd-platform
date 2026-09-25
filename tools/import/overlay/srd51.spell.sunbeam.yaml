@@ -22,3 +22,4 @@ onCast:
     target: other
     expires: { until: next-turn-start }
     note: { en: "On a failed save; undead and oozes save with disadvantage." }
+area: { shape: line, length: 60, width: 5 }

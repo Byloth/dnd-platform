@@ -1,0 +1,12 @@
+id: srd51.item.elephant
+name:
+  en: Elephant
+source: srd51
+text:
+  en: "Speed 40 ft.; carrying capacity 1,320 lb."
+cost:
+  amount: 200
+  currency: gp
+type: gear
+tags:
+  - mount

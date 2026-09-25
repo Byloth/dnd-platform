@@ -31,3 +31,8 @@ onCast:
       hours: 1
     note:
       en: Anything the target wears or carries is invisible while on its person. The spell ends for a target that attacks or casts a spell. Each slot level above 2nd targets one additional creature.
+scaling:
+  by: slotLevel
+  from: 3
+  add:
+    targets: 1

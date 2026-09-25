@@ -9,6 +9,7 @@ spells:
   - srd51.spell.animal-messenger
   - srd51.spell.animal-shapes
   - srd51.spell.antilife-shell
+  - srd51.spell.antipathysympathy
   - srd51.spell.awaken
   - srd51.spell.barkskin
   - srd51.spell.blight
@@ -24,7 +25,6 @@ spells:
   - srd51.spell.contagion
   - srd51.spell.control-water
   - srd51.spell.control-weather
-  - srd51.spell.create-food-and-water
   - srd51.spell.create-or-destroy-water
   - srd51.spell.cure-wounds
   - srd51.spell.darkvision
@@ -32,7 +32,6 @@ spells:
   - srd51.spell.detect-magic
   - srd51.spell.detect-poison-and-disease
   - srd51.spell.dispel-magic
-  - srd51.spell.divination
   - srd51.spell.dominate-beast
   - srd51.spell.druidcraft
   - srd51.spell.earthquake
@@ -69,6 +68,7 @@ spells:
   - srd51.spell.locate-object
   - srd51.spell.longstrider
   - srd51.spell.mass-cure-wounds
+  - srd51.spell.meld-into-stone
   - srd51.spell.mending
   - srd51.spell.mirage-arcane
   - srd51.spell.moonbeam

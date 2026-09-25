@@ -1,0 +1,6 @@
+rolls:
+  - { type: damage, dice: "6d6", damageType: bludgeoning }
+  - { type: damage, dice: "50", damageType: bludgeoning }
+onCast:
+  - kind: note
+    text: { en: "The stone's partial destruction or a change in its shape expels you and deals 6d6 bludgeoning damage; its complete destruction (or transmutation into a different substance) expels you and deals 50 bludgeoning damage instead." }

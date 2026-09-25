@@ -4,8 +4,6 @@ id: srd51.item.whip
 name:
   en: Whip
 source: srd51
-text:
-  en: A whip.
 cost:
   amount: 2
   currency: gp

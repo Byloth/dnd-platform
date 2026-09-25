@@ -643,7 +643,7 @@
     "packages": [
       {
         "id": "srd51",
-        "version": "0.6.0"
+        "version": "0.7.0"
       }
     ],
     "ruleset": "srd51"
@@ -1200,6 +1200,14 @@
       "name": {
         "en": "Magic Missile"
       },
+      "onCast": [
+        {
+          "kind": "note",
+          "text": {
+            "en": "Three darts, each hitting automatically for 1d4 + 1 force damage; one more dart for each slot level above 1st."
+          }
+        }
+      ],
       "paidWith": {
         "slot": true
       },

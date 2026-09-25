@@ -1,0 +1,4 @@
+conditionImmunities:
+  - srd51.condition.blinded
+  - srd51.condition.deafened
+  - srd51.condition.frightened

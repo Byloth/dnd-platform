@@ -797,7 +797,7 @@
         "package": "srd51"
       },
       "text": {
-        "en": "At 3rd level, you choose an archetype that you emulate in the exercise of your rogue abilities: Thief, Assassin, or Arcane Trickster, all detailed at the end of the class description. Your archetype choice grants you features at 3rd level and then again at 9th, 13th, and 17th level."
+        "en": "At 3rd level, you choose an archetype that you emulate in the exercise of your rogue abilities, such as Thief. Your archetype choice grants you features at 3rd level and then again at 9th, 13th, and 17th level."
       }
     },
     {
@@ -878,7 +878,7 @@
     "packages": [
       {
         "id": "srd51",
-        "version": "0.6.0"
+        "version": "0.7.0"
       }
     ],
     "ruleset": "srd51"
@@ -1110,15 +1110,6 @@
     },
     {
       "expertise": false,
-      "item": "hand-crossbows",
-      "source": {
-        "entity": "srd51.class.rogue",
-        "package": "srd51"
-      },
-      "type": "tool"
-    },
-    {
-      "expertise": false,
       "item": "thieves-tools",
       "source": {
         "entity": "srd51.class.rogue",
@@ -1135,6 +1126,15 @@
         "package": "srd51"
       },
       "type": "tool"
+    },
+    {
+      "expertise": false,
+      "item": "hand-crossbow",
+      "source": {
+        "entity": "srd51.class.rogue",
+        "package": "srd51"
+      },
+      "type": "weapon"
     },
     {
       "expertise": false,

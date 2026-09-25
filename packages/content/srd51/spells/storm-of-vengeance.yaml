@@ -32,7 +32,7 @@ text:
 rolls:
   - type: save
     ability: con
-    onSuccess: half
+    onSuccess: none
   - type: damage
     dice: 2d6
     damageType: thunder

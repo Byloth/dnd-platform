@@ -15,3 +15,4 @@ effects:
     target: attack.spell.bonus
     op: add
     value: 1d4
+scaling: { by: slotLevel, from: 2, add: { targets: 1 } }

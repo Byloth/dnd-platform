@@ -24,5 +24,7 @@ features:
         on:
           type: check
           skill: investigation
+          against:
+            - checks that rely on sight while searching an area or studying an object within 1 foot of you
         note:
           en: Only on Intelligence (Investigation) checks that rely on sight while searching an area or studying an object within 1 foot of you.

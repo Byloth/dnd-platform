@@ -4,9 +4,8 @@ id: srd51.item.blanket
 name:
   en: Blanket
 source: srd51
-text:
-  en: A blanket.
 cost:
   amount: 0.5
   currency: gp
 type: gear
+weight: 3

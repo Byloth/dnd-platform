@@ -149,6 +149,7 @@ features:
       en: |-
         You can use your action to exhale destructive energy. Your draconic ancestry determines the size, shape, and damage type of the exhalation.
         When you use your breath weapon, each creature in the area of the exhalation must make a saving throw, the type of which is determined by your draconic ancestry. The DC for this saving throw equals 8 + your Constitution modifier + your proficiency bonus. A creature takes 2d6 damage on a failed save, and half as much damage on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level.
+        After you use your breath weapon, you can't use it again until you complete a short or long rest.
     effects:
       - kind: declare-resource
         resource: breath-weapon
@@ -161,8 +162,6 @@ features:
           - on: long-rest
             amount: full
         display: pips
-        note:
-          en: Once per short or long rest; the imported text omits the rest sentence, the limit follows the SRD.
       - kind: add-action
         action: breath-weapon
         name:
@@ -171,20 +170,30 @@ features:
         cost:
           - resource: breath-weapon
             amount: 1
+        range:
+          type: self
         dc: 8 + mod(con) + proficiencyBonus
         rolls:
           - type: save
             onSuccess: half
           - type: damage
-            dice: 2d6
+            dice: table(dragonborn-breath-weapon)
         text:
-          en: You exhale destructive energy in the area determined by your draconic ancestry. Each creature in the area must make a saving throw (DC 8 + your Constitution modifier + your proficiency bonus), taking 2d6 damage on a failed save and half as much on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level.
+          en: You exhale destructive energy in the area determined by your draconic ancestry. Each creature in the area must make a saving throw (DC 8 + your Constitution modifier + your proficiency bonus), taking 2d6 damage on a failed save and half as much on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level. After you use your breath weapon, you can't use it again until you complete a short or long rest.
         onUse:
           - kind: note
             text:
               en: "Area, save ability and damage type follow your Draconic Ancestry: black/blue/brass/bronze/copper 5 by 30 ft. line (Dex. save); gold/red 15 ft. cone (Dex. save); green/silver/white 15 ft. cone (Con. save). Damage: 2d6, 3d6 at 6th level, 4d6 at 11th, 5d6 at 16th."
         note:
-          en: The damage dice scale with character level and the shape, save and damage type vary with the ancestry answer; v0 carries them in the note.
+          en: "The damage dice scale with character level through the dragonborn-breath-weapon table; the shape, save ability and damage type vary with the ancestry answer and stay in the note: ten answer-gated variants of one action make the engine warn W_DUPLICATE_ACTION on the sheet."
+      - kind: define-table
+        table: dragonborn-breath-weapon
+        by: level
+        rows:
+          "1": 2d6
+          "6": 3d6
+          "11": 4d6
+          "16": 5d6
   - id: srd51.feature.dragonborn.damage-resistance
     name:
       en: Damage Resistance

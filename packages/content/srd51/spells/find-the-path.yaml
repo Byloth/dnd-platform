@@ -16,6 +16,7 @@ components:
   s: true
   m:
     en: A set of divinatory tools-such as bones, ivory sticks, cards, teeth, or carved runes-worth 100gp and an object from the location you wish to find.
+  cost: 100
 duration:
   type: timed
   hours: 24

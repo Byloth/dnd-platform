@@ -28,6 +28,8 @@ All of them are in `content-private/sources`, with their text extracted (see tha
 | Bigby Presents: Glory of the Giants | bgg | yes | |
 | Curse of Strahd | cos | yes | adventure |
 | Tomb of Annihilation | toa | no | adventure |
+| Waterdeep: Dungeon of the Mad Mage | wdmm | yes | adventure (added 2026-09-26) |
+| Baldur's Gate: Descent into Avernus | bgdia | no | adventure (added 2026-09-26) |
 
 ## Decisions taken (owner, 2026-09-25)
 
@@ -57,13 +59,13 @@ Not in the first pass:
 
 ## Steps
 
-1. **The creature schema (closes DEC-24).**
+1. **The creature schema (closes DEC-24).** Done 2026-09-26: `creature.schema.json`, `composeCreature`, `dnd show`.
    - Structured fields for the mechanics: size, type and alignment; armour class, hit points and hit dice; speeds; abilities, saving throws and skills; resistances and immunities; senses and languages; challenge rating.
    - Traits, actions, reactions, legendary and lair actions, with attacks and damage structured and text for the rest.
    - Variants, and stat blocks that depend on the caster's level (Tasha's summons).
    - At first the engine computes nothing: the schema validates and the composer shows.
    - Tests and docs (05, 06, content-authoring).
-2. **The SRD's creatures** (about 320) into `srd51`, and in Italian into `srd51-it` from the official Italian SRD, then released. Public and CC BY: the proof of the schema before any private book.
+2. **The SRD's creatures** (about 320), in Italian too from the official Italian SRD, then released. Public and CC BY: the proof of the schema before any private book. Done in English 2026-09-26 as the package `srd51-creatures` 0.1.0 (322 creatures), apart from srd51 so the sheet does not download them (owner); srd51 itself was audited against the SRD in the same step (srd51 0.7.0, 332 fixes; what the engine cannot express is [21](21-engine-gaps.md)).
 3. **The pilot: Fizban's Treasury of Dragons**, in English and Italian, with everything in scope. It has player options (Drakewarden, Way of the Ascendant Dragon, feats, spells, items), many stat blocks with lair actions, and an Italian edition. The pilot fixes the recipe and gives the real cost.
 4. **Every other book**, in parallel, with the recipe of the pilot.
 5. **Duplicates and supersessions** analysed across the base packages (see below).
@@ -76,7 +78,7 @@ One agent for a whole book does not fit in one context: the Player's Handbook al
 1. **Inventory**: one agent lists the entities and their pages and cuts them into packets of about 40.
 2. **English**: per packet, one agent transcribes and one reviews adversarially; for stat blocks, the review checks every number against the book.
 3. **Italian**, after the English, since the translation is keyed by the English package's paths: per packet, one agent translates from the Italian edition (the Italian text first, memory only where something does not add up, as for phb14-it) and one reviews.
-4. **An engine-gap log**: what the format or the engine cannot express yet is written as an add-text reminder and listed, for the owner to review.
+4. **An engine-gap log**: what the format or the engine cannot express yet is written as an add-text reminder and listed in [21](21-engine-gaps.md), for the owner to review.
 
 As pipeline stages of a workflow, not agents spawning agents, so each stage is visible and resumable. Everything stays in `content-private/`: book text is never written outside it.
 

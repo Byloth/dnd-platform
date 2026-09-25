@@ -1,0 +1,9 @@
+id: srd51.rule.magic-items.introduction
+name:
+  en: Magic Items
+source: srd51
+category: general
+text:
+  en: Magic items are gleaned from the hoards of conquered monsters or discovered in long-lost vaults. Such items grant capabilities a character could rarely have otherwise, or they complement their owner’s capabilities in wondrous ways.
+tags:
+  - magic-items

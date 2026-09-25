@@ -7,3 +7,4 @@ effects:
 onCast:
   - kind: note
     text: { en: "A creature that enters the cylinder for the first time on a turn or starts its turn there makes the Constitution save. A shapechanger saves with disadvantage and, on a failure, reverts to its original form and can't change form until it leaves the light." }
+area: { shape: cylinder, radius: 5, height: 40 }

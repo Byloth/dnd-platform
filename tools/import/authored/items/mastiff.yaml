@@ -1,0 +1,12 @@
+id: srd51.item.mastiff
+name:
+  en: Mastiff
+source: srd51
+text:
+  en: "Speed 40 ft.; carrying capacity 195 lb."
+cost:
+  amount: 25
+  currency: gp
+type: gear
+tags:
+  - mount

@@ -11,3 +11,16 @@ cost:
   currency: gp
 weight: 5
 type: gear
+features:
+  - id: srd51.feature.item.crowbar.leverage
+    name:
+      en: Leverage
+    effects:
+      - kind: roll-advantage
+        on:
+          type: check
+          ability: str
+          against:
+            - Strength checks where the crowbar's leverage can be applied
+        note:
+          en: Only while you use the crowbar, on Strength checks where its leverage can be applied.

@@ -5,7 +5,7 @@ name:
   en: Bucket
 source: srd51
 text:
-  en: "A bucket. Capacity: 3 gallons liquid, 1/2 cubic foot solid."
+  en: "Capacity: 3 gallons liquid, 1/2 cubic foot solid."
 cost:
   amount: 0.05
   currency: gp

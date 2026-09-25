@@ -6,3 +6,11 @@ effects:
     when:
       armorCategory: none
       shield: false
+  - kind: add-text
+    section: features
+    text:
+      en: "Unarmored Movement: you gain the ability to move along vertical surfaces and across liquids on your turn without falling during the move."
+    when:
+      classLevel:
+        class: srd51.class.monk
+        min: 9

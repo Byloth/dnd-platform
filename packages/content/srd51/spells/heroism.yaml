@@ -31,3 +31,10 @@ effects:
       en: Gains temporary hit points equal to the caster's spellcasting ability modifier at the start of each of its turns; any remaining are lost when the spell ends.
     note:
       en: "Temporary hit points each turn cannot be expressed as tempHp: v0 formulas have no spellcasting-ability variable and spells have no onTurnStart."
+higherLevel:
+  en: When you cast this spell using a spell slot of 2nd level or higher, you can target one additional creature for each slot level above 1st.
+scaling:
+  by: slotLevel
+  from: 2
+  add:
+    targets: 1

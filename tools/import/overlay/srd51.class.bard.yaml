@@ -1,2 +1,10 @@
 # The class's primary abilities, as the SRD 5.1 multiclassing prerequisites name them.
 primaryAbilities: [cha]
+# Song of Rest: the table holds the dice expression, so the heal play effect can roll it.
+tables:
+  song-of-rest-die:
+    rows:
+      "2": 1d6
+      "9": 1d8
+      "13": 1d10
+      "17": 1d12

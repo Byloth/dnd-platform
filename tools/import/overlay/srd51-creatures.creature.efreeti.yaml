@@ -1,0 +1,38 @@
+traits:
+  - name:
+      en: Elemental Demise
+    text:
+      en: If the efreeti dies, its body disintegrates in a flash of fire and puff of smoke, leaving behind only equipment the efreeti was wearing or carrying.
+  - name:
+      en: Innate Spellcasting
+    text:
+      en: |-
+        The efreeti's innate spell casting ability is Charisma (spell save DC 15, +7 to hit with spell attacks). It can innately cast the following spells, requiring no material components:
+
+        At will: detect magic
+        3/day: enlarge/reduce, tongues
+        1/day each: conjure elemental (fire elemental only), gaseous form, invisibility, major image, plane shift, wall of fire
+    spellcasting:
+      ability: cha
+      dc: 15
+      attack: 7
+      innate: true
+      spells:
+        - spell: srd51.spell.detect-magic
+          atWill: true
+        - spell: srd51.spell.enlargereduce
+          perDay: 3
+        - spell: srd51.spell.tongues
+          perDay: 3
+        - spell: srd51.spell.conjure-elemental
+          perDay: 1
+        - spell: srd51.spell.gaseous-form
+          perDay: 1
+        - spell: srd51.spell.invisibility
+          perDay: 1
+        - spell: srd51.spell.major-image
+          perDay: 1
+        - spell: srd51.spell.plane-shift
+          perDay: 1
+        - spell: srd51.spell.wall-of-fire
+          perDay: 1

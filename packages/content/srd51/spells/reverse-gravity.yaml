@@ -13,7 +13,8 @@ range:
   distance: 100
 area:
   shape: cylinder
-  radius: 100
+  radius: 50
+  height: 100
 components:
   v: true
   s: true

@@ -24,6 +24,9 @@ rolls:
   - type: save
     ability: dex
     onSuccess: half
+  - type: damage
+    dice: "20"
+    damageType: radiant
 tags:
   - area
 effects:

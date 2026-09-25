@@ -1,0 +1,50 @@
+actions:
+  - name:
+      en: Multiattack
+    text:
+      en: The veteran makes two longsword attacks. If it has a shortsword drawn, it can also make a shortsword attack.
+    multiattack:
+      - action:
+          en: Longsword
+        count: 2
+      - action:
+          en: Shortsword
+        count: 1
+  - name:
+      en: Longsword
+    text:
+      en: "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 7 (1d8 + 3) slashing damage, or 8 (1d10 + 3) slashing damage if used with two hands."
+    attack:
+      kind: melee
+      source: weapon
+      bonus: 5
+      reach: 5
+    damage:
+      - dice: 1d8+3
+        damageType: slashing
+  - name:
+      en: Shortsword
+    text:
+      en: "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 6 (1d6 + 3) piercing damage."
+    attack:
+      kind: melee
+      source: weapon
+      bonus: 5
+      reach: 5
+    damage:
+      - dice: 1d6+3
+        damageType: piercing
+  - name:
+      en: Heavy Crossbow
+    text:
+      en: "Ranged Weapon Attack: +3 to hit, range 100/400 ft., one target. Hit: 6 (1d10 + 1) piercing damage."
+    attack:
+      kind: ranged
+      source: weapon
+      bonus: 3
+      range:
+        normal: 100
+        long: 400
+    damage:
+      - dice: 1d10+1
+        damageType: piercing

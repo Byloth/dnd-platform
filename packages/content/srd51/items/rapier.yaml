@@ -4,8 +4,6 @@ id: srd51.item.rapier
 name:
   en: Rapier
 source: srd51
-text:
-  en: A rapier.
 cost:
   amount: 25
   currency: gp

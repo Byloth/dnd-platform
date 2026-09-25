@@ -1,0 +1,13 @@
+id: srd51.item.saddle-exotic
+name:
+  en: "Saddle, exotic"
+source: srd51
+text:
+  en: "An exotic saddle is required for riding any aquatic or flying mount."
+cost:
+  amount: 60
+  currency: gp
+weight: 40
+type: gear
+tags:
+  - tack-and-harness

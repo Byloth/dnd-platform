@@ -9,3 +9,4 @@ onCast:
     target: other
     expires: { minutes: 1 }
     note: { en: "Your choice of blinded or deafened (apply only one)." }
+scaling: { by: slotLevel, from: 3, add: { targets: 1 } }

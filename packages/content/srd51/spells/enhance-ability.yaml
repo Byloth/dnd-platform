@@ -48,3 +48,8 @@ onCast:
     amount: 2d6
     note:
       en: Bear's Endurance only; lost when the spell ends. One additional target for each slot level above 2nd.
+scaling:
+  by: slotLevel
+  from: 3
+  add:
+    targets: 1

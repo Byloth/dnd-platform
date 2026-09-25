@@ -45,6 +45,15 @@ startingEquipment:
     - options:
         - - item: srd51.item.priests-pack
         - - item: srd51.item.explorers-pack
+  text:
+    en: |-
+      You start with the following equipment, in addition to the equipment granted by your background:
+
+      - (a) a mace or (b) a warhammer (if proficient)
+      - (a) scale mail, (b) leather armor, or (c) chain mail (if proficient)
+      - (a) a light crossbow and 20 bolts or (b) any simple weapon
+      - (a) a priest's pack or (b) an explorer's pack
+      - A shield and a holy symbol
 multiclass:
   prerequisites:
     wis: 13
@@ -163,6 +172,10 @@ levels:
               - resource: channel-divinity
                 amount: 1
             dc: 8 + proficiencyBonus + mod(wis)
+            rolls:
+              - type: save
+                ability: wis
+                dc: 8 + proficiencyBonus + mod(wis)
             range:
               type: point
               distance: 30

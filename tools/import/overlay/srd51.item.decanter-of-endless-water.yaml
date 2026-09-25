@@ -1,3 +1,4 @@
+weight: 2
 features:
   - id: srd51.feature.item.decanter-of-endless-water.pour
     name: { en: "Command words" }

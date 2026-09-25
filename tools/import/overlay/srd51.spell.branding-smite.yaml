@@ -1,0 +1,7 @@
+text: { en: "The next time you hit a creature with a weapon attack before this spell ends, the weapon gleams with astral radiance as you strike. The attack deals an extra 2d6 radiant damage to the target, which becomes visible if it's invisible, and the target sheds dim light in a 5-foot radius and can't become invisible until the spell ends." }
+scaling: { by: slotLevel, from: 3, add: { dice: 1d6 } }
+effects:
+  - kind: modify-attacks
+    set:
+      extraDamage: { dice: 2d6, damageType: radiant }
+    note: { en: "The next weapon hit only, then the extra damage ends; the target becomes visible, sheds dim light in a 5-foot radius and can't become invisible until the spell ends." }

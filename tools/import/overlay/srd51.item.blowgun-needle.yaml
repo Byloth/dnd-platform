@@ -1,0 +1,5 @@
+# SRD 5.1 sells Blowgun needles (50) for 1 gp and 1 lb: each needle is 1/50 of that (as srd51.item.blowgun-needles).
+cost:
+  amount: 0.02
+  currency: gp
+weight: 0.02

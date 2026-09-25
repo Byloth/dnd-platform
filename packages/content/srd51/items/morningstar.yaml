@@ -4,8 +4,6 @@ id: srd51.item.morningstar
 name:
   en: Morningstar
 source: srd51
-text:
-  en: A morningstar
 cost:
   amount: 15
   currency: gp

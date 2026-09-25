@@ -4,8 +4,6 @@ id: srd51.item.signal-whistle
 name:
   en: Signal whistle
 source: srd51
-text:
-  en: For signalling.
 cost:
   amount: 0.05
   currency: gp

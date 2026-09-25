@@ -24,5 +24,7 @@ features:
         on:
           type: check
           skill: stealth
+          against:
+            - checks that rely on moving silently
         note:
           en: Only on Dexterity (Stealth) checks that rely on moving silently; your steps make no sound regardless of the surface.

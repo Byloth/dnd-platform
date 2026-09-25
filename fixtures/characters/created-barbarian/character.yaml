@@ -4,10 +4,10 @@ id: fixture-created-barbarian
 name: Raging defender
 ruleset:
   id: srd51
-  version: 0.6.0
+  version: 0.7.0
 packages:
   - id: srd51
-    version: 0.6.0
+    version: 0.7.0
 choices:
   species: srd51.species.half-orc
   classes:
@@ -72,6 +72,12 @@ choices:
       equipped: false
     - item: srd51.item.amulet
       quantity: 1
+      equipped: false
+    - item: srd51.item.vestments
+      quantity: 1
+      equipped: false
+    - item: srd51.item.block-of-incense
+      quantity: 5
       equipped: false
 state:
   hp:
@@ -155,4 +161,10 @@ snapshots:
           equipped: false
         - item: srd51.item.amulet
           quantity: 1
+          equipped: false
+        - item: srd51.item.vestments
+          quantity: 1
+          equipped: false
+        - item: srd51.item.block-of-incense
+          quantity: 5
           equipped: false

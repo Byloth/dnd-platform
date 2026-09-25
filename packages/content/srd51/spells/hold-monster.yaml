@@ -15,19 +15,24 @@ components:
   v: true
   s: true
   m:
-    en: A small piece of iron.
+    en: A small, straight piece of iron.
 duration:
   type: timed
   minutes: 1
   concentration: true
 text:
-  en: Choose a creature you can see within range. The target must make a saving throw of Wisdom or be paralyzed for the duration of the spell. This spell has no effect against the undead. At the end of each round, the target can make a new saving throw of Wisdom. If successful, the spell ends for the creature.
+  en: Choose a creature that you can see within range. The target must succeed on a Wisdom saving throw or be paralyzed for the duration. This spell has no effect on undead. At the end of each of its turns, the target can make another Wisdom saving throw. On a success, the spell ends on the target.
 higherLevel:
-  en: When you cast this spell using a level 6 or higher location, you can target an additional creature for each level of location beyond the fifth. The creatures must be within 30 feet o f each other when you target them.
+  en: When you cast this spell using a spell slot of 6th level or higher, you can target one additional creature for each slot level above 5th. The creatures must be within 30 feet of each other when you target them.
 rolls:
   - type: save
     ability: wis
     onSuccess: none
+scaling:
+  by: slotLevel
+  from: 6
+  add:
+    targets: 1
 onCast:
   - kind: applyCondition
     condition: srd51.condition.paralyzed
@@ -36,4 +41,4 @@ onCast:
       minutes: 1
   - kind: note
     text:
-      en: On a failed Wisdom save; no effect against the undead. At the end of each round the target repeats the saving throw; on a success the spell ends for it. Each slot level above 5th targets one additional creature (within 30 feet of each other).
+      en: On a failed Wisdom save; no effect on undead. At the end of each of its turns the target can make another Wisdom saving throw; on a success the spell ends on it. Each slot level above 5th targets one additional creature (within 30 feet of each other).

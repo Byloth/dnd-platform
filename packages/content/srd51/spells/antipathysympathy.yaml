@@ -36,6 +36,8 @@ rolls:
   - type: save
     ability: wis
     onSuccess: none
+tags:
+  - area
 onCast:
   - kind: applyCondition
     condition: srd51.condition.frightened

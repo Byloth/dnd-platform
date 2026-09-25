@@ -1,0 +1,12 @@
+id: srd51.item.warhorse
+name:
+  en: Warhorse
+source: srd51
+text:
+  en: "Speed 60 ft.; carrying capacity 540 lb."
+cost:
+  amount: 400
+  currency: gp
+type: gear
+tags:
+  - mount

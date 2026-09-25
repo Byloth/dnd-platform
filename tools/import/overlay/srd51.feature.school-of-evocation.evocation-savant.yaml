@@ -1,0 +1,7 @@
+effects:
+  - kind: add-text
+    section: features
+    text:
+      en: The gold and time you must spend to copy an evocation spell into your spellbook is halved.
+    note:
+      en: Copying spells into a spellbook (see Your Spellbook) is resolved in play; no catalogue kind.

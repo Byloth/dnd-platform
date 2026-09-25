@@ -4,8 +4,6 @@ id: srd51.item.longsword
 name:
   en: Longsword
 source: srd51
-text:
-  en: A longsword
 cost:
   amount: 15
   currency: gp

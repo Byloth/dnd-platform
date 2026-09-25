@@ -15,7 +15,9 @@ components:
   v: true
   s: true
   m:
-    en: Incense worth 250 inches that fate consumes and four sticks of ivory worth 50 gp each.
+    en: Incense worth at least 250 gp, which the spell consumes, and four ivory strips worth at least 50 gp each.
+  cost: 250
+  consumed: true
 duration:
   type: instantaneous
 text:

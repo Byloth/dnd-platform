@@ -98,7 +98,7 @@ effects:
         name:
           en: Book of Ancient Secrets
         text:
-          en: "Prerequisite: Pact of the Tome feature. You can now inscribe magical rituals in your Book of Shadows. Choose two 1st-level spells that have the ritual tag from any class's spell list (the two needn't be from the same list). The spells appear in the book and don't count against the number of spells you know. With your Book of Shadows in hand, you can cast the chosen spells as rituals. You can't cast the spells except as rituals, unless you've learned them by some other means. You can also cast a warlock spell you know as a ritual if it has the ritual tag. On your adventures, you can add other ritual spells to your Book of Shadows if the spell's level is equal to or less than half your warlock level (rounded up); for each level of the spell, the transcription takes 2 hours and costs 50 gp."
+          en: "Prerequisite: Pact of the Tome feature. You can now inscribe magical rituals in your Book of Shadows. Choose two 1st-level spells that have the ritual tag from any class's spell list (the two needn't be from the same list). The spells appear in the book and don't count against the number of spells you know. With your Book of Shadows in hand, you can cast the chosen spells as rituals. You can't cast the spells except as rituals, unless you've learned them by some other means. You can also cast a warlock spell you know as a ritual if it has the ritual tag. On your adventures, you can add other ritual spells to your Book of Shadows. When you find such a spell, you can add it to the book if the spell's level is equal to or less than half your warlock level (rounded up) and if you can spare the time to transcribe the spell. For each level of the spell, the transcription process takes 2 hours and costs 50 gp for the rare inks needed to inscribe it."
         effects:
           - kind: open-choice
             choice: book-of-ancient-secrets
@@ -122,7 +122,7 @@ effects:
         name:
           en: Chains of Carceri
         text:
-          en: "Prerequisite: 15th level, Pact of the Chain feature. You can cast hold monster at will, targeting a celestial, fiend, or elemental, without expending a spell slot or material components. You must finish a long rest before you can use this invocation on the same creature again."
+          en: "Prerequisite: 15th level, Pact of the Chain feature. You can cast hold monster at will—targeting a celestial, fiend, or elemental—without expending a spell slot or material components. You must finish a long rest before you can use this invocation on the same creature again."
         effects:
           - kind: grant-spells
             spells:
@@ -534,3 +534,13 @@ effects:
           classLevel:
             class: srd51.class.warlock
             min: 15
+# The opening of the SRD's Eldritch Invocations list, kept here now that the list is no longer a feature of its own.
+text:
+  en: |-
+    In your study of occult lore, you have unearthed eldritch invocations, fragments of forbidden knowledge that imbue you with an abiding magical ability.
+
+    At 2nd level, you gain two eldritch invocations of your choice. Your invocation options are detailed at the end of the class description. When you gain certain warlock levels, you gain additional invocations of your choice, as shown in the Invocations Known column of the Warlock table.
+
+    Additionally, when you gain a level in this class, you can choose one of the invocations you know and replace it with another invocation that you could learn at that level.
+
+    If an eldritch invocation has prerequisites, you must meet them to learn it. You can learn the invocation at the same time that you meet its prerequisites. A level prerequisite refers to your level in this class.

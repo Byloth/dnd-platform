@@ -4,8 +4,6 @@ id: srd51.item.dart
 name:
   en: Dart
 source: srd51
-text:
-  en: A dart.
 cost:
   amount: 0.05
   currency: gp
@@ -20,4 +18,4 @@ properties:
 range:
   normal: 20
   long: 60
-monkWeapon: true
+ranged: true

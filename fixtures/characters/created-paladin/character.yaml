@@ -4,10 +4,10 @@ id: fixture-created-paladin
 name: Oathbound champion
 ruleset:
   id: srd51
-  version: 0.6.0
+  version: 0.7.0
 packages:
   - id: srd51
-    version: 0.6.0
+    version: 0.7.0
 choices:
   species: srd51.species.dragonborn
   classes:
@@ -70,13 +70,13 @@ choices:
       quantity: 1
       equipped: false
     - item: srd51.item.block-of-incense
-      quantity: 2
+      quantity: 7
       equipped: false
     - item: srd51.item.censer
       quantity: 1
       equipped: false
     - item: srd51.item.vestments
-      quantity: 1
+      quantity: 2
       equipped: false
     - item: srd51.item.clothes-common
       quantity: 1
@@ -164,13 +164,13 @@ snapshots:
           quantity: 1
           equipped: false
         - item: srd51.item.block-of-incense
-          quantity: 2
+          quantity: 7
           equipped: false
         - item: srd51.item.censer
           quantity: 1
           equipped: false
         - item: srd51.item.vestments
-          quantity: 1
+          quantity: 2
           equipped: false
         - item: srd51.item.clothes-common
           quantity: 1

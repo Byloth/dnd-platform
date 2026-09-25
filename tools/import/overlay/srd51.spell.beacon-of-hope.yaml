@@ -7,3 +7,4 @@ effects:
     section: features
     text: { en: "You regain the maximum number of hit points possible from any healing." }
     note: { en: "Maximised healing is not expressible in v0." }
+rolls: null

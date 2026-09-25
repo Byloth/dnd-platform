@@ -2,7 +2,7 @@
 # Mechanics come from tools/import/overlay/<entity-id>.yaml; edit those, then re-run `node tools/import/src/map.ts`.
 id: srd51.rule.combat-sequence.other-activities-on-your-turn
 name:
-  en: Other Actions on Your Turn
+  en: Other Activity on Your Turn
 source: srd51
 category: combat
 text:

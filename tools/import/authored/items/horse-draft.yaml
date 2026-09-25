@@ -1,0 +1,12 @@
+id: srd51.item.horse-draft
+name:
+  en: "Horse, draft"
+source: srd51
+text:
+  en: "Speed 40 ft.; carrying capacity 540 lb."
+cost:
+  amount: 50
+  currency: gp
+type: gear
+tags:
+  - mount

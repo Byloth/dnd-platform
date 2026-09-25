@@ -6,23 +6,18 @@ name:
 source: srd51
 text:
   en: |-
-    Wondrous item, rare (silver or brass), very rare (bronze) or legendary (iron)
+    Wondrous item, rare (silver or brass), very rare (bronze), or legendary (iron)
 
-    You can use an action to blow this horn. In response, warrior spirits from the Valhalla appear within 60 feet of you. They use the statistics of a berserker. They return to Valhalla after 1 hour or when they drop to 0 hit points. Once you use the horn, it can't be used again until 7 days have passed.
+    You can use an action to blow this horn. In response, warrior spirits from the Valhalla appear within 60 feet of you. They use the statistics of a berserker. They return to Valhalla after 1 hour or when they drop to 0 hit points. Once you use the horn, it can’t be used again until 7 days have passed.
 
-    Four types of horn of Valhalla are known to exist, each made of a different metal. The horn's type determines how many berserkers answer its summons, as well as the requirement for its use. The GM chooses the horn's type or determines it randomly.
+    Four types of _horn of Valhalla_ are known to exist, each made of a different metal. The horn’s type determines how many berserkers answer its summons, as well as the requirement for its use. The GM chooses the horn’s type or determines it randomly.
 
     | d100 | Horn Type | Berserkers Summoned | Requirement |
-
     |---|---|---|---|
-
-    | 01-40 | Silver | 2d4 + 2 | None |
-
-    | 41-75 | Brass | 3d4 + 3 | Proficiency with all simple weapons |
-
-    | 76-90 | Bronze | 4d4 + 4 | Proficiency with all medium armor |
-
-    | 91-00 | Iron | 5d4 + 5 | Proficiency with all martial weapons |
+    | 01–40 | Silver | 2d4 + 2 | None |
+    | 41–75 | Brass | 3d4 + 3 | Proficiency with all simple weapons |
+    | 76–90 | Bronze | 4d4 + 4 | Proficiency with all medium armor |
+    | 91–00 | Iron | 5d4 + 5 | Proficiency with all martial weapons |
 
     If you blow the horn without meeting its requirement, the summoned berserkers attack you. If you meet the requirement, they are friendly to you and your companions and follow your commands.
 type: wondrous
@@ -42,23 +37,114 @@ features:
     text:
       en: You can use an action to blow this horn. In response, warrior spirits from the Valhalla appear within 60 feet of you. They use the statistics of a berserker. They return to Valhalla after 1 hour or when they drop to 0 hit points. Once you use the horn, it can't be used again until 7 days have passed. The horn's type determines how many berserkers answer its summons and the requirement for its use (silver 2d4 + 2, none; brass 3d4 + 3, proficiency with all simple weapons; bronze 4d4 + 4, proficiency with all medium armor; iron 5d4 + 5, proficiency with all martial weapons). If you blow the horn without meeting its requirement, the summoned berserkers attack you.
     effects:
-      - kind: add-action
-        action: blow-the-horn
-        name:
-          en: Blow the Horn
-        activation: action
-        cost:
-          - resource: charges
-            amount: 1
-        range:
-          type: point
-          distance: 60
-        duration:
-          type: timed
-          hours: 1
-        onUse:
-          - kind: note
+      - kind: open-choice
+        choice: variant
+        of: option
+        count: 1
+        note:
+          en: The horn's type determines how many berserkers answer its summons, as well as the requirement for its use.
+        options:
+          - id: silver
+            name:
+              en: Silver (rare)
             text:
-              en: Berserkers (stat block) appear within 60 feet for 1 hour or until they drop to 0 hit points. Silver 2d4 + 2 (no requirement), brass 3d4 + 3 (proficiency with all simple weapons), bronze 4d4 + 4 (proficiency with all medium armor), iron 5d4 + 5 (proficiency with all martial weapons). Without the requirement they attack you. The horn can't be used again until 7 days have passed; restore its charge by hand.
-        text:
-          en: Blow the horn to summon berserker spirits within 60 feet for 1 hour. Usable once every 7 days.
+              en: "Berserkers summoned: 2d4 + 2. Requirement: none."
+            effects:
+              - kind: add-action
+                action: blow-the-horn
+                name:
+                  en: Blow the Horn
+                activation: action
+                cost:
+                  - resource: charges
+                    amount: 1
+                range:
+                  type: point
+                  distance: 60
+                duration:
+                  type: timed
+                  hours: 1
+                onUse:
+                  - kind: note
+                    text:
+                      en: "2d4 + 2 berserkers (stat block) appear within 60 feet of you for 1 hour or until they drop to 0 hit points. There is no requirement: they are friendly to you and your companions and follow your commands. The horn can't be used again until 7 days have passed; restore its charge by hand."
+                text:
+                  en: Blow the horn to summon 2d4 + 2 berserker spirits within 60 feet for 1 hour. Usable once every 7 days.
+          - id: brass
+            name:
+              en: Brass (rare)
+            text:
+              en: "Berserkers summoned: 3d4 + 3. Requirement: proficiency with all simple weapons."
+            effects:
+              - kind: add-action
+                action: blow-the-horn
+                name:
+                  en: Blow the Horn
+                activation: action
+                cost:
+                  - resource: charges
+                    amount: 1
+                range:
+                  type: point
+                  distance: 60
+                duration:
+                  type: timed
+                  hours: 1
+                onUse:
+                  - kind: note
+                    text:
+                      en: 3d4 + 3 berserkers (stat block) appear within 60 feet of you for 1 hour or until they drop to 0 hit points. If you lack proficiency with all simple weapons, they attack you; otherwise they are friendly to you and your companions and follow your commands. The horn can't be used again until 7 days have passed; restore its charge by hand.
+                text:
+                  en: Blow the horn to summon 3d4 + 3 berserker spirits within 60 feet for 1 hour. Usable once every 7 days.
+          - id: bronze
+            name:
+              en: Bronze (very rare)
+            text:
+              en: "Berserkers summoned: 4d4 + 4. Requirement: proficiency with all medium armor."
+            effects:
+              - kind: add-action
+                action: blow-the-horn
+                name:
+                  en: Blow the Horn
+                activation: action
+                cost:
+                  - resource: charges
+                    amount: 1
+                range:
+                  type: point
+                  distance: 60
+                duration:
+                  type: timed
+                  hours: 1
+                onUse:
+                  - kind: note
+                    text:
+                      en: 4d4 + 4 berserkers (stat block) appear within 60 feet of you for 1 hour or until they drop to 0 hit points. If you lack proficiency with all medium armor, they attack you; otherwise they are friendly to you and your companions and follow your commands. The horn can't be used again until 7 days have passed; restore its charge by hand.
+                text:
+                  en: Blow the horn to summon 4d4 + 4 berserker spirits within 60 feet for 1 hour. Usable once every 7 days.
+          - id: iron
+            name:
+              en: Iron (legendary)
+            text:
+              en: "Berserkers summoned: 5d4 + 5. Requirement: proficiency with all martial weapons."
+            effects:
+              - kind: add-action
+                action: blow-the-horn
+                name:
+                  en: Blow the Horn
+                activation: action
+                cost:
+                  - resource: charges
+                    amount: 1
+                range:
+                  type: point
+                  distance: 60
+                duration:
+                  type: timed
+                  hours: 1
+                onUse:
+                  - kind: note
+                    text:
+                      en: 5d4 + 5 berserkers (stat block) appear within 60 feet of you for 1 hour or until they drop to 0 hit points. If you lack proficiency with all martial weapons, they attack you; otherwise they are friendly to you and your companions and follow your commands. The horn can't be used again until 7 days have passed; restore its charge by hand.
+                text:
+                  en: Blow the horn to summon 5d4 + 5 berserker spirits within 60 feet for 1 hour. Usable once every 7 days.

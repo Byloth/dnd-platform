@@ -671,7 +671,7 @@
     "packages": [
       {
         "id": "srd51",
-        "version": "0.6.0"
+        "version": "0.7.0"
       }
     ],
     "ruleset": "srd51"
@@ -903,15 +903,6 @@
     },
     {
       "expertise": false,
-      "item": "hand-crossbows",
-      "source": {
-        "entity": "srd51.class.rogue",
-        "package": "srd51"
-      },
-      "type": "tool"
-    },
-    {
-      "expertise": false,
       "item": "thieves-tools",
       "source": {
         "entity": "srd51.class.rogue",
@@ -928,6 +919,15 @@
         "package": "srd51"
       },
       "type": "tool"
+    },
+    {
+      "expertise": false,
+      "item": "hand-crossbow",
+      "source": {
+        "entity": "srd51.class.rogue",
+        "package": "srd51"
+      },
+      "type": "weapon"
     },
     {
       "expertise": false,

@@ -29,6 +29,9 @@ rolls:
   - type: damage
     dice: 4d6
     damageType: fire
+  - type: damage
+    dice: 4d6
+    damageType: radiant
 scaling:
   by: slotLevel
   from: 6
@@ -36,3 +39,7 @@ scaling:
     dice: 1d6
 tags:
   - area
+area:
+  shape: cylinder
+  radius: 10
+  height: 40

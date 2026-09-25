@@ -38,6 +38,49 @@
           }
         }
       ],
+      "rolls": [
+        {
+          "ability": "wis",
+          "bonus": {
+            "provenance": [
+              {
+                "applied": true,
+                "formula": "mod(wis)",
+                "kind": "base",
+                "label": {
+                  "en": "Roll bonus"
+                },
+                "source": {
+                  "effectIndex": 1,
+                  "entity": "srd51.class.cleric",
+                  "feature": "srd51.feature.cleric.channel-divinity",
+                  "package": "srd51"
+                },
+                "value": 5
+              }
+            ],
+            "value": 5
+          },
+          "dc": {
+            "provenance": [
+              {
+                "applied": true,
+                "formula": "8 + proficiencyBonus + mod(wis)",
+                "kind": "base",
+                "label": {
+                  "en": "Save DC"
+                },
+                "source": {
+                  "package": "srd51"
+                },
+                "value": 17
+              }
+            ],
+            "value": 17
+          },
+          "type": "save"
+        }
+      ],
       "source": {
         "effectIndex": 1,
         "entity": "srd51.class.cleric",
@@ -1060,7 +1103,7 @@
     "packages": [
       {
         "id": "srd51",
-        "version": "0.6.0"
+        "version": "0.7.0"
       }
     ],
     "ruleset": "srd51"

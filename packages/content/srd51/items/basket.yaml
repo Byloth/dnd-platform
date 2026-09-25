@@ -5,7 +5,7 @@ name:
   en: Basket
 source: srd51
 text:
-  en: "A basket. Capacity: 2 cubic feet/40 pounds of gear."
+  en: "Capacity: 2 cubic feet/40 pounds of gear."
 cost:
   amount: 0.4
   currency: gp

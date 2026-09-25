@@ -1,0 +1,8 @@
+# SRD 5.1 Adventuring Gear: advantage only on checks to appraise or inspect a small or highly detailed item.
+features:
+  - id: srd51.feature.item.magnifying-glass.closer-look
+    name: { en: "Closer look" }
+    effects:
+      - kind: roll-advantage
+        on: { type: check, against: ["ability checks made to appraise or inspect an item that is small or highly detailed"] }
+        note: { en: "Only while you use the magnifying glass, on ability checks made to appraise or inspect an item that is small or highly detailed." }

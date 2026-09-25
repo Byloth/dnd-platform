@@ -4,11 +4,9 @@ id: srd51.item.sling-bullets
 name:
   en: Sling bullets
 source: srd51
-text:
-  en: Technically their cost is 20 for 4cp.
 cost:
-  amount: 0.01
-  currency: gp
+  amount: 0.2
+  currency: cp
 weight: 0.075
 type: ammunition
 tags:

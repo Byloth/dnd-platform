@@ -1,0 +1,20 @@
+senses:
+  passivePerception: 10
+actions:
+  - name:
+      en: Bite
+    text:
+      en: "Melee Weapon Attack: +4 to hit, reach 5 ft., one creature. Hit: 1 piercing damage, and the target must succeed on a DC 9 Constitution saving throw or take 2 (1d4) poison damage."
+    attack:
+      kind: melee
+      source: weapon
+      bonus: 4
+      reach: 5
+    damage:
+      - dice: 1
+        damageType: piercing
+      - dice: 1d4
+        damageType: poison
+    save:
+      ability: con
+      dc: 9

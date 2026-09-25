@@ -4,8 +4,6 @@ id: srd51.item.halberd
 name:
   en: Halberd
 source: srd51
-text:
-  en: A halberd.
 cost:
   amount: 20
   currency: gp

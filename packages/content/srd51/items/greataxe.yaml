@@ -4,8 +4,6 @@ id: srd51.item.greataxe
 name:
   en: Greataxe
 source: srd51
-text:
-  en: A greataxe.
 cost:
   amount: 30
   currency: gp

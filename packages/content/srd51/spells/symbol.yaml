@@ -19,6 +19,8 @@ components:
   s: true
   m:
     en: Mercury, phosphorus, and powdered diamond and opal with a total value of at least 1,000 gp, which the spell consumes.
+  cost: 1000
+  consumed: true
 duration:
   type: until-dispelled
 text:
@@ -40,9 +42,9 @@ text:
     **Sleep.** Each target must make a wisdom saving throw and falls unconscious for 10 minutes on a failed save. A creature awakens if it takes damage or if someone uses an action to shake or slap it awake.
 
     **Stunning.** Each target must make a wisdom saving throw and becomes stunned for 1 minute on a failed save.
-rolls:
-  - type: save
-    ability: int
-    onSuccess: none
 tags:
   - area
+onCast:
+  - kind: note
+    text:
+      en: "Each glyph has its own saving throw: Death (Constitution, 10d10 necrotic, half on a success), Discord (Constitution), Fear (Wisdom), Hopelessness (Charisma), Insanity (Intelligence), Pain (Constitution), Sleep (Wisdom), Stunning (Wisdom)."

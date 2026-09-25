@@ -4,8 +4,6 @@ id: srd51.item.crossbow-heavy
 name:
   en: Crossbow, heavy
 source: srd51
-text:
-  en: A heavy crossbow
 cost:
   amount: 50
   currency: gp

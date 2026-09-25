@@ -5,6 +5,10 @@ effects:
       en: Intimidating Presence
     activation: action
     dc: 8 + proficiencyBonus + mod(cha)
+    rolls:
+      - type: save
+        ability: wis
+        dc: 8 + proficiencyBonus + mod(cha)
     range:
       type: point
       distance: 30

@@ -4,8 +4,6 @@ id: srd51.item.mirror-steel
 name:
   en: Mirror, steel
 source: srd51
-text:
-  en: A mirror.
 cost:
   amount: 5
   currency: gp

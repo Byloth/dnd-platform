@@ -5,7 +5,7 @@ name:
   en: Barrel
 source: srd51
 text:
-  en: "A barrel. Capacity: 40 gallons liquid, 4 cubic feet solid."
+  en: "Capacity: 40 gallons liquid, 4 cubic feet solid."
 cost:
   amount: 2
   currency: gp

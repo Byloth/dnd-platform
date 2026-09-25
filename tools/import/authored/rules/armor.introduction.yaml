@@ -1,0 +1,22 @@
+id: srd51.rule.armor.introduction
+name:
+  en: Armor
+source: srd51
+category: general
+text:
+  en: |-
+    Fantasy gaming worlds are a vast tapestry made up of many different cultures, each with its own technology level. For this reason, adventurers have access to a variety of armor types, ranging from leather armor to chain mail to costly plate armor, with several other kinds of armor in between. The Armor table collects the most commonly available types of armor found in the game and separates them into three categories: light armor, medium armor, and heavy armor. Many warriors supplement their armor with a shield.
+
+    The Armor table shows the cost, weight, and other properties of the common types of armor worn in fantasy gaming worlds.
+
+    **_Armor Proficiency._** Anyone can put on a suit of armor or strap a shield to an arm. Only those proficient in the armor’s use know how to wear it effectively, however. Your class gives you proficiency with certain types of armor. If you wear armor that you lack proficiency with, you have disadvantage on any ability check, saving throw, or attack roll that involves Strength or Dexterity, and you can’t cast spells.
+
+    **_Armor Class (AC)._** Armor protects its wearer from attacks. The armor (and shield) you wear determines your base Armor Class.
+
+    **_Heavy Armor._** Heavier armor interferes with the wearer’s ability to move quickly, stealthily, and freely. If the Armor table shows “Str 13” or “Str 15” in the Strength column for an armor type, the armor reduces the wearer’s speed by 10 feet unless the wearer has a Strength score equal to or higher than the listed score.
+
+    **_Stealth._** If the Armor table shows “Disadvantage” in the Stealth column, the wearer has disadvantage on Dexterity (Stealth) checks.
+
+    **_Shields._** A shield is made from wood or metal and is carried in one hand. Wielding a shield increases your Armor Class by 2. You can benefit from only one shield at a time.
+tags:
+  - armor

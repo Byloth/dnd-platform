@@ -2,10 +2,10 @@
 # Mechanics come from tools/import/overlay/<entity-id>.yaml; edit those, then re-run `node tools/import/src/map.ts`.
 id: srd51.rule.multiclassing.proficiency-bonus
 name:
-  en: Hit Points and Hit Dice
+  en: Proficiency Bonus
 source: srd51
 category: general
 text:
-  en: Your proficiency bonus is always based on your total character level, as shown in the Character Advancement table in chapter 1, not your level in a particular class. For example, if you are a fighter 3/rogue 2, you have the proficiency bonus of a 5th- level character, which is +3.
+  en: Your proficiency bonus is always based on your total character level, as shown in the Character Advancement table, not your level in a particular class. For example, if you are a fighter 3/rogue 2, you have the proficiency bonus of a 5th-level character, which is +3.
 tags:
   - multiclassing

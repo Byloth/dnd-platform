@@ -4,8 +4,6 @@ id: srd51.item.crossbow-hand
 name:
   en: Crossbow, hand
 source: srd51
-text:
-  en: A hand crossbow.
 cost:
   amount: 75
   currency: gp

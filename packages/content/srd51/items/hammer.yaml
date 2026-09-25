@@ -4,8 +4,6 @@ id: srd51.item.hammer
 name:
   en: Hammer
 source: srd51
-text:
-  en: A hammer.
 cost:
   amount: 1
   currency: gp

@@ -1,0 +1,28 @@
+actions:
+  - name:
+      en: Bite
+    text:
+      en: "Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 11 (2d6 + 4) piercing damage. If the target is a creature, it must succeed on a DC 14 Strength saving throw or be knocked prone."
+    attack:
+      kind: melee
+      source: weapon
+      bonus: 6
+      reach: 5
+    damage:
+      - dice: 2d6+4
+        damageType: piercing
+    save:
+      ability: str
+      dc: 14
+  - name:
+      en: Cold Breath
+    text:
+      en: The wolf exhales a blast of freezing wind in a 15-foot cone. Each creature in that area must make a DC 12 Dexterity saving throw, taking 18 (4d8) cold damage on a failed save, or half as much damage on a successful one.
+    usage:
+      recharge: 5
+    damage:
+      - dice: 4d8
+        damageType: cold
+    save:
+      ability: dex
+      dc: 12

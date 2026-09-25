@@ -1,0 +1,11 @@
+traits:
+  - name:
+      en: Brute
+    text:
+      en: A melee weapon deals one extra die of its damage when the bugbear hits with it (included in the attack).
+  - name:
+      en: Surprise Attack
+    text:
+      en: If the bugbear surprises a creature and hits it with an attack during the first round of combat, the target takes an extra 7 (2d6) damage from the attack.
+    damage:
+      - dice: 2d6

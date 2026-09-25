@@ -29,5 +29,8 @@ rolls:
   - type: damage
     dice: 20d6
     damageType: fire
+  - type: damage
+    dice: 20d6
+    damageType: bludgeoning
 tags:
   - area

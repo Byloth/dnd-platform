@@ -4,8 +4,6 @@ id: srd51.item.clothes-fine
 name:
   en: Clothes, fine
 source: srd51
-text:
-  en: Fine clothing.
 cost:
   amount: 15
   currency: gp

@@ -172,6 +172,49 @@
           }
         }
       ],
+      "rolls": [
+        {
+          "ability": "wis",
+          "bonus": {
+            "provenance": [
+              {
+                "applied": true,
+                "formula": "mod(wis)",
+                "kind": "base",
+                "label": {
+                  "en": "Roll bonus"
+                },
+                "source": {
+                  "effectIndex": 0,
+                  "entity": "srd51.subclass.barbarian.path-of-the-berserker",
+                  "feature": "srd51.feature.path-of-the-berserker.intimidating-presence",
+                  "package": "srd51"
+                },
+                "value": 0
+              }
+            ],
+            "value": 0
+          },
+          "dc": {
+            "provenance": [
+              {
+                "applied": true,
+                "formula": "8 + proficiencyBonus + mod(cha)",
+                "kind": "base",
+                "label": {
+                  "en": "Save DC"
+                },
+                "source": {
+                  "package": "srd51"
+                },
+                "value": 15
+              }
+            ],
+            "value": 15
+          },
+          "type": "save"
+        }
+      ],
       "source": {
         "effectIndex": 0,
         "entity": "srd51.subclass.barbarian.path-of-the-berserker",
@@ -1106,7 +1149,7 @@
     "packages": [
       {
         "id": "srd51",
-        "version": "0.6.0"
+        "version": "0.7.0"
       }
     ],
     "ruleset": "srd51"

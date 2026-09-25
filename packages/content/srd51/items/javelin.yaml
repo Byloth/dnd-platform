@@ -4,8 +4,6 @@ id: srd51.item.javelin
 name:
   en: Javelin
 source: srd51
-text:
-  en: A javelin
 cost:
   amount: 0.5
   currency: gp

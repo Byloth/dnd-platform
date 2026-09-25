@@ -2,7 +2,7 @@
 # Mechanics come from tools/import/overlay/<entity-id>.yaml; edit those, then re-run `node tools/import/src/map.ts`.
 id: srd51.rule.attacking.ranged-attacks
 name:
-  en: Rnged Attacks
+  en: Ranged Attacks
 source: srd51
 category: combat
 text:

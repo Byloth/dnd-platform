@@ -2,7 +2,7 @@
   "actions": [
     {
       "activation": "bonus-action",
-      "available": true,
+      "available": false,
       "cost": [],
       "id": "martial-arts-strike",
       "name": {
@@ -265,7 +265,7 @@
         "en": "Dart"
       },
       "proficient": true,
-      "ranged": false,
+      "ranged": true,
       "unarmed": false
     },
     {
@@ -319,7 +319,7 @@
         "value": 2
       },
       "damageDice": "1d6",
-      "damageType": "slashing",
+      "damageType": "piercing",
       "extraDamage": [],
       "id": "shortsword",
       "item": "srd51.item.shortsword",
@@ -332,20 +332,20 @@
       "unarmed": false
     },
     {
-      "ability": "dex",
+      "ability": "str",
       "attackBonus": {
         "provenance": [
           {
             "applied": true,
             "kind": "base",
             "label": {
-              "en": "Dexterity modifier"
+              "en": "Strength modifier"
             },
             "source": {
               "entity": "srd51.ruleset",
               "package": "srd51"
             },
-            "value": 2
+            "value": 1
           },
           {
             "applied": true,
@@ -360,28 +360,28 @@
             "value": 2
           }
         ],
-        "value": 4
+        "value": 3
       },
       "critRange": 20,
-      "damage": "1d4 + 2",
+      "damage": "2",
       "damageBonus": {
         "provenance": [
           {
             "applied": true,
             "kind": "base",
             "label": {
-              "en": "Dexterity modifier"
+              "en": "Strength modifier"
             },
             "source": {
               "entity": "srd51.ruleset",
               "package": "srd51"
             },
-            "value": 2
+            "value": 1
           }
         ],
-        "value": 2
+        "value": 1
       },
-      "damageDice": "1d4",
+      "damageDice": "1",
       "damageType": "bludgeoning",
       "extraDamage": [],
       "id": "unarmed-strike",
@@ -442,8 +442,6 @@
         "tinkers-tools",
         "weavers-tools",
         "woodcarvers-tools",
-        "disguise-kit",
-        "forgery-kit",
         "bagpipes",
         "drum",
         "dulcimer",
@@ -776,7 +774,7 @@
     "packages": [
       {
         "id": "srd51",
-        "version": "0.6.0"
+        "version": "0.7.0"
       }
     ],
     "ruleset": "srd51"

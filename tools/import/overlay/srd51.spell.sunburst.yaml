@@ -4,3 +4,4 @@ onCast:
     target: other
     expires: { minutes: 1 }
     note: { en: "On a failed save; undead and oozes save with disadvantage. A blinded creature repeats the Constitution saving throw at the end of each of its turns and is no longer blinded on a success. The spell dispels any magical darkness in its area." }
+area: { shape: sphere, radius: 60 }

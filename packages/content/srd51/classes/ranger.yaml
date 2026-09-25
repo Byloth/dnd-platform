@@ -32,6 +32,7 @@ startingEquipment:
     - item: srd51.item.longbow
     - item: srd51.item.arrow
       quantity: 20
+    - item: srd51.item.quiver
   choices:
     - options:
         - - item: srd51.item.scale-mail
@@ -750,6 +751,15 @@ levels:
               en: You can't take a Fighting Style option more than once, even if you later get to choose again.
             options:
               - id: archery
+                prerequisites:
+                  not:
+                    any:
+                      - answer:
+                          choice: srd51.feature.fighter.fighting-style#fighting-style
+                          is: archery
+                      - answer:
+                          choice: srd51.feature.champion.additional-fighting-style#additional-fighting-style
+                          is: archery
                 name:
                   en: Archery
                 text:
@@ -761,6 +771,18 @@ levels:
                     set:
                       attackBonus: 2
               - id: defense
+                prerequisites:
+                  not:
+                    any:
+                      - answer:
+                          choice: srd51.feature.fighter.fighting-style#fighting-style
+                          is: defense
+                      - answer:
+                          choice: srd51.feature.champion.additional-fighting-style#additional-fighting-style
+                          is: defense
+                      - answer:
+                          choice: srd51.feature.paladin.fighting-style#fighting-style
+                          is: defense
                 name:
                   en: Defense
                 text:
@@ -776,6 +798,18 @@ levels:
                         - armorCategory: medium
                         - armorCategory: heavy
               - id: dueling
+                prerequisites:
+                  not:
+                    any:
+                      - answer:
+                          choice: srd51.feature.fighter.fighting-style#fighting-style
+                          is: dueling
+                      - answer:
+                          choice: srd51.feature.champion.additional-fighting-style#additional-fighting-style
+                          is: dueling
+                      - answer:
+                          choice: srd51.feature.paladin.fighting-style#fighting-style
+                          is: dueling
                 name:
                   en: Dueling
                 text:
@@ -791,6 +825,15 @@ levels:
                         melee: true
                         count: 1
               - id: two-weapon-fighting
+                prerequisites:
+                  not:
+                    any:
+                      - answer:
+                          choice: srd51.feature.fighter.fighting-style#fighting-style
+                          is: two-weapon-fighting
+                      - answer:
+                          choice: srd51.feature.champion.additional-fighting-style#additional-fighting-style
+                          is: two-weapon-fighting
                 name:
                   en: Two-Weapon Fighting
                 text:
@@ -808,7 +851,7 @@ levels:
         source: srd51
         text:
           en: |-
-            By the time you reach 2nd level, you have learned to use the magical essence of nature to cast spells, much as a druid does. See chapter 10 for the general rules of spellcasting and chapter 11 for the ranger spell list.
+            By the time you reach 2nd level, you have learned to use the magical essence of nature to cast spells, much as a druid does.
 
             ### Spell Slots
 
@@ -874,7 +917,12 @@ levels:
           en: Ranger Archetype
         source: srd51
         text:
-          en: "At 3rd level, you choose an archetype that you strive to emulate: Hunter or Beast Master, both detailed at the end of the class description. Your choice grants you features at 3rd level and again at 7th, 11th, and 15th level."
+          en: |-
+            At 3rd level, you choose an archetype that you strive to emulate, such as the Hunter. Your choice grants you features at 3rd level and again at 7th, 11th, and 15th level.
+
+            ### Ranger Archetypes
+
+            A classic expression of the ranger ideal is the Hunter.
     choices:
       - id: ranger-archetype
         of: subclass

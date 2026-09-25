@@ -1,0 +1,8 @@
+resistances:
+  - radiant
+  - types:
+      - bludgeoning
+      - piercing
+      - slashing
+    note:
+      en: from nonmagical attacks

@@ -1,3 +1,4 @@
+weight: 1
 features:
   - id: srd51.feature.item.efreeti-bottle.open
     name: { en: "Open the bottle" }

@@ -1,0 +1,7 @@
+resistances:
+  - types:
+      - bludgeoning
+      - piercing
+      - slashing
+    note:
+      en: from nonmagical attacks that aren't adamantine

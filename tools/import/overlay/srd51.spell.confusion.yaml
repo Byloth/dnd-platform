@@ -1,0 +1,2 @@
+area: { shape: sphere, radius: 10 }
+components: { m: { en: "Three nut shells." } }

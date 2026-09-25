@@ -1,0 +1,60 @@
+xp: 100
+traits:
+  - name:
+      en: Stone Camouflage
+    text:
+      en: The gnome has advantage on Dexterity (Stealth) checks made to hide in rocky terrain.
+  - name:
+      en: Gnome Cunning
+    text:
+      en: The gnome has advantage on Intelligence, Wisdom, and Charisma saving throws against magic.
+  - name:
+      en: Innate Spellcasting
+    text:
+      en: |-
+        The gnome's innate spellcasting ability is Intelligence (spell save DC 11). It can innately cast the following spells, requiring no material components:
+        At will: nondetection (self only)
+        1/day each: blindness/deafness, blur, disguise self
+    spellcasting:
+      ability: int
+      dc: 11
+      innate: true
+      spells:
+        - spell: srd51.spell.nondetection
+          atWill: true
+        - spell: srd51.spell.blindnessdeafness
+          perDay: 1
+        - spell: srd51.spell.blur
+          perDay: 1
+        - spell: srd51.spell.disguise-self
+          perDay: 1
+actions:
+  - name:
+      en: War Pick
+    text:
+      en: "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 6 (1d8 + 2) piercing damage."
+    attack:
+      kind: melee
+      source: weapon
+      bonus: 4
+      reach: 5
+    damage:
+      - dice: 1d8+2
+        damageType: piercing
+  - name:
+      en: Poisoned Dart
+    text:
+      en: "Ranged Weapon Attack: +4 to hit, range 30/120 ft., one creature. Hit: 4 (1d4 + 2) piercing damage, and the target must succeed on a DC 12 Constitution saving throw or be poisoned for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success"
+    attack:
+      kind: ranged
+      source: weapon
+      bonus: 4
+      range:
+        normal: 30
+        long: 120
+    damage:
+      - dice: 1d4+2
+        damageType: piercing
+    save:
+      ability: con
+      dc: 12

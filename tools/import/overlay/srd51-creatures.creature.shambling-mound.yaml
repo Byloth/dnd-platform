@@ -1,0 +1,38 @@
+conditionImmunities:
+  - srd51.condition.blinded
+  - srd51.condition.deafened
+  - srd51.condition.exhaustion
+actions:
+  - name:
+      en: Multiattack
+    text:
+      en: The shambling mound makes two slam attacks. If both attacks hit a Medium or smaller target, the target is grappled (escape DC 14), and the shambling mound uses its Engulf on it.
+    multiattack:
+      - action:
+          en: Slam
+        count: 2
+      - action:
+          en: Engulf
+        count: 1
+  - name:
+      en: Slam
+    text:
+      en: "Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 13 (2d8 + 4) bludgeoning damage."
+    attack:
+      kind: melee
+      source: weapon
+      bonus: 7
+      reach: 5
+    damage:
+      - dice: 2d8+4
+        damageType: bludgeoning
+  - name:
+      en: Engulf
+    text:
+      en: The shambling mound engulfs a Medium or smaller creature grappled by it. The engulfed target is blinded, restrained, and unable to breathe, and it must succeed on a DC 14 Constitution saving throw at the start of each of the mound's turns or take 13 (2d8 + 4) bludgeoning damage. If the mound moves, the engulfed target moves with it. The mound can have only one creature engulfed at a time.
+    save:
+      ability: con
+      dc: 14
+    damage:
+      - dice: 2d8+4
+        damageType: bludgeoning

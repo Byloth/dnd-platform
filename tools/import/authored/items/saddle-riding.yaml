@@ -1,0 +1,11 @@
+id: srd51.item.saddle-riding
+name:
+  en: "Saddle, riding"
+source: srd51
+cost:
+  amount: 10
+  currency: gp
+weight: 25
+type: gear
+tags:
+  - tack-and-harness

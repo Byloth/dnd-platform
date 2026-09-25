@@ -15,7 +15,7 @@ components:
   v: true
   s: true
   m:
-    en: A burst of mica.
+    en: A chip of mica.
 duration:
   type: instantaneous
 text:
@@ -36,3 +36,6 @@ scaling:
     dice: 1d8
 tags:
   - area
+area:
+  shape: sphere
+  radius: 10

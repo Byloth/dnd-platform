@@ -1,6 +1,6 @@
 TWIN CANDLE
 Human · Cleric 5, Life Domain · Wizard 5, School of Evocation  —  level 10
-Ruleset srd51 · packages srd51 0.6.0
+Ruleset srd51 · packages srd51 0.7.0
 
 CORE
 ────────────────────────────────────────────────────────────────────────────────────────────────────
@@ -57,7 +57,7 @@ ATTACKS
 ACTIONS
 ────────────────────────────────────────────────────────────────────────────────────────────────────
   Actions
-    Channel Divinity: Turn Undead    1 channel-divinity  DC 15
+    Channel Divinity: Turn Undead    1 channel-divinity  DC 15 · save DC 15
     Channel Divinity: Preserve Life  1 channel-divinity
   Special
     Arcane Recovery  1 arcane-recovery
@@ -122,6 +122,8 @@ FEATURES & TRAITS
     8th, 2 at 11th, 3 at 14th, 4 at 17th. (Destroy Undead)
   • Whenever you use a spell of 1st level or higher to restore hit points to a creature, the
     creature regains additional hit points equal to 2 + the spell's level. (Disciple of Life)
+  • The gold and time you must spend to copy an evocation spell into your spellbook is halved.
+    (Evocation Savant)
   • When you cast an evocation spell that affects other creatures that you can see, you can choose a
     number of them equal to 1 + the spell's level. The chosen creatures automatically succeed on
     their saving throws against the spell, and they take no damage if they would normally take half
@@ -139,7 +141,7 @@ NOTES
 
 CREDITS
 ────────────────────────────────────────────────────────────────────────────────────────────────────
-  System Reference Document 5.1 (srd51 0.6.0)
+  System Reference Document 5.1 (srd51 0.7.0)
     System Reference Document 5.1, Wizards of the Coast — CC-BY-4.0. This work includes material
     taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and
     available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is

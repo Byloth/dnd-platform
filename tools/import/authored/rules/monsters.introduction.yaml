@@ -1,0 +1,9 @@
+id: srd51.rule.monsters.introduction
+name:
+  en: Monsters
+source: srd51
+category: general
+text:
+  en: A monster’s statistics, sometimes referred to as its stat block, provide the essential information that you need to run the monster.
+tags:
+  - monsters

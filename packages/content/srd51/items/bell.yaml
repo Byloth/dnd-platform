@@ -4,8 +4,6 @@ id: srd51.item.bell
 name:
   en: Bell
 source: srd51
-text:
-  en: A bell.
 cost:
   amount: 1
   currency: gp

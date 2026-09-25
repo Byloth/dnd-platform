@@ -6,3 +6,6 @@ onCast:
     note: { en: "When you cast the spell and at the end of each turn you spend concentrating on it, each creature on the ground in the area makes a Dexterity saving throw, falling prone on a failure." }
   - kind: note
     text: { en: "Each creature on the ground that is concentrating makes a Constitution saving throw or loses concentration. The ground is difficult terrain. Fissures (1d6 of them, each 1d10 x 10 feet deep) open at the start of your next turn: a creature standing where one opens makes a Dexterity saving throw or falls in. Structures take 50 bludgeoning damage when you cast the spell and at the start of each of your turns; when one collapses, creatures within half its height make a Dexterity saving throw, taking 5d6 bludgeoning damage, falling prone and being buried (DC 20 Strength (Athletics) check as an action to escape) on a failure, or half damage on a success." }
+rolls:
+  - { type: save, ability: dex, onSuccess: half }
+  - { type: damage, dice: 5d6, damageType: bludgeoning }

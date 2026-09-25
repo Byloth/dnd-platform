@@ -77,6 +77,13 @@ levels:
         source: srd51
         text:
           en: By 13th level, you have learned enough about the workings of magic that you can improvise the use of items even when they are not intended for you. You ignore all class, race, and level requirements on the use of magic items.
+        effects:
+          - kind: add-text
+            section: features
+            text:
+              en: You ignore all class, race, and level requirements on the use of magic items.
+            note:
+              en: Magic item use requirements are not modelled; no catalogue kind.
   "17":
     features:
       - id: srd51.feature.thief.thiefs-reflexes
@@ -92,3 +99,8 @@ levels:
               en: You can take two turns during the first round of any combat. You take your first turn at your normal initiative and your second turn at your initiative minus 10. You can't use this feature when you are surprised.
             note:
               en: An initiative-tracker rule with no catalogue kind; applied in play.
+text:
+  en: |-
+    Rogues have many features in common, including their emphasis on perfecting their skills, their precise and deadly approach to combat, and their increasingly quick reflexes. But different rogues steer those talents in varying directions, embodied by the rogue archetypes. Your choice of archetype is a reflection of your focus—not necessarily an indication of your chosen profession, but a description of your preferred techniques.
+
+    You hone your skills in the larcenous arts. Burglars, bandits, cutpurses, and other criminals typically follow this archetype, but so do rogues who prefer to think of themselves as professional treasure seekers, explorers, delvers, and investigators. In addition to improving your agility and stealth, you learn skills useful for delving into ancient ruins, reading unfamiliar languages, and using magic items you normally couldn't employ.

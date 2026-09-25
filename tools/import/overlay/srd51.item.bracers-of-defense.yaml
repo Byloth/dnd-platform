@@ -1,3 +1,8 @@
+text:
+  en: |-
+    Wondrous item, rare (requires attunement)
+
+    While wearing these bracers, you gain a +2 bonus to AC if you are wearing no armor and using no shield.
 attunement: true
 features:
   - id: srd51.feature.item.bracers-of-defense.defense

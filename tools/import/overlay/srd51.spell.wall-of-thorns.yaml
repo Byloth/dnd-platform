@@ -1,0 +1,8 @@
+rolls:
+  - { type: save, ability: dex, onSuccess: half }
+  - { type: damage, dice: "7d8", damageType: piercing }
+  - { type: damage, dice: "7d8", damageType: slashing }
+scaling: { by: slotLevel, from: 7, add: { dice: "1d8" } }
+onCast:
+  - kind: note
+    text: { en: "The 7d8 piercing damage is dealt when the wall appears; the 7d8 slashing damage the first time a creature enters the wall on a turn or ends its turn there (Dexterity save for half each time). Both increase by 1d8 for each slot level above 6th." }

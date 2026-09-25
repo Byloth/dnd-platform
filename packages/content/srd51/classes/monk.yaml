@@ -41,8 +41,6 @@ proficiencies:
       - tinkers-tools
       - weavers-tools
       - woodcarvers-tools
-      - disguise-kit
-      - forgery-kit
       - bagpipes
       - drum
       - dulcimer
@@ -295,6 +293,14 @@ levels:
             when:
               armorCategory: none
               shield: false
+          - kind: add-text
+            section: features
+            text:
+              en: "Unarmored Movement: you gain the ability to move along vertical surfaces and across liquids on your turn without falling during the move."
+            when:
+              classLevel:
+                class: srd51.class.monk
+                min: 9
   "3":
     features:
       - id: srd51.feature.monk.deflect-missiles
@@ -325,7 +331,12 @@ levels:
           en: Monastic Tradition
         source: srd51
         text:
-          en: When you reach 3rd level, you commit yourself to a monastic tradition such as the Way of the Open Hand. Your tradition grants you features at 3rd level and again at 6th, 11th, and 17th level.
+          en: |-
+            When you reach 3rd level, you commit yourself to a monastic tradition, such as the Way of the Open Hand. Your tradition grants you features at 3rd level and again at 6th, 11th, and 17th level.
+
+            ### Monastic Traditions
+
+            Three traditions of monastic pursuit are common in the monasteries scattered across the multiverse. Most monasteries practice one tradition exclusively, but a few honor the three traditions and instruct each monk according to his or her aptitude and interest. All three traditions rely on the same basic techniques, diverging as the student grows more adept. Thus, a monk need choose a tradition only upon reaching 3rd level.
     choices:
       - id: monastic-tradition
         of: subclass

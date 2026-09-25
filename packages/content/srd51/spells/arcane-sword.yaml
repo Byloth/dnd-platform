@@ -16,6 +16,7 @@ components:
   s: true
   m:
     en: A miniature platinum sword with a grip and pommel of copper and zinc, worth 250 gp.
+  cost: 250
 duration:
   type: timed
   minutes: 1

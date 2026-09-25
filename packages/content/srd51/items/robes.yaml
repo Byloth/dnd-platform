@@ -4,8 +4,6 @@ id: srd51.item.robes
 name:
   en: Robes
 source: srd51
-text:
-  en: Robes, for wearing.
 cost:
   amount: 1
   currency: gp

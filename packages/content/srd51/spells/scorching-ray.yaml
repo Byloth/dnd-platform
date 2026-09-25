@@ -26,3 +26,8 @@ rolls:
   - type: damage
     dice: 2d6
     damageType: fire
+scaling:
+  by: slotLevel
+  from: 3
+  add:
+    count: 1

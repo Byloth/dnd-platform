@@ -4,8 +4,6 @@ id: srd51.item.abacus
 name:
   en: Abacus
 source: srd51
-text:
-  en: An abacus.
 cost:
   amount: 2
   currency: gp

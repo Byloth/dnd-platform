@@ -4,10 +4,10 @@ id: fixture-created-rogue
 name: Quick fingers
 ruleset:
   id: srd51
-  version: 0.6.0
+  version: 0.7.0
 packages:
   - id: srd51
-    version: 0.6.0
+    version: 0.7.0
 choices:
   species: srd51.species.halfling
   subspecies: srd51.species.halfling.lightfoot
@@ -52,6 +52,9 @@ choices:
     - item: srd51.item.shortbow
       quantity: 1
       equipped: true
+    - item: srd51.item.quiver
+      quantity: 1
+      equipped: false
     - item: srd51.item.arrow
       quantity: 20
       equipped: false
@@ -105,6 +108,12 @@ choices:
       equipped: false
     - item: srd51.item.amulet
       quantity: 1
+      equipped: false
+    - item: srd51.item.vestments
+      quantity: 1
+      equipped: false
+    - item: srd51.item.block-of-incense
+      quantity: 5
       equipped: false
 state:
   hp:
@@ -168,6 +177,9 @@ snapshots:
         - item: srd51.item.shortbow
           quantity: 1
           equipped: true
+        - item: srd51.item.quiver
+          quantity: 1
+          equipped: false
         - item: srd51.item.arrow
           quantity: 20
           equipped: false
@@ -221,4 +233,10 @@ snapshots:
           equipped: false
         - item: srd51.item.amulet
           quantity: 1
+          equipped: false
+        - item: srd51.item.vestments
+          quantity: 1
+          equipped: false
+        - item: srd51.item.block-of-incense
+          quantity: 5
           equipped: false

@@ -1,0 +1,54 @@
+actions:
+  - name:
+      en: Multiattack
+    text:
+      en: "The wyvern makes two attacks: one with its bite and one with its stinger. While flying, it can use its claws in place of one other attack."
+    multiattack:
+      - action:
+          en: Bite
+        count: 1
+      - action:
+          en: Stinger
+        count: 1
+  - name:
+      en: Bite
+    text:
+      en: "Melee Weapon Attack: +7 to hit, reach 10 ft., one creature. Hit: 11 (2d6 + 4) piercing damage."
+    attack:
+      kind: melee
+      source: weapon
+      bonus: 7
+      reach: 10
+    damage:
+      - dice: 2d6+4
+        damageType: piercing
+  - name:
+      en: Claws
+    text:
+      en: "Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 13 (2d8 + 4) slashing damage."
+    attack:
+      kind: melee
+      source: weapon
+      bonus: 7
+      reach: 5
+    damage:
+      - dice: 2d8+4
+        damageType: slashing
+  - name:
+      en: Stinger
+    text:
+      en: "Melee Weapon Attack: +7 to hit, reach 10 ft., one creature. Hit: 11 (2d6 + 4) piercing damage. The target must make a DC 15 Constitution saving throw, taking 24 (7d6) poison damage on a failed save, or half as much damage on a successful one."
+    attack:
+      kind: melee
+      source: weapon
+      bonus: 7
+      reach: 10
+    damage:
+      - dice: 2d6+4
+        damageType: piercing
+      - dice: 7d6
+        damageType: poison
+    save:
+      ability: con
+      dc: 15
+      onSuccess: half

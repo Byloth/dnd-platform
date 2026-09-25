@@ -4,8 +4,6 @@ id: srd51.item.longbow
 name:
   en: Longbow
 source: srd51
-text:
-  en: A longbow.
 cost:
   amount: 50
   currency: gp

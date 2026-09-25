@@ -5,7 +5,7 @@ name:
   en: Lantern, Bullseye
 source: srd51
 text:
-  en: A bullseye lantern casts bright light in a 60-­‐‑foot cone and dim light for an additional 60 feet. Once lit, it burns for 6 hours on a flask (1 pint) of oil.
+  en: A bullseye lantern casts bright light in a 60-foot cone and dim light for an additional 60 feet. Once lit, it burns for 6 hours on a flask (1 pint) of oil.
 cost:
   amount: 10
   currency: gp

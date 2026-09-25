@@ -4,8 +4,6 @@ id: srd51.item.sealing-wax
 name:
   en: Sealing wax
 source: srd51
-text:
-  en: For sealing written letters.
 cost:
   amount: 0.5
   currency: gp

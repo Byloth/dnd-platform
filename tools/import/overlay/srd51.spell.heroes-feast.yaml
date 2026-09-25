@@ -19,3 +19,4 @@ onCast:
     note: { en: "The same number rolled for the hit point maximum increase." }
   - kind: note
     text: { en: "The feast takes 1 hour to consume and the benefits set in only afterwards, lasting 24 hours, for up to twelve other creatures. Each partaker is also cured of all diseases and poison." }
+rolls: null

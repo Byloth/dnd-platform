@@ -1,0 +1,10 @@
+effects:
+  - kind: grant-spellcasting
+    ability: cha
+    list: srd51.spell-list.paladin
+    preparation: prepared
+    slots:
+      progression: half
+    ritual: false
+    focus:
+      en: holy symbol

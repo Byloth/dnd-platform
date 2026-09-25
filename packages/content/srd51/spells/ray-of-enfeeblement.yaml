@@ -24,7 +24,7 @@ text:
 rolls:
   - type: attack
   - type: save
-    ability: str
+    ability: con
     onSuccess: none
 effects:
   - kind: add-text
@@ -34,4 +34,4 @@ effects:
 onCast:
   - kind: note
     text:
-      en: On a hit with the ranged spell attack. At the end of each of its turns the target can make a Constitution saving throw against the spell (the text says Constitution, not Strength); on a success the spell ends.
+      en: On a hit with the ranged spell attack. At the end of each of its turns the target can make a Constitution saving throw against the spell; on a success the spell ends.

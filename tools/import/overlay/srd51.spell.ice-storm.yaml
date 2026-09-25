@@ -1,0 +1,5 @@
+area: { shape: cylinder, radius: 20, height: 40 }
+rolls:
+  - { type: save, ability: dex, onSuccess: half }
+  - { type: damage, dice: "2d8", damageType: bludgeoning }
+  - { type: damage, dice: "4d6", damageType: cold }

@@ -1,0 +1,81 @@
+subtypes:
+  - human
+  - shapechanger
+armorClass:
+  - value: 10
+speed:
+  walk: 30
+  climb: null
+actions:
+  - name:
+      en: Multiattack
+    text:
+      en: In bear form, the werebear makes two claw attacks. In humanoid form, it makes two greataxe attacks. In hybrid form, it can attack like a bear or a humanoid.
+    multiattack:
+      - action:
+          en: Claw (Bear or Hybrid Form Only)
+        count: 2
+  - name:
+      en: Bite (Bear or Hybrid Form Only)
+    text:
+      en: "Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 15 (2d10 + 4) piercing damage. If the target is a humanoid, it must succeed on a DC 14 Constitution saving throw or be cursed with werebear lycanthropy."
+    attack:
+      kind: melee
+      source: weapon
+      bonus: 7
+      reach: 5
+    damage:
+      - dice: 2d10+4
+        damageType: piercing
+    save:
+      ability: con
+      dc: 14
+  - name:
+      en: Claw (Bear or Hybrid Form Only)
+    text:
+      en: "Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 13 (2d8 + 4) slashing damage."
+    attack:
+      kind: melee
+      source: weapon
+      bonus: 7
+      reach: 5
+    damage:
+      - dice: 2d8+4
+        damageType: slashing
+  - name:
+      en: Greataxe (Humanoid or Hybrid Form Only)
+    text:
+      en: "Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 10 (1d12 + 4) slashing damage."
+    attack:
+      kind: melee
+      source: weapon
+      bonus: 7
+      reach: 5
+    damage:
+      - dice: 1d12+4
+        damageType: slashing
+forms:
+  - name:
+      en: Human
+  - name:
+      en: Bear
+    size: large
+    armorClass:
+      - value: 11
+        note:
+          en: natural armor
+    speed:
+      walk: 40
+      climb: 30
+  - name:
+      en: Hybrid
+    size: large
+    armorClass:
+      - value: 11
+        note:
+          en: natural armor
+    speed:
+      walk: 40
+      climb: 30
+languages:
+  en: Common (can't speak in bear form)

@@ -1,0 +1,53 @@
+id: srd51.item.shield-1-2-or-3
+name:
+  en: Shield, +1, +2, or +3
+source: srd51
+text:
+  en: |-
+    Armor (shield), uncommon (+1), rare (+2), or very rare (+3)
+
+    While holding this shield, you have a bonus to AC determined by the shield's rarity. This bonus is in addition to the shield's normal bonus to AC.
+type: shield
+magical: true
+tags:
+  - magic-item
+  - armor
+baseItem: srd51.item.shield
+ac:
+  bonus: 2
+features:
+  - id: srd51.feature.item.shield-1-2-or-3.bonus
+    name:
+      en: Shield bonus
+    effects:
+      - kind: open-choice
+        choice: variant
+        of: option
+        count: 1
+        note:
+          en: The bonus is determined by the shield's rarity, on top of the shield's normal bonus to AC.
+        options:
+          - id: plus-1
+            name:
+              en: +1 (uncommon)
+            effects:
+              - kind: modify
+                target: ac
+                op: add
+                value: 1
+          - id: plus-2
+            name:
+              en: +2 (rare)
+            effects:
+              - kind: modify
+                target: ac
+                op: add
+                value: 2
+          - id: plus-3
+            name:
+              en: +3 (very rare)
+            effects:
+              - kind: modify
+                target: ac
+                op: add
+                value: 3

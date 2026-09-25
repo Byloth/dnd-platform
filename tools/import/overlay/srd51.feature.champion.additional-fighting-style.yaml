@@ -9,9 +9,13 @@ effects:
       - id: archery
         prerequisites:
           not:
-            answer:
-              choice: fighting-style
-              is: archery
+            any:
+              - answer:
+                  choice: "srd51.feature.fighter.fighting-style#fighting-style"
+                  is: archery
+              - answer:
+                  choice: "srd51.feature.ranger.fighting-style#fighting-style"
+                  is: archery
         name:
           en: Archery
         text:
@@ -24,9 +28,16 @@ effects:
       - id: defense
         prerequisites:
           not:
-            answer:
-              choice: fighting-style
-              is: defense
+            any:
+              - answer:
+                  choice: "srd51.feature.fighter.fighting-style#fighting-style"
+                  is: defense
+              - answer:
+                  choice: "srd51.feature.paladin.fighting-style#fighting-style"
+                  is: defense
+              - answer:
+                  choice: "srd51.feature.ranger.fighting-style#fighting-style"
+                  is: defense
         name:
           en: Defense
         text:
@@ -42,9 +53,16 @@ effects:
       - id: dueling
         prerequisites:
           not:
-            answer:
-              choice: fighting-style
-              is: dueling
+            any:
+              - answer:
+                  choice: "srd51.feature.fighter.fighting-style#fighting-style"
+                  is: dueling
+              - answer:
+                  choice: "srd51.feature.paladin.fighting-style#fighting-style"
+                  is: dueling
+              - answer:
+                  choice: "srd51.feature.ranger.fighting-style#fighting-style"
+                  is: dueling
         name:
           en: Dueling
         text:
@@ -62,9 +80,13 @@ effects:
       - id: great-weapon-fighting
         prerequisites:
           not:
-            answer:
-              choice: fighting-style
-              is: great-weapon-fighting
+            any:
+              - answer:
+                  choice: "srd51.feature.fighter.fighting-style#fighting-style"
+                  is: great-weapon-fighting
+              - answer:
+                  choice: "srd51.feature.paladin.fighting-style#fighting-style"
+                  is: great-weapon-fighting
         name:
           en: Great Weapon Fighting
         text:
@@ -79,9 +101,13 @@ effects:
       - id: protection
         prerequisites:
           not:
-            answer:
-              choice: fighting-style
-              is: protection
+            any:
+              - answer:
+                  choice: "srd51.feature.fighter.fighting-style#fighting-style"
+                  is: protection
+              - answer:
+                  choice: "srd51.feature.paladin.fighting-style#fighting-style"
+                  is: protection
         name:
           en: Protection
         text:
@@ -102,9 +128,13 @@ effects:
       - id: two-weapon-fighting
         prerequisites:
           not:
-            answer:
-              choice: fighting-style
-              is: two-weapon-fighting
+            any:
+              - answer:
+                  choice: "srd51.feature.fighter.fighting-style#fighting-style"
+                  is: two-weapon-fighting
+              - answer:
+                  choice: "srd51.feature.ranger.fighting-style#fighting-style"
+                  is: two-weapon-fighting
         name:
           en: Two-Weapon Fighting
         text:

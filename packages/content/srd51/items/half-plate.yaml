@@ -16,3 +16,4 @@ ac:
   addDex: true
   dexMax: 2
 stealthDisadvantage: true
+category: medium

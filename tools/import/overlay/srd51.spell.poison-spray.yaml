@@ -1,0 +1,3 @@
+rolls:
+  - { type: save, ability: con, onSuccess: none }
+  - { type: damage, dice: "1d12", damageType: poison }

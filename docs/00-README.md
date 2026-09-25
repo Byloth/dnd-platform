@@ -30,6 +30,7 @@ Read in order the first time; afterwards, each document stands on its own.
 | 18 | [Risks](18-risks.md) | Risks and mitigations, each pointing to the document that addresses it. |
 | 19 | [Catalogues](19-catalogues.md) | Searchable item and creature catalogues from every loaded package, for players and game masters (proposed 2026-09-25). |
 | 20 | [Official books as packages](20-official-book-packages.md) | Every owned book as a package per language, creatures included, then gathered into a few collections (to-do, 2026-09-25). |
+| 21 | [Engine gaps](21-engine-gaps.md) | Rules the format or the engine cannot express yet, found by the SRD audit of 2026-09-26; for the owner to decide which to close. |
 | — | [Phase 0 execution plan](phase-0/00-README.md) | Monorepo, content format v0, engine contract, testing, SRD import pipeline, private packages, ruleset switching, work plan. Done at `v0.2.0`. |
 | — | [Phase 1 execution plan](phase-1/00-README.md) | The web application, content and character stores in the browser, sheet composer, guided creation, print and export, localisation, testing and accessibility, work plan. |
 

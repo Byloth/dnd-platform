@@ -16,19 +16,7 @@ proficiencies:
     - longsword
     - rapier
     - shortsword
-  tools:
-    choose: 3
-    from:
-      - bagpipes
-      - drum
-      - dulcimer
-      - flute
-      - lute
-      - lyre
-      - horn
-      - pan-flute
-      - shawm
-      - viol
+    - hand-crossbow
   skills:
     choose: 3
     from:
@@ -50,6 +38,19 @@ proficiencies:
       - sleight-of-hand
       - stealth
       - survival
+  tools:
+    choose: 3
+    from:
+      - bagpipes
+      - drum
+      - dulcimer
+      - flute
+      - lute
+      - lyre
+      - horn
+      - pan-flute
+      - shawm
+      - viol
 startingEquipment:
   fixed:
     - item: srd51.item.leather-armor
@@ -400,9 +401,11 @@ levels:
 
             The extra hit points increase when you reach certain levels in this class: to 1d8 at 9th level, to 1d10 at 13th level, and to 1d12 at 17th level.
         onRest:
-          - kind: note
-            text:
-              en: "Short rest: if you or any friendly creatures who can hear your performance regain hit points at the end of the rest by spending one or more Hit Dice, each of those creatures regains extra hit points: 1d6, 1d8 at 9th level, 1d10 at 13th, 1d12 at 17th (die size table(bard.song-of-rest-die))."
+          - kind: heal
+            amount: table(bard.song-of-rest-die)
+            target: other
+            note:
+              en: "Short rest only: you or any friendly creatures who can hear your performance and regain hit points at the end of the rest by spending one or more Hit Dice each regain the extra hit points (1d6, 1d8 at 9th level, 1d10 at 13th, 1d12 at 17th)."
   "3":
     features:
       - id: srd51.feature.bard.bard-college
@@ -410,7 +413,7 @@ levels:
           en: Bard College
         source: srd51
         text:
-          en: "At 3rd level, you delve into the advanced techniques of a bard college of your choice: the College of Lore or the College of Valor, both detailed at the end of the class description. Your choice grants you features at 3rd level and again at 6th and 14th level."
+          en: At 3rd level, you delve into the advanced techniques of a bard college of your choice, such as the College of Lore. Your choice grants you features at 3rd level and again at 6th and 14th level.
       - id: srd51.feature.bard.expertise
         name:
           en: Expertise
@@ -627,10 +630,10 @@ tables:
     by: classLevel
     rows:
       "1": 0
-      "2": 6
-      "9": 8
-      "13": 10
-      "17": 12
+      "2": 1d6
+      "9": 1d8
+      "13": 1d10
+      "17": 1d12
   magical-secrets-max-5:
     by: classLevel
     rows:

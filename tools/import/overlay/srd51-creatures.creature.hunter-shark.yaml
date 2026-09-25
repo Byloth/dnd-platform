@@ -1,0 +1,7 @@
+armorClass:
+  - value: 12
+    note:
+      en: natural armor
+senses:
+  darkvision: null
+  blindsight: 30

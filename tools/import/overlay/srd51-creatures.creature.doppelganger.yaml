@@ -1,0 +1,17 @@
+alignment:
+  en: neutral
+traits:
+  - name:
+      en: Shapechanger
+    text:
+      en: The doppelganger can use its action to polymorph into a Small or Medium humanoid it has seen, or back into its true form. Its statistics, other than its size, are the same in each form. Any equipment it is wearing or carrying isn't transformed. It reverts to its true form if it dies.
+  - name:
+      en: Ambusher
+    text:
+      en: In the first round of combat, the doppelganger has advantage on attack rolls against any creature it has surprised.
+  - name:
+      en: Surprise Attack
+    text:
+      en: If the doppelganger surprises a creature and hits it with an attack during the first round of combat, the target takes an extra 10 (3d6) damage from the attack.
+    damage:
+      - dice: 3d6

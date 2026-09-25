@@ -1,2 +1,5 @@
 # The class's primary abilities, as the SRD 5.1 multiclassing prerequisites name them.
 primaryAbilities: [int]
+tables:
+  # Not an SRD table, and nothing reads it: Arcane Recovery's budget is ceil(classLevel(wizard) / 2).
+  arcane-recovery-levels: null

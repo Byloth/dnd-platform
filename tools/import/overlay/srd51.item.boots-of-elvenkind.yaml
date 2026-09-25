@@ -3,5 +3,5 @@ features:
     name: { en: "Silent steps" }
     effects:
       - kind: roll-advantage
-        on: { type: check, skill: stealth }
+        on: { type: check, skill: stealth, against: ["checks that rely on moving silently"] }
         note: { en: "Only on Dexterity (Stealth) checks that rely on moving silently; your steps make no sound regardless of the surface." }

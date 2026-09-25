@@ -1,0 +1,3 @@
+rolls:
+  - { type: save, ability: int, dc: "15", onSuccess: none }
+  - { type: damage, dice: 6d6, damageType: psychic }

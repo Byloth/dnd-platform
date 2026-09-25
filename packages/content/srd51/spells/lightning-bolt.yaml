@@ -35,3 +35,7 @@ scaling:
     dice: 1d6
 tags:
   - area
+area:
+  shape: line
+  length: 100
+  width: 5

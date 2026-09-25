@@ -2,7 +2,7 @@
 # Mechanics come from tools/import/overlay/<entity-id>.yaml; edit those, then re-run `node tools/import/src/map.ts`.
 id: srd51.rule.planes.transistive-planes
 name:
-  en: Transistive Planes
+  en: Transitive Planes
 source: srd51
 category: general
 text:

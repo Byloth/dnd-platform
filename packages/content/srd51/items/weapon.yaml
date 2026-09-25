@@ -19,12 +19,43 @@ features:
     name:
       en: Magic Weapon
     effects:
-      - kind: modify-attacks
-        filter:
-          item: srd51.item.weapon
-        set:
-          attackBonus: 1
-          damageBonus: 1
-          magical: true
+      - kind: open-choice
+        choice: variant
+        of: option
+        count: 1
         note:
-          en: "The bonus is determined by the weapon's rarity: +1 (uncommon), +2 (rare) or +3 (very rare). This entity carries the +1 value and no base weapon properties of its own; the other variants need the value changed."
+          en: The bonus is determined by the weapon's rarity. This entity carries no base weapon properties of its own.
+        options:
+          - id: plus-1
+            name:
+              en: +1 (uncommon)
+            effects:
+              - kind: modify-attacks
+                filter:
+                  item: srd51.item.weapon
+                set:
+                  attackBonus: 1
+                  damageBonus: 1
+                  magical: true
+          - id: plus-2
+            name:
+              en: +2 (rare)
+            effects:
+              - kind: modify-attacks
+                filter:
+                  item: srd51.item.weapon
+                set:
+                  attackBonus: 2
+                  damageBonus: 2
+                  magical: true
+          - id: plus-3
+            name:
+              en: +3 (very rare)
+            effects:
+              - kind: modify-attacks
+                filter:
+                  item: srd51.item.weapon
+                set:
+                  attackBonus: 3
+                  damageBonus: 3
+                  magical: true

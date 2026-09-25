@@ -1,2 +1,13 @@
 # The class's primary abilities, as the SRD 5.1 multiclassing prerequisites name them.
 primaryAbilities: [wis]
+# The SRD 5.1 equipment list, kept as text because a choice option cannot yet require a proficiency ("if proficient").
+startingEquipment:
+  text:
+    en: |-
+      You start with the following equipment, in addition to the equipment granted by your background:
+
+      - (a) a mace or (b) a warhammer (if proficient)
+      - (a) scale mail, (b) leather armor, or (c) chain mail (if proficient)
+      - (a) a light crossbow and 20 bolts or (b) any simple weapon
+      - (a) a priest's pack or (b) an explorer's pack
+      - A shield and a holy symbol

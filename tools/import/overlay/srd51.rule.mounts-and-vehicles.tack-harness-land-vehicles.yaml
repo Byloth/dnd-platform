@@ -1,0 +1,25 @@
+text:
+  en: |-
+    **_Barding._** Barding is armor designed to protect an animal's head, neck, chest, and body. Any type of armor shown on the Armor table can be purchased as barding. The cost is four times the equivalent armor made for humanoids, and it weighs twice as much.
+
+    **_Saddles._** A military saddle braces the rider, helping you keep your seat on an active mount in battle. It gives you advantage on any check you make to remain mounted. An exotic saddle is required for riding any aquatic or flying mount.
+
+    **_Vehicle Proficiency._** If you have proficiency with a certain kind of vehicle (land or water), you can add your proficiency bonus to any check you make to control that kind of vehicle in difficult circumstances.
+
+    | Item               | Cost   | Weight  |
+    |--------------------|--------|---------|
+    | Barding            | ×4     | ×2      |
+    | Bit and bridle     | 2 gp   | 1 lb.   |
+    | Carriage           | 100 gp | 600 lb. |
+    | Cart               | 15 gp  | 200 lb. |
+    | Chariot            | 250 gp | 100 lb. |
+    | Feed (per day)     | 5 cp   | 10 lb.  |
+    | **_Saddle_**       |        |         |
+    | - Exotic           | 60 gp  | 40 lb.  |
+    | - Military         | 20 gp  | 30 lb.  |
+    | - Pack             | 5 gp   | 15 lb.  |
+    | - Riding           | 10 gp  | 25 lb.  |
+    | Saddlebags         | 4 gp   | 8 lb.   |
+    | Sled               | 20 gp  | 300 lb. |
+    | Stabling (per day) | 5 sp   | -       |
+    | Wagon              | 35 gp  | 400 lb. |

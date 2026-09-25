@@ -1,0 +1,36 @@
+actions:
+  - name:
+      en: Multiattack
+    text:
+      en: "The hezrou makes three attacks: one with its bite and two with its claws."
+    multiattack:
+      - action:
+          en: Bite
+        count: 1
+      - action:
+          en: Claw
+        count: 2
+  - name:
+      en: Bite
+    text:
+      en: "Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 15 (2d10 + 4) piercing damage."
+    attack:
+      kind: melee
+      source: weapon
+      bonus: 7
+      reach: 5
+    damage:
+      - dice: 2d10+4
+        damageType: piercing
+  - name:
+      en: Claw
+    text:
+      en: "Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 11 (2d6 + 4) slashing damage."
+    attack:
+      kind: melee
+      source: weapon
+      bonus: 7
+      reach: 5
+    damage:
+      - dice: 2d6+4
+        damageType: slashing

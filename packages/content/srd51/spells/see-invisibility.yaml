@@ -14,9 +14,14 @@ components:
   v: true
   s: true
   m:
-    en: A dash of talc and a small amount of silver powder.
+    en: A pinch of talc and a small sprinkling of powdered silver.
 duration:
   type: timed
   hours: 1
 text:
-  en: For the duration of the spell, you see invisible creatures and objects as if they were visible, and you can see through Ethereal. The ethereal objects and creatures appear ghostly translucent.
+  en: For the duration, you see invisible creatures and objects as if they were visible, and you can see into the Ethereal Plane. Ethereal creatures and objects appear ghostly and translucent.
+effects:
+  - kind: add-text
+    section: senses
+    text:
+      en: Sees invisible creatures and objects as if they were visible, and can see into the Ethereal Plane.

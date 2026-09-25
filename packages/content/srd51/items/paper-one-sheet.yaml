@@ -4,8 +4,6 @@ id: srd51.item.paper-one-sheet
 name:
   en: Paper (one sheet)
 source: srd51
-text:
-  en: A sheet of paper
 cost:
   amount: 0.2
   currency: gp

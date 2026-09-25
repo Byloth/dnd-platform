@@ -4,8 +4,6 @@ id: srd51.item.battleaxe
 name:
   en: Battleaxe
 source: srd51
-text:
-  en: A battleaxe.
 cost:
   amount: 10
   currency: gp

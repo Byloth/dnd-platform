@@ -5,7 +5,7 @@ name:
   en: Mass Cure Wounds
 source: srd51
 level: 5
-school: conjuration
+school: evocation
 castingTime:
   activation: action
 range:
@@ -32,3 +32,8 @@ onCast:
     target: other
     note:
       en: Plus your spellcasting ability modifier, to each of up to six creatures in a 30-foot-radius sphere. No effect on undead or constructs.
+scaling:
+  by: slotLevel
+  from: 6
+  add:
+    dice: 1d8

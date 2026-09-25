@@ -5,7 +5,7 @@ name:
   en: Flask or tankard
 source: srd51
 text:
-  en: "For drinking. Capacity: 1 pint liquid."
+  en: "Capacity: 1 pint liquid."
 cost:
   amount: 0.02
   currency: gp

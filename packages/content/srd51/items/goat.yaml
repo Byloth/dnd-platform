@@ -9,7 +9,6 @@ text:
 cost:
   amount: 1
   currency: gp
-weight: 75
 type: gear
 tags:
   - trade-good

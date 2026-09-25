@@ -4,8 +4,6 @@ id: srd51.item.trident
 name:
   en: Trident
 source: srd51
-text:
-  en: A trident.
 cost:
   amount: 5
   currency: gp

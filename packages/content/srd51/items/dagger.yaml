@@ -4,8 +4,6 @@ id: srd51.item.dagger
 name:
   en: Dagger
 source: srd51
-text:
-  en: A dagger.
 cost:
   amount: 2
   currency: gp

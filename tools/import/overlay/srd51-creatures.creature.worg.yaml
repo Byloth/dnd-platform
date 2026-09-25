@@ -1,0 +1,16 @@
+actions:
+  - name:
+      en: Bite
+    text:
+      en: "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 10 (2d6 + 3) piercing damage. If the target is a creature, it must succeed on a DC 13 Strength saving throw or be knocked prone."
+    attack:
+      kind: melee
+      source: weapon
+      bonus: 5
+      reach: 5
+    damage:
+      - dice: 2d6+3
+        damageType: piercing
+    save:
+      ability: str
+      dc: 13

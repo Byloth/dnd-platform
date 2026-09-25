@@ -172,6 +172,49 @@
           }
         }
       ],
+      "rolls": [
+        {
+          "ability": "wis",
+          "bonus": {
+            "provenance": [
+              {
+                "applied": true,
+                "formula": "mod(wis)",
+                "kind": "base",
+                "label": {
+                  "en": "Roll bonus"
+                },
+                "source": {
+                  "effectIndex": 0,
+                  "entity": "srd51.subclass.barbarian.path-of-the-berserker",
+                  "feature": "srd51.feature.path-of-the-berserker.intimidating-presence",
+                  "package": "srd51"
+                },
+                "value": 0
+              }
+            ],
+            "value": 0
+          },
+          "dc": {
+            "provenance": [
+              {
+                "applied": true,
+                "formula": "8 + proficiencyBonus + mod(cha)",
+                "kind": "base",
+                "label": {
+                  "en": "Save DC"
+                },
+                "source": {
+                  "package": "srd51"
+                },
+                "value": 13
+              }
+            ],
+            "value": 13
+          },
+          "type": "save"
+        }
+      ],
       "source": {
         "effectIndex": 0,
         "entity": "srd51.subclass.barbarian.path-of-the-berserker",
@@ -180,6 +223,24 @@
       },
       "text": {
         "en": "Choose one creature that you can see within 30 feet of you. If the creature can see or hear you, it must succeed on a Wisdom saving throw (DC equal to 8 + your proficiency bonus + your Charisma modifier) or be frightened of you until the end of your next turn. On subsequent turns, you can use your action to extend the duration of this effect on the frightened creature until the end of your next turn. This effect ends if the creature ends its turn out of line of sight or more than 60 feet away from you. If the creature succeeds on its saving throw, you can't use this feature on that creature again for 24 hours."
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "pin",
+      "name": {
+        "en": "Pin"
+      },
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.feat.grappler",
+        "feature": "srd51.feat.grappler",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Try to pin a creature grappled by you. To do so, make another grapple check. If you succeed, you and the creature are both restrained until the grapple ends."
       }
     },
     {
@@ -1048,7 +1109,7 @@
         "package": "srd51"
       },
       "text": {
-        "en": "You've developed the skills necessary to hold your own in close-quarters grappling. You gain the following benefits:\n- You have advantage on attack rolls against a creature you are grappling.\n- You can use your action to try to pin a creature grappled by you. The creature makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you and the creature are both restrained until the grapple ends."
+        "en": "You've developed the skills necessary to hold your own in close-quarters grappling. You gain the following benefits:\n- You have advantage on attack rolls against a creature you are grappling.\n- You can use your action to try to pin a creature grappled by you. To do so, make another grapple check. If you succeed, you and the creature are both restrained until the grapple ends."
       }
     }
   ],
@@ -1061,7 +1122,7 @@
     "packages": [
       {
         "id": "srd51",
-        "version": "0.6.0"
+        "version": "0.7.0"
       }
     ],
     "ruleset": "srd51"
@@ -1555,6 +1616,22 @@
         "effectIndex": 0,
         "entity": "srd51.class.barbarian",
         "feature": "srd51.feature.barbarian.feral-instinct",
+        "package": "srd51"
+      }
+    },
+    {
+      "applied": true,
+      "kind": "advantage",
+      "on": {
+        "against": [
+          "a creature you are grappling"
+        ],
+        "type": "attack"
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.feat.grappler",
+        "feature": "srd51.feat.grappler",
         "package": "srd51"
       }
     }

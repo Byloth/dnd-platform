@@ -750,7 +750,7 @@
     "packages": [
       {
         "id": "srd51",
-        "version": "0.6.0"
+        "version": "0.7.0"
       }
     ],
     "ruleset": "srd51"
@@ -1050,6 +1050,15 @@
         "package": "srd51"
       },
       "type": "tool"
+    },
+    {
+      "expertise": false,
+      "item": "hand-crossbow",
+      "source": {
+        "entity": "srd51.class.bard",
+        "package": "srd51"
+      },
+      "type": "weapon"
     },
     {
       "expertise": false,

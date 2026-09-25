@@ -4,8 +4,6 @@ id: srd51.item.ink-pen
 name:
   en: Ink pen
 source: srd51
-text:
-  en: A pen for writing with ink.
 cost:
   amount: 0.02
   currency: gp

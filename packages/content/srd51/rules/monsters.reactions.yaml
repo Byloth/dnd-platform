@@ -2,7 +2,7 @@
 # Mechanics come from tools/import/overlay/<entity-id>.yaml; edit those, then re-run `node tools/import/src/map.ts`.
 id: srd51.rule.monsters.reactions
 name:
-  en: Ammunition
+  en: Reactions
 source: srd51
 category: general
 text:

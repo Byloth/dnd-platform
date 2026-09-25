@@ -23,6 +23,7 @@ rarity: uncommon
 tags:
   - magic-item
   - wondrous-items
+weight: 2
 features:
   - id: srd51.feature.item.decanter-of-endless-water.pour
     name:

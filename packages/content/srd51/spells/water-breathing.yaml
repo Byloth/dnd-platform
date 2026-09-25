@@ -15,10 +15,15 @@ components:
   v: true
   s: true
   m:
-    en: A short piece of reed or straw.
+    en: A short reed or piece of straw.
 duration:
   type: timed
   hours: 24
 ritual: true
 text:
-  en: This spell gives a maximum of ten willing creatures within range and you can see, the ability to breathe underwater until the end of its term. Affected creatures also retain their normal breathing pattern.
+  en: This spell grants up to ten willing creatures you can see within range the ability to breathe underwater until the spell ends. Affected creatures also retain their normal mode of respiration.
+effects:
+  - kind: add-text
+    section: features
+    text:
+      en: Can breathe underwater, and retains its normal mode of respiration.

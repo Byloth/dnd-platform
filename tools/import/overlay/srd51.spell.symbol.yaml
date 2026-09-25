@@ -1,0 +1,5 @@
+rolls: null
+components: { cost: 1000, consumed: true }
+onCast:
+  - kind: note
+    text: { en: "Each glyph has its own saving throw: Death (Constitution, 10d10 necrotic, half on a success), Discord (Constitution), Fear (Wisdom), Hopelessness (Charisma), Insanity (Intelligence), Pain (Constitution), Sleep (Wisdom), Stunning (Wisdom)." }

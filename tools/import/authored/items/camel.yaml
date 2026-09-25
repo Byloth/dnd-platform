@@ -1,0 +1,12 @@
+id: srd51.item.camel
+name:
+  en: Camel
+source: srd51
+text:
+  en: "Speed 50 ft.; carrying capacity 480 lb."
+cost:
+  amount: 50
+  currency: gp
+type: gear
+tags:
+  - mount

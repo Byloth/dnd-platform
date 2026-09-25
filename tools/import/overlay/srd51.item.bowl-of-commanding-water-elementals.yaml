@@ -1,3 +1,4 @@
+weight: 3
 charges:
   max: 1
   recharge: [{ on: dawn, amount: full }]

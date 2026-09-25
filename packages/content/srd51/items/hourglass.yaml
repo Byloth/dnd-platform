@@ -4,8 +4,6 @@ id: srd51.item.hourglass
 name:
   en: Hourglass
 source: srd51
-text:
-  en: An hourglass.
 cost:
   amount: 25
   currency: gp

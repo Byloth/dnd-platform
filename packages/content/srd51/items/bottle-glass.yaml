@@ -5,7 +5,7 @@ name:
   en: Bottle, glass
 source: srd51
 text:
-  en: "A glass bottle. Capacity: 1.5 pints liquid."
+  en: "Capacity: 1½ pints liquid."
 cost:
   amount: 2
   currency: gp

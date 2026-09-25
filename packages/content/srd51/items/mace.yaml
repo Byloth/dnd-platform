@@ -4,8 +4,6 @@ id: srd51.item.mace
 name:
   en: Mace
 source: srd51
-text:
-  en: A mace.
 cost:
   amount: 5
   currency: gp

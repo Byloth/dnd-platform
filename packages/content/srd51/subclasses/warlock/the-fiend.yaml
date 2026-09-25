@@ -286,3 +286,20 @@ levels:
                 damageType: psychic
                 note:
                   en: Dealt when the target returns at the end of your next turn, only if it is not a fiend.
+text:
+  en: |-
+    The beings that serve as patrons for warlocks are mighty inhabitants of other planes of existence—not gods, but almost godlike in their power. Various patrons give their warlocks access to different powers and invocations, and expect significant favors in return.
+
+    Some patrons collect warlocks, doling out mystic knowledge relatively freely or boasting of their ability to bind mortals to their will. Other patrons bestow their power only grudgingly, and might make a pact with only one warlock. Warlocks who serve the same patron might view each other as allies, siblings, or rivals.
+
+    You have made a pact with a fiend from the lower planes of existence, a being whose aims are evil, even if you strive against those aims. Such beings desire the corruption or destruction of all things, ultimately including you. Fiends powerful enough to forge a pact include demon lords such as Demogorgon, Orcus, Fraz'Urb-luu, and Baphomet; archdevils such as Asmodeus, Dispater, Mephistopheles, and Belial; pit fiends and balors that are especially mighty; and ultroloths and other lords of the yugoloths.
+
+    ### Your Pact Boon
+
+    Each Pact Boon option produces a special creature or an object that reflects your patron's nature.
+
+    ***Pact of the Chain.*** Your familiar is more cunning than a typical familiar. Its default form can be a reflection of your patron, with imps and quasits tied to the Fiend.
+
+    ***Pact of the Blade.*** If you serve the Fiend, your weapon could be an axe made of black metal and adorned with decorative flames.
+
+    ***Pact of the Tome.*** Your Book of Shadows could be a weighty tome bound in demon hide studded with iron, holding spells of conjuration and a wealth of forbidden lore about the sinister regions of the cosmos, a gift of the Fiend.

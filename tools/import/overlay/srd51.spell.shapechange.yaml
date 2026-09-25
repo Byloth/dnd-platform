@@ -8,3 +8,4 @@ effects:
     name: { en: "Change Form" }
     activation: action
     text: { en: "Assume a different form under the same restrictions; if the new form has more hit points than the current one, your hit points stay at their current value." }
+rolls: null

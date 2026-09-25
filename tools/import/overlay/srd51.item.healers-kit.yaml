@@ -1,0 +1,24 @@
+charges:
+  max: 10
+  recharge:
+    - on: manual
+      amount: full
+features:
+  - id: srd51.feature.item.healers-kit.stabilize
+    name:
+      en: Stabilize
+    text:
+      en: As an action, you can expend one use of the kit to stabilize a creature that has 0 hit points, without needing to make a Wisdom (Medicine) check.
+    effects:
+      - kind: add-action
+        action: healers-kit-stabilize
+        name:
+          en: Stabilize (healer's kit)
+        activation: action
+        cost: [{ resource: charges, amount: 1 }]
+        onUse:
+          - kind: note
+            text:
+              en: A creature that has 0 hit points becomes stable, without a Wisdom (Medicine) check. The kit's ten uses never come back.
+        text:
+          en: Expend one use of the kit to stabilize a creature that has 0 hit points, without needing to make a Wisdom (Medicine) check.

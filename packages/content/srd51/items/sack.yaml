@@ -5,7 +5,7 @@ name:
   en: Sack
 source: srd51
 text:
-  en: "A sack. Capacity: 1 cubic foot/30 pounds of gear."
+  en: "Capacity: 1 cubic foot/30 pounds of gear."
 cost:
   amount: 0.01
   currency: gp

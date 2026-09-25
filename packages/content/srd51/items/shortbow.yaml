@@ -4,8 +4,6 @@ id: srd51.item.shortbow
 name:
   en: Shortbow
 source: srd51
-text:
-  en: A shortbow
 cost:
   amount: 25
   currency: gp

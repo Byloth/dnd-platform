@@ -1,0 +1,7 @@
+rolls:
+  - { type: save, ability: dex, onSuccess: half }
+  - { type: damage, dice: "5d8" }
+scaling: { by: slotLevel, from: 4, add: { dice: "1d8" } }
+onCast:
+  - kind: note
+    text: { en: "Explosive runes: each creature in the 20-foot-radius sphere makes a Dexterity saving throw, taking 5d8 acid, cold, fire, lightning or thunder damage (your choice when you create the glyph) on a failure, half on a success. Finding the glyph takes an Intelligence (Investigation) check against your spell save DC." }

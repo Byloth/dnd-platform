@@ -4,12 +4,10 @@ id: srd51.item.crossbow-bolt
 name:
   en: Crossbow bolt
 source: srd51
-text:
-  en: Bolts to be used in a crossbow.
 cost:
   amount: 0.05
   currency: gp
-weight: 0.08
+weight: 0.075
 type: ammunition
 tags:
   - ammunition

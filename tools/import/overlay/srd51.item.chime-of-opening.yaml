@@ -1,3 +1,4 @@
+weight: 1
 charges:
   max: 10
   recharge: [{ on: manual, amount: 0 }]

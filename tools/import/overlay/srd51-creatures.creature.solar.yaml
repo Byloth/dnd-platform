@@ -1,0 +1,52 @@
+actions:
+  - name:
+      en: Multiattack
+    text:
+      en: The solar makes two greatsword attacks.
+    multiattack:
+      - action:
+          en: Greatsword
+        count: 2
+  - name:
+      en: Greatsword
+    text:
+      en: "Melee Weapon Attack: +15 to hit, reach 5 ft., one target. Hit: 22 (4d6 + 8) slashing damage plus 27 (6d8) radiant damage."
+    attack:
+      kind: melee
+      source: weapon
+      bonus: 15
+      reach: 5
+    damage:
+      - dice: 4d6+8
+        damageType: slashing
+      - dice: 6d8
+        damageType: radiant
+  - name:
+      en: Slaying Longbow
+    text:
+      en: "Ranged Weapon Attack: +13 to hit, range 150/600 ft., one target. Hit: 15 (2d8 + 6) piercing damage plus 27 (6d8) radiant damage. If the target is a creature that has 100 hit points or fewer, it must succeed on a DC 15 Constitution saving throw or die."
+    attack:
+      kind: ranged
+      source: weapon
+      bonus: 13
+      range:
+        normal: 150
+        long: 600
+    damage:
+      - dice: 2d8+6
+        damageType: piercing
+      - dice: 6d8
+        damageType: radiant
+  - name:
+      en: Flying Sword
+    text:
+      en: The solar releases its greatsword to hover magically in an unoccupied space within 5 ft. of it. If the solar can see the sword, the solar can mentally command it as a bonus action to fly up to 50 ft. and either make one attack against a target or return to the solar's hands. If the hovering sword is targeted by any effect, the solar is considered to be holding it. The hovering sword falls if the solar dies.
+  - name:
+      en: Healing Touch
+    text:
+      en: The solar touches another creature. The target magically regains 40 (8d8 + 4) hit points and is freed from any curse, disease, poison, blindness, or deafness.
+    usage:
+      perDay: 4
+legendary:
+  text:
+    en: The solar can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The solar regains spent legendary actions at the start of its turn.

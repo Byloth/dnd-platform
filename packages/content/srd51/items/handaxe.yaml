@@ -4,8 +4,6 @@ id: srd51.item.handaxe
 name:
   en: Handaxe
 source: srd51
-text:
-  en: A handaxe.
 cost:
   amount: 5
   currency: gp
