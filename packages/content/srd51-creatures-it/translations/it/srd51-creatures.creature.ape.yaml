@@ -1,0 +1,9 @@
+name: Gorilla
+alignment: senza allineamento
+actions.0.name: Multiattacco
+actions.0.text: Il gorilla effettua due attacchi con i pugni.
+actions.0.multiattack.0.action: Pugno
+actions.1.name: Pugno
+actions.1.text: "Attacco con arma da mischia: +5 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 6 (1d6 + 3) danni contundenti."
+actions.2.name: Roccia
+actions.2.text: "Attacco con arma a distanza: +5 al tiro per colpire, gittata 7,5/15 m, un bersaglio. Colpito: 6 (1d6 + 3) danni contundenti."

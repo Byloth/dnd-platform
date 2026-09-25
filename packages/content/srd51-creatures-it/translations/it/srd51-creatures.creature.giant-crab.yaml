@@ -1,0 +1,7 @@
+name: Granchio gigante
+alignment: senza allineamento
+armorClass.0.note: armatura naturale
+traits.0.name: Anfibio
+traits.0.text: Il granchio può respirare in aria e in acqua.
+actions.0.name: Artiglio
+actions.0.text: "Attacco con arma da mischia: +3 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 4 (1d6 + 1) danni contundenti e il bersaglio è afferrato (CD 11 per sfuggire). Il granchio è dotato di due chele, ognuna delle quali può afferrare un solo bersaglio."

@@ -1,0 +1,20 @@
+name: Sacerdote
+text: |-
+  I sacerdoti diffondono gli insegnamenti delle loro divinità presso la gente comune. Sono i capi spirituali dei templi e dei santuari e spesso rivestono un ruolo influente all'interno delle loro comunità. I sacerdoti malvagi potrebbero lavorare apertamente sotto un tiranno, oppure potrebbero essere i capi di sette religiose nascoste nell'ombra della buona società, sovrintendendo a riti depravati.
+
+  Un sacerdote in genere ha uno o più accoliti ad aiutarlo con le cerimonie religiose e altri doveri sacri.
+alignment: qualsiasi allineamento
+armorClass.0.note: giaco di maglia
+languages: due qualsiasi
+traits.0.name: Eminenza divina
+traits.0.text: Come azione bonus, il sacerdote può spendere uno slot incantesimo per fare in modo che i suoi attacchi con arma da mischia infliggano magicamente 10 (3d6) danni radiosi extra a un bersaglio se vanno a segno. Questo beneficio permane fino alla fine del turno. Se il sacerdote spende uno slot incantesimo di livello pari o superiore al 2°, i danni extra aumentano di 1d6 per ogni livello oltre il 1°.
+traits.1.name: Incantesimi
+traits.1.text: |-
+  Il sacerdote è un incantatore di 5° livello: la sua caratteristica da incantatore è Saggezza (CD del tiro salvezza sull'incantesimo 13, +5 al tiro per colpire con attacco con incantesimo). Ha a disposizione i seguenti incantesimi da chierico:
+
+  - Trucchetti (a volontà): fiamma sacra, luce, taumaturgia
+  - 1° livello (4 slot): cura ferite, dardo tracciante, santuario
+  - 2° livello (3 slot): arma spirituale, ristorare inferiore
+  - 3° livello (2 slot): dissolvi magie, guardiani spirituali
+actions.0.name: Mazza
+actions.0.text: "Attacco con arma da mischia: +2 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 3 (1d6) danni contundenti."

@@ -1,0 +1,30 @@
+name: Ginosfinge
+alignment: legale neutrale
+armorClass.0.note: armatura naturale
+resistances.0.note: da attacchi non magici
+languages: Comune, Sfinge
+traits.0.name: Imperscrutabile
+traits.0.text: La sfinge è immune a qualsiasi effetto che tenti di percepire le emozioni o leggere nel pensiero, nonché a qualsiasi incantesimo di divinazione a cui rifiuti di sottoporsi. Le prove di Saggezza (Intuizione) effettuate per discernere le intenzioni o la sincerità della sfinge subiscono svantaggio.
+traits.1.name: Armi magiche
+traits.1.text: Gli attacchi con arma della sfinge sono magici.
+traits.2.name: Incantesimi
+traits.2.text: |-
+  La sfinge è un'incantatrice di 9° livello: la sua caratteristica da incantatore è Intelligenza (CD del tiro salvezza sull'incantesimo 16, +8 al tiro per colpire con attacco con incantesimo). Non ha bisogno di componenti materiali per lanciare i suoi incantesimi. La sfinge ha a disposizione i seguenti incantesimi da mago:
+
+  - Trucchetti (a volontà): illusione minore, mano magica, prestidigitazione
+  - 1° livello (4 slot): identificare, individuazione del magico, scudo
+  - 2° livello (3 slot): oscurità, localizza oggetto, suggestione
+  - 3° livello (3 slot): dissolvi magie, linguaggi, rimuovi maledizione
+  - 4° livello (3 slot): esilio, invisibilità superiore
+  - 5° livello (1 slot): conoscenza delle leggende
+actions.0.name: Multiattacco
+actions.0.text: La sfinge effettua due attacchi con gli artigli.
+actions.0.multiattack.0.action: Artiglio
+actions.1.name: Artiglio
+actions.1.text: "Attacco con arma da mischia: +8 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 13 (2d8 + 4) danni taglienti."
+legendary.actions.0.name: Attacco con artiglio
+legendary.actions.0.text: La sfinge effettua un attacco con artiglio.
+legendary.actions.1.name: Teletrasporto (costa 2 azioni)
+legendary.actions.1.text: La sfinge si teletrasporta magicamente, insieme a ogni oggetto che indossa o trasporta, fino a uno spazio libero visibile entro 36 metri.
+legendary.actions.2.name: Lanciare un incantesimo (costa 3 azioni)
+legendary.actions.2.text: La sfinge lancia un incantesimo dalla sua lista degli incantesimi preparati, usando uno slot incantesimo come di consueto.

@@ -1,0 +1,9 @@
+name: Berserker
+alignment: qualsiasi allineamento caotico
+armorClass.0.note: armatura di pelle
+languages: uno qualsiasi (di solito Comune)
+traits.0.name: Avventato
+traits.0.text: All'inizio del suo turno, il berserker può ottenere vantaggio a tutti i tiri per colpire con le armi da mischia che effettua in quel turno, ma i tiri per colpire contro di lui hanno vantaggio fino all'inizio del suo turno successivo.
+actions.0.name: Ascia bipenne
+actions.0.text: "Attacco con arma da mischia: +5 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 9 (1d12 + 3) danni taglienti."
+text: I berserker, figure estremamente imprevedibili, formano bande bellicose e si aggirano per le terre selvagge bramando occasioni di conflitto.

@@ -65,7 +65,7 @@ Not in the first pass:
    - Variants, and stat blocks that depend on the caster's level (Tasha's summons).
    - At first the engine computes nothing: the schema validates and the composer shows.
    - Tests and docs (05, 06, content-authoring).
-2. **The SRD's creatures** (about 320), in Italian too from the official Italian SRD, then released. Public and CC BY: the proof of the schema before any private book. Done in English 2026-09-26 as the package `srd51-creatures` 0.1.0 (322 creatures), apart from srd51 so the sheet does not download them (owner); srd51 itself was audited against the SRD in the same step (srd51 0.7.0, 332 fixes; what the engine cannot express is [21](21-engine-gaps.md)).
+2. **The SRD's creatures** (about 320), in Italian too from the official Italian SRD, then released. Public and CC BY: the proof of the schema before any private book. Done 2026-09-26 as the package `srd51-creatures` 0.1.0 (322 creatures) and its Italian `srd51-creatures-it` 0.1.0, apart from srd51 so the sheet does not download them (owner); srd51 itself was audited against the SRD in the same step (srd51 0.7.0, 332 fixes, and srd51-it 0.2.0 for the new and changed texts; what the engine cannot express is [21](21-engine-gaps.md)).
 3. **The pilot: Fizban's Treasury of Dragons**, in English and Italian, with everything in scope. It has player options (Drakewarden, Way of the Ascendant Dragon, feats, spells, items), many stat blocks with lair actions, and an Italian edition. The pilot fixes the recipe and gives the real cost.
 4. **Every other book**, in parallel, with the recipe of the pilot.
 5. **Duplicates and supersessions** analysed across the base packages (see below).

@@ -4,10 +4,10 @@ id: fixture-created-wizard
 name: Evoker
 ruleset:
   id: srd51
-  version: 0.7.0
+  version: 0.7.1
 packages:
   - id: srd51
-    version: 0.7.0
+    version: 0.7.1
 choices:
   species: srd51.species.gnome
   subspecies: srd51.species.gnome.rock-gnome

@@ -1,0 +1,12 @@
+name: Satiro
+alignment: caotico neutrale
+armorClass.0.note: armatura di cuoio
+languages: Comune, Elfico, Silvano
+traits.0.name: Resistenza alla magia
+traits.0.text: Il satiro dispone di vantaggio ai tiri salvezza contro incantesimi e altri effetti magici.
+actions.0.name: Sfondamento
+actions.0.text: "Attacco con arma da mischia: +3 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 6 (2d4 + 1) danni contundenti."
+actions.1.name: Spada corta
+actions.1.text: "Attacco con arma da mischia: +5 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 6 (1d6 + 3) danni perforanti."
+actions.2.name: Arco corto
+actions.2.text: "Attacco con arma a distanza: +5 al tiro per colpire, gittata 24/96 m, un bersaglio. Colpito: 6 (1d6 + 3) danni perforanti."

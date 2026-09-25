@@ -1,0 +1,19 @@
+name: Ettercap
+alignment: neutrale malvagio
+armorClass.0.note: armatura naturale
+traits.0.name: Movimenti del ragno
+traits.0.text: L'ettercap può scalare le superfici difficili, inclusi i soffitti, lungo i quali si muove a testa in giù, senza effettuare una prova di caratteristica.
+traits.1.name: Percezione della ragnatela
+traits.1.text: Finché è in contatto con una ragnatela, l'ettercap conosce l'ubicazione esatta di ogni altra creatura a contatto con la stessa ragnatela.
+traits.2.name: Arrampicatele
+traits.2.text: L'ettercap ignora le restrizioni di movimento causate dalle ragnatele.
+actions.0.name: Multiattacco
+actions.0.text: "L'ettercap effettua due attacchi: uno con il morso e uno con gli artigli."
+actions.0.multiattack.0.action: Morso
+actions.0.multiattack.1.action: Artigli
+actions.1.name: Morso
+actions.1.text: "Attacco con arma da mischia: +4 al tiro per colpire, portata 1,5 m, una creatura. Colpito: 6 (1d8 + 2) danni perforanti più 4 (1d8) danni da veleno. Il bersaglio deve superare un tiro salvezza su Costituzione con CD 11, altrimenti viene avvelenato per 1 minuto. La creatura può ripetere il tiro salvezza alla fine di ogni suo turno e, se lo supera, l'effetto svanisce."
+actions.2.name: Artigli
+actions.2.text: "Attacco con arma da mischia: +4 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 7 (2d4 + 2) danni taglienti."
+actions.3.name: Ragnatela
+actions.3.text: "Attacco con arma a distanza: +4 al tiro per colpire, gittata 9/18 m, una creatura Grande o di taglia inferiore. Colpito: la creatura è trattenuta dalle ragnatele. Con un'azione, la creatura trattenuta può effettuare una prova di Forza con CD 11, sfuggendo alla ragnatela in caso di successo. L'effetto termina anche se la ragnatela viene distrutta. La ragnatela ha CA 10, 5 punti ferita, vulnerabilità ai danni da fuoco e immunità ai danni contundenti, psichici e da veleno."

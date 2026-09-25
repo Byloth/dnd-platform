@@ -1,0 +1,13 @@
+name: Esploratore
+text: Gli esploratori sono abili cacciatori e inseguitori che offrono i loro servizi a pagamento. Molti danno la caccia agli animali selvatici, ma alcuni lavorano anche come cacciatori di taglie, guide o eseguono ricognizioni nell'ambito di operazioni militari.
+alignment: qualsiasi allineamento
+armorClass.0.note: armatura di cuoio
+languages: uno qualsiasi (di solito Comune)
+traits.0.name: Udito e vista acuti
+traits.0.text: L'esploratore dispone di vantaggio alle prove di Saggezza (Percezione) basate sulla vista o sull'udito.
+actions.0.name: Multiattacco
+actions.0.text: L'esploratore effettua due attacchi in mischia o due attacchi a distanza.
+actions.1.name: Spada corta
+actions.1.text: "Attacco con arma da mischia: +4 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 5 (1d6 + 2) danni perforanti."
+actions.2.name: Arco lungo
+actions.2.text: "Attacco con arma a distanza: +4 al tiro per colpire, gittata 45/180 m, un bersaglio. Colpito: 6 (1d8 + 2) danni perforanti."

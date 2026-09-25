@@ -1,0 +1,8 @@
+name: Topo gigante
+alignment: senza allineamento
+traits.0.name: Olfatto acuto
+traits.0.text: Il topo dispone di vantaggio alle prove di Saggezza (Percezione) basate sull'olfatto.
+traits.1.name: Tattiche del branco
+traits.1.text: Il topo dispone di vantaggio nel tiro per colpire contro una creatura se almeno uno degli alleati del topo si trova entro 1,5 metri da essa e non è incapacitato.
+actions.0.name: Morso
+actions.0.text: "Attacco con arma da mischia: +4 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 4 (1d4 + 2) danni perforanti."

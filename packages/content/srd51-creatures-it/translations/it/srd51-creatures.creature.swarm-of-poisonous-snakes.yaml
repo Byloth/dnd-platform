@@ -1,0 +1,6 @@
+name: Sciame di serpenti velenosi
+alignment: senza allineamento
+traits.0.name: Sciame
+traits.0.text: Lo sciame può occupare lo spazio di un'altra creatura e viceversa, e può muoversi attraverso qualsiasi apertura sufficientemente larga da far passare un serpente Minuscolo. Lo sciame non può recuperare punti ferita, né ottenere punti ferita temporanei.
+actions.0.name: Morsi
+actions.0.text: "Attacco con arma da mischia: +6 al tiro per colpire, portata 0 m, una creatura nello spazio dello sciame. Colpito: 7 (2d6) danni perforanti o 3 (1d6) danni perforanti se lo sciame possiede la metà dei suoi punti ferita o meno. Il bersaglio deve effettuare un tiro salvezza su Costituzione con CD 10, subendo 14 (4d6) danni da veleno in caso di fallimento, o la metà in caso di successo."

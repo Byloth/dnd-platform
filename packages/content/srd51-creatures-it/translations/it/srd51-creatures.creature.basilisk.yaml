@@ -1,0 +1,10 @@
+name: Basilisco
+alignment: senza allineamento
+armorClass.0.note: armatura naturale
+traits.0.name: Sguardo pietrificante
+traits.0.text: |-
+  Se una creatura inizia il proprio turno entro 9 metri dal basilisco e i due sono in grado di vedersi a vicenda, il basilisco può obbligare la creatura a effettuare un tiro salvezza su Costituzione con CD 12 (se non è incapacitato). Se la creatura fallisce, inizia a trasformarsi magicamente in pietra ed è trattenuta. Deve ripetere il tiro salvezza alla fine del suo turno successivo. Se lo supera, l'effetto svanisce. In caso di fallimento, la creatura rimane pietrificata finché non viene liberata dall'incantesimo ristorare superiore o da altre magie.
+  A meno che non venga colta di sorpresa, una creatura può distogliere lo sguardo per evitare il tiro salvezza all'inizio del suo turno. Se lo fa, non può vedere il basilisco fino all'inizio del proprio turno successivo, quando potrà distogliere lo sguardo di nuovo. Se nel frattempo guarda il basilisco, deve immediatamente effettuare il tiro salvezza.
+  Se il basilisco vede il suo riflesso entro 9 metri da sé in condizioni di luce intensa, crede erroneamente che il suo riflesso sia un rivale e bersaglia se stesso col suo sguardo.
+actions.0.name: Morso
+actions.0.text: "Attacco con arma da mischia: +5 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 10 (2d6 + 3) danni perforanti più 7 (2d6) danni da veleno."

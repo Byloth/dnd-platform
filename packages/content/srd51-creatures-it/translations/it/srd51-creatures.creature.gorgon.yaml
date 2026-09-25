@@ -1,0 +1,11 @@
+name: Gorgone
+alignment: senza allineamento
+armorClass.0.note: armatura naturale
+traits.0.name: Carica travolgente
+traits.0.text: Se la gorgone si muove di almeno 6 metri in linea retta verso una creatura e poi la colpisce con un'incornata nello stesso turno, quel bersaglio deve superare un tiro salvezza su Forza con CD 16, altrimenti cade a terra prono. Se il bersaglio è prono, la gorgone può effettuare un'azione bonus per sferrare un attacco con gli zoccoli contro di lui.
+actions.0.name: Incornata
+actions.0.text: "Attacco con arma da mischia: +8 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 18 (2d12 + 5) danni perforanti."
+actions.1.name: Zoccoli
+actions.1.text: "Attacco con arma da mischia: +8 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 16 (2d10 + 5) danni contundenti."
+actions.2.name: Soffio pietrificante
+actions.2.text: La gorgone esala gas pietrificante in un cono di 9 metri. Ogni creatura in quell'area deve superare un tiro salvezza su Costituzione con CD 13; altrimenti inizia a trasformarsi in pietra ed è trattenuta. Il bersaglio trattenuto deve ripetere il tiro salvezza alla fine del proprio turno successivo. In caso di successo, l'effetto svanisce. In caso di fallimento, è pietrificato finché non viene liberato da un incantesimo ristorare superiore o da una magia analoga.

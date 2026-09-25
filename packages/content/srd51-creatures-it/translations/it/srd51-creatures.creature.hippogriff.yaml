@@ -1,0 +1,12 @@
+name: Ippogrifo
+alignment: senza allineamento
+traits.0.name: Vista acuta
+traits.0.text: L'ippogrifo dispone di vantaggio alle prove di Saggezza (Percezione) basate sulla vista.
+actions.0.name: Multiattacco
+actions.0.text: "L'ippogrifo effettua due attacchi: uno con il becco e uno con gli artigli."
+actions.0.multiattack.0.action: Becco
+actions.0.multiattack.1.action: Artigli
+actions.1.name: Becco
+actions.1.text: "Attacco con arma da mischia: +5 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 8 (1d10 + 3) danni perforanti."
+actions.2.name: Artigli
+actions.2.text: "Attacco con arma da mischia: +5 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 10 (2d6 + 3) danni taglienti."

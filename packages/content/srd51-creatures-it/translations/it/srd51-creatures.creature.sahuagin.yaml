@@ -1,0 +1,18 @@
+name: Sahuagin
+alignment: legale malvagio
+armorClass.0.note: armatura naturale
+languages: Sahuagin
+traits.0.name: Frenesia di sangue
+traits.0.text: Il sahuagin dispone di vantaggio ai tiri per colpire in mischia contro ogni creatura che non possieda tutti i propri punti ferita.
+traits.1.name: Anfibio limitato
+traits.1.text: Il sahuagin può respirare in aria e in acqua, ma deve immergersi in acqua almeno una volta ogni 4 ore per evitare di soffocare.
+traits.2.name: Telepatia con gli squali
+traits.2.text: Il sahuagin può comandare magicamente ogni squalo entro 36 metri da lui, usando una forma limitata di telepatia.
+actions.0.name: Multiattacco
+actions.0.text: "Il sahuagin effettua due attacchi in mischia: uno con il morso e uno con gli artigli o con la lancia."
+actions.1.name: Morso
+actions.1.text: "Attacco con arma da mischia: +3 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 3 (1d4 + 1) danni perforanti."
+actions.2.name: Artigli
+actions.2.text: "Attacco con arma da mischia: +3 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 3 (1d4 + 1) danni taglienti."
+actions.3.name: Lancia
+actions.3.text: "Attacco con arma da mischia o a distanza: +3 al tiro per colpire, portata 1,5 m o gittata 6/18 m, un bersaglio. Colpito: 4 (1d6 + 1) danni perforanti o 5 (1d8 + 1) danni perforanti se impugnata con due mani per effettuare un attacco in mischia."

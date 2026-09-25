@@ -1,0 +1,7 @@
+name: Guarigione
+text: |-
+  I danni non sono permanenti, a meno che non provochino la morte di una creatura. Perfino la morte può essere sconfitta tramite le magie più potenti. Il riposo può ripristinare i punti ferita di una creatura e i metodi magici come un incantesimo *cura ferite* o una *pozione di guarigione* possono rimuovere una certa quantità di danni in un istante.
+
+  Quando una creatura riceve una qualsiasi forma di guarigione, i punti ferita recuperati si aggiungono ai suoi punti ferita attuali. I punti ferita di una creatura non possono superare il suo massimo di punti ferita, quindi tutti i punti ferita ottenuti in eccesso vanno perduti. Per esempio, un druido conferisce a un ranger 8 punti ferita di guarigione. Se il ranger ha 14 punti ferita attuali e il suo massimo dei punti ferita è 20, il ranger recupera 6 punti ferita dal druido anziché 8.
+
+  Una creatura morta non può recuperare punti ferita finché una magia come l'incantesimo *rinascita* non la riporta in vita.

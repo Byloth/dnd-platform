@@ -1,12 +1,18 @@
-name: "Cavalcature e altri animali"
+name: Cavalcature e altri animali
 text: |-
-  | Cavalcatura        | Costo  | Velocità | Capacità di trasporto |
-  |--------------------|--------|----------|-----------------------|
-  | Cammello           | 50 mo  | 15 m     | 240 kg                |
-  | Asino o mulo       | 8 mo   | 12 m     | 210 kg                |
-  | Elefante           | 200 mo | 12 m     | 660 kg                |
-  | Cavallo da tiro    | 50 mo  | 12 m     | 270 kg                |
-  | Cavallo da galoppo | 75 mo  | 18 m     | 240 kg                |
-  | Mastino            | 25 mo  | 12 m     | 97,5 kg               |
-  | Pony               | 30 mo  | 12 m     | 112,5 kg              |
-  | Cavallo da guerra  | 400 mo | 18 m     | 270 kg                |
+  Una buona cavalcatura può consentire a un personaggio di attraversare rapidamente un territorio selvaggio, ma il suo scopo primario è trasportare l'equipaggiamento che altrimenti rallenterebbe il suo padrone. La tabella "Cavalcature e altri animali" indica la velocità e la capacità di trasporto base di ogni animale.
+
+  Un animale che tira una biga, un carretto, un carro, una carrozza o una slitta può spostare un peso pari a cinque volte la sua capacità di trasporto, incluso il peso del veicolo. Se più animali tirano lo stesso veicolo, sommano le loro capacità di trasporto.
+
+  Nei mondi fantasy dei giochi di ruolo esistono altre cavalcature oltre a quelle elencate in questa sezione, ma sono rare e normalmente non sono disponibili per l'acquisto, per esempio cavalcature volanti (pegasi, grifoni, ippogrifi e altri animali simili) o acquatiche (per esempio i cavallucci marini giganti). Per entrare in possesso di una cavalcatura del genere spesso è necessario rubare un uovo e allevare la creatura di persona, stipulare un patto con una potente entità o negoziare con la cavalcatura stessa.
+
+  | Cavalcatura    | Costo  | Velocità | Capacità di trasporto |
+  |----------------|--------|--------|-------------------|
+  | Cammello       | 50 mo  | 15 m   | 240 kg            |
+  | Asino o mulo   | 8 mo   | 12 m   | 210 kg            |
+  | Elefante       | 200 mo | 12 m   | 660 kg            |
+  | Cavallo da tiro | 50 mo | 12 m   | 270 kg            |
+  | Cavallo da galoppo | 75 mo | 18 m | 240 kg          |
+  | Mastino        | 25 mo  | 12 m   | 97,5 kg           |
+  | Pony           | 30 mo  | 12 m   | 112,5 kg          |
+  | Cavallo da guerra | 400 mo | 18 m | 270 kg          |

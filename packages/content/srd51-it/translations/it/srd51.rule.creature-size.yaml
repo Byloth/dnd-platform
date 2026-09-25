@@ -1,0 +1,26 @@
+name: Taglia delle creature
+text: |-
+  Ogni creatura occupa una quantità di spazio diversa. La tabella "Categorie di taglia" indica lo spazio occupato da una creatura di una determinata taglia durante il combattimento. Gli oggetti a volte usano le stesse categorie di taglia.
+
+  ### Categorie di taglia
+
+  | Taglia | Spazio |
+  | --- | --- |
+  | Minuscola | 75 × 75 cm |
+  | Piccola | 1,5 m × 1,5 m |
+  | Media | 1,5 m × 1,5 m |
+  | Grande | 3 m × 3 m |
+  | Enorme | 4,5 m × 4,5 m |
+  | Mastodontica | 6 × 6 metri o più |
+
+  ### Spazio
+
+  Lo spazio di una creatura è l'area in metri che essa controlla a tutti gli effetti in combattimento, e non l'espressione delle sue dimensioni fisiche. Per esempio, una tipica creatura Media non è larga 1,5 metri, ma controlla uno spazio di quella larghezza. Se un hobgoblin di taglia Media si piazza davanti a una porta larga 1,5 metri, le altre creature non possono passare a meno che l'hobgoblin non glielo consenta.
+
+  Lo spazio di una creatura rappresenta anche l'area di cui quella creatura ha bisogno per combattere con efficacia. È per questo motivo che c'è un limite al numero di creature che possono circondarne un'altra in combattimento. Presumendo che i combattenti siano di taglia Media, otto creature possono circondare un'altra creatura in un raggio di 1,5 metri.
+
+  Dal momento che le creature più grandi occupano più spazio, meno creature di quel tipo possono circondare una creatura. Se cinque creature Grandi si raccolgono attorno a una creatura di taglia Media o inferiore, resta poco spazio per altri. Per contro, fino a venti creature Medie possono circondare una creatura Mastodontica.
+
+  ### Intrufolarsi in uno spazio più piccolo
+
+  Una creatura può infilarsi in uno spazio sufficientemente grande per una creatura più piccola di una taglia rispetto alla sua. Quindi una creatura Grande può stringersi attraverso un passaggio largo solo 1,5 metri. Quando una creatura si infila a forza in uno spazio, deve spendere 30 cm extra per ogni 30 cm in cui si muove e subisce svantaggio ai tiri per colpire e ai tiri salvezza su Destrezza. I tiri per colpire contro la creatura dispongono di vantaggio finché la creatura si trova nello spazio angusto.

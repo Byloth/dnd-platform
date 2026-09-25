@@ -1,0 +1,9 @@
+name: Worg
+text: Un worg è un malvagio predatore che si diverte a cacciare e divorare creature più deboli di lui. Scaltre e maligne, queste creature vagano per le terre selvagge più remote. Vengono allevate da goblin e hobgoblin, talvolta venendo anche usate come cavalcature da questi ultimi. Un worg non esiterà però a rivoltarsi contro il suo cavaliere se si sente maltrattato o malnutrito. I worg parlano il loro linguaggio personale e il Goblin. Alcuni imparano anche a parlare il Comune.
+alignment: neutrale malvagio
+armorClass.0.note: armatura naturale
+languages: Goblin, Worg
+traits.0.name: Udito e olfatto acuti
+traits.0.text: Il worg dispone di vantaggio alle prove di Saggezza (Percezione) basate sull'olfatto o sull'udito.
+actions.0.name: Morso
+actions.0.text: "Attacco con arma da mischia: +5 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 10 (2d6 + 3) danni perforanti. Se il bersaglio è una creatura, deve superare un tiro salvezza su Forza con CD 13, altrimenti cade a terra prono."

@@ -1,0 +1,11 @@
+name: Coboldo
+alignment: legale malvagio
+languages: Comune, Draconico
+traits.0.name: Sensibilità al sole
+traits.0.text: Mentre è alla luce del sole, il coboldo ha uno svantaggio ai tiri per colpire, così come nelle prove di Saggezza (Percezione) che si basano sulla vista.
+traits.1.name: Tattiche del branco
+traits.1.text: Il coboldo dispone di vantaggio nel tiro per colpire contro una creatura se almeno uno degli alleati del mostro si trova entro 1,5 metri dalla creatura e non è incapacitato.
+actions.0.name: Pugnale
+actions.0.text: "Attacco con arma da mischia: +4 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 4 (1d4 + 2) danni perforanti."
+actions.1.name: Fionda
+actions.1.text: "Attacco con arma a distanza: +4 al tiro per colpire, gittata 9/36 m, un bersaglio. Colpito: 4 (1d4 + 2) danni contundenti."

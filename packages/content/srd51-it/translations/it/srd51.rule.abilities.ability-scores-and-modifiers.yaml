@@ -6,6 +6,27 @@ text: |-
 
   A ogni caratteristica è abbinato anche un modificatore derivato dal punteggio, che può variare da -5 (per un punteggio di caratteristica di 1) a +10 (per un punteggio di 30). La tabella "Punteggi di caratteristica e modificatori" elenca i modificatori di caratteristica per tutta la gamma dei punteggi di caratteristica possibili, che va da 1 a 30.
 
+  ### Punteggi di caratteristica e modificatori
+
+  | Punteggio | Modificatore |
+  | --- | --- |
+  | 1 | -5 |
+  | 2-3 | -4 |
+  | 4-5 | -3 |
+  | 6-7 | -2 |
+  | 8-9 | -1 |
+  | 10-11 | +0 |
+  | 12-13 | +1 |
+  | 14-15 | +2 |
+  | 16-17 | +3 |
+  | 18-19 | +4 |
+  | 20-21 | +5 |
+  | 22-23 | +6 |
+  | 24-25 | +7 |
+  | 26-27 | +8 |
+  | 28-29 | +9 |
+  | 30 | +10 |
+
   Per determinare un modificatore di caratteristica senza consultare la tabella è sufficiente sottrarre 10 al punteggio di caratteristica e poi dividere il risultato per 2 (arrotondando per difetto).
 
   Dal momento che i modificatori di caratteristica influenzano praticamente ogni tiro per colpire, prova di caratteristica e tiro salvezza, essi entrano in gioco molto più spesso dei punteggi a cui sono associati.

@@ -1,0 +1,10 @@
+name: Cavalluccio marino gigante
+text: Come i loro cugini più piccoli, i cavallucci marini giganti sono pesci timorosi, dai colori sgargianti, con il corpo oblungo e la coda arricciata. Gli elfi acquatici li addestrano per usarli come cavalcature.
+alignment: senza allineamento
+armorClass.0.note: armatura naturale
+traits.0.name: Carica
+traits.0.text: Se il cavalluccio marino si muove di almeno 6 metri in linea retta verso un bersaglio e poi lo colpisce con un attacco da sfondamento nello stesso turno, il bersaglio subisce 7 (2d6) danni contundenti extra. Se il bersaglio è una creatura, deve superare un tiro salvezza su Forza con CD 11, altrimenti cade a terra prono.
+traits.1.name: Respirare sott'acqua
+traits.1.text: Il cavalluccio marino può respirare soltanto sott'acqua.
+actions.0.name: Sfondamento
+actions.0.text: "Attacco con arma da mischia: +3 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 4 (1d6 + 1) danni contundenti."

@@ -1,0 +1,7 @@
+name: Serpente volante
+text: Un serpente volante è un serpente alato dai colori sgargianti che si annida nelle giungle più remote. Le popolazioni tribali e i cultisti a volte addomesticano tali creature per usarle come messaggere, trasportando pergamene strette tra le loro spire.
+alignment: senza allineamento
+traits.0.name: Sfuggente
+traits.0.text: Il serpente non provoca attacchi d'opportunità quando vola oltre la portata di un nemico.
+actions.0.name: Morso
+actions.0.text: "Attacco con arma da mischia: +6 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 1 danno perforante più 7 (3d4) danni da veleno."

@@ -1,0 +1,11 @@
+name: Gigante del gelo
+alignment: neutrale malvagio
+armorClass.0.note: armatura rappezzata
+languages: Gigante
+actions.0.name: Multiattacco
+actions.0.text: Il gigante effettua due attacchi con l'ascia bipenne.
+actions.0.multiattack.0.action: Ascia bipenne
+actions.1.name: Ascia bipenne
+actions.1.text: "Attacco con arma da mischia: +9 al tiro per colpire, portata 3 m, un bersaglio. Colpito: 25 (3d12 + 6) danni taglienti."
+actions.2.name: Roccia
+actions.2.text: "Attacco con arma a distanza: +9 al tiro per colpire, gittata 18/72 m, un bersaglio. Colpito: 28 (4d10 + 6) danni contundenti."

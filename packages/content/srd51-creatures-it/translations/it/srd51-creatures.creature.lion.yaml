@@ -1,0 +1,14 @@
+name: Leone
+alignment: senza allineamento
+traits.0.name: Olfatto acuto
+traits.0.text: Il leone dispone di vantaggio alle prove di Saggezza (Percezione) basate sull'olfatto.
+traits.1.name: Tattiche del branco
+traits.1.text: Il leone dispone di vantaggio a un tiro per colpire contro una creatura se almeno uno degli alleati dell'animale si trova entro 1,5 metri dalla creatura e non è incapacitato.
+traits.2.name: Balzo
+traits.2.text: Se il leone si muove di almeno 6 metri in linea retta verso una creatura e poi la colpisce con un attacco con gli artigli nello stesso turno, quel bersaglio deve superare un tiro salvezza su Forza con CD 13, altrimenti cade a terra prono. Se il bersaglio è prono, il leone può effettuare un attacco con il morso contro di esso come azione bonus.
+traits.3.name: Balzo in corsa
+traits.3.text: Dopo una rincorsa di 3 metri, il leone può effettuare un salto in lungo di un massimo di 7,5 metri.
+actions.0.name: Morso
+actions.0.text: "Attacco con arma da mischia: +5 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 7 (1d8 + 3) danni perforanti."
+actions.1.name: Artiglio
+actions.1.text: "Attacco con arma da mischia: +5 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 6 (1d6 + 3) danni taglienti."

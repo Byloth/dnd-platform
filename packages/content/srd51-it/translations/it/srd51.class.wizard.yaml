@@ -1,19 +1,16 @@
-name: "Mago"
-levels.1.features.0.name: "Recupero Arcano"
+name: Mago
+levels.1.features.0.name: Recupero Arcano
 levels.1.features.0.text: |-
   Un mago impara a recuperare parte della sua energia magica studiando il suo libro degli incantesimi. Una volta al giorno, quando completa un riposo breve, il mago sceglie quali slot incantesimo spesi desidera recuperare. Questi slot incantesimo possono avere un livello totale pari o inferiore alla metà del livello da mago (arrotondato per eccesso) e nessuno slot può essere di livello pari o superiore al 6°.
 
   Per esempio, un mago di 4° livello può recuperare slot incantesimo per un valore totale di due livelli. Potrà quindi recuperare uno slot di 2° livello o due slot di 1° livello.
-levels.1.features.0.effects.0.name: "Recupero Arcano"
-levels.1.features.0.effects.0.note: "Una volta al giorno."
-levels.1.features.0.effects.1.name: "Recupero Arcano"
-levels.1.features.0.effects.1.text: |-
-  Una volta al giorno, quando completi un riposo breve, puoi scegliere quali slot incantesimo spesi recuperare. Questi slot incantesimo possono avere un livello totale pari o inferiore alla metà del tuo livello da mago (arrotondato per eccesso) e nessuno slot può essere di livello pari o superiore al 6°.
-levels.1.features.0.effects.1.onUse.0.note: |-
-  Recuperi slot incantesimo spesi il cui livello totale è al massimo pari alla metà del tuo livello da mago (arrotondato per eccesso); nessuno slot può essere di livello pari o superiore al 6°.
-levels.1.features.0.onRest.0.text: |-
-  Se si tratta di un riposo breve e oggi non hai ancora usato Recupero Arcano, puoi usarlo ora per recuperare slot incantesimo spesi (livello totale fino alla metà del tuo livello da mago, arrotondato per eccesso; nessuno slot di livello pari o superiore al 6°).
-levels.1.features.1.name: "Incantesimi"
+levels.1.features.0.effects.0.name: Recupero Arcano
+levels.1.features.0.effects.0.note: Una volta al giorno.
+levels.1.features.0.effects.1.name: Recupero Arcano
+levels.1.features.0.effects.1.text: Una volta al giorno, quando completi un riposo breve, puoi scegliere quali slot incantesimo spesi recuperare. Questi slot incantesimo possono avere un livello totale pari o inferiore alla metà del tuo livello da mago (arrotondato per eccesso) e nessuno slot può essere di livello pari o superiore al 6°.
+levels.1.features.0.effects.1.onUse.0.note: Recuperi slot incantesimo spesi il cui livello totale è al massimo pari alla metà del tuo livello da mago (arrotondato per eccesso); nessuno slot può essere di livello pari o superiore al 6°.
+levels.1.features.0.onRest.0.text: Se si tratta di un riposo breve e oggi non hai ancora usato Recupero Arcano, puoi usarlo ora per recuperare slot incantesimo spesi (livello totale fino alla metà del tuo livello da mago, arrotondato per eccesso; nessuno slot di livello pari o superiore al 6°).
+levels.1.features.1.name: Incantesimi
 levels.1.features.1.text: |-
   Un mago è uno studioso di magia arcana: possiede un libro degli incantesimi in cui sono contenuti gli incantesimi che costituiscono le prime scintille del suo futuro potere.
 
@@ -54,38 +51,29 @@ levels.1.features.1.text: |-
   ### Imparare incantesimi di 1° livello e di livello superiore
 
   Ogni volta che il personaggio acquisisce un livello da mago, può aggiungere gratuitamente due incantesimi da mago a sua scelta al suo libro degli incantesimi. Ognuno di questi incantesimi deve essere di un livello di cui il mago possiede degli slot incantesimo, come indicato nella tabella "Mago". Nel corso delle sue avventure potrebbe trovare altri incantesimi da aggiungere al suo libro (vedi il riquadro "Il libro degli incantesimi del mago").
-levels.2.features.0.name: "Tradizione Arcana"
+levels.2.features.0.name: Tradizione Arcana
 levels.2.features.0.text: |-
-  Quando un mago arriva al 2° livello, sceglie una tradizione arcana che modellerà la sua pratica della magia in base ai precetti di una delle otto scuole di magia: Abiurazione, Ammaliamento, Divinazione, Evocazione, Illusione, Invocazione, Necromanzia o Trasmutazione, tutte descritte alla fine della descrizione della classe.
+  Quando un mago arriva al 2° livello, sceglie una tradizione arcana che modellerà la sua pratica della magia in base ai precetti di una delle otto scuole di magia, per esempio la Scuola di Invocazione.
 
   Questa scelta gli conferisce alcuni privilegi al 2° livello e poi di nuovo al 6°, 10° e 14° livello.
-levels.4.features.0.name: "Aumento dei Punteggi di Caratteristica"
-levels.4.features.0.text: |-
-  Quando arriva al 4° livello, e poi di nuovo all'8°, 12°, 16° e 19° livello, un mago può aumentare di 2 un punteggio di caratteristica a sua scelta, oppure può aumentare di 1 due punteggi di caratteristica a sua scelta. Come di consueto, non è consentito aumentare un punteggio di caratteristica a più di 20 utilizzando questo privilegio.
-levels.18.features.0.name: "Maestria negli Incantesimi"
+levels.4.features.0.name: Aumento dei Punteggi di Caratteristica
+levels.4.features.0.text: Quando arriva al 4° livello, e poi di nuovo all'8°, 12°, 16° e 19° livello, un mago può aumentare di 2 un punteggio di caratteristica a sua scelta, oppure può aumentare di 1 due punteggi di caratteristica a sua scelta. Come di consueto, non è consentito aumentare un punteggio di caratteristica a più di 20 utilizzando questo privilegio.
+levels.18.features.0.name: Maestria negli Incantesimi
 levels.18.features.0.text: |-
   Al 18° livello, il mago raggiunge una tale maestria nell'uso di certi incantesimi da poterli lanciare a volontà. Il personaggio sceglie un incantesimo da mago di 1° livello e un incantesimo da mago di 2° livello contenuti nel suo libro degli incantesimi. Può lanciare quegli incantesimi al loro livello più basso senza spendere uno slot incantesimo quando li ha preparati. Se desidera lanciare uno di quegli incantesimi a un livello superiore, deve spendere uno slot incantesimo come di consueto.
 
   Dedicando 8 ore allo studio, il mago può cambiare uno o entrambi gli incantesimi scelti con incantesimi diversi degli stessi livelli.
-levels.18.features.0.effects.0.note: |-
-  Un incantesimo da mago di 1° livello contenuto nel tuo libro degli incantesimi. Puoi lanciarlo al suo livello più basso senza spendere uno slot incantesimo quando lo hai preparato.
-levels.18.features.0.effects.1.note: |-
-  Un incantesimo da mago di 2° livello contenuto nel tuo libro degli incantesimi. Puoi lanciarlo al suo livello più basso senza spendere uno slot incantesimo quando lo hai preparato.
-levels.18.features.0.effects.2.text: |-
-  Puoi lanciare gli incantesimi della tua Maestria negli Incantesimi al loro livello più basso senza spendere uno slot incantesimo quando li hai preparati. Se desideri lanciare uno di quegli incantesimi a un livello superiore, devi spendere uno slot incantesimo come di consueto. Dedicando 8 ore allo studio, puoi cambiare uno o entrambi gli incantesimi scelti con incantesimi diversi degli stessi livelli.
-levels.18.features.0.effects.2.note: |-
-  Il filtro non può limitare la scelta agli incantesimi del tuo libro degli incantesimi e un incantesimo scelto non può ancora essere concesso come lanciabile senza slot; lanciali senza spendere uno slot a mano.
-levels.20.features.0.name: "Incantesimi Personali"
+levels.18.features.0.effects.0.note: Un incantesimo da mago di 1° livello contenuto nel tuo libro degli incantesimi. Puoi lanciarlo al suo livello più basso senza spendere uno slot incantesimo quando lo hai preparato.
+levels.18.features.0.effects.1.note: Un incantesimo da mago di 2° livello contenuto nel tuo libro degli incantesimi. Puoi lanciarlo al suo livello più basso senza spendere uno slot incantesimo quando lo hai preparato.
+levels.18.features.0.effects.2.text: Puoi lanciare gli incantesimi della tua Maestria negli Incantesimi al loro livello più basso senza spendere uno slot incantesimo quando li hai preparati. Se desideri lanciare uno di quegli incantesimi a un livello superiore, devi spendere uno slot incantesimo come di consueto. Dedicando 8 ore allo studio, puoi cambiare uno o entrambi gli incantesimi scelti con incantesimi diversi degli stessi livelli.
+levels.18.features.0.effects.2.note: Il filtro non può limitare la scelta agli incantesimi del tuo libro degli incantesimi e un incantesimo scelto non può ancora essere concesso come lanciabile senza slot; lanciali senza spendere uno slot a mano.
+levels.20.features.0.name: Incantesimi Personali
 levels.20.features.0.text: |-
   Quando il mago arriva al 20° livello, padroneggia due potenti incantesimi che è in grado di lanciare con minimo sforzo. Il mago sceglie due incantesimi da mago di 3° livello contenuti nel suo libro degli incantesimi come suoi incantesimi personali. Il mago considera questi incantesimi sempre preparati, non li conta al fine di determinare il numero di incantesimi preparati e può lanciare ognuno di quegli incantesimi una volta al 3° livello senza spendere uno slot incantesimo. Quando lo fa, non può farlo di nuovo finché non completa un riposo breve o lungo.
 
   Se desidera lanciare uno di quegli incantesimi a un livello superiore, deve spendere uno slot incantesimo come di consueto.
-levels.20.features.0.effects.0.note: |-
-  Due incantesimi da mago di 3° livello contenuti nel tuo libro degli incantesimi. Li consideri sempre preparati e non li conti al fine di determinare il numero di incantesimi preparati.
-levels.20.features.0.effects.1.name: "Incantesimi Personali"
-levels.20.features.0.effects.1.note: |-
-  Un utilizzo per ogni incantesimo personale, ognuno recuperato quando completi un riposo breve o lungo; la riserva non può legare un utilizzo a un incantesimo specifico, quindi spendine uno per incantesimo.
-levels.20.features.0.effects.2.text: |-
-  Puoi lanciare ognuno dei tuoi incantesimi personali una volta al 3° livello senza spendere uno slot incantesimo. Quando lo fai, non puoi farlo di nuovo finché non completi un riposo breve o lungo. Se desideri lanciare uno di quegli incantesimi a un livello superiore, devi spendere uno slot incantesimo come di consueto.
-levels.20.features.0.effects.2.note: |-
-  Il filtro non può limitare la scelta agli incantesimi del tuo libro degli incantesimi e un incantesimo scelto non può ancora essere segnato come sempre preparato né concesso con degli utilizzi (la concessione di incantesimi richiede id di incantesimo fissi); preparali e spendi a mano gli utilizzi di Incantesimi Personali.
+levels.20.features.0.effects.0.note: Due incantesimi da mago di 3° livello contenuti nel tuo libro degli incantesimi. Li consideri sempre preparati e non li conti al fine di determinare il numero di incantesimi preparati.
+levels.20.features.0.effects.1.name: Incantesimi Personali
+levels.20.features.0.effects.1.note: Un utilizzo per ogni incantesimo personale, ognuno recuperato quando completi un riposo breve o lungo; la riserva non può legare un utilizzo a un incantesimo specifico, quindi spendine uno per incantesimo.
+levels.20.features.0.effects.2.text: Puoi lanciare ognuno dei tuoi incantesimi personali una volta al 3° livello senza spendere uno slot incantesimo. Quando lo fai, non puoi farlo di nuovo finché non completi un riposo breve o lungo. Se desideri lanciare uno di quegli incantesimi a un livello superiore, devi spendere uno slot incantesimo come di consueto.
+levels.20.features.0.effects.2.note: Il filtro non può limitare la scelta agli incantesimi del tuo libro degli incantesimi e un incantesimo scelto non può ancora essere segnato come sempre preparato né concesso con degli utilizzi (la concessione di incantesimi richiede id di incantesimo fissi); preparali e spendi a mano gli utilizzi di Incantesimi Personali.

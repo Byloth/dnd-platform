@@ -30,17 +30,12 @@ features.0.name: Bastone ferrato magico
 features.1.name: Assorbimento degli incantesimi
 features.1.effects.1.name: Assorbire un incantesimo
 features.1.effects.1.trigger: quando un'altra creatura lancia un incantesimo che ha solo te come bersaglio
-features.1.effects.1.text: |-
-  Il bastone assorbe la magia dell'incantesimo, annullandone gli effetti e ottenendo un numero di cariche pari al livello dell'incantesimo assorbito. Se così facendo il bastone supera 50 cariche, esplode come se avessi attivato il suo colpo del castigo.
-features.1.effects.1.onUse.0.note: |-
-  Il bastone recupera un numero di cariche pari al livello dell'incantesimo assorbito, non 1; oltre 50 cariche esplode (Colpo del castigo).
+features.1.effects.1.text: Il bastone assorbe la magia dell'incantesimo, annullandone gli effetti e ottenendo un numero di cariche pari al livello dell'incantesimo assorbito. Se così facendo il bastone supera 50 cariche, esplode come se avessi attivato il suo colpo del castigo.
+features.1.effects.1.onUse.0.text: Aggiungi a mano cariche pari al livello dell'incantesimo assorbito; oltre 50 cariche il bastone esplode (Colpo del castigo).
 features.2.name: Incantesimi
-features.2.effects.0.note: |-
-  Si lancia con un'azione usando la tua CD del tiro salvezza sull'incantesimo e la tua caratteristica da incantatore. Se consumi l'ultima carica, tira un d20: con un 20 il bastone recupera 1d12 + 1 cariche.
+features.2.effects.0.note: "Si lancia con un'azione usando la tua CD del tiro salvezza sull'incantesimo e la tua caratteristica da incantatore. Se consumi l'ultima carica, tira un d20: con un 20 il bastone recupera 1d12 + 1 cariche."
 features.2.effects.6.note: Si lancia con il bastone con un'azione, senza spendere alcuna carica.
 features.3.name: Colpo del castigo
 features.3.effects.0.name: Colpo del castigo
-features.3.effects.0.text: |-
-  Spezzi il bastone: è distrutto e sprigiona la magia che gli restava in un'esplosione che riempie una sfera del raggio di 9 metri centrata su di esso. Hai una probabilità del 50% di spostarti istantaneamente su un piano di esistenza casuale, evitando l'esplosione; altrimenti subisci danni da forza pari a 16 × il numero di cariche nel bastone. Ogni altra creatura nell'area effettua un tiro salvezza su Destrezza con CD 17 e subisce danni in base alla sua distanza dal punto di origine (la metà in caso di successo).
-features.3.effects.0.onUse.0.text: |-
-  Danni in base alla distanza: 3 m o meno 8 × cariche, più di 3 m fino a 6 m 6 × cariche, più di 6 m fino a 9 m 4 × cariche (danni da forza). Il bastone è distrutto.
+features.3.effects.0.text: "Spezzi il bastone: è distrutto e sprigiona la magia che gli restava in un'esplosione che riempie una sfera del raggio di 9 metri centrata su di esso. Hai una probabilità del 50% di spostarti istantaneamente su un piano di esistenza casuale, evitando l'esplosione; altrimenti subisci danni da forza pari a 16 × il numero di cariche nel bastone. Ogni altra creatura nell'area effettua un tiro salvezza su Destrezza con CD 17 e subisce danni in base alla sua distanza dal punto di origine (la metà in caso di successo)."
+features.3.effects.0.onUse.0.text: "Danni in base alla distanza: 3 m o meno 8 × cariche, più di 3 m fino a 6 m 6 × cariche, più di 6 m fino a 9 m 4 × cariche (danni da forza). Il bastone è distrutto."

@@ -1,0 +1,14 @@
+name: Malvivente
+text: I malviventi sono spietati criminali specializzati nell'intimidazione e nella violenza. Lavorano per soldi e non si fanno scrupoli.
+alignment: qualsiasi allineamento non buono
+armorClass.0.note: armatura di cuoio
+languages: uno qualsiasi (di solito Comune)
+traits.0.name: Tattiche del branco
+traits.0.text: Il malvivente dispone di vantaggio nel tiro per colpire contro una creatura se almeno uno degli alleati del malvivente si trova entro 1,5 metri dalla creatura e non è incapacitato.
+actions.0.name: Multiattacco
+actions.0.text: Il malvivente effettua due attacchi in mischia.
+actions.0.multiattack.0.action: Mazza
+actions.1.name: Mazza
+actions.1.text: "Attacco con arma da mischia: +4 al tiro per colpire, portata 1,5 m, una creatura. Colpito: 5 (1d6 + 2) danni contundenti."
+actions.2.name: Balestra pesante
+actions.2.text: "Attacco con arma a distanza: +2 al tiro per colpire, gittata 30/120 m, un bersaglio. Colpito: 5 (1d10) danni perforanti."

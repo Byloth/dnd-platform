@@ -1,0 +1,35 @@
+name: Solar
+alignment: legale buono
+armorClass.0.note: armatura naturale
+resistances.1.note: da attacchi non magici
+languages: tutti, telepatia 36 m
+traits.0.name: Armi angeliche
+traits.0.text: Gli attacchi con arma del solar sono magici. Quando il solar colpisce con qualsiasi arma, la sua arma infligge 6d8 danni radiosi extra (già inclusi nell'attacco).
+traits.1.name: Consapevolezza divina
+traits.1.text: Il solar sa riconoscere le menzogne.
+traits.2.name: Incantesimi innati
+traits.2.text: |-
+  La caratteristica da incantatore del solar è Carisma (CD del tiro salvezza sull'incantesimo 25). Per sua natura, è in grado di lanciare gli incantesimi indicati di seguito senza aver bisogno di componenti materiali:
+  A volontà: individuazione del bene e del male, invisibilità (solo se stesso)
+  3/giorno ciascuno: barriera di lame, dissolvi il bene e il male, resurrezione
+  1/giorno ciascuno: comunione, controllare tempo atmosferico
+traits.3.name: Resistenza alla magia
+traits.3.text: Il solar dispone di vantaggio ai tiri salvezza contro incantesimi e altri effetti magici.
+actions.0.name: Multiattacco
+actions.0.text: Il solar effettua due attacchi con lo spadone.
+actions.0.multiattack.0.action: Spadone
+actions.1.name: Spadone
+actions.1.text: "Attacco con arma da mischia: +15 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 22 (4d6 + 8) danni taglienti più 27 (6d8) danni radiosi."
+actions.2.name: Arco lungo assassino
+actions.2.text: "Attacco con arma a distanza: +13 al tiro per colpire, gittata 45/180 m, un bersaglio. Colpito: 15 (2d8 + 6) danni perforanti più 27 (6d8) danni radiosi. Se il bersaglio è una creatura con 100 punti ferita o meno, deve superare un tiro salvezza su Costituzione con CD 15, altrimenti muore."
+actions.3.name: Spada volante
+actions.3.text: Il solar lascia andare il suo spadone, che fluttua magicamente in uno spazio libero entro 1,5 metri da lui. Se il solar è in grado di vedere lo spadone, come azione bonus può ordinargli mentalmente di volare fino a un massimo di 15 metri e di sferrare un attacco contro un bersaglio o di tornare nella sua mano. Se la spada fluttuante è bersagliata da un qualsiasi effetto, è comunque considerata impugnata dal solar. Se il solar muore, la spada fluttuante cade a terra.
+actions.4.name: Tocco guaritore
+actions.4.text: Il solar tocca un'altra creatura. Il bersaglio recupera magicamente 40 (8d8 + 4) punti ferita ed è liberato da qualsiasi maledizione, malattia, veleno, cecità o sordità.
+legendary.actions.0.name: Teletrasporto
+legendary.actions.0.text: Il solar si teletrasporta magicamente, insieme a ogni oggetto che indossa o trasporta, fino a uno spazio libero visibile entro 36 metri.
+legendary.actions.1.name: Esplosione incandescente (costa 2 azioni)
+legendary.actions.1.text: Il solar emette un'onda di energia magica divina. Ogni creatura a sua scelta entro un raggio di 3 metri deve effettuare un tiro salvezza su Destrezza con CD 23, subendo 14 (4d6) danni da fuoco più 14 (4d6) danni radiosi in caso di fallimento, o la metà dei danni in caso di successo.
+legendary.actions.2.name: Sguardo accecante (costa 3 azioni)
+legendary.actions.2.text: Il solar prende di mira una creatura nel suo campo visivo in un raggio di 9 metri. Se il bersaglio è in grado di vedere il solar, deve superare un tiro salvezza su Costituzione con CD 15, altrimenti è accecato finché una magia come ristorare inferiore non rimuove la cecità.
+legendary.text: Il solar può eseguire 3 azioni leggendarie a scelta tra le opzioni seguenti. È possibile utilizzare solo un'opzione di azione leggendaria alla volta e soltanto alla fine del turno di un'altra creatura. All'inizio del turno, il solar recupera le azioni leggendarie effettuate.

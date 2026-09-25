@@ -1,0 +1,10 @@
+name: Squalo gigante
+text: Uno squalo gigante è lungo 9 metri e normalmente infesta le acque più profonde degli oceani. Non conosce la paura e si ciba di qualsiasi cosa si trovi di fronte, incluse balene e navi.
+alignment: senza allineamento
+armorClass.0.note: armatura naturale
+traits.0.name: Frenesia di sangue
+traits.0.text: Lo squalo dispone di vantaggio ai tiri per colpire in mischia contro ogni creatura che non possieda tutti i propri punti ferita.
+traits.1.name: Respirare sott'acqua
+traits.1.text: Lo squalo può respirare soltanto sott'acqua.
+actions.0.name: Morso
+actions.0.text: "Attacco con arma da mischia: +9 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 22 (3d10 + 6) danni perforanti."

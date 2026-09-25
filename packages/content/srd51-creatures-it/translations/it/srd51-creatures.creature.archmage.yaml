@@ -1,0 +1,29 @@
+name: Arcimago
+text: |-
+  Gli arcimaghi sono incantatori potenti (e di solito piuttosto anziani) dediti allo studio delle arti arcane. Quelli più benevoli fungono da consiglieri per re e regine, mentre quelli malvagi esercitano il potere tirannicamente e ambiscono a trasformarsi in lich. Quelli che non sono né buoni né malvagi si isolano all'interno di remote torri per poter praticare la loro magia indisturbati.
+
+  Un arcimago solitamente è assistito da uno o più apprendisti maghi e protegge la sua dimora con numerose interdizioni e guardiani magici per scoraggiare eventuali intrusioni.
+alignment: qualsiasi allineamento
+armorClass.1.note: con armatura magica
+resistances.0.note: danni degli incantesimi
+resistances.1.note: non magici (da pelle di pietra)
+languages: sei qualsiasi
+traits.0.name: Resistenza alla magia
+traits.0.text: L'arcimago dispone di vantaggio ai tiri salvezza contro incantesimi e altri effetti magici.
+traits.1.name: Incantesimi
+traits.1.text: |-
+  L'arcimago è un incantatore di 18° livello: la sua caratteristica da incantatore è Intelligenza (CD del tiro salvezza sull'incantesimo 17, +9 al tiro per colpire con attacco con incantesimo). L'arcimago può lanciare camuffare se stesso e invisibilità a volontà e ha a disposizione i seguenti incantesimi da mago:
+
+  - Trucchetti (a volontà): dardo di fuoco, luce, mano magica, prestidigitazione, stretta folgorante
+  - 1° livello (4 slot): armatura magica*, dardo incantato, identificare, individuazione del magico
+  - 2° livello (3 slot): immagine speculare, individuazione dei pensieri, passo velato
+  - 3° livello (3 slot): controincantesimo, fulmine, volare
+  - 4° livello (3 slot): esilio, pelle di pietra*, scudo di fuoco
+  - 5° livello (3 slot): cono di freddo, muro di forza, scrutare
+  - 6° livello (1 slot): globo di invulnerabilità
+  - 7° livello (1 slot): teletrasporto
+  - 8° livello (1 slot): vuoto mentale*
+  - 9° livello (1 slot): fermare il tempo
+  * L'arcimago lancia questi incantesimi su se stesso prima del combattimento.
+actions.0.name: Pugnale
+actions.0.text: "Attacco con arma da mischia o con arma a distanza: +6 al tiro per colpire, portata 1,5 m o gittata 6/18 m, un bersaglio. Colpito: 4 (1d4 + 2) danni perforanti."

@@ -1,0 +1,10 @@
+name: Squalo cacciatore
+text: Uno squalo cacciatore, più piccolo di uno squalo gigante, ma più grosso e feroce di uno squalo tropicale, infesta le acque profonde. Solitamente caccia da solo, ma più squali cacciatori potrebbero cibarsi nella stessa area. Uno squalo cacciatore pienamente sviluppato misura dai 4,5 ai 6 metri.
+alignment: senza allineamento
+armorClass.0.note: armatura naturale
+traits.0.name: Frenesia di sangue
+traits.0.text: Lo squalo dispone di vantaggio ai tiri per colpire in mischia contro ogni creatura che non possieda tutti i propri punti ferita.
+traits.1.name: Respirare sott'acqua
+traits.1.text: Lo squalo può respirare soltanto sott'acqua.
+actions.0.name: Morso
+actions.0.text: "Attacco con arma da mischia: +6 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 13 (2d8 + 4) danni perforanti."

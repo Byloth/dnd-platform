@@ -1,0 +1,17 @@
+name: Gladiatore
+text: I gladiatori combattono per intrattenere ampie folle in tumulto. Alcuni gladiatori sono brutali lottatori clandestini che affrontano ogni scontro come se fosse una questione di vita o di morte, mentre altri sono duellanti professionisti che esigono tariffe esorbitanti ma raramente combattono fino alla morte.
+alignment: qualsiasi allineamento
+armorClass.0.note: cuoio borchiato, scudo
+languages: uno qualsiasi (di solito Comune)
+traits.0.name: Impavido
+traits.0.text: Il gladiatore dispone di vantaggio ai tiri salvezza contro la condizione spaventato.
+traits.1.name: Bruto
+traits.1.text: Quando il gladiatore colpisce con un'arma da mischia, l'attacco infligge un dado extra del tipo di danno dell'arma (già incluso nell'attacco).
+actions.0.name: Multiattacco
+actions.0.text: Il gladiatore sferra tre attacchi in mischia o due attacchi a distanza.
+actions.1.name: Lancia
+actions.1.text: "Attacco con arma da mischia o con arma a distanza: +7 al tiro per colpire, portata 1,5 m o gittata 6/18 m, un bersaglio. Colpito: 11 (2d6 + 4) danni perforanti o 13 (2d8 + 4) danni perforanti se usata a due mani per effettuare un attacco in mischia."
+actions.2.name: Scudo da sfondamento
+actions.2.text: "Attacco con arma da mischia: +7 al tiro per colpire, portata 1,5 m, una creatura. Colpito: 9 (2d4 + 4) danni contundenti. Se il bersaglio è una creatura di taglia Media o inferiore, deve superare un tiro salvezza su Forza con CD 15, altrimenti viene buttato a terra prono."
+reactions.0.name: Parata
+reactions.0.text: Il gladiatore aggiunge 3 alla sua CA contro un attacco in mischia che lo colpirebbe. Per farlo, deve vedere l'attaccante e deve impugnare un'arma da mischia.

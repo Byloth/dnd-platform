@@ -1,0 +1,33 @@
+name: "Linguaggi"
+text: |-
+  La razza di un personaggio indica quali linguaggi conosce intrinsecamente; il suo background potrebbe fornirgli accesso a uno o più linguaggi aggiuntivi a sua scelta. Questi elementi vanno annotati sulla scheda del personaggio.
+
+  I linguaggi di un personaggio vanno scelti dalla tabella "Linguaggi standard" o tra quelli comuni nella campagna in corso. Con il permesso del GM è possibile anche scegliere un linguaggio dalla tabella "Linguaggi esotici" o un linguaggio segreto, come il Gergo Ladresco o il Druidico.
+
+  Alcuni di questi linguaggi sono in realtà famiglie di lingue che comprendono molti dialetti. Per esempio, il linguaggio Primordiale include i dialetti Aquan, Auran, Ignan e Terran, corrispondenti a ognuno dei quattro piani elementali. Le creature che parlano dialetti diversi di una stessa lingua sono in grado di comunicare tra loro.
+
+  ### Linguaggi standard
+
+  | Linguaggio | Parlanti tipici | Scrittura |
+  |---|---|---|
+  | Comune | Umani | Comune |
+  | Nanico | Nani | Nanico |
+  | Elfico | Elfi | Elfico |
+  | Gigante | Ogre, giganti | Nanico |
+  | Gnomesco | Gnomi | Nanico |
+  | Goblin | Goblinoidi | Nanico |
+  | Halfling | Halfling | Comune |
+  | Orchesco | Orchi | Nanico |
+
+  ### Linguaggi esotici
+
+  | Linguaggio | Parlanti tipici | Scrittura |
+  |---|---|---|
+  | Abissale | Demoni | Infernale |
+  | Celestiale | Celestiali | Celestiale |
+  | Draconico | Draghi, dragonidi | Draconico |
+  | Gergo delle profondità | Aboleth, manti assassini | — |
+  | Infernale | Diavoli | Infernale |
+  | Primordiale | Elementali | Nanico |
+  | Silvano | Creature fatate | Elfico |
+  | Sottocomune | Mercanti del sottosuolo | Elfico |

@@ -1,0 +1,8 @@
+name: Ogre
+alignment: caotico malvagio
+armorClass.0.note: armatura di pelle
+languages: Comune, Gigante
+actions.0.name: Randello pesante
+actions.0.text: "Attacco con arma da mischia: +6 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 13 (2d8 + 4) danni contundenti."
+actions.1.name: Giavellotto
+actions.1.text: "Attacco con arma da mischia o a distanza: +6 al tiro per colpire, portata 1,5 m o gittata 9/36 m, un bersaglio. Colpito: 11 (2d6 + 4) danni perforanti."

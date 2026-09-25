@@ -1,0 +1,9 @@
+name: Combattere sott'acqua
+text: |-
+  Quando gli avventurieri inseguono un gruppo di sahuagin fino alle loro dimore sottomarine, affrontano degli squali all'interno di un antico relitto o si ritrovano in una stanza allagata all'interno di un dungeon, devono combattere in un ambiente impegnativo. Sott'acqua si applicano le regole seguenti.
+
+  Quando una creatura effettua un **attacco con arma da mischia**, se quella creatura non possiede una velocità di nuotare (naturale o conferita dalla magia), subisce svantaggio a tutti i tiri per colpire, a meno che l'arma usata non sia un giavellotto, una lancia, un pugnale, una spada corta o un tridente.
+
+  Un **attacco con un'arma a distanza** manca automaticamente il bersaglio oltre la gittata normale dell'arma. Se il bersaglio si trova entro la gittata normale, il tiro per colpire subisce svantaggio, a meno che l'arma non sia una balestra, una rete, o un'arma da lancio simile a un giavellotto (come una lancia, un tridente o un dardo).
+
+  Le creature e gli oggetti completamente immersi nell'acqua sono dotati di **resistenza ai danni da fuoco**.

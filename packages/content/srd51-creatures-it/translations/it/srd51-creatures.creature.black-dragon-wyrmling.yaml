@@ -1,0 +1,10 @@
+name: Drago nero cucciolo
+alignment: caotico malvagio
+armorClass.0.note: armatura naturale
+languages: Draconico
+traits.0.name: Anfibio
+traits.0.text: Il drago può respirare in aria e in acqua.
+actions.0.name: Morso
+actions.0.text: "Attacco con arma da mischia: +4 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 7 (1d10 + 2) danni perforanti più 2 (1d4) danni da acido."
+actions.1.name: Soffio di acido
+actions.1.text: Il drago esala una scia di acido lunga 4,5 metri e larga 1,5 metri. Ogni creatura su quella scia deve effettuare un tiro salvezza su Destrezza con CD 11, subendo 22 (5d8) danni da acido in caso di fallimento, o la metà dei danni in caso di successo.

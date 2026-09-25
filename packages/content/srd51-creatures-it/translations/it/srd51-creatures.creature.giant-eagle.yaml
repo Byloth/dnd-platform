@@ -1,0 +1,14 @@
+name: Aquila gigante
+text: Un'aquila gigante è una nobile creatura che parla un proprio linguaggio e capisce il Comune. Una coppia di aquile giganti solitamente custodisce fino a quattro uova o cuccioli nel nido (considerati come aquile normali).
+alignment: neutrale buona
+languages: Aquila Gigante, capisce il Comune e l'Auran ma non li parla
+traits.0.name: Vista acuta
+traits.0.text: L'aquila dispone di vantaggio alle prove di Saggezza (Percezione) basate sulla vista.
+actions.0.name: Multiattacco
+actions.0.text: "L'aquila effettua due attacchi: uno con il becco e uno con gli artigli."
+actions.0.multiattack.0.action: Becco
+actions.0.multiattack.1.action: Artigli
+actions.1.name: Becco
+actions.1.text: "Attacco con arma da mischia: +5 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 6 (1d6 + 3) danni perforanti."
+actions.2.name: Artigli
+actions.2.text: "Attacco con arma da mischia: +5 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 10 (2d6 + 3) danni taglienti."

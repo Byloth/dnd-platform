@@ -1,0 +1,23 @@
+name: Marilith
+alignment: caotica malvagia
+armorClass.0.note: armatura naturale
+resistances.3.note: da attacchi non magici
+languages: Abissale, telepatia 36 m
+traits.0.name: Resistenza alla magia
+traits.0.text: La marilith dispone di vantaggio ai tiri salvezza contro incantesimi e altri effetti magici.
+traits.1.name: Armi magiche
+traits.1.text: Gli attacchi con arma della marilith sono magici.
+traits.2.name: Reattiva
+traits.2.text: La marilith può eseguire una reazione a ogni turno in combattimento.
+actions.0.name: Multiattacco
+actions.0.text: "La marilith effettua sette attacchi: sei con le spade lunghe e uno con la coda."
+actions.0.multiattack.0.action: Spada lunga
+actions.0.multiattack.1.action: Coda
+actions.1.name: Spada lunga
+actions.1.text: "Attacco con arma da mischia: +9 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 13 (2d8 + 4) danni taglienti."
+actions.2.name: Coda
+actions.2.text: "Attacco con arma da mischia: +9 al tiro per colpire, portata 3 m, una creatura. Colpito: 15 (2d10 + 4) danni contundenti. Se il bersaglio è di taglia Media o inferiore, viene afferrato (CD 19 per sfuggire). Finché la presa perdura, il bersaglio è trattenuto e la marilith può colpirlo automaticamente con la coda ma non può effettuare attacchi di questo tipo contro altri."
+actions.3.name: Teletrasporto
+actions.3.text: La marilith si teletrasporta magicamente, insieme a ogni oggetto che indossa o trasporta, fino a uno spazio libero visibile entro 36 metri.
+reactions.0.name: Parata
+reactions.0.text: La marilith aggiunge 5 alla sua CA contro un attacco in mischia che la colpirebbe. Per farlo, deve vedere l'attaccante e deve impugnare un'arma da mischia.

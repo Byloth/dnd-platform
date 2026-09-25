@@ -1,0 +1,8 @@
+name: Ankheg
+alignment: senza allineamento
+armorClass.0.note: armatura naturale
+armorClass.1.note: se prono
+actions.0.name: Morso
+actions.0.text: "Attacco con arma da mischia: +5 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 10 (2d6 + 3) danni taglienti più 3 (1d6) danni da acido. Se il bersaglio è una creatura di taglia Grande o inferiore, è afferrato (CD 13 per sfuggire). Finché la presa perdura, l'ankheg può mordere soltanto la creatura afferrata e dispone di vantaggio ai tiri per colpire per farlo."
+actions.1.name: Spruzzo acido
+actions.1.text: L'ankheg sputa acido in una linea lunga 9 metri e larga 1,5 metri, purché non abbia afferrato alcuna creatura. Ogni creatura su quella linea deve effettuare un tiro salvezza su Destrezza con CD 13, subendo 10 (3d6) danni da acido in caso di fallimento, o la metà dei danni in caso di successo.

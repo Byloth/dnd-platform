@@ -1,0 +1,14 @@
+name: Chuul
+alignment: caotico malvagio
+armorClass.0.note: armatura naturale
+languages: capisce il Gergo delle profondità ma non lo parla
+traits.0.name: Anfibio
+traits.0.text: Il chuul può respirare in aria e in acqua.
+traits.1.name: Percezione della magia
+traits.1.text: Il chuul percepisce la magia entro 36 metri da sé a volontà. Sotto ogni altro aspetto questo tratto funziona come l'incantesimo individuazione del magico, ma di per sé non è magico.
+actions.0.name: Multiattacco
+actions.0.text: Il chuul effettua due attacchi con le tenaglie. Se il chuul afferra una creatura, può usare anche i tentacoli una volta.
+actions.1.name: Tenaglia
+actions.1.text: "Attacco con arma da mischia: +6 al tiro per colpire, portata 3 m, un bersaglio. Colpito: 11 (2d6 + 4) danni contundenti. Il bersaglio è afferrato (CD 14 per sfuggire) se si tratta di una creatura di taglia Grande o inferiore e il chuul non è in lotta con altre due creature."
+actions.2.name: Tentacoli
+actions.2.text: Una creatura afferrata dal chuul deve superare un tiro salvezza su Costituzione con CD 13, altrimenti è avvelenata per 1 minuto. Finché l'avvelenamento non termina, il bersaglio è paralizzato. Il bersaglio può ripetere il tiro salvezza alla fine di ogni suo turno e, se lo supera, l'effetto svanisce.

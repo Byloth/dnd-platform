@@ -6,6 +6,13 @@ itself when the interface is in Italian; characters never list it. Like every
 public package, each released version is published by the site and never
 changes (DEC-21).
 
+## 0.2.0 — 2026-09-26
+
+- **Follows srd51 0.7.0**: the rules, mounts and items it added (resting,
+  death saving throws, cover, movement, the chapter introductions and
+  more) and every text it corrected are in Italian, from the official
+  Italian SRD word for word.
+
 ## 0.1.0 — 2026-09-25
 
 - **Everything in srd51 in Italian**: classes, subclasses, species,

@@ -1,0 +1,12 @@
+name: Azer
+alignment: legale neutrale
+armorClass.0.note: armatura naturale, scudo
+languages: Ignan
+traits.0.name: Corpo surriscaldato
+traits.0.text: Una creatura che tocchi l'azer o lo colpisca con un attacco in mischia mentre si trova a 1,5 metri da esso subisce 5 (1d10) danni da fuoco.
+traits.1.name: Armi surriscaldate
+traits.1.text: Quando l'azer colpisce con un'arma da mischia in metallo, infligge 3 (1d6) danni da fuoco extra (già inclusi nell'attacco).
+traits.2.name: Illuminazione
+traits.2.text: L'azer emana luce intensa in un raggio di 3 metri e luce fioca per ulteriori 3 metri.
+actions.0.name: Martello da guerra
+actions.0.text: "Attacco con arma da mischia: +5 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 7 (1d8 + 3) danni contundenti, o 8 (1d10 + 3) danni contundenti se usato a due mani per effettuare un attacco in mischia, più 3 (1d6) danni da fuoco."

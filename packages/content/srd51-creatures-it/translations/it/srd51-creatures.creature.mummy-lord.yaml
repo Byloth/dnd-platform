@@ -1,0 +1,38 @@
+name: Signore delle mummie
+alignment: legale malvagio
+armorClass.0.note: armatura naturale
+immunities.2.note: da attacchi non magici
+languages: quelli conosciuti in vita
+traits.0.name: Resistenza alla magia
+traits.0.text: Il signore delle mummie dispone di vantaggio ai tiri salvezza contro incantesimi e altri effetti magici.
+traits.1.name: Rigenerazione
+traits.1.text: Un signore delle mummie distrutto ottiene un nuovo corpo nel giro di 24 ore se il suo cuore è intatto, recuperando tutti i suoi punti ferita e tornando a essere attivo. Il nuovo corpo compare entro 1,5 metri dal cuore del signore delle mummie.
+traits.2.name: Incantesimi
+traits.2.text: |-
+  Il signore delle mummie è un incantatore di 10° livello: la sua caratteristica da incantatore è Saggezza (CD del tiro salvezza sull'incantesimo 17, +9 al tiro per colpire con attacco con incantesimo). Ha a disposizione i seguenti incantesimi da chierico:
+
+  - Trucchetti (a volontà): fiamma sacra, taumaturgia
+  - 1° livello (4 slot): comando, dardo tracciante, scudo della fede
+  - 2° livello (3 slot): arma spirituale, blocca persone, silenzio
+  - 3° livello (3 slot): animare morti, dissolvi magie
+  - 4° livello (3 slot): divinazione, guardiano della fede
+  - 5° livello (2 slot): contagio, piaga degli insetti
+  - 6° livello (1 slot): ferire
+actions.0.name: Multiattacco
+actions.0.text: La mummia può usare lo sguardo funesto ed effettuare un attacco con il pugno di putrefazione.
+actions.0.multiattack.0.action: Sguardo funesto
+actions.0.multiattack.1.action: Pugno di putrefazione
+actions.1.name: Pugno di putrefazione
+actions.1.text: "Attacco con arma da mischia: +9 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 14 (3d6 + 4) danni contundenti più 21 (6d6) danni necrotici. Se il bersaglio è una creatura, deve superare un tiro salvezza su Costituzione con CD 16, altrimenti è maledetto dalla putrefazione della mummia. In tal caso, non può riguadagnare punti ferita e i suoi punti ferita massimi diminuiscono di 10 (3d6) ogni 24 ore trascorse. Se la maledizione riduce i punti ferita massimi del bersaglio a 0, quest'ultimo muore e il suo corpo si trasforma in polvere. La maledizione permane finché non viene rimossa da un incantesimo rimuovi maledizione o da una magia analoga."
+actions.2.name: Sguardo funesto
+actions.2.text: Il signore delle mummie prende di mira una creatura nel suo campo visivo in un raggio di 18 metri. Se il bersaglio può vedere il signore delle mummie, deve superare un tiro salvezza su Saggezza con CD 16 contro questa magia, altrimenti è spaventato fino alla fine del turno successivo del mostro. Se il bersaglio fallisce il tiro salvezza di 5 o più, è anche paralizzato per la stessa durata. Un bersaglio che supera il tiro salvezza è immune allo sguardo funesto di tutte le mummie e di tutti i signori delle mummie per le 24 ore successive.
+legendary.actions.0.name: Attacco
+legendary.actions.0.text: Il signore delle mummie effettua un attacco con il pugno di putrefazione o usa lo sguardo funesto.
+legendary.actions.1.name: Polvere accecante
+legendary.actions.1.text: Una nube di polvere e sabbia accecante si solleva magicamente attorno al signore delle mummie. Ogni creatura entro 1,5 metri da lui deve superare un tiro salvezza su Costituzione con CD 16, altrimenti è accecata fino alla fine del proprio turno successivo.
+legendary.actions.2.name: Parola blasfema (costa 2 azioni)
+legendary.actions.2.text: Il signore delle mummie pronuncia una parola blasfema. Ogni creatura che non sia un non morto, situata entro 3 metri dal signore delle mummie e che possa sentire l'enunciazione magica, deve superare un tiro salvezza su Costituzione con CD 16, altrimenti è stordita fino alla fine del turno successivo del mostro.
+legendary.actions.3.name: Incanalare energia negativa (costa 2 azioni)
+legendary.actions.3.text: Il signore delle mummie scatena magicamente un'ondata di energia negativa. Le creature entro 18 metri dal signore delle mummie, incluse quelle dietro una barriera o oltre un angolo, non possono recuperare punti ferita fino alla fine del turno successivo del signore delle mummie.
+legendary.actions.4.name: Turbine di sabbia (costa 2 azioni)
+legendary.actions.4.text: Il signore delle mummie si trasforma magicamente in un turbine di sabbia, si sposta al massimo di 18 metri e torna alla sua forma normale. Finché è in forma di turbine, è immune a tutti i danni e non può essere afferrato, pietrificato, buttato a terra prono, trattenuto o stordito. Ogni oggetto indossato o trasportato dal signore delle mummie resta in suo possesso.

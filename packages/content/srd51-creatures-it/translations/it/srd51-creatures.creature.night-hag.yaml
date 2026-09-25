@@ -1,0 +1,21 @@
+name: Megera notturna
+alignment: neutrale malvagia
+armorClass.0.note: armatura naturale
+resistances.2.note: da attacchi non magici con armi non argentate
+languages: Abissale, Comune, Infernale, Primordiale
+traits.0.name: Incantesimi innati
+traits.0.text: |-
+  La caratteristica innata da incantatore della megera è Carisma (CD del tiro salvezza sull'incantesimo 14, +6 al tiro per colpire con attacco con incantesimo). Per sua natura, è in grado di lanciare gli incantesimi indicati di seguito senza aver bisogno di componenti materiali:
+
+  A volontà: dardo incantato, individuazione del magico
+  2/giorno ciascuno: raggio di affaticamento, sonno, spostamento planare (solo se stessa)
+traits.1.name: Resistenza alla magia
+traits.1.text: La megera dispone di vantaggio ai tiri salvezza contro incantesimi e altri effetti magici.
+actions.0.name: Artigli (solo forma di megera)
+actions.0.text: "Attacco con arma da mischia: +7 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 13 (2d8 + 4) danni taglienti."
+actions.1.name: Cambiare forma
+actions.1.text: La megera si trasforma magicamente in un'umanoide femminile di taglia Media o Piccola, o ritorna alla sua vera forma. Le sue statistiche rimangono le stesse in ogni forma. Ogni oggetto che indossa o trasporta non viene trasformato. Se muore, ritorna alla sua vera forma.
+actions.2.name: Forma eterea
+actions.2.text: La megera entra magicamente nel Piano Etereo dal Piano Materiale o viceversa. Per farlo dev'essere in possesso di una pietra del cuore.
+actions.3.name: Infestare incubi
+actions.3.text: Finché si trova sul Piano Etereo, la megera tocca magicamente un umanoide addormentato sul Piano Materiale. Un incantesimo protezione dal bene e dal male lanciato sul bersaglio impedisce questo contatto, come anche un cerchio magico. Finché il contatto persiste, il bersaglio è tormentato da orrende visioni. Se queste visioni durano almeno 1 ora, il bersaglio non ottiene alcun beneficio dal suo riposo e i suoi punti ferita massimi vengono ridotti di 5 (1d10). Se questo effetto riduce i punti ferita massimi del bersaglio a 0, questi muore e, se era malvagio, la sua anima resta intrappolata nella borsa dell'anima della megera. La riduzione dei punti ferita massimi del bersaglio dura finché non viene rimossa da un incantesimo ristorare superiore o da una magia analoga.

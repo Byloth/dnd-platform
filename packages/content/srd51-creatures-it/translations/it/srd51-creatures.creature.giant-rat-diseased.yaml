@@ -1,0 +1,8 @@
+name: Topo gigante (contagioso)
+alignment: senza allineamento
+traits.0.name: Olfatto acuto
+traits.0.text: Il topo dispone di vantaggio alle prove di Saggezza (Percezione) basate sull'olfatto.
+traits.1.name: Tattiche del branco
+traits.1.text: Il topo dispone di vantaggio nel tiro per colpire contro una creatura se almeno uno degli alleati del topo si trova entro 1,5 metri da essa e non è incapacitato.
+actions.0.name: Morso
+actions.0.text: "Attacco con arma da mischia: +4 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 4 (1d4 + 2) danni perforanti. Se il bersaglio è una creatura, deve superare un tiro salvezza su Costituzione con CD 10, altrimenti contrae una malattia. Finché la malattia non viene curata, il bersaglio non può recuperare punti ferita se non tramite mezzi magici e i suoi punti ferita massimi si riducono di 3 (1d6) ogni 24 ore. Se la malattia fa scendere i suoi punti ferita massimi a 0, il bersaglio muore."

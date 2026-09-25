@@ -1,0 +1,15 @@
+name: Veterano
+text: I veterani sono combattenti professionisti che operano a pagamento o per proteggere qualcosa in cui credono o che per loro ha valore. Questa categoria comprende soldati che un tempo hanno prestato servizio nell'esercito e guerrieri che non hanno mai servito alcuna causa se non la propria.
+alignment: qualsiasi allineamento
+armorClass.0.note: corazza a strisce
+languages: uno qualsiasi (di solito Comune)
+actions.0.name: Multiattacco
+actions.0.text: Il veterano sferra due attacchi con la spada lunga. Se ha sfoderato una spada corta, può effettuare anche un attacco con la spada corta.
+actions.0.multiattack.0.action: Spada lunga
+actions.0.multiattack.1.action: Spada corta
+actions.1.name: Spada lunga
+actions.1.text: "Attacco con arma da mischia: +5 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 7 (1d8 + 3) danni taglienti o 8 (1d10 + 3) danni taglienti se usata a due mani."
+actions.2.name: Spada corta
+actions.2.text: "Attacco con arma da mischia: +5 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 6 (1d6 + 3) danni perforanti."
+actions.3.name: Balestra pesante
+actions.3.text: "Attacco con arma a distanza: +3 al tiro per colpire, gittata 30/120 m, un bersaglio. Colpito: 6 (1d10 + 1) danni perforanti."

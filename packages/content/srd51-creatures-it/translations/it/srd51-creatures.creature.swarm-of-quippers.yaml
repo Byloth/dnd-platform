@@ -1,0 +1,10 @@
+name: Sciame di quipper
+alignment: senza allineamento
+traits.0.name: Frenesia di sangue
+traits.0.text: Lo sciame dispone di vantaggio ai tiri per colpire in mischia contro ogni creatura che non possieda tutti i propri punti ferita.
+traits.1.name: Sciame
+traits.1.text: Lo sciame può occupare lo spazio di un'altra creatura e viceversa, e può muoversi attraverso qualsiasi apertura sufficientemente larga da far passare un quipper Minuscolo. Lo sciame non può recuperare punti ferita, né ottenere punti ferita temporanei.
+traits.2.name: Respirare sott'acqua
+traits.2.text: Lo sciame può respirare soltanto sott'acqua.
+actions.0.name: Morsi
+actions.0.text: "Attacco con arma da mischia: +5 al tiro per colpire, portata 0 m, una creatura nello spazio dello sciame. Colpito: 14 (4d6) danni perforanti o 7 (2d6) danni perforanti se lo sciame ha la metà dei suoi punti ferita o meno."

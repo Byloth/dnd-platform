@@ -1,0 +1,9 @@
+name: Lupo feroce
+alignment: senza allineamento
+armorClass.0.note: armatura naturale
+traits.0.name: Udito e olfatto acuti
+traits.0.text: Il lupo dispone di vantaggio alle prove di Saggezza (Percezione) basate sull'olfatto o sull'udito.
+traits.1.name: Tattiche del branco
+traits.1.text: Il lupo dispone di vantaggio nel tiro per colpire contro una creatura se almeno uno degli alleati dell'animale si trova entro 1,5 metri dalla creatura e non è incapacitato.
+actions.0.name: Morso
+actions.0.text: "Attacco con arma da mischia: +5 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 10 (2d6 + 3) danni perforanti. Se il bersaglio è una creatura, deve superare un tiro salvezza su Forza con CD 13, altrimenti cade a terra prono."

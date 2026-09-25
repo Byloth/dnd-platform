@@ -1,0 +1,21 @@
+name: Gigante delle tempeste
+alignment: caotico buono
+armorClass.0.note: corazza a scaglie
+languages: Comune, Gigante
+traits.0.name: Anfibio
+traits.0.text: Il gigante può respirare in aria e in acqua.
+traits.1.name: Incantesimi innati
+traits.1.text: |-
+  La caratteristica innata da incantatore del gigante è Carisma (CD del tiro salvezza sull'incantesimo 17). Per sua natura, è in grado di lanciare gli incantesimi indicati di seguito senza aver bisogno di componenti materiali:
+
+  A volontà: caduta morbida, individuazione del magico, levitazione, luce
+  3/giorno ciascuno: controllare tempo atmosferico, respirare sott'acqua
+actions.0.name: Multiattacco
+actions.0.text: Il gigante effettua due attacchi con lo spadone.
+actions.0.multiattack.0.action: Spadone
+actions.1.name: Spadone
+actions.1.text: "Attacco con arma da mischia: +14 al tiro per colpire, portata 3 m, un bersaglio. Colpito: 30 (6d6 + 9) danni taglienti."
+actions.2.name: Roccia
+actions.2.text: "Attacco con arma a distanza: +14 al tiro per colpire, gittata 18/72 m, un bersaglio. Colpito: 35 (4d12 + 9) danni contundenti."
+actions.3.name: Colpo di fulmine
+actions.3.text: Il gigante scaglia un fulmine magico verso un punto che riesce a vedere entro 150 metri. Ogni creatura entro 3 metri da quel punto deve effettuare un tiro salvezza su Destrezza con CD 17, subendo 54 (12d8) danni da fulmine in caso di fallimento, o la metà dei danni in caso di successo.

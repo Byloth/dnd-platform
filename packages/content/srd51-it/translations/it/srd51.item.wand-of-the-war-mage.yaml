@@ -5,5 +5,9 @@ text: |-
   Mentre il personaggio impugna questa bacchetta, riceve un bonus ai tiri per colpire con incantesimo determinato dalla rarità della bacchetta. Il personaggio può inoltre ignorare mezza copertura quando effettua un attacco con incantesimo.
 attunement.by: un incantatore
 features.0.name: Mago da guerra
-features.0.effects.0.note: "Il bonus è determinato dalla rarità della bacchetta: +1 (non comune), +2 (rara) o +3 (molto rara). Questa voce riporta il valore +1; per le altre varianti il valore va cambiato."
+features.0.effects.0.note: Il bonus ai tiri per colpire con incantesimo è determinato dalla rarità della bacchetta.
+features.0.effects.0.options.0.name: +1 (non comune)
+features.0.effects.0.options.1.name: +2 (rara)
+features.0.effects.0.options.2.name: +3 (molto rara)
 features.0.effects.1.text: Ignori mezza copertura quando effettui un attacco con incantesimo.
+features.0.effects.1.note: Ignorare la copertura non ha un tipo nella v0; si applica al tavolo.

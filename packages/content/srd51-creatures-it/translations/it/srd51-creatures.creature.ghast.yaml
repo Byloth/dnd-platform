@@ -1,0 +1,11 @@
+name: Ghast
+alignment: caotico malvagio
+languages: Comune
+traits.0.name: Fetore
+traits.0.text: Ogni creatura che inizi il suo turno entro 1,5 metri dal ghast deve superare un tiro salvezza su Costituzione con CD 10, altrimenti è avvelenata fino all'inizio del proprio turno successivo. Se supera il tiro salvezza, la creatura è immune al fetore del ghast per 24 ore.
+traits.1.name: Scacciare contrastato
+traits.1.text: Il ghast e ogni ghoul entro 9 metri da esso dispongono di vantaggio ai tiri salvezza contro gli effetti che scacciano i non morti.
+actions.0.name: Morso
+actions.0.text: "Attacco con arma da mischia: +3 al tiro per colpire, portata 1,5 m, una creatura. Colpito: 12 (2d8 + 3) danni perforanti."
+actions.1.name: Artigli
+actions.1.text: "Attacco con arma da mischia: +5 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 10 (2d6 + 3) danni taglienti. Se il bersaglio è una creatura diversa da un non morto, deve superare un tiro salvezza su Costituzione con CD 10, altrimenti viene paralizzato per 1 minuto. Il bersaglio può ripetere il tiro salvezza alla fine di ogni suo turno e, se lo supera, l'effetto svanisce."

@@ -51,6 +51,24 @@ describe("composeCreature", () =>
         expect(bear.header.startsWith("Bestia Grande")).toBe(true);
     });
 
+    it("reads the names and the texts of the Italian SRD from the translation packages", () =>
+    {
+        const italian = loadPackages(["srd51", "srd51-creatures", "srd51-it", "srd51-creatures-it"]
+            .map((p) => readPackage(resolve(ROOT, "packages/content", p))), { language: "it" });
+        const dragon = composeCreature("srd51-creatures.creature.adult-red-dragon", {
+            packages: italian,
+            language: "it",
+            units: "metric"
+        })!;
+
+        expect(dragon.name).toBe("Drago rosso adulto");
+        expect(dragon.header).toBe("Drago Enorme, caotico malvagio");
+        expect(line(dragon.core, "Classe Armatura")).toBe("19 (armatura naturale)");
+        const actions = dragon.sections.find((s) => s.id === "actions")!.entries;
+
+        expect(actions.at(-1)!.name).toBe("Soffio di fuoco (ricarica 5–6)");
+    });
+
     it("gives a shapechanger's other forms their armour class", () =>
     {
         const block = composeCreature("srd51-creatures.creature.werewolf", { packages: packages })!;

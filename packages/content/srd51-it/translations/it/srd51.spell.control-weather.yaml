@@ -1,4 +1,39 @@
 name: Controllare tempo atmosferico
 components.m: Incenso bruciato e frammenti di terra e legno mescolati nell'acqua.
 text: |-
-  L'incantatore assume il controllo del tempo atmosferico entro 7,5 km per la durata dell'incantesimo, che dev'essere lanciato in un luogo all'aperto. Se l'incantatore si sposta in un luogo in cui non dispone di una vista diretta sul cielo, l'incantesimo termina prematuramente. Quando lancia l'incantesimo, l'incantatore cambia le condizioni atmosferiche attuali determinate dal GM in base al clima e alla stagione. L'incantatore può modificare le precipitazioni, la temperatura e il vento. Occorrono 1d4 × 10 minuti perché le nuove condizioni abbiano effetto. Quando questo accade, l'incantatore le può cambiare di nuovo. Al termine dell'incantesimo, il tempo atmosferico torna gradualmente alla normalità. Quando l'incantatore modifica le condizioni atmosferiche, trova la condizione attuale nelle tabelle seguenti e la modifica di un grado, verso l'alto o verso il basso. Quando l'incantatore cambia il vento, può modificarne anche la direzione.
+  L'incantatore assume il controllo del tempo atmosferico entro 7,5 km per la durata dell'incantesimo, che dev'essere lanciato in un luogo all'aperto. Se l'incantatore si sposta in un luogo in cui non dispone di una vista diretta sul cielo, l'incantesimo termina prematuramente.
+
+  Quando lancia l'incantesimo, l'incantatore cambia le condizioni atmosferiche attuali determinate dal GM in base al clima e alla stagione. L'incantatore può modificare le precipitazioni, la temperatura e il vento. Occorrono 1d4 × 10 minuti perché le nuove condizioni abbiano effetto. Quando questo accade, l'incantatore le può cambiare di nuovo. Al termine dell'incantesimo, il tempo atmosferico torna gradualmente alla normalità.
+
+  Quando l'incantatore modifica le condizioni atmosferiche, trova la condizione attuale nelle tabelle seguenti e la modifica di un grado, verso l'alto o verso il basso. Quando l'incantatore cambia il vento, può modificarne anche la direzione.
+
+  **Precipitazioni**
+
+  | Grado | Condizione |
+  |---|---|
+  | 1 | Sereno |
+  | 2 | Poco nuvoloso |
+  | 3 | Nuvoloso o nebbia |
+  | 4 | Pioggia, grandine o neve |
+  | 5 | Pioggia torrenziale, grandinata violenta o tormenta |
+
+  **Temperatura**
+
+  | Grado | Condizione |
+  |---|---|
+  | 1 | Caldo insopportabile |
+  | 2 | Caldo |
+  | 3 | Temperato |
+  | 4 | Fresco |
+  | 5 | Freddo |
+  | 6 | Freddo artico |
+
+  **Vento**
+
+  | Grado | Condizione |
+  |---|---|
+  | 1 | Calmo |
+  | 2 | Vento moderato |
+  | 3 | Vento forte |
+  | 4 | Burrasca |
+  | 5 | Tempesta |

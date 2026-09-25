@@ -1,0 +1,23 @@
+name: Merci
+text: |-
+  La maggior parte della ricchezza non è misurata dalle monete, bensì da bestiame, grano, terre, diritti di riscossione delle tasse o di sfruttamento delle risorse (come nel caso di una miniera o di una foresta).
+
+  Le gilde, i nobili e i casati reali regolano il commercio. Alle compagnie mercantili viene concessa la licenza di commerciare lungo certe strade, di inviare navi mercantili verso vari porti o di comprare o vendere beni specifici. Le gilde stabiliscono i prezzi delle merci o dei servizi che controllano e determinano chi può o non può offrire quelle merci o quei servizi. Di solito i mercanti scambiano merci senza ricorrere alla valuta. La tabella "Merci" elenca il valore delle merci di scambio più diffuse.
+
+  ### Merci
+
+  | Costo | Merci |
+  |---|---|
+  | 1 mr | 0,5 kg di grano |
+  | 2 mr | 0,5 kg di farina o un pollo |
+  | 5 mr | 0,5 kg di sale |
+  | 1 ma | 0,5 kg di ferro o un telo di stoffa di 90 cm di lato |
+  | 5 ma | 0,5 kg di rame o un telo di cotone di 90 cm di lato |
+  | 1 mo | 0,5 kg di zenzero o una capra |
+  | 2 mo | 0,5 kg di pepe o cannella o una pecora |
+  | 3 mo | 0,5 kg di chiodi di garofano o un maiale |
+  | 5 mo | 0,5 kg di argento o un telo di lino di 90 cm di lato |
+  | 10 mo | un telo di seta di 90 cm di lato o una mucca |
+  | 15 mo | 0,5 kg di zafferano o un bue |
+  | 50 mo | 0,5 kg d'oro |
+  | 500 mo | 0,5 kg di platino |

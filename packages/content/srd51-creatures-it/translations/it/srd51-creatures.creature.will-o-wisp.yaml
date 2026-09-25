@@ -1,0 +1,16 @@
+name: Fuoco fatuo
+alignment: caotico malvagio
+resistances.5.note: da attacchi non magici
+languages: quelli conosciuti in vita
+traits.0.name: Assorbire vita
+traits.0.text: Con un'azione bonus, il fuoco fatuo può prendere di mira una creatura nel suo campo visivo in un raggio di 1,5 metri che abbia 0 punti ferita e sia ancora viva. Il bersaglio deve superare un tiro salvezza su Costituzione con CD 10 contro questa magia, altrimenti muore. Se il bersaglio muore, il fuoco fatuo recupera 10 (3d6) punti ferita.
+traits.1.name: Effimero
+traits.1.text: Il fuoco fatuo non può indossare o trasportare niente.
+traits.2.name: Movimento incorporeo
+traits.2.text: Il fuoco fatuo è in grado di attraversare oggetti e creature come se si trattasse di terreno difficile. Subisce 5 (1d10) danni da forza se termina il proprio turno all'interno di un oggetto.
+traits.3.name: Illuminazione variabile
+traits.3.text: Il fuoco fatuo proietta luce intensa in un raggio da 1,5 a 6 metri e luce fioca per un numero aggiuntivo di metri pari al raggio scelto. Il fuoco fatuo può alterare il raggio con un'azione bonus.
+actions.0.name: Folgore
+actions.0.text: "Attacco in mischia con incantesimo: +4 al tiro per colpire, portata 1,5 m, una creatura. Colpito: 9 (2d8) danni da fulmine."
+actions.1.name: Invisibilità
+actions.1.text: Il fuoco fatuo e la sua luce diventano magicamente invisibili finché esso non attacca, non usa Assorbire vita o non perde la concentrazione (come se si concentrasse su un incantesimo).

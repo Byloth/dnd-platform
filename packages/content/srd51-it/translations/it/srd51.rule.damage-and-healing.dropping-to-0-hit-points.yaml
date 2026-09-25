@@ -1,0 +1,41 @@
+name: Scendere a 0 punti ferita
+text: |-
+  Quando un personaggio scende a 0 punti ferita, muore immediatamente o perde conoscenza rimanendo privo di sensi, come spiegato nelle sezioni seguenti.
+
+  ### Morte istantanea
+
+  Un danno considerevole può uccidere un personaggio all'istante. Quando un certo danno porta il personaggio a 0 punti ferita e restano ancora dei danni da applicare, il personaggio muore se i danni rimanenti sono pari o superiori al suo massimo dei punti ferita.
+
+  Per esempio, un chierico con un massimo di 12 punti ferita attualmente ha 6 punti ferita. Se subisce 18 danni da un attacco, scende a 0 punti ferita, ma restano ancora 12 danni da applicare. Dal momento che i danni rimanenti sono pari al suo massimo dei punti ferita, il chierico muore.
+
+  ### Perdere conoscenza
+
+  Se i danni riducono un personaggio a 0 punti ferita ma non lo uccidono, questi cade a terra privo di sensi (vedi l'appendice A del Manuale del Giocatore). Il personaggio riprende conoscenza se recupera un qualsiasi ammontare di punti ferita.
+
+  ### Tiri salvezza contro morte
+
+  Ogni volta che un personaggio inizia il suo turno a 0 punti ferita, deve effettuare un tiro salvezza speciale chiamato tiro salvezza contro morte per determinare se scivola ulteriormente verso la morte o si aggrappa alla vita. A differenza degli altri tiri salvezza, questo non è collegato ad alcun punteggio di caratteristica. Il personaggio ora si trova nelle mani del fato e può essere aiutato soltanto da incantesimi o privilegi che migliorano le sue probabilità di superare un tiro salvezza.
+
+  Il personaggio tira un d20. Se il risultato è pari o superiore a 10, il tiro salvezza è superato. Altrimenti è fallito. Un tiro salvezza superato o fallito non ha alcun effetto in sé. Al terzo tiro salvezza superato, il personaggio diventa stabile (vedi sotto). Al terzo tiro salvezza fallito, invece, il personaggio muore. Non è necessario che i tiri superati o falliti siano consecutivi: si tiene semplicemente il conto di entrambi finché non se ne accumulano tre di un certo tipo. Il numero di entrambi i tipi torna a zero quando il personaggio recupera dei punti ferita o diventa stabile.
+
+  ***Ottenere un 1 o un 20.*** Quando un personaggio effettua un tiro salvezza contro morte e ottiene 1 come risultato al tiro del d20, quel risultato conta come due tiri salvezza falliti. Se ottiene 20 come risultato al tiro del d20, recupera 1 punto ferita.
+
+  ***Danni a 0 punti ferita.*** Se un personaggio subisce danni quando ha 0 punti ferita, questo equivale a un tiro salvezza contro morte fallito. Se i danni provengono da un colpo critico, equivalgono a due tiri salvezza contro morte falliti. Se i danni sono pari o superiori ai suoi punti ferita massimi, il personaggio muore istantaneamente.
+
+  ### Stabilizzare una creatura
+
+  Il modo migliore per salvare una creatura a 0 punti ferita è curarla. Se ciò non è possibile, la creatura può essere quantomeno stabilizzata, affinché non sia uccisa da un tiro salvezza contro morte fallito.
+
+  Un personaggio può usare la sua azione per somministrare cure di pronto soccorso a una creatura priva di sensi nel tentativo di stabilizzarla; per farlo, deve superare una prova di Saggezza (Medicina) con CD 10.
+
+  Una creatura **stabile** non effettua tiri salvezza contro morte, anche se rimane a 0 punti ferita, ma resta priva di sensi. Tuttavia, se subisce altri danni la creatura non è più stabile e deve ricominciare a effettuare tiri salvezza contro morte. Una creatura stabile che non viene curata recupera 1 punto ferita dopo 1d4 ore.
+
+  ### Morte dei mostri
+
+  La maggior parte dei GM fa morire i mostri nel momento in cui scendono a 0 punti ferita, anziché renderli privi di sensi e sottoporli ai tiri salvezza contro morte.
+
+  Tuttavia, i nemici più potenti e i personaggi non giocanti speciali in genere fanno eccezione: il GM potrebbe infatti decidere di renderli privi di sensi e applicare a loro le stesse regole dei personaggi giocanti.
+
+  ### Tramortire una creatura
+
+  A volte un attaccante desidera neutralizzare un avversario anziché infliggergli un colpo mortale. Quando un attaccante porta una creatura a 0 punti ferita con un attacco in mischia, può decidere di tramortirla. L'attaccante può fare questa scelta nel momento in cui infligge i danni. La creatura cade priva di sensi ed è stabile.

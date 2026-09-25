@@ -34,3 +34,5 @@ levels.17.features.0.effects.0.onHit.0.text: Il bersaglio è segnato per classLe
 levels.17.features.0.effects.1.name: Palmo Tremante (interrompere le vibrazioni)
 levels.17.features.0.effects.1.text: Tu e il bersaglio dovete trovarvi sullo stesso piano di esistenza. La creatura deve effettuare un tiro salvezza su Costituzione. Se lo fallisce, scende a 0 punti ferita, mentre se lo supera subisce 10d10 danni necrotici.
 levels.17.features.0.effects.1.onUse.0.text: "Tiro salvezza fallito: il bersaglio scende a 0 punti ferita. Tiro salvezza superato: subisce 10d10 danni necrotici."
+text: |-
+  I monaci della Via della Mano Aperta sono i maestri supremi delle arti marziali, sia nei combattimenti armati che in quelli senz'armi. Apprendono tecniche speciali per spingere e sbilanciare i loro avversari, manipolano il ki per curarsi dei danni corporei subiti e praticano una forma di meditazione avanzata che può proteggerli dai danni.

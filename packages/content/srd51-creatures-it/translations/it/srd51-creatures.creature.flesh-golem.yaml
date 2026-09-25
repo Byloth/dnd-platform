@@ -1,0 +1,23 @@
+name: Golem di carne
+alignment: neutrale
+immunities.2.note: da attacchi non magici non adamantini
+languages: comprende i linguaggi del suo creatore ma non li sa parlare
+traits.0.name: Berserk
+traits.0.text: |-
+  Ogni volta che il golem inizia il suo turno con 40 punti ferita o meno, si tira un d6. Con un risultato di 6, il golem entra in uno stato di berserk. A ogni suo turno, finché è in stato di berserk, il golem attacca la creatura visibile più vicina. Se nessuna creatura è abbastanza vicina per un attacco, il golem prende di mira un oggetto, prediligendone uno più piccolo di lui. Una volta che il golem è in stato di berserk, non si arresta finché non viene distrutto o non recupera tutti i suoi punti ferita.
+  Il creatore del golem, se si trova entro 18 metri dal golem berserk, può cercare di calmarlo parlandogli con fermezza e persuasione. Il golem deve essere in grado di udire il suo creatore, che userà un'azione per effettuare una prova di Carisma (Persuasione) con CD 15. Se la supera, il golem esce dallo stato di berserk. Se subisce danni mentre ha ancora 40 punti ferita o meno, il golem potrebbe entrare di nuovo in quello stato.
+traits.1.name: Avversione al fuoco
+traits.1.text: Se il golem subisce danni da fuoco, ha svantaggio ai tiri per colpire e alle prove di caratteristica fino alla fine del suo turno successivo.
+traits.2.name: Forma immutabile
+traits.2.text: Il golem è immune a qualsiasi incantesimo o effetto che ne altererebbe la forma.
+traits.3.name: Assorbimento del fulmine
+traits.3.text: Ogni volta che il golem è soggetto a danni da fulmine, non subisce danni e anzi recupera un numero di punti ferita pari ai danni da fulmine inflitti.
+traits.4.name: Resistenza alla magia
+traits.4.text: Il golem dispone di vantaggio ai tiri salvezza contro incantesimi e altri effetti magici.
+traits.5.name: Armi magiche
+traits.5.text: Gli attacchi con arma del golem sono magici.
+actions.0.name: Multiattacco
+actions.0.text: Il golem effettua due attacchi con schianto.
+actions.0.multiattack.0.action: Schianto
+actions.1.name: Schianto
+actions.1.text: "Attacco con arma da mischia: +7 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 13 (2d8 + 4) danni contundenti."

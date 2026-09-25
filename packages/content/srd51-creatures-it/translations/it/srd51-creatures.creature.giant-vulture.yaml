@@ -1,0 +1,16 @@
+name: Avvoltoio gigante
+text: L'avvoltoio gigante è molto intelligente e ha un'indole malevola. A differenza dei suoi cugini più piccoli, non esita ad attaccare una creatura ferita per accelerarne la dipartita. Si dice che gli avvoltoi giganti possano seguire una creatura assetata e affamata per giorni interi per godersi lo spettacolo della sua sofferenza.
+alignment: neutrale malvagio
+languages: capisce il Comune ma non lo parla
+traits.0.name: Vista e olfatto acuti
+traits.0.text: L'avvoltoio dispone di vantaggio alle prove di Saggezza (Percezione) basate sulla vista o sull'olfatto.
+traits.1.name: Tattiche del branco
+traits.1.text: L'avvoltoio dispone di vantaggio nel tiro per colpire contro una creatura se almeno uno degli alleati dell'animale si trova entro 1,5 metri dalla creatura e non è incapacitato.
+actions.0.name: Multiattacco
+actions.0.text: "L'avvoltoio effettua due attacchi: uno con il becco e uno con gli artigli."
+actions.0.multiattack.0.action: Becco
+actions.0.multiattack.1.action: Artigli
+actions.1.name: Becco
+actions.1.text: "Attacco con arma da mischia: +4 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 7 (2d4 + 2) danni perforanti."
+actions.2.name: Artigli
+actions.2.text: "Attacco con arma da mischia: +4 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 9 (2d6 + 2) danni taglienti."

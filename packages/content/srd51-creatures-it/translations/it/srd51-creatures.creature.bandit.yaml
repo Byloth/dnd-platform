@@ -1,0 +1,12 @@
+name: Bandito
+text: |-
+  I **banditi** agiscono in gruppo e a volte sono guidati da malviventi, veterani o incantatori. Non tutti i banditi sono malvagi: a volte l'oppressione, una calamità, una malattia o una carestia può spingere un individuo onesto a darsi al banditismo.
+
+  I **pirati** sono banditi dei mari. Possono agire da semplici predoni, interessati solo ad accumulare tesori e massacrare i nemici, oppure possono essere corsari autorizzati dalla corona ad attaccare e saccheggiare i vascelli delle nazioni nemiche.
+alignment: qualsiasi allineamento non legale
+armorClass.0.note: armatura di cuoio
+languages: uno qualsiasi (di solito Comune)
+actions.0.name: Scimitarra
+actions.0.text: "Attacco con arma da mischia: +3 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 4 (1d6 + 1) danni taglienti."
+actions.1.name: Balestra leggera
+actions.1.text: "Attacco con arma a distanza: +3 al tiro per colpire, gittata 24/96 m, un bersaglio. Colpito: 5 (1d8 + 1) danni perforanti."

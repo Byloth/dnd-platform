@@ -1,0 +1,7 @@
+name: Zombi
+alignment: neutrale malvagio
+languages: capisce quelli che conosceva in vita, ma non è in grado di parlarli
+traits.0.name: Tempra dei non morti
+traits.0.text: Se i danni riducono lo zombi a 0 punti ferita, esso deve effettuare un tiro salvezza su Costituzione con una CD pari a 5 + i danni subiti, a meno che non si tratti di danni radiosi o di un colpo critico. In caso di successo, lo zombi scende invece a 1 punto ferita.
+actions.0.name: Schianto
+actions.0.text: "Attacco con arma da mischia: +3 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 4 (1d6 + 1) danni contundenti."

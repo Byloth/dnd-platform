@@ -1,0 +1,6 @@
+name: Faina gigante
+alignment: senza allineamento
+traits.0.name: Udito e olfatto acuti
+traits.0.text: La faina dispone di vantaggio alle prove di Saggezza (Percezione) basate sull'olfatto o sull'udito.
+actions.0.name: Morso
+actions.0.text: "Attacco con arma da mischia: +5 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 5 (1d4 + 3) danni perforanti."

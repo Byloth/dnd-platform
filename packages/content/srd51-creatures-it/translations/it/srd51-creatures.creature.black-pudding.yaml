@@ -1,0 +1,12 @@
+name: Protoplasma nero
+alignment: senza allineamento
+traits.0.name: Amorfo
+traits.0.text: Il protoplasma può muoversi attraverso uno spazio stretto fino a 2,5 centimetri senza doversi stringere.
+traits.1.name: Forma corrosiva
+traits.1.text: Una creatura che tocchi il protoplasma o lo colpisca con un attacco in mischia mentre si trova entro 1,5 metri da esso subisce 4 (1d8) danni da acido. Qualsiasi arma non magica fatta di metallo o di legno colpisca il protoplasma si corrode. Dopo avere inflitto danni, l'arma subisce una penalità cumulativa e permanente di -1 ai tiri per i danni. Se la sua penalità scende a -5, l'arma viene distrutta. Le munizioni non magiche fatte di metallo o di legno che colpiscono il protoplasma vengono distrutte dopo aver inflitto danni. Il protoplasma può corrodere fino a 5 centimetri di legno o di metallo non magico in 1 round.
+traits.2.name: Movimenti del ragno
+traits.2.text: Il protoplasma può scalare le superfici difficili, inclusi i soffitti, lungo i quali si muove a testa in giù, senza effettuare una prova di caratteristica.
+actions.0.name: Pseudopode
+actions.0.text: "Attacco con arma da mischia: +5 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 6 (1d6 + 3) danni contundenti più 18 (4d8) danni da acido. Inoltre, le armature non magiche indossate dal bersaglio vengono parzialmente dissolte e subiscono una penalità cumulativa e permanente di -1 alla CA che forniscono. Se la penalità riduce la sua CA a 10, l'armatura si distrugge."
+reactions.0.name: Scindersi
+reactions.0.text: Quando un protoplasma di taglia Media o superiore è soggetto a danni da fulmine o taglienti, si scinde in due nuovi protoplasmi se possiede almeno 10 punti ferita. Ogni nuovo protoplasma ha un numero di punti ferita pari alla metà del protoplasma originale, arrotondando per difetto. I nuovi protoplasmi sono inferiori di una taglia rispetto al protoplasma originale.

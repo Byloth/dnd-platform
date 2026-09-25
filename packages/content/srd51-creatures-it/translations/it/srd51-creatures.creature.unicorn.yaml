@@ -1,0 +1,34 @@
+name: Unicorno
+alignment: legale buono
+languages: Celestiale, Elfico, Silvano, telepatia 18 m
+traits.0.name: Carica
+traits.0.text: Se l'unicorno si muove di almeno 6 metri in linea retta verso un bersaglio e poi lo colpisce con il corno nello stesso turno, la vittima subisce 9 (2d8) danni perforanti extra. Se il bersaglio è una creatura, deve superare un tiro salvezza su Forza con CD 15, altrimenti cade a terra prono.
+traits.1.name: Incantesimi innati
+traits.1.text: |-
+  La caratteristica innata da incantatore dell'unicorno è Carisma (CD del tiro salvezza sull'incantesimo 14). Per sua natura, l'unicorno è in grado di lanciare gli incantesimi indicati di seguito senza aver bisogno di componenti materiali:
+
+  A volontà: artificio druidico, individuazione del bene e del male, passare senza tracce
+  1/giorno ciascuno: calmare emozioni, dissolvi il bene e il male, intralciare
+traits.2.name: Resistenza alla magia
+traits.2.text: L'unicorno dispone di vantaggio ai tiri salvezza contro incantesimi e altri effetti magici.
+traits.3.name: Armi magiche
+traits.3.text: Gli attacchi con arma dell'unicorno sono magici.
+actions.0.name: Multiattacco
+actions.0.text: "L'unicorno effettua due attacchi: uno con gli zoccoli e uno con il corno."
+actions.0.multiattack.0.action: Zoccoli
+actions.0.multiattack.1.action: Corno
+actions.1.name: Zoccoli
+actions.1.text: "Attacco con arma da mischia: +7 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 11 (2d6 + 4) danni contundenti."
+actions.2.name: Corno
+actions.2.text: "Attacco con arma da mischia: +7 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 8 (1d8 + 4) danni perforanti."
+actions.3.name: Tocco guaritore
+actions.3.text: L'unicorno tocca un'altra creatura con il corno. Il bersaglio recupera magicamente 11 (2d8 + 2) punti ferita. Inoltre, il tocco rimuove tutte le malattie e neutralizza tutti i veleni che affliggono il bersaglio.
+actions.4.name: Teletrasporto
+actions.4.text: L'unicorno teletrasporta magicamente se stesso e fino a tre creature consenzienti nel suo campo visivo situate entro 1,5 metri, insieme a ogni oggetto che queste ultime indossano o trasportano, fino a un luogo familiare all'unicorno, entro un raggio di 1,5 chilometri.
+legendary.actions.0.name: Zoccoli
+legendary.actions.0.text: L'unicorno effettua un attacco con gli zoccoli.
+legendary.actions.1.name: Scudo scintillante (costa 2 azioni)
+legendary.actions.1.text: L'unicorno crea un campo magico scintillante attorno a sé o a un'altra creatura situata nel suo campo visivo in un raggio di 18 metri. Il bersaglio ottiene un bonus di +2 alla CA fino alla fine del turno successivo dell'unicorno.
+legendary.actions.2.name: Guarire se stesso (costa 3 azioni)
+legendary.actions.2.text: L'unicorno recupera magicamente 11 (2d8 + 2) punti ferita.
+legendary.text: L'unicorno può eseguire 3 azioni leggendarie a scelta tra le opzioni seguenti. È possibile utilizzare solo un'opzione di azione leggendaria alla volta e soltanto alla fine del turno di un'altra creatura. All'inizio del proprio turno, l'unicorno recupera le azioni leggendarie effettuate.

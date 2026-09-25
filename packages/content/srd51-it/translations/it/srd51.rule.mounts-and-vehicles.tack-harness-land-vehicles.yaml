@@ -1,19 +1,25 @@
-name: "Finimenti e veicoli da tiro"
+name: Finimenti e veicoli da tiro
 text: |-
-  | Oggetto                | Costo  | Peso    |
-  |------------------------|--------|---------|
-  | Bardatura              | ×4     | ×2      |
-  | Morso e briglie        | 2 mo   | 0,5 kg  |
-  | Carrozza               | 100 mo | 300 kg  |
-  | Carretto               | 15 mo  | 100 kg  |
-  | Biga                   | 250 mo | 50 kg   |
-  | Nutrimento (al giorno) | 5 mr   | 5 kg    |
-  | **_Sella_**            |        |         |
-  | - Esotica              | 60 mo  | 20 kg   |
-  | - Militare             | 20 mo  | 15 kg   |
-  | - Da carico            | 5 mo   | 7,5 kg  |
-  | - Da galoppo           | 10 mo  | 12,5 kg |
-  | Bisacce                | 4 mo   | 4 kg    |
-  | Slitta                 | 20 mo  | 150 kg  |
-  | Stalle (al giorno)     | 5 ma   | —       |
-  | Carro                  | 35 mo  | 200 kg  |
+  **_Bardatura._** Una bardatura è un'armatura concepita per proteggere testa, collo, petto e corpo di un animale. Ogni tipo di armatura elencato nella tabella "Armature" può essere acquistata come bardatura. Il costo è pari al quadruplo dell'armatura equivalente fabbricata per gli umanoidi, mentre il peso è pari al doppio.
+
+  **_Selle._** Nel corso di una battaglia, un personaggio può agganciarsi a una sella militare per rimanere al suo posto su una cavalcatura attiva. Una sella militare conferisce vantaggio alle prove che il personaggio effettua per rimanere in sella. È necessaria una sella esotica per cavalcare una creatura acquatica o volante.
+
+  **_Competenza in un veicolo._** Se un personaggio possiede competenza in un certo tipo di veicolo (terrestre o acquatico), può aggiungere il proprio bonus di competenza a qualsiasi prova effettuata per controllare quel tipo di veicolo in circostanze difficili.
+
+  | Oggetto            | Costo  | Peso    |
+  |--------------------|--------|---------|
+  | Bardatura          | ×4     | ×2      |
+  | Morso e briglie    | 2 mo   | 0,5 kg  |
+  | Carrozza           | 100 mo | 300 kg  |
+  | Carretto           | 15 mo  | 100 kg  |
+  | Biga               | 250 mo | 50 kg   |
+  | Nutrimento (al giorno) | 5 mr | 5 kg  |
+  | **_Sella_**        |        |         |
+  | - Esotica          | 60 mo  | 20 kg   |
+  | - Militare         | 20 mo  | 15 kg   |
+  | - Da carico        | 5 mo   | 7,5 kg  |
+  | - Da galoppo       | 10 mo  | 12,5 kg |
+  | Bisacce            | 4 mo   | 4 kg    |
+  | Slitta             | 20 mo  | 150 kg  |
+  | Stalle (al giorno) | 5 ma   | —       |
+  | Carro              | 35 mo  | 200 kg  |

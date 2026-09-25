@@ -1,0 +1,11 @@
+name: Orca assassina
+alignment: senza allineamento
+armorClass.0.note: armatura naturale
+traits.0.name: Senso radar
+traits.0.text: L'orca non può usare vista cieca se è assordata.
+traits.1.name: Apnea
+traits.1.text: L'orca può trattenere il respiro per 30 minuti.
+traits.2.name: Udito acuto
+traits.2.text: L'orca dispone di vantaggio alle prove di Saggezza (Percezione) basate sull'udito.
+actions.0.name: Morso
+actions.0.text: "Attacco con arma da mischia: +6 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 21 (5d6 + 4) danni perforanti."

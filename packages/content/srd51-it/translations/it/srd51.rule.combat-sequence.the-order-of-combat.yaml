@@ -1,0 +1,11 @@
+name: L'ordine di combattimento
+text: |-
+  Un tipico incontro di combattimento è uno scontro tra due fazioni, una fulminea sequenza di colpi d'arma, finte, parate, scarti e incantesimi. Il gioco organizza il caos di un combattimento in un ciclo di round e di turni. Un **round** rappresenta circa 6 secondi di tempo nel mondo di gioco. Nel corso di un round, ogni partecipante al combattimento svolge un **turno**. L'ordine dei turni viene determinato all'inizio di un incontro di combattimento, quando tutti tirano per l'iniziativa. Quando tutti hanno svolto un turno, il combattimento continua con il round successivo, se nessuna delle fazioni ha sconfitto l'altra.
+
+  ### Le fasi del combattimento
+
+  1. **Determinare la sorpresa.** Il GM determina se qualche partecipante al combattimento è sorpreso.
+  2. **Stabilire le posizioni.** Il GM decide dove sono situati tutti i personaggi e i mostri. Tenendo presente l'ordine di marcia degli avventurieri o le posizioni che essi hanno dichiarato di raggiungere in una stanza o in un'altra area, il GM decide dove si trovano gli avversari: a che distanza e in quale direzione.
+  3. **Tirare per l'iniziativa.** Tutti i partecipanti al combattimento tirano per l'iniziativa, determinando l'ordine di turno dei combattenti.
+  4. **Svolgere i turni.** Ogni partecipante alla battaglia svolge un turno secondo l'ordine di iniziativa.
+  5. **Iniziare il round successivo.** Quando tutti i partecipanti al combattimento hanno svolto un turno, il round termina. Si ripete il passo 4 finché il combattimento non si conclude.

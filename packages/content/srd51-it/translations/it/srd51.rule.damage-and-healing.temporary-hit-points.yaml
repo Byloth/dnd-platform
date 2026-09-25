@@ -1,0 +1,13 @@
+name: Punti ferita temporanei
+text: |-
+  Alcuni incantesimi e capacità speciali possono conferire a una creatura dei punti ferita temporanei. I punti ferita temporanei non sono punti ferita veri e propri: servono ad ammortizzare i danni e costituiscono una riserva di punti ferita che protegge il personaggio dalle ferite.
+
+  Quando un personaggio è dotato di punti ferita temporanei e subisce danni, perde prima i punti ferita temporanei. Gli eventuali danni rimanenti vengono poi sottratti dai suoi punti ferita normali. Per esempio, se un personaggio ha 5 punti ferita temporanei e subisce 7 danni, perde i punti ferita temporanei e poi subisce 2 danni.
+
+  Dal momento che i punti ferita temporanei sono separati dai punti ferita veri e propri, è possibile che superino il massimo dei punti ferita del personaggio. Un personaggio può quindi essere al suo massimo dei punti ferita e ricevere punti ferita temporanei.
+
+  I punti ferita temporanei non possono essere ripristinati dalla guarigione e non sono cumulativi. Se un personaggio possiede dei punti ferita temporanei e ne riceve altri, decide se tenere quelli che già possiede o se acquisire quelli nuovi. Per esempio, se un incantesimo gli conferisce 12 punti ferita temporanei quando ne ha già 10, può averne 12 o 10, ma non 22.
+
+  Se un personaggio è a 0 punti ferita e riceve dei punti ferita temporanei, non riprende conoscenza e non si stabilizza. Quei punti ferita possono comunque assorbire i danni a lui destinati finché si trova in quello stato, ma soltanto una forma di guarigione vera e propria può salvarlo.
+
+  A eccezione di quei privilegi che conferiscono a un personaggio dei punti ferita temporanei con una durata, i punti ferita temporanei permangono finché non vengono consumati o finché il personaggio non completa un riposo lungo.

@@ -1,0 +1,9 @@
+name: Lemure
+alignment: legale malvagio
+languages: capisce l'Infernale ma non lo parla
+traits.0.name: Vista del diavolo
+traits.0.text: L'oscurità magica non ostacola la scurovisione del lemure.
+traits.1.name: Ringiovanimento infernale
+traits.1.text: Se un lemure muore nei Nove Inferi, torna in vita con tutti i suoi punti ferita dopo 1d10 giorni, a meno che non sia ucciso da una creatura di allineamento buono su cui sia stato lanciato un incantesimo benedizione o che sui suoi resti non venga spruzzata dell'acqua santa.
+actions.0.name: Pugno
+actions.0.text: "Attacco con arma da mischia: +3 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 2 (1d4) danni contundenti."

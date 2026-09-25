@@ -1,0 +1,9 @@
+name: Gorilla gigante
+alignment: senza allineamento
+actions.0.name: Multiattacco
+actions.0.text: Il gorilla effettua due attacchi con i pugni.
+actions.0.multiattack.0.action: Pugno
+actions.1.name: Pugno
+actions.1.text: "Attacco con arma da mischia: +9 al tiro per colpire, portata 3 m, un bersaglio. Colpito: 22 (3d10 + 6) danni contundenti."
+actions.2.name: Roccia
+actions.2.text: "Attacco con arma a distanza: +9 al tiro per colpire, gittata 15/30 m, un bersaglio. Colpito: 30 (7d6 + 6) danni contundenti."

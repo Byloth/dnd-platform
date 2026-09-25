@@ -111,5 +111,12 @@ levels.14.features.0.text: |-
   Quando il druido arriva al 14° livello, le creature del mondo naturale percepiscono il suo legame con la natura ed esitano ad attaccarlo. Quando una bestia o una creatura vegetale lo attacca, quella creatura deve effettuare un tiro salvezza su Saggezza contro la CD del tiro salvezza sull'incantesimo del druido. Se lo fallisce, deve scegliere un bersaglio diverso, altrimenti l'attacco manca automaticamente. Se invece lo supera, la creatura è immune a questo effetto per 24 ore.
 
   La creatura è consapevole di questo effetto prima di effettuare il suo attacco contro il druido.
+levels.14.features.0.effects.0.name: |-
+  Rifugio della Natura
+levels.14.features.0.effects.0.trigger: |-
+  quando una bestia o una creatura vegetale ti attacca
 levels.14.features.0.effects.0.text: Quando una bestia o una creatura vegetale ti attacca, quella creatura deve effettuare un tiro salvezza su Saggezza contro la CD del tiro salvezza sui tuoi incantesimi da druido. Se lo fallisce, deve scegliere un bersaglio diverso, altrimenti l'attacco manca automaticamente. Se invece lo supera, la creatura è immune a questo effetto per 24 ore. La creatura è consapevole di questo effetto prima di effettuare il suo attacco contro di te.
-levels.14.features.0.effects.0.note: "Gestione in gioco: un effetto passivo risolto dal tiro salvezza dell'attaccante contro la CD del tiro salvezza sui tuoi incantesimi; sulla scheda non viene calcolato nulla oltre alla CD."
+levels.14.features.0.effects.0.note: |-
+  Modalità di gioco: un effetto passivo, risolto dal tiro salvezza su Saggezza dell'attaccante contro la CD del tiro salvezza sui tuoi incantesimi da druido; la scelta di un bersaglio diverso o l'attacco mancato automaticamente, e l'immunità di 24 ore in caso di successo, si gestiscono durante il gioco.
+text: |-
+  Il Circolo della Terra è composto da mistici e sapienti che preservano i riti e le conoscenze dei tempi antichi tramite una vasta tradizione orale. Questi druidi si incontrano all'interno di circoli sacri di alberi o monoliti, per rivelarsi in Druidico i segreti primordiali che hanno appreso. I più saggi membri del circolo presiedono come sommi sacerdoti delle comunità che seguono ancora la Vecchia Fede e fungono da consiglieri per i governanti di quelle comunità. In quanto membro di questo circolo, il druido vede la sua magia influenzata dalla terra in cui egli è stato iniziato ai misteriosi riti del circolo.

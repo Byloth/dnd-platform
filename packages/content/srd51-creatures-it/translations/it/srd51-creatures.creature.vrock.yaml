@@ -1,0 +1,19 @@
+name: Vrock
+alignment: caotico malvagio
+armorClass.0.note: armatura naturale
+resistances.3.note: da attacchi non magici
+languages: Abissale, telepatia 36 m
+traits.0.name: Resistenza alla magia
+traits.0.text: Il vrock dispone di vantaggio ai tiri salvezza contro incantesimi e altri effetti magici.
+actions.0.name: Multiattacco
+actions.0.text: "Il vrock effettua due attacchi: uno con il becco e uno con gli artigli."
+actions.0.multiattack.0.action: Becco
+actions.0.multiattack.1.action: Artigli
+actions.1.name: Becco
+actions.1.text: "Attacco con arma da mischia: +6 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 10 (2d6 + 3) danni perforanti."
+actions.2.name: Artigli
+actions.2.text: "Attacco con arma da mischia: +6 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 14 (2d10 + 3) danni taglienti."
+actions.3.name: Spore
+actions.3.text: Il vrock diffonde una nube di spore tossiche in un raggio di 4,5 metri. Le spore si diffondono nell'ambiente. Ogni creatura in quell'area deve superare un tiro salvezza su Costituzione con CD 14, altrimenti viene avvelenata. Finché è avvelenato in questo modo, il bersaglio subisce 5 (1d10) danni da veleno all'inizio di ogni suo turno, ma può ripetere il tiro salvezza alla fine di ogni turno e, se lo supera, l'effetto svanisce. Anche svuotando una fiala d'acqua santa sul bersaglio si pone termine all'effetto su di lui.
+actions.4.name: Stridio stordente
+actions.4.text: Il vrock emette un orrendo stridio. Ogni creatura situata entro 6 metri da esso che sia in grado di udirlo e che non sia un demone deve superare un tiro salvezza su Costituzione con CD 14, altrimenti è stordita fino alla fine del turno successivo del vrock.

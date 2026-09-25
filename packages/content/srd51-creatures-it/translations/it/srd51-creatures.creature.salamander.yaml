@@ -1,0 +1,17 @@
+name: Salamandra
+alignment: neutrale malvagia
+armorClass.0.note: armatura naturale
+resistances.0.note: da attacchi non magici
+languages: Ignan
+traits.0.name: Corpo surriscaldato
+traits.0.text: Una creatura che tocchi la salamandra o la colpisca con un attacco in mischia trovandosi entro 1,5 metri da essa subisce 7 (2d6) danni da fuoco.
+traits.1.name: Armi surriscaldate
+traits.1.text: Ogni arma da mischia di metallo impugnata dalla salamandra infligge 3 (1d6) danni da fuoco extra se il colpo va a segno (già inclusi nell'attacco).
+actions.0.name: Multiattacco
+actions.0.text: "La salamandra effettua due attacchi: uno con la lancia e uno con la coda."
+actions.0.multiattack.0.action: Lancia
+actions.0.multiattack.1.action: Coda
+actions.1.name: Lancia
+actions.1.text: "Attacco con arma da mischia o a distanza: +7 al tiro per colpire, portata 1,5 m o gittata 6/18 m, un bersaglio. Colpito: 11 (2d6 + 4) danni perforanti, o 13 (2d8 + 4) danni perforanti se usata a due mani per effettuare un attacco in mischia, più 3 (1d6) danni da fuoco."
+actions.2.name: Coda
+actions.2.text: "Attacco con arma da mischia: +7 al tiro per colpire, portata 3 m, un bersaglio. Colpito: 11 (2d6 + 4) danni contundenti più 7 (2d6) danni da fuoco e il bersaglio è afferrato (CD 14 per sfuggire). Finché la presa perdura, il bersaglio è trattenuto e la salamandra può colpirlo automaticamente con la coda e non può effettuare attacchi di questo tipo contro altri."

@@ -89,6 +89,8 @@ importers:
 
   packages/content/srd51-creatures: {}
 
+  packages/content/srd51-creatures-it: {}
+
   packages/content/srd51-it: {}
 
   packages/engine:

@@ -1,0 +1,27 @@
+name: Aboleth
+alignment: legale malvagio
+armorClass.0.note: armatura naturale
+languages: Gergo delle profondità, telepatia 36 m
+traits.0.name: Anfibio
+traits.0.text: L'aboleth può respirare in aria e in acqua.
+traits.1.name: Nube di muco
+traits.1.text: Finché si trova sott'acqua, l'aboleth è circondato da uno strato di muco mutageno. Se una creatura tocca l'aboleth o lo colpisce con un attacco in mischia mentre si trova a 1,5 metri da esso, quella creatura deve effettuare un tiro salvezza su Costituzione con CD 14. Se lo fallisce, si ammala per 1d4 ore. La creatura malata può respirare soltanto sott'acqua.
+traits.2.name: Sonda telepatica
+traits.2.text: Se una creatura comunica telepaticamente con l'aboleth, quest'ultimo apprende i più grandi desideri della creatura, se è in grado di vederla.
+actions.0.name: Multiattacco
+actions.0.text: L'aboleth effettua tre attacchi con i tentacoli.
+actions.0.multiattack.0.action: Tentacolo
+actions.1.name: Tentacolo
+actions.1.text: "Attacco con arma da mischia: +9 al tiro per colpire, portata 3 m, un bersaglio. Colpito: 12 (2d6 + 5) danni contundenti. Se il bersaglio è una creatura, deve superare un tiro salvezza su Costituzione con CD 14, altrimenti si ammala. La malattia non ha effetto per 1 minuto e può essere rimossa da qualsiasi magia in grado di curare malattie. Dopo 1 minuto, la pelle della creatura malata diventa traslucida e viscida, la creatura non può recuperare punti ferita a meno che non si trovi sott'acqua e la malattia può essere rimossa soltanto da guarigione o da un altro incantesimo in grado di curare malattie di 6° livello o superiore. Quando la creatura si trova al di fuori di uno specchio d'acqua, subisce 6 (1d12) danni da acido ogni 10 minuti, a meno che la sua pelle non venga inumidita prima che i 10 minuti siano trascorsi."
+actions.2.name: Coda
+actions.2.text: "Attacco con arma da mischia: +9 al tiro per colpire, portata 3 m, un bersaglio. Colpito: 15 (3d6 + 5) danni contundenti."
+actions.3.name: Schiavizzare
+actions.3.text: |-
+  L'aboleth prende di mira una creatura nel suo campo visivo in un raggio di 9 metri. Il bersaglio deve superare un tiro salvezza su Saggezza con CD 14, altrimenti è affascinato magicamente dall'aboleth finché quest'ultimo non muore o non si trova su un piano di esistenza diverso da quello del bersaglio. Il bersaglio affascinato è sotto il controllo dell'aboleth e non può avere reazioni. Inoltre, l'aboleth e il bersaglio possono comunicare telepaticamente l'uno con l'altro a qualsiasi distanza.
+  Ogni volta che il bersaglio affascinato subisce danni, può ripetere il tiro salvezza. Se lo supera, l'effetto svanisce. Non più di una volta ogni 24 ore, il bersaglio può anche ripetere il tiro salvezza quando si trova ad almeno 1,5 chilometri dall'aboleth.
+legendary.actions.0.name: Individuazione
+legendary.actions.0.text: L'aboleth effettua una prova di Saggezza (Percezione).
+legendary.actions.1.name: Spazzata di coda
+legendary.actions.1.text: L'aboleth effettua un attacco con la coda.
+legendary.actions.2.name: Risucchio psichico (costa 2 azioni)
+legendary.actions.2.text: Una creatura affascinata dall'aboleth subisce 10 (3d6) danni psichici e l'aboleth recupera un numero di punti ferita pari ai danni subiti dalla creatura.

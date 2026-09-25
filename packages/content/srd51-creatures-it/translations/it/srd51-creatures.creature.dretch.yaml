@@ -1,0 +1,14 @@
+name: Dretch
+alignment: caotico malvagio
+armorClass.0.note: armatura naturale
+languages: Abissale, telepatia 18 m (funziona con le creature che capiscono l'Abissale)
+actions.0.name: Multiattacco
+actions.0.text: "Il dretch effettua due attacchi: uno con il morso e uno con gli artigli."
+actions.0.multiattack.0.action: Morso
+actions.0.multiattack.1.action: Artigli
+actions.1.name: Morso
+actions.1.text: "Attacco con arma da mischia: +2 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 3 (1d6) danni perforanti."
+actions.2.name: Artigli
+actions.2.text: "Attacco con arma da mischia: +2 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 5 (2d4) danni taglienti."
+actions.3.name: Nube fetida
+actions.3.text: Una nube di disgustoso gas verdastro si diffonde dal dretch entro un raggio di 3 metri. Il gas si diffonde nell'ambiente e la sua area è leggermente oscurata. Permane per 1 minuto o finché un forte vento non lo disperde. Ogni creatura che inizia il proprio turno in quell'area deve superare un tiro salvezza su Costituzione con CD 11, altrimenti è avvelenata fino all'inizio del proprio turno successivo. Finché è avvelenato in questo modo, il bersaglio può effettuare nel suo turno un'azione o un'azione bonus, ma non entrambe, e non può avere reazioni.

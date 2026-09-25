@@ -1,0 +1,9 @@
+name: Condizioni
+text: |-
+  Le condizioni alterano le capacità di una creatura in molti modi e possono essere provocate da un incantesimo, un privilegio di classe, un attacco di un mostro o da altri effetti. La maggior parte delle condizioni, come per esempio accecato, sono svantaggiose, ma alcune possono invece essere vantaggiose, come invisibile.
+
+  Una condizione permane finché non viene contrastata (la condizione prono, per esempio, può essere contrastata rialzandosi in piedi), oppure per una durata specificata dall'effetto che l'ha imposta.
+
+  Se più effetti impongono la stessa condizione a una creatura, ogni istanza di quella condizione ha una sua durata, ma gli effetti non peggiorano. Ci sono solo due possibili scenari: una creatura è soggetta a una data condizione, oppure no.
+
+  Le definizioni seguenti specificano cosa accade a una creatura soggetta a una specifica condizione.

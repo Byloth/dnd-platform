@@ -1,0 +1,11 @@
+name: Gigante del fuoco
+alignment: legale malvagio
+armorClass.0.note: piastre
+languages: Gigante
+actions.0.name: Multiattacco
+actions.0.text: Il gigante effettua due attacchi con lo spadone.
+actions.0.multiattack.0.action: Spadone
+actions.1.name: Spadone
+actions.1.text: "Attacco con arma da mischia: +11 al tiro per colpire, portata 3 m, un bersaglio. Colpito: 28 (6d6 + 7) danni taglienti."
+actions.2.name: Roccia
+actions.2.text: "Attacco con arma a distanza: +11 al tiro per colpire, gittata 18/72 m, un bersaglio. Colpito: 29 (4d10 + 7) danni contundenti."

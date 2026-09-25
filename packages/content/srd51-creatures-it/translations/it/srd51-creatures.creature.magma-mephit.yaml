@@ -1,0 +1,13 @@
+name: Mephit del magma
+alignment: neutrale malvagio
+languages: Ignan, Terran
+traits.0.name: Esplosione della morte
+traits.0.text: Quando il mephit muore, esplode in un fiume di lava. Ogni creatura situata entro 1,5 metri dal mephit deve effettuare un tiro salvezza su Destrezza con CD 11, subendo 7 (2d6) danni da fuoco in caso di fallimento, o la metà in caso di successo.
+traits.1.name: Falso aspetto
+traits.1.text: Finché il mephit rimane immobile, non è possibile distinguerlo da un normale cumulo di magma.
+traits.2.name: Incantesimi innati
+traits.2.text: Il mephit può lanciare riscaldare il metallo (CD del tiro salvezza sull'incantesimo 10) come incantesimo innato senza aver bisogno di componenti materiali. La sua caratteristica innata da incantatore è Carisma.
+actions.0.name: Artigli
+actions.0.text: "Attacco con arma da mischia: +3 al tiro per colpire, portata 1,5 m, una creatura. Colpito: 3 (1d4 + 1) danni taglienti più 2 (1d4) danni da fuoco."
+actions.1.name: Soffio di fuoco
+actions.1.text: Il mephit esala fuoco in un cono di 4,5 metri. Ogni creatura in quell'area deve effettuare un tiro salvezza su Destrezza con CD 11, subendo 7 (2d6) danni da fuoco in caso di fallimento, o la metà in caso di successo.

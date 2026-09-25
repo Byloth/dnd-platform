@@ -13,5 +13,4 @@ text: |-
   | 9–10 | La creatura può agire e muoversi normalmente. |
 
   Un bersaglio influenzato può effettuare un tiro salvezza su Saggezza alla fine di ogni suo turno. Se ha successo, questo effetto per lui termina.
-higherLevel: |-
-  Quando l'incantatore lancia questo incantesimo usando uno slot incantesimo di 5° livello o superiore, il raggio della sfera aumenta di 1,5 metri per ogni slot di livello superiore al 4°.
+higherLevel: Quando l'incantatore lancia questo incantesimo usando uno slot incantesimo di 5° livello o superiore, il raggio della sfera aumenta di 1,5 metri per ogni slot di livello superiore al 4°.

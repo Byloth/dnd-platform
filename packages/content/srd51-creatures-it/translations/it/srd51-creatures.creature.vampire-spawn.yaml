@@ -1,0 +1,22 @@
+name: Progenie vampirica
+alignment: neutrale malvagia
+armorClass.0.note: armatura naturale
+resistances.1.note: da attacchi non magici
+languages: quelli conosciuti in vita
+traits.0.name: Rigenerazione
+traits.0.text: Il vampiro recupera 10 punti ferita all'inizio del suo turno se possiede almeno 1 punto ferita e non è esposto alla luce del sole o all'acqua corrente. Se subisce danni radiosi o danni dall'acqua santa, questo tratto non funziona all'inizio del suo turno successivo.
+traits.1.name: Movimenti del ragno
+traits.1.text: Il vampiro può arrampicarsi su superfici difficili, compresi i soffitti (lungo i quali si muove a testa in giù), senza effettuare una prova di caratteristica.
+traits.2.name: Debolezze dei vampiri
+traits.2.text: |-
+  Il vampiro ha i seguenti difetti:
+  Proibizione. Il vampiro non può entrare in casa di qualcuno se non viene invitato da chi vi risiede.
+  Danneggiato dall'acqua corrente. La progenie subisce 20 danni da acido se termina il suo turno nell'acqua corrente.
+  Paletto nel cuore. Se un'arma perforante fatta di legno viene piantata nel cuore della progenie mentre è incapacitata nel suo luogo di riposo, la progenie viene distrutta.
+  Ipersensibilità al sole. Il vampiro subisce 20 danni radiosi quando inizia il suo turno alla luce del sole. Mentre è esposto a tale luce, subisce svantaggio a tiri per colpire e prove di caratteristica.
+actions.0.name: Multiattacco
+actions.0.text: Il vampiro effettua due attacchi, di cui solo uno può essere un morso.
+actions.1.name: Morso
+actions.1.text: "Attacco con arma da mischia: +6 al tiro per colpire, portata 1,5 m, una creatura consenziente o una che sia incapacitata, afferrata o trattenuta dal vampiro. Colpito: 6 (1d6 + 3) danni perforanti più 7 (2d6) danni necrotici. I punti ferita massimi del bersaglio sono ridotti di un importo pari ai danni necrotici subiti e il vampiro recupera un numero di punti ferita pari a quell'importo. La riduzione dura finché il bersaglio non termina un riposo lungo. Il bersaglio muore se questo effetto riduce a 0 i suoi punti ferita massimi."
+actions.2.name: Artigli
+actions.2.text: "Attacco con arma da mischia: +6 al tiro per colpire, portata 1,5 m, una creatura. Colpito: 8 (2d4 + 3) danni taglienti. Invece di infliggere danni, il vampiro può afferrare il bersaglio (CD 13 per sfuggire)."

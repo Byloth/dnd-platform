@@ -1,0 +1,16 @@
+name: Lucertoloide
+alignment: neutrale
+armorClass.0.note: armatura naturale, scudo
+languages: Draconico
+traits.0.name: Apnea
+traits.0.text: Il lucertoloide può trattenere il respiro per 15 minuti.
+actions.0.name: Multiattacco
+actions.0.text: Il lucertoloide effettua due attacchi in mischia, ognuno con un'arma diversa.
+actions.1.name: Morso
+actions.1.text: "Attacco con arma da mischia: +4 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 5 (1d6 + 2) danni perforanti."
+actions.2.name: Mazza pesante
+actions.2.text: "Attacco con arma da mischia: +4 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 5 (1d6 + 2) danni contundenti."
+actions.3.name: Giavellotto
+actions.3.text: "Attacco con arma da mischia o a distanza: +4 al tiro per colpire, portata 1,5 m o gittata 9/36 m, un bersaglio. Colpito: 5 (1d6 + 2) danni perforanti."
+actions.4.name: Scudo chiodato
+actions.4.text: "Attacco con arma da mischia: +4 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 5 (1d6 + 2) danni perforanti."

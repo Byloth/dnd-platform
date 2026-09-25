@@ -1,0 +1,24 @@
+name: Couatl
+alignment: legale buono
+armorClass.0.note: armatura naturale
+immunities.1.note: da attacchi non magici
+languages: tutti, telepatia 36 m
+traits.0.name: Incantesimi innati
+traits.0.text: |-
+  La caratteristica da incantatore del couatl è Carisma (CD del tiro salvezza sull'incantesimo 14). Il couatl può lanciare i seguenti incantesimi innati, che richiedono solo componenti verbali:
+
+  A volontà: individuazione dei pensieri, individuazione del bene e del male, individuazione del magico
+  3/giorno ciascuno: benedizione, creare cibo e acqua, cura ferite, protezione dai veleni, ristorare inferiore, santuario, scudo
+  1/giorno ciascuno: ristorare superiore, scrutare, sogno
+traits.1.name: Armi magiche
+traits.1.text: Gli attacchi con arma del couatl sono magici.
+traits.2.name: Mente schermata
+traits.2.text: Il couatl è immune agli scrutamenti e a qualsiasi effetto che possa percepire le sue emozioni, leggere i suoi pensieri o individuare la sua posizione.
+actions.0.name: Morso
+actions.0.text: "Attacco con arma da mischia: +8 al tiro per colpire, portata 1,5 m, una creatura. Colpito: 8 (1d6 + 5) danni perforanti e il bersaglio deve superare un tiro salvezza su Costituzione con CD 13, altrimenti viene avvelenato per 24 ore. Finché questo veleno non termina, il bersaglio è privo di sensi. Un'altra creatura può usare un'azione per scuotere il bersaglio e risvegliarlo."
+actions.1.name: Stritolare
+actions.1.text: "Attacco con arma da mischia: +6 al tiro per colpire, portata 3 m, una creatura di taglia Media o inferiore. Colpito: 10 (2d6 + 3) danni contundenti e il bersaglio è afferrato (CD 15 per sfuggire). Finché la presa perdura, il bersaglio è trattenuto e il couatl non può stritolarne un altro."
+actions.2.name: Cambiare forma
+actions.2.text: |-
+  Il couatl si trasforma magicamente in una bestia o in un umanoide con grado di sfida pari o inferiore al proprio, o ritorna alla sua vera forma. Se muore, torna alla sua forma naturale. Ogni oggetto che indossava o trasportava è assorbito o trasportato dalla sua nuova forma (a scelta del couatl).
+  In una nuova forma, il couatl conserva le sue statistiche di gioco e la capacità di parlare, ma CA, modalità di movimento, Forza, Destrezza e altre azioni sono sostituite da quelle della nuova forma. Inoltre, il couatl ottiene le eventuali statistiche e capacità (eccetto i privilegi di classe, le azioni leggendarie e le azioni di tana) che la nuova forma possiede, ma di cui egli è privo. Se la nuova forma ha un attacco con morso, il couatl può usare il suo morso in quella forma.

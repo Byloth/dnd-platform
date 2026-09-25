@@ -1,0 +1,9 @@
+name: Bulette
+alignment: senza allineamento
+armorClass.0.note: armatura naturale
+traits.0.name: Balzo da fermo
+traits.0.text: Il bulette può compiere un salto in lungo di un massimo di 9 metri e un salto in alto di un massimo di 4,5 metri, con o senza rincorsa.
+actions.0.name: Morso
+actions.0.text: "Attacco con arma da mischia: +7 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 30 (4d12 + 4) danni perforanti."
+actions.1.name: Balzo letale
+actions.1.text: Se il bulette salta di almeno 4,5 metri come parte del suo movimento, poi può usare questa azione per atterrare in piedi in uno spazio che contenga una o più creature oltre a lui. Ognuna di queste creature deve effettuare un tiro salvezza su Forza o Destrezza con CD 16 (a scelta del bersaglio); se lo fallisce, viene buttata a terra prona e subisce 14 (3d6 + 4) danni contundenti più 14 (3d6 + 4) danni taglienti. Se invece lo supera, subisce la metà di quei danni, non è buttata a terra prona e viene spinta di 1,5 metri fuori dallo spazio del bulette fino a uno spazio libero a scelta della creatura. Se non c'è alcuno spazio libero entro gittata, la creatura cade invece a terra prona nello spazio del bulette.

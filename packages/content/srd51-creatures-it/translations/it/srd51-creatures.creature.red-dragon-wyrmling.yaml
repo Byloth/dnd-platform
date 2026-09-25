@@ -1,0 +1,8 @@
+name: Drago rosso cucciolo
+alignment: caotico malvagio
+armorClass.0.note: armatura naturale
+languages: Draconico
+actions.0.name: Morso
+actions.0.text: "Attacco con arma da mischia: +6 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 9 (1d10 + 4) danni perforanti più 3 (1d6) danni da fuoco."
+actions.1.name: Soffio di fuoco
+actions.1.text: Il drago esala fuoco in un cono di 4,5 metri. Ogni creatura in quell'area deve effettuare un tiro salvezza su Destrezza con CD 13, subendo 24 (7d6) danni da fuoco in caso di fallimento, o la metà dei danni in caso di successo.

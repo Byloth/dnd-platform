@@ -1,0 +1,6 @@
+name: Boleto stridente
+alignment: senza allineamento
+traits.0.name: Falso aspetto
+traits.0.text: Finché il boleto stridente rimane immobile, non è possibile distinguerlo da un normale fungo.
+reactions.0.name: Stridio
+reactions.0.text: Quando una luce intensa o una creatura si trova entro 9 metri dal boleto stridente, esso emette uno stridio udibile nel raggio di 90 metri. Il boleto stridente continua a stridere finché la fonte del disturbo non si sposta fuori portata e per 1d4 turni successivi del boleto stridente.

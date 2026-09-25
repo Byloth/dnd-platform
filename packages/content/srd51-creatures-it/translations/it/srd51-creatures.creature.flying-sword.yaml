@@ -1,0 +1,9 @@
+name: Spada volante
+alignment: senza allineamento
+armorClass.0.note: armatura naturale
+traits.0.name: Suscettibilità all'anti-magia
+traits.0.text: La spada è incapacitata finché si trova nell'area di un campo anti-magia. Se bersagliata da un incantesimo dissolvi magie, la spada deve superare un tiro salvezza su Costituzione contro la CD del tiro salvezza sull'incantesimo, altrimenti è priva di sensi per 1 minuto.
+traits.1.name: Falso aspetto
+traits.1.text: Finché la spada non vola e rimane immobile, non è distinguibile da una spada normale.
+actions.0.name: Spada lunga
+actions.0.text: "Attacco con arma da mischia: +3 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 5 (1d8 + 1) danni taglienti."

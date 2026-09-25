@@ -1,0 +1,24 @@
+name: Planetar
+alignment: legale buono
+armorClass.0.note: armatura naturale
+resistances.1.note: da attacchi non magici
+languages: tutti, telepatia 36 m
+traits.0.name: Armi angeliche
+traits.0.text: Gli attacchi con arma del planetar sono magici. Quando il planetar colpisce con qualsiasi arma, la sua arma infligge 5d8 danni radiosi extra (già inclusi nell'attacco).
+traits.1.name: Consapevolezza divina
+traits.1.text: Il planetar sa riconoscere le menzogne.
+traits.2.name: Incantesimi innati
+traits.2.text: |-
+  La caratteristica da incantatore del planetar è Carisma (CD del tiro salvezza sull'incantesimo 20). Per sua natura, il planetar è in grado di lanciare gli incantesimi indicati di seguito senza aver bisogno di componenti materiali:
+  A volontà: individuazione del bene e del male, invisibilità (solo se stesso)
+  3/giorno ciascuno: barriera di lame, colpo infuocato, dissolvi il bene e il male, rianimare morti
+  1/giorno ciascuno: comunione, controllare tempo atmosferico, piaga degli insetti
+traits.3.name: Resistenza alla magia
+traits.3.text: Il planetar dispone di vantaggio ai tiri salvezza contro incantesimi e altri effetti magici.
+actions.0.name: Multiattacco
+actions.0.text: Il planetar effettua due attacchi in mischia.
+actions.0.multiattack.0.action: Spadone
+actions.1.name: Spadone
+actions.1.text: "Attacco con arma da mischia: +12 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 21 (4d6 + 7) danni taglienti più 22 (5d8) danni radiosi."
+actions.2.name: Tocco guaritore
+actions.2.text: Il planetar tocca un'altra creatura. Il bersaglio recupera magicamente 30 (6d8 + 3) punti ferita ed è liberato da qualsiasi maledizione, malattia, veleno, cecità o sordità.

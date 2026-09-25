@@ -1,10 +1,12 @@
-name: "Imbarcazioni"
+name: Imbarcazioni
 text: |-
-  | Oggetto        | Costo      | Velocità  |
-  |----------------|------------|-----------|
-  | Galea          | 30.000 mo  | 6 km/h    |
-  | Barcone        | 3.000 mo   | 1,5 km/h  |
-  | Nave lunga     | 10.000 mo  | 4,5 km/h  |
-  | Barca a remi   | 50 mo      | 2,25 km/h |
-  | Nave a vela    | 10.000 mo  | 3 km/h    |
-  | Nave da guerra | 25.000 mo  | 3,75 km/h |
+  **_Imbarcazioni a remi._** I barconi e le barche a remi sono solitamente usati sui laghi e sui fiumi. Se un'imbarcazione segue la corrente, si aggiunge la velocità della corrente (solitamente 4,5 km all'ora) alla sua velocità. Non è possibile remare controcorrente se la corrente ha un'intensità rilevante, ma è possibile risalire un corso d'acqua portando queste imbarcazioni a riva e facendole trainare da uno o più animali da tiro. Una barca a remi pesa 50 kg, qualora gli avventurieri debbano trasportarla via terra.
+
+  | Oggetto        | Costo     | Velocità |
+  |----------------|-----------|--------|
+  | Galea          | 30.000 mo | 6 km/h |
+  | Barcone        | 3.000 mo  | 1,5 km/h |
+  | Nave lunga     | 10.000 mo | 4,5 km/h |
+  | Barca a remi   | 50 mo     | 2,25 km/h |
+  | Nave a vela    | 10.000 mo | 3 km/h |
+  | Nave da guerra | 25.000 mo | 3,75 km/h |

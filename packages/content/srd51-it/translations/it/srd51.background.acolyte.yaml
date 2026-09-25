@@ -18,12 +18,12 @@ personality.traits.4: L'accolito cita (non necessariamente con esattezza) i test
 personality.traits.5: L'accolito è tollerante (o intollerante) nei confronti delle altre fedi e rispetta (o disprezza) il culto degli altri dèi.
 personality.traits.6: Frequentando gli alti funzionari del suo tempio, l'accolito ha goduto dei piaceri del buon cibo e del buon vino e si è inserito nell'alta società. La povertà lo mette a disagio.
 personality.traits.7: L'accolito ha passato così tanto tempo all'interno del tempio che ha qualche difficoltà pratica a interagire con gli altri esseri umani nel mondo esterno.
-personality.ideals.0: Tradizione. Le antiche tradizioni di preghiera e sacrificio devono essere conservate e sostenute.
-personality.ideals.1: Carità. L'accolito cerca sempre di aiutare i bisognosi e non esita a sacrificarsi personalmente.
-personality.ideals.2: Cambiamento. L'accolito deve contribuire alla diffusione dei mutamenti che gli dèi operano costantemente nel mondo.
-personality.ideals.3: Potere. L'accolito spera di riuscire un giorno a raggiungere le posizioni più elevate della gerarchia della sua chiesa.
-personality.ideals.4: Fede. L'accolito è profondamente convinto che la sua divinità guidi le sue scelte. Crede quindi che, se si impegnerà a fondo, le cose non potranno che andare bene.
-personality.ideals.5: Ambizione. L'accolito cerca di dimostrarsi degno del favore della sua divinità e interviene per correggere le azioni che vanno contro i suoi insegnamenti.
+personality.ideals.0: Tradizione. Le antiche tradizioni di preghiera e sacrificio devono essere conservate e sostenute. (Legale)
+personality.ideals.1: Carità. L'accolito cerca sempre di aiutare i bisognosi e non esita a sacrificarsi personalmente. (Buono)
+personality.ideals.2: Cambiamento. L'accolito deve contribuire alla diffusione dei mutamenti che gli dèi operano costantemente nel mondo. (Caotico)
+personality.ideals.3: Potere. L'accolito spera di riuscire un giorno a raggiungere le posizioni più elevate della gerarchia della sua chiesa. (Legale)
+personality.ideals.4: Fede. L'accolito è profondamente convinto che la sua divinità guidi le sue scelte. Crede quindi che, se si impegnerà a fondo, le cose non potranno che andare bene. (Legale)
+personality.ideals.5: Ambizione. L'accolito cerca di dimostrarsi degno del favore della sua divinità e interviene per correggere le azioni che vanno contro i suoi insegnamenti. (Qualsiasi)
 personality.bonds.0: L'accolito morirebbe pur di recuperare un'antica reliquia della sua fede perduta da molto tempo.
 personality.bonds.1: L'accolito cerca vendetta contro i corrotti ministri del suo tempio che lo accusarono di eresia.
 personality.bonds.2: L'accolito deve la vita al sacerdote che lo fece entrare nel tempio alla morte dei suoi genitori.

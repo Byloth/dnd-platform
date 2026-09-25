@@ -15,3 +15,9 @@ levels.14.features.0.text: A partire dal 14° livello, quando un bardo effettua 
 levels.14.features.0.effects.0.name: Abilità Impareggiabile
 levels.14.features.0.effects.0.text: Quando effettui una prova di caratteristica, puoi spendere un utilizzo di Ispirazione Bardica. Se lo fai, tira un dado di Ispirazione Bardica e aggiungi il risultato ottenuto alla tua prova di caratteristica. Puoi scegliere di farlo dopo avere tirato il dado per la prova di caratteristica, ma prima che il GM dichiari se la prova abbia avuto successo o meno.
 levels.14.features.0.effects.0.onUse.0.text: Aggiungi un dado di Ispirazione Bardica (taglia table(bard.bardic-inspiration-die)) alla tua prova di caratteristica.
+text: |-
+  I bardi del Collegio della Sapienza hanno conoscenze su qualsiasi argomento e raccolgono informazioni dalle fonti più disparate, che possono variare dai tomi accademici ai racconti dei contadini. Che si tratti di intonare ballate popolari da taverna o di poemi nelle corti reali, questi bardi usano sempre i loro doni per ammaliare il pubblico. Quando gli applausi si spengono, il pubblico si ritrova a dubitare di tutto ciò che fino ad allora aveva dato per certo, dalla sua fede nel sacerdozio locale alla sua lealtà al re.
+
+  Questi bardi sono votati innanzitutto alla ricerca della bellezza e della verità, e non a un monarca o ai precetti di una divinità. Un nobile che tiene presso di sé un bardo del genere come araldo o consigliere farà bene a sapere che tale bardo tende a essere più onesto che diplomatico.
+
+  I membri di questo collegio si radunano nelle biblioteche e a volte in alcuni collegi veri e propri, con tanto di aule e dormitori, dove condividono liberamente le proprie conoscenze. Si incontrano anche in occasione di feste popolari e ricevimenti di stato, dove possono denunciare casi di corruzione, smascherare bugie e farsi beffe dei più pomposi esponenti delle autorità.

@@ -1,0 +1,18 @@
+name: Cavaliere
+text: I cavalieri sono combattenti votati al servizio di un reggente, di un ordine religioso o di una nobile causa. L'allineamento di un cavaliere determina la misura in cui un giuramento viene onorato. Che si tratti di intraprendere una missione o di pattugliare un regno, un cavaliere spesso viaggia accompagnato da un seguito che comprende i suoi scudieri e alcuni popolani come gregari.
+alignment: qualsiasi allineamento
+armorClass.0.note: piastre
+languages: uno qualsiasi (di solito Comune)
+traits.0.name: Impavido
+traits.0.text: Il cavaliere dispone di vantaggio ai tiri salvezza contro la condizione spaventato.
+actions.0.name: Multiattacco
+actions.0.text: Il cavaliere effettua due attacchi in mischia.
+actions.0.multiattack.0.action: Spadone
+actions.1.name: Spadone
+actions.1.text: "Attacco con arma da mischia: +5 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 10 (2d6 + 3) danni taglienti."
+actions.2.name: Balestra pesante
+actions.2.text: "Attacco con arma a distanza: +2 al tiro per colpire, gittata 30/120 m, un bersaglio. Colpito: 5 (1d10) danni perforanti."
+actions.3.name: Autorità
+actions.3.text: Per 1 minuto, il cavaliere può pronunciare un comando speciale o un monito ogni volta che una creatura non ostile visibile entro 9 metri da lui effettua un tiro per colpire o un tiro salvezza. La creatura può aggiungere un d4 al suo tiro a patto che possa udire e comprendere il cavaliere. Una creatura può beneficiare di un solo dado Autorità alla volta. Questo effetto termina se il cavaliere è incapacitato.
+reactions.0.name: Parata
+reactions.0.text: Il cavaliere aggiunge 2 alla sua CA contro un attacco in mischia che lo colpirebbe. Per farlo, deve vedere l'attaccante e deve impugnare un'arma da mischia.

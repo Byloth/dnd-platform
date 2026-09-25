@@ -1,0 +1,14 @@
+name: Fauce gorgogliante
+alignment: neutrale
+traits.0.name: Terreno aberrante
+traits.0.text: Il terreno in un raggio di 3 metri dalla fauce gorgogliante diventa molle ed è considerato terreno difficile. Ogni creatura che inizia il proprio turno in quell'area deve superare un tiro salvezza su Forza con CD 10, altrimenti la sua velocità si riduce a 0 fino all'inizio del suo turno successivo.
+traits.1.name: Gorgogliare
+traits.1.text: La fauce gorgoglia in modo incoerente finché vede una qualsiasi creatura e non è incapacitata. Ogni creatura che inizia il proprio turno entro 6 metri dalla fauce e può sentirla gorgogliare deve superare un tiro salvezza su Saggezza con CD 10. Se lo fallisce, la creatura non può effettuare reazioni fino all'inizio del proprio turno successivo e tira un d8 per determinare cosa fa durante il proprio turno. Con un risultato da 1 a 4, la creatura non fa nulla. Con un risultato di 5 o 6, la creatura non effettua alcuna azione, né azione bonus, e usa tutto il suo movimento per muoversi in una data direzione a caso. Con un 7 o un 8, la creatura effettua un attacco in mischia contro una creatura determinata casualmente entro portata oppure non fa nulla se non riesce a eseguire un attacco simile.
+actions.0.name: Multiattacco
+actions.0.text: La fauce gorgogliante effettua un attacco con il morso e, se possibile, usa lo Sputo accecante.
+actions.0.multiattack.0.action: Morsi
+actions.0.multiattack.1.action: Sputo accecante
+actions.1.name: Morsi
+actions.1.text: "Attacco con arma da mischia: +2 al tiro per colpire, portata 1,5 m, una creatura. Colpito: 17 (5d6) danni perforanti. Se il bersaglio è di taglia Media o inferiore, deve superare un tiro salvezza su Forza con CD 10, altrimenti cade a terra prono. Se il bersaglio viene ucciso da questi danni, viene assorbito dalla fauce gorgogliante."
+actions.2.name: Sputo accecante
+actions.2.text: La fauce gorgogliante sputa una goccia chimica in un punto visibile entro 4,5 metri. La goccia esplode in un lampo di luce accecante all'impatto. Ogni creatura entro 1,5 metri dal lampo deve superare un tiro salvezza su Destrezza con CD 13, altrimenti è accecata fino alla fine del turno successivo della fauce gorgogliante.

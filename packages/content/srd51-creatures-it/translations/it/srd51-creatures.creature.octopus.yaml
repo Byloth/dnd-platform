@@ -1,0 +1,12 @@
+name: Piovra
+alignment: senza allineamento
+traits.0.name: Apnea
+traits.0.text: Mentre è fuori dall'acqua, la piovra può trattenere il respiro per 30 minuti.
+traits.1.name: Mimetismo acquatico
+traits.1.text: La piovra dispone di vantaggio alle prove di Destrezza (Furtività) effettuate sott'acqua.
+traits.2.name: Respirare sott'acqua
+traits.2.text: La piovra può respirare soltanto sott'acqua.
+actions.0.name: Tentacoli
+actions.0.text: "Attacco con arma da mischia: +4 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 1 danno contundente e il bersaglio è afferrato (CD 10 per sfuggire). Finché la presa perdura, la piovra non può usare i suoi tentacoli su altri."
+actions.1.name: Nube di inchiostro
+actions.1.text: Una nube di inchiostro del raggio di 1,5 metri si diffonde tutt'intorno alla piovra se quest'ultima si trova sott'acqua. L'area è pesantemente oscurata per 1 minuto, ma una corrente molto intensa può disperdere l'inchiostro. Dopo avere emesso tale sostanza, la piovra può usare l'azione di Scatto come azione bonus.

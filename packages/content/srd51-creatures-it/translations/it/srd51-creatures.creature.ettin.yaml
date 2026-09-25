@@ -1,0 +1,16 @@
+name: Ettin
+alignment: caotico malvagio
+armorClass.0.note: armatura naturale
+languages: Gigante, Orchesco
+traits.0.name: Bicefalo
+traits.0.text: L'ettin dispone di vantaggio alle prove di Saggezza (Percezione) e ai tiri salvezza contro le condizioni accecato, affascinato, assordato, privo di sensi, spaventato e stordito.
+traits.1.name: Sempre all'erta
+traits.1.text: Quando una delle due teste dell'ettin dorme, l'altra testa è sveglia.
+actions.0.name: Multiattacco
+actions.0.text: "L'ettin effettua due attacchi: uno con l'ascia da battaglia e uno con la mazza chiodata."
+actions.0.multiattack.0.action: Ascia da battaglia
+actions.0.multiattack.1.action: Mazza chiodata
+actions.1.name: Ascia da battaglia
+actions.1.text: "Attacco con arma da mischia: +7 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 14 (2d8 + 5) danni taglienti."
+actions.2.name: Mazza chiodata
+actions.2.text: "Attacco con arma da mischia: +7 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 14 (2d8 + 5) danni perforanti."

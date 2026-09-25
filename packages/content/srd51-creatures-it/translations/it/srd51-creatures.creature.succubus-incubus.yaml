@@ -1,0 +1,19 @@
+name: Succube/Incubo
+alignment: neutrale malvagio
+armorClass.0.note: armatura naturale
+resistances.4.note: da attacchi non magici
+languages: Abissale, Comune, Infernale, telepatia 18 m
+traits.0.name: Legame telepatico
+traits.0.text: L'immondo ignora la restrizione di gittata della sua telepatia quando comunica con una creatura da lui affascinata. Non è nemmeno necessario che i due si trovino sullo stesso piano di esistenza.
+traits.1.name: Mutaforma
+traits.1.text: L'immondo può usare la sua azione per trasformarsi in un umanoide Piccolo o Medio oppure per tornare alla sua forma naturale. Senza ali, l'immondo perde la sua velocità di volare. Le sue statistiche, a eccezione di taglia e velocità, restano le stesse in ogni forma. Ogni oggetto che indossa o trasporta non viene trasformato. Se muore, torna alla sua forma naturale.
+actions.0.name: Artiglio (solo forma di immondo)
+actions.0.text: "Attacco con arma da mischia: +5 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 6 (1d6 + 3) danni taglienti."
+actions.1.name: Fascino
+actions.1.text: |-
+  Un umanoide situato nel campo visivo dell'immondo, in un raggio di 9 metri, deve superare un tiro salvezza su Saggezza con CD 15, altrimenti è magicamente affascinato per 1 giorno. Il bersaglio affascinato obbedisce ai comandi verbali o telepatici dell'immondo. Se il bersaglio subisce danni o riceve un comando suicida, può ripetere il tiro salvezza e, se lo supera, l'effetto svanisce. Se il bersaglio supera il tiro salvezza o se l'effetto per lui termina, è immune al Fascino di questo immondo per le 24 ore successive.
+  L'immondo può affascinare un solo bersaglio alla volta. Se ne affascina un altro, l'effetto su quello precedente termina.
+actions.2.name: Bacio prosciugante
+actions.2.text: L'immondo bacia una creatura da lui affascinata o una creatura consenziente. Il bersaglio deve effettuare un tiro salvezza su Costituzione con CD 15 contro questa magia, subendo 32 (5d10 + 5) danni psichici in caso di fallimento, o la metà in caso di successo. I punti ferita massimi del bersaglio vengono ridotti di un importo pari ai danni subiti. Questa riduzione dura finché il bersaglio non completa un riposo lungo. Il bersaglio muore se questo effetto riduce a 0 i suoi punti ferita massimi.
+actions.3.name: Forma eterea
+actions.3.text: L'immondo entra magicamente nel Piano Etereo dal Piano Materiale o viceversa.

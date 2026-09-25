@@ -1,0 +1,49 @@
+name: Vampiro
+alignment: legale malvagio
+armorClass.0.note: armatura naturale
+resistances.1.note: da attacchi non magici
+languages: quelli conosciuti in vita
+traits.0.name: Mutaforma
+traits.0.text: |-
+  Se il vampiro non è esposto alla luce del sole o all'acqua corrente, può usare la sua azione per trasformarsi in un pipistrello Minuscolo o in una nube di nebbia Media, o tornare alla sua forma naturale.
+  Quando assume la forma di pipistrello, il vampiro non può parlare, la sua velocità base sul terreno è pari a 1,5 metri e la sua velocità di volare a 9 metri. Le sue statistiche, a eccezione della taglia e della velocità, non cambiano. Ogni oggetto che indossa si trasforma insieme a lui, a differenza di quelli che trasporta. Se muore, torna alla sua forma naturale.
+  Finché è in forma di nebbia, il vampiro non può effettuare alcuna azione, né parlare o manipolare oggetti. Non ha peso, ha una velocità di volare pari a 6 metri, può fluttuare, entrare nello spazio di una creatura ostile e soffermarvisi. Inoltre, se l'aria può passare attraverso uno spazio, la nebbia può farlo senza comprimersi, ma non può attraversare l'acqua. Dispone di vantaggio ai tiri salvezza su Forza, Destrezza e Costituzione ed è immune a tutti i danni non magici, a eccezione di quelli che subisce dalla luce del sole.
+traits.1.name: Resistenza leggendaria
+traits.1.text: Se il vampiro fallisce un tiro salvezza, può scegliere di superarlo comunque.
+traits.2.name: Fuga nebbiosa
+traits.2.text: |-
+  Quando il vampiro scende a 0 punti ferita e si trova al di fuori del luogo in cui riposa, si trasforma in una nube di nebbia (come descritto nel tratto Mutaforma) invece di perdere i sensi, purché non sia esposto alla luce del sole o all'acqua corrente. Se non può trasformarsi, viene distrutto.
+  Finché ha 0 punti ferita in forma nebbiosa, non può tornare alla forma di vampiro e deve raggiungere il suo luogo di riposo entro 2 ore, altrimenti verrà distrutto. Una volta giunto lì, torna alla sua forma di vampiro ed è paralizzato finché non recupera almeno 1 punto ferita. Dopo avere trascorso 1 ora nel luogo dove riposa con 0 punti ferita, recupera 1 punto ferita.
+traits.3.name: Rigenerazione
+traits.3.text: Il vampiro recupera 20 punti ferita all'inizio del suo turno se possiede almeno 1 punto ferita e non è esposto alla luce del sole o all'acqua corrente. Se subisce danni radiosi o danni dall'acqua santa, questo tratto non funziona all'inizio del suo turno successivo.
+traits.4.name: Movimenti del ragno
+traits.4.text: Il vampiro può arrampicarsi su superfici difficili, compresi i soffitti (lungo i quali si muove a testa in giù), senza effettuare una prova di caratteristica.
+traits.5.name: Debolezze dei vampiri
+traits.5.text: |-
+  Il vampiro ha i seguenti difetti:
+  Proibizione. Il vampiro non può entrare in casa di qualcuno se non viene invitato da chi vi risiede.
+  Danneggiato dall'acqua corrente. Il vampiro subisce 20 danni da acido se termina il suo turno nell'acqua corrente.
+  Paletto nel cuore. Se un'arma perforante fatta di legno viene piantata nel cuore del vampiro mentre esso è incapacitato nel suo luogo di riposo, il vampiro rimane paralizzato finché quell'oggetto non viene rimosso.
+  Ipersensibilità al sole. Il vampiro subisce 20 danni radiosi quando inizia il suo turno alla luce del sole. Mentre è esposto a tale luce, subisce svantaggio a tiri per colpire e prove di caratteristica.
+actions.0.name: Multiattacco (solo forma di vampiro)
+actions.0.text: Il vampiro effettua due attacchi, di cui solo uno può essere un morso.
+actions.1.name: Colpo senz'armi (solo forma di vampiro)
+actions.1.text: "Attacco con arma da mischia: +9 al tiro per colpire, portata 1,5 m, una creatura. Colpito: 8 (1d8 + 4) danni contundenti. Invece di infliggere danni, il vampiro può afferrare il bersaglio (CD 18 per sfuggire)."
+actions.2.name: Morso (solo forma di pipistrello o vampiro)
+actions.2.text: "Attacco con arma da mischia: +9 al tiro per colpire, portata 1,5 m, una creatura consenziente o una che sia incapacitata, afferrata o trattenuta dal vampiro. Colpito: 7 (1d6 + 4) danni perforanti più 10 (3d6) danni necrotici. I punti ferita massimi del bersaglio sono ridotti di un importo pari ai danni necrotici subiti e il vampiro recupera un numero di punti ferita pari a quell'importo. La riduzione dura finché il bersaglio non termina un riposo lungo. Il bersaglio muore se questo effetto riduce a 0 i suoi punti ferita massimi. Un umanoide ucciso in questo modo e poi sepolto nel terreno si anima la notte seguente come progenie vampirica sotto il controllo del vampiro."
+actions.3.name: Fascino
+actions.3.text: |-
+  Il vampiro prende di mira un umanoide nel suo campo visivo in un raggio di 9 metri. Se a sua volta il bersaglio può vederlo, deve superare un tiro salvezza su Saggezza con CD 17 contro questa magia, altrimenti è affascinato dal vampiro. Il bersaglio affascinato considera il vampiro un amico fidato da proteggere e ascoltare. Sebbene il bersaglio non sia sotto il controllo del vampiro, vede le richieste o le azioni del vampiro nella luce più favorevole possibile ed è considerato un bersaglio consenziente per l'attacco con il morso.
+  Ogni volta che il vampiro o i suoi compagni danneggiano in qualche modo il bersaglio, quest'ultimo può ripetere il tiro salvezza e, se lo supera, l'effetto svanisce. Altrimenti l'effetto dura 24 ore, finché il vampiro non viene distrutto, non si trova su un piano di esistenza diverso dal bersaglio o non usa un'azione bonus per terminare l'effetto.
+actions.4.name: Figli della notte
+actions.4.text: Il vampiro chiama a sé magicamente 2d4 sciami di pipistrelli o di topi, purché non sia sorto il sole. Se invece si trova all'esterno, può chiamare 3d6 lupi. Le creature chiamate arrivano in 1d4 round, agiscono come alleati del vampiro e obbediscono ai suoi comandi orali. Le bestie rimangono per 1 ora, finché il vampiro non muore o non le congeda con un'azione bonus.
+legendary.actions.0.name: Movimento
+legendary.actions.0.text: Il vampiro si muove fino alla sua velocità massima senza provocare attacchi di opportunità.
+legendary.actions.1.name: Colpo senz'armi
+legendary.actions.1.text: Il vampiro effettua un colpo senz'armi.
+legendary.actions.2.name: Morso (costa 2 azioni)
+legendary.actions.2.text: Il vampiro effettua un attacco con il morso.
+legendary.text: Il vampiro può eseguire 3 azioni leggendarie a scelta tra le opzioni seguenti. È possibile utilizzare solo un'opzione di azione leggendaria alla volta e soltanto alla fine del turno di un'altra creatura. All'inizio del proprio turno, il vampiro recupera le azioni leggendarie effettuate.
+forms.0.name: Vampiro
+forms.1.name: Pipistrello
+forms.2.name: Nebbia

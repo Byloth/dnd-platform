@@ -1,0 +1,9 @@
+name: Cultista
+text: I cultisti giurano fedeltà a potenze oscure come i principi elementali, i signori dei demoni o gli arcidiavoli. Molti tengono segreta la loro affiliazione per evitare di essere ostracizzati, imprigionati o giustiziati per le loro convinzioni. A differenza degli accoliti malvagi, i cultisti spesso mostrano segni di squilibrio nelle loro convinzioni e nelle loro pratiche.
+alignment: qualsiasi allineamento non buono
+armorClass.0.note: armatura di cuoio
+languages: uno qualsiasi (di solito Comune)
+traits.0.name: Devozione oscura
+traits.0.text: Il cultista dispone di vantaggio ai tiri salvezza contro le condizioni affascinato e spaventato.
+actions.0.name: Scimitarra
+actions.0.text: "Attacco con arma da mischia: +3 al tiro per colpire, portata 1,5 m, una creatura. Colpito: 4 (1d6 + 1) danni taglienti."

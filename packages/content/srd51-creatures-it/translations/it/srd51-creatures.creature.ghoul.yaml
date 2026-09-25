@@ -1,0 +1,7 @@
+name: Ghoul
+alignment: caotico malvagio
+languages: Comune
+actions.0.name: Morso
+actions.0.text: "Attacco con arma da mischia: +2 al tiro per colpire, portata 1,5 m, una creatura. Colpito: 9 (2d6 + 2) danni perforanti."
+actions.1.name: Artigli
+actions.1.text: "Attacco con arma da mischia: +4 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 7 (2d4 + 2) danni taglienti. Se il bersaglio è una creatura diversa da un elfo o un non morto, deve superare un tiro salvezza su Costituzione con CD 10, altrimenti viene paralizzato per 1 minuto. Il bersaglio può ripetere il tiro salvezza alla fine di ogni suo turno e, se lo supera, l'effetto svanisce."

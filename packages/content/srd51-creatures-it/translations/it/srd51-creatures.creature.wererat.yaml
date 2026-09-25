@@ -1,0 +1,19 @@
+name: Topo mannaro
+alignment: legale malvagio
+immunities.0.note: da attacchi non magici con armi non argentate
+languages: Comune (non può parlare in forma di topo)
+traits.0.name: Mutaforma
+traits.0.text: Il topo mannaro può usare la sua azione per trasformarsi in un ibrido umanoide-topo o in un topo gigante, o per tornare alla sua forma naturale, che è umanoide. Le sue statistiche, a eccezione della taglia, restano le stesse in ogni forma. Ogni oggetto che indossa o trasporta non viene trasformato. Se muore, torna alla sua forma naturale.
+traits.1.name: Olfatto acuto
+traits.1.text: Il topo mannaro dispone di vantaggio alle prove di Saggezza (Percezione) basate sull'olfatto.
+actions.0.name: Multiattacco (solo in forma umanoide o ibrida)
+actions.0.text: Il topo mannaro effettua due attacchi, di cui solo uno può essere un morso.
+actions.1.name: Morso (solo in forma di topo o ibrida)
+actions.1.text: "Attacco con arma da mischia: +4 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 4 (1d4 + 2) danni perforanti. Se il bersaglio è un umanoide, deve superare un tiro salvezza su Costituzione con CD 11, altrimenti è costretto a trasformarsi in un topo mannaro."
+actions.2.name: Spada corta (solo in forma umanoide o ibrida)
+actions.2.text: "Attacco con arma da mischia: +4 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 5 (1d6 + 2) danni perforanti."
+actions.3.name: Balestra a mano (solo in forma umanoide o ibrida)
+actions.3.text: "Attacco con arma a distanza: +4 al tiro per colpire, gittata 9/36 m, un bersaglio. Colpito: 5 (1d6 + 2) danni perforanti."
+forms.0.name: Umano
+forms.1.name: Ibrido
+forms.2.name: Topo

@@ -1,0 +1,10 @@
+name: Cane della morte
+text: Un cane della morte è un orrendo segugio a due teste che vaga per le pianure e per i deserti. Nel suo cuore arde un odio inesauribile e la sua fame di carne umanoide lo spinge ad attaccare viandanti ed esploratori. La saliva di un cane della morte trasmette una terribile malattia che fa lentamente marcire la carne della vittima fino a staccarla dalle ossa.
+alignment: neutrale malvagio
+traits.0.name: Bicefalo
+traits.0.text: Il cane dispone di vantaggio alle prove di Saggezza (Percezione) e ai tiri salvezza contro le condizioni accecato, affascinato, assordato, spaventato, stordito o privo di sensi.
+actions.0.name: Multiattacco
+actions.0.text: Il cane effettua due attacchi con il morso.
+actions.0.multiattack.0.action: Morso
+actions.1.name: Morso
+actions.1.text: "Attacco con arma da mischia: +4 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 5 (1d6 + 2) danni perforanti. Se il bersaglio è una creatura, deve superare un tiro salvezza su Costituzione con CD 12 contro le malattie, altrimenti è avvelenato finché la malattia non viene curata. Dopo ogni 24 ore, la creatura deve ripetere il tiro salvezza; riducendo i suoi punti ferita massimi di 5 (1d10) in caso di fallimento. Questa riduzione dura finché la malattia non viene curata. Se la creatura porta i suoi punti ferita massimi a 0, il bersaglio muore."

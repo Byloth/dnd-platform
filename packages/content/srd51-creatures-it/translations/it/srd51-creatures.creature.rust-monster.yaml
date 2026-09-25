@@ -1,0 +1,13 @@
+name: Rugginofago
+alignment: senza allineamento
+armorClass.0.note: armatura naturale
+traits.0.name: Fiutare il ferro
+traits.0.text: Il rugginofago può individuare, tramite l'olfatto, la precisa ubicazione di qualsiasi metallo ferroso situato entro 9 metri da lui.
+traits.1.name: Arrugginire
+traits.1.text: Qualsiasi arma non magica fatta di metallo che colpisca il rugginofago si corrode. Dopo avere inflitto danni, l'arma subisce una penalità cumulativa e permanente di -1 ai tiri per i danni. Se la sua penalità scende a -5, l'arma viene distrutta. Le munizioni non magiche fatte di metallo che colpiscono il rugginofago vengono distrutte dopo aver inflitto danni.
+actions.0.name: Morso
+actions.0.text: "Attacco con arma da mischia: +3 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 5 (1d8 + 1) danni perforanti."
+actions.1.name: Antenne
+actions.1.text: |-
+  Il rugginofago corrode un oggetto di metallo ferroso non magico situato nel suo campo visivo in un raggio di 1,5 metri. Se l'oggetto non è indossato o trasportato, il tocco distrugge una porzione di quell'oggetto pari a 30 centimetri cubi. Se è indossato o trasportato da una creatura, quest'ultima può effettuare un tiro salvezza su Destrezza con CD 11 per evitare il tocco del rugginofago.
+  Se l'oggetto toccato è un'armatura o uno scudo di metallo indossato o trasportato, esso subisce una penalità permanente e cumulativa di -1 alla CA che fornisce. Se un'armatura viene ridotta a una CA pari a 10 o uno scudo scende a un bonus di +0, vengono distrutti. Se l'oggetto toccato è un'arma di metallo impugnata, arrugginisce come descritto nel tratto Arrugginire.

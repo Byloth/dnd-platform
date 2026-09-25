@@ -1,0 +1,15 @@
+name: Spia
+text: Sovrani, nobili, mercanti, maestri di gilda e altri individui facoltosi si servono spesso di spie per tentare di avere la meglio in un mondo dominato da una politica spietata. Le spie sono addestrate per recuperare informazioni in segreto. Quelle più fedeli preferiscono morire pur di non rivelare informazioni che potrebbero compromettere loro stesse o il loro datore di lavoro.
+alignment: qualsiasi allineamento
+languages: due qualsiasi
+traits.0.name: Azione scaltra
+traits.0.text: A ogni suo turno, la spia può usare un'azione bonus per effettuare l'azione Scatto, Disimpegno o Nascondersi.
+traits.1.name: Attacco furtivo (1/turno)
+traits.1.text: La spia infligge 7 (2d6) danni extra quando colpisce un bersaglio con un attacco con un'arma e dispone di vantaggio al tiro per colpire, oppure quando il bersaglio si trova entro 1,5 metri da un alleato della spia (purché quest'ultimo non sia incapacitato e la spia non subisca svantaggio al tiro per colpire).
+actions.0.name: Multiattacco
+actions.0.text: La spia effettua due attacchi in mischia.
+actions.0.multiattack.0.action: Spada corta
+actions.1.name: Spada corta
+actions.1.text: "Attacco con arma da mischia: +4 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 5 (1d6 + 2) danni perforanti."
+actions.2.name: Balestra a mano
+actions.2.text: "Attacco con arma a distanza: +4 al tiro per colpire, gittata 9/36 m, un bersaglio. Colpito: 5 (1d6 + 2) danni perforanti."

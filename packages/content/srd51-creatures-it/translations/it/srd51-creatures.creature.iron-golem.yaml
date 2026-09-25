@@ -1,0 +1,21 @@
+name: Golem di ferro
+alignment: senza allineamento
+armorClass.0.note: armatura naturale
+immunities.3.note: da attacchi non magici non adamantini
+languages: comprende i linguaggi del suo creatore ma non li sa parlare
+traits.0.name: Assorbimento del fuoco
+traits.0.text: Ogni volta che il golem riceve danni da fuoco, non subisce danni e anzi recupera invece un numero di punti ferita pari ai danni da fuoco inflitti.
+traits.1.name: Forma immutabile
+traits.1.text: Il golem è immune a qualsiasi incantesimo o effetto che ne altererebbe la forma.
+traits.2.name: Resistenza alla magia
+traits.2.text: Il golem dispone di vantaggio ai tiri salvezza contro incantesimi e altri effetti magici.
+traits.3.name: Armi magiche
+traits.3.text: Gli attacchi con arma del golem sono magici.
+actions.0.name: Multiattacco
+actions.0.text: Il golem effettua due attacchi in mischia.
+actions.1.name: Schianto
+actions.1.text: "Attacco con arma da mischia: +13 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 20 (3d8 + 7) danni contundenti."
+actions.2.name: Spada
+actions.2.text: "Attacco con arma da mischia: +13 al tiro per colpire, portata 3 m, un bersaglio. Colpito: 23 (3d10 + 7) danni taglienti."
+actions.3.name: Soffio di veleno
+actions.3.text: Il golem esala gas velenoso in un cono di 4,5 metri. Ogni creatura in quell'area deve effettuare un tiro salvezza su Costituzione con CD 19, subendo 45 (10d8) danni da veleno in caso di fallimento, o la metà dei danni in caso di successo.

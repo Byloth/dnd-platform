@@ -1,0 +1,19 @@
+name: Xorn
+alignment: neutrale
+armorClass.0.note: armatura naturale
+resistances.0.note: da attacchi non magici non adamantini
+languages: Terran
+traits.0.name: Scivolare nella terra
+traits.0.text: Lo xorn può scavare attraverso la terra e la pietra non magiche e non lavorate senza disturbare il materiale attraverso cui si muove.
+traits.1.name: Mimetizzazione rocciosa
+traits.1.text: Lo xorn dispone di vantaggio alle prove di Destrezza (Furtività) effettuate per nascondersi nei terreni rocciosi.
+traits.2.name: Percezione dei tesori
+traits.2.text: Lo xorn può individuare, tramite l'olfatto, l'ubicazione precisa di metalli e pietre preziose, come monete o gemme, entro 18 metri da lui.
+actions.0.name: Multiattacco
+actions.0.text: Lo xorn effettua tre attacchi con gli artigli e uno con il morso.
+actions.0.multiattack.0.action: Artiglio
+actions.0.multiattack.1.action: Morso
+actions.1.name: Morso
+actions.1.text: "Attacco con arma da mischia: +6 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 13 (3d6 + 3) danni perforanti."
+actions.2.name: Artiglio
+actions.2.text: "Attacco con arma da mischia: +6 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 6 (1d6 + 3) danni taglienti."

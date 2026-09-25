@@ -1,0 +1,15 @@
+name: Elementale del fuoco
+alignment: neutrale
+resistances.0.note: da attacchi non magici
+languages: Ignan
+traits.0.name: Forma di fuoco
+traits.0.text: L'elementale può muoversi attraverso uno spazio stretto fino a 2,5 centimetri senza doversi stringere. Una creatura che tocchi l'elementale o lo colpisca con un attacco in mischia mentre si trova entro 1,5 metri da esso subisce 5 (1d10) danni da fuoco. Inoltre, l'elementale può entrare nello spazio di una creatura ostile e soffermarvisi. La prima volta che entra nello spazio di una creatura in un turno, quella creatura subisce 5 (1d10) danni da fuoco e prende fuoco; finché qualcuno non usa un'azione per estinguere le fiamme, la creatura subisce 5 (1d10) danni da fuoco all'inizio di ogni suo turno.
+traits.1.name: Illuminazione
+traits.1.text: L'elementale proietta luce intensa in un raggio di 9 metri e luce fioca per altri 9 metri.
+traits.2.name: Suscettibilità all'acqua
+traits.2.text: Per ogni 1,5 metri di cui l'elementale si muove nell'acqua o per ogni 4 litri d'acqua versatigli addosso, subisce 1 danno da freddo.
+actions.0.name: Multiattacco
+actions.0.text: L'elementale effettua due attacchi con il tocco.
+actions.0.multiattack.0.action: Tocco
+actions.1.name: Tocco
+actions.1.text: "Attacco con arma da mischia: +6 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 10 (2d6 + 3) danni da fuoco. Se il bersaglio è una creatura o un oggetto infiammabile, prende fuoco. Finché qualcuno non usa un'azione per estinguere le fiamme, il bersaglio subisce 5 (1d10) danni da fuoco all'inizio di ogni suo turno."

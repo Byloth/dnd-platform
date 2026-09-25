@@ -1,4 +1,12 @@
 name: Chierico
+startingEquipment.text: |-
+  Inizia con l'equipaggiamento seguente, in aggiunta all'equipaggiamento conferito dal suo background:
+
+  - (a) una mazza o (b) un martello da guerra (se ha competenza)
+  - (a) una corazza a scaglie, (b) un'armatura di cuoio o (c) una cotta di maglia (se ha competenza)
+  - (a) una balestra leggera e 20 quadrelli o (b) una qualsiasi arma semplice
+  - (a) una dotazione da sacerdote o (b) una dotazione da esploratore
+  - Uno scudo e un simbolo sacro
 levels.1.features.0.name: Dominio Divino
 levels.1.features.0.text: |-
   Il chierico sceglie un dominio correlato alla sua divinità, per esempio Vita. Ogni dominio è descritto in dettaglio alla fine della sezione di questa classe e fornisce esempi di varie divinità a esso associate. Questa scelta conferisce al chierico alcuni incantesimi di dominio e altri privilegi al 1° livello. Conferisce inoltre ulteriori modi di utilizzare Incanalare Divinità quando il chierico ottiene quel privilegio al 2° livello e benefici ulteriori al 6°, all'8° e al 17° livello.
@@ -54,16 +62,12 @@ levels.2.features.0.text: |-
 
   Una creatura scacciata deve spendere i suoi turni tentando di allontanarsi il più possibile dal chierico e non può volontariamente muoversi in uno spazio entro 9 metri da lui. Inoltre, non può effettuare reazioni. Come sua azione può usare solo l'azione di Scatto o tentare di fuggire da un effetto che gli impedisce di muoversi. Se non può muoversi in alcuno spazio, la creatura può usare l'azione di Schivata.
 levels.2.features.0.effects.0.name: Incanalare Divinità
-levels.2.features.0.effects.0.note: |-
-  CD del tiro salvezza di Incanalare Divinità = la CD del tiro salvezza sui tuoi incantesimi da chierico (8 + il tuo bonus di competenza + il tuo modificatore di Saggezza).
+levels.2.features.0.effects.0.note: CD del tiro salvezza di Incanalare Divinità = la CD del tiro salvezza sui tuoi incantesimi da chierico (8 + il tuo bonus di competenza + il tuo modificatore di Saggezza).
 levels.2.features.0.effects.1.name: "Incanalare Divinità: Scacciare Non Morti"
-levels.2.features.0.effects.1.text: |-
-  Brandisci il tuo simbolo sacro e pronunci una preghiera di condanna nei confronti dei non morti. Ogni non morto che è in grado di vederti o sentirti e si trova entro 9 metri da te deve effettuare un tiro salvezza su Saggezza. Se lo fallisce, la creatura è considerata scacciata per 1 minuto o finché non subisce danni.
-levels.2.features.0.effects.1.onUse.0.text: |-
-  Una creatura scacciata deve spendere i suoi turni tentando di allontanarsi il più possibile da te e non può volontariamente muoversi in uno spazio entro 9 metri da te. Inoltre, non può effettuare reazioni. Come sua azione può usare solo l'azione di Scatto o tentare di fuggire da un effetto che le impedisce di muoversi. Se non può muoversi in alcuno spazio, la creatura può usare l'azione di Schivata.
+levels.2.features.0.effects.1.text: Brandisci il tuo simbolo sacro e pronunci una preghiera di condanna nei confronti dei non morti. Ogni non morto che è in grado di vederti o sentirti e si trova entro 9 metri da te deve effettuare un tiro salvezza su Saggezza. Se lo fallisce, la creatura è considerata scacciata per 1 minuto o finché non subisce danni.
+levels.2.features.0.effects.1.onUse.0.text: Una creatura scacciata deve spendere i suoi turni tentando di allontanarsi il più possibile da te e non può volontariamente muoversi in uno spazio entro 9 metri da te. Inoltre, non può effettuare reazioni. Come sua azione può usare solo l'azione di Scatto o tentare di fuggire da un effetto che le impedisce di muoversi. Se non può muoversi in alcuno spazio, la creatura può usare l'azione di Schivata.
 levels.4.features.0.name: Aumento dei Punteggi di Caratteristica
-levels.4.features.0.text: |-
-  Quando arriva al 4° livello e poi di nuovo all'8°, al 12°, al 16° e al 19° livello, un chierico può aumentare di 2 un punteggio di caratteristica a sua scelta, oppure può aumentare di 1 due punteggi di caratteristica a sua scelta. Come di consueto, non è consentito aumentare un punteggio di caratteristica a più di 20 utilizzando questo privilegio.
+levels.4.features.0.text: Quando arriva al 4° livello e poi di nuovo all'8°, al 12°, al 16° e al 19° livello, un chierico può aumentare di 2 un punteggio di caratteristica a sua scelta, oppure può aumentare di 1 due punteggi di caratteristica a sua scelta. Come di consueto, non è consentito aumentare un punteggio di caratteristica a più di 20 utilizzando questo privilegio.
 levels.5.features.0.name: Distruggere Non Morti
 levels.5.features.0.text: |-
   A partire dal 5° livello, quando un non morto fallisce il suo tiro salvezza contro il privilegio Scacciare Non Morti del chierico, quella creatura è distrutta istantaneamente se il suo grado di sfida è pari o inferiore a una certa soglia, come indicato dalla tabella "Distruggere Non Morti".
@@ -77,10 +81,8 @@ levels.5.features.0.text: |-
   | 11° | 2 o inferiore |
   | 14° | 3 o inferiore |
   | 17° | 4 o inferiore |
-levels.5.features.0.effects.0.text: |-
-  Quando un non morto fallisce il suo tiro salvezza contro il tuo privilegio Scacciare Non Morti, quella creatura è distrutta istantaneamente se il suo grado di sfida è pari o inferiore a una soglia: 1/2 al 5° livello, 1 all'8°, 2 all'11°, 3 al 14°, 4 al 17°.
-levels.5.features.0.effects.0.note: |-
-  Lacuna: effetto aggiuntivo dell'azione Scacciare Non Morti risolto al tavolo; la soglia di GS è table(cleric.destroy-undead-cr).
+levels.5.features.0.effects.0.text: "Quando un non morto fallisce il suo tiro salvezza contro il tuo privilegio Scacciare Non Morti, quella creatura è distrutta istantaneamente se il suo grado di sfida è pari o inferiore a una soglia: 1/2 al 5° livello, 1 all'8°, 2 all'11°, 3 al 14°, 4 al 17°."
+levels.5.features.0.effects.0.note: "Lacuna: effetto aggiuntivo dell'azione Scacciare Non Morti risolto al tavolo; la soglia di GS è table(cleric.destroy-undead-cr)."
 levels.10.features.0.name: Intervento Divino
 levels.10.features.0.text: |-
   A partire dal 10° livello, un chierico può appellarsi alla propria divinità affinché intervenga a suo beneficio nel momento del bisogno.
@@ -91,10 +93,7 @@ levels.10.features.0.text: |-
 
   Al 20° livello, la richiesta di intervento del chierico ha successo automaticamente, senza che sia richiesto alcun tiro.
 levels.10.features.0.effects.0.name: Intervento Divino
-levels.10.features.0.effects.0.note: |-
-  Lacuna: se la divinità interviene, non puoi più utilizzare questo privilegio per 7 giorni; un blocco di 7 giorni non è un tipo di recupero previsto dal catalogo, quindi in quel caso il recupero con il riposo lungo va sospeso a mano.
+levels.10.features.0.effects.0.note: "Lacuna: se la divinità interviene, non puoi più utilizzare questo privilegio per 7 giorni; un blocco di 7 giorni non è un tipo di recupero previsto dal catalogo, quindi in quel caso il recupero con il riposo lungo va sospeso a mano."
 levels.10.features.0.effects.1.name: Intervento Divino
-levels.10.features.0.effects.1.text: |-
-  Descrivi l'assistenza che desideri ottenere e tira un dado percentuale. Se ottieni con il tiro un numero pari o inferiore al tuo livello da chierico, la divinità interviene. È il GM a scegliere la natura dell'intervento; l'effetto di qualsiasi incantesimo da chierico o incantesimo di dominio è appropriato. Se la divinità interviene, non puoi più utilizzare questo privilegio per 7 giorni. Altrimenti puoi utilizzarlo di nuovo dopo che hai completato un riposo lungo. Al 20° livello, la tua richiesta di intervento ha successo automaticamente, senza che sia richiesto alcun tiro.
-levels.10.features.0.effects.1.onUse.0.text: |-
-  Tira un d100: successo con un risultato pari o inferiore a classLevel(cleric); automatico al 20° livello. In caso di successo, nessun ulteriore utilizzo per 7 giorni.
+levels.10.features.0.effects.1.text: Descrivi l'assistenza che desideri ottenere e tira un dado percentuale. Se ottieni con il tiro un numero pari o inferiore al tuo livello da chierico, la divinità interviene. È il GM a scegliere la natura dell'intervento; l'effetto di qualsiasi incantesimo da chierico o incantesimo di dominio è appropriato. Se la divinità interviene, non puoi più utilizzare questo privilegio per 7 giorni. Altrimenti puoi utilizzarlo di nuovo dopo che hai completato un riposo lungo. Al 20° livello, la tua richiesta di intervento ha successo automaticamente, senza che sia richiesto alcun tiro.
+levels.10.features.0.effects.1.onUse.0.text: "Tira un d100: successo con un risultato pari o inferiore a classLevel(cleric); automatico al 20° livello. In caso di successo, nessun ulteriore utilizzo per 7 giorni."

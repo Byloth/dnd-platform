@@ -1,11 +1,11 @@
-name: "L'Immondo"
-levels.1.features.0.name: "Benedizione dell'Oscuro"
-levels.1.features.0.text: "A partire dal 1° livello, quando il warlock porta una creatura ostile a 0 punti ferita, ottiene un ammontare di punti ferita temporanei pari al proprio modificatore di Carisma + il proprio livello da warlock (minimo 1)."
-levels.1.features.0.effects.0.name: "Benedizione dell'Oscuro"
-levels.1.features.0.effects.0.trigger: "Quando porti una creatura ostile a 0 punti ferita."
-levels.1.features.0.effects.0.text: "Quando porti una creatura ostile a 0 punti ferita, ottieni un ammontare di punti ferita temporanei pari al tuo modificatore di Carisma + il tuo livello da warlock (minimo 1)."
-levels.1.features.0.effects.0.note: "Il motore di gioco non rileva l'evento che attiva l'effetto (portare una creatura ostile a 0 punti ferita); usalo quando accade."
-levels.1.features.1.name: "Lista ampliata degli incantesimi"
+name: L'Immondo
+levels.1.features.0.name: Benedizione dell'Oscuro
+levels.1.features.0.text: A partire dal 1° livello, quando il warlock porta una creatura ostile a 0 punti ferita, ottiene un ammontare di punti ferita temporanei pari al proprio modificatore di Carisma + il proprio livello da warlock (minimo 1).
+levels.1.features.0.effects.0.name: Benedizione dell'Oscuro
+levels.1.features.0.effects.0.trigger: Quando porti una creatura ostile a 0 punti ferita.
+levels.1.features.0.effects.0.text: Quando porti una creatura ostile a 0 punti ferita, ottieni un ammontare di punti ferita temporanei pari al tuo modificatore di Carisma + il tuo livello da warlock (minimo 1).
+levels.1.features.0.effects.0.note: Il motore di gioco non rileva l'evento che attiva l'effetto (portare una creatura ostile a 0 punti ferita); usalo quando accade.
+levels.1.features.1.name: Lista ampliata degli incantesimi
 levels.1.features.1.text: |-
   L'Immondo permette al warlock di scegliere da una lista di incantesimi più ampia quando impara un nuovo incantesimo da warlock. I seguenti incantesimi sono aggiunti alla sua lista degli incantesimi da warlock.
 
@@ -17,54 +17,70 @@ levels.1.features.1.text: |-
   | 3° | nube maleodorante, palla di fuoco |
   | 4° | muro di fuoco, scudo di fuoco |
   | 5° | colpo infuocato, santificare |
-levels.6.features.0.name: "Fortuna dell'Oscuro"
+levels.6.features.0.name: Fortuna dell'Oscuro
 levels.6.features.0.text: |-
   A partire dal 6° livello, il warlock può appellarsi al suo patrono per alterare il fato in suo favore. Quando effettua una prova di caratteristica o un tiro salvezza, può utilizzare questo privilegio per aggiungere un d10 al suo tiro. Può farlo dopo avere visto il tiro iniziale, ma prima che qualsiasi effetto del tiro sia applicato.
 
   Una volta utilizzato questo privilegio, il warlock non può più utilizzarlo finché non completa un riposo breve o lungo.
-levels.6.features.0.effects.0.name: "Fortuna dell'Oscuro"
-levels.6.features.0.effects.1.name: "Fortuna dell'Oscuro"
-levels.6.features.0.effects.1.text: "Quando effettui una prova di caratteristica o un tiro salvezza, puoi utilizzare questo privilegio per aggiungere un d10 al tuo tiro. Puoi farlo dopo avere visto il tiro iniziale, ma prima che qualsiasi effetto del tiro sia applicato."
-levels.6.features.0.effects.1.onUse.0.text: "Aggiungi 1d10 alla prova di caratteristica o al tiro salvezza appena effettuato."
-levels.10.features.0.name: "Resilienza Immonda"
-levels.10.features.0.text: "A partire dal 10° livello, il warlock può scegliere un tipo di danno quando completa un riposo breve o lungo. Ottiene resistenza a quel tipo di danno finché non ne sceglie uno diverso tramite questo privilegio. I danni delle armi magiche o delle armi argentate ignorano questa resistenza."
-levels.10.features.0.effects.0.note: "Il tipo di danno si sceglie quando completi un riposo breve o lungo e può essere cambiato a ogni riposo; i danni delle armi magiche o delle armi argentate ignorano questa resistenza."
-levels.10.features.0.effects.0.options.0.name: "Acido"
-levels.10.features.0.effects.0.options.0.effects.0.note: "I danni delle armi magiche o delle armi argentate ignorano questa resistenza."
-levels.10.features.0.effects.0.options.1.name: "Contundente"
-levels.10.features.0.effects.0.options.1.effects.0.note: "I danni delle armi magiche o delle armi argentate ignorano questa resistenza."
-levels.10.features.0.effects.0.options.2.name: "Freddo"
-levels.10.features.0.effects.0.options.2.effects.0.note: "I danni delle armi magiche o delle armi argentate ignorano questa resistenza."
-levels.10.features.0.effects.0.options.3.name: "Fuoco"
-levels.10.features.0.effects.0.options.3.effects.0.note: "I danni delle armi magiche o delle armi argentate ignorano questa resistenza."
-levels.10.features.0.effects.0.options.4.name: "Forza"
-levels.10.features.0.effects.0.options.4.effects.0.note: "I danni delle armi magiche o delle armi argentate ignorano questa resistenza."
-levels.10.features.0.effects.0.options.5.name: "Fulmine"
-levels.10.features.0.effects.0.options.5.effects.0.note: "I danni delle armi magiche o delle armi argentate ignorano questa resistenza."
-levels.10.features.0.effects.0.options.6.name: "Necrotico"
-levels.10.features.0.effects.0.options.6.effects.0.note: "I danni delle armi magiche o delle armi argentate ignorano questa resistenza."
-levels.10.features.0.effects.0.options.7.name: "Perforante"
-levels.10.features.0.effects.0.options.7.effects.0.note: "I danni delle armi magiche o delle armi argentate ignorano questa resistenza."
-levels.10.features.0.effects.0.options.8.name: "Veleno"
-levels.10.features.0.effects.0.options.8.effects.0.note: "I danni delle armi magiche o delle armi argentate ignorano questa resistenza."
-levels.10.features.0.effects.0.options.9.name: "Psichico"
-levels.10.features.0.effects.0.options.9.effects.0.note: "I danni delle armi magiche o delle armi argentate ignorano questa resistenza."
-levels.10.features.0.effects.0.options.10.name: "Radioso"
-levels.10.features.0.effects.0.options.10.effects.0.note: "I danni delle armi magiche o delle armi argentate ignorano questa resistenza."
-levels.10.features.0.effects.0.options.11.name: "Tagliente"
-levels.10.features.0.effects.0.options.11.effects.0.note: "I danni delle armi magiche o delle armi argentate ignorano questa resistenza."
-levels.10.features.0.effects.0.options.12.name: "Tuono"
-levels.10.features.0.effects.0.options.12.effects.0.note: "I danni delle armi magiche o delle armi argentate ignorano questa resistenza."
-levels.14.features.0.name: "Scagliare all'inferno"
+levels.6.features.0.effects.0.name: Fortuna dell'Oscuro
+levels.6.features.0.effects.1.name: Fortuna dell'Oscuro
+levels.6.features.0.effects.1.text: Quando effettui una prova di caratteristica o un tiro salvezza, puoi utilizzare questo privilegio per aggiungere un d10 al tuo tiro. Puoi farlo dopo avere visto il tiro iniziale, ma prima che qualsiasi effetto del tiro sia applicato.
+levels.6.features.0.effects.1.onUse.0.text: Aggiungi 1d10 alla prova di caratteristica o al tiro salvezza appena effettuato.
+levels.10.features.0.name: Resilienza Immonda
+levels.10.features.0.text: A partire dal 10° livello, il warlock può scegliere un tipo di danno quando completa un riposo breve o lungo. Ottiene resistenza a quel tipo di danno finché non ne sceglie uno diverso tramite questo privilegio. I danni delle armi magiche o delle armi argentate ignorano questa resistenza.
+levels.10.features.0.effects.0.note: Il tipo di danno si sceglie quando completi un riposo breve o lungo e può essere cambiato a ogni riposo; i danni delle armi magiche o delle armi argentate ignorano questa resistenza.
+levels.10.features.0.effects.0.options.0.name: Acido
+levels.10.features.0.effects.0.options.0.effects.0.note: I danni delle armi magiche o delle armi argentate ignorano questa resistenza.
+levels.10.features.0.effects.0.options.1.name: Contundente
+levels.10.features.0.effects.0.options.1.effects.0.note: I danni delle armi magiche o delle armi argentate ignorano questa resistenza.
+levels.10.features.0.effects.0.options.2.name: Freddo
+levels.10.features.0.effects.0.options.2.effects.0.note: I danni delle armi magiche o delle armi argentate ignorano questa resistenza.
+levels.10.features.0.effects.0.options.3.name: Fuoco
+levels.10.features.0.effects.0.options.3.effects.0.note: I danni delle armi magiche o delle armi argentate ignorano questa resistenza.
+levels.10.features.0.effects.0.options.4.name: Forza
+levels.10.features.0.effects.0.options.4.effects.0.note: I danni delle armi magiche o delle armi argentate ignorano questa resistenza.
+levels.10.features.0.effects.0.options.5.name: Fulmine
+levels.10.features.0.effects.0.options.5.effects.0.note: I danni delle armi magiche o delle armi argentate ignorano questa resistenza.
+levels.10.features.0.effects.0.options.6.name: Necrotico
+levels.10.features.0.effects.0.options.6.effects.0.note: I danni delle armi magiche o delle armi argentate ignorano questa resistenza.
+levels.10.features.0.effects.0.options.7.name: Perforante
+levels.10.features.0.effects.0.options.7.effects.0.note: I danni delle armi magiche o delle armi argentate ignorano questa resistenza.
+levels.10.features.0.effects.0.options.8.name: Veleno
+levels.10.features.0.effects.0.options.8.effects.0.note: I danni delle armi magiche o delle armi argentate ignorano questa resistenza.
+levels.10.features.0.effects.0.options.9.name: Psichico
+levels.10.features.0.effects.0.options.9.effects.0.note: I danni delle armi magiche o delle armi argentate ignorano questa resistenza.
+levels.10.features.0.effects.0.options.10.name: Radioso
+levels.10.features.0.effects.0.options.10.effects.0.note: I danni delle armi magiche o delle armi argentate ignorano questa resistenza.
+levels.10.features.0.effects.0.options.11.name: Tagliente
+levels.10.features.0.effects.0.options.11.effects.0.note: I danni delle armi magiche o delle armi argentate ignorano questa resistenza.
+levels.10.features.0.effects.0.options.12.name: Tuono
+levels.10.features.0.effects.0.options.12.effects.0.note: I danni delle armi magiche o delle armi argentate ignorano questa resistenza.
+levels.14.features.0.name: Scagliare all'inferno
 levels.14.features.0.text: |-
   A partire dal 14° livello, quando il warlock colpisce una creatura con un attacco, può utilizzare questo privilegio per trascinare istantaneamente il bersaglio sui piani inferiori. La creatura scompare e sfreccia attraverso un territorio da incubo.
 
   Alla fine del turno successivo del warlock, il bersaglio torna nello spazio che occupava in precedenza, o nello spazio libero più vicino. Se il bersaglio non è un immondo, subisce 10d10 danni psichici in quanto resta sconvolto da questa esperienza terrificante.
 
   Una volta utilizzato questo privilegio, il warlock non può più utilizzarlo finché non completa un riposo lungo.
-levels.14.features.0.effects.0.name: "Scagliare all'inferno"
-levels.14.features.0.effects.1.name: "Scagliare all'inferno"
-levels.14.features.0.effects.1.trigger: "Quando colpisci una creatura con un attacco."
-levels.14.features.0.effects.1.text: "Quando colpisci una creatura con un attacco, puoi utilizzare questo privilegio per trascinare istantaneamente il bersaglio sui piani inferiori. La creatura scompare e sfreccia attraverso un territorio da incubo. Alla fine del tuo turno successivo, il bersaglio torna nello spazio che occupava in precedenza, o nello spazio libero più vicino. Se il bersaglio non è un immondo, subisce 10d10 danni psichici in quanto resta sconvolto da questa esperienza terrificante."
-levels.14.features.0.effects.1.onUse.0.text: "Il bersaglio scompare fino alla fine del tuo turno successivo, poi torna nel suo spazio (o nello spazio libero più vicino)."
-levels.14.features.0.effects.1.onUse.1.note: "Inflitti quando il bersaglio torna alla fine del tuo turno successivo, solo se non è un immondo."
+levels.14.features.0.effects.0.name: Scagliare all'inferno
+levels.14.features.0.effects.1.name: Scagliare all'inferno
+levels.14.features.0.effects.1.trigger: Quando colpisci una creatura con un attacco.
+levels.14.features.0.effects.1.text: Quando colpisci una creatura con un attacco, puoi utilizzare questo privilegio per trascinare istantaneamente il bersaglio sui piani inferiori. La creatura scompare e sfreccia attraverso un territorio da incubo. Alla fine del tuo turno successivo, il bersaglio torna nello spazio che occupava in precedenza, o nello spazio libero più vicino. Se il bersaglio non è un immondo, subisce 10d10 danni psichici in quanto resta sconvolto da questa esperienza terrificante.
+levels.14.features.0.effects.1.onUse.0.text: Il bersaglio scompare fino alla fine del tuo turno successivo, poi torna nel suo spazio (o nello spazio libero più vicino).
+levels.14.features.0.effects.1.onUse.1.note: Inflitti quando il bersaglio torna alla fine del tuo turno successivo, solo se non è un immondo.
+text: |-
+  Gli esseri che fungono da patroni per i warlock sono potenti entità che risiedono su altri piani di esistenza; pur non essendo divinità vere e proprie, il loro potere rasenta il divino. Ogni patrono può fornire a un warlock l'accesso a poteri e suppliche di natura diversa e si aspetta di ricevere favori significativi in cambio.
+
+  Alcuni patroni accumulano numerosi warlock, elargiscono le loro conoscenze mistiche con disinvoltura o si vantano della loro abilità nel vincolare i mortali al loro volere. Altri patroni concedono il loro potere soltanto con riluttanza e potrebbero decidere di stipulare un patto con un solo warlock. Due warlock al servizio dello stesso patrono potrebbero considerarsi alleati, fratelli o rivali.
+
+  Il warlock ha stipulato un patto con un immondo dei piani inferiori di esistenza, un essere le cui mire rimangono malvagie, anche se il warlock vi si oppone. Le creature come l'Immondo bramano la corruzione o la distruzione di tutte le cose, e questo prima o poi includerà anche il warlock. Gli immondi sufficientemente potenti da stipulare un patto includono i signori dei demoni come Demogorgon, Orcus, Fraz-Urb'luu e Baphomet, gli arcidiavoli come Asmodeus, Dispater, Mefistofele e Belial, i diavoli delle fosse e i balor di particolare potenza, gli ultroloth e gli altri signori degli yugoloth.
+
+  ### I Doni del Patto
+
+  Ogni opzione di Dono del Patto genera una creatura o un oggetto speciale, che riflette la natura del patrono del warlock.
+
+  ***Patto della Catena.*** Il famiglio del warlock è più intelligente dei famigli normali. La sua forma standard può riflettere l'essenza del suo patrono: gli imp e i quasit sono collegati all'Immondo.
+
+  ***Patto della Lama.*** Se il warlock serve l'Immondo, la sua arma potrebbe essere un'ascia fatta di metallo nero e decorata con simboli fiammeggianti.
+
+  ***Patto del Tomo.*** Il Libro delle Ombre del warlock potrebbe essere un poderoso tomo rilegato in pelle demoniaca e borchie metalliche, pieno di incantesimi di evocazione e informazioni proibite sulle più sinistre regioni del cosmo, in quanto dono dell'Immondo.

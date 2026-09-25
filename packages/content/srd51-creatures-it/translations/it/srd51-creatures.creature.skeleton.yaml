@@ -1,0 +1,8 @@
+name: Scheletro
+alignment: legale malvagio
+armorClass.0.note: frammenti di armatura
+languages: capisce quelli che conosceva in vita, ma non è in grado di parlarli
+actions.0.name: Spada corta
+actions.0.text: "Attacco con arma da mischia: +4 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 5 (1d6 + 2) danni perforanti."
+actions.1.name: Arco corto
+actions.1.text: "Attacco con arma a distanza: +4 al tiro per colpire, gittata 24/96 m, un bersaglio. Colpito: 5 (1d6 + 2) danni perforanti."

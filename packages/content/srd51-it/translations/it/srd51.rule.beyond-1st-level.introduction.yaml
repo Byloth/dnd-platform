@@ -1,0 +1,36 @@
+name: Oltre il 1° livello
+text: |-
+  Man mano che il personaggio intraprende avventure e supera le sfide, accumula esperienza, rappresentata dai punti esperienza. Quando un personaggio raggiunge un numero specifico di punti esperienza, le sue capacità sono soggette a un avanzamento. Questo avanzamento è chiamato acquisire un livello.
+
+  Quando un personaggio acquisisce un livello, la sua classe spesso gli conferisce dei privilegi aggiuntivi, come descritto in dettaglio nella sua descrizione. Alcuni di questi privilegi consentono al personaggio di aumentare i suoi punteggi di caratteristica, aumentando due punteggi di 1 punto a testa o aumentando un punteggio di 2 punti. Non è consentito aumentare un punteggio di caratteristica a più di 20. Inoltre, il bonus di competenza di ogni personaggio aumenta a certi livelli.
+
+  Ogni volta che il personaggio acquisisce un nuovo livello, ottiene 1 Dado Vita aggiuntivo. Il personaggio tira quel Dado Vita, somma il modificatore di Costituzione al risultato del tiro e aggiunge il totale al suo massimo dei punti ferita. In alternativa, il personaggio può usare il valore fisso indicato nella sezione della sua classe, corrispondente al risultato medio del tiro del dado (arrotondato per eccesso).
+
+  Quando il modificatore di Costituzione del personaggio aumenta di 1, il massimo dei punti ferita aumenta di 1 per ogni livello acquisito. Ad esempio, se il guerriero di 7° livello del giocatore ha un punteggio di Costituzione pari a 17, quando raggiunge l'8° livello, il suo punteggio di Costituzione passa da 17 a 18, aumentando così il suo modificatore di Costituzione da +3 a +4. La soglia massima dei suoi punti ferita aumenta quindi di 8.
+
+  La tabella "Avanzamento dei personaggi" riassume i PE di cui un personaggio necessita per avanzare dal 1° al 20° livello e il bonus di competenza per un personaggio di quel livello. La descrizione di ogni classe indica quali altri miglioramenti un personaggio ottiene a ogni livello.
+
+  ### Avanzamento dei personaggi
+
+  | Punti Esperienza | Livello | Bonus di Competenza |
+  |---|---|---|
+  | 0 | 1 | +2 |
+  | 300 | 2 | +2 |
+  | 900 | 3 | +2 |
+  | 2.700 | 4 | +2 |
+  | 6.500 | 5 | +3 |
+  | 14.000 | 6 | +3 |
+  | 23.000 | 7 | +3 |
+  | 34.000 | 8 | +3 |
+  | 48.000 | 9 | +4 |
+  | 64.000 | 10 | +4 |
+  | 85.000 | 11 | +4 |
+  | 100.000 | 12 | +4 |
+  | 120.000 | 13 | +5 |
+  | 140.000 | 14 | +5 |
+  | 165.000 | 15 | +5 |
+  | 195.000 | 16 | +5 |
+  | 225.000 | 17 | +6 |
+  | 265.000 | 18 | +6 |
+  | 305.000 | 19 | +6 |
+  | 355.000 | 20 | +6 |

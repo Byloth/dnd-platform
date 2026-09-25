@@ -1,0 +1,13 @@
+name: Sciame di ragni
+alignment: senza allineamento
+armorClass.0.note: armatura naturale
+traits.0.name: Sciame
+traits.0.text: Lo sciame può occupare lo spazio di un'altra creatura e viceversa, e può muoversi attraverso qualsiasi apertura sufficientemente larga da far passare un insetto Minuscolo. Lo sciame non può recuperare punti ferita, né ottenere punti ferita temporanei.
+traits.1.name: Movimenti del ragno
+traits.1.text: Lo sciame può scalare le superfici difficili, inclusi i soffitti (lungo i quali si muove a testa in giù), senza effettuare una prova di caratteristica.
+traits.2.name: Percezione della ragnatela
+traits.2.text: Finché è in contatto con una ragnatela, lo sciame conosce l'ubicazione esatta di ogni altra creatura a contatto con la stessa ragnatela.
+traits.3.name: Arrampicatele
+traits.3.text: Lo sciame ignora le restrizioni di movimento causate dalle ragnatele.
+actions.0.name: Morsi
+actions.0.text: "Attacco con arma da mischia: +3 al tiro per colpire, portata 0 m, un bersaglio nello spazio dello sciame. Colpito: 10 (4d4) danni perforanti o 5 (2d4) danni perforanti se lo sciame ha la metà dei suoi punti ferita o meno."

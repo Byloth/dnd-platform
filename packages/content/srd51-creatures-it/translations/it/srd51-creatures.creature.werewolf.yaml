@@ -1,0 +1,21 @@
+name: Lupo mannaro
+alignment: caotico malvagio
+immunities.0.note: da attacchi non magici con armi non argentate
+languages: Comune (non può parlare in forma di lupo)
+traits.0.name: Mutaforma
+traits.0.text: Il lupo mannaro può usare la sua azione per trasformarsi in un ibrido umanoide-lupo o in un lupo, o per tornare alla sua forma naturale, che è umanoide. Le sue statistiche, a eccezione della CA, restano le stesse in ogni forma. Ogni oggetto che indossa o trasporta non viene trasformato. Se muore, torna alla sua forma naturale.
+traits.1.name: Udito e olfatto acuti
+traits.1.text: Il lupo mannaro dispone di vantaggio alle prove di Saggezza (Percezione) basate sull'olfatto o sull'udito.
+actions.0.name: Multiattacco (solo in forma umanoide o ibrida)
+actions.0.text: "Il lupo mannaro effettua due attacchi: uno con il morso e uno con gli artigli o la lancia."
+actions.1.name: Morso (solo in forma di lupo o ibrida)
+actions.1.text: "Attacco con arma da mischia: +4 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 6 (1d8 + 2) danni perforanti. Se il bersaglio è un umanoide, deve superare un tiro salvezza su Costituzione con CD 12, altrimenti è costretto a trasformarsi in un lupo mannaro."
+actions.2.name: Artigli (solo in forma ibrida)
+actions.2.text: "Attacco con arma da mischia: +4 al tiro per colpire, portata 1,5 m, una creatura. Colpito: 7 (2d4 + 2) danni taglienti."
+actions.3.name: Lancia (solo in forma umanoide)
+actions.3.text: "Attacco con arma da mischia o a distanza: +4 al tiro per colpire, portata 1,5 m o gittata 6/18 m, una creatura. Colpito: 5 (1d6 + 2) danni perforanti o 6 (1d8 + 2) danni perforanti se impugnata con due mani per effettuare un attacco in mischia."
+forms.0.name: Umano
+forms.1.name: Ibrido
+forms.1.armorClass.0.note: armatura naturale
+forms.2.name: Lupo
+forms.2.armorClass.0.note: armatura naturale

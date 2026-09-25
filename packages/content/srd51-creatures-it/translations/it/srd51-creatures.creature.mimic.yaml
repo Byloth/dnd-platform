@@ -1,0 +1,15 @@
+name: Mimic
+alignment: neutrale
+armorClass.0.note: armatura naturale
+traits.0.name: Mutaforma
+traits.0.text: Il mimic può usare la sua azione per trasformarsi in un oggetto o per tornare alla sua forma naturale, che è amorfa. Le sue statistiche restano le stesse in ogni forma. Ogni oggetto che indossa o trasporta non viene trasformato. Se muore, torna alla sua forma naturale.
+traits.1.name: Adesivo (solo forma di oggetto)
+traits.1.text: Il mimic aderisce a qualsiasi cosa lo tocchi. Una creatura di taglia Enorme o inferiore a cui il mimic si sia attaccato è anche afferrata da esso (CD 13 per sfuggire). Le prove di caratteristica effettuate per sfuggire a questa presa subiscono svantaggio.
+traits.2.name: Falso aspetto (solo forma di oggetto)
+traits.2.text: Finché il mimic rimane immobile, non è possibile distinguerlo da un oggetto comune.
+traits.3.name: Lottatore
+traits.3.text: Il mimic dispone di vantaggio ai tiri per colpire contro qualsiasi creatura afferrata da esso.
+actions.0.name: Pseudopode
+actions.0.text: "Attacco con arma da mischia: +5 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 7 (1d8 + 3) danni contundenti. Se il mimic è in forma di oggetto, il bersaglio è soggetto al suo tratto Adesivo."
+actions.1.name: Morso
+actions.1.text: "Attacco con arma da mischia: +5 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 7 (1d8 + 3) danni perforanti più 4 (1d8) danni da acido."

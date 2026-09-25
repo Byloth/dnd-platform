@@ -1,0 +1,4 @@
+name: Cavallo da tiro
+alignment: senza allineamento
+actions.0.name: Zoccoli
+actions.0.text: "Attacco con arma da mischia: +6 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 9 (2d4 + 4) danni contundenti."

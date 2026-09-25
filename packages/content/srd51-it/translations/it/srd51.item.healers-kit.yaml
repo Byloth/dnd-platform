@@ -1,2 +1,7 @@
 name: Borsa del guaritore
 text: Questa borsa in pelle contiene bende, unguenti e stecche di legno. Si può utilizzare dieci volte. Con un'azione, un personaggio può spendere un utilizzo per stabilizzare una creatura scesa a 0 punti ferita senza dover effettuare una prova di Saggezza (Medicina).
+features.0.name: Stabilizzare
+features.0.text: Con un'azione, un personaggio può spendere un utilizzo della borsa per stabilizzare una creatura scesa a 0 punti ferita senza dover effettuare una prova di Saggezza (Medicina).
+features.0.effects.0.name: Stabilizzare (borsa del guaritore)
+features.0.effects.0.onUse.0.text: Una creatura scesa a 0 punti ferita diventa stabile, senza una prova di Saggezza (Medicina). I dieci utilizzi della borsa non si recuperano mai.
+features.0.effects.0.text: Spendi un utilizzo della borsa per stabilizzare una creatura scesa a 0 punti ferita senza dover effettuare una prova di Saggezza (Medicina).

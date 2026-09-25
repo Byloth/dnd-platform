@@ -7,6 +7,10 @@ improvement of the content is a new version: bump `version` in
 release file. Characters follow new versions automatically; the application
 tells the player what changed on their sheet.
 
+## 0.7.1 — 2026-09-26
+
+- The darkvision rule is called Darkvision, not Blindsight.
+
 ## 0.7.0 — 2026-09-26
 
 The whole package was checked against the official SRD 5.1, chapter by

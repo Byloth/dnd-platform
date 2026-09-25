@@ -1,0 +1,32 @@
+name: "Veleni"
+text: |-
+  A causa della loro natura insidiosa e letale, i veleni sono illegali nella maggior parte delle società, ma restano uno degli strumenti preferiti di assassini, drow e altre creature malvagie.
+
+  Esistono quattro tipi di veleno, descritti in seguito.
+
+  **_Contatto_**. I veleni da contatto possono essere cosparsi su un oggetto e rimangono attivi finché non vengono toccati o lavati via. Una creatura che tocca un veleno da contatto con la pelle scoperta ne subisce gli effetti.
+
+  **_Ingestione_**. Una creatura deve ingerire un'intera dose di questo tipo di veleno per subirne gli effetti. La dose può essere somministrata attraverso un cibo o un liquido. Il GM potrebbe decidere che una dose parziale abbia un effetto ridotto, per esempio conferendo vantaggio al tiro salvezza o infliggendo solo la metà dei danni in caso di fallimento.
+
+  **_Inalazione_**. Questi veleni possono essere in polvere o gas e hanno effetto quando vengono inalati. Soffiare nell'aria la polvere o rilasciare il gas infligge gli effetti del veleno alle creature entro un cubo di 1,5 metri. La nube causata si dissipa subito dopo. Trattenere il respiro non funziona contro i veleni inalati, in quanto colpiscono le membrane nasali, i condotti lacrimali e altre parti del corpo.
+
+  **_Ferimento_**. I veleni da ferimento possono essere applicati ad armi, munizioni, componenti di trappole e altri oggetti che infliggono danni taglienti o perforanti e rimangono attivi finché non vengono a contatto con una ferita o lavati via. Una creatura che subisce danni taglienti o perforanti da un oggetto rivestito di veleno ne subisce gli effetti.
+
+  **Veleni (tabella)**
+
+  | Veleno                   | Tipo       | Prezzo per dose |
+  |--------------------------|------------|-----------------|
+  | Sangue dell'assassino    | Ingestione | 150 mo          |
+  | Fumi di othur bruciato   | Inalazione | 500 mo          |
+  | Muco di vermeiena        | Contatto   | 200 mo          |
+  | Veleno di drow           | Ferimento  | 200 mo          |
+  | Essenza di etere         | Inalazione | 300 mo          |
+  | Malizia                  | Inalazione | 250 mo          |
+  | Lacrime di mezzanotte    | Ingestione | 1.500 mo        |
+  | Olio di taggit           | Contatto   | 400 mo          |
+  | Tintura pallida          | Ingestione | 250 mo          |
+  | Veleno di verme purpureo | Ferimento  | 2.000 mo        |
+  | Veleno di serpente       | Ferimento  | 200 mo          |
+  | Torpore                  | Ingestione | 600 mo          |
+  | Siero della verità       | Ingestione | 150 mo          |
+  | Veleno di viverna        | Ferimento  | 1.200 mo        |

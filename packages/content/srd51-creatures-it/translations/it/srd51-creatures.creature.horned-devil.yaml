@@ -1,0 +1,17 @@
+name: Diavolo cornuto
+alignment: legale malvagio
+armorClass.0.note: armatura naturale
+resistances.1.note: da attacchi non magici con armi non argentate
+languages: Infernale, telepatia 36 m
+traits.0.name: Vista del diavolo
+traits.0.text: L'oscurità magica non ostacola la scurovisione del diavolo.
+traits.1.name: Resistenza alla magia
+traits.1.text: Il diavolo dispone di vantaggio ai tiri salvezza contro incantesimi e altri effetti magici.
+actions.0.name: Multiattacco
+actions.0.text: "Il diavolo effettua tre attacchi in mischia: due con il forcone e uno con la coda. Può usare Scagliare fiamma al posto di qualsiasi attacco in mischia."
+actions.1.name: Forcone
+actions.1.text: "Attacco con arma da mischia: +10 al tiro per colpire, portata 3 m, un bersaglio. Colpito: 15 (2d8 + 6) danni perforanti."
+actions.2.name: Coda
+actions.2.text: "Attacco con arma da mischia: +10 al tiro per colpire, portata 3 m, un bersaglio. Colpito: 10 (1d8 + 6) danni perforanti. Se il bersaglio è una creatura diversa da un non morto o da un costrutto, deve superare un tiro salvezza su Costituzione con CD 17, altrimenti perde 10 (3d6) punti ferita all'inizio di ogni suo turno a causa di una ferita infernale. Ogni volta che il diavolo colpisce il bersaglio ferito con questo attacco, i danni inflitti dalla ferita aumentano di 10 (3d6). Una creatura qualsiasi può effettuare un'azione per tamponare la ferita superando una prova di Saggezza (Medicina) con CD 12. La ferita si richiude anche se il bersaglio riceve una qualsiasi forma di guarigione magica."
+actions.3.name: Scagliare fiamma
+actions.3.text: "Attacco a distanza con incantesimo: +7 al tiro per colpire, gittata 45 m, un bersaglio. Colpito: 14 (4d6) danni da fuoco. Se il bersaglio è un oggetto infiammabile che non è indossato o trasportato, prende anche fuoco."

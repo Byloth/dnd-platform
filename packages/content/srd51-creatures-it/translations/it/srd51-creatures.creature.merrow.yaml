@@ -1,0 +1,14 @@
+name: Merrow
+alignment: caotico malvagio
+armorClass.0.note: armatura naturale
+languages: Abissale, Aquan
+traits.0.name: Anfibio
+traits.0.text: Il merrow può respirare in aria e in acqua.
+actions.0.name: Multiattacco
+actions.0.text: "Il merrow effettua due attacchi: uno con il morso e uno con gli artigli o l'arpione."
+actions.1.name: Morso
+actions.1.text: "Attacco con arma da mischia: +6 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 8 (1d8 + 4) danni perforanti."
+actions.2.name: Artigli
+actions.2.text: "Attacco con arma da mischia: +6 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 9 (2d4 + 4) danni taglienti."
+actions.3.name: Arpione
+actions.3.text: "Attacco con arma da mischia o a distanza: +6 al tiro per colpire, portata 1,5 m o gittata 6/18 m, un bersaglio. Colpito: 11 (2d6 + 4) danni perforanti. Se il bersaglio è una creatura di taglia Enorme o inferiore, deve vincere una prova di Forza contro il merrow, altrimenti verrà scagliato fino a 6 metri verso il mostro."

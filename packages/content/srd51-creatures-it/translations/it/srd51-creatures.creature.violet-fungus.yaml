@@ -1,0 +1,9 @@
+name: Fungo viola
+alignment: senza allineamento
+traits.0.name: Falso aspetto
+traits.0.text: Finché il fungo viola rimane immobile, non è possibile distinguerlo da un normale fungo.
+actions.0.name: Multiattacco
+actions.0.text: Il fungo effettua 1d4 attacchi Tocco marcescente.
+actions.0.multiattack.0.action: Tocco marcescente
+actions.1.name: Tocco marcescente
+actions.1.text: "Attacco con arma da mischia: +2 al tiro per colpire, portata 3 m, una creatura. Colpito: 4 (1d8) danni necrotici."

@@ -1,0 +1,6 @@
+name: Falco
+alignment: senza allineamento
+traits.0.name: Vista acuta
+traits.0.text: Il falco dispone di vantaggio alle prove di Saggezza (Percezione) basate sulla vista.
+actions.0.name: Artigli
+actions.0.text: "Attacco con arma da mischia: +5 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 1 danno tagliente."

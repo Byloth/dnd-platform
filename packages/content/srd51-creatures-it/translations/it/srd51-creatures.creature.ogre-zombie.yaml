@@ -1,0 +1,7 @@
+name: Zombi ogre
+alignment: neutrale malvagio
+languages: capisce il Comune e il Gigante ma non li parla
+traits.0.name: Tempra dei non morti
+traits.0.text: Se i danni riducono lo zombi a 0 punti ferita, esso deve effettuare un tiro salvezza su Costituzione con una CD pari a 5 + i danni subiti, a meno che non si tratti di danni radiosi o di un colpo critico. In caso di successo, lo zombi scende invece a 1 punto ferita.
+actions.0.name: Mazza chiodata
+actions.0.text: "Attacco con arma da mischia: +6 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 13 (2d8 + 4) danni contundenti."

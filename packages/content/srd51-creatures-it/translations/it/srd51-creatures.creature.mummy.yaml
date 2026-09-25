@@ -1,0 +1,13 @@
+name: Mummia
+alignment: legale malvagia
+armorClass.0.note: armatura naturale
+resistances.0.note: da attacchi non magici
+languages: quelli conosciuti in vita
+actions.0.name: Multiattacco
+actions.0.text: La mummia può usare lo sguardo funesto ed effettuare un attacco con il pugno di putrefazione.
+actions.0.multiattack.0.action: Sguardo funesto
+actions.0.multiattack.1.action: Pugno di putrefazione
+actions.1.name: Pugno di putrefazione
+actions.1.text: "Attacco con arma da mischia: +5 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 10 (2d6 + 3) danni contundenti più 10 (3d6) danni necrotici. Se il bersaglio è una creatura, deve superare un tiro salvezza su Costituzione con CD 12, altrimenti è maledetto dalla putrefazione della mummia. In tal caso, non può riguadagnare punti ferita e i suoi punti ferita massimi diminuiscono di 10 (3d6) ogni 24 ore trascorse. Se la maledizione riduce i punti ferita massimi del bersaglio a 0, quest'ultimo muore e il suo corpo si trasforma in polvere. La maledizione permane finché non viene rimossa da un incantesimo rimuovi maledizione o da una magia analoga."
+actions.2.name: Sguardo funesto
+actions.2.text: La mummia prende di mira una creatura nel suo campo visivo in un raggio di 18 metri. Se il bersaglio può vedere la mummia, deve superare un tiro salvezza su Saggezza con CD 11 contro questa magia, altrimenti è spaventato fino alla fine del turno successivo della mummia. Se il bersaglio fallisce il tiro salvezza di 5 o più, è anche paralizzato per la stessa durata. Un bersaglio che supera il tiro salvezza è immune allo sguardo funesto di tutte le mummie (ma non a quello dei signori delle mummie) per le 24 ore successive.

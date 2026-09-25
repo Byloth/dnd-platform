@@ -1,0 +1,10 @@
+name: Ragno
+alignment: senza allineamento
+traits.0.name: Movimenti del ragno
+traits.0.text: Il ragno può scalare le superfici difficili, compresi i soffitti (lungo i quali si muove a testa in giù), senza effettuare una prova di caratteristica.
+traits.1.name: Percezione della ragnatela
+traits.1.text: Finché è in contatto con una ragnatela, il ragno conosce l'ubicazione esatta di ogni altra creatura a contatto con la stessa ragnatela.
+traits.2.name: Arrampicatele
+traits.2.text: Il ragno ignora le restrizioni di movimento causate dalle ragnatele.
+actions.0.name: Morso
+actions.0.text: "Attacco con arma da mischia: +4 al tiro per colpire, portata 1,5 m, una creatura. Colpito: 1 danno perforante e il bersaglio deve superare un tiro salvezza su Costituzione con CD 9, altrimenti subisce 2 (1d4) danni da veleno."

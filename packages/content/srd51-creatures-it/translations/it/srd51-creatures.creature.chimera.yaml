@@ -1,0 +1,14 @@
+name: Chimera
+alignment: caotica malvagia
+armorClass.0.note: armatura naturale
+languages: capisce il Draconico ma non lo parla
+actions.0.name: Multiattacco
+actions.0.text: "La chimera effettua tre attacchi: uno con il morso, uno con le corna e uno con gli artigli. Quando il soffio di fuoco è disponibile, può usarlo al posto del morso o delle corna."
+actions.1.name: Morso
+actions.1.text: "Attacco con arma da mischia: +7 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 11 (2d6 + 4) danni perforanti."
+actions.2.name: Corna
+actions.2.text: "Attacco con arma da mischia: +7 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 10 (1d12 + 4) danni contundenti."
+actions.3.name: Artigli
+actions.3.text: "Attacco con arma da mischia: +7 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 11 (2d6 + 4) danni taglienti."
+actions.4.name: Soffio di fuoco
+actions.4.text: La testa di drago esala un cono di fuoco di 4,5 metri. Ogni creatura in quell'area deve effettuare un tiro salvezza su Destrezza con CD 15, subendo 31 (7d8) danni da fuoco in caso di fallimento, o la metà dei danni in caso di successo.

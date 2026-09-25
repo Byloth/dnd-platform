@@ -10,30 +10,18 @@ text: |-
 
   Pergamena magica (tabella)
 
-  | Livello dell'incantesimo | Rarità | CD Tiro Salvezza | Bonus di Attacco |
-
+  | Livello dell'incantesimo | Rarità | CD tiro salvezza | Bonus di attacco |
   |---|---|---|---|
-
   | Trucchetto | Comune | 13 | +5 |
-
   | 1° | Comune | 13 | +5 |
-
   | 2° | Non comune | 13 | +5 |
-
   | 3° | Non comune | 15 | +7 |
-
   | 4° | Rara | 15 | +7 |
-
   | 5° | Rara | 17 | +9 |
-
   | 6° | Molto rara | 17 | +9 |
-
   | 7° | Molto rara | 18 | +10 |
-
   | 8° | Molto rara | 18 | +10 |
-
   | 9° | Leggendaria | 19 | +11 |
 
   Un incantesimo da mago su una pergamena magica può essere copiato allo stesso modo di quelli contenuti in un libro degli incantesimi. Per copiare un incantesimo da una pergamena magica, chi lo copia deve superare una prova di Intelligenza (Arcano) con CD pari a 10 + il livello dell'incantesimo. Se supera la prova, copia l'incantesimo con successo. A prescindere dal risultato della prova, la pergamena magica viene distrutta.
-onUse.0.text: |-
-  Se l'incantesimo è nella lista degli incantesimi della tua classe, leggi la pergamena per lanciare l'incantesimo (normale tempo di lancio, senza componenti materiali); la pergamena poi si polverizza. Se l'incantesimo è di un livello più alto rispetto a quelli che puoi lanciare normalmente, effettua prima una prova con la tua caratteristica da incantatore con CD 10 + il livello dell'incantesimo; in caso di fallimento l'incantesimo va perduto. CD del tiro salvezza e bonus di attacco per livello dell'incantesimo: trucchetto e 1° 13/+5, 2° 13/+5, 3° 15/+7, 4° 15/+7, 5° 17/+9, 6° 17/+9, 7° 18/+10, 8° 18/+10, 9° 19/+11.
+onUse.0.text: "Se l'incantesimo è nella lista degli incantesimi della tua classe, leggi la pergamena per lanciare l'incantesimo (normale tempo di lancio, senza componenti materiali); la pergamena poi si polverizza. Se l'incantesimo è di un livello più alto rispetto a quelli che puoi lanciare normalmente, effettua prima una prova con la tua caratteristica da incantatore con CD 10 + il livello dell'incantesimo; in caso di fallimento l'incantesimo va perduto. CD del tiro salvezza e bonus di attacco per livello dell'incantesimo: trucchetto e 1° 13/+5, 2° 13/+5, 3° 15/+7, 4° 15/+7, 5° 17/+9, 6° 17/+9, 7° 18/+10, 8° 18/+10, 9° 19/+11."

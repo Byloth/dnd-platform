@@ -18,7 +18,7 @@
           "packages": [
             {
               "id": "srd51",
-              "version": "0.7.0"
+              "version": "0.7.1"
             }
           ],
           "parts": [
@@ -2775,7 +2775,7 @@
                   "title": "System Reference Document 5.2"
                 }
               ],
-              "version": "0.7.0"
+              "version": "0.7.1"
             }
           ]
         }

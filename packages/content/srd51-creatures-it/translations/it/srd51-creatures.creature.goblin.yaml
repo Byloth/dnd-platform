@@ -1,0 +1,10 @@
+name: Goblin
+alignment: neutrale malvagio
+armorClass.0.note: armatura di cuoio, scudo
+languages: Comune, Goblin
+traits.0.name: Fuga agile
+traits.0.text: Il goblin può utilizzare l'azione di Disimpegno o di Nascondersi come azione bonus a ogni suo turno.
+actions.0.name: Scimitarra
+actions.0.text: "Attacco con arma da mischia: +4 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 5 (1d6 + 2) danni taglienti."
+actions.1.name: Arco corto
+actions.1.text: "Attacco con arma a distanza: +4 al tiro per colpire, gittata 24/96 m, un bersaglio. Colpito: 5 (1d6 + 2) danni perforanti."

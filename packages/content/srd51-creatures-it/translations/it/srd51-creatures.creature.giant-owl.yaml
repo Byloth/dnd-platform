@@ -1,0 +1,10 @@
+name: Gufo gigante
+alignment: neutrale
+languages: Gufo gigante, capisce il Comune, l'Elfico e il Silvano ma non li parla
+traits.0.name: Sfuggente
+traits.0.text: Il gufo non provoca attacchi d'opportunità quando vola oltre la portata di un nemico.
+traits.1.name: Udito e vista acuti
+traits.1.text: Il gufo dispone di vantaggio alle prove di Saggezza (Percezione) basate sulla vista o sull'udito.
+actions.0.name: Artigli
+actions.0.text: "Attacco con arma da mischia: +3 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 8 (2d6 + 1) danni taglienti."
+text: I gufi giganti spesso fanno amicizia con i folletti e le altre creature silvane e vigilano sui reami boschivi in cui vivono.

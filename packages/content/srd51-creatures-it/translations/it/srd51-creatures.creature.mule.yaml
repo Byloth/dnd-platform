@@ -1,0 +1,8 @@
+name: Mulo
+alignment: senza allineamento
+traits.0.name: Bestia da soma
+traits.0.text: Il mulo è considerato un animale Grande ai fini delle sue capacità di trasporto.
+traits.1.name: Ben piantato
+traits.1.text: Il mulo ha vantaggio ai tiri salvezza su Forza e Destrezza contro effetti che lo farebbero cadere prono.
+actions.0.name: Zoccoli
+actions.0.text: "Attacco con arma da mischia: +2 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 4 (1d4 + 2) danni contundenti."

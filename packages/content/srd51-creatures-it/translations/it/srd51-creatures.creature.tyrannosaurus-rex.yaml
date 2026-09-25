@@ -1,0 +1,11 @@
+name: Tirannosauro
+alignment: senza allineamento
+armorClass.0.note: armatura naturale
+actions.0.name: Multiattacco
+actions.0.text: "Il tirannosauro effettua due attacchi: uno con il morso e uno con la coda. Non può effettuare entrambi gli attacchi contro lo stesso bersaglio."
+actions.0.multiattack.0.action: Morso
+actions.0.multiattack.1.action: Coda
+actions.1.name: Morso
+actions.1.text: "Attacco con arma da mischia: +10 al tiro per colpire, portata 3 m, un bersaglio. Colpito: 33 (4d12 + 7) danni perforanti. Se il bersaglio è una creatura di taglia Media o inferiore, viene afferrato (CD 17 per sfuggire). Finché la presa perdura, il bersaglio è trattenuto e il tirannosauro non può morderne un altro."
+actions.2.name: Coda
+actions.2.text: "Attacco con arma da mischia: +10 al tiro per colpire, portata 3 m, un bersaglio. Colpito: 20 (3d8 + 7) danni contundenti."

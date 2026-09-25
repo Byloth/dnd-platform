@@ -1,0 +1,13 @@
+name: Centauro
+alignment: neutrale buono
+languages: Elfico, Silvano
+traits.0.name: Carica
+traits.0.text: Se il centauro si muove di almeno 9 metri in linea retta verso un bersaglio e poi lo colpisce con un attacco con la picca nello stesso turno, il bersaglio subisce 10 (3d6) danni perforanti extra.
+actions.0.name: Multiattacco
+actions.0.text: "Il centauro effettua due attacchi: uno con la picca e uno con gli zoccoli oppure due con l'arco lungo."
+actions.1.name: Picca
+actions.1.text: "Attacco con arma da mischia: +6 al tiro per colpire, portata 3 m, un bersaglio. Colpito: 9 (1d10 + 4) danni perforanti."
+actions.2.name: Zoccoli
+actions.2.text: "Attacco con arma da mischia: +6 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 11 (2d6 + 4) danni contundenti."
+actions.3.name: Arco lungo
+actions.3.text: "Attacco con arma a distanza: +4 al tiro per colpire, gittata 45/180 m, un bersaglio. Colpito: 6 (1d8 + 2) danni perforanti."

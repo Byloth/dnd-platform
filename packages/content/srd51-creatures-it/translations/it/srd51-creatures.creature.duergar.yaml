@@ -1,0 +1,16 @@
+name: Duergar
+alignment: legale malvagio
+armorClass.0.note: corazza a scaglie, scudo
+languages: Nanico, Sottocomune
+traits.0.name: Resilienza del duergar
+traits.0.text: Il duergar dispone di vantaggio ai tiri salvezza contro veleno, incantesimi e illusioni, nonché per resistere alle condizioni di affascinato o paralizzato.
+traits.1.name: Sensibilità al sole
+traits.1.text: Finché è esposto alla luce del sole, il duergar subisce svantaggio ai tiri per colpire, oltre che alle prove di Saggezza (Percezione) basate sulla vista.
+actions.0.name: Ingrandire
+actions.0.text: Per 1 minuto, la taglia del duergar aumenta magicamente, insieme a ogni oggetto che indossa o trasporta. Mentre è ingrandito, il duergar è Grande, raddoppia i suoi dadi di danno per gli attacchi con armi basati sulla Forza (inclusi negli attacchi) ed effettua prove di Forza e tiri salvezza su Forza con un vantaggio. Se il duergar non ha lo spazio per diventare Grande, raggiunge la dimensione massima possibile nello spazio disponibile.
+actions.1.name: Piccone da guerra
+actions.1.text: "Attacco con arma da mischia: +4 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 6 (1d8 + 2) danni perforanti o 11 (2d8 + 2) danni perforanti quando è ingrandito."
+actions.2.name: Giavellotto
+actions.2.text: "Attacco con arma da mischia o a distanza: +4 al tiro per colpire, portata 1,5 m o gittata 9/36 m, un bersaglio. Colpito: 5 (1d6 + 2) danni perforanti o 9 (2d6 + 2) danni perforanti quando è ingrandito."
+actions.3.name: Invisibilità
+actions.3.text: Il duergar diventa magicamente invisibile finché non attacca, non lancia un incantesimo o non usa Ingrandire, oppure finché non perde la concentrazione, fino a un massimo di 1 ora (come se si concentrasse su un incantesimo). Qualsiasi equipaggiamento che il duergar indossa o trasporta diventa invisibile.

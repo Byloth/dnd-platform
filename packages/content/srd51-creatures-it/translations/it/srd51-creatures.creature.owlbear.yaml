@@ -1,0 +1,13 @@
+name: Orsogufo
+alignment: senza allineamento
+armorClass.0.note: armatura naturale
+traits.0.name: Vista e olfatto acuti
+traits.0.text: L'orsogufo dispone di vantaggio nelle prove di Saggezza (Percezione) basate sulla vista o sull'olfatto.
+actions.0.name: Multiattacco
+actions.0.text: "L'orsogufo effettua due attacchi: uno con il becco e uno con gli artigli."
+actions.0.multiattack.0.action: Becco
+actions.0.multiattack.1.action: Artigli
+actions.1.name: Becco
+actions.1.text: "Attacco con arma da mischia: +7 al tiro per colpire, portata 1,5 m, una creatura. Colpito: 10 (1d10 + 5) danni perforanti."
+actions.2.name: Artigli
+actions.2.text: "Attacco con arma da mischia: +7 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 14 (2d8 + 5) danni taglienti."

@@ -1,0 +1,27 @@
+name: Drago blu adulto
+alignment: legale malvagio
+armorClass.0.note: armatura naturale
+languages: Comune, Draconico
+traits.0.name: Resistenza leggendaria
+traits.0.text: Se il drago fallisce un tiro salvezza, può scegliere di superarlo comunque.
+actions.0.name: Multiattacco
+actions.0.text: "Il drago può usare la sua Presenza terrificante. Poi effettua tre attacchi: uno con il morso e due con gli artigli."
+actions.0.multiattack.0.action: Presenza terrificante
+actions.0.multiattack.1.action: Morso
+actions.0.multiattack.2.action: Artiglio
+actions.1.name: Morso
+actions.1.text: "Attacco con arma da mischia: +12 al tiro per colpire, portata 3 m, un bersaglio. Colpito: 18 (2d10 + 7) danni perforanti più 5 (1d10) danni da fulmine."
+actions.2.name: Artiglio
+actions.2.text: "Attacco con arma da mischia: +12 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 14 (2d6 + 7) danni taglienti."
+actions.3.name: Coda
+actions.3.text: "Attacco con arma da mischia: +12 al tiro per colpire, portata 4,5 m, un bersaglio. Colpito: 16 (2d8 + 7) danni contundenti."
+actions.4.name: Presenza terrificante
+actions.4.text: Ogni creatura a scelta del drago situata entro 36 metri da esso e consapevole della sua presenza deve superare un tiro salvezza su Saggezza con CD 17, altrimenti è spaventata per 1 minuto. La creatura può ripetere il tiro salvezza alla fine di ogni suo turno e, se lo supera, l'effetto svanisce. Se una creatura supera il tiro salvezza o se l'effetto per lei termina, è immune alla Presenza terrificante del drago per le 24 ore successive.
+actions.5.name: Soffio di fulmini
+actions.5.text: Il drago esala una scarica di fulmini lunga 27 metri e larga 1,5 metri. Ogni creatura su quella linea deve effettuare un tiro salvezza su Destrezza con CD 19, subendo 66 (12d10) danni da fulmine in caso di fallimento, o la metà dei danni in caso di successo.
+legendary.actions.0.name: Individuazione
+legendary.actions.0.text: Il drago effettua una prova di Saggezza (Percezione).
+legendary.actions.1.name: Attacco di coda
+legendary.actions.1.text: Il drago effettua un attacco con la coda.
+legendary.actions.2.name: Attacco d'ala (costa 2 azioni)
+legendary.actions.2.text: Il drago sbatte le ali. Ogni creatura entro 3 metri dal drago deve superare un tiro salvezza su Destrezza con CD 20, altrimenti subisce 14 (2d6 + 7) danni contundenti e cade a terra prona. Il drago può poi volare fino a metà della sua velocità di volare.

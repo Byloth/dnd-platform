@@ -1,0 +1,5 @@
+name: Pegaso
+alignment: caotico buono
+languages: comprende Celestiale, Comune, Elfico e Silvano ma non li parla
+actions.0.name: Zoccoli
+actions.0.text: "Attacco con arma da mischia: +6 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 11 (2d6 + 4) danni contundenti."

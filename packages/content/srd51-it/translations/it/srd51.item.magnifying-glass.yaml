@@ -1,3 +1,4 @@
 name: Lente d'ingrandimento
-text: |-
-  Questa lente consente di esaminare da vicino gli oggetti più piccoli. Può anche tornare utile come alternativa alla pietra focaia e all'acciarino per accendere un fuoco. Per farlo è necessaria una luce da concentrare intensa quanto la luce del sole, dei rametti da accendere e circa 5 minuti affinché il fuoco attecchisca. Una lente d'ingrandimento conferisce vantaggio a ogni prova di caratteristica effettuata per valutare o ispezionare un oggetto di piccola taglia o estremamente dettagliato.
+text: Questa lente consente di esaminare da vicino gli oggetti più piccoli. Può anche tornare utile come alternativa alla pietra focaia e all'acciarino per accendere un fuoco. Per farlo è necessaria una luce da concentrare intensa quanto la luce del sole, dei rametti da accendere e circa 5 minuti affinché il fuoco attecchisca. Una lente d'ingrandimento conferisce vantaggio a ogni prova di caratteristica effettuata per valutare o ispezionare un oggetto di piccola taglia o estremamente dettagliato.
+features.0.name: Esame ravvicinato
+features.0.effects.0.note: Solo mentre usi la lente d'ingrandimento, alle prove di caratteristica effettuate per valutare o ispezionare un oggetto di piccola taglia o estremamente dettagliato.

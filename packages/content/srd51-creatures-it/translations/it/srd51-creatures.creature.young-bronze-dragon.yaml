@@ -1,0 +1,19 @@
+name: Drago di bronzo giovane
+alignment: legale buono
+armorClass.0.note: armatura naturale
+languages: Comune, Draconico
+traits.0.name: Anfibio
+traits.0.text: Il drago può respirare in aria e in acqua.
+actions.0.name: Multiattacco
+actions.0.text: "Il drago effettua tre attacchi: uno con il morso e due con gli artigli."
+actions.0.multiattack.0.action: Morso
+actions.0.multiattack.1.action: Artiglio
+actions.1.name: Morso
+actions.1.text: "Attacco con arma da mischia: +8 al tiro per colpire, portata 3 m, un bersaglio. Colpito: 16 (2d10 + 5) danni perforanti."
+actions.2.name: Artiglio
+actions.2.text: "Attacco con arma da mischia: +8 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 12 (2d6 + 5) danni taglienti."
+actions.3.name: Soffi
+actions.3.text: |-
+  Il drago usa uno dei seguenti soffi.
+  Soffio di fulmini. Il drago esala una scarica di fulmini lunga 18 metri e larga 1,5 metri. Ogni creatura su quella linea deve effettuare un tiro salvezza su Destrezza con CD 15, subendo 55 (10d10) danni da fulmine in caso di fallimento, o la metà dei danni in caso di successo.
+  Soffio repulsivo. Il drago esala energia repulsiva in un cono di 9 metri. Ogni creatura in quell'area deve superare un tiro salvezza su Forza con CD 15. Se lo fallisce, viene scagliata a 12 metri dal drago.

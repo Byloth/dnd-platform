@@ -1,0 +1,11 @@
+name: Magmin
+alignment: caotico neutrale
+armorClass.0.note: armatura naturale
+resistances.0.note: da attacchi non magici
+languages: Ignan
+traits.0.name: Esplosione della morte
+traits.0.text: Quando il magmin muore, esplode in una deflagrazione di magma e lava. Ogni creatura situata entro 3 metri da lui deve effettuare un tiro salvezza su Destrezza con CD 11, subendo 7 (2d6) danni da fuoco in caso di fallimento, o la metà in caso di successo. Gli oggetti infiammabili non indossati o trasportati che si trovano in quell'area prendono fuoco.
+traits.1.name: Illuminazione fiammeggiante
+traits.1.text: Come azione bonus, il magmin può infiammarsi o estinguere le proprie fiamme. Quando si infiamma, proietta luce intensa in un raggio di 3 metri e luce fioca per altri 3 metri.
+actions.0.name: Tocco
+actions.0.text: "Attacco con arma da mischia: +4 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 7 (2d6) danni da fuoco. Se il bersaglio è una creatura o un oggetto infiammabile, prende fuoco. Finché una creatura non usa un'azione per estinguere le fiamme, il bersaglio subisce 3 (1d6) danni da fuoco alla fine di ogni suo turno."

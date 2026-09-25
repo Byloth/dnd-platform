@@ -1,0 +1,13 @@
+name: Mantoscuro
+alignment: senza allineamento
+traits.0.name: Senso radar
+traits.0.text: Il mantoscuro non può usare vista cieca se è assordato.
+traits.1.name: Falso aspetto
+traits.1.text: Finché il mantoscuro rimane immobile, non è distinguibile da una formazione rocciosa come una stalattite o una stalagmite.
+actions.0.name: Schiacciare
+actions.0.text: |-
+  Attacco con arma da mischia: +5 al tiro per colpire, portata 1,5 m, una creatura. Colpito: 6 (1d6 + 3) danni contundenti e il mantoscuro si avvinghia al bersaglio. Se il bersaglio è di taglia Media o inferiore e il mantoscuro dispone di vantaggio al tiro per colpire, quest'ultimo si avvinghia avviluppandosi alla testa del bersaglio: il bersaglio è anche accecato e non può respirare finché il mantoscuro resta avvinghiato in questo modo.
+  Finché è avvinghiato al bersaglio, il mantoscuro può attaccare solamente il bersaglio, ma dispone di vantaggio ai suoi tiri per colpire. Inoltre, il mantoscuro si muove insieme al bersaglio, la sua velocità diventa 0 e non può beneficiare di alcun bonus alla velocità.
+  Una creatura può staccare il mantoscuro con un'azione effettuando con successo una prova di Forza con CD 13. Nel suo turno, il mantoscuro può staccarsi spontaneamente dal bersaglio usando 1,5 metri di movimento.
+actions.1.name: Aura di oscurità
+actions.1.text: Un'oscurità magica si estende dal mantoscuro in un raggio di 4,5 metri, spostandosi insieme a lui e diffondendosi nell'ambiente. L'oscurità permane finché il mantoscuro mantiene la concentrazione (come se si concentrasse su un incantesimo) fino a un massimo di 10 minuti. La scurovisione non riesce a penetrare questo tipo di oscurità e nessuna luce naturale può illuminarla. Se una qualsiasi parte di oscurità si sovrappone a un'area di luce creata da un incantesimo di 2° livello o inferiore, l'incantesimo che crea la luce è dissolto.

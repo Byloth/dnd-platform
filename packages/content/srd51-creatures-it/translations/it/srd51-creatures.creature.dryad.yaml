@@ -1,0 +1,24 @@
+name: Driade
+alignment: neutrale
+armorClass.1.note: con pelle coriacea
+languages: Elfico, Silvano
+traits.0.name: Incantesimi innati
+traits.0.text: |-
+  La caratteristica innata da incantatore della driade è Carisma (CD del tiro salvezza sull'incantesimo 14). Per sua natura, la driade è in grado di lanciare gli incantesimi indicati di seguito senza aver bisogno di componenti materiali:
+
+  A volontà: artificio druidico
+  3/giorno ciascuno: bacche benefiche, intralciare
+  1/giorno ciascuno: passare senza tracce, pelle coriacea, randello incantato
+traits.1.name: Resistenza alla magia
+traits.1.text: La driade dispone di vantaggio ai tiri salvezza contro incantesimi e altri effetti magici.
+traits.2.name: Parlare con bestie e vegetali
+traits.2.text: La driade può comunicare con le bestie e i vegetali come se condividesse con loro un linguaggio.
+traits.3.name: Passo arboreo
+traits.3.text: Per una volta nel suo turno, la driade può usare 3 metri del suo movimento per entrare magicamente in un albero vivente entro la sua portata e uscire da un secondo albero vivente situato entro 18 metri dal primo, comparendo in uno spazio libero entro 1,5 metri dal secondo. Entrambi gli alberi devono essere di taglia Grande o superiore.
+actions.0.name: Randello
+actions.0.text: "Attacco con arma da mischia: +2 al tiro per colpire (+6 con randello incantato), portata 1,5 m, un bersaglio. Colpito: 2 (1d4) danni contundenti o 8 (1d8 + 4) danni contundenti con randello incantato."
+actions.1.name: Fascino fatato
+actions.1.text: |-
+  La driade prende di mira un umanoide o una bestia nel suo campo visivo in un raggio di 9 metri. Se il bersaglio può vedere la driade, deve superare un tiro salvezza su Saggezza con CD 14, altrimenti è affascinato magicamente. La creatura affascinata considera la driade un'alleata fidata da ascoltare e da proteggere. Anche se il bersaglio non è sotto il controllo della driade, interpreta le sue richieste o le sue azioni nel modo più favorevole possibile.
+  Ogni volta che la driade o i suoi alleati fanno qualcosa di dannoso al bersaglio, quest'ultimo può ripetere il tiro salvezza e, se lo supera, l'effetto svanisce. Altrimenti, l'effetto dura 24 ore o finché la driade non muore, non si trova su un piano di esistenza diverso da quello del bersaglio o non termina l'effetto con un'azione bonus. Se il bersaglio supera il tiro salvezza, è immune al Fascino fatato della driade per le 24 ore successive.
+  La driade può affascinare al massimo un umanoide e tre bestie contemporaneamente.

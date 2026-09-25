@@ -1,4 +1,4 @@
-name: "Taglia"
+name: Taglia
 text: |-
   Un mostro può essere di taglia Minuscola, Piccola, Media, Grande, Enorme o Mastodontica. La tabella "Categorie di taglia" indica lo spazio occupato da una creatura di una determinata dimensione durante il combattimento. Il *Manuale del Giocatore* contiene ulteriori informazioni su taglie e spazio.
 
@@ -11,4 +11,4 @@ text: |-
   | Media | 1,5 m × 1,5 m | Lupo mannaro, orco |
   | Grande | 3 m × 3 m | Ippogrifo, ogre |
   | Enorme | 4,5 m × 4,5 m | Gigante del fuoco, treant |
-  | Mastodontica | 6 m × 6 m o più | Kraken, verme purpureo
+  | Mastodontica | 6 × 6 metri o più | Kraken, verme purpureo |

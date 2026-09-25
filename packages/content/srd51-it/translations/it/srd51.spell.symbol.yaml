@@ -18,3 +18,4 @@ text: |-
   **Sonno.** Ogni bersaglio deve superare un tiro salvezza su Saggezza, altrimenti cade privo di sensi per 10 minuti. Una creatura si risveglia se subisce danni o se qualcuno usa un'azione per scuoterla o schiaffeggiarla.
 
   **Stordimento.** Ogni bersaglio deve superare un tiro salvezza su Saggezza, altrimenti diventa stordito per 1 minuto.
+onCast.0.text: "Ogni glifo ha il suo tiro salvezza: Morte (Costituzione, 10d10 danni necrotici, la metà in caso di successo), Discordia (Costituzione), Paura (Saggezza), Disperazione (Carisma), Pazzia (Intelligenza), Dolore (Costituzione), Sonno (Saggezza), Stordimento (Saggezza)."

@@ -1,0 +1,18 @@
+name: Fantasma
+alignment: qualsiasi allineamento
+resistances.4.note: da attacchi non magici
+languages: tutti quelli conosciuti in vita
+traits.0.name: Vista eterea
+traits.0.text: Il fantasma può vedere per 18 metri sul Piano Etereo quando si trova sul Piano Materiale e viceversa.
+traits.1.name: Movimento incorporeo
+traits.1.text: Il fantasma può muoversi attraverso altri oggetti o creature come se fossero terreno difficile. Subisce 5 (1d10) danni da forza se termina il proprio turno all'interno di un oggetto.
+actions.0.name: Tocco inaridente
+actions.0.text: "Attacco con arma da mischia: +5 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 17 (4d6 + 3) danni necrotici."
+actions.1.name: Forma eterea
+actions.1.text: Il fantasma entra nel Piano Etereo dal Piano Materiale o viceversa. È visibile sul Piano Materiale finché si trova sul Confine Etereo e viceversa, ma non può influenzare o essere influenzato da nulla sull'altro piano.
+actions.2.name: Volto terrificante
+actions.2.text: Ogni creatura che non sia un non morto, situata entro 18 metri dal fantasma e che sia in grado di vederlo, deve superare un tiro salvezza su Saggezza con CD 13, altrimenti è spaventata per 1 minuto. Se fallisce il tiro salvezza di 5 o più, il bersaglio invecchia anche di 1d4 × 10 anni. Il bersaglio spaventato può ripetere il tiro salvezza alla fine di ogni suo turno e, se lo supera, l'effetto svanisce. Se il bersaglio supera il tiro salvezza o se l'effetto termina, è immune al Volto terrificante di questo fantasma per le 24 ore successive. L'effetto di invecchiamento può essere invertito con un incantesimo ristorare superiore, ma soltanto entro 24 ore dal momento in cui è stato subito.
+actions.3.name: Possessione
+actions.3.text: |-
+  Un umanoide nel campo visivo del fantasma in un raggio di 1,5 metri da lui deve superare un tiro salvezza su Carisma con CD 13, altrimenti viene posseduto; poi il fantasma scompare e il bersaglio è incapacitato e perde il controllo del suo corpo. Ora il fantasma controlla il corpo del bersaglio, ma senza privarlo della sua consapevolezza. Il fantasma non può essere bersagliato da nessun attacco, incantesimo o altro effetto, a eccezione di quelli che scacciano i non morti, e conserva allineamento, Intelligenza, Saggezza, Carisma e immunità alle condizioni affascinato e spaventato. Altrimenti, utilizza le statistiche del bersaglio posseduto, ma non può accedere ai suoi privilegi di classe, alle sue conoscenze o competenze.
+  La possessione dura finché il corpo non scende a 0 punti ferita, finché il fantasma non la termina usando un'azione bonus oppure finché non viene scacciato o espulso dal corpo da un effetto come l'incantesimo dissolvi il bene e il male. Quando termina la possessione, il fantasma ricompare in uno spazio libero entro 1,5 metri dal corpo. Il bersaglio è immune alla possessione di questo fantasma per 24 ore dopo avere superato il tiro salvezza o dopo che la possessione è terminata.

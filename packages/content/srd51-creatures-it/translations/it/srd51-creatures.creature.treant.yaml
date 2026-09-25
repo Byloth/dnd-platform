@@ -1,0 +1,17 @@
+name: Treant
+alignment: caotico buono
+armorClass.0.note: armatura naturale
+languages: Comune, Druidico, Elfico, Silvano
+traits.0.name: Falso aspetto
+traits.0.text: Finché il treant rimane immobile, non è possibile distinguerlo da un normale albero.
+traits.1.name: Mostro da assedio
+traits.1.text: Il treant infligge danni doppi a oggetti e strutture.
+actions.0.name: Multiattacco
+actions.0.text: Il treant effettua due attacchi con schianto.
+actions.0.multiattack.0.action: Schianto
+actions.1.name: Schianto
+actions.1.text: "Attacco con arma da mischia: +10 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 16 (3d6 + 6) danni contundenti."
+actions.2.name: Roccia
+actions.2.text: "Attacco con arma a distanza: +10 al tiro per colpire, gittata 18/54 m, un bersaglio. Colpito: 28 (4d10 + 6) danni contundenti."
+actions.3.name: Fronde animate
+actions.3.text: Il treant anima magicamente uno o due alberi nel suo campo visivo in un raggio di 18 metri. Questi alberi possiedono le stesse statistiche del treant, a eccezione dei punteggi di Intelligenza e Carisma pari a 1. Inoltre, non possono parlare e possiedono soltanto l'opzione di azione Schianto. Un albero animato funge da alleato del treant. L'albero rimane animato per 1 giorno o finché non muore, fin quando il treant muore o si trova a più di 36 metri dall'albero, oppure finché il treant non compie un'azione bonus per trasformarlo di nuovo in un albero inanimato. Dopodiché, qualora possibile, l'albero mette radici.

@@ -69,3 +69,7 @@ levels.20.features.0.effects.0.name: Nube Sacra
 levels.20.features.0.effects.1.name: Nube Sacra
 levels.20.features.0.effects.1.text: Emani un'aura di luce solare. Per 1 minuto, emetti luce intensa attorno a te entro un raggio di 9 metri e luce fioca per ulteriori 9 metri. Ogni volta che una creatura nemica inizia il suo turno nella luce intensa, subisce 10 danni radiosi. Inoltre, per la durata dell'effetto, disponi di vantaggio ai tiri salvezza contro gli incantesimi lanciati dagli immondi o dai non morti.
 levels.20.features.0.effects.1.onUse.0.text: Per 1 minuto, ogni nemico che inizia il suo turno nella luce intensa (raggio di 9 metri) subisce 10 danni radiosi.
+text: |-
+  Il Giuramento di Devozione vincola un paladino ai più alti ideali di giustizia, virtù e ordine. A volte chiamati cavalieri bianchi o combattenti sacri, questi paladini incarnano l'ideale del cavaliere in armatura scintillante e agiscono con onore in nome della giustizia e del bene superiore. Si considerano modelli esemplari di condotta, e alcuni di loro, nel bene e nel male, applicano i loro stessi parametri al resto del mondo.
+
+  Molti di coloro che prestano questo giuramento sono devoti agli dèi della legalità e del bene, e usano i dettami delle loro divinità come misura della loro devozione. Considerano gli angeli, esseri perfetti al servizio del bene, come il loro ideale e spesso sfoggiano il simbolo delle ali angeliche sui loro elmetti o sui loro stemmi araldici.

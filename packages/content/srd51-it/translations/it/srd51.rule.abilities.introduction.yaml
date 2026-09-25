@@ -1,0 +1,14 @@
+name: Usare i punteggi di caratteristica
+text: |-
+  Sono sei le caratteristiche che forniscono una descrizione rapida delle facoltà fisiche e mentali di ogni creatura:
+
+  - Forza, misura la potenza fisica
+  - Destrezza, misura l'agilità
+  - Costituzione, misura la resistenza
+  - Intelligenza, misura capacità di ragionamento e memoria
+  - Saggezza, misura la percezione e l'intuizione
+  - Carisma, misura la forza della personalità
+
+  Un personaggio è muscoloso e intuitivo? Geniale e affascinante? Agile e tenace? I punteggi di caratteristica definiscono tutte queste qualità, delineando i pregi di una creatura, ma anche le sue debolezze.
+
+  I tre tiri principali del gioco (la prova di caratteristica, il tiro salvezza e il tiro per colpire) dipendono dai sei punteggi di caratteristica. L'introduzione del manuale descrive la regola base che governa questi tiri: si tira un d20, si aggiunge al risultato un modificatore di caratteristica derivato da uno dei sei punteggi di caratteristica e si confronta il totale con un numero bersaglio.

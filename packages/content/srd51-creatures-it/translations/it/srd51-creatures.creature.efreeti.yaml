@@ -1,0 +1,19 @@
+name: Efreeti
+alignment: legale malvagio
+armorClass.0.note: armatura naturale
+languages: Ignan
+traits.0.name: Dipartita elementale
+traits.0.text: Se l'efreeti muore, il suo corpo si disintegra in una fiammata e in uno sbuffo di fumo, lasciando dietro di sé solo gli oggetti che l'efreeti indossava o trasportava.
+traits.1.name: Incantesimi innati
+traits.1.text: |-
+  La caratteristica innata da incantatore dell'efreeti è Carisma (CD del tiro salvezza sull'incantesimo 15, +7 al tiro per colpire con attacco con incantesimo). Per sua natura, è in grado di lanciare gli incantesimi indicati di seguito senza aver bisogno di componenti materiali:
+
+  A volontà: individuazione del magico
+  3/giorno ciascuno: ingrandire/ridurre, linguaggi
+  1/giorno ciascuno: evoca elementale (solo elementale del fuoco), forma gassosa, immagine maggiore, invisibilità, muro di fuoco, spostamento planare
+actions.0.name: Multiattacco
+actions.0.text: L'efreeti effettua due attacchi con la scimitarra o usa Scagliare fiamma due volte.
+actions.1.name: Scimitarra
+actions.1.text: "Attacco con arma da mischia: +10 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 13 (2d6 + 6) danni taglienti più 7 (2d6) danni da fuoco."
+actions.2.name: Scagliare fiamma
+actions.2.text: "Attacco a distanza con incantesimo: +7 al tiro per colpire, gittata 36 m, un bersaglio. Colpito: 17 (5d6) danni da fuoco."

@@ -1,0 +1,10 @@
+name: Spettro
+alignment: caotico malvagio
+resistances.5.note: da attacchi non magici
+languages: capisce quelli che conosceva in vita, ma non è in grado di parlarli
+traits.0.name: Movimento incorporeo
+traits.0.text: Lo spettro può muoversi attraverso altre creature e oggetti come se fossero terreno difficile. Subisce 5 (1d10) danni da forza se termina il proprio turno all'interno di un oggetto.
+traits.1.name: Sensibilità al sole
+traits.1.text: Finché è esposto alla luce del sole, lo spettro subisce svantaggio ai tiri per colpire, oltre che alle prove di Saggezza (Percezione) basate sulla vista.
+actions.0.name: Risucchio di vita
+actions.0.text: "Attacco in mischia con incantesimo: +4 al tiro per colpire, portata 1,5 m, una creatura. Colpito: 10 (3d6) danni necrotici. Il bersaglio deve superare un tiro salvezza su Costituzione con CD 10, o i suoi punti ferita massimi vengono ridotti di un importo pari al danno subito. Tale riduzione perdura finché la creatura non termina un riposo lungo. Il bersaglio muore se questo effetto riduce a 0 i suoi punti ferita massimi."

@@ -1,0 +1,8 @@
+name: Avvoltoio
+alignment: senza allineamento
+traits.0.name: Vista e olfatto acuti
+traits.0.text: L'avvoltoio dispone di vantaggio alle prove di Saggezza (Percezione) basate sulla vista o sull'olfatto.
+traits.1.name: Tattiche del branco
+traits.1.text: L'avvoltoio dispone di vantaggio nel tiro per colpire contro una creatura se almeno uno degli alleati dell'animale si trova entro 1,5 metri dalla creatura e non è incapacitato.
+actions.0.name: Becco
+actions.0.text: "Attacco con arma da mischia: +2 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 2 (1d4) danni perforanti."

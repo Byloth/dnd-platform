@@ -40,3 +40,5 @@ levels.15.features.0.effects.0.note: I tuoi attacchi con arma mettono a segno un
 levels.18.features.0.name: Sopravvissuto
 levels.18.features.0.text: Al 18° livello, il guerriero giunge all'apice della sua resilienza in battaglia. All'inizio di ogni suo turno, recupera un ammontare di punti ferita pari a 5 + il suo modificatore di Costituzione, se non gli rimane più della metà dei suoi punti ferita. Non ottiene questo beneficio se ha 0 punti ferita.
 levels.18.features.0.onTurnStart.0.note: Solo se non ti rimane più della metà dei tuoi punti ferita e hai più di 0 punti ferita.
+text: |-
+  L'archetipo del Campione è incentrato sullo sviluppo della potenza fisica allo stato puro, affinata fino a raggiungere una letale perfezione. Un guerriero modellato su questo archetipo unisce un rigoroso addestramento a una condizione fisica eccellente per infliggere colpi devastanti.

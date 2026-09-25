@@ -1,0 +1,75 @@
+name: "Movimento e posizione"
+text: |-
+  Durante un combattimento i personaggi e i mostri si muovono costantemente, spesso sfruttando il movimento e la posizione per ottenere qualche beneficio.
+
+  Nel proprio turno, un personaggio può muoversi di una distanza massima pari alla sua velocità. All'interno del suo turno può decidere se usare parte della sua velocità o tutta, purché rispetti le regole qui descritte.
+
+  Muoversi può significare saltare, scalare e nuotare. Queste diverse modalità di movimento possono essere combinate al camminare o possono costituire l'intero movimento del personaggio. Comunque si muova, il personaggio deve dedurre la distanza di ogni parte del suo movimento dalla sua velocità finché non l'avrà usata tutta o non deciderà di avere concluso il suo movimento.
+
+  ### Spezzare il proprio movimento
+
+  Un personaggio può spezzare il proprio movimento nel corso del suo turno, usando parte della sua velocità prima della sua azione e un'altra parte dopo. Per esempio, se un personaggio ha una velocità di 9 metri, può muoversi di 3 metri, effettuare la sua azione e poi muoversi di 6 metri.
+
+  ### Muoversi tra gli attacchi
+
+  Se un personaggio effettua un'azione che include più di un attacco con un'arma, può spezzare il suo movimento ulteriormente, muovendosi tra un attacco e l'altro. Per esempio, un guerriero che può effettuare due attacchi grazie al privilegio Attacco Extra e che è dotato di una velocità di 7,5 metri può muoversi di 3 metri, sferrare un attacco, muoversi di 4,5 metri e poi attaccare ancora.
+
+  ### Usare velocità diverse
+
+  Se un personaggio ha più di una velocità, come per esempio la sua velocità base sul terreno e la sua velocità in volo, può liberamente passare da una velocità all'altra mentre si muove. Ogni volta che cambia velocità, sottrae la distanza di cui si è già mosso dalla nuova velocità. Il risultato determina la distanza di cui può ancora muoversi. Se il risultato è pari o inferiore a 0, non può usare la nuova velocità durante il movimento attuale.
+
+  Per esempio, se un personaggio possiede una velocità di 9 metri e una velocità in volo di 18 metri perché un mago ha lanciato *volare* su di lui, può volare per 6 metri, poi camminare per 3 metri e poi volare di nuovo per altri 9 metri.
+
+  ### Terreno difficile
+
+  È raro che un combattimento si svolga in una stanza vuota o in una pianura deserta. Caverne disseminate di macigni, foreste soffocate dai rovi e scalinate pericolanti sono tutti tipici scenari di terreno difficile.
+
+  Ogni 30 cm di movimento su terreno difficile costano 30 cm extra. Questa regola si applica anche se più fattori contano come terreno difficile all'interno dello stesso spazio.
+
+  Mobili bassi, detriti, arbusti, scalinate ripide, neve e acqua bassa sono tutti esempi di terreno difficile. Anche lo spazio occupato da un'altra creatura, che si tratti di una creatura ostile o meno, conta come terreno difficile.
+
+  ### Creature prone
+
+  I combattenti si ritrovano spesso stesi sul terreno, a volte perché vengono spinti, altre volte perché scelgono di buttarsi a terra. In gioco un tale personaggio è considerato prono, una condizione descritta nell'appendice A del Manuale del Giocatore.
+
+  Un personaggio può buttarsi a terra prono senza usare alcuna parte della sua velocità. Rialzarsi richiede invece uno sforzo maggiore; per farlo è previsto un costo in movimento pari a metà della velocità del personaggio. Per esempio, se un personaggio ha una velocità di 9 metri, deve spendere 4,5 metri di movimento per rialzarsi. Se non gli rimane abbastanza movimento o se la sua velocità è 0, non può rialzarsi.
+
+  Per muoversi rimanendo prono, un personaggio deve strisciare o usare magie come il teletrasporto. Ogni 30 cm di movimento percorso strisciando costano 30 cm extra. Strisciare per 30 cm su un terreno difficile, quindi, costa 90 cm di movimento.
+
+  ### Interagire con gli oggetti circostanti
+
+  Ecco alcuni esempi del genere di attività che un personaggio può svolgere insieme al suo movimento e alla sua azione:
+
+  - estrarre o rinfoderare una spada
+  - aprire o chiudere una porta
+  - estrarre una pozione dallo zaino
+  - raccogliere un'ascia caduta a terra
+  - prendere un ninnolo su un tavolo
+  - rimuovere un anello dal suo dito
+  - infilarsi del cibo in bocca
+  - piantare una bandiera a terra
+  - estrarre qualche moneta dal suo borsello
+  - bere tutta la birra di un boccale
+  - tirare una leva o azionare un interruttore
+  - rimuovere una torcia dal suo sostegno
+  - prendere un libro da una mensola raggiungibile
+  - estinguere una piccola fiamma
+  - indossare una maschera
+  - coprirsi il volto con il cappuccio del proprio mantello
+  - appoggiare l'orecchio a una porta
+  - calciare un sassolino
+  - girare una chiave in una serratura
+  - sondare il terreno con un'asta da 3 metri
+  - passare un oggetto a un altro personaggio
+
+  ### Muoversi attorno ad altre creature
+
+  Un personaggio può muoversi attraverso lo spazio di una creatura non ostile. Nel caso di una creatura ostile, invece, un personaggio può muoversi attraverso il suo spazio solo se essa è di due categorie di taglia più grande o più piccola rispetto a quella del personaggio. Va inoltre ricordato che lo spazio di un'altra creatura è considerato terreno difficile per un personaggio.
+
+  Che una creatura sia amica o nemica, non è possibile terminare volontariamente il proprio movimento nel suo spazio.
+
+  Se un personaggio esce dalla portata di una creatura ostile durante il proprio movimento, provoca un attacco di opportunità.
+
+  ### Movimento in volo
+
+  Le creature volanti beneficiano di un'ottima mobilità, ma corrono anche il rischio di cadere. Se una creatura volante viene buttata a terra prona, se la sua velocità è ridotta a 0, o se viene privata in altri modi della sua capacità di muoversi, essa cade, a meno che non sia dotata della capacità di fluttuare o non sia sorretta in volo dalla magia, come per esempio nel caso dell'incantesimo *volare*.

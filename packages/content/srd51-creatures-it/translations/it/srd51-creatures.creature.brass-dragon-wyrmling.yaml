@@ -1,0 +1,11 @@
+name: Drago d'ottone cucciolo
+alignment: caotico buono
+armorClass.0.note: armatura naturale
+languages: Draconico
+actions.0.name: Morso
+actions.0.text: "Attacco con arma da mischia: +4 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 7 (1d10 + 2) danni perforanti."
+actions.1.name: Soffi
+actions.1.text: |-
+  Il drago usa uno dei seguenti soffi.
+  Soffio di fuoco. Il drago esala una scia di fuoco lunga 6 metri e larga 1,5 metri. Ogni creatura su quella scia deve effettuare un tiro salvezza su Destrezza con CD 11, subendo 14 (4d6) danni da fuoco in caso di fallimento, o la metà dei danni in caso di successo.
+  Soffio di sonno. Il drago esala gas soporifero in un cono di 4,5 metri. Ogni creatura in quell'area deve superare un tiro salvezza su Costituzione con CD 11, altrimenti è priva di sensi per 1 minuto. Questo effetto termina se la creatura subisce danni o se qualcuno usa un'azione per svegliarla.

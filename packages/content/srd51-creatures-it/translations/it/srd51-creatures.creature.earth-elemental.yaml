@@ -1,0 +1,14 @@
+name: Elementale della terra
+alignment: neutrale
+armorClass.0.note: armatura naturale
+resistances.0.note: da attacchi non magici
+languages: Terran
+traits.0.name: Scivolare nella terra
+traits.0.text: L'elementale può scavare attraverso la terra e la pietra non magiche e non lavorate. Quando lo fa, l'elementale non disturba il materiale attraverso cui si muove.
+traits.1.name: Mostro da assedio
+traits.1.text: L'elementale infligge danni doppi agli oggetti e alle strutture.
+actions.0.name: Multiattacco
+actions.0.text: L'elementale effettua due attacchi con schianto.
+actions.0.multiattack.0.action: Schianto
+actions.1.name: Schianto
+actions.1.text: "Attacco con arma da mischia: +8 al tiro per colpire, portata 3 m, un bersaglio. Colpito: 14 (2d8 + 5) danni contundenti."

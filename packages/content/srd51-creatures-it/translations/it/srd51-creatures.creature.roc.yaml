@@ -1,0 +1,13 @@
+name: Roc
+alignment: senza allineamento
+armorClass.0.note: armatura naturale
+traits.0.name: Vista acuta
+traits.0.text: Il roc dispone di vantaggio alle prove di Saggezza (Percezione) basate sulla vista.
+actions.0.name: Multiattacco
+actions.0.text: "Il roc effettua due attacchi: uno con il becco e uno con gli artigli."
+actions.0.multiattack.0.action: Becco
+actions.0.multiattack.1.action: Artigli
+actions.1.name: Becco
+actions.1.text: "Attacco con arma da mischia: +13 al tiro per colpire, portata 3 m, un bersaglio. Colpito: 27 (4d8 + 9) danni perforanti."
+actions.2.name: Artigli
+actions.2.text: "Attacco con arma da mischia: +13 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 23 (4d6 + 9) danni taglienti e il bersaglio è afferrato (CD 19 per sfuggire). Finché la presa perdura, il bersaglio è trattenuto e il roc non può usare i suoi artigli su altri."

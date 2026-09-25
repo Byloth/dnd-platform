@@ -1,0 +1,16 @@
+name: Troll
+alignment: caotico malvagio
+armorClass.0.note: armatura naturale
+languages: Gigante
+traits.0.name: Olfatto acuto
+traits.0.text: Il troll dispone di vantaggio alle prove di Saggezza (Percezione) basate sull'olfatto.
+traits.1.name: Rigenerazione
+traits.1.text: Il troll recupera 10 punti ferita all'inizio del suo turno. Se il troll subisce danni da acido o fuoco, questo tratto non funziona all'inizio del suo turno successivo. Il troll muore solo se inizia il turno con 0 punti ferita e non si rigenera.
+actions.0.name: Multiattacco
+actions.0.text: "Il troll effettua tre attacchi: uno con il morso e due con gli artigli."
+actions.0.multiattack.0.action: Morso
+actions.0.multiattack.1.action: Artiglio
+actions.1.name: Morso
+actions.1.text: "Attacco con arma da mischia: +7 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 7 (1d6 + 4) danni perforanti."
+actions.2.name: Artiglio
+actions.2.text: "Attacco con arma da mischia: +7 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 11 (2d6 + 4) danni taglienti."

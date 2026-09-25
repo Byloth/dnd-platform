@@ -24,3 +24,5 @@ levels.14.features.0.text: A partire dal 14° livello, quando il barbaro subisce
 levels.14.features.0.effects.0.name: Ritorsione
 levels.14.features.0.effects.0.trigger: quando subisci danni da una creatura che si trova entro 1,5 metri da te
 levels.14.features.0.effects.0.text: Puoi usare la tua reazione per effettuare un attacco con arma da mischia contro quella creatura.
+text: |-
+  Per alcuni barbari, l'ira è un mezzo per raggiungere un fine, e tale fine è la violenza. Il Cammino del Berserker è un cammino di furia indiscriminata grondante di sangue. Quando un barbaro entra nell'ira del berserker, si esalta nel caos della battaglia, ignorando la propria salute e la propria incolumità.

@@ -1,0 +1,18 @@
+name: Imp
+alignment: legale malvagio
+resistances.1.note: da attacchi non magici non argentati
+languages: Comune, Infernale
+traits.0.name: Mutaforma
+traits.0.text: L'imp può usare la sua azione per assumere la forma bestiale di un topo (velocità 6 m), un corvo (6 m, volare 18 m), un ragno (6 m, scalare 6 m) o riassumere la sua vera forma. Le sue statistiche restano le stesse in ogni forma, a eccezione dei cambiamenti di velocità menzionati. Ogni oggetto che indossa o trasporta non viene trasformato. Se muore, torna alla sua forma naturale.
+traits.1.name: Vista del diavolo
+traits.1.text: L'oscurità magica non ostacola la scurovisione dell'imp.
+traits.2.name: Resistenza alla magia
+traits.2.text: L'imp dispone di vantaggio ai tiri salvezza contro incantesimi e altri effetti magici.
+actions.0.name: Pungiglione (morso in forma bestiale)
+actions.0.text: "Attacco con arma da mischia: +5 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 5 (1d4 + 3) danni perforanti e il bersaglio deve effettuare un tiro salvezza su Costituzione con CD 11. Subisce 10 (3d6) danni da veleno in caso di fallimento, o la metà dei danni in caso di successo."
+actions.1.name: Invisibilità
+actions.1.text: L'imp diventa magicamente invisibile finché non attacca o finché non perde la concentrazione (come se si concentrasse su un incantesimo). Ogni oggetto che l'imp indossa o trasporta diventa invisibile insieme a lui.
+forms.0.name: Imp
+forms.1.name: Topo
+forms.2.name: Corvo
+forms.3.name: Ragno

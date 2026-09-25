@@ -1,0 +1,17 @@
+name: Medusa
+alignment: legale malvagia
+armorClass.0.note: armatura naturale
+languages: Comune
+traits.0.name: Sguardo pietrificante
+traits.0.text: |-
+  Se una creatura in grado di vedere gli occhi della medusa inizia il proprio turno entro 9 metri da essa, la medusa può obbligarla a effettuare un tiro salvezza su Costituzione con CD 14 (se non è incapacitata ed è in grado di vedere la creatura). Se la creatura fallisce il tiro salvezza di 5 o più, viene pietrificata all'istante. Altrimenti inizia a trasformarsi magicamente in pietra e viene trattenuta. Deve ripetere il tiro salvezza alla fine del suo turno successivo. Se lo supera, l'effetto termina. Se lo fallisce, è pietrificata finché non viene liberata tramite un incantesimo ristorare superiore o un'altra magia analoga.
+  A meno che non venga colta di sorpresa, una creatura può distogliere lo sguardo per evitare il tiro salvezza all'inizio del suo turno. Se la creatura si avvale di questa facoltà, non vede la medusa fino all'inizio del proprio turno successivo, quando potrà distogliere nuovamente lo sguardo. Tuttavia, se nel frattempo la creatura guarda la medusa, deve effettuare immediatamente il tiro salvezza.
+  Se la medusa vede il suo riflesso entro 9 metri da sé in condizioni di luce intensa, è influenzata dal suo stesso sguardo a causa della sua maledizione.
+actions.0.name: Multiattacco
+actions.0.text: La medusa effettua tre attacchi in mischia (uno con la chioma di serpenti e due con la spada corta) o due attacchi a distanza con l'arco lungo.
+actions.1.name: Chioma di serpenti
+actions.1.text: "Attacco con arma da mischia: +5 al tiro per colpire, portata 1,5 m, una creatura. Colpito: 4 (1d4 + 2) danni perforanti più 14 (4d6) danni da veleno."
+actions.2.name: Spada corta
+actions.2.text: "Attacco con arma da mischia: +5 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 5 (1d6 + 2) danni perforanti."
+actions.3.name: Arco lungo
+actions.3.text: "Attacco con arma a distanza: +5 al tiro per colpire, gittata 45/180 m, un bersaglio. Colpito: 6 (1d8 + 2) danni perforanti più 7 (2d6) danni da veleno."

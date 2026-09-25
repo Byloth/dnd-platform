@@ -1,0 +1,6 @@
+name: Serpente stritolatore
+alignment: senza allineamento
+actions.0.name: Morso
+actions.0.text: "Attacco con arma da mischia: +4 al tiro per colpire, portata 1,5 m, una creatura. Colpito: 5 (1d6 + 2) danni perforanti."
+actions.1.name: Stritolare
+actions.1.text: "Attacco con arma da mischia: +4 al tiro per colpire, portata 1,5 m, una creatura. Colpito: 6 (1d8 + 2) danni contundenti e il bersaglio è afferrato (CD 14 per sfuggire). Finché è afferrato, il bersaglio è trattenuto e il serpente non può stritolarne un altro."

@@ -1,0 +1,13 @@
+name: Cacciatore invisibile
+alignment: neutrale
+resistances.0.note: da attacchi non magici
+languages: Auran, capisce il Comune ma non lo parla
+traits.0.name: Invisibilità
+traits.0.text: Il cacciatore è invisibile.
+traits.1.name: Segugio infallibile
+traits.1.text: L'evocatore indica una preda al cacciatore. Il cacciatore conosce la direzione e la distanza a cui si trova la preda, purché entrambi siano sullo stesso piano di esistenza. Il cacciatore conosce anche l'ubicazione del suo evocatore.
+actions.0.name: Multiattacco
+actions.0.text: Il cacciatore effettua due attacchi con schianto.
+actions.0.multiattack.0.action: Schianto
+actions.1.name: Schianto
+actions.1.text: "Attacco con arma da mischia: +6 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 10 (2d6 + 3) danni contundenti."

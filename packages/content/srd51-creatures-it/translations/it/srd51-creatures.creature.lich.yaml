@@ -1,0 +1,35 @@
+name: Lich
+alignment: qualsiasi allineamento malvagio
+armorClass.0.note: armatura naturale
+immunities.1.note: da attacchi non magici
+languages: Comune, più al massimo altri cinque linguaggi
+traits.0.name: Resistenza leggendaria
+traits.0.text: Se il lich fallisce un tiro salvezza, può scegliere di superarlo comunque.
+traits.1.name: Rigenerazione
+traits.1.text: Se possiede un filatterio, quando il lich è distrutto ottiene un nuovo corpo nel giro di 1d10 giorni, recuperando tutti i suoi punti ferita e tornando a essere attivo. Il nuovo corpo compare entro 1,5 metri dal filatterio.
+traits.2.name: Incantesimi
+traits.2.text: |-
+  Il lich è un incantatore di 18° livello. La sua caratteristica da incantatore è l'Intelligenza (CD del tiro salvezza sull'incantesimo 20, +12 al tiro per colpire con attacco con incantesimo). Ha a disposizione i seguenti incantesimi da mago:
+
+  - Trucchetti (a volontà): mano magica, prestidigitazione, raggio di gelo
+  - 1° livello (4 slot): dardo incantato, individuazione del magico, onda tonante, scudo
+  - 2° livello (3 slot): freccia acida, immagine speculare, individuazione dei pensieri, invisibilità
+  - 3° livello (3 slot): animare morti, controincantesimo, dissolvi magie, palla di fuoco
+  - 4° livello (3 slot): inaridire, porta dimensionale
+  - 5° livello (3 slot): nube mortale, scrutare
+  - 6° livello (1 slot): disintegrazione, globo di invulnerabilità
+  - 7° livello (1 slot): dito della morte, spostamento planare
+  - 8° livello (1 slot): dominare mostri, parola del potere stordire
+  - 9° livello (1 slot): parola del potere uccidere
+traits.3.name: Resistenza allo scacciare
+traits.3.text: Il lich dispone di vantaggio ai tiri salvezza contro qualsiasi effetto che scacci i non morti.
+actions.0.name: Tocco paralizzante
+actions.0.text: "Attacco in mischia con incantesimo: +12 al tiro per colpire, portata 1,5 m, una creatura. Colpito: 10 (3d6) danni da freddo. Il bersaglio deve superare un tiro salvezza su Costituzione con CD 18, altrimenti rimane paralizzato per 1 minuto. Il bersaglio può ripetere il tiro salvezza alla fine di ogni suo turno e, se lo supera, l'effetto svanisce."
+legendary.actions.0.name: Trucchetto
+legendary.actions.0.text: Il lich lancia un trucchetto.
+legendary.actions.1.name: Tocco paralizzante (costa 2 azioni)
+legendary.actions.1.text: Il lich usa il Tocco paralizzante.
+legendary.actions.2.name: Sguardo terrificante (costa 2 azioni)
+legendary.actions.2.text: Il lich fissa lo sguardo su una creatura nel suo campo visivo entro un raggio di 3 metri. Il bersaglio deve superare un tiro salvezza su Saggezza con CD 18 contro questa magia, altrimenti rimane spaventato per 1 minuto. Il bersaglio spaventato può ripetere il tiro salvezza alla fine di ogni suo turno e, se lo supera, l'effetto svanisce. Se il bersaglio supera il tiro salvezza o se l'effetto termina, è immune allo sguardo del lich per le 24 ore successive.
+legendary.actions.3.name: Distruggere vita (costa 3 azioni)
+legendary.actions.3.text: Ogni creatura che non sia un non morto e situata entro 6 metri dal lich deve effettuare un tiro salvezza su Costituzione con CD 18 contro questa magia, subendo 21 (6d6) danni necrotici in caso di fallimento, o la metà in caso di successo.

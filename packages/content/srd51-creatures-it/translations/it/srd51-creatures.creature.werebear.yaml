@@ -1,0 +1,22 @@
+name: Orso mannaro
+alignment: neutrale buono
+immunities.0.note: da attacchi non magici con armi non argentate
+traits.0.name: Mutaforma
+traits.0.text: L'orso mannaro può usare la sua azione per trasformarsi in un ibrido umanoide-orso Grande o in un orso Grande, o per tornare alla sua forma naturale, che è umanoide. Le sue statistiche, a eccezione della taglia e della CA, restano le stesse in ogni forma. Ogni oggetto che indossa o trasporta non viene trasformato. Se muore, torna alla sua forma naturale.
+traits.1.name: Olfatto acuto
+traits.1.text: L'orso mannaro dispone di vantaggio alle prove di Saggezza (Percezione) basate sull'olfatto.
+actions.0.name: Multiattacco
+actions.0.text: In forma di orso, l'orso mannaro effettua due attacchi con gli artigli. In forma umanoide, effettua due attacchi con l'ascia bipenne. In forma ibrida, può attaccare come orso o come umanoide.
+actions.0.multiattack.0.action: Artiglio (solo in forma di orso o ibrida)
+actions.1.name: Morso (solo in forma di orso o ibrida)
+actions.1.text: "Attacco con arma da mischia: +7 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 15 (2d10 + 4) danni perforanti. Se il bersaglio è un umanoide, deve superare un tiro salvezza su Costituzione con CD 14, altrimenti è costretto a trasformarsi in un orso mannaro."
+actions.2.name: Artiglio (solo in forma di orso o ibrida)
+actions.2.text: "Attacco con arma da mischia: +7 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 13 (2d8 + 4) danni taglienti."
+actions.3.name: Ascia bipenne (solo in forma umanoide o ibrida)
+actions.3.text: "Attacco con arma da mischia: +7 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 10 (1d12 + 4) danni taglienti."
+forms.0.name: Umano
+forms.1.name: Orso
+forms.1.armorClass.0.note: armatura naturale
+forms.2.name: Ibrido
+forms.2.armorClass.0.note: armatura naturale
+languages: Comune (non può parlare in forma di orso)

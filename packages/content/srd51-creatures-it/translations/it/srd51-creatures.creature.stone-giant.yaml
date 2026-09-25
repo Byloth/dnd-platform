@@ -1,0 +1,15 @@
+name: Gigante delle pietre
+alignment: neutrale
+armorClass.0.note: armatura naturale
+languages: Gigante
+traits.0.name: Mimetizzazione rocciosa
+traits.0.text: Il gigante dispone di vantaggio alle prove di Destrezza (Furtività) effettuate per nascondersi nei terreni rocciosi.
+actions.0.name: Multiattacco
+actions.0.text: Il gigante effettua due attacchi con il randello pesante.
+actions.0.multiattack.0.action: Randello pesante
+actions.1.name: Randello pesante
+actions.1.text: "Attacco con arma da mischia: +9 al tiro per colpire, portata 4,5 m, un bersaglio. Colpito: 19 (3d8 + 6) danni contundenti."
+actions.2.name: Roccia
+actions.2.text: "Attacco con arma a distanza: +9 al tiro per colpire, gittata 18/72 m, un bersaglio. Colpito: 28 (4d10 + 6) danni contundenti. Se il bersaglio è una creatura, deve superare un tiro salvezza su Forza con CD 17, altrimenti viene buttato a terra prono."
+reactions.0.name: Afferrare roccia
+reactions.0.text: Se una roccia o un oggetto simile viene scagliato contro il gigante, quest'ultimo può afferrarlo superando un tiro salvezza su Destrezza con CD 10, nel qual caso non subisce danni contundenti da esso.

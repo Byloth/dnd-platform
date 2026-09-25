@@ -1,0 +1,15 @@
+name: Gargoyle
+alignment: caotico malvagio
+armorClass.0.note: armatura naturale
+resistances.0.note: da attacchi non magici non adamantini
+languages: Terran
+traits.0.name: Falso aspetto
+traits.0.text: Finché il gargoyle rimane immobile, non è possibile distinguerlo da una statua inanimata.
+actions.0.name: Multiattacco
+actions.0.text: "Il gargoyle effettua due attacchi: uno con il morso e uno con gli artigli."
+actions.0.multiattack.0.action: Morso
+actions.0.multiattack.1.action: Artigli
+actions.1.name: Morso
+actions.1.text: "Attacco con arma da mischia: +4 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 5 (1d6 + 2) danni perforanti."
+actions.2.name: Artigli
+actions.2.text: "Attacco con arma da mischia: +4 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 5 (1d6 + 2) danni taglienti."

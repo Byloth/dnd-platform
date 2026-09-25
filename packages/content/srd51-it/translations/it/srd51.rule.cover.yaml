@@ -1,0 +1,11 @@
+name: Copertura
+text: |-
+  Le pareti, gli alberi, le creature e altri ostacoli possono fornire copertura durante un combattimento, rendendo un bersaglio più difficile da colpire. Un bersaglio può beneficiare di copertura soltanto quando un attacco o un altro effetto ha origine sul lato opposto della copertura.
+
+  Esistono tre gradi di copertura. Se un bersaglio si trova dietro più fonti di copertura, viene applicato soltanto il grado più protettivo di copertura; i gradi non sono cumulativi. Per esempio, se un bersaglio si trova dietro una creatura che fornisce mezza copertura e un tronco d'albero che fornisce tre quarti di copertura, il bersaglio beneficia di tre quarti di copertura.
+
+  Un bersaglio con **mezza copertura** ottiene un bonus di +2 alla CA e ai tiri salvezza su Destrezza. Un bersaglio beneficia di mezza copertura se un ostacolo blocca almeno metà del suo corpo. L'ostacolo in questione potrebbe essere un muretto, un grosso mobile, un tronco d'albero esile o una creatura (amica o nemica che sia).
+
+  Un bersaglio con **tre quarti di copertura** ottiene un bonus di +5 alla CA e ai tiri salvezza su Destrezza. Un bersaglio beneficia di tre quarti di copertura se almeno tre quarti del suo corpo sono coperti da un ostacolo. L'ostacolo in questione potrebbe essere una saracinesca, una feritoia per frecce o un grosso tronco d'albero.
+
+  Un bersaglio con **copertura totale** non può essere bersagliato direttamente da un attacco o da un incantesimo, anche se certi incantesimi possono raggiungere un bersaglio di questo tipo includendolo in un'area di effetto. Un bersaglio beneficia di copertura totale se è completamente occultato da un ostacolo.

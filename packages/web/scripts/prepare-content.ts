@@ -37,7 +37,8 @@ const srd51 = resolve(ROOT, "packages", "content", "srd51");
 const srd51It = resolve(ROOT, "packages", "content", "srd51-it");
 // The SRD's creatures: published for the catalogue (docs/19-catalogues.md), never loaded by the sheet.
 const creatures = resolve(ROOT, "packages", "content", "srd51-creatures");
-const built = [srd51, srd51It, creatures].filter((dir) => existsSync(resolve(dir, "package.yaml")));
+const creaturesIt = resolve(ROOT, "packages", "content", "srd51-creatures-it");
+const built = [srd51, srd51It, creatures, creaturesIt].filter((dir) => existsSync(resolve(dir, "package.yaml")));
 execFileSync("node", [cli, "build", "--out", OUT, ...built], { cwd: ROOT, stdio: "inherit" });
 
 // Every release, and an index of the versions per package.

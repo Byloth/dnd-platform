@@ -1,0 +1,10 @@
+name: Scudo +1, +2 o +3
+text: |-
+  Armatura (scudo), non comune (+1), rara (+2) o molto rara (+3)
+
+  Mentre il personaggio impugna questo scudo, ottiene un bonus alla CA determinato dalla rarità dello scudo. Questo bonus è cumulativo al normale bonus alla CA dello scudo.
+features.0.name: Bonus dello scudo
+features.0.effects.0.note: Il bonus è determinato dalla rarità dello scudo e si somma al normale bonus alla CA dello scudo.
+features.0.effects.0.options.0.name: +1 (non comune)
+features.0.effects.0.options.1.name: +2 (rara)
+features.0.effects.0.options.2.name: +3 (molto rara)

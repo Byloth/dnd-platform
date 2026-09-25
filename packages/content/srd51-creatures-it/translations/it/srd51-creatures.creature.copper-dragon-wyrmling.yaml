@@ -1,0 +1,11 @@
+name: Drago di rame cucciolo
+alignment: caotico buono
+armorClass.0.note: armatura naturale
+languages: Draconico
+actions.0.name: Morso
+actions.0.text: "Attacco con arma da mischia: +4 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 7 (1d10 + 2) danni perforanti."
+actions.1.name: Soffi
+actions.1.text: |-
+  Il drago usa uno dei seguenti soffi.
+  Soffio di acido. Il drago esala una scia di acido lunga 6 metri e larga 1,5 metri. Ogni creatura su quella linea deve effettuare un tiro salvezza su Destrezza con CD 11, subendo 18 (4d8) danni da acido in caso di fallimento, o la metà dei danni in caso di successo.
+  Soffio rallentante. Il drago esala gas in un cono di 4,5 metri. Ogni creatura in quell'area deve superare un tiro salvezza su Costituzione con CD 11; se lo fallisce, non può usare reazioni, la sua velocità è dimezzata e non può effettuare più di un attacco nel suo turno. Inoltre, nel suo turno la creatura può usare un'azione o un'azione bonus, ma non entrambe. Questi effetti durano 1 minuto. La creatura può ripetere il tiro salvezza alla fine di ogni suo turno e, se lo supera, l'effetto per lei termina.

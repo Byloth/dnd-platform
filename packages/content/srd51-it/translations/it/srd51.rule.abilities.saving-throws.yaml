@@ -1,0 +1,13 @@
+name: Tiri salvezza
+text: |-
+  Un tiro salvezza rappresenta un tentativo di resistere a un incantesimo, una trappola, un veleno, una malattia o una minaccia simile. Normalmente non sono i giocatori a decidere di effettuare un tiro salvezza: si è obbligati a effettuarne uno quando i personaggi o i mostri rischiano di subire danni.
+
+  Per effettuare un tiro salvezza si tira un d20 e si aggiunge al risultato il modificatore di caratteristica adeguato. Per esempio, un personaggio usa il suo modificatore di Destrezza per effettuare un tiro salvezza su Destrezza.
+
+  Un tiro salvezza può essere modificato da un bonus o una penalità situazionale e può essere influenzato da vantaggio e svantaggio, come determinato dal GM.
+
+  Ogni classe fornisce competenza in almeno due tiri salvezza. Il mago, per esempio, è competente nei tiri salvezza su Intelligenza. Come nel caso delle competenze nelle abilità, la competenza in un tiro salvezza consente a un personaggio di aggiungere il suo bonus di competenza ai tiri salvezza effettuati usando un particolare punteggio di caratteristica. Anche alcuni mostri possiedono delle competenze nei tiri salvezza.
+
+  La Classe Difficoltà di un tiro salvezza è determinata dall'effetto che lo causa. Per esempio, la CD di un tiro salvezza concesso da un incantesimo è determinata dalla caratteristica da incantatore e dal bonus di competenza di chi lo ha lanciato.
+
+  Il risultato di un tiro salvezza superato o fallito è descritto anche nell'effetto che consente il tiro salvezza. In genere, un tiro salvezza superato significa che la creatura non subisce danni (o subisce solo danni ridotti) da un certo effetto.
