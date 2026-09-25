@@ -3,7 +3,12 @@ import type { PackageSource } from "@byloth/dnd-platform-loader";
 /** The site's index of its public packages: every released version of each (DEC-21). */
 export interface ContentIndex
 {
-    readonly packages: Readonly<Record<string, { readonly latest: string, readonly versions: readonly string[] }>>;
+    readonly packages: Readonly<Record<string, {
+        readonly latest: string;
+        readonly versions: readonly string[];
+        /** A translation package: its language and the packages it translates (docs/phase-1/11). */
+        readonly translation?: { readonly language: string, readonly of: readonly string[] };
+    }>>;
 }
 
 /**

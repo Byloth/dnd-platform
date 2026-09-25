@@ -96,7 +96,9 @@ export const useContentStore = defineStore("content", () =>
             storage.persistence()
         ]);
 
+        // Translation packages are not choices: `sources` adds the one of the interface's language by itself.
         const bundles = await Promise.all(Object.keys(published.packages).sort()
+            .filter((id) => !published.packages[id]!.translation)
             .map(_siteBundle));
         index.value = published;
         site.value = bundles.map((b) => ({ manifest: b.manifest, entities: b.entities.length, origin: "site" }));
@@ -170,13 +172,18 @@ export const useContentStore = defineStore("content", () =>
         return { removed: true, usedBy: [] };
     };
 
-    /** The sources of the given package ids: the site's latest for published packages, the stored ones otherwise. */
+    /**
+     * The sources of the given package ids: the site's latest for published packages, the stored ones otherwise;
+     * then the translation packages of the interface's language whose packages are all there (the site's
+     * `srd51-it`, a stored `phb14-it`). Characters never list translations: the language brings them.
+     */
     const sources = async (ids: readonly string[]): Promise<PackageSource[]> =>
     {
         const published = index.value ?? await useContent().fetchIndex();
         const records = await useBrowserStorage().packages.list();
+        const language = useNuxtApp().$i18n.locale.value;
 
-        return Promise.all(ids.map(async (id) =>
+        const chosen = await Promise.all(ids.map(async (id) =>
         {
             if (id in published.packages) { return _siteBundle(id); }
 
@@ -185,6 +192,29 @@ export const useContentStore = defineStore("content", () =>
 
             return record.source;
         }));
+
+        const present = new Set(ids);
+        const translations: PackageSource[] = [];
+        const publishedTranslations = Object.entries(published.packages)
+            .filter(([, entry]) => entry.translation?.language === language)
+            .map(([id, entry]) => ({ id: id, of: entry.translation!.of, load: () => _siteBundle(id) }));
+        const local = records.map((r) => r.source)
+            .filter((s) => (s.manifest.kind === "translation") && s.manifest.languages.includes(language))
+            .map((s) => ({ id: s.manifest.id, of: s.manifest.dependencies.map((d) => d.id), load: async () => s }));
+        // A translation may depend on another (phb14-it on srd51-it): add them until nothing more fits.
+        for (let added = true; added;)
+        {
+            added = false;
+            for (const candidate of [...publishedTranslations, ...local])
+            {
+                if (present.has(candidate.id) || !candidate.of.every((id) => present.has(id))) { continue; }
+                translations.push(await candidate.load());
+                present.add(candidate.id);
+                added = true;
+            }
+        }
+
+        return [...chosen, ...translations];
     };
 
     /** Forgets everything read so far (a setup store has no `$reset`); the next `refresh` reads again. */

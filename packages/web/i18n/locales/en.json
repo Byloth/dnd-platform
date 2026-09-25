@@ -61,7 +61,9 @@
       "content": "Content",
       "entries": "no entries | 1 entry | {count} entries",
       "sources": "Sources",
-      "source": "{title}, licence {license}"
+      "source": "{title}, licence {license}",
+      "languages": "Languages",
+      "translation": "{language} translation, from {file}"
     },
     "kind": {
       "base": "Base rules",
@@ -82,6 +84,10 @@
       "unknown": "This browser does not say whether it keeps your packages and characters.",
       "usage": "Using {used} of the {quota} available.",
       "safari": "Safari deletes the data of sites you have not opened for a few weeks. Keep the files of your packages; exporting characters to a file comes with a next version."
+    },
+    "languages": {
+      "en": "English",
+      "it": "Italian"
     }
   },
   "preferences": {

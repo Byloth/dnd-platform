@@ -1,5 +1,6 @@
 <script lang="ts" setup>
     import { localize } from "@byloth/dnd-platform-composer";
+    import type { PackageManifest } from "@byloth/dnd-platform-schema";
 
     import FontAwesome from "@/components/ui/FontAwesome.vue";
 
@@ -15,16 +16,26 @@
     const SUPPORT_URL = "https://buymeacoffee.com/byloth";
     const REPOSITORY_URL = "https://github.com/Byloth/dnd-platform";
 
-    onMounted(async () =>
+    /** The site's packages with the translation of the interface's language, which has its own attribution. */
+    const published = shallowRef<PackageManifest[]>([]);
+    const load = async (): Promise<void> =>
     {
         if (!content.site.length) { await content.refresh(); }
-    });
+        const sources = await content.sources(content.site.map((p) => p.manifest.id));
+        published.value = sources.map((s) => s.manifest);
+    };
+    onMounted(load);
+    watch(locale, () => { void load(); });
 
-    const packages = computed(() => [...content.site, ...content.stored].map((entry) => ({
-        key: `${entry.manifest.id}@${entry.manifest.version}`,
-        name: localize(entry.manifest.name, locale.value) || entry.manifest.id,
-        local: entry.origin === "file",
-        sources: entry.manifest.sources ?? []
+    const packages = computed(() => [
+        ...published.value.map((manifest) => ({ manifest: manifest, local: false })),
+        ...content.stored.map((entry) => ({ manifest: entry.manifest, local: true }))
+
+    ].map(({ manifest, local }) => ({
+        key: `${manifest.id}@${manifest.version}`,
+        name: localize(manifest.name, locale.value) || manifest.id,
+        local: local,
+        sources: manifest.sources ?? []
     })));
 
     const TOOLS = ["data", "fonts", "icons", "framework", "statistics"] as const;

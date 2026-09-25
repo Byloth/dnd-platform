@@ -3,7 +3,7 @@
  * unknown stored values dropped, the colour mode applied to the root element.
  */
 
-import { afterEach, beforeEach, describe, expect, it } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { createPinia, setActivePinia } from "pinia";
 
 import { DEFAULT_PREFERENCES, PREFERENCES_KEY, usePreferencesStore } from "@/stores/preferences";
@@ -44,6 +44,22 @@ describe("preferences", () =>
         setActivePinia(createPinia());
         const again = usePreferencesStore();
         expect([again.language, again.helpLevel, again.theme]).toEqual(["it", "expert", "dark"]);
+    });
+
+    it("start in the browser's language, until one is chosen", () =>
+    {
+        const languages = vi.spyOn(navigator, "languages", "get").mockReturnValue(["it-IT", "en-US"]);
+        expect(usePreferencesStore().language).toBe("it");
+
+        languages.mockReturnValue(["fr-FR", "de-DE"]);
+        setActivePinia(createPinia());
+        expect(usePreferencesStore().language).toBe("en");
+
+        languages.mockReturnValue(["it-IT"]);
+        localStorage.setItem(PREFERENCES_KEY, JSON.stringify({ language: "en" }));
+        setActivePinia(createPinia());
+        expect(usePreferencesStore().language).toBe("en");
+        languages.mockRestore();
     });
 
     it("drop stored values they do not know", () =>

@@ -50,6 +50,19 @@ const ALLOWED: { readonly [K in keyof Preferences]: readonly Preferences[K][] } 
     pageSize: ["a4", "letter"]
 };
 
+/**
+ * The first of the browser's languages that the application speaks (`it-IT` → `it`), else the default: the
+ * interface starts in the visitor's own language until they choose another (owner, 2026-09-25).
+ */
+export function browserLanguage(): Language
+{
+    const preferred = typeof navigator !== "undefined" ? [...navigator.languages ?? [], navigator.language] : [];
+    const found = preferred.map((l) => l?.toLowerCase().split("-")[0])
+        .find((l): l is Language => ALLOWED.language.includes(l as Language));
+
+    return found ?? DEFAULT_PREFERENCES.language;
+}
+
 /** The stored preferences, each checked against its allowed values; anything else falls back to the default. */
 function _read(storage: JSONStorage): Preferences
 {
@@ -60,9 +73,10 @@ function _read(storage: JSONStorage): Preferences
 
         return ALLOWED[key].includes(value) ? value : DEFAULT_PREFERENCES[key];
     };
+    const language = stored["language"] as Language;
 
     return {
-        language: pick("language"),
+        language: ALLOWED.language.includes(language) ? language : browserLanguage(),
         helpLevel: pick("helpLevel"),
         theme: pick("theme"),
         contrast: pick("contrast"),

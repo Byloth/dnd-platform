@@ -3,7 +3,7 @@
  * a bundle), and the site's content directory served by endpoints (the SRD from `build/content/`).
  */
 
-import { readdirSync, readFileSync, statSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { join, relative, resolve } from "node:path";
 
 import { zipSync } from "fflate";
@@ -53,6 +53,11 @@ export function bundleOf(source: PackageSource, name: string): PackageFile
 }
 
 export const SRD = JSON.parse(readFileSync(resolve(ROOT, "build", "content", "srd51.json"), "utf8")) as PackageSource;
+const ITALIAN_PATH = resolve(ROOT, "build", "content", "srd51-it.json");
+/** The Italian translation of the SRD (docs/phase-1/11), when built. */
+export const SRD_IT = existsSync(ITALIAN_PATH) ?
+    JSON.parse(readFileSync(ITALIAN_PATH, "utf8")) as PackageSource :
+    undefined;
 
 const _site = { published: true };
 
@@ -66,9 +71,22 @@ export function serveSite(): { publish: (published: boolean) => void }
     {
         const { version } = SRD.manifest;
 
-        return { packages: _site.published ? { srd51: { latest: version, versions: [version] } } : {} };
+        if (!_site.published) { return { packages: {} }; }
+        const italian = SRD_IT ?
+            {
+                "srd51-it": {
+                    latest: SRD_IT.manifest.version,
+                    versions: [SRD_IT.manifest.version],
+                    translation: { language: "it", of: ["srd51"] }
+                }
+
+            } :
+            {};
+
+        return { packages: { srd51: { latest: version, versions: [version] }, ...italian } };
     });
     registerEndpoint("/dnd-platform/content/srd51.json", () => SRD);
+    if (SRD_IT) { registerEndpoint("/dnd-platform/content/srd51-it.json", () => SRD_IT); }
 
     return { publish: (published: boolean): void => { _site.published = published; } };
 }

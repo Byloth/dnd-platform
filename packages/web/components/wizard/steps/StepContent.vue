@@ -19,10 +19,12 @@
 
     const name = (manifest: PackageManifest): string => localize(manifest.name, locale.value);
     const chosen = computed(() => new Set(wizard.character?.packages.map((p) => p.id) ?? []));
+    /** A translation is not a choice: the interface's language brings it (docs/phase-1/11). */
+    const choosable = computed(() => content.stored.filter((p) => p.manifest.kind !== "translation"));
 
     const toggle = (id: string, checked: boolean): void =>
     {
-        const stored = content.stored
+        const stored = choosable.value
             .filter((p) => (p.manifest.id === id ? checked : chosen.value.has(p.manifest.id)))
             .map((p) => ({ id: p.manifest.id, version: p.manifest.version }));
         void wizard.choosePackages(stored);
@@ -44,7 +46,7 @@
                     checked
                     disabled
                     :help-level="helpLevel" />
-        <ChoiceCard v-for="entry in content.stored"
+        <ChoiceCard v-for="entry in choosable"
                     :key="entry.manifest.id"
                     name="packages"
                     type="checkbox"

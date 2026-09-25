@@ -17,7 +17,24 @@
     // Read again on every visit: the store may have changed from another page (or another tab).
     await store.refresh();
 
-    const packages = computed((): PackageEntry[] => [...store.site, ...store.stored]);
+    // A translation is shown in the card of the package it translates, never as a package of its own
+    // (docs/phase-1/11): the interface's language brings it, nobody chooses it.
+    const packages = computed((): PackageEntry[] => [...store.site, ...store.stored]
+        .filter((p) => p.manifest.kind !== "translation"));
+    const translationsOf = (entry: PackageEntry): PackageEntry[] => store.stored
+        .filter((p) => (p.manifest.kind === "translation") && (p.manifest.dependencies[0]?.id === entry.manifest.id));
+    /** The languages a package speaks: its own, those of the site's translations of it, those of stored ones. */
+    const languagesOf = (entry: PackageEntry): string[] =>
+    {
+        const published = Object.values(store.index?.packages ?? {})
+            .filter((p) => p.translation?.of[0] === entry.manifest.id)
+            .map((p) => p.translation!.language);
+        const stored = translationsOf(entry).flatMap((x) => x.manifest.languages);
+
+        return [...new Set([...entry.manifest.languages, ...published, ...stored])];
+    };
+    const languageName = (code: string): string =>
+        (useNuxtApp().$i18n.te(`packages.languages.${code}`) ? t(`packages.languages.${code}`) : code);
 
     const name = (manifest: PackageManifest): string =>
     {
@@ -228,6 +245,12 @@
                             {{ t("packages.list.entries", entry.entities) }}
                         </dd>
                         <dt class="package-card__term">
+                            {{ t("packages.list.languages") }}
+                        </dt>
+                        <dd class="package-card__value">
+                            {{ languagesOf(entry).map(languageName).join(", ") }}
+                        </dd>
+                        <dt class="package-card__term">
                             {{ t("packages.list.sources") }}
                         </dt>
                         <dd class="package-card__value">
@@ -238,6 +261,40 @@
                             </ul>
                         </dd>
                     </dl>
+
+                    <ul v-if="translationsOf(entry).length" class="package-card__translations">
+                        <li v-for="translation in translationsOf(entry)"
+                            :key="keyOf(translation)"
+                            class="package-card__translation">
+                            <span>
+                                <FontAwesome icon="globe" aria-hidden="true" />
+                                {{ t("packages.list.translation", {
+                                    language: translation.manifest.languages.map(languageName).join(", "),
+                                    file: translation.fileName ?? translation.manifest.id
+                                }) }}
+                            </span>
+                            <AppButton v-if="confirming !== keyOf(translation)"
+                                       outline
+                                       small
+                                       theme="danger"
+                                       @click="confirming = keyOf(translation)">
+                                {{ t("packages.remove.action") }}
+                            </AppButton>
+                            <span v-else class="package-card__actions">
+                                <AppButton theme="danger"
+                                           small
+                                           @click="remove(translation)">
+                                    {{ t("packages.remove.yes") }}
+                                </AppButton>
+                                <AppButton outline
+                                           small
+                                           theme="secondary"
+                                           @click="confirming = undefined">
+                                    {{ t("packages.remove.no") }}
+                                </AppButton>
+                            </span>
+                        </li>
+                    </ul>
 
                     <footer v-if="entry.origin === 'file'" class="package-card__footer">
                         <p v-if="inUse[keyOf(entry)]?.length"
@@ -563,6 +620,25 @@
             list-style: none;
             margin: 0;
             padding: 0;
+        }
+
+        &__translations
+        {
+            border-top: 1px solid var(--color-border);
+            display: grid;
+            gap: var(--space-2);
+            list-style: none;
+            margin: var(--space-3) 0 0;
+            padding: var(--space-3) 0 0;
+        }
+
+        &__translation
+        {
+            align-items: center;
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-2) var(--space-3);
+            justify-content: space-between;
         }
 
         &__footer

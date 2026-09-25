@@ -47,7 +47,7 @@
             throw error;
         }
 
-    }, { watch: [id] });
+    }, { watch: [id, locale] });
 
     useHead({
         title: () =>

@@ -33,7 +33,10 @@ const DEMOS = ["cleric-l5", "wizard-l5", "rogue-l5", "barbarian-l5", "multiclass
 mkdirSync(OUT, { recursive: true });
 const cli = resolve(ROOT, "packages", "cli", "dist", "index.js");
 const srd51 = resolve(ROOT, "packages", "content", "srd51");
-execFileSync("node", [cli, "build", "--out", OUT, srd51], { cwd: ROOT, stdio: "inherit" });
+// Its Italian translation, when present: loaded only by the Italian interface (docs/phase-1/11).
+const srd51It = resolve(ROOT, "packages", "content", "srd51-it");
+const built = existsSync(resolve(srd51It, "package.yaml")) ? [srd51, srd51It] : [srd51];
+execFileSync("node", [cli, "build", "--out", OUT, ...built], { cwd: ROOT, stdio: "inherit" });
 
 // Every release, and an index of the versions per package.
 const RELEASES = resolve(ROOT, "releases", "content");
@@ -47,11 +50,19 @@ for (const file of existsSync(RELEASES) ? readdirSync(RELEASES) : [])
     copyFileSync(resolve(RELEASES, file), resolve(OUT, file));
     versions.set(match[1]!, [...(versions.get(match[1]!) ?? []), match[2]!]);
 }
-const index: Record<string, { latest: string, versions: string[] }> = {};
+interface IndexEntry { latest: string, versions: string[], translation?: { language: string, of: string[] } }
+const index: Record<string, IndexEntry> = {};
 for (const [id, list] of [...versions].sort(([a], [b]) => (a < b ? -1 : 1)))
 {
     const sorted = list.sort(compareVersions);
     index[id] = { latest: sorted.at(-1)!, versions: sorted };
+    const { manifest } = JSON.parse(readFileSync(resolve(RELEASES, `${id}@${sorted.at(-1)!}.json`), "utf8")) as {
+        manifest: { kind: string, defaultLanguage: string, dependencies: { id: string }[] };
+    };
+    if (manifest.kind === "translation")
+    {
+        index[id].translation = { language: manifest.defaultLanguage, of: manifest.dependencies.map((d) => d.id) };
+    }
 
     const changelog = resolve(ROOT, "packages", "content", id, "CHANGELOG.md");
     if (existsSync(changelog)) { copyFileSync(changelog, resolve(OUT, `${id}.changelog.md`)); }

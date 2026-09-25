@@ -129,6 +129,12 @@ export const useWizardStore = defineStore("wizard", () =>
         sources.value = await useContentStore().sources(ids);
     };
 
+    // The interface's language brings its translation packages: a change of language reloads the sources.
+    watch(() => useNuxtApp().$i18n.locale.value, () =>
+    {
+        if (character.value) { void _loadSources(); }
+    });
+
     /** Writes the draft now; pending changes are written first. */
     const save = async (): Promise<void> =>
     {

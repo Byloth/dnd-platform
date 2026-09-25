@@ -4,14 +4,15 @@
  * - first load without content, under 300 KB: `index.html`, the stylesheets and modules it links (entry and
  *   modulepreloads), and the latin files of the bundled type families (already compressed woff2, counted as they
  *   are; the other subsets are fetched only for the characters they cover);
- * - the SRD bundle, `content/srd51.json`, under 500 KB.
+ * - the SRD bundle, `content/srd51.json`, under 500 KB; its Italian translation, `content/srd51-it.json`, under the
+ *   same budget (loaded only by the Italian interface, in addition to the SRD).
  * Every JavaScript and CSS file of the site is reported too, not budgeted. No tolerance: exit code 1 when a
  * budget is exceeded. Run after `nuxt generate`.
  *
  *   node scripts/check-budgets.ts
  */
 
-import { readdirSync, readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { gzipSync } from "node:zlib";
 
@@ -42,12 +43,16 @@ const files = [...new Set([...linked, ...fonts])];
 const firstLoad = gzipped(resolve(PUBLIC, "index.html")) +
     files.reduce((total, file) => total + gzipped(resolve(ASSETS, file)), 0);
 const srd = gzipped(resolve(PUBLIC, "content", "srd51.json"));
+const italian = resolve(PUBLIC, "content", "srd51-it.json");
 const everything = readdirSync(ASSETS).filter((file) => /\.(?:js|css)$/.test(file))
     .reduce((total, file) => total + gzipped(resolve(ASSETS, file)), 0);
 
 const rows: [string, number, number | undefined][] = [
     [`First load (index.html and ${files.length} files)`, firstLoad, BUDGETS.firstLoad],
     ["SRD bundle (content/srd51.json)", srd, BUDGETS.srd],
+    ...(existsSync(italian) ?
+        [["Italian SRD bundle (content/srd51-it.json)", gzipped(italian), BUDGETS.srd] as [string, number, number]] :
+        []),
     ["Every JavaScript and CSS file of the site", everything, undefined]
 ];
 
