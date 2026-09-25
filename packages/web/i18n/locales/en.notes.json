@@ -276,12 +276,14 @@
       "methods": {
         "standard-array": "Method name (DEC-15 default).",
         "point-buy": "Method name.",
-        "roll": "Method name."
+        "roll": "Method name.",
+        "manual": "Name of the fourth method, shown only for a character whose scores were typed as they are (e.g. an imported one)."
       },
       "hints": {
         "standard-array": "One line under the switch explaining the method.",
         "point-buy": "One line under the switch explaining the method.",
-        "roll": "One line under the switch explaining how to roll."
+        "roll": "One line under the switch explaining how to roll.",
+        "manual": "Under the methods, for the typed scores."
       },
       "rolls": "Heading of the six roll inputs.",
       "roll": "Label of one roll input. Parameter: {n}.",
@@ -420,6 +422,11 @@
           "musical-instruments": "Step 7 (equipment): label or phrase; keep {placeholders}.",
           "melee-weapons": "Step 7 (equipment): label or phrase; keep {placeholders}."
         }
+      },
+      "kept": {
+        "title": "Heading of step 7 when editing a stored character: the items it owns.",
+        "text": "Under it: what can be done with the list.",
+        "again": "Replaces the owned list with the class and background's starting equipment, chosen again."
       }
     },
     "personality": {
@@ -482,6 +489,12 @@
         "heading": "When an edit draft of this character is found in the browser.",
         "text": "Explains the two buttons below (the same as for a new character's draft)."
       }
+    },
+    "reset": {
+      "title": "While editing a stored character: a species, class or background change would forget answers.",
+      "text": "Before the list of the choices it forgets (e.g. \"Cleric, Skills\").",
+      "confirm": "Makes the change.",
+      "cancel": "Keeps the current choice."
     }
   }
 }

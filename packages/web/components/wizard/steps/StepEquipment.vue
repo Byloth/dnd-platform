@@ -12,7 +12,8 @@
      * option groups as radios, a filter as a menu of the items it allows; the granted items, each removable; a
      * pack shown with what it holds, since it is unpacked into the equipment; the background's words for what the
      * data does not carry; items added from a shop; what is equipped; the coins, five fields beside the suggested
-     * purse (the grants' gold, plus removed items, minus added ones).
+     * purse (the grants' gold, plus removed items, minus added ones). A character reopened for editing keeps its
+     * own list: its items can be removed, equipped and added to, or replaced by the starting equipment chosen again.
      */
     type RefWithQuantity = NonNullable<EquipmentGrant["fixed"]>[number];
     type Coin = "copper" | "silver" | "electrum" | "gold" | "platinum";
@@ -23,6 +24,7 @@
 
     const tools = computed(() => (wizard.packageSet ? useEquipment(wizard.packageSet, locale.value) : undefined));
     const character = computed(() => wizard.character);
+    const kept = computed(() => wizard.keptEquipment);
 
     const groups = computed(() => (tools.value && character.value ?
         tools.value.groups(character.value, wizard.equipment) :
@@ -115,13 +117,31 @@
 
     onMounted(() =>
     {
-        if (character.value && !character.value.state.currency) { wizard.useSuggestedCoins(); }
+        if (character.value && !character.value.state.currency && !kept.value) { wizard.useSuggestedCoins(); }
     });
 </script>
 
 <template>
     <div class="step-equipment">
-        <section v-if="groups.some((g) => g.source === 'class')"
+        <section v-if="kept"
+                 class="step-equipment__section"
+                 aria-labelledby="equipment-kept">
+            <h2 id="equipment-kept" class="step-equipment__title">
+                {{ t("wizard.equipment.kept.title") }}
+            </h2>
+            <div class="step-equipment__suggestion">
+                <p class="step-equipment__hint">
+                    {{ t("wizard.equipment.kept.text") }}
+                </p>
+                <AppButton theme="secondary"
+                           outline
+                           small
+                           @click="wizard.chooseEquipmentAgain()">
+                    {{ t("wizard.equipment.kept.again") }}
+                </AppButton>
+            </div>
+        </section>
+        <section v-if="!kept && groups.some((g) => g.source === 'class')"
                  class="step-equipment__section"
                  aria-labelledby="equipment-class">
             <h2 id="equipment-class" class="step-equipment__title">
@@ -166,7 +186,7 @@
             </fieldset>
         </section>
 
-        <section v-if="fixed.length"
+        <section v-if="!kept && fixed.length"
                  class="step-equipment__section"
                  aria-labelledby="equipment-fixed">
             <h2 id="equipment-fixed" class="step-equipment__title">
@@ -237,7 +257,7 @@
                     </AppButton>
                 </li>
             </ul>
-            <ul v-if="wizard.equipment.added.length" class="step-equipment__list">
+            <ul v-if="!kept && wizard.equipment.added.length" class="step-equipment__list">
                 <li v-for="added in wizard.equipment.added"
                     :key="added.item"
                     class="step-equipment__row">
@@ -276,6 +296,14 @@
                         {{ t("wizard.equipment.equipped") }}
                         <span class="step-equipment__sr">{{ name(entry.item) }}</span>
                     </label>
+                    <AppButton v-if="kept"
+                               theme="secondary"
+                               outline
+                               small
+                               @click="wizard.dropItem(entry.item)">
+                        {{ t("wizard.equipment.remove") }}
+                        <span class="step-equipment__sr">{{ name(entry.item) }}</span>
+                    </AppButton>
                 </li>
             </ul>
         </section>
@@ -284,7 +312,7 @@
             <h2 id="equipment-coins" class="step-equipment__title">
                 {{ t("wizard.equipment.coins.title") }}
             </h2>
-            <div class="step-equipment__suggestion">
+            <div v-if="!kept" class="step-equipment__suggestion">
                 <p class="step-equipment__suggested">
                     {{ t("wizard.equipment.coins.suggested", { amount: money(wizard.suggestedCopper) }) }}
                 </p>

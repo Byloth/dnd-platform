@@ -5,7 +5,8 @@
 
     /**
      * Step 6: every choice the derived sheet asks at this level (languages, tools, skills, expertise, feature
-     * options, cantrips and spells, a subclass), answered or not, so the archetype's answers show and can change.
+     * options, cantrips and spells), answered or not, so the archetype's answers show and can change; the
+     * subclass is step 3's.
      * Ordered by where they come from: species, class, background.
      */
     const { wizard, helpLevel } = useWizardContext();
@@ -39,7 +40,8 @@
         if (!names) { return []; }
 
         return [...list]
-            .filter((c) => c.of !== "asi-or-feat")
+            // The subclass is chosen with the class, in step 3.
+            .filter((c) => (c.of !== "asi-or-feat") && (c.of !== "subclass"))
             .sort((a, b) => rank(a.owner) - rank(b.owner))
             .map((choice) =>
             {

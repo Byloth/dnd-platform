@@ -276,12 +276,14 @@
       "methods": {
         "standard-array": "Standard array",
         "point-buy": "Point buy",
-        "roll": "Roll"
+        "roll": "Roll",
+        "manual": "Typed"
       },
       "hints": {
         "standard-array": "Six fixed numbers to share among the abilities: pick where each one goes.",
         "point-buy": "Every score starts at 8 and costs points to raise; spend them as you like.",
-        "roll": "Roll 4d6 six times, drop the lowest die each time, and type the six totals."
+        "roll": "Roll 4d6 six times, drop the lowest die each time, and type the six totals.",
+        "manual": "The scores as they were entered, one field per ability; type any score from 1 to 30."
       },
       "rolls": "Your rolls",
       "roll": "Roll {n}",
@@ -420,6 +422,11 @@
           "musical-instruments": "A musical instrument",
           "melee-weapons": "A melee weapon"
         }
+      },
+      "kept": {
+        "title": "Your equipment",
+        "text": "What your character owns now. Remove items, add them from the shop below, or start again from what your class and background give.",
+        "again": "Choose the starting equipment again"
       }
     },
     "personality": {
@@ -482,6 +489,12 @@
         "heading": "You were changing this character",
         "text": "Your changes are kept in this browser. Go on with them, or start again from the character as it is saved."
       }
+    },
+    "reset": {
+      "title": "This change resets some choices",
+      "text": "These answers belong to what you are replacing and will be forgotten:",
+      "confirm": "Change and reset them",
+      "cancel": "Keep what I have"
     }
   }
 }

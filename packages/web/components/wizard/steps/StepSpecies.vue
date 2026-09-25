@@ -1,9 +1,15 @@
 <script lang="ts" setup>
     import ChoiceCard from "@/components/wizard/ChoiceCard.vue";
+    import ResetNotice from "@/components/wizard/ResetNotice.vue";
 
     /** Step 2: the species, recommended one first, then its subspecies when it has any. */
     const { wizard, entities, helpLevel, recommended } = useWizardContext();
     const { t } = useI18n();
+    const { pending, revision, change, confirm, cancel } = useResetConfirmation();
+    const pickSpecies = (id: string): void =>
+        change(() => wizard.chooseSpecies(id), [choices.value?.species, choices.value?.subspecies]);
+    const pickSubspecies = (id: string): void =>
+        change(() => wizard.chooseSubspecies(id), [choices.value?.subspecies]);
 
     const choices = computed(() => wizard.character?.choices);
     const species = computed(() => recommendedFirst(entities.value?.list("species") ?? [], "species"));
@@ -21,7 +27,11 @@
 </script>
 
 <template>
-    <fieldset class="wizard-options">
+    <ResetNotice v-if="pending"
+                 :names="pending.names"
+                 @confirm="confirm"
+                 @cancel="cancel" />
+    <fieldset :key="`options-${revision}`" class="wizard-options">
         <legend class="wizard-options__legend">
             {{ t("wizard.steps.species") }}
         </legend>
@@ -34,9 +44,11 @@
                     :checked="choices?.species === entity.id"
                     :recommended="recommended('species', entity.id)"
                     :help-level="helpLevel"
-                    @select="wizard.chooseSpecies" />
+                    @select="pickSpecies" />
     </fieldset>
-    <fieldset v-if="subspecies.length" class="wizard-options wizard-options--nested">
+    <fieldset v-if="subspecies.length"
+              :key="`subspecies-${revision}`"
+              class="wizard-options wizard-options--nested">
         <legend class="wizard-options__title">
             {{ t("wizard.species.subspecies") }}
         </legend>
@@ -49,6 +61,6 @@
                     :checked="choices?.subspecies === entity.id"
                     :recommended="recommended('subspecies', entity.id)"
                     :help-level="helpLevel"
-                    @select="wizard.chooseSubspecies" />
+                    @select="pickSubspecies" />
     </fieldset>
 </template>

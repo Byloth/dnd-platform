@@ -60,7 +60,7 @@
 
                 const text = t("wizard.review.issues.choice", { owner: root, choice: title, n: left }, left);
 
-                return { step: "choices", text: text };
+                return { step: choice.of === "subclass" ? "class" : "choices", text: text };
             });
         const others = sheet.warnings.filter((w) => w.code !== "W_UNANSWERED_CHOICE")
             .map((w): Issue => ((w.code === "W_MISSING_ENTITY") || (w.package !== undefined) ?

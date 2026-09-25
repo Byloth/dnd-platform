@@ -183,6 +183,10 @@ export const useWizardStore = defineStore("wizard", () =>
         return false;
     };
 
+    /** The keys of the answers that belong to these entities (what replacing them would forget). */
+    const answersOf = (roots: readonly (string | undefined)[]): string[] =>
+        Object.keys(character.value?.choices.answers ?? {}).filter((key) => _ownedBy(key, roots));
+
     const _withoutAnswersOf = (answers: Choices["answers"], roots: readonly (string | undefined)[]) =>
     {
         const kept = Object.entries(answers ?? {}).filter(([key]) => !_ownedBy(key, roots));
@@ -479,6 +483,14 @@ export const useWizardStore = defineStore("wizard", () =>
         }
 
         _scores((scores) => defined({ method: method, base: next, bonuses: scores.bonuses }));
+    };
+
+    /** A score typed as it is (the `manual` method), within 1 to 30. */
+    const setScore = (ability: string, score: number): void =>
+    {
+        if (!Number.isInteger(score) || (score < 1) || (score > 30)) { return; }
+
+        _scores((scores) => ({ ...scores, method: "manual", base: { ..._base(), [ability]: score } }));
     };
 
     /** An ability takes a value of the array or of the rolls; the ability that held it takes the old one. */
@@ -794,11 +806,13 @@ export const useWizardStore = defineStore("wizard", () =>
         recommendedOrder,
         chooseMethod,
         assign,
+        setScore,
         setRolls,
         buy,
         adjust,
         dealRecommended,
         answer,
+        answersOf,
         chooseOption,
         pick,
         removeSlot,

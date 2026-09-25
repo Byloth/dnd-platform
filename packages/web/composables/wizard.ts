@@ -1,3 +1,5 @@
+import type { ChoiceView } from "@byloth/dnd-platform-engine";
+
 import type { StepId } from "@/stores/wizard";
 
 /**
@@ -24,6 +26,16 @@ export function useWizardContext()
     return { wizard, entities, helpLevel, recommended };
 }
 
+/** The choices the draft's sheet asks. */
+function _sheetChoices(): readonly ChoiceView[]
+{
+    const wizard = useWizardStore();
+    if (!wizard.character || !wizard.sources.length) { return []; }
+
+    return useEngine().sheet(wizard.character, wizard.sources, { language: useNuxtApp().$i18n.locale.value })
+        .sheet.choices;
+}
+
 /** Whether a step has what it asks for; the review never is: saving it leaves the wizard. */
 export function stepDone(step: StepId): boolean
 {
@@ -45,7 +57,9 @@ export function stepDone(step: StepId): boolean
 
             return !hasSubspecies || (choices.subspecies !== undefined);
         }
-        case "class": return (choices.classes?.length ?? 0) > 0;
+        case "class":
+            return ((choices.classes?.length ?? 0) > 0) &&
+                _sheetChoices().every((c) => c.answered || (c.of !== "subclass"));
         case "background": return choices.background !== undefined;
         case "abilities":
         {
@@ -54,14 +68,8 @@ export function stepDone(step: StepId): boolean
             return (wizard.packageSet?.ruleset.abilities ?? []).every((a) => base[a] !== undefined);
         }
         case "choices":
-        {
-            if (!wizard.character || !wizard.sources.length) { return false; }
-            const sheet = useEngine().sheet(wizard.character, wizard.sources, {
-                language: useNuxtApp().$i18n.locale.value
-            }).sheet;
-
-            return sheet.choices.every((c) => c.answered || (c.of === "asi-or-feat"));
-        }
+            return Boolean(wizard.sources.length) &&
+                _sheetChoices().every((c) => c.answered || (c.of === "asi-or-feat") || (c.of === "subclass"));
         case "equipment": return wizard.character?.state.currency !== undefined;
         case "personality": return Boolean(wizard.character?.name.trim());
         default: return false;

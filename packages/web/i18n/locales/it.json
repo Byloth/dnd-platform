@@ -276,12 +276,14 @@
       "methods": {
         "standard-array": "Serie standard",
         "point-buy": "Acquisto a punti",
-        "roll": "Tiro"
+        "roll": "Tiro",
+        "manual": "Inseriti a mano"
       },
       "hints": {
         "standard-array": "Sei numeri fissi da dividere tra le caratteristiche: scegli dove va ciascuno.",
         "point-buy": "Ogni punteggio parte da 8 e alzarlo costa punti; spendili come vuoi.",
-        "roll": "Tira 4d6 sei volte, scarta ogni volta il dado più basso, e scrivi i sei totali."
+        "roll": "Tira 4d6 sei volte, scarta ogni volta il dado più basso, e scrivi i sei totali.",
+        "manual": "I punteggi come sono stati inseriti, un campo per caratteristica; scrivi un punteggio da 1 a 30."
       },
       "rolls": "I tuoi tiri",
       "roll": "Tiro {n}",
@@ -420,6 +422,11 @@
           "musical-instruments": "Uno strumento musicale",
           "melee-weapons": "Un'arma da mischia"
         }
+      },
+      "kept": {
+        "title": "Il tuo equipaggiamento",
+        "text": "Ciò che il personaggio possiede ora. Togli oggetti, aggiungili dal negozio qui sotto, o ricomincia da ciò che danno la classe e il background.",
+        "again": "Scegli di nuovo l'equipaggiamento iniziale"
       }
     },
     "personality": {
@@ -482,6 +489,12 @@
         "heading": "Stavi modificando questo personaggio",
         "text": "Le modifiche sono conservate in questo browser. Continua da lì, o ricomincia dal personaggio com'è salvato."
       }
+    },
+    "reset": {
+      "title": "Questa modifica azzera alcune scelte",
+      "text": "Queste risposte appartengono a ciò che stai sostituendo e andranno perse:",
+      "confirm": "Cambia e azzerale",
+      "cancel": "Tieni quello che ho"
     }
   }
 }

@@ -10,25 +10,25 @@
      * by default, point buy and roll as the other two methods; for the array and the rolls, one menu per ability
      * that swaps a value with the ability holding it, so a value never appears twice. Every row shows the bonuses
      * of species and traits and the total with its modifier, from the derived sheet. The player's own adjustment
-     * of a score sits behind "Manual adjustments", open for an expert.
+     * of a score sits behind "Manual adjustments", open for an expert. A character whose scores were typed as they
+     * are (the `manual` method, e.g. one reopened for editing) shows them as six fields, a fourth method.
      */
     const { wizard, entities, helpLevel } = useWizardContext();
     const { t, locale } = useI18n();
 
-    type Method = "standard-array" | "point-buy" | "roll";
-    const METHODS: Method[] = ["standard-array", "point-buy", "roll"];
+    type Method = "standard-array" | "point-buy" | "roll" | "manual";
+    const METHODS: Method[] = ["standard-array", "point-buy", "roll", "manual"];
 
     const set = computed(() => wizard.packageSet);
     const abilities = computed(() => set.value?.ruleset.abilities ?? []);
     const methods = computed(() => set.value?.ruleset.abilityScores);
     const available = computed(() => METHODS.filter((m) => (m === "roll") ||
+        ((m === "manual") && (scores.value?.method === "manual")) ||
         ((m === "standard-array") && methods.value?.standardArray?.length) ||
         ((m === "point-buy") && methods.value?.pointBuy)));
 
     const scores = computed(() => wizard.character?.choices.abilityScores);
-    const method = computed((): Method => scores.value?.method === "manual" ?
-        "standard-array" :
-        (scores.value?.method ?? "standard-array"));
+    const method = computed((): Method => scores.value?.method ?? "standard-array");
     const base = computed(() => scores.value?.base ?? {});
     const bonuses = computed(() => scores.value?.bonuses ?? {});
 
@@ -91,6 +91,8 @@
 
     const onAssign = (ability: string, event: Event): void =>
         wizard.assign(ability, Number((event.target as HTMLSelectElement).value));
+    const onType = (ability: string, event: Event): void =>
+        wizard.setScore(ability, Math.trunc(Number((event.target as HTMLInputElement).value)));
     const onAdjust = (ability: string, event: Event): void =>
     {
         const typed = Math.trunc(Number((event.target as HTMLInputElement).value));
@@ -149,7 +151,8 @@
                 <FontAwesome icon="star" aria-hidden="true" />
                 {{ t("wizard.abilities.primaryLegend") }}
             </p>
-            <AppButton theme="secondary"
+            <AppButton v-if="method !== 'manual'"
+                       theme="secondary"
                        outline
                        small
                        class="step-abilities__deal"
@@ -209,6 +212,19 @@
                             <small class="step-abilities__cost">
                                 {{ t("wizard.abilities.cost", { cost: costs[String(base[ability])] ?? 0 }) }}
                             </small>
+                        </template>
+                        <template v-else-if="method === 'manual'">
+                            <label class="step-abilities__sr" :for="`score-${ability}`">
+                                {{ t("wizard.abilities.scoreOf", { ability: name(ability) }) }}
+                            </label>
+                            <input :id="`score-${ability}`"
+                                   class="step-abilities__select step-abilities__typed"
+                                   type="number"
+                                   inputmode="numeric"
+                                   min="1"
+                                   max="30"
+                                   :value="base[ability]"
+                                   @change="onType(ability, $event)" />
                         </template>
                         <template v-else-if="values.length">
                             <label class="step-abilities__sr" :for="`score-${ability}`">

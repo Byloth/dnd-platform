@@ -12,6 +12,7 @@ import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import { mountSuspended } from "@nuxt/test-utils/runtime";
 
 import WizardPage from "@/pages/characters/new.vue";
+import EditPage from "@/pages/characters/[id]/edit.vue";
 
 import { byName } from "./accessibility";
 import { clearBrowserStorage, serveSite } from "./helpers";
@@ -549,6 +550,128 @@ describe("the creation wizard", () =>
             expect(wrapper.find("h1").text()).toBe("Riepilogo");
             expect(wrapper.text()).toContain("Il tuo personaggio non ha ancora un nome.");
             expect(wrapper.text()).not.toMatch(/wizard\.|sheet\.[a-z]/);
+        });
+    });
+
+    describe("editing a stored character, and the steps that serve it", () =>
+    {
+        async function healer(): Promise<string>
+        {
+            const wizard = useWizardStore();
+            await wizard.start();
+            wizard.chooseArchetype("srd51.archetype.steadfast-healer");
+            wizard.setName("Brother Alric");
+
+            return (await wizard.finish())!;
+        }
+
+        async function edit(id: string, step: string): Promise<VueWrapper>
+        {
+            _mounted = await mountSuspended(EditPage, {
+                route: `/characters/${id}/edit?step=${step}`,
+                attachTo: document.body
+            });
+            await until(() => _mounted!.find(".wizard-step, .wizard-page__resume").exists());
+            await settle();
+
+            return _mounted;
+        }
+
+        it("chooses the subclass with the class, and step 6 no longer asks it", async () =>
+        {
+            await useWizardStore().start();
+            useWizardStore().chooseArchetype(null);
+            useWizardStore().chooseClass("srd51.class.cleric");
+            const wrapper = await open("class");
+            await settle();
+
+            const domain = wrapper.find(".step-class__subclass");
+            expect(domain.find(".choice-group__title").text()).toBe("Subclass");
+            await domain.find("input[value='srd51.subclass.cleric.life-domain']").setValue(true);
+            await settle();
+            expect(useWizardStore().character?.choices.classes?.[0]?.subclass)
+                .toBe("srd51.subclass.cleric.life-domain");
+            expect(stepDone("class")).toBe(true);
+        });
+
+        it("opens at the asked step without the concept step, and saves the changes in place", async () =>
+        {
+            const id = await healer();
+            const wrapper = await edit(id, "personality");
+
+            expect(wrapper.find("h1").text()).toBe("Personality");
+            expect(byName(wrapper, "2. Concept")).toBeUndefined();
+            await wrapper.find(".step-personality select").setValue("neutral-good");
+            await settle();
+            byName(wrapper, "Next")!.click();
+            await settle();
+            byName(wrapper, "Save the changes")!.click();
+            await until(() => useRouter().currentRoute.value.name === "characters-id");
+
+            const stored = await useBrowserStorage().characters.list();
+            expect(stored).toHaveLength(1);
+            expect(stored[0]?.choices.alignment).toBe("neutral-good");
+        });
+
+        it("names the answers a class change would forget, and keeps the class when asked", async () =>
+        {
+            const id = await healer();
+            const wrapper = await edit(id, "class");
+
+            await wrapper.find("input[value='srd51.class.fighter']").setValue(true);
+            await settle();
+            expect(wrapper.find(".reset-notice").text()).toContain("Cleric, Skills");
+            expect(useWizardStore().character?.choices.classes?.[0]?.class).toBe("srd51.class.cleric");
+
+            byName(wrapper, "Keep what I have")!.click();
+            await settle();
+            expect(wrapper.find(".reset-notice").exists()).toBe(false);
+            expect(wrapper.find<HTMLInputElement>("input[value='srd51.class.cleric']").element.checked).toBe(true);
+
+            await wrapper.find("input[value='srd51.class.fighter']").setValue(true);
+            await settle();
+            byName(wrapper, "Change and reset them")!.click();
+            await settle();
+            expect(useWizardStore().character?.choices.classes?.[0]?.class).toBe("srd51.class.fighter");
+        });
+
+        it("keeps the owned items, and starts again from the class's equipment when asked", async () =>
+        {
+            const id = await healer();
+            const wrapper = await edit(id, "equipment");
+
+            expect(wrapper.find("#equipment-kept").text()).toBe("Your equipment");
+            expect(wrapper.find("#equipment-class").exists()).toBe(false);
+            byName(wrapper, "Remove Mace")!.click();
+            await settle();
+            const owns = (item: string): boolean =>
+                useWizardStore().character?.choices.equipment?.some((e) => e.item === item) ?? false;
+            expect(owns("srd51.item.mace")).toBe(false);
+
+            byName(wrapper, "Choose the starting equipment again")!.click();
+            await settle();
+            expect(wrapper.find("#equipment-class").exists()).toBe(true);
+            expect(owns("srd51.item.mace")).toBe(true);
+        });
+
+        it("shows typed scores as six fields", async () =>
+        {
+            const id = await healer();
+            const doc = await useBrowserStorage().characters.get(id);
+            const base = { str: 11, dex: 17, con: 14, int: 8, wis: 15, cha: 8 };
+            await useBrowserStorage().characters.put({
+                ...doc!,
+                choices: { ...doc!.choices, abilityScores: { method: "manual", base: base } }
+            });
+            const wrapper = await edit(id, "abilities");
+
+            const dex = wrapper.find<HTMLInputElement>("#score-dex");
+            expect(dex.element.value).toBe("17");
+            await dex.setValue("18");
+            await dex.trigger("change");
+            await settle();
+            expect(useWizardStore().character?.choices.abilityScores)
+                .toMatchObject({ method: "manual", base: { dex: 18 } });
         });
     });
 });
