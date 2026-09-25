@@ -117,7 +117,7 @@ Order: the integrity fixes first (they correct wrong behaviour), then the interf
 
 Done: the tasks of the three documents for this milestone. Release: none of its own; it ships with `v0.3.5` at the close of M1.5.
 
-Also in M1.4r, asked by the owner on 2026-09-25 and done that day: the usage statistics of DEC-22 ([12-analytics.md](12-analytics.md)). To do in M1.4r: "Roll for me" in step 5 ([04-character-creation.md](04-character-creation.md), task 3).
+Also in M1.4r, asked by the owner on 2026-09-25 and done that day: the usage statistics of DEC-22 ([12-analytics.md](12-analytics.md)). To do in M1.4r: "Roll for me" in step 5 ([04-character-creation.md](04-character-creation.md), task 3); dropping package files on the packages page, which looks like a drop zone but only has the file picker (owner, 2026-09-25; [09-interface-revisions.md](09-interface-revisions.md)).
 
 ### M1.5 — Character store, export and import (≈ 2 sessions)
 

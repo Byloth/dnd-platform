@@ -136,6 +136,17 @@ The plan:
 - Focus: after a step change the step's `h1` receives focus (`tabindex="-1"`), so a screen reader announces the new step. This also answers an open need of the manual pass.
 - `prefers-reduced-motion: reduce` turns every one of these transitions off. So does the global rule, if the tokens already carry it; check `_tokens.scss` and add it where it is missing.
 
+### The packages page: dropping files (owner, 2026-09-25)
+
+The upload area of `pages/packages/index.vue` looks like a drop zone (the `file-picker` card with its icon and hint), but it is only a `<label>` around an `<input type="file">`: files dropped on it are ignored, and the browser may open them instead.
+
+The fix:
+- The card handles `dragenter`, `dragover`, `dragleave` and `drop`. A highlighted state (`file-picker--over`, border in the accent colour) shows while files are over it.
+- `preventDefault` on `dragover` and `drop` of the whole page, so a file dropped next to the card does not navigate away.
+- The dropped files go through the same `store.loadFiles` as the picker. Anything not `.zip` or `.json` is refused with a status line, as a wrong file chosen by the picker is.
+- The hint says both ways: "Choose a file or drop it here". A screen reader keeps the picker, since dropping is a pointer-only extra.
+- Tests: a synthetic `drop` event with a zip of `fixtures/packages/homebrew-feline` loads it; a dropped `.txt` is refused; `dragover` sets the highlighted state and `dragleave` clears it.
+
 ## Tasks
 
 Each is a commit. Tests and lint pass through the hooks.
@@ -147,7 +158,8 @@ Each is a commit. Tests and lint pass through the hooks.
 5. **Demo characters disclosure** on the characters page; tests with and without stored characters.
 6. **Sticky wizard bar**: the fixed footer, the page padding, `scroll-padding-bottom`; the expert page unchanged; tests that Back and Next exist once per step and that the bar is absent on the expert page.
 7. **Wizard transitions and focus**: the keyed step transition, the indicator transitions, focus on the step heading, reduced motion; tests of focus after "Next".
-8. **Docs**: 01-web-application (navigation and settings), 03-sheet-composer (units option), 04-character-creation (bar, transitions), 06-localisation (units replace "metres beside feet"); the workplan's M1.4r progress.
+8. **Dropping packages** on the packages page, as above.
+9. **Docs**: 01-web-application (navigation and settings), 03-sheet-composer (units option), 04-character-creation (bar, transitions), 06-localisation (units replace "metres beside feet"); the workplan's M1.4r progress.
 
 ## Tests
 
