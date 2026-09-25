@@ -117,6 +117,8 @@ Order: the integrity fixes first (they correct wrong behaviour), then the interf
 
 Done: the tasks of the three documents for this milestone. Release: none of its own; it ships with `v0.3.5` at the close of M1.5.
 
+Also in M1.4r, asked by the owner on 2026-09-25 and done that day: the usage statistics of DEC-22 ([12-analytics.md](12-analytics.md)).
+
 ### M1.5 — Character store, export and import (≈ 2 sessions)
 
 Tasks (from [02-content-and-character-stores.md](02-content-and-character-stores.md), [05-print-and-export.md](05-print-and-export.md)):

@@ -31,6 +31,7 @@ When a decision is taken, its status becomes **Decided**, the chosen option and 
 | DEC-19 | Strategy for authoring mechanical effects of SRD content (by hand, agent-assisted, hybrid) | 0 | Decided (2026-09-19, hybrid) |
 | DEC-20 | Package compatibility and content selection | 0 | Decided (2026-09-21) |
 | DEC-21 | Content versions and updates (editions, automatic fixes, published releases) | 1 | Decided (2026-09-23) |
+| DEC-22 | Usage statistics on the public site (Umami, opt-in consent) | 1 | Decided (2026-09-25) |
 
 ## Entries
 
@@ -179,6 +180,18 @@ When a decision is taken, its status becomes **Decided**, the chosen option and 
 - **Replaces:** the manual errata upgrade and the campaign minimum version of [10](10-progression.md).
 - **Unblocks:** fixing the base package without leaving players on wrong numbers; the changelog page and the update alert (M1.5); a site with no per-user storage of the SRD.
 - **Referenced by:** [05](05-content-model-and-sources.md), [10](10-progression.md), [phase-1/02-content-and-character-stores.md](phase-1/02-content-and-character-stores.md), [content-authoring.md](content-authoring.md).
+
+### DEC-22 — Usage statistics on the public site
+- **What:** whether the published site measures how it is used, with what, and under which consent; it touches the Phase 1 principle that the application makes no network request except for its own assets.
+- **Decided (2026-09-25, owner):** **Umami Cloud, loaded only after the visitor's opt-in consent, with anonymous page views and coarse events.**
+  - Consent follows the GDPR and the ePrivacy rules: a banner asks once; "Accept" and "Decline" have the same weight; nothing is loaded or sent before "Accept"; the answer is kept in the browser (not a cookie) and can be changed at any time, in the settings and on the privacy page. Withdrawing it switches Umami off at once.
+  - Umami is cookieless and keeps no profile; the script reports only from the published domain and honours Do Not Track.
+  - What is never sent: characters (names, choices, anything about them), anything the player types, the name, id or contents of any package loaded from a file. Events carry only public facts: a step name, an id of a package the site publishes, a count, a yes or no.
+  - In development nothing is loaded, whatever the answer; the banner is still shown there.
+  - A privacy page states what is collected, by whom, why, on which legal basis, and how to change the choice.
+- **Options known:** no statistics (the Phase 1 principle as written); a cookie-based service with a consent manager; a self-hosted Umami; the chosen model.
+- **Amends:** the privacy principle of [phase-1/02-content-and-character-stores.md](phase-1/02-content-and-character-stores.md): no network request except for the application's own assets and, only with consent, anonymous usage events.
+- **Referenced by:** [phase-1/01-web-application.md](phase-1/01-web-application.md), [phase-1/12-analytics.md](phase-1/12-analytics.md).
 
 ## How to add a decision
 

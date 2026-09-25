@@ -12,12 +12,14 @@
     "helpLevel": "Livello di aiuto",
     "theme": "Tema",
     "contrast": "Contrasto",
-    "newCharacter": "Nuovo personaggio"
+    "newCharacter": "Nuovo personaggio",
+    "statistics": "Statistiche d'uso"
   },
   "footer": {
     "attribution": "Quest'opera include materiale tratto dai System Reference Document 5.1 e 5.2 di Wizards of the Coast LLC, con licenza Creative Commons Attribution 4.0 International.",
     "madeBy": "Fatto con",
-    "by": "da"
+    "by": "da",
+    "privacy": "Privacy"
   },
   "errors": {
     "network": {
@@ -505,6 +507,54 @@
       "text": "Queste risposte appartengono a ciò che stai sostituendo e andranno perse:",
       "confirm": "Cambia e azzerale",
       "cancel": "Tieni quello che ho"
+    }
+  },
+  "consent": {
+    "title": "Statistiche d'uso",
+    "text": "Possiamo contare, in forma anonima, quali pagine e funzioni vengono usate, per migliorare lo strumento? Nessun cookie, niente sui tuoi personaggi, e puoi cambiare idea quando vuoi.",
+    "accept": "Accetta",
+    "decline": "Rifiuta",
+    "privacy": "Privacy",
+    "on": "Attive",
+    "off": "Disattive"
+  },
+  "privacy": {
+    "title": "Privacy",
+    "intro": "Che cosa questo sito sa di te, e che cosa non sa mai.",
+    "local": {
+      "title": "I tuoi personaggi restano con te",
+      "text": "I tuoi personaggi, i pacchetti che carichi e le tue impostazioni restano solo in questo browser. Non vengono mai inviati da nessuna parte: né a noi, né ad altri."
+    },
+    "statistics": {
+      "title": "Statistiche d'uso",
+      "text": "Solo se accetti, il sito conta come viene usato con Umami Cloud (Umami Software, Inc.), un servizio di statistiche rispettoso della privacy: nessun cookie, nessun tracciamento su altri siti, nessun profilo su di te. L'indirizzo IP serve a stimare il paese e non viene conservato.",
+      "collected": "Che cosa viene contato",
+      "never": "Che cosa non viene mai inviato",
+      "items": {
+        "pages": "le pagine visitate e la pagina da cui arrivi;",
+        "device": "il tipo di browser, di sistema operativo e di schermo;",
+        "country": "il paese, stimato dalla connessione;",
+        "events": "passaggi anonimi come \"un passo del wizard è stato completato\", \"è stata scelta una classe dell'SRD\", \"è stata aperta la spiegazione di un valore\" o \"è stata cambiata un'impostazione\"."
+      },
+      "nevers": {
+        "characters": "i nomi dei tuoi personaggi, le loro scelte o qualunque altra cosa che li riguardi;",
+        "packages": "il nome o il contenuto dei pacchetti che carichi da un file;",
+        "typed": "qualunque cosa tu scriva;",
+        "identity": "qualunque cosa ti identifichi."
+      },
+      "basis": "La base giuridica è il tuo consenso (GDPR, articolo 6, paragrafo 1, lettera a). Senza consenso, lo script delle statistiche non viene nemmeno caricato. Puoi revocarlo in qualsiasi momento, qui sotto o nelle impostazioni."
+    },
+    "choice": {
+      "title": "La tua scelta",
+      "state": {
+        "unset": "Non hai ancora scelto: non viene contato nulla.",
+        "granted": "Hai accettato le statistiche d'uso.",
+        "denied": "Hai rifiutato le statistiche d'uso: non viene contato nulla."
+      }
+    },
+    "contact": {
+      "title": "Contatti",
+      "text": "Per qualunque domanda sui tuoi dati, scrivi all'autore:"
     }
   }
 }

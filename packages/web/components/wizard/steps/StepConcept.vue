@@ -24,7 +24,12 @@
         });
     };
 
-    const select = (value: string): void => wizard.chooseArchetype(value === SKIP ? null : value);
+    const { track, publicId } = useAnalytics();
+    const select = (value: string): void =>
+    {
+        track("wizard-archetype", { archetype: value === SKIP ? "none" : publicId(value) });
+        wizard.chooseArchetype(value === SKIP ? null : value);
+    };
 </script>
 
 <template>

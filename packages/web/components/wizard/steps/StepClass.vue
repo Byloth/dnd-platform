@@ -28,8 +28,14 @@
     });
 
     const current = computed(() => wizard.character?.choices.classes?.[0]?.class);
+    const { track, publicId } = useAnalytics();
     const pickClass = (id: string): void =>
-        change(() => wizard.chooseClass(id), [current.value, wizard.character?.choices.classes?.[0]?.subclass]);
+        change(() =>
+        {
+            track("wizard-class", { class: publicId(id) });
+            wizard.chooseClass(id);
+
+        }, [current.value, wizard.character?.choices.classes?.[0]?.subclass]);
     const classes = computed(() => [...entities.value?.list("class") ?? []]
         .sort((a, b) => Number(!recommended("class", a.id)) - Number(!recommended("class", b.id))));
 

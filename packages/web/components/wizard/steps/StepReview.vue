@@ -90,7 +90,10 @@
         saving.value = "saving";
         try
         {
+            const mode = wizard.editing ? "edit" : "new";
+            const open = issues.value.length;
             const id = await wizard.finish();
+            if (id) { useAnalytics().track("wizard-save", { mode: mode, open: open }); }
             if (!id)
             {
                 saving.value = "idle";

@@ -5,6 +5,7 @@
             <slot></slot>
         </main>
         <SiteFooter />
+        <ConsentBanner />
     </div>
 </template>
 

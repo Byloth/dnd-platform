@@ -11,6 +11,17 @@ export default defineNuxtConfig({
     pageTransition: { name: "page", mode: "out-in" }
   },
   compatibilityDate: "2026-09-22",
+  runtimeConfig: {
+    public: {
+      // Usage statistics (DEC-22): loaded only after the visitor's consent, reported only from the published
+      // domain. An empty website id turns them off.
+      analytics: {
+        scriptUrl: "https://cloud.umami.is/script.js",
+        websiteId: "46e2a043-e364-4c30-8561-45e4e4797398",
+        domains: "byloth.github.io"
+      }
+    }
+  },
   // A small normalize and the two bundled type families
   // (no font from a third party, docs/phase-1/01-web-application.md).
   css: [

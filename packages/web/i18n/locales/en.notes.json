@@ -12,12 +12,14 @@
     "helpLevel": "Header navigation and settings; short labels, they share a phone-width bar.",
     "theme": "Header navigation and settings; short labels, they share a phone-width bar.",
     "contrast": "Header navigation and settings; short labels, they share a phone-width bar.",
-    "newCharacter": "Header link to the creation wizard."
+    "newCharacter": "Header link to the creation wizard.",
+    "statistics": "Settings panel field: usage statistics on or off."
   },
   "footer": {
     "attribution": "Legal attribution required by the SRD's licence (CC-BY-4.0); translate the sentence, keep the names and the licence name.",
     "madeBy": "Footer signature, before a heart icon: \"Made with ❤ by Byloth\".",
-    "by": "Footer signature, after the heart icon and before the author's name."
+    "by": "Footer signature, after the heart icon and before the author's name.",
+    "privacy": "Footer link to the privacy page."
   },
   "errors": {
     "network": {
@@ -505,6 +507,54 @@
       "text": "Before the list of the choices it forgets (e.g. \"Cleric, Skills\").",
       "confirm": "Makes the change.",
       "cancel": "Keeps the current choice."
+    }
+  },
+  "consent": {
+    "title": "The consent banner for usage statistics (DEC-22): equal weight for Accept and Decline, no pressure; also used in the settings and on the privacy page.",
+    "text": "The consent banner for usage statistics (DEC-22): equal weight for Accept and Decline, no pressure; also used in the settings and on the privacy page.",
+    "accept": "The consent banner for usage statistics (DEC-22): equal weight for Accept and Decline, no pressure; also used in the settings and on the privacy page.",
+    "decline": "The consent banner for usage statistics (DEC-22): equal weight for Accept and Decline, no pressure; also used in the settings and on the privacy page.",
+    "privacy": "The consent banner for usage statistics (DEC-22): equal weight for Accept and Decline, no pressure; also used in the settings and on the privacy page.",
+    "on": "The consent banner for usage statistics (DEC-22): equal weight for Accept and Decline, no pressure; also used in the settings and on the privacy page.",
+    "off": "The consent banner for usage statistics (DEC-22): equal weight for Accept and Decline, no pressure; also used in the settings and on the privacy page."
+  },
+  "privacy": {
+    "title": "The privacy page: plain words, legally accurate; keep the lists as sentence fragments ending with ';' or '.'.",
+    "intro": "The privacy page: plain words, legally accurate; keep the lists as sentence fragments ending with ';' or '.'.",
+    "local": {
+      "title": "The privacy page: plain words, legally accurate; keep the lists as sentence fragments ending with ';' or '.'.",
+      "text": "The privacy page: plain words, legally accurate; keep the lists as sentence fragments ending with ';' or '.'."
+    },
+    "statistics": {
+      "title": "The privacy page: plain words, legally accurate; keep the lists as sentence fragments ending with ';' or '.'.",
+      "text": "The privacy page: plain words, legally accurate; keep the lists as sentence fragments ending with ';' or '.'.",
+      "collected": "The privacy page: plain words, legally accurate; keep the lists as sentence fragments ending with ';' or '.'.",
+      "never": "The privacy page: plain words, legally accurate; keep the lists as sentence fragments ending with ';' or '.'.",
+      "items": {
+        "pages": "The privacy page: plain words, legally accurate; keep the lists as sentence fragments ending with ';' or '.'.",
+        "device": "The privacy page: plain words, legally accurate; keep the lists as sentence fragments ending with ';' or '.'.",
+        "country": "The privacy page: plain words, legally accurate; keep the lists as sentence fragments ending with ';' or '.'.",
+        "events": "The privacy page: plain words, legally accurate; keep the lists as sentence fragments ending with ';' or '.'."
+      },
+      "nevers": {
+        "characters": "The privacy page: plain words, legally accurate; keep the lists as sentence fragments ending with ';' or '.'.",
+        "packages": "The privacy page: plain words, legally accurate; keep the lists as sentence fragments ending with ';' or '.'.",
+        "typed": "The privacy page: plain words, legally accurate; keep the lists as sentence fragments ending with ';' or '.'.",
+        "identity": "The privacy page: plain words, legally accurate; keep the lists as sentence fragments ending with ';' or '.'."
+      },
+      "basis": "The privacy page: plain words, legally accurate; keep the lists as sentence fragments ending with ';' or '.'."
+    },
+    "choice": {
+      "title": "The privacy page: plain words, legally accurate; keep the lists as sentence fragments ending with ';' or '.'.",
+      "state": {
+        "unset": "The privacy page: plain words, legally accurate; keep the lists as sentence fragments ending with ';' or '.'.",
+        "granted": "The privacy page: plain words, legally accurate; keep the lists as sentence fragments ending with ';' or '.'.",
+        "denied": "The privacy page: plain words, legally accurate; keep the lists as sentence fragments ending with ';' or '.'."
+      }
+    },
+    "contact": {
+      "title": "The privacy page: plain words, legally accurate; keep the lists as sentence fragments ending with ';' or '.'.",
+      "text": "The privacy page: plain words, legally accurate; keep the lists as sentence fragments ending with ';' or '.'."
     }
   }
 }

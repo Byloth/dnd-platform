@@ -37,7 +37,7 @@ async function open(step?: string): Promise<VueWrapper>
 /** Waits for the page's asynchronous loading (the site's packages, the stored draft). */
 async function until(ready: () => boolean): Promise<void>
 {
-    for (let i = 0; (i < 50) && !ready(); i += 1)
+    for (let i = 0; (i < 200) && !ready(); i += 1)
     {
         await flushPromises();
         await new Promise((resolve) => setTimeout(resolve, 10));

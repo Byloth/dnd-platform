@@ -26,6 +26,8 @@ import CharactersPage from "@/pages/index.vue";
 import CharacterPage from "@/pages/characters/[id]/index.vue";
 import PackagesPage from "@/pages/packages/index.vue";
 import WizardPage from "@/pages/characters/new.vue";
+import PrivacyPage from "@/pages/privacy.vue";
+import ConsentBanner from "@/components/globals/ConsentBanner.vue";
 import EditPage from "@/pages/characters/[id]/edit.vue";
 
 import { accessibleTree, expectKeyboardOperable, expectNoAxeViolations } from "./accessibility";
@@ -279,6 +281,15 @@ describe.each(LANGUAGES)("accessibility, in %s", (language) =>
         await flushPromises();
         expect(wrapper.find(".confirm-dialog").exists()).toBe(true);
         await expectAccessible(wrapper);
+    });
+
+    it("the usage statistics banner and the privacy page", async () =>
+    {
+        await speak(language);
+        useConsentStore().reset();
+        await expectAccessible(await render(ConsentBanner));
+        _mounted?.unmount();
+        await expectAccessible(await render(PrivacyPage));
     });
 
     it("the navigation bar and the footer", async () =>

@@ -18,6 +18,7 @@
     const emit = defineEmits<{ toggleCollapsed: [], togglePinned: [] }>();
 
     const { t } = useI18n();
+    const { track } = useAnalytics();
     const headingId = computed(() => `title-${props.id}`);
 </script>
 
@@ -42,7 +43,8 @@
             </h2>
             <NuxtLink v-if="change"
                       :to="change"
-                      class="section-block__change">
+                      class="section-block__change"
+                      @click="track('sheet-change', { section: id })">
                 {{ t("sheetView.change") }}
                 <span class="section-block__sr">{{ title }}</span>
             </NuxtLink>

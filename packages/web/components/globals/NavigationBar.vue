@@ -20,6 +20,13 @@
     const theme = bind("theme");
     const contrast = bind("contrast");
 
+    // Usage statistics (DEC-22): on only with consent; switching off withdraws it.
+    const consent = useConsentStore();
+    const statistics = computed({
+        get: () => (consent.analytics === "granted" ? "on" : "off"),
+        set: (value: "on" | "off") => (value === "on" ? consent.grant() : consent.deny())
+    });
+
     const languages = computed(() => locales.value.map((l) => ({ code: l.code as Language, name: l.name ?? l.code })));
 </script>
 
@@ -90,6 +97,20 @@
                             </option>
                         </select>
                     </label>
+                    <label class="navigation-bar__field">
+                        <span class="navigation-bar__label">{{ t("nav.statistics") }}</span>
+                        <select v-model="statistics">
+                            <option value="on">
+                                {{ t("consent.on") }}
+                            </option>
+                            <option value="off">
+                                {{ t("consent.off") }}
+                            </option>
+                        </select>
+                    </label>
+                    <NuxtLink :to="{ name: 'privacy' }" class="navigation-bar__privacy">
+                        {{ t("consent.privacy") }}
+                    </NuxtLink>
                 </div>
             </details>
         </div>
@@ -208,6 +229,11 @@
                 background-color: var(--color-surface-sunken);
                 color: var(--color-ink);
             }
+        }
+
+        &__privacy
+        {
+            font-size: var(--text-sm);
         }
 
         &__panel

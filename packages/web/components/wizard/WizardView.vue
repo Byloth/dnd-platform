@@ -72,8 +72,11 @@
         return isStep(step) ? step : undefined;
     };
 
+    const { track } = useAnalytics();
+
     const go = (step: StepId): void =>
     {
+        track("wizard-step", { step: step });
         wizard.goTo(step);
         void router.replace({ query: { ...route.query, step: step } });
         if (expert.value) { scrollToSection(step); }
@@ -116,6 +119,7 @@
                 followAddress();
             }
             phase.value = "ready";
+            track("wizard-start", { mode: props.editing ? "edit" : "new", expert: expert.value });
             if (expert.value && asked()) { scrollToSection(wizard.step); }
         }
         catch

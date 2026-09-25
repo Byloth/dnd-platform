@@ -80,6 +80,7 @@
     {
         deleting.value = false;
         removed.value = true;
+        useAnalytics().track("sheet-delete");
         await nextTick();
         await useCharacters().remove(id.value);
         clearNuxtData(["characters", `character-${id.value}`]);

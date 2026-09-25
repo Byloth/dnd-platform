@@ -18,6 +18,11 @@
                 {{ t("footer.by") }}
                 <a href="https://www.byloth.dev/" rel="noopener">Byloth</a>
             </p>
+            <p class="site-footer__links">
+                <NuxtLink :to="{ name: 'privacy' }">
+                    {{ t("footer.privacy") }}
+                </NuxtLink>
+            </p>
         </div>
     </footer>
 </template>

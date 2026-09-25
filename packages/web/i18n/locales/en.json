@@ -12,12 +12,14 @@
     "helpLevel": "Help level",
     "theme": "Theme",
     "contrast": "Contrast",
-    "newCharacter": "New character"
+    "newCharacter": "New character",
+    "statistics": "Usage statistics"
   },
   "footer": {
     "attribution": "This work includes material taken from the System Reference Documents 5.1 and 5.2 by Wizards of the Coast LLC, licensed under the Creative Commons Attribution 4.0 International License.",
     "madeBy": "Made with",
-    "by": "by"
+    "by": "by",
+    "privacy": "Privacy"
   },
   "errors": {
     "network": {
@@ -505,6 +507,54 @@
       "text": "These answers belong to what you are replacing and will be forgotten:",
       "confirm": "Change and reset them",
       "cancel": "Keep what I have"
+    }
+  },
+  "consent": {
+    "title": "Usage statistics",
+    "text": "May we count, anonymously, which pages and features are used, to improve the tool? No cookies, nothing about your characters, and you can change your mind at any time.",
+    "accept": "Accept",
+    "decline": "Decline",
+    "privacy": "Privacy",
+    "on": "On",
+    "off": "Off"
+  },
+  "privacy": {
+    "title": "Privacy",
+    "intro": "What this site knows about you, and what it never knows.",
+    "local": {
+      "title": "Your characters stay with you",
+      "text": "Your characters, the packages you load and your settings are kept in this browser only. They are never sent anywhere: not to us, not to anyone."
+    },
+    "statistics": {
+      "title": "Usage statistics",
+      "text": "Only if you accept, the site counts how it is used with Umami Cloud (Umami Software, Inc.), a privacy-friendly analytics service: no cookies, no tracking across other sites, no profile of you. Your IP address is used to guess the country and is not stored.",
+      "collected": "What is counted",
+      "never": "What is never sent",
+      "items": {
+        "pages": "the pages visited and the page you came from;",
+        "device": "the kind of browser, operating system and screen;",
+        "country": "the country, guessed from the connection;",
+        "events": "anonymous steps such as \"a wizard step was completed\", \"a class of the SRD was chosen\", \"a value's explanation was opened\" or \"a setting was changed\"."
+      },
+      "nevers": {
+        "characters": "your characters' names, choices or anything else about them;",
+        "packages": "the name or contents of any package you load from a file;",
+        "typed": "anything you type;",
+        "identity": "anything that identifies you."
+      },
+      "basis": "The legal basis is your consent (GDPR, article 6(1)(a)). Without it, the statistics script is not even loaded. You can withdraw it at any time, below or in the settings."
+    },
+    "choice": {
+      "title": "Your choice",
+      "state": {
+        "unset": "You have not chosen yet: nothing is counted.",
+        "granted": "You accepted the usage statistics.",
+        "denied": "You declined the usage statistics: nothing is counted."
+      }
+    },
+    "contact": {
+      "title": "Contact",
+      "text": "For any question about your data, write to the author:"
     }
   }
 }

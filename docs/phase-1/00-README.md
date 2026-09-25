@@ -34,6 +34,7 @@ Requirements the owner fixed for the whole phase: the text sheet of `dnd derive`
 7. Tests, accessibility and performance gates, the newcomer usability test — [07-testing-accessibility-performance.md](07-testing-accessibility-performance.md).
 8. The work plan with milestones, confirmation points and the progress log — [08-workplan.md](08-workplan.md).
 9. Revisions from the owner's review of 2026-09-25 (milestone M1.4r): the interface — [09-interface-revisions.md](09-interface-revisions.md); the wizard's integrity — [10-wizard-integrity.md](10-wizard-integrity.md); the Italian content started early — [11-italian-content.md](11-italian-content.md).
+10. Usage statistics with opt-in consent (DEC-22) — [12-analytics.md](12-analytics.md).
 
 ## Milestones
 

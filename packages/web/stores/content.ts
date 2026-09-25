@@ -122,6 +122,10 @@ export const useContentStore = defineStore("content", () =>
             {
                 const { record, warnings } = await load(file);
                 entry.status = "done";
+                useAnalytics().track("package-load", {
+                    result: "loaded",
+                    private: record.source.manifest.redistributable === false
+                });
                 entry.manifest = record.source.manifest;
                 entry.diagnostics = warnings;
             }
@@ -129,6 +133,7 @@ export const useContentStore = defineStore("content", () =>
             {
                 if (error instanceof PackageRefusedException)
                 {
+                    useAnalytics().track("package-load", { result: "refused" });
                     entry.status = "refused";
                     entry.diagnostics = error.diagnostics;
                 }
@@ -157,7 +162,9 @@ export const useContentStore = defineStore("content", () =>
             .map((c) => c.name);
         if (usedBy.length > 0) { return { removed: false, usedBy: usedBy }; }
 
+        const record = await storage.packages.get(id, version);
         await storage.packages.remove(id, version);
+        useAnalytics().track("package-remove", { private: record?.source.manifest.redistributable === false });
         await refresh();
 
         return { removed: true, usedBy: [] };

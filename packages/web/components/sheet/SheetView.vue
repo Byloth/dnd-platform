@@ -108,7 +108,13 @@
             ...(props.translate ? { translate: props.translate } : {})
         });
     });
-    provide(OPEN_DRAWER, (value: DrawerRequest) => { request.value = value; });
+    const { track } = useAnalytics();
+    provide(OPEN_DRAWER, (value: DrawerRequest) =>
+    {
+        const path = Object.entries(props.composed.sheet.values).find(([, v]) => v === value.value)?.[0];
+        track("sheet-explain", { value: path ?? "other" });
+        request.value = value;
+    });
 </script>
 
 <template>
@@ -130,7 +136,8 @@
                 <AppButton theme="secondary"
                            outline
                            small
-                           :to="editAt('review')">
+                           :to="editAt('review')"
+                           @click="track('sheet-edit')">
                     <FontAwesome icon="feather" aria-hidden="true" />
                     {{ t("sheetView.edit") }}
                 </AppButton>

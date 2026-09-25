@@ -14,6 +14,8 @@ This document fixes the shape of the web application: the workspace package, the
 - **Everything runs in the browser.** The engine is imported as a library; package validation uses the same JSON Schemas and the same Ajv configuration as `dnd validate`, shared through the separate export `@byloth/dnd-platform-schema/validate` (so Ajv never enters a bundle that needs the types alone; M1.1); YAML is parsed in the browser with the same `yaml` library the CLI uses.
 - **The monorepo build stays `tsc --build` for the library packages;** the web package is excluded from the root project references and has its own scripts (`nuxt typecheck`, `nuxt generate`, `vitest` with the Nuxt environment), called from root scripts prefixed `web:`; root `lint` and `typecheck` chain the web ones, so the pre-commit hook and CI cover it. ESLint: the web package lints itself with `@byloth/eslint-config-nuxt` (its own `eslint.config.mjs`, ignoring through the repository's `.gitignore`); the root configuration ignores `packages/web/**`. The root Vitest configuration is a projects configuration: the Node project for schema, loader, engine, composer and cli; the Nuxt project for web (`environmentOptions.nuxt.rootDir` explicit, `happy-dom`).
 
+- **Usage statistics, with consent only** (DEC-22, owner 2026-09-25): Umami Cloud, loaded after an opt-in banner, never in development, never carrying a character or a package loaded from a file; a privacy page. See [12-analytics.md](12-analytics.md).
+
 ## Design
 
 ### Layout of `packages/web`

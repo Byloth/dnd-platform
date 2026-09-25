@@ -29,6 +29,11 @@ export default defineNuxtPlugin((nuxtApp) =>
         if (i18n.locale.value !== language) { void i18n.setLocale(language); }
 
     }, { immediate: true });
+    // A setting the player changes, for the usage statistics (nothing is sent without consent, DEC-22).
+    for (const name of ["language", "helpLevel", "theme", "contrast"] as const)
+    {
+        watch(() => preferences[name], (value) => useAnalytics().track("preference", { name: name, value: value }));
+    }
     // The document's language follows the interface's, for screen readers and hyphenation.
     watch(i18n.locale, (locale) => { root.lang = locale; }, { immediate: true });
 });
