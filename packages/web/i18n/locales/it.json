@@ -19,7 +19,10 @@
     "attribution": "Quest'opera include materiale tratto dai System Reference Document 5.1 e 5.2 di Wizards of the Coast LLC, con licenza Creative Commons Attribution 4.0 International.",
     "madeBy": "Fatto con",
     "by": "da",
-    "privacy": "Privacy"
+    "privacy": "Privacy",
+    "roadmap": "Roadmap",
+    "credits": "Riconoscimenti",
+    "support": "Offrimi una birra"
   },
   "errors": {
     "network": {
@@ -555,6 +558,129 @@
     "contact": {
       "title": "Contatti",
       "text": "Per qualunque domanda sui tuoi dati, scrivi all'autore:"
+    }
+  },
+  "roadmapPage": {
+    "title": "Roadmap",
+    "intro": "Che cosa fa già la piattaforma, che cosa arriva presto e che cosa arriverà più avanti. I piani possono cambiare strada facendo.",
+    "groups": {
+      "now": "Disponibile ora",
+      "next": "In arrivo",
+      "later": "Più avanti"
+    },
+    "items": {
+      "creation": {
+        "name": "Creazione guidata del personaggio",
+        "text": "Passo per passo, ogni scelta spiegata con parole semplici, senza nulla che ti blocchi."
+      },
+      "ideas": {
+        "name": "Idee da cui partire",
+        "text": "Scegli un'idea di personaggio e ogni passo si compila da solo, sempre modificabile."
+      },
+      "sheet": {
+        "name": "Una scheda che si spiega da sola",
+        "text": "Tocca un numero qualsiasi per vedere da dove viene."
+      },
+      "editing": {
+        "name": "I tuoi personaggi, nel tuo browser",
+        "text": "Modificali dalla loro scheda quando vuoi, o eliminali."
+      },
+      "expert": {
+        "name": "Un modulo rapido per esperti",
+        "text": "Tutti i passi su una pagina, senza spiegazioni in mezzo."
+      },
+      "languages": {
+        "name": "Italiano e inglese",
+        "text": "Tutta l'interfaccia in entrambe le lingue."
+      },
+      "books": {
+        "name": "I tuoi manuali, in privato",
+        "text": "Carica i contenuti dei manuali che possiedi; non lasciano mai il tuo dispositivo."
+      },
+      "settings": {
+        "name": "Impostazioni più chiare",
+        "text": "Una pagina di impostazioni, e metri e chili per chi li preferisce."
+      },
+      "italian": {
+        "name": "I contenuti in italiano",
+        "text": "Specie, classi, incantesimi e oggetti tradotti, non solo l'interfaccia."
+      },
+      "rolling": {
+        "name": "Tiri automatici",
+        "text": "Lascia che il sito tiri i punteggi di caratteristica, o continua a scrivere i tuoi dadi."
+      },
+      "files": {
+        "name": "Personaggi come file",
+        "text": "Salva un personaggio in un file e riprendilo su un altro dispositivo."
+      },
+      "print": {
+        "name": "Una scheda da stampare",
+        "text": "La scheda del personaggio e le carte dei suoi privilegi e incantesimi, pronte da stampare."
+      },
+      "play": {
+        "name": "Giocare dal telefono",
+        "text": "Attacchi, incantesimi, danni, riposi e condizioni durante la sessione, con annulla."
+      },
+      "dice": {
+        "name": "Dadi sullo schermo",
+        "text": "Tira dalla scheda con un tocco e guarda i dadi lanciati, con gli ultimi risultati a portata di mano."
+      },
+      "levels": {
+        "name": "Salire di livello",
+        "text": "Un avanzamento guidato che mostra che cosa cambia."
+      },
+      "homebrew": {
+        "name": "I tuoi contenuti",
+        "text": "Crea specie, classi e oggetti tuoi, e condividili."
+      },
+      "catalogues": {
+        "name": "Cataloghi di oggetti e mostri",
+        "text": "Cerca ogni oggetto e creatura, per il tuo inventario o per lo schermo del master."
+      },
+      "assistant": {
+        "name": "Un assistente per le regole",
+        "text": "Risposte sulle regole, tratte dai contenuti che usi."
+      },
+      "campaigns": {
+        "name": "Campagne",
+        "text": "Il master sceglie i contenuti ammessi e vede le schede dei giocatori."
+      }
+    },
+    "note": "Questa lista è un riassunto; il piano dettagliato è nella documentazione del progetto su GitHub."
+  },
+  "creditsPage": {
+    "title": "Riconoscimenti",
+    "author": {
+      "eyebrow": "Realizzato da",
+      "text": "Progettato e sviluppato da una sola persona, alla luce del sole, perché chiunque possa imparare a giocare a Dungeons & Dragons senza perdersi nelle regole.",
+      "source": "Codice sorgente su GitHub"
+    },
+    "support": {
+      "text": "Se ti è utile, a te o al tuo tavolo, puoi offrirmi una birra: aiuta a portare avanti il lavoro.",
+      "button": "Offrimi una birra"
+    },
+    "content": {
+      "title": "Contenuti di gioco",
+      "text": "Le regole e i contenuti provengono da queste opere, citate come chiedono le loro licenze.",
+      "local": "caricato su questo dispositivo"
+    },
+    "trademarks": {
+      "title": "Marchi",
+      "text": "Dungeons & Dragons e D&D sono marchi di Wizards of the Coast LLC. Questo è un lavoro amatoriale non ufficiale, non affiliato, approvato né sponsorizzato da Wizards of the Coast."
+    },
+    "tools": {
+      "title": "Dati, caratteri e strumenti",
+      "items": {
+        "data": "Dati dell'SRD preparati con l'aiuto di 5e-database di 5e-bits (dati con licenza OGL 1.0a, come dichiarato dagli autori) e di Open5e (CC-BY-4.0).",
+        "fonts": "Cinzel di Natanael Gama e Atkinson Hyperlegible del Braille Institute, entrambi con licenza SIL Open Font License.",
+        "icons": "Icone di Font Awesome Free (CC BY 4.0).",
+        "framework": "Realizzato con Vue e Nuxt, pubblicato su GitHub Pages.",
+        "statistics": "Statistiche d'uso, solo con il tuo consenso, con Umami."
+      }
+    },
+    "licence": {
+      "title": "Licenza",
+      "text": "La piattaforma è software libero con licenza GNU Affero General Public License 3.0. Il suo codice sorgente:"
     }
   }
 }

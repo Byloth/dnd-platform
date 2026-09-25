@@ -43,6 +43,7 @@ The owner wants to know how the published site is used (2026-09-25): which pages
 | `package-load` | `result`: loaded or refused; `private`: yes or no | the packages page |
 | `package-remove` | `private`: yes or no | the packages page |
 | `preference` | `name`, `value` (language, help level, theme, contrast) | any change of a setting |
+| `support-click` | `from`: credits or footer | a click on "Buy me a beer" |
 
 ## Tests
 

@@ -4,6 +4,7 @@
  */
 
 import {
+    faBeerMugEmpty,
     faBolt,
     faChevronDown,
     faChevronLeft,
@@ -35,6 +36,7 @@ import {
 import type { IconDefinition } from "@fortawesome/free-solid-svg-icons";
 
 const _icons: readonly IconDefinition[] = [
+    faBeerMugEmpty,
     faBolt,
     faChevronDown,
     faChevronLeft,

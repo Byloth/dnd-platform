@@ -19,7 +19,10 @@
     "attribution": "Legal attribution required by the SRD's licence (CC-BY-4.0); translate the sentence, keep the names and the licence name.",
     "madeBy": "Footer signature, before a heart icon: \"Made with ❤ by Byloth\".",
     "by": "Footer signature, after the heart icon and before the author's name.",
-    "privacy": "Footer link to the privacy page."
+    "privacy": "Footer link to the privacy page.",
+    "roadmap": "Footer link to the Roadmap page.",
+    "credits": "Footer link to the Credits page.",
+    "support": "Footer link to the author's Buy Me a Coffee page, phrased as a beer."
   },
   "errors": {
     "network": {
@@ -555,6 +558,129 @@
     "contact": {
       "title": "The privacy page: plain words, legally accurate; keep the lists as sentence fragments ending with ';' or '.'.",
       "text": "The privacy page: plain words, legally accurate; keep the lists as sentence fragments ending with ';' or '.'."
+    }
+  },
+  "roadmapPage": {
+    "title": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature.",
+    "intro": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature.",
+    "groups": {
+      "now": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature.",
+      "next": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature.",
+      "later": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature."
+    },
+    "items": {
+      "creation": {
+        "name": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature.",
+        "text": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature."
+      },
+      "ideas": {
+        "name": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature.",
+        "text": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature."
+      },
+      "sheet": {
+        "name": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature.",
+        "text": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature."
+      },
+      "editing": {
+        "name": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature.",
+        "text": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature."
+      },
+      "expert": {
+        "name": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature.",
+        "text": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature."
+      },
+      "languages": {
+        "name": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature.",
+        "text": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature."
+      },
+      "books": {
+        "name": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature.",
+        "text": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature."
+      },
+      "settings": {
+        "name": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature.",
+        "text": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature."
+      },
+      "italian": {
+        "name": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature.",
+        "text": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature."
+      },
+      "rolling": {
+        "name": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature.",
+        "text": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature."
+      },
+      "files": {
+        "name": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature.",
+        "text": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature."
+      },
+      "print": {
+        "name": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature.",
+        "text": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature."
+      },
+      "play": {
+        "name": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature.",
+        "text": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature."
+      },
+      "dice": {
+        "name": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature.",
+        "text": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature."
+      },
+      "levels": {
+        "name": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature.",
+        "text": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature."
+      },
+      "homebrew": {
+        "name": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature.",
+        "text": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature."
+      },
+      "catalogues": {
+        "name": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature.",
+        "text": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature."
+      },
+      "assistant": {
+        "name": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature.",
+        "text": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature."
+      },
+      "campaigns": {
+        "name": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature.",
+        "text": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature."
+      }
+    },
+    "note": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature."
+  },
+  "creditsPage": {
+    "title": "The Credits page: the author first, then legally required credits; keep names, licence names and links as they are.",
+    "author": {
+      "eyebrow": "The Credits page: the author first, then legally required credits; keep names, licence names and links as they are.",
+      "text": "The Credits page: the author first, then legally required credits; keep names, licence names and links as they are.",
+      "source": "The Credits page: the author first, then legally required credits; keep names, licence names and links as they are."
+    },
+    "support": {
+      "text": "The Credits page: the author first, then legally required credits; keep names, licence names and links as they are.",
+      "button": "The Credits page: the author first, then legally required credits; keep names, licence names and links as they are."
+    },
+    "content": {
+      "title": "The Credits page: the author first, then legally required credits; keep names, licence names and links as they are.",
+      "text": "The Credits page: the author first, then legally required credits; keep names, licence names and links as they are.",
+      "local": "The Credits page: the author first, then legally required credits; keep names, licence names and links as they are."
+    },
+    "trademarks": {
+      "title": "The Credits page: the author first, then legally required credits; keep names, licence names and links as they are.",
+      "text": "The Credits page: the author first, then legally required credits; keep names, licence names and links as they are."
+    },
+    "tools": {
+      "title": "The Credits page: the author first, then legally required credits; keep names, licence names and links as they are.",
+      "items": {
+        "data": "The Credits page: the author first, then legally required credits; keep names, licence names and links as they are.",
+        "fonts": "The Credits page: the author first, then legally required credits; keep names, licence names and links as they are.",
+        "icons": "The Credits page: the author first, then legally required credits; keep names, licence names and links as they are.",
+        "framework": "The Credits page: the author first, then legally required credits; keep names, licence names and links as they are.",
+        "statistics": "The Credits page: the author first, then legally required credits; keep names, licence names and links as they are."
+      }
+    },
+    "licence": {
+      "title": "The Credits page: the author first, then legally required credits; keep names, licence names and links as they are.",
+      "text": "The Credits page: the author first, then legally required credits; keep names, licence names and links as they are."
     }
   }
 }

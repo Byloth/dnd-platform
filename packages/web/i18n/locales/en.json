@@ -19,7 +19,10 @@
     "attribution": "This work includes material taken from the System Reference Documents 5.1 and 5.2 by Wizards of the Coast LLC, licensed under the Creative Commons Attribution 4.0 International License.",
     "madeBy": "Made with",
     "by": "by",
-    "privacy": "Privacy"
+    "privacy": "Privacy",
+    "roadmap": "Roadmap",
+    "credits": "Credits",
+    "support": "Buy me a beer"
   },
   "errors": {
     "network": {
@@ -555,6 +558,129 @@
     "contact": {
       "title": "Contact",
       "text": "For any question about your data, write to the author:"
+    }
+  },
+  "roadmapPage": {
+    "title": "Roadmap",
+    "intro": "What the platform already does, what comes next and what comes later. Plans can change along the way.",
+    "groups": {
+      "now": "Available now",
+      "next": "Coming next",
+      "later": "Later"
+    },
+    "items": {
+      "creation": {
+        "name": "Guided character creation",
+        "text": "Step by step, each choice explained in plain words, with nothing that blocks you."
+      },
+      "ideas": {
+        "name": "Ideas to start from",
+        "text": "Pick a character concept and every step is filled in for you, all still changeable."
+      },
+      "sheet": {
+        "name": "A sheet that explains itself",
+        "text": "Tap any number to see where it comes from."
+      },
+      "editing": {
+        "name": "Your characters, kept in your browser",
+        "text": "Change them from their sheet at any time, or delete them."
+      },
+      "expert": {
+        "name": "A quick form for experts",
+        "text": "Every step on one page, with no explanations in the way."
+      },
+      "languages": {
+        "name": "English and Italian",
+        "text": "The whole interface in both languages."
+      },
+      "books": {
+        "name": "Your own books, privately",
+        "text": "Load content from the books you own; it never leaves your device."
+      },
+      "settings": {
+        "name": "Clearer settings",
+        "text": "A settings page, and metres and kilograms for whoever prefers them."
+      },
+      "italian": {
+        "name": "The content in Italian",
+        "text": "Species, classes, spells and items translated, not only the interface."
+      },
+      "rolling": {
+        "name": "Rolling for you",
+        "text": "Let the site roll your ability scores, or keep typing your own dice."
+      },
+      "files": {
+        "name": "Characters as files",
+        "text": "Save a character to a file and bring it back on another device."
+      },
+      "print": {
+        "name": "A printable sheet",
+        "text": "The character sheet and the cards of its features and spells, ready to print."
+      },
+      "play": {
+        "name": "Playing from the phone",
+        "text": "Attacks, spells, damage, rests and conditions during a session, with undo."
+      },
+      "dice": {
+        "name": "Dice on screen",
+        "text": "Roll from the sheet with a tap and see the dice thrown, with the latest results at hand."
+      },
+      "levels": {
+        "name": "Levelling up",
+        "text": "A guided level up that shows what changes."
+      },
+      "homebrew": {
+        "name": "Your own content",
+        "text": "Create species, classes and items of your own, and share them."
+      },
+      "catalogues": {
+        "name": "Catalogues of items and monsters",
+        "text": "Search every item and creature, for your inventory or for the game master's screen."
+      },
+      "assistant": {
+        "name": "A rules assistant",
+        "text": "Answers about the rules, drawn from the content you use."
+      },
+      "campaigns": {
+        "name": "Campaigns",
+        "text": "A game master chooses the allowed content and sees the players' sheets."
+      }
+    },
+    "note": "This list is a summary; the detailed plan is in the project's documentation on GitHub."
+  },
+  "creditsPage": {
+    "title": "Credits",
+    "author": {
+      "eyebrow": "Made by",
+      "text": "Designed and built by one person, in the open, so that anyone can learn to play Dungeons & Dragons without getting lost in the rules.",
+      "source": "Source code on GitHub"
+    },
+    "support": {
+      "text": "If it helps you or your table, you can buy me a beer: it keeps the work going.",
+      "button": "Buy me a beer"
+    },
+    "content": {
+      "title": "Game content",
+      "text": "The rules and content come from these works, credited as their licences ask.",
+      "local": "loaded on this device"
+    },
+    "trademarks": {
+      "title": "Trademarks",
+      "text": "Dungeons & Dragons and D&D are trademarks of Wizards of the Coast LLC. This is unofficial fan work, not affiliated with, endorsed or sponsored by Wizards of the Coast."
+    },
+    "tools": {
+      "title": "Data, fonts and tools",
+      "items": {
+        "data": "SRD data prepared with the help of the 5e-database by 5e-bits (its data under the OGL 1.0a, as stated upstream) and of Open5e (CC-BY-4.0).",
+        "fonts": "Cinzel by Natanael Gama and Atkinson Hyperlegible by the Braille Institute, both under the SIL Open Font License.",
+        "icons": "Icons from Font Awesome Free (CC BY 4.0).",
+        "framework": "Built with Vue and Nuxt, published on GitHub Pages.",
+        "statistics": "Usage statistics, only with your consent, by Umami."
+      }
+    },
+    "licence": {
+      "title": "Licence",
+      "text": "The platform is free software under the GNU Affero General Public License 3.0. Its source code:"
     }
   }
 }

@@ -2,6 +2,7 @@
     import FontAwesome from "@/components/ui/FontAwesome.vue";
 
     const { t } = useI18n();
+    const { track } = useAnalytics();
 </script>
 
 <template>
@@ -19,9 +20,25 @@
                 <a href="https://www.byloth.dev/" rel="noopener">Byloth</a>
             </p>
             <p class="site-footer__links">
+                <NuxtLink :to="{ name: 'roadmap' }">
+                    {{ t("footer.roadmap") }}
+                </NuxtLink>
+                ·
+                <NuxtLink :to="{ name: 'credits' }">
+                    {{ t("footer.credits") }}
+                </NuxtLink>
+                ·
                 <NuxtLink :to="{ name: 'privacy' }">
                     {{ t("footer.privacy") }}
                 </NuxtLink>
+                ·
+                <a href="https://buymeacoffee.com/byloth"
+                   target="_blank"
+                   rel="noopener"
+                   @click="track('support-click', { from: 'footer' })">
+                    <FontAwesome icon="beer-mug-empty" aria-hidden="true" />
+                    {{ t("footer.support") }}
+                </a>
             </p>
         </div>
     </footer>
