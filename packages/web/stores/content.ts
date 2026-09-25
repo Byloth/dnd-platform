@@ -97,8 +97,9 @@ export const useContentStore = defineStore("content", () =>
         ]);
 
         // Translation packages are not choices: `sources` adds the one of the interface's language by itself.
+        // Catalogue packages (creatures) are not either, and the sheet never downloads them.
         const bundles = await Promise.all(Object.keys(published.packages).sort()
-            .filter((id) => !published.packages[id]!.translation)
+            .filter((id) => !published.packages[id]!.translation && !published.packages[id]!.catalogue)
             .map(_siteBundle));
         index.value = published;
         site.value = bundles.map((b) => ({ manifest: b.manifest, entities: b.entities.length, origin: "site" }));

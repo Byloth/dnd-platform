@@ -1,0 +1,7 @@
+{
+  "name": "@byloth/dnd-platform-content-srd51-creatures",
+  "version": "0.0.0",
+  "description": "Extension package: the creatures of the System Reference Document 5.1 (CC-BY-4.0) in the dnd-platform content format.",
+  "private": true,
+  "license": "CC-BY-4.0"
+}

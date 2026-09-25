@@ -35,7 +35,9 @@ const cli = resolve(ROOT, "packages", "cli", "dist", "index.js");
 const srd51 = resolve(ROOT, "packages", "content", "srd51");
 // Its Italian translation, when present: loaded only by the Italian interface (docs/phase-1/11).
 const srd51It = resolve(ROOT, "packages", "content", "srd51-it");
-const built = existsSync(resolve(srd51It, "package.yaml")) ? [srd51, srd51It] : [srd51];
+// The SRD's creatures: published for the catalogue (docs/19-catalogues.md), never loaded by the sheet.
+const creatures = resolve(ROOT, "packages", "content", "srd51-creatures");
+const built = [srd51, srd51It, creatures].filter((dir) => existsSync(resolve(dir, "package.yaml")));
 execFileSync("node", [cli, "build", "--out", OUT, ...built], { cwd: ROOT, stdio: "inherit" });
 
 // Every release, and an index of the versions per package.
@@ -50,15 +52,25 @@ for (const file of existsSync(RELEASES) ? readdirSync(RELEASES) : [])
     copyFileSync(resolve(RELEASES, file), resolve(OUT, file));
     versions.set(match[1]!, [...(versions.get(match[1]!) ?? []), match[2]!]);
 }
-interface IndexEntry { latest: string, versions: string[], translation?: { language: string, of: string[] } }
+interface IndexEntry
+{
+    latest: string;
+    versions: string[];
+    translation?: { language: string, of: string[] };
+    catalogue?: boolean;
+}
 const index: Record<string, IndexEntry> = {};
 for (const [id, list] of [...versions].sort(([a], [b]) => (a < b ? -1 : 1)))
 {
     const sorted = list.sort(compareVersions);
     index[id] = { latest: sorted.at(-1)!, versions: sorted };
-    const { manifest } = JSON.parse(readFileSync(resolve(RELEASES, `${id}@${sorted.at(-1)!}.json`), "utf8")) as {
+    const latest = resolve(RELEASES, `${id}@${sorted.at(-1)!}.json`);
+    const { manifest, entities } = JSON.parse(readFileSync(latest, "utf8")) as {
         manifest: { kind: string, defaultLanguage: string, dependencies: { id: string }[] };
+        entities: { type: string }[];
     };
+    // A package of creatures only is catalogue content: the application does not offer it as a choice.
+    if (entities.length && entities.every((e) => e.type === "creature")) { index[id].catalogue = true; }
     if (manifest.kind === "translation")
     {
         index[id].translation = { language: manifest.defaultLanguage, of: manifest.dependencies.map((d) => d.id) };

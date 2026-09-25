@@ -8,6 +8,8 @@ export interface ContentIndex
         readonly versions: readonly string[];
         /** A translation package: its language and the packages it translates (docs/phase-1/11). */
         readonly translation?: { readonly language: string, readonly of: readonly string[] };
+        /** Creatures only, for the catalogue (docs/19-catalogues.md): never offered, never loaded by the sheet. */
+        readonly catalogue?: boolean;
     }>>;
 }
 

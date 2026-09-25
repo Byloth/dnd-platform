@@ -9,13 +9,14 @@
  * proficiencies and equipment, level tables, race bonuses, backgrounds).
  */
 
-import { readFileSync, writeFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 
-import { parseDocument } from "yaml";
+import { parse, parseDocument } from "yaml";
 
+import { mapCreatures } from "./creatures.ts";
 import * as db from "./fivedb.ts";
-import { CONTENT_DIR, cleanGenerated, emit, slug, text } from "./emit.ts";
+import { CONTENT_DIR, CREATURES_DIR, cleanGenerated, emit, slug, text } from "./emit.ts";
 import * as o5e from "./open5e.ts";
 import { applyOverlays, readOverlays } from "./overlay.ts";
 
@@ -142,7 +143,15 @@ for (const row of traits)
 
 // ---- proficiency mapping ---------------------------------------------------------
 
-const WEAPON_RENAMES: Record<string, string> = { "crossbows-light": "light-crossbow", "crossbows-hand": "hand-crossbow", "crossbows-heavy": "heavy-crossbow" };
+const WEAPON_RENAMES: Record<string, string> = {
+    "crossbows-light": "light-crossbow",
+    "crossbows-hand": "hand-crossbow",
+    "crossbows-heavy": "heavy-crossbow",
+    // The bard's and the rogue's lists spell them this way.
+    "hand-crossbows": "hand-crossbow",
+    "light-crossbows": "light-crossbow",
+    "heavy-crossbows": "heavy-crossbow"
+};
 interface Prof { type: "skill" | "save" | "armor" | "weapon" | "tool" | "language", item: string }
 
 function proficiency(index: string): Prof | undefined
@@ -726,6 +735,11 @@ for (const row of spellOptions)
     optionsBySpell.set(row.fields.parent, [...(optionsBySpell.get(row.fields.parent) ?? []), row.fields]);
 }
 const spellLists = new Map<string, string[]>();
+const DB_SPELL_ALIASES: Record<string, string> = {
+    blindnessdeafness: "blindness-deafness",
+    enlargereduce: "enlarge-reduce",
+    antipathysympathy: "antipathy-sympathy"
+};
 
 function castingTime(value: string, reaction: string | null): Entity
 {
@@ -808,7 +822,8 @@ for (const spell of spells)
 {
     const index = o5e.slug(spell.pk);
     const f = spell.fields;
-    const dbSpell = dbSpells.get(index);
+    // Open5e drops the slash of "Blindness/Deafness"; the 5e-database spells it "blindness-deafness".
+    const dbSpell = dbSpells.get(index) ?? dbSpells.get(DB_SPELL_ALIASES[index] ?? "");
     const rolls: Entity[] = [];
     if (f.attack_roll) { rolls.push({ type: "attack" }); }
     if (f.saving_throw_ability)
@@ -1104,6 +1119,41 @@ for (const level of dbLevels.filter((l) => l.class.index === "warlock" && !l.sub
     pact[String(level.level)] = [slots[slotLevel - 1] ?? 0, slotLevel];
 }
 slotTable("pact", "Pact Magic slots", "classLevel", pact, "Rows are [slots, slot level].");
+
+// ---- authored entities ------------------------------------------------------------------------------------------
+
+// What neither dataset has (rule sections Open5e left empty, the SRD's mounts): hand-written entities under
+// tools/import/authored/<directory>/<name>.yaml, taken from the SRD 5.1 text and written like the generated ones.
+const AUTHORED_DIR = resolve(import.meta.dirname, "..", "authored");
+if (existsSync(AUTHORED_DIR))
+{
+    for (const dir of readdirSync(AUTHORED_DIR).sort())
+    {
+        for (const file of readdirSync(resolve(AUTHORED_DIR, dir)).filter((f) => f.endsWith(".yaml"))
+            .sort())
+        {
+            const entity = parse(readFileSync(resolve(AUTHORED_DIR, dir, file), "utf8")) as Entity;
+            if (dir === "creatures")
+            {
+                emit(`creatures/${file}`, applyOverlays(entity, overlays, usedOverlays), CREATURES_DIR);
+                count += 1;
+            }
+            else { write(dir, file.replace(/\.yaml$/, ""), entity); }
+        }
+    }
+}
+
+// ---- creatures --------------------------------------------------------------------------------------------------
+
+// After the spells, whose files the creatures' spellcasting must name.
+const writtenSpells = new Set(readdirSync(resolve(CONTENT_DIR, "spells")).map((f) => f.replace(/\.yaml$/, "")));
+const { creatures, missingSpells } = mapCreatures(writtenSpells);
+for (const { file, entity } of creatures)
+{
+    emit(`creatures/${file}.yaml`, applyOverlays(entity, overlays, usedOverlays), CREATURES_DIR);
+    count += 1;
+}
+if (missingSpells.length) { console.warn(`creatures: spells not in srd51: ${missingSpells.join(", ")}`); }
 
 // ---- the ruleset's languages and alignments --------------------------------------------------------------------
 
