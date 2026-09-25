@@ -143,6 +143,17 @@ describe("the creation wizard's store", () =>
         expect(await wizard.resume()).toBe(false);
     });
 
+    it("stays discarded when a save was still on its way", async () =>
+    {
+        const wizard = useWizardStore();
+        wizard.chooseArchetype(MONK);
+        const saving = wizard.save();
+        await wizard.discard();
+        await saving;
+
+        expect(await wizard.stored()).toBeUndefined();
+    });
+
     describe("step 5, ability scores", () =>
     {
         const scores = () => useWizardStore().character!.choices.abilityScores!;

@@ -286,7 +286,9 @@ export const useWizardStore = defineStore("wizard", () =>
         keptEquipment.value = false;
         coinsTyped.value = false;
         step.value = "content";
-        await useBrowserStorage().meta.set(key, null);
+        // After any save already on its way, or it would write the discarded draft back.
+        _saving = _saving.then(() => useBrowserStorage().meta.set(key, null));
+        await _saving;
     };
 
     const goTo = (next: StepId): void =>
