@@ -6,10 +6,15 @@
     import { MissingPackageException } from "@/stores/content";
 
     // A character's build-mode sheet (docs/phase-1/03-sheet-composer.md): derived in the interface language and at
-    // the help level of the preferences.
+    // the help level of the preferences; a stored character's can be reopened for editing, a demo's cannot.
 
     type Loaded =
-        { readonly state: "ready", readonly character: Character, readonly sources: PackageSource[] } |
+        {
+            readonly state: "ready";
+            readonly character: Character;
+            readonly sources: PackageSource[];
+            readonly stored: boolean;
+        } |
         { readonly state: "not-found" } |
         { readonly state: "missing", readonly packageId: string };
 
@@ -24,14 +29,15 @@
 
     const { data, status } = await useAsyncData(() => `character-${id.value}`, async (): Promise<Loaded> =>
     {
-        const character = await useCharacters().get(id.value);
-        if (!character) { return { state: "not-found" }; }
+        const found = await useCharacters().get(id.value);
+        if (!found) { return { state: "not-found" }; }
+        const { character } = found;
 
         try
         {
             const sources = await content.sources(character.packages.map((p) => p.id));
 
-            return { state: "ready", character: character, sources: sources };
+            return { state: "ready", character: character, sources: sources, stored: found.origin === "stored" };
         }
         catch (error)
         {
@@ -91,6 +97,7 @@
         <SheetView v-else-if="composed && data?.state === 'ready'"
                    :character="data.character"
                    :composed="composed"
+                   :editable="data.stored"
                    :help-level="preferences.helpLevel"
                    :language="locale"
                    :translate="translate" />

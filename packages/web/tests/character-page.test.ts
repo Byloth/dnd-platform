@@ -68,11 +68,18 @@ describe("the character page", () =>
     it("shows a character stored in this browser", async () =>
     {
         const demo = await useCharacters().get("fixture-cleric-l5");
-        await useBrowserStorage().characters.put({ ...demo!, id: "character-mine", name: "Brother Alric" });
+        await useBrowserStorage().characters.put({ ...demo!.character, id: "character-mine", name: "Brother Alric" });
         const wrapper = await open("character-mine");
 
         expect(wrapper.find("h1").text()).toBe("Brother Alric");
         expect(byName(wrapper, "Armor Class, 18")).toBeDefined();
+        expect(byName(wrapper, "Edit", "a")!.getAttribute("href"))
+            .toContain("/characters/character-mine/edit?step=review");
+        expect(byName(wrapper, "Change Equipment", "a")!.getAttribute("href")).toContain("edit?step=equipment");
+
+        const demoPage = await open("fixture-cleric-l5");
+        expect(byName(demoPage, "Edit", "a")).toBeUndefined();
+        expect(demoPage.find(".section-block__change").exists()).toBe(false);
     });
 
     it("explains an unknown character and a package installed nowhere", async () =>

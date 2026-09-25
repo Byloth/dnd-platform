@@ -201,7 +201,9 @@
     },
     "equipment": {
       "quantity": "× {count}"
-    }
+    },
+    "edit": "Modifica",
+    "change": "Cambia"
   },
   "wizard": {
     "title": "Nuovo personaggio",

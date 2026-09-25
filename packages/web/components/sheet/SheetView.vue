@@ -4,21 +4,26 @@
         Explanation, HelpLevel, IdentityBlock, Section, Translate, ValueItem
     } from "@byloth/dnd-platform-composer";
     import type { Character } from "@byloth/dnd-platform-engine";
+    import type { RouteLocationRaw } from "vue-router";
 
     import ProvenanceDrawer from "@/components/sheet/ProvenanceDrawer.vue";
     import SectionBlock from "@/components/sheet/SectionBlock.vue";
     import SheetBlock from "@/components/sheet/SheetBlock.vue";
     import ValueTile from "@/components/sheet/ValueTile.vue";
     import WarningList from "@/components/sheet/WarningList.vue";
+    import AppButton from "@/components/ui/AppButton.vue";
+    import FontAwesome from "@/components/ui/FontAwesome.vue";
     import type { ComposedSheet } from "@/composables/sheet";
     import { OPEN_DRAWER } from "@/composables/sheet-drawer";
     import type { DrawerRequest } from "@/composables/sheet-drawer";
+    import type { StepId } from "@/stores/wizard";
 
     /**
      * The build-mode sheet (docs/phase-1/03-sheet-composer.md, "The build-mode screen"): the character's header,
      * the vital strip (sticky on a phone), the warnings, the pinned sections, then the sections in tree order —
      * one column on a phone, two from a desktop width. Every number opens its explanation. Embedded in the
-     * wizard's review, the name is not the page's heading and the review lists the warnings its own way.
+     * wizard's review, the name is not the page's heading and the review lists the warnings its own way. An
+     * `editable` sheet (a stored character) offers "Edit" and, on the sections a creation step sets, "Change".
      */
     const props = defineProps<{
         character: Character;
@@ -27,10 +32,27 @@
         language: string;
         translate?: Translate;
         embedded?: boolean;
+        editable?: boolean;
     }>();
 
     const { t } = useI18n();
     const preferences = usePreferencesStore();
+
+    /** The creation step that sets what a section shows. */
+    const STEP_OF: Readonly<Record<string, StepId>> = {
+        abilities: "abilities",
+        skills: "choices",
+        features: "choices",
+        spellcasting: "choices",
+        spells: "choices",
+        equipment: "equipment",
+        personality: "personality",
+        notes: "personality"
+    };
+    const editAt = (step: StepId): RouteLocationRaw =>
+        ({ name: "characters-id-edit", params: { id: props.character.id }, query: { step: step } });
+    const changeOf = (section: string): RouteLocationRaw | undefined =>
+        (props.editable && STEP_OF[section] ? editAt(STEP_OF[section]) : undefined);
 
     /** The values every turn needs, in the strip at the top; the rest of Core stays in its section. */
     const VITAL = ["ac", "hp", "speed", "initiative", "proficiency"];
@@ -102,6 +124,15 @@
             <p v-if="helpLevel === 'newcomer'" class="sheet-view__hint">
                 {{ t("sheetView.explainHint") }}
             </p>
+            <AppButton v-if="editable"
+                       class="sheet-view__edit"
+                       theme="secondary"
+                       outline
+                       small
+                       :to="editAt('review')">
+                <FontAwesome icon="feather" aria-hidden="true" />
+                {{ t("sheetView.edit") }}
+            </AppButton>
         </header>
 
         <section v-if="vital.length"
@@ -125,6 +156,7 @@
                           :id="section.id"
                           :key="section.id"
                           :title="section.title"
+                          :change="changeOf(section.id)"
                           :pinned="true"
                           :collapsed="layout.collapsed.includes(section.id)"
                           @toggle-pinned="preferences.togglePinned(character.id, section.id)"
@@ -147,6 +179,7 @@
                               :id="section.id"
                               :key="section.id"
                               :title="section.title"
+                              :change="changeOf(section.id)"
                               :pinned="false"
                               :collapsed="layout.collapsed.includes(section.id)"
                               @toggle-pinned="preferences.togglePinned(character.id, section.id)"
@@ -222,6 +255,11 @@
             color: var(--color-brass);
             font-weight: 700;
             margin: var(--space-3) 0 0;
+        }
+
+        &__edit
+        {
+            margin-top: var(--space-4);
         }
 
         &__vital

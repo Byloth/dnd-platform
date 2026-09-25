@@ -201,7 +201,9 @@
     },
     "equipment": {
       "quantity": "The build-mode sheet screen: labels, accessible names and states around the composer's content. Parameters: {count}."
-    }
+    },
+    "edit": "Button in the sheet's header of a stored character: reopens it in the creation wizard, at the review.",
+    "change": "Link in a section's header, before the section's name for screen readers: reopens the character at the creation step that sets the section."
   },
   "wizard": {
     "title": "The creation wizard's page title and heading.",

@@ -1,15 +1,19 @@
 <script lang="ts" setup>
+    import type { RouteLocationRaw } from "vue-router";
+
     import FontAwesome from "@/components/ui/FontAwesome.vue";
 
     /**
      * One section of the sheet: a landmark named by its title, collapsible, pinnable to the top
-     * (docs/08-dynamic-sheet.md). The state lives in the preferences, per character.
+     * (docs/08-dynamic-sheet.md). The state lives in the preferences, per character. With `change`, a link to
+     * the creation step that sets what the section shows (a stored character, reopened for editing).
      */
     const props = defineProps<{
         id: string;
         title: string;
         collapsed: boolean;
         pinned: boolean;
+        change?: RouteLocationRaw;
     }>();
     const emit = defineEmits<{ toggleCollapsed: [], togglePinned: [] }>();
 
@@ -36,6 +40,12 @@
                     <span>{{ title }}</span>
                 </button>
             </h2>
+            <NuxtLink v-if="change"
+                      :to="change"
+                      class="section-block__change">
+                {{ t("sheetView.change") }}
+                <span class="section-block__sr">{{ title }}</span>
+            </NuxtLink>
             <button type="button"
                     class="section-block__pin"
                     :aria-pressed="pinned"
@@ -117,6 +127,32 @@
         &--collapsed .section-block__chevron
         {
             transform: rotate(-90deg);
+        }
+
+        &__sr
+        {
+            @include mixins.sr-only;
+        }
+
+        &__change
+        {
+            @include mixins.tap-target;
+
+            align-items: center;
+            border-radius: var(--radius-md);
+            color: var(--color-accent);
+            display: inline-flex;
+            font-size: var(--text-sm);
+            font-weight: 700;
+            justify-content: center;
+            padding: 0 var(--space-3);
+            text-decoration: none;
+
+            &:hover
+            {
+                background-color: var(--color-accent-soft);
+                text-decoration: none;
+            }
         }
 
         &__pin

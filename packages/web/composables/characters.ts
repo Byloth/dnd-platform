@@ -54,14 +54,16 @@ export function useCharacters()
         return [...own, ...demos.map((d): CharacterEntry => ({ ...d, origin: "demo" }))];
     };
 
-    /** The character with this id, stored or demo, or `undefined` when there is none. */
-    const get = async (id: string): Promise<Character | undefined> =>
+    /** The character with this id and where it lives, stored first, or `undefined` when there is none. */
+    const get = async (id: string): Promise<{ character: Character, origin: CharacterEntry["origin"] } | undefined> =>
     {
         const stored = await useBrowserStorage().characters.get(id);
-        if (stored) { return stored; }
+        if (stored) { return { character: stored, origin: "stored" }; }
         if (!(await _demos()).some((c) => c.id === id)) { return undefined; }
 
-        return $fetch<Character>(`${base}content/characters/${encodeURIComponent(id)}.json`, { responseType: "json" });
+        const url = `${base}content/characters/${encodeURIComponent(id)}.json`;
+
+        return { character: await $fetch<Character>(url, { responseType: "json" }), origin: "demo" };
     };
 
     return { list, get };
