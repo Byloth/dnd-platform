@@ -95,6 +95,8 @@ M1.4d3 was done on 2026-09-25:
 - step 8, with the name needed to save (owner), the alignment menu and the background's suggestions that fill the fields;
 - step 9, the sheet under what is still open, each with its step; saving stores the character at full hit points with its "as created" snapshot, and the characters page lists it.
 
+M1.4e is split into e1 (editing), e2 (expert mode) and e3 (the twelve-class test, the private Monk, the close), by the owner on 2026-09-25. M1.4e1 was done that day: the wizard reopens a stored character from its sheet, the subclass moves to step 3, typed scores and an owned equipment list are edited as they are, and a change that forgets answers names them first; the private test reopens the level 3 Monk and finds Way of Shadow at step 3.
+
 M1.4c was done on 2026-09-24: step 5, with the standard array, point buy and roll, the swap menus, species bonuses and totals from the derived sheet, and the manual adjustments.
 
 Done: the criteria of M1.4. Release: `v0.3.4`.

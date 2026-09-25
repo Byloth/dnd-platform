@@ -26,6 +26,7 @@ import CharactersPage from "@/pages/index.vue";
 import CharacterPage from "@/pages/characters/[id]/index.vue";
 import PackagesPage from "@/pages/packages/index.vue";
 import WizardPage from "@/pages/characters/new.vue";
+import EditPage from "@/pages/characters/[id]/edit.vue";
 
 import { accessibleTree, expectKeyboardOperable, expectNoAxeViolations } from "./accessibility";
 import { clearBrowserStorage, ROOT, serveDemoCharacters, serveSite, SRD } from "./helpers";
@@ -221,6 +222,34 @@ describe.each(LANGUAGES)("accessibility, in %s", (language) =>
         expect(wrapper.find(`.step-${step}`).exists()).toBe(true);
         await expectAccessible(wrapper);
         await useWizardStore().discard();
+    });
+
+    it.each(["class", "abilities", "equipment"])("the wizard's step %s, editing a stored character", async (step) =>
+    {
+        await speak(language);
+        await useWizardStore().discard();
+        await useWizardStore().start();
+        useWizardStore().chooseArchetype("srd51.archetype.steadfast-healer");
+        useWizardStore().setName("Brother Alric");
+        const id = await useWizardStore().finish();
+        const wrapper = await render(EditPage, { route: `/characters/${id}/edit?step=${step}` });
+        for (let i = 0; (i < 50) && !wrapper.find(".wizard-step").exists(); i += 1)
+        {
+            await new Promise((done) => setTimeout(done, 10));
+            await flushPromises();
+        }
+        expect(wrapper.find(".wizard-step").exists()).toBe(true);
+        await expectAccessible(wrapper);
+        await useWizardStore().discard();
+    });
+
+    it("a stored character's sheet, with its edit links", async () =>
+    {
+        await speak(language);
+        await useBrowserStorage().characters.put({ ...character("cleric-l5"), id: "character-mine" });
+        const wrapper = await render(CharacterPage, { route: "/characters/character-mine" });
+        expect(wrapper.find(".section-block__change").exists()).toBe(true);
+        await expectAccessible(wrapper);
     });
 
     it("the navigation bar and the footer", async () =>
