@@ -5,6 +5,8 @@
  * contents, never anything the player typed, never an id of a package loaded from a file.
  */
 
+import type { Pinia } from "pinia";
+
 export type EventData = Readonly<Record<string, string | number | boolean>>;
 
 interface Umami { track: (name: string, data?: EventData) => unknown }
@@ -30,7 +32,11 @@ export function useAnalytics()
     const publicId = (id: string | undefined): string =>
     {
         if (!id) { return "none"; }
-        const site = useContentStore().site.map((p) => p.manifest.id);
+        // Read from Pinia's state rather than through the content store: this composable is part of every page's
+        // first load (the plugins, the footer), and the store would bring the package loader with it.
+        const content = (useNuxtApp().$pinia as Pinia).state.value["content"] as
+            { site?: readonly { manifest: { id: string } }[] } | undefined;
+        const site = (content?.site ?? []).map((p) => p.manifest.id);
         const packageId = id.split(".")[0] ?? "";
 
         return site.includes(packageId) ? id : "other";

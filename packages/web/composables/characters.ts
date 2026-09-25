@@ -1,12 +1,14 @@
 import type { Character } from "@byloth/dnd-platform-engine";
 
-import { EDIT_KEY } from "@/stores/wizard";
-
 /**
  * The characters the application can show (docs/phase-1/02-content-and-character-stores.md): the ones stored in
  * this browser, made with the creation wizard (M1.4d3), then the site's demo characters, SRD-only fixtures
  * published by `web:prepare-content`. A stored character can be deleted (owner, 2026-09-25); export and import are
  * M1.5.
+ *
+ * The characters page loads this module first, so the content store, the engine, the loader and the wizard are
+ * imported only when a stored character needs them: they would otherwise weigh on the page's first load (the
+ * Lighthouse guard of the characters page).
  */
 
 export interface CharacterEntry
@@ -27,6 +29,11 @@ export function useCharacters()
     {
         try
         {
+            const [{ useEngine }, { useEntities }, { useContentStore }] = await Promise.all([
+                import("./engine"),
+                import("./entities"),
+                import("@/stores/content")
+            ]);
             const sources = await useContentStore().sources(character.packages.map((p) => p.id));
             const pins = Object.fromEntries(character.packages.map((p) => [p.id, p.version]));
             const entities = useEntities(useEngine().packageSet(sources, pins), useNuxtApp().$i18n.locale.value);
@@ -75,6 +82,7 @@ export function useCharacters()
      */
     const remove = async (id: string): Promise<void> =>
     {
+        const { EDIT_KEY, useWizardStore } = await import("@/stores/wizard");
         const wizard = useWizardStore();
         if (wizard.editing === id) { await wizard.discard(); }
         else if (await wizard.stored(id)) { await useBrowserStorage().meta.set(EDIT_KEY, null); }
