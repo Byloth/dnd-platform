@@ -24,7 +24,7 @@ M1.1 scaffold + composer ──► M1.2 content store ──► M1.3 build-mode 
                                                                     M1.7 Italian ──► M1.8 working directory, accessibility, newcomer test ──► Phase 1 done
 ```
 
-M1.6 needs the composer and the sheet (M1.3) and the stored character (M1.5). M1.7 can start its content work (OCR, skeleton, packets) as soon as M1.1 exists and lands after M1.6 so that the Italian goldens include print. M1.8 is the closing milestone.
+M1.4r (the owner's review of 2026-09-25) sits between M1.4 and M1.5. M1.6 needs the composer and the sheet (M1.3) and the stored character (M1.5). M1.7 can start its content work (OCR, skeleton, packets) as soon as M1.1 exists and lands after M1.6 so that the Italian goldens include print. M1.8 is the closing milestone.
 
 ### M1.1 — Web application scaffold and deployment (≈ 3 sessions)
 
@@ -106,6 +106,17 @@ M1.4c was done on 2026-09-24: step 5, with the standard array, point buy and rol
 Done: the criteria of M1.4. Release: `v0.3.4`.
 Risks: starting equipment turned out to be structured content, with only the pack contents in prose; M1.4a made those data too. The rule stands: never invent items in code.
 
+### M1.4r — Revisions from the owner's review (≈ 4 sessions, plus the first Italian packet)
+
+The owner reviewed the application after M1.4 (2026-09-25) and asked for these changes before M1.5. The plans are:
+- [10-wizard-integrity.md](10-wizard-integrity.md): the versions a save records (point 9), and deactivating a package under a choice (point 10).
+- [09-interface-revisions.md](09-interface-revisions.md): the navigation bar with the mode and language menus, drawn flags and dropdowns that close on an outside click (1–3); a settings page with the units of measure (4); demo characters behind a disclosure once the player has characters (6); the wizard's sticky Back/Next bar and its transitions (8.1–8.2.1).
+- [11-italian-content.md](11-italian-content.md): the Italian content started now (5). The loader fixes, `srd51-it` as a package and site bundle, and the first packet (what the wizard shows) are part of this milestone. The bulk stays in M1.7, behind its confirmation point.
+
+Order: the integrity fixes first (they correct wrong behaviour), then the interface, then the Italian parts A–B. Point 7 (famous characters) is set aside by the owner; see the open points. Point 8's detailed notes on the sheet and on each wizard step are to come from the owner.
+
+Done: the tasks of the three documents for this milestone. Release: none of its own; it ships with `v0.3.5` at the close of M1.5.
+
 ### M1.5 — Character store, export and import (≈ 2 sessions)
 
 Tasks (from [02-content-and-character-stores.md](02-content-and-character-stores.md), [05-print-and-export.md](05-print-and-export.md)):
@@ -158,7 +169,8 @@ Risks: the newcomer test fails the fifteen-minute target; that is a finding, not
 | M1.2 | 3 | M1.1 | v0.3.2 |
 | M1.3 | 4 | M1.2 | v0.3.3 |
 | M1.4 | 5 + authoring | M1.3 | v0.3.4 |
-| M1.5 | 2 | M1.4 | v0.3.5 |
+| M1.4r | 4 + the first Italian packet | M1.4 | — (ships with v0.3.5) |
+| M1.5 | 2 | M1.4r | v0.3.5 |
 | M1.6 | 4 | M1.3, M1.5 | v0.3.6 |
 | M1.7 | 3 + drafting | M1.1 (content), M1.6 (goldens) | v0.3.7 |
 | M1.8 | 3 | M1.7 | v1.0.0 |
@@ -173,6 +185,7 @@ Risks: the newcomer test fails the fifteen-minute target; that is a finding, not
 
 - Whether M1.6 (print) should come before M1.4 (creation) to give the owner a printable playbook of the fixture characters earlier; possible, since print depends on the sheet and the stored character only when printing a created one. Decide at the close of M1.3.
 - Whether the project name (and the site path) is settled during Phase 1; the base URL is one line, the package scope a search-and-replace.
+- Famous characters from other works (Geralt of Rivia, Uther the Lightbringer…) as demo characters and as wizard concepts: proposed by the owner on 2026-09-25, set aside to evaluate later. A well-delineated fictional character is protected by copyright and its name is often a trademark; the public content is CC-BY, which cannot cover them. The options recorded: a private package (like phb14), a separate fan package with notices that follows each owner's fan-content policy, or original concepts "in the manner of" with names of our own.
 - Session estimates assume agent assistance for repetitive work (archetype authoring, translation, component boilerplate); revise after M1.3.
 
 ## Progress log

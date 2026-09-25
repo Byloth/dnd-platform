@@ -33,6 +33,7 @@ Requirements the owner fixed for the whole phase: the text sheet of `dnd derive`
 6. Italian and English interface and the Italian translation package of the SRD — [06-localisation.md](06-localisation.md).
 7. Tests, accessibility and performance gates, the newcomer usability test — [07-testing-accessibility-performance.md](07-testing-accessibility-performance.md).
 8. The work plan with milestones, confirmation points and the progress log — [08-workplan.md](08-workplan.md).
+9. Revisions from the owner's review of 2026-09-25 (milestone M1.4r): the interface — [09-interface-revisions.md](09-interface-revisions.md); the wizard's integrity — [10-wizard-integrity.md](10-wizard-integrity.md); the Italian content started early — [11-italian-content.md](11-italian-content.md).
 
 ## Milestones
 
@@ -42,6 +43,7 @@ Requirements the owner fixed for the whole phase: the text sheet of `dnd derive`
 | M1.2 | Content store in the browser | Packages loaded from a zip or a bundle are validated, stored, listed and selectable; private ones are flagged and attributed; the reference Monk computes in the browser with `phb14` loaded from a zip. |
 | M1.3 | Dynamic sheet, build mode | Every section of [../08-dynamic-sheet.md](../08-dynamic-sheet.md) with the explain views at the three help levels, on desktop and on a portrait phone; the composer goldens pass. |
 | M1.4 | Guided character creation | Wizard steps 0–9 and the expert form; archetypes authored for every SRD class; a level 1 character of every SRD class can be built; warnings inline, nothing blocks. |
+| M1.4r | Revisions from the owner's review | The integrity fixes, the interface revisions and the first Italian packet of documents 09–11. |
 | M1.5 | Character store, export and import | Characters persist in the browser; export file; import with version-mismatch handling; the byte-identical round trip runs in CI. |
 | M1.6 | Print | The print route with Parts 2 and 3 and the credits page, A4 and Letter, black-and-white acceptance; the reference Monk's printed playbook passes the checklist. |
 | M1.7 | Italian | Interface in Italian and English; `srd51-it` translation package drafted, reviewed and loaded; the glossary check passes. |
