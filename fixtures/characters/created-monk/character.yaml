@@ -1,0 +1,168 @@
+# Open-hand wanderer: written by packages/web/tests/flows/twelve-classes.test.ts (UPDATE_FLOW_FIXTURES=1); do not edit by hand.
+formatVersion: 0
+id: fixture-created-monk
+name: Open-hand wanderer
+ruleset:
+  id: srd51
+  version: 0.6.0
+packages:
+  - id: srd51
+    version: 0.6.0
+choices:
+  species: srd51.species.dwarf
+  subspecies: srd51.species.dwarf.hill-dwarf
+  classes:
+    - class: srd51.class.monk
+      levels: 1
+  background: srd51.background.acolyte
+  abilityScores:
+    method: standard-array
+    base:
+      dex: 15
+      wis: 14
+      con: 13
+      str: 12
+      int: 10
+      cha: 8
+  answers:
+    srd51.class.monk#skills:
+      - acrobatics
+      - insight
+    srd51.feature.dwarf.tool-proficiency#tool:
+      - smiths-tools
+    srd51.class.monk#tools:
+      - alchemists-supplies
+    srd51.background.acolyte#languages:
+      - elvish
+      - giant
+  equipment:
+    - item: srd51.item.dart
+      quantity: 10
+      equipped: true
+    - item: srd51.item.shortsword
+      quantity: 1
+      equipped: true
+    - item: srd51.item.backpack
+      quantity: 1
+      equipped: false
+    - item: srd51.item.crowbar
+      quantity: 1
+      equipped: false
+    - item: srd51.item.hammer
+      quantity: 1
+      equipped: false
+    - item: srd51.item.piton
+      quantity: 10
+      equipped: false
+    - item: srd51.item.torch
+      quantity: 10
+      equipped: false
+    - item: srd51.item.tinderbox
+      quantity: 1
+      equipped: false
+    - item: srd51.item.rations-1-day
+      quantity: 10
+      equipped: false
+    - item: srd51.item.waterskin
+      quantity: 1
+      equipped: false
+    - item: srd51.item.rope-hempen-50-feet
+      quantity: 1
+      equipped: false
+    - item: srd51.item.clothes-common
+      quantity: 1
+      equipped: false
+    - item: srd51.item.pouch
+      quantity: 1
+      equipped: false
+    - item: srd51.item.amulet
+      quantity: 1
+      equipped: false
+state:
+  hp:
+    current: 11
+    temporary: 0
+  hitDice:
+    spent: 0
+  resources: {}
+  conditions: []
+  deathSaves:
+    successes: 0
+    failures: 0
+  inspiration: false
+  currency:
+    gold: 15
+snapshots:
+  - at: 2026-09-25T00:00:00.000Z
+    level: 1
+    label: as created
+    choices:
+      species: srd51.species.dwarf
+      subspecies: srd51.species.dwarf.hill-dwarf
+      classes:
+        - class: srd51.class.monk
+          levels: 1
+      background: srd51.background.acolyte
+      abilityScores:
+        method: standard-array
+        base:
+          dex: 15
+          wis: 14
+          con: 13
+          str: 12
+          int: 10
+          cha: 8
+      answers:
+        srd51.class.monk#skills:
+          - acrobatics
+          - insight
+        srd51.feature.dwarf.tool-proficiency#tool:
+          - smiths-tools
+        srd51.class.monk#tools:
+          - alchemists-supplies
+        srd51.background.acolyte#languages:
+          - elvish
+          - giant
+      equipment:
+        - item: srd51.item.dart
+          quantity: 10
+          equipped: true
+        - item: srd51.item.shortsword
+          quantity: 1
+          equipped: true
+        - item: srd51.item.backpack
+          quantity: 1
+          equipped: false
+        - item: srd51.item.crowbar
+          quantity: 1
+          equipped: false
+        - item: srd51.item.hammer
+          quantity: 1
+          equipped: false
+        - item: srd51.item.piton
+          quantity: 10
+          equipped: false
+        - item: srd51.item.torch
+          quantity: 10
+          equipped: false
+        - item: srd51.item.tinderbox
+          quantity: 1
+          equipped: false
+        - item: srd51.item.rations-1-day
+          quantity: 10
+          equipped: false
+        - item: srd51.item.waterskin
+          quantity: 1
+          equipped: false
+        - item: srd51.item.rope-hempen-50-feet
+          quantity: 1
+          equipped: false
+        - item: srd51.item.clothes-common
+          quantity: 1
+          equipped: false
+        - item: srd51.item.pouch
+          quantity: 1
+          equipped: false
+        - item: srd51.item.amulet
+          quantity: 1
+          equipped: false

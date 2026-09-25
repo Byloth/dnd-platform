@@ -1,0 +1,212 @@
+# Steadfast healer: written by packages/web/tests/flows/twelve-classes.test.ts (UPDATE_FLOW_FIXTURES=1); do not edit by hand.
+formatVersion: 0
+id: fixture-created-cleric
+name: Steadfast healer
+ruleset:
+  id: srd51
+  version: 0.6.0
+packages:
+  - id: srd51
+    version: 0.6.0
+choices:
+  species: srd51.species.dwarf
+  subspecies: srd51.species.dwarf.hill-dwarf
+  classes:
+    - class: srd51.class.cleric
+      subclass: srd51.subclass.cleric.life-domain
+      levels: 1
+  background: srd51.background.acolyte
+  abilityScores:
+    method: standard-array
+    base:
+      wis: 15
+      con: 14
+      str: 13
+      dex: 12
+      cha: 10
+      int: 8
+  answers:
+    srd51.class.cleric#divine-domain:
+      - srd51.subclass.cleric.life-domain
+    srd51.class.cleric#skills:
+      - insight
+      - medicine
+    srd51.feature.dwarf.tool-proficiency#tool:
+      - smiths-tools
+    srd51.class.cleric#cantrips:
+      - srd51.spell.guidance
+      - srd51.spell.light
+      - srd51.spell.mending
+    srd51.class.cleric#spells:
+      - srd51.spell.bane
+      - srd51.spell.bless
+      - srd51.spell.command
+      - srd51.spell.create-or-destroy-water
+    srd51.background.acolyte#languages:
+      - elvish
+      - giant
+  equipment:
+    - item: srd51.item.shield
+      quantity: 1
+      equipped: true
+    - item: srd51.item.amulet
+      quantity: 2
+      equipped: false
+    - item: srd51.item.mace
+      quantity: 1
+      equipped: true
+    - item: srd51.item.scale-mail
+      quantity: 1
+      equipped: true
+    - item: srd51.item.crossbow-light
+      quantity: 1
+      equipped: true
+    - item: srd51.item.crossbow-bolt
+      quantity: 20
+      equipped: false
+    - item: srd51.item.backpack
+      quantity: 1
+      equipped: false
+    - item: srd51.item.blanket
+      quantity: 1
+      equipped: false
+    - item: srd51.item.candle
+      quantity: 10
+      equipped: false
+    - item: srd51.item.tinderbox
+      quantity: 1
+      equipped: false
+    - item: srd51.item.rations-1-day
+      quantity: 2
+      equipped: false
+    - item: srd51.item.waterskin
+      quantity: 1
+      equipped: false
+    - item: srd51.item.alms-box
+      quantity: 1
+      equipped: false
+    - item: srd51.item.block-of-incense
+      quantity: 2
+      equipped: false
+    - item: srd51.item.censer
+      quantity: 1
+      equipped: false
+    - item: srd51.item.vestments
+      quantity: 1
+      equipped: false
+    - item: srd51.item.clothes-common
+      quantity: 1
+      equipped: false
+    - item: srd51.item.pouch
+      quantity: 1
+      equipped: false
+state:
+  hp:
+    current: 12
+    temporary: 0
+  hitDice:
+    spent: 0
+  resources: {}
+  conditions: []
+  deathSaves:
+    successes: 0
+    failures: 0
+  inspiration: false
+  currency:
+    gold: 15
+snapshots:
+  - at: 2026-09-25T00:00:00.000Z
+    level: 1
+    label: as created
+    choices:
+      species: srd51.species.dwarf
+      subspecies: srd51.species.dwarf.hill-dwarf
+      classes:
+        - class: srd51.class.cleric
+          subclass: srd51.subclass.cleric.life-domain
+          levels: 1
+      background: srd51.background.acolyte
+      abilityScores:
+        method: standard-array
+        base:
+          wis: 15
+          con: 14
+          str: 13
+          dex: 12
+          cha: 10
+          int: 8
+      answers:
+        srd51.class.cleric#divine-domain:
+          - srd51.subclass.cleric.life-domain
+        srd51.class.cleric#skills:
+          - insight
+          - medicine
+        srd51.feature.dwarf.tool-proficiency#tool:
+          - smiths-tools
+        srd51.class.cleric#cantrips:
+          - srd51.spell.guidance
+          - srd51.spell.light
+          - srd51.spell.mending
+        srd51.class.cleric#spells:
+          - srd51.spell.bane
+          - srd51.spell.bless
+          - srd51.spell.command
+          - srd51.spell.create-or-destroy-water
+        srd51.background.acolyte#languages:
+          - elvish
+          - giant
+      equipment:
+        - item: srd51.item.shield
+          quantity: 1
+          equipped: true
+        - item: srd51.item.amulet
+          quantity: 2
+          equipped: false
+        - item: srd51.item.mace
+          quantity: 1
+          equipped: true
+        - item: srd51.item.scale-mail
+          quantity: 1
+          equipped: true
+        - item: srd51.item.crossbow-light
+          quantity: 1
+          equipped: true
+        - item: srd51.item.crossbow-bolt
+          quantity: 20
+          equipped: false
+        - item: srd51.item.backpack
+          quantity: 1
+          equipped: false
+        - item: srd51.item.blanket
+          quantity: 1
+          equipped: false
+        - item: srd51.item.candle
+          quantity: 10
+          equipped: false
+        - item: srd51.item.tinderbox
+          quantity: 1
+          equipped: false
+        - item: srd51.item.rations-1-day
+          quantity: 2
+          equipped: false
+        - item: srd51.item.waterskin
+          quantity: 1
+          equipped: false
+        - item: srd51.item.alms-box
+          quantity: 1
+          equipped: false
+        - item: srd51.item.block-of-incense
+          quantity: 2
+          equipped: false
+        - item: srd51.item.censer
+          quantity: 1
+          equipped: false
+        - item: srd51.item.vestments
+          quantity: 1
+          equipped: false
+        - item: srd51.item.clothes-common
+          quantity: 1
+          equipped: false
+        - item: srd51.item.pouch
+          quantity: 1
+          equipped: false

@@ -1,0 +1,158 @@
+# Raging defender: written by packages/web/tests/flows/twelve-classes.test.ts (UPDATE_FLOW_FIXTURES=1); do not edit by hand.
+formatVersion: 0
+id: fixture-created-barbarian
+name: Raging defender
+ruleset:
+  id: srd51
+  version: 0.6.0
+packages:
+  - id: srd51
+    version: 0.6.0
+choices:
+  species: srd51.species.half-orc
+  classes:
+    - class: srd51.class.barbarian
+      levels: 1
+  background: srd51.background.acolyte
+  abilityScores:
+    method: standard-array
+    base:
+      str: 15
+      con: 14
+      dex: 13
+      wis: 12
+      cha: 10
+      int: 8
+  answers:
+    srd51.class.barbarian#skills:
+      - athletics
+      - intimidation
+    srd51.background.acolyte#languages:
+      - dwarvish
+      - elvish
+  equipment:
+    - item: srd51.item.backpack
+      quantity: 1
+      equipped: false
+    - item: srd51.item.bedroll
+      quantity: 1
+      equipped: false
+    - item: srd51.item.mess-kit
+      quantity: 1
+      equipped: false
+    - item: srd51.item.tinderbox
+      quantity: 1
+      equipped: false
+    - item: srd51.item.torch
+      quantity: 10
+      equipped: false
+    - item: srd51.item.rations-1-day
+      quantity: 10
+      equipped: false
+    - item: srd51.item.waterskin
+      quantity: 1
+      equipped: false
+    - item: srd51.item.rope-hempen-50-feet
+      quantity: 1
+      equipped: false
+    - item: srd51.item.javelin
+      quantity: 4
+      equipped: true
+    - item: srd51.item.greataxe
+      quantity: 1
+      equipped: true
+    - item: srd51.item.handaxe
+      quantity: 2
+      equipped: true
+    - item: srd51.item.clothes-common
+      quantity: 1
+      equipped: false
+    - item: srd51.item.pouch
+      quantity: 1
+      equipped: false
+    - item: srd51.item.amulet
+      quantity: 1
+      equipped: false
+state:
+  hp:
+    current: 14
+    temporary: 0
+  hitDice:
+    spent: 0
+  resources: {}
+  conditions: []
+  deathSaves:
+    successes: 0
+    failures: 0
+  inspiration: false
+  currency:
+    gold: 15
+snapshots:
+  - at: 2026-09-25T00:00:00.000Z
+    level: 1
+    label: as created
+    choices:
+      species: srd51.species.half-orc
+      classes:
+        - class: srd51.class.barbarian
+          levels: 1
+      background: srd51.background.acolyte
+      abilityScores:
+        method: standard-array
+        base:
+          str: 15
+          con: 14
+          dex: 13
+          wis: 12
+          cha: 10
+          int: 8
+      answers:
+        srd51.class.barbarian#skills:
+          - athletics
+          - intimidation
+        srd51.background.acolyte#languages:
+          - dwarvish
+          - elvish
+      equipment:
+        - item: srd51.item.backpack
+          quantity: 1
+          equipped: false
+        - item: srd51.item.bedroll
+          quantity: 1
+          equipped: false
+        - item: srd51.item.mess-kit
+          quantity: 1
+          equipped: false
+        - item: srd51.item.tinderbox
+          quantity: 1
+          equipped: false
+        - item: srd51.item.torch
+          quantity: 10
+          equipped: false
+        - item: srd51.item.rations-1-day
+          quantity: 10
+          equipped: false
+        - item: srd51.item.waterskin
+          quantity: 1
+          equipped: false
+        - item: srd51.item.rope-hempen-50-feet
+          quantity: 1
+          equipped: false
+        - item: srd51.item.javelin
+          quantity: 4
+          equipped: true
+        - item: srd51.item.greataxe
+          quantity: 1
+          equipped: true
+        - item: srd51.item.handaxe
+          quantity: 2
+          equipped: true
+        - item: srd51.item.clothes-common
+          quantity: 1
+          equipped: false
+        - item: srd51.item.pouch
+          quantity: 1
+          equipped: false
+        - item: srd51.item.amulet
+          quantity: 1
+          equipped: false

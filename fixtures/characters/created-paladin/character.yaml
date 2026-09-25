@@ -1,0 +1,180 @@
+# Oathbound champion: written by packages/web/tests/flows/twelve-classes.test.ts (UPDATE_FLOW_FIXTURES=1); do not edit by hand.
+formatVersion: 0
+id: fixture-created-paladin
+name: Oathbound champion
+ruleset:
+  id: srd51
+  version: 0.6.0
+packages:
+  - id: srd51
+    version: 0.6.0
+choices:
+  species: srd51.species.dragonborn
+  classes:
+    - class: srd51.class.paladin
+      levels: 1
+  background: srd51.background.acolyte
+  abilityScores:
+    method: standard-array
+    base:
+      str: 15
+      cha: 14
+      con: 13
+      wis: 12
+      dex: 10
+      int: 8
+  answers:
+    srd51.class.paladin#skills:
+      - athletics
+      - persuasion
+    srd51.feature.dragonborn.draconic-ancestry#draconic-ancestry:
+      - gold
+    srd51.background.acolyte#languages:
+      - dwarvish
+      - elvish
+  equipment:
+    - item: srd51.item.chain-mail
+      quantity: 1
+      equipped: true
+    - item: srd51.item.amulet
+      quantity: 2
+      equipped: false
+    - item: srd51.item.battleaxe
+      quantity: 1
+      equipped: true
+    - item: srd51.item.shield
+      quantity: 1
+      equipped: true
+    - item: srd51.item.javelin
+      quantity: 5
+      equipped: true
+    - item: srd51.item.backpack
+      quantity: 1
+      equipped: false
+    - item: srd51.item.blanket
+      quantity: 1
+      equipped: false
+    - item: srd51.item.candle
+      quantity: 10
+      equipped: false
+    - item: srd51.item.tinderbox
+      quantity: 1
+      equipped: false
+    - item: srd51.item.rations-1-day
+      quantity: 2
+      equipped: false
+    - item: srd51.item.waterskin
+      quantity: 1
+      equipped: false
+    - item: srd51.item.alms-box
+      quantity: 1
+      equipped: false
+    - item: srd51.item.block-of-incense
+      quantity: 2
+      equipped: false
+    - item: srd51.item.censer
+      quantity: 1
+      equipped: false
+    - item: srd51.item.vestments
+      quantity: 1
+      equipped: false
+    - item: srd51.item.clothes-common
+      quantity: 1
+      equipped: false
+    - item: srd51.item.pouch
+      quantity: 1
+      equipped: false
+state:
+  hp:
+    current: 11
+    temporary: 0
+  hitDice:
+    spent: 0
+  resources: {}
+  conditions: []
+  deathSaves:
+    successes: 0
+    failures: 0
+  inspiration: false
+  currency:
+    gold: 15
+snapshots:
+  - at: 2026-09-25T00:00:00.000Z
+    level: 1
+    label: as created
+    choices:
+      species: srd51.species.dragonborn
+      classes:
+        - class: srd51.class.paladin
+          levels: 1
+      background: srd51.background.acolyte
+      abilityScores:
+        method: standard-array
+        base:
+          str: 15
+          cha: 14
+          con: 13
+          wis: 12
+          dex: 10
+          int: 8
+      answers:
+        srd51.class.paladin#skills:
+          - athletics
+          - persuasion
+        srd51.feature.dragonborn.draconic-ancestry#draconic-ancestry:
+          - gold
+        srd51.background.acolyte#languages:
+          - dwarvish
+          - elvish
+      equipment:
+        - item: srd51.item.chain-mail
+          quantity: 1
+          equipped: true
+        - item: srd51.item.amulet
+          quantity: 2
+          equipped: false
+        - item: srd51.item.battleaxe
+          quantity: 1
+          equipped: true
+        - item: srd51.item.shield
+          quantity: 1
+          equipped: true
+        - item: srd51.item.javelin
+          quantity: 5
+          equipped: true
+        - item: srd51.item.backpack
+          quantity: 1
+          equipped: false
+        - item: srd51.item.blanket
+          quantity: 1
+          equipped: false
+        - item: srd51.item.candle
+          quantity: 10
+          equipped: false
+        - item: srd51.item.tinderbox
+          quantity: 1
+          equipped: false
+        - item: srd51.item.rations-1-day
+          quantity: 2
+          equipped: false
+        - item: srd51.item.waterskin
+          quantity: 1
+          equipped: false
+        - item: srd51.item.alms-box
+          quantity: 1
+          equipped: false
+        - item: srd51.item.block-of-incense
+          quantity: 2
+          equipped: false
+        - item: srd51.item.censer
+          quantity: 1
+          equipped: false
+        - item: srd51.item.vestments
+          quantity: 1
+          equipped: false
+        - item: srd51.item.clothes-common
+          quantity: 1
+          equipped: false
+        - item: srd51.item.pouch
+          quantity: 1
+          equipped: false

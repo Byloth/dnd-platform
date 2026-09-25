@@ -1,0 +1,194 @@
+# Far strider: written by packages/web/tests/flows/twelve-classes.test.ts (UPDATE_FLOW_FIXTURES=1); do not edit by hand.
+formatVersion: 0
+id: fixture-created-ranger
+name: Far strider
+ruleset:
+  id: srd51
+  version: 0.6.0
+packages:
+  - id: srd51
+    version: 0.6.0
+choices:
+  species: srd51.species.elf
+  subspecies: srd51.species.elf.high-elf
+  classes:
+    - class: srd51.class.ranger
+      levels: 1
+  background: srd51.background.acolyte
+  abilityScores:
+    method: standard-array
+    base:
+      dex: 15
+      wis: 14
+      con: 13
+      str: 12
+      int: 10
+      cha: 8
+  answers:
+    srd51.class.ranger#skills:
+      - perception
+      - stealth
+      - survival
+    srd51.feature.high-elf.cantrip#cantrip:
+      - srd51.spell.acid-splash
+    srd51.feature.high-elf.extra-language#extra-language:
+      - dwarvish
+    srd51.feature.ranger.favored-enemy#favored-enemy-1:
+      - aberrations
+    srd51.feature.ranger.natural-explorer#favored-terrain-1:
+      - arctic
+    srd51.feature.ranger.favored-enemy#favored-enemy-language-1:
+      - giant
+    srd51.background.acolyte#languages:
+      - gnomish
+      - goblin
+  equipment:
+    - item: srd51.item.longbow
+      quantity: 1
+      equipped: true
+    - item: srd51.item.arrow
+      quantity: 20
+      equipped: false
+    - item: srd51.item.scale-mail
+      quantity: 1
+      equipped: true
+    - item: srd51.item.shortsword
+      quantity: 2
+      equipped: true
+    - item: srd51.item.backpack
+      quantity: 1
+      equipped: false
+    - item: srd51.item.crowbar
+      quantity: 1
+      equipped: false
+    - item: srd51.item.hammer
+      quantity: 1
+      equipped: false
+    - item: srd51.item.piton
+      quantity: 10
+      equipped: false
+    - item: srd51.item.torch
+      quantity: 10
+      equipped: false
+    - item: srd51.item.tinderbox
+      quantity: 1
+      equipped: false
+    - item: srd51.item.rations-1-day
+      quantity: 10
+      equipped: false
+    - item: srd51.item.waterskin
+      quantity: 1
+      equipped: false
+    - item: srd51.item.rope-hempen-50-feet
+      quantity: 1
+      equipped: false
+    - item: srd51.item.clothes-common
+      quantity: 1
+      equipped: false
+    - item: srd51.item.pouch
+      quantity: 1
+      equipped: false
+    - item: srd51.item.amulet
+      quantity: 1
+      equipped: false
+state:
+  hp:
+    current: 11
+    temporary: 0
+  hitDice:
+    spent: 0
+  resources: {}
+  conditions: []
+  deathSaves:
+    successes: 0
+    failures: 0
+  inspiration: false
+  currency:
+    gold: 15
+snapshots:
+  - at: 2026-09-25T00:00:00.000Z
+    level: 1
+    label: as created
+    choices:
+      species: srd51.species.elf
+      subspecies: srd51.species.elf.high-elf
+      classes:
+        - class: srd51.class.ranger
+          levels: 1
+      background: srd51.background.acolyte
+      abilityScores:
+        method: standard-array
+        base:
+          dex: 15
+          wis: 14
+          con: 13
+          str: 12
+          int: 10
+          cha: 8
+      answers:
+        srd51.class.ranger#skills:
+          - perception
+          - stealth
+          - survival
+        srd51.feature.high-elf.cantrip#cantrip:
+          - srd51.spell.acid-splash
+        srd51.feature.high-elf.extra-language#extra-language:
+          - dwarvish
+        srd51.feature.ranger.favored-enemy#favored-enemy-1:
+          - aberrations
+        srd51.feature.ranger.natural-explorer#favored-terrain-1:
+          - arctic
+        srd51.feature.ranger.favored-enemy#favored-enemy-language-1:
+          - giant
+        srd51.background.acolyte#languages:
+          - gnomish
+          - goblin
+      equipment:
+        - item: srd51.item.longbow
+          quantity: 1
+          equipped: true
+        - item: srd51.item.arrow
+          quantity: 20
+          equipped: false
+        - item: srd51.item.scale-mail
+          quantity: 1
+          equipped: true
+        - item: srd51.item.shortsword
+          quantity: 2
+          equipped: true
+        - item: srd51.item.backpack
+          quantity: 1
+          equipped: false
+        - item: srd51.item.crowbar
+          quantity: 1
+          equipped: false
+        - item: srd51.item.hammer
+          quantity: 1
+          equipped: false
+        - item: srd51.item.piton
+          quantity: 10
+          equipped: false
+        - item: srd51.item.torch
+          quantity: 10
+          equipped: false
+        - item: srd51.item.tinderbox
+          quantity: 1
+          equipped: false
+        - item: srd51.item.rations-1-day
+          quantity: 10
+          equipped: false
+        - item: srd51.item.waterskin
+          quantity: 1
+          equipped: false
+        - item: srd51.item.rope-hempen-50-feet
+          quantity: 1
+          equipped: false
+        - item: srd51.item.clothes-common
+          quantity: 1
+          equipped: false
+        - item: srd51.item.pouch
+          quantity: 1
+          equipped: false
+        - item: srd51.item.amulet
+          quantity: 1
+          equipped: false

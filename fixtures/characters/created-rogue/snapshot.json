@@ -1,0 +1,2761 @@
+{
+  "actions": [
+    {
+      "activation": "special",
+      "available": true,
+      "cost": [],
+      "id": "lucky",
+      "name": {
+        "en": "Lucky"
+      },
+      "onUse": [
+        {
+          "keep": "new",
+          "kind": "reroll",
+          "roll": "attack"
+        },
+        {
+          "keep": "new",
+          "kind": "reroll",
+          "roll": "check"
+        },
+        {
+          "keep": "new",
+          "kind": "reroll",
+          "roll": "save"
+        }
+      ],
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.species.halfling",
+        "feature": "srd51.feature.halfling.lucky",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "When you roll a 1 on the d20 for an attack roll, ability check, or saving throw, you can reroll the die and must use the new roll."
+      }
+    },
+    {
+      "activation": "special",
+      "available": true,
+      "cost": [],
+      "id": "sneak-attack",
+      "name": {
+        "en": "Sneak Attack"
+      },
+      "onHit": [
+        {
+          "formula": "table(rogue.sneak-attack)",
+          "kind": "extraDamage",
+          "note": {
+            "en": "The extra damage is of the weapon's damage type. Requires advantage on the attack roll, or an enemy of the target within 5 feet of it that isn't incapacitated while you don't have disadvantage."
+          },
+          "once": "per-turn"
+        }
+      ],
+      "requires": {
+        "condition": {
+          "any": [
+            {
+              "wielding": {
+                "property": "finesse"
+              }
+            },
+            {
+              "wielding": {
+                "ranged": true
+              }
+            }
+          ]
+        }
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.rogue",
+        "feature": "srd51.feature.rogue.sneak-attack",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Once per turn, you can deal extra damage to one creature you hit with an attack if you have advantage on the attack roll. The attack must use a finesse or a ranged weapon. You don't need advantage on the attack roll if another enemy of the target is within 5 feet of it, that enemy isn't incapacitated, and you don't have disadvantage on the attack roll."
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "attack",
+      "name": {
+        "en": "Attack"
+      },
+      "source": {
+        "entity": "srd51.rule.action.attack",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "dash",
+      "name": {
+        "en": "Dash"
+      },
+      "source": {
+        "entity": "srd51.rule.action.dash",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "disengage",
+      "name": {
+        "en": "Disengage"
+      },
+      "source": {
+        "entity": "srd51.rule.action.disengage",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "dodge",
+      "name": {
+        "en": "Dodge"
+      },
+      "source": {
+        "entity": "srd51.rule.action.dodge",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "help",
+      "name": {
+        "en": "Help"
+      },
+      "source": {
+        "entity": "srd51.rule.action.help",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "hide",
+      "name": {
+        "en": "Hide"
+      },
+      "source": {
+        "entity": "srd51.rule.action.hide",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "ready",
+      "name": {
+        "en": "Ready"
+      },
+      "source": {
+        "entity": "srd51.rule.action.ready",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "search",
+      "name": {
+        "en": "Search"
+      },
+      "source": {
+        "entity": "srd51.rule.action.search",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "use-object",
+      "name": {
+        "en": "Use an Object"
+      },
+      "source": {
+        "entity": "srd51.rule.action.use-object",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "cast-a-spell",
+      "name": {
+        "en": "Cast a Spell"
+      },
+      "source": {
+        "entity": "srd51.rule.action.cast-a-spell",
+        "package": "srd51"
+      }
+    }
+  ],
+  "attacks": [
+    {
+      "ability": "dex",
+      "attackBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Dexterity modifier"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 3
+          },
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "Proficiency bonus"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 2
+          }
+        ],
+        "value": 5
+      },
+      "critRange": 20,
+      "damage": "1d4 + 3",
+      "damageBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Dexterity modifier"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 3
+          }
+        ],
+        "value": 3
+      },
+      "damageDice": "1d4",
+      "damageType": "piercing",
+      "extraDamage": [],
+      "id": "dagger",
+      "item": "srd51.item.dagger",
+      "magical": false,
+      "name": {
+        "en": "Dagger"
+      },
+      "proficient": true,
+      "ranged": false,
+      "unarmed": false
+    },
+    {
+      "ability": "dex",
+      "attackBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Dexterity modifier"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 3
+          },
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "Proficiency bonus"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 2
+          }
+        ],
+        "value": 5
+      },
+      "critRange": 20,
+      "damage": "1d8 + 3",
+      "damageBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Dexterity modifier"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 3
+          }
+        ],
+        "value": 3
+      },
+      "damageDice": "1d8",
+      "damageType": "piercing",
+      "extraDamage": [],
+      "id": "rapier",
+      "item": "srd51.item.rapier",
+      "magical": false,
+      "name": {
+        "en": "Rapier"
+      },
+      "proficient": true,
+      "ranged": false,
+      "unarmed": false
+    },
+    {
+      "ability": "dex",
+      "attackBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Dexterity modifier"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 3
+          },
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "Proficiency bonus"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 2
+          }
+        ],
+        "value": 5
+      },
+      "critRange": 20,
+      "damage": "1d6 + 3",
+      "damageBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Dexterity modifier"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 3
+          }
+        ],
+        "value": 3
+      },
+      "damageDice": "1d6",
+      "damageType": "piercing",
+      "extraDamage": [],
+      "id": "shortbow",
+      "item": "srd51.item.shortbow",
+      "magical": false,
+      "name": {
+        "en": "Shortbow"
+      },
+      "proficient": true,
+      "ranged": true,
+      "unarmed": false
+    },
+    {
+      "ability": "str",
+      "attackBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Strength modifier"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": -1
+          },
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "Proficiency bonus"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 2
+          }
+        ],
+        "value": 1
+      },
+      "critRange": 20,
+      "damage": "0",
+      "damageBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Strength modifier"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": -1
+          }
+        ],
+        "value": -1
+      },
+      "damageDice": "1",
+      "damageType": "bludgeoning",
+      "extraDamage": [],
+      "id": "unarmed-strike",
+      "magical": false,
+      "name": {
+        "en": "Unarmed strike"
+      },
+      "proficient": true,
+      "ranged": false,
+      "unarmed": true
+    }
+  ],
+  "choices": [
+    {
+      "answered": true,
+      "answers": [
+        "stealth",
+        "sleight-of-hand",
+        "perception",
+        "acrobatics"
+      ],
+      "choice": "skills",
+      "count": 4,
+      "key": "srd51.class.rogue#skills",
+      "of": "skill",
+      "options": [
+        "acrobatics",
+        "athletics",
+        "deception",
+        "insight",
+        "intimidation",
+        "investigation",
+        "perception",
+        "performance",
+        "persuasion",
+        "sleight-of-hand",
+        "stealth"
+      ],
+      "owner": "srd51.class.rogue"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "dwarvish",
+        "elvish"
+      ],
+      "choice": "languages",
+      "count": 2,
+      "key": "srd51.background.acolyte#languages",
+      "of": "language",
+      "options": [],
+      "owner": "srd51.background.acolyte"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "acrobatics",
+        "animal-handling"
+      ],
+      "choice": "expertise-1",
+      "count": 2,
+      "key": "srd51.feature.rogue.expertise#expertise-1",
+      "of": "skill",
+      "options": [
+        "acrobatics",
+        "animal-handling",
+        "arcana",
+        "athletics",
+        "deception",
+        "history",
+        "insight",
+        "intimidation",
+        "investigation",
+        "medicine",
+        "nature",
+        "perception",
+        "performance",
+        "persuasion",
+        "religion",
+        "sleight-of-hand",
+        "stealth",
+        "survival"
+      ],
+      "owner": "srd51.feature.rogue.expertise"
+    }
+  ],
+  "classes": [
+    {
+      "class": "srd51.class.rogue",
+      "levels": 1
+    }
+  ],
+  "defenses": [],
+  "features": [
+    {
+      "id": "srd51.feature.halfling.ability-score-increase",
+      "name": {
+        "en": "Ability Score Increase"
+      },
+      "origin": "species",
+      "owner": "srd51.species.halfling",
+      "source": {
+        "entity": "srd51.species.halfling",
+        "feature": "srd51.feature.halfling.ability-score-increase",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Your Dexterity score increases by 2."
+      }
+    },
+    {
+      "id": "srd51.feature.halfling.speed",
+      "name": {
+        "en": "Speed"
+      },
+      "origin": "species",
+      "owner": "srd51.species.halfling",
+      "source": {
+        "entity": "srd51.species.halfling",
+        "feature": "srd51.feature.halfling.speed",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Your base walking speed is 25 feet."
+      }
+    },
+    {
+      "id": "srd51.feature.halfling.age",
+      "name": {
+        "en": "Age"
+      },
+      "origin": "species",
+      "owner": "srd51.species.halfling",
+      "source": {
+        "entity": "srd51.species.halfling",
+        "feature": "srd51.feature.halfling.age",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "A halfling reaches adulthood at the age of 20 and generally lives into the middle of his or her second century."
+      }
+    },
+    {
+      "id": "srd51.feature.halfling.alignment",
+      "name": {
+        "en": "Alignment"
+      },
+      "origin": "species",
+      "owner": "srd51.species.halfling",
+      "source": {
+        "entity": "srd51.species.halfling",
+        "feature": "srd51.feature.halfling.alignment",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Most halflings are lawful good. As a rule, they are good-hearted and kind, hate to see others in pain, and have no tolerance for oppression. They are also very orderly and traditional, leaning heavily on the support of their community and the comfort of their old ways."
+      }
+    },
+    {
+      "id": "srd51.feature.halfling.size",
+      "name": {
+        "en": "Size"
+      },
+      "origin": "species",
+      "owner": "srd51.species.halfling",
+      "source": {
+        "entity": "srd51.species.halfling",
+        "feature": "srd51.feature.halfling.size",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Halflings average about 3 feet tall and weigh about 40 pounds. Your size is Small."
+      }
+    },
+    {
+      "id": "srd51.feature.halfling.languages",
+      "name": {
+        "en": "Languages"
+      },
+      "origin": "species",
+      "owner": "srd51.species.halfling",
+      "source": {
+        "entity": "srd51.species.halfling",
+        "feature": "srd51.feature.halfling.languages",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You can speak, read, and write Common and Halfling. The Halfling language isn't secret, but halflings are loath to share it with others. They write very little, so they don't have a rich body of literature. Their oral tradition, however, is very strong. Almost all halflings speak Common to converse with the people in whose lands they dwell or through which they are traveling."
+      }
+    },
+    {
+      "id": "srd51.feature.halfling.lucky",
+      "name": {
+        "en": "Lucky"
+      },
+      "origin": "species",
+      "owner": "srd51.species.halfling",
+      "source": {
+        "entity": "srd51.species.halfling",
+        "feature": "srd51.feature.halfling.lucky",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "When you roll a 1 on the d20 for an attack roll, ability check, or saving throw, you can reroll the die and must use the new roll."
+      }
+    },
+    {
+      "id": "srd51.feature.halfling.brave",
+      "name": {
+        "en": "Brave"
+      },
+      "origin": "species",
+      "owner": "srd51.species.halfling",
+      "source": {
+        "entity": "srd51.species.halfling",
+        "feature": "srd51.feature.halfling.brave",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You have advantage on saving throws against being frightened."
+      }
+    },
+    {
+      "id": "srd51.feature.halfling.halfling-nimbleness",
+      "name": {
+        "en": "Halfling Nimbleness"
+      },
+      "origin": "species",
+      "owner": "srd51.species.halfling",
+      "source": {
+        "entity": "srd51.species.halfling",
+        "feature": "srd51.feature.halfling.halfling-nimbleness",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You can move through the space of any creature that is of a size larger than yours."
+      }
+    },
+    {
+      "id": "srd51.feature.lightfoot.ability-score-increase",
+      "name": {
+        "en": "Ability Score Increase"
+      },
+      "origin": "subspecies",
+      "owner": "srd51.species.halfling.lightfoot",
+      "source": {
+        "entity": "srd51.species.halfling.lightfoot",
+        "feature": "srd51.feature.lightfoot.ability-score-increase",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Your Charisma score increases by 1."
+      }
+    },
+    {
+      "id": "srd51.feature.lightfoot.naturally-stealthy",
+      "name": {
+        "en": "Naturally Stealthy"
+      },
+      "origin": "subspecies",
+      "owner": "srd51.species.halfling.lightfoot",
+      "source": {
+        "entity": "srd51.species.halfling.lightfoot",
+        "feature": "srd51.feature.lightfoot.naturally-stealthy",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You can attempt to hide even when you are obscured only by a creature that is at least one size larger than you."
+      }
+    },
+    {
+      "id": "srd51.feature.rogue.expertise",
+      "level": 1,
+      "name": {
+        "en": "Expertise"
+      },
+      "origin": "class",
+      "owner": "srd51.class.rogue",
+      "source": {
+        "entity": "srd51.class.rogue",
+        "feature": "srd51.feature.rogue.expertise",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "At 1st level, choose two of your skill proficiencies, or one of your skill proficiencies and your proficiency with thieves' tools. Your proficiency bonus is doubled for any ability check you make that uses either of the chosen proficiencies.\n\nAt 6th level, you can choose two more of your proficiencies (in skills or with thieves' tools) to gain this benefit."
+      }
+    },
+    {
+      "id": "srd51.feature.rogue.sneak-attack",
+      "level": 1,
+      "name": {
+        "en": "Sneak Attack"
+      },
+      "origin": "class",
+      "owner": "srd51.class.rogue",
+      "source": {
+        "entity": "srd51.class.rogue",
+        "feature": "srd51.feature.rogue.sneak-attack",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Beginning at 1st level, you know how to strike subtly and exploit a foe's distraction. Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack if you have advantage on the attack roll. The attack must use a finesse or a ranged weapon.\n\nYou don't need advantage on the attack roll if another enemy of the target is within 5 feet of it, that enemy isn't incapacitated, and you don't have disadvantage on the attack roll.\n\nThe amount of the extra damage increases as you gain levels in this class, as shown in the Sneak Attack column of the Rogue table."
+      }
+    },
+    {
+      "id": "srd51.feature.rogue.thieves-cant",
+      "level": 1,
+      "name": {
+        "en": "Thieves' Cant"
+      },
+      "origin": "class",
+      "owner": "srd51.class.rogue",
+      "source": {
+        "entity": "srd51.class.rogue",
+        "feature": "srd51.feature.rogue.thieves-cant",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "During your rogue training you learned thieves' cant, a secret mix of dialect, jargon, and code that allows you to hide messages in seemingly normal conversation. Only another creature that knows thieves' cant understands such messages. It takes four times longer to convey such a message than it does to speak the same idea plainly.\n\nIn addition, you understand a set of secret signs and symbols used to convey short, simple messages, such as whether an area is dangerous or the territory of a thieves' guild, whether loot is nearby, or whether the people in an area are easy marks or will provide a safe house for thieves on the run."
+      }
+    },
+    {
+      "id": "srd51.feature.acolyte.shelter-of-the-faithful",
+      "name": {
+        "en": "Shelter of the Faithful"
+      },
+      "origin": "background",
+      "owner": "srd51.background.acolyte",
+      "source": {
+        "entity": "srd51.background.acolyte",
+        "feature": "srd51.feature.acolyte.shelter-of-the-faithful",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "As an acolyte, you command the respect of those who share your faith, and you can perform the religious ceremonies of your deity. You and your adventuring companions can expect to receive free healing and care at a temple, shrine, or other established presence of your faith, though you must provide any material components needed for spells. Those who share your religion will support you (but only you) at a modest lifestyle.\n\nYou might also have ties to a specific temple dedicated to your chosen deity or pantheon, and you have a residence there. This could be the temple where you used to serve, if you remain on good terms with it, or a temple where you have found a new home. While near your temple, you can call upon the priests for assistance, provided the assistance you ask for is not hazardous and you remain in good standing with your temple."
+      }
+    }
+  ],
+  "level": 1,
+  "meta": {
+    "characterId": "fixture-created-rogue",
+    "formatVersion": 0,
+    "language": "en",
+    "name": "Quick fingers",
+    "packages": [
+      {
+        "id": "srd51",
+        "version": "0.6.0"
+      }
+    ],
+    "ruleset": "srd51"
+  },
+  "play": {
+    "concentration": {
+      "saveDc": "max(10, floor(damage / 2))"
+    },
+    "conditions": [
+      {
+        "id": "srd51.condition.blinded",
+        "name": {
+          "en": "Blinded"
+        }
+      },
+      {
+        "id": "srd51.condition.charmed",
+        "name": {
+          "en": "Charmed"
+        }
+      },
+      {
+        "id": "srd51.condition.deafened",
+        "name": {
+          "en": "Deafened"
+        }
+      },
+      {
+        "cumulative": true,
+        "id": "srd51.condition.exhaustion",
+        "maxLevel": 6,
+        "name": {
+          "en": "Exhaustion"
+        }
+      },
+      {
+        "id": "srd51.condition.frightened",
+        "name": {
+          "en": "Frightened"
+        }
+      },
+      {
+        "id": "srd51.condition.grappled",
+        "name": {
+          "en": "Grappled"
+        }
+      },
+      {
+        "id": "srd51.condition.incapacitated",
+        "name": {
+          "en": "Incapacitated"
+        }
+      },
+      {
+        "id": "srd51.condition.invisible",
+        "name": {
+          "en": "Invisible"
+        }
+      },
+      {
+        "id": "srd51.condition.paralyzed",
+        "name": {
+          "en": "Paralyzed"
+        }
+      },
+      {
+        "id": "srd51.condition.petrified",
+        "name": {
+          "en": "Petrified"
+        }
+      },
+      {
+        "id": "srd51.condition.poisoned",
+        "name": {
+          "en": "Poisoned"
+        }
+      },
+      {
+        "id": "srd51.condition.prone",
+        "name": {
+          "en": "Prone"
+        }
+      },
+      {
+        "id": "srd51.condition.restrained",
+        "name": {
+          "en": "Restrained"
+        }
+      },
+      {
+        "id": "srd51.condition.stunned",
+        "name": {
+          "en": "Stunned"
+        }
+      },
+      {
+        "id": "srd51.condition.unconscious",
+        "name": {
+          "en": "Unconscious"
+        }
+      }
+    ],
+    "deathSaves": {
+      "damage": {
+        "failures": 1
+      },
+      "dc": 10,
+      "failures": 3,
+      "natural1": {
+        "failures": 2
+      },
+      "natural20": {
+        "hitPoints": 1
+      },
+      "successes": 3
+    },
+    "hitDice": [
+      {
+        "die": 8,
+        "total": 1
+      }
+    ],
+    "rests": {
+      "long": {
+        "conditionLevelsRecovered": 1,
+        "hitDiceRecovered": 1,
+        "hitPoints": "full",
+        "hours": 8
+      },
+      "short": {
+        "hitDice": "spend",
+        "hours": 1
+      }
+    }
+  },
+  "proficiencies": [
+    {
+      "expertise": false,
+      "item": "light",
+      "source": {
+        "entity": "srd51.class.rogue",
+        "package": "srd51"
+      },
+      "type": "armor"
+    },
+    {
+      "expertise": false,
+      "item": "common",
+      "source": {
+        "entity": "srd51.species.halfling",
+        "package": "srd51"
+      },
+      "type": "language"
+    },
+    {
+      "expertise": false,
+      "item": "dwarvish",
+      "source": {
+        "entity": "srd51.background.acolyte",
+        "package": "srd51"
+      },
+      "type": "language"
+    },
+    {
+      "expertise": false,
+      "item": "elvish",
+      "source": {
+        "entity": "srd51.background.acolyte",
+        "package": "srd51"
+      },
+      "type": "language"
+    },
+    {
+      "expertise": false,
+      "item": "halfling",
+      "source": {
+        "entity": "srd51.species.halfling",
+        "package": "srd51"
+      },
+      "type": "language"
+    },
+    {
+      "expertise": false,
+      "item": "thieves-cant",
+      "source": {
+        "entity": "srd51.class.rogue",
+        "feature": "srd51.feature.rogue.thieves-cant",
+        "package": "srd51"
+      },
+      "type": "language"
+    },
+    {
+      "expertise": false,
+      "item": "dex",
+      "source": {
+        "entity": "srd51.class.rogue",
+        "package": "srd51"
+      },
+      "type": "save"
+    },
+    {
+      "expertise": false,
+      "item": "int",
+      "source": {
+        "entity": "srd51.class.rogue",
+        "package": "srd51"
+      },
+      "type": "save"
+    },
+    {
+      "expertise": true,
+      "item": "acrobatics",
+      "source": {
+        "entity": "srd51.class.rogue",
+        "feature": "srd51.feature.rogue.expertise",
+        "package": "srd51"
+      },
+      "type": "skill"
+    },
+    {
+      "expertise": true,
+      "item": "animal-handling",
+      "source": {
+        "entity": "srd51.class.rogue",
+        "feature": "srd51.feature.rogue.expertise",
+        "package": "srd51"
+      },
+      "type": "skill"
+    },
+    {
+      "expertise": false,
+      "item": "insight",
+      "source": {
+        "entity": "srd51.background.acolyte",
+        "package": "srd51"
+      },
+      "type": "skill"
+    },
+    {
+      "expertise": false,
+      "item": "perception",
+      "source": {
+        "entity": "srd51.class.rogue",
+        "package": "srd51"
+      },
+      "type": "skill"
+    },
+    {
+      "expertise": false,
+      "item": "religion",
+      "source": {
+        "entity": "srd51.background.acolyte",
+        "package": "srd51"
+      },
+      "type": "skill"
+    },
+    {
+      "expertise": false,
+      "item": "sleight-of-hand",
+      "source": {
+        "entity": "srd51.class.rogue",
+        "package": "srd51"
+      },
+      "type": "skill"
+    },
+    {
+      "expertise": false,
+      "item": "stealth",
+      "source": {
+        "entity": "srd51.class.rogue",
+        "package": "srd51"
+      },
+      "type": "skill"
+    },
+    {
+      "expertise": false,
+      "item": "hand-crossbows",
+      "source": {
+        "entity": "srd51.class.rogue",
+        "package": "srd51"
+      },
+      "type": "tool"
+    },
+    {
+      "expertise": false,
+      "item": "thieves-tools",
+      "source": {
+        "entity": "srd51.class.rogue",
+        "package": "srd51"
+      },
+      "type": "tool"
+    },
+    {
+      "expertise": false,
+      "item": "longsword",
+      "source": {
+        "entity": "srd51.class.rogue",
+        "package": "srd51"
+      },
+      "type": "weapon"
+    },
+    {
+      "expertise": false,
+      "item": "rapier",
+      "source": {
+        "entity": "srd51.class.rogue",
+        "package": "srd51"
+      },
+      "type": "weapon"
+    },
+    {
+      "expertise": false,
+      "item": "shortsword",
+      "source": {
+        "entity": "srd51.class.rogue",
+        "package": "srd51"
+      },
+      "type": "weapon"
+    },
+    {
+      "expertise": false,
+      "item": "simple",
+      "source": {
+        "entity": "srd51.class.rogue",
+        "package": "srd51"
+      },
+      "type": "weapon"
+    }
+  ],
+  "resources": [],
+  "rollModifiers": [
+    {
+      "applied": true,
+      "kind": "advantage",
+      "on": {
+        "against": [
+          "frightened"
+        ],
+        "type": "save"
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.species.halfling",
+        "feature": "srd51.feature.halfling.brave",
+        "package": "srd51"
+      }
+    }
+  ],
+  "sections": [
+    "identity",
+    "core",
+    "abilities",
+    "saves",
+    "skills",
+    "combat",
+    "attacks",
+    "actions",
+    "features",
+    "equipment",
+    "personality",
+    "conditions",
+    "notes",
+    "credits"
+  ],
+  "spellcasting": [],
+  "spells": [],
+  "texts": [
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.species.halfling",
+        "feature": "srd51.feature.halfling.halfling-nimbleness",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You can move through the space of any creature that is of a size larger than yours."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.species.halfling.lightfoot",
+        "feature": "srd51.feature.lightfoot.naturally-stealthy",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You can attempt to hide even when you are obscured only by a creature that is at least one size larger than you."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.class.rogue",
+        "feature": "srd51.feature.rogue.thieves-cant",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You understand a set of secret signs and symbols used to convey short, simple messages, such as whether an area is dangerous or the territory of a thieves' guild, whether loot is nearby, or whether the people in an area are easy marks or will provide a safe house for thieves on the run."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.background.acolyte",
+        "feature": "srd51.feature.acolyte.shelter-of-the-faithful",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You and your companions can expect free healing and care at temples of your faith."
+      }
+    }
+  ],
+  "toggles": [],
+  "values": {
+    "ability.cha": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Ability Score Increase"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.species.halfling.lightfoot",
+            "feature": "srd51.feature.lightfoot.ability-score-increase",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 11
+    },
+    "ability.con": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 14
+        }
+      ],
+      "value": 14
+    },
+    "ability.dex": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 15
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Ability Score Increase"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.species.halfling",
+            "feature": "srd51.feature.halfling.ability-score-increase",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 17
+    },
+    "ability.int": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 13
+        }
+      ],
+      "value": 13
+    },
+    "ability.str": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 8
+        }
+      ],
+      "value": 8
+    },
+    "ability.wis": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 12
+        }
+      ],
+      "value": 12
+    },
+    "ac": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Leather Armor"
+          },
+          "source": {
+            "entity": "srd51.item.leather-armor",
+            "package": ""
+          },
+          "value": 11
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 14
+    },
+    "attacks.perAction": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "One attack per Attack action"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "carry.capacity": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength score × 15"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 120
+        }
+      ],
+      "value": 120
+    },
+    "check.cha": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "check.con": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Constitution modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "check.dex": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 3
+    },
+    "check.int": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "check.str": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        }
+      ],
+      "value": -1
+    },
+    "check.wis": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "hp.max": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "hitDie + mod(con)",
+          "kind": "base",
+          "label": {
+            "en": "Level 1 (Rogue)"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        }
+      ],
+      "value": 10
+    },
+    "initiative": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 3
+    },
+    "jump.high": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "3 + Strength modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "jump.long": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength score in feet"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 8
+        }
+      ],
+      "value": 8
+    },
+    "mod.cha": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "mod.con": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Constitution modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "mod.dex": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 3
+    },
+    "mod.int": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "mod.str": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Strength modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        }
+      ],
+      "value": -1
+    },
+    "mod.wis": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "passive.acrobatics": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "acrobatics bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 7
+        }
+      ],
+      "value": 17
+    },
+    "passive.animal-handling": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "animal-handling bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 15
+    },
+    "passive.arcana": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "arcana bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 11
+    },
+    "passive.athletics": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "athletics bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        }
+      ],
+      "value": 9
+    },
+    "passive.deception": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "deception bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 10
+    },
+    "passive.history": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "history bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 11
+    },
+    "passive.insight": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "insight bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 13
+    },
+    "passive.intimidation": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "intimidation bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 10
+    },
+    "passive.investigation": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "investigation bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 11
+    },
+    "passive.medicine": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "medicine bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 11
+    },
+    "passive.nature": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "nature bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 11
+    },
+    "passive.perception": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "perception bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 13
+    },
+    "passive.performance": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "performance bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 10
+    },
+    "passive.persuasion": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "persuasion bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 10
+    },
+    "passive.religion": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "religion bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 13
+    },
+    "passive.sleight-of-hand": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "sleight-of-hand bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 15
+    },
+    "passive.stealth": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "stealth bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 15
+    },
+    "passive.survival": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "survival bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 11
+    },
+    "proficiencyBonus": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Proficiency bonus by level"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "save.cha": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "save.con": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Constitution modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "save.dex": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 5
+    },
+    "save.int": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 3
+    },
+    "save.str": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        }
+      ],
+      "value": -1
+    },
+    "save.wis": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "skill.acrobatics": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Expertise"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 4
+        }
+      ],
+      "value": 7
+    },
+    "skill.animal-handling": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Expertise"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 4
+        }
+      ],
+      "value": 5
+    },
+    "skill.arcana": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "skill.athletics": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": -1
+        }
+      ],
+      "value": -1
+    },
+    "skill.deception": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "skill.history": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "skill.insight": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 3
+    },
+    "skill.intimidation": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "skill.investigation": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "skill.medicine": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "skill.nature": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "skill.perception": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 3
+    },
+    "skill.performance": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "skill.persuasion": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "skill.religion": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 3
+    },
+    "skill.sleight-of-hand": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 5
+    },
+    "skill.stealth": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 5
+    },
+    "skill.survival": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "speed.walk": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Species speed"
+          },
+          "source": {
+            "entity": "srd51.species.halfling",
+            "package": ""
+          },
+          "value": 25
+        }
+      ],
+      "value": 25
+    }
+  },
+  "warnings": []
+}
+

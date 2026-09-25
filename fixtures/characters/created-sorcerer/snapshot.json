@@ -1,0 +1,3204 @@
+{
+  "actions": [
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [
+        {
+          "amount": 1,
+          "resource": "breath-weapon"
+        }
+      ],
+      "dc": {
+        "provenance": [
+          {
+            "applied": true,
+            "formula": "8 + mod(con) + proficiencyBonus",
+            "kind": "base",
+            "label": {
+              "en": "Save DC"
+            },
+            "source": {
+              "package": "srd51"
+            },
+            "value": 12
+          }
+        ],
+        "value": 12
+      },
+      "id": "breath-weapon",
+      "name": {
+        "en": "Breath Weapon"
+      },
+      "onUse": [
+        {
+          "kind": "note",
+          "text": {
+            "en": "Area, save ability and damage type follow your Draconic Ancestry: black/blue/brass/bronze/copper 5 by 30 ft. line (Dex. save); gold/red 15 ft. cone (Dex. save); green/silver/white 15 ft. cone (Con. save). Damage: 2d6, 3d6 at 6th level, 4d6 at 11th, 5d6 at 16th."
+          }
+        }
+      ],
+      "rolls": [
+        {
+          "bonus": {
+            "provenance": [
+              {
+                "applied": true,
+                "formula": "0",
+                "kind": "base",
+                "label": {
+                  "en": "Roll bonus"
+                },
+                "source": {
+                  "effectIndex": 1,
+                  "entity": "srd51.species.dragonborn",
+                  "feature": "srd51.feature.dragonborn.breath-weapon",
+                  "package": "srd51"
+                },
+                "value": 0
+              }
+            ],
+            "value": 0
+          },
+          "onSuccess": "half",
+          "type": "save"
+        },
+        {
+          "bonus": {
+            "provenance": [
+              {
+                "applied": true,
+                "formula": "0",
+                "kind": "base",
+                "label": {
+                  "en": "Roll bonus"
+                },
+                "source": {
+                  "effectIndex": 1,
+                  "entity": "srd51.species.dragonborn",
+                  "feature": "srd51.feature.dragonborn.breath-weapon",
+                  "package": "srd51"
+                },
+                "value": 0
+              }
+            ],
+            "value": 0
+          },
+          "dice": "2d6",
+          "type": "damage"
+        }
+      ],
+      "source": {
+        "effectIndex": 1,
+        "entity": "srd51.species.dragonborn",
+        "feature": "srd51.feature.dragonborn.breath-weapon",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You exhale destructive energy in the area determined by your draconic ancestry. Each creature in the area must make a saving throw (DC 8 + your Constitution modifier + your proficiency bonus), taking 2d6 damage on a failed save and half as much on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level."
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "attack",
+      "name": {
+        "en": "Attack"
+      },
+      "source": {
+        "entity": "srd51.rule.action.attack",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "dash",
+      "name": {
+        "en": "Dash"
+      },
+      "source": {
+        "entity": "srd51.rule.action.dash",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "disengage",
+      "name": {
+        "en": "Disengage"
+      },
+      "source": {
+        "entity": "srd51.rule.action.disengage",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "dodge",
+      "name": {
+        "en": "Dodge"
+      },
+      "source": {
+        "entity": "srd51.rule.action.dodge",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "help",
+      "name": {
+        "en": "Help"
+      },
+      "source": {
+        "entity": "srd51.rule.action.help",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "hide",
+      "name": {
+        "en": "Hide"
+      },
+      "source": {
+        "entity": "srd51.rule.action.hide",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "ready",
+      "name": {
+        "en": "Ready"
+      },
+      "source": {
+        "entity": "srd51.rule.action.ready",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "search",
+      "name": {
+        "en": "Search"
+      },
+      "source": {
+        "entity": "srd51.rule.action.search",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "use-object",
+      "name": {
+        "en": "Use an Object"
+      },
+      "source": {
+        "entity": "srd51.rule.action.use-object",
+        "package": "srd51"
+      }
+    },
+    {
+      "activation": "action",
+      "available": true,
+      "cost": [],
+      "id": "cast-a-spell",
+      "name": {
+        "en": "Cast a Spell"
+      },
+      "source": {
+        "entity": "srd51.rule.action.cast-a-spell",
+        "package": "srd51"
+      }
+    }
+  ],
+  "attacks": [
+    {
+      "ability": "dex",
+      "attackBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Dexterity modifier"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 1
+          },
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "Proficiency bonus"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 2
+          }
+        ],
+        "value": 3
+      },
+      "critRange": 20,
+      "damage": "1d4 + 1",
+      "damageBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Dexterity modifier"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 1
+          }
+        ],
+        "value": 1
+      },
+      "damageDice": "1d4",
+      "damageType": "piercing",
+      "extraDamage": [],
+      "id": "dagger",
+      "item": "srd51.item.dagger",
+      "magical": false,
+      "name": {
+        "en": "Dagger"
+      },
+      "proficient": true,
+      "ranged": false,
+      "unarmed": false
+    },
+    {
+      "ability": "dex",
+      "attackBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Dexterity modifier"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 1
+          },
+          {
+            "applied": false,
+            "kind": "add",
+            "label": {
+              "en": "Proficiency bonus"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 2
+          }
+        ],
+        "value": 1
+      },
+      "critRange": 20,
+      "damage": "1d8 + 1",
+      "damageBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Dexterity modifier"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 1
+          }
+        ],
+        "value": 1
+      },
+      "damageDice": "1d8",
+      "damageType": "piercing",
+      "extraDamage": [],
+      "id": "crossbow-light",
+      "item": "srd51.item.crossbow-light",
+      "magical": false,
+      "name": {
+        "en": "Crossbow, light"
+      },
+      "proficient": false,
+      "ranged": true,
+      "unarmed": false
+    },
+    {
+      "ability": "str",
+      "attackBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Strength modifier"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 0
+          },
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "Proficiency bonus"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 2
+          }
+        ],
+        "value": 2
+      },
+      "critRange": 20,
+      "damage": "1",
+      "damageBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Strength modifier"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 0
+          }
+        ],
+        "value": 0
+      },
+      "damageDice": "1",
+      "damageType": "bludgeoning",
+      "extraDamage": [],
+      "id": "unarmed-strike",
+      "magical": false,
+      "name": {
+        "en": "Unarmed strike"
+      },
+      "proficient": true,
+      "ranged": false,
+      "unarmed": true
+    }
+  ],
+  "choices": [
+    {
+      "answered": true,
+      "answers": [
+        "arcana",
+        "intimidation"
+      ],
+      "choice": "skills",
+      "count": 2,
+      "key": "srd51.class.sorcerer#skills",
+      "of": "skill",
+      "options": [
+        "arcana",
+        "deception",
+        "insight",
+        "intimidation",
+        "persuasion",
+        "religion"
+      ],
+      "owner": "srd51.class.sorcerer"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "dwarvish",
+        "elvish"
+      ],
+      "choice": "languages",
+      "count": 2,
+      "key": "srd51.background.acolyte#languages",
+      "of": "language",
+      "options": [],
+      "owner": "srd51.background.acolyte"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "srd51.subclass.sorcerer.draconic-bloodline"
+      ],
+      "choice": "sorcerous-origin",
+      "count": 1,
+      "key": "srd51.class.sorcerer#sorcerous-origin",
+      "level": 1,
+      "of": "subclass",
+      "options": [],
+      "owner": "srd51.class.sorcerer"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "red"
+      ],
+      "choice": "draconic-ancestry",
+      "count": 1,
+      "key": "srd51.feature.dragonborn.draconic-ancestry#draconic-ancestry",
+      "of": "option",
+      "optionDetails": {
+        "black": {
+          "name": {
+            "en": "Black"
+          },
+          "text": {
+            "en": "Acid damage. Breath weapon: 5 by 30 ft. line (Dex. save)."
+          }
+        },
+        "blue": {
+          "name": {
+            "en": "Blue"
+          },
+          "text": {
+            "en": "Lightning damage. Breath weapon: 5 by 30 ft. line (Dex. save)."
+          }
+        },
+        "brass": {
+          "name": {
+            "en": "Brass"
+          },
+          "text": {
+            "en": "Fire damage. Breath weapon: 5 by 30 ft. line (Dex. save)."
+          }
+        },
+        "bronze": {
+          "name": {
+            "en": "Bronze"
+          },
+          "text": {
+            "en": "Lightning damage. Breath weapon: 5 by 30 ft. line (Dex. save)."
+          }
+        },
+        "copper": {
+          "name": {
+            "en": "Copper"
+          },
+          "text": {
+            "en": "Acid damage. Breath weapon: 5 by 30 ft. line (Dex. save)."
+          }
+        },
+        "gold": {
+          "name": {
+            "en": "Gold"
+          },
+          "text": {
+            "en": "Fire damage. Breath weapon: 15 ft. cone (Dex. save)."
+          }
+        },
+        "green": {
+          "name": {
+            "en": "Green"
+          },
+          "text": {
+            "en": "Poison damage. Breath weapon: 15 ft. cone (Con. save)."
+          }
+        },
+        "red": {
+          "name": {
+            "en": "Red"
+          },
+          "text": {
+            "en": "Fire damage. Breath weapon: 15 ft. cone (Dex. save)."
+          }
+        },
+        "silver": {
+          "name": {
+            "en": "Silver"
+          },
+          "text": {
+            "en": "Cold damage. Breath weapon: 15 ft. cone (Con. save)."
+          }
+        },
+        "white": {
+          "name": {
+            "en": "White"
+          },
+          "text": {
+            "en": "Cold damage. Breath weapon: 15 ft. cone (Con. save)."
+          }
+        }
+      },
+      "options": [
+        "black",
+        "blue",
+        "brass",
+        "bronze",
+        "copper",
+        "gold",
+        "green",
+        "red",
+        "silver",
+        "white"
+      ],
+      "owner": "srd51.feature.dragonborn.draconic-ancestry"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "red"
+      ],
+      "choice": "dragon-ancestor",
+      "count": 1,
+      "key": "srd51.feature.draconic-bloodline.dragon-ancestor#dragon-ancestor",
+      "of": "option",
+      "optionDetails": {
+        "black": {
+          "name": {
+            "en": "Black dragon"
+          },
+          "text": {
+            "en": "Damage type acid."
+          }
+        },
+        "blue": {
+          "name": {
+            "en": "Blue dragon"
+          },
+          "text": {
+            "en": "Damage type lightning."
+          }
+        },
+        "brass": {
+          "name": {
+            "en": "Brass dragon"
+          },
+          "text": {
+            "en": "Damage type fire."
+          }
+        },
+        "bronze": {
+          "name": {
+            "en": "Bronze dragon"
+          },
+          "text": {
+            "en": "Damage type lightning."
+          }
+        },
+        "copper": {
+          "name": {
+            "en": "Copper dragon"
+          },
+          "text": {
+            "en": "Damage type acid."
+          }
+        },
+        "gold": {
+          "name": {
+            "en": "Gold dragon"
+          },
+          "text": {
+            "en": "Damage type fire."
+          }
+        },
+        "green": {
+          "name": {
+            "en": "Green dragon"
+          },
+          "text": {
+            "en": "Damage type poison."
+          }
+        },
+        "red": {
+          "name": {
+            "en": "Red dragon"
+          },
+          "text": {
+            "en": "Damage type fire."
+          }
+        },
+        "silver": {
+          "name": {
+            "en": "Silver dragon"
+          },
+          "text": {
+            "en": "Damage type cold."
+          }
+        },
+        "white": {
+          "name": {
+            "en": "White dragon"
+          },
+          "text": {
+            "en": "Damage type cold."
+          }
+        }
+      },
+      "options": [
+        "black",
+        "blue",
+        "brass",
+        "bronze",
+        "copper",
+        "gold",
+        "green",
+        "red",
+        "silver",
+        "white"
+      ],
+      "owner": "srd51.feature.draconic-bloodline.dragon-ancestor"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "srd51.spell.acid-splash",
+        "srd51.spell.chill-touch",
+        "srd51.spell.dancing-lights",
+        "srd51.spell.fire-bolt"
+      ],
+      "choice": "cantrips",
+      "count": 4,
+      "filter": {
+        "level": 0,
+        "list": "srd51.spell-list.sorcerer",
+        "type": "spell"
+      },
+      "key": "srd51.class.sorcerer#cantrips",
+      "of": "spell",
+      "options": [],
+      "owner": "srd51.class.sorcerer"
+    },
+    {
+      "answered": true,
+      "answers": [
+        "srd51.spell.burning-hands",
+        "srd51.spell.charm-person"
+      ],
+      "choice": "spells",
+      "count": 2,
+      "filter": {
+        "list": "srd51.spell-list.sorcerer",
+        "type": "spell"
+      },
+      "key": "srd51.class.sorcerer#spells",
+      "of": "spell",
+      "options": [],
+      "owner": "srd51.class.sorcerer"
+    }
+  ],
+  "classes": [
+    {
+      "class": "srd51.class.sorcerer",
+      "levels": 1,
+      "subclass": "srd51.subclass.sorcerer.draconic-bloodline"
+    }
+  ],
+  "defenses": [
+    {
+      "defense": "resistance",
+      "source": {
+        "effectIndex": 7,
+        "entity": "srd51.species.dragonborn",
+        "feature": "srd51.feature.dragonborn.damage-resistance",
+        "package": "srd51"
+      },
+      "to": [
+        "fire"
+      ]
+    }
+  ],
+  "features": [
+    {
+      "id": "srd51.feature.dragonborn.ability-score-increase",
+      "name": {
+        "en": "Ability Score Increase"
+      },
+      "origin": "species",
+      "owner": "srd51.species.dragonborn",
+      "source": {
+        "entity": "srd51.species.dragonborn",
+        "feature": "srd51.feature.dragonborn.ability-score-increase",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Your Strength score increases by 2, and your Charisma score increases by 1."
+      }
+    },
+    {
+      "id": "srd51.feature.dragonborn.speed",
+      "name": {
+        "en": "Speed"
+      },
+      "origin": "species",
+      "owner": "srd51.species.dragonborn",
+      "source": {
+        "entity": "srd51.species.dragonborn",
+        "feature": "srd51.feature.dragonborn.speed",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Your base walking speed is 30 feet."
+      }
+    },
+    {
+      "id": "srd51.feature.dragonborn.age",
+      "name": {
+        "en": "Age"
+      },
+      "origin": "species",
+      "owner": "srd51.species.dragonborn",
+      "source": {
+        "entity": "srd51.species.dragonborn",
+        "feature": "srd51.feature.dragonborn.age",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Young dragonborn grow quickly. They walk hours after hatching, attain the size and development of a 10-year-old human child by the age of 3, and reach adulthood by 15. They live to be around 80."
+      }
+    },
+    {
+      "id": "srd51.feature.dragonborn.alignment",
+      "name": {
+        "en": "Alignment"
+      },
+      "origin": "species",
+      "owner": "srd51.species.dragonborn",
+      "source": {
+        "entity": "srd51.species.dragonborn",
+        "feature": "srd51.feature.dragonborn.alignment",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Dragonborn tend to extremes, making a conscious choice for one side or the other in the cosmic war between good and evil. Most dragonborn are good, but those who side with evil can be terrible villains."
+      }
+    },
+    {
+      "id": "srd51.feature.dragonborn.size",
+      "name": {
+        "en": "Size"
+      },
+      "origin": "species",
+      "owner": "srd51.species.dragonborn",
+      "source": {
+        "entity": "srd51.species.dragonborn",
+        "feature": "srd51.feature.dragonborn.size",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Dragonborn are taller and heavier than humans, standing well over 6 feet tall and averaging almost 250 pounds. Your size is Medium."
+      }
+    },
+    {
+      "id": "srd51.feature.dragonborn.languages",
+      "name": {
+        "en": "Languages"
+      },
+      "origin": "species",
+      "owner": "srd51.species.dragonborn",
+      "source": {
+        "entity": "srd51.species.dragonborn",
+        "feature": "srd51.feature.dragonborn.languages",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You can speak, read, and write Common and Draconic. Draconic is thought to be one of the oldest languages and is often used in the study of magic. The language sounds harsh to most other creatures and includes numerous hard consonants and sibilants."
+      }
+    },
+    {
+      "id": "srd51.feature.dragonborn.draconic-ancestry-table",
+      "name": {
+        "en": "Draconic Ancestry table"
+      },
+      "origin": "species",
+      "owner": "srd51.species.dragonborn",
+      "source": {
+        "entity": "srd51.species.dragonborn",
+        "feature": "srd51.feature.dragonborn.draconic-ancestry-table",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "| Dragon       | Damage Type       | Breath Weapon                |\n|--------------|-------------------|------------------------------|\n| Black        | Acid              | 5 by 30 ft. line (Dex. save) |\n| Blue         | Lightning         | 5 by 30 ft. line (Dex. save) |\n| Brass        | Fire              | 5 by 30 ft. line (Dex. save) |\n| Bronze       | Lightning         | 5 by 30 ft. line (Dex. save) |\n| Copper       | Acid              | 5 by 30 ft. line (Dex. save) |\n| Gold         | Fire              | 15 ft. cone (Dex. save)      |\n| Green        | Poison            | 15 ft. cone (Con. save)      |\n| Red          | Fire              | 15 ft. cone (Dex. save)      |\n| Silver       | Cold              | 15 ft. cone (Con. save)      |\n| White        | Cold              | 15 ft. cone (Con. save)      |"
+      }
+    },
+    {
+      "id": "srd51.feature.dragonborn.draconic-ancestry",
+      "name": {
+        "en": "Draconic Ancestry"
+      },
+      "origin": "species",
+      "owner": "srd51.species.dragonborn",
+      "source": {
+        "entity": "srd51.species.dragonborn",
+        "feature": "srd51.feature.dragonborn.draconic-ancestry",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You have draconic ancestry. Choose one type of dragon from the Draconic Ancestry table. Your breath weapon and damage resistance are determined by the dragon type, as shown in the table."
+      }
+    },
+    {
+      "id": "srd51.feature.dragonborn.breath-weapon",
+      "name": {
+        "en": "Breath Weapon"
+      },
+      "origin": "species",
+      "owner": "srd51.species.dragonborn",
+      "source": {
+        "entity": "srd51.species.dragonborn",
+        "feature": "srd51.feature.dragonborn.breath-weapon",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You can use your action to exhale destructive energy. Your draconic ancestry determines the size, shape, and damage type of the exhalation.\nWhen you use your breath weapon, each creature in the area of the exhalation must make a saving throw, the type of which is determined by your draconic ancestry. The DC for this saving throw equals 8 + your Constitution modifier + your proficiency bonus. A creature takes 2d6 damage on a failed save, and half as much damage on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level."
+      }
+    },
+    {
+      "id": "srd51.feature.dragonborn.damage-resistance",
+      "name": {
+        "en": "Damage Resistance"
+      },
+      "origin": "species",
+      "owner": "srd51.species.dragonborn",
+      "source": {
+        "entity": "srd51.species.dragonborn",
+        "feature": "srd51.feature.dragonborn.damage-resistance",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You have resistance to the damage type associated with your draconic ancestry."
+      }
+    },
+    {
+      "id": "srd51.feature.sorcerer.sorcerous-origin",
+      "level": 1,
+      "name": {
+        "en": "Sorcerous Origin"
+      },
+      "origin": "class",
+      "owner": "srd51.class.sorcerer",
+      "source": {
+        "entity": "srd51.class.sorcerer",
+        "feature": "srd51.feature.sorcerer.sorcerous-origin",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Choose a sorcerous origin, which describes the source of your innate magical power: Draconic Bloodline or Wild Magic, both detailed at the end of the class description.\n\nYour choice grants you features when you choose it at 1st level and again at 6th, 14th, and 18th level."
+      }
+    },
+    {
+      "id": "srd51.feature.sorcerer.spellcasting",
+      "level": 1,
+      "name": {
+        "en": "Spellcasting"
+      },
+      "origin": "class",
+      "owner": "srd51.class.sorcerer",
+      "source": {
+        "entity": "srd51.class.sorcerer",
+        "feature": "srd51.feature.sorcerer.spellcasting",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "An event in your past, or in the life of a parent or ancestor, left an indelible mark on you, infusing you with arcane magic. This font of magic, whatever its origin, fuels your spells.\n\n### Cantrips\n\nAt 1st level, you know four cantrips of your choice from the sorcerer spell list. You learn additional sorcerer cantrips of your choice at higher levels, as shown in the Cantrips Known column of the Sorcerer table.\n\n### Spell Slots\n\nThe Sorcerer table shows how many spell slots you have to cast your spells of 1st level and higher. To cast one of these sorcerer spells, you must expend a slot of the spell's level or higher. You regain all expended spell slots when you finish a long rest.\n\nFor example, if you know the 1st-level spell burning hands and have a 1st-level and a 2nd-level spell slot available, you can cast burning hands using either slot.\n\n### Spells Known of 1st Level and Higher\n\nYou know two 1st-level spells of your choice from the sorcerer spell list.\n\nThe Spells Known column of the Sorcerer table shows when you learn more sorcerer spells of your choice. Each of these spells must be of a level for which you have spell slots. For instance, when you reach 3rd level in this class, you can learn one new spell of 1st or 2nd level.\n\nAdditionally, when you gain a level in this class, you can choose one of the sorcerer spells you know and replace it with another spell from the sorcerer spell list, which also must be of a level for which you have spell slots.\n\n### Spellcasting Ability\n\nCharisma is your spellcasting ability for your sorcerer spells, since the power of your magic relies on your ability to project your will into the world. You use your Charisma whenever a spell refers to your spellcasting ability. In addition, you use your Charisma modifier when setting the saving throw DC for a sorcerer spell you cast and when making an attack roll with one.\n\n**Spell save DC = 8** + your proficiency bonus + your Charisma modifier\n\n**Spell attack modifier** = your proficiency bonus + your Charisma modifier\nSpellcasting Focus\n\nYou can use an arcane focus as a spellcasting focus for your sorcerer spells."
+      }
+    },
+    {
+      "id": "srd51.feature.draconic-bloodline.draconic-resilience",
+      "level": 1,
+      "name": {
+        "en": "Draconic Resilience"
+      },
+      "origin": "subclass",
+      "owner": "srd51.subclass.sorcerer.draconic-bloodline",
+      "source": {
+        "entity": "srd51.subclass.sorcerer.draconic-bloodline",
+        "feature": "srd51.feature.draconic-bloodline.draconic-resilience",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "As magic flows through your body, it causes physical traits of your dragon ancestors to emerge. At 1st level, your hit point maximum increases by 1 and increases by 1 again whenever you gain a level in this class.\n\nAdditionally, parts of your skin are covered by a thin sheen of dragon-like scales. When you aren't wearing armor, your AC equals 13 + your Dexterity modifier."
+      }
+    },
+    {
+      "id": "srd51.feature.draconic-bloodline.dragon-ancestor",
+      "level": 1,
+      "name": {
+        "en": "Dragon Ancestor"
+      },
+      "origin": "subclass",
+      "owner": "srd51.subclass.sorcerer.draconic-bloodline",
+      "source": {
+        "entity": "srd51.subclass.sorcerer.draconic-bloodline",
+        "feature": "srd51.feature.draconic-bloodline.dragon-ancestor",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "At 1st level, you choose one type of dragon as your ancestor. The damage type associated with each dragon is used by features you gain later.\n\n### Draconic Ancestry (table)\n| Dragon | Damage Type |\n| --- | --- |\n| Black | Acid |\n| Blue | Lightning |\n| Brass | Fire |\n| Bronze | Lightning |\n| Copper | Acid |\n| Gold | Fire |\n| Green | Poison |\n| Red | Fire |\n| Silver | Cold |\n| White | Cold |\n\nYou can speak, read, and write Draconic. Additionally, whenever you make a Charisma check when interacting with dragons, your proficiency bonus is doubled if it applies to the check."
+      }
+    },
+    {
+      "id": "srd51.feature.acolyte.shelter-of-the-faithful",
+      "name": {
+        "en": "Shelter of the Faithful"
+      },
+      "origin": "background",
+      "owner": "srd51.background.acolyte",
+      "source": {
+        "entity": "srd51.background.acolyte",
+        "feature": "srd51.feature.acolyte.shelter-of-the-faithful",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "As an acolyte, you command the respect of those who share your faith, and you can perform the religious ceremonies of your deity. You and your adventuring companions can expect to receive free healing and care at a temple, shrine, or other established presence of your faith, though you must provide any material components needed for spells. Those who share your religion will support you (but only you) at a modest lifestyle.\n\nYou might also have ties to a specific temple dedicated to your chosen deity or pantheon, and you have a residence there. This could be the temple where you used to serve, if you remain on good terms with it, or a temple where you have found a new home. While near your temple, you can call upon the priests for assistance, provided the assistance you ask for is not hazardous and you remain in good standing with your temple."
+      }
+    }
+  ],
+  "level": 1,
+  "meta": {
+    "characterId": "fixture-created-sorcerer",
+    "formatVersion": 0,
+    "language": "en",
+    "name": "Dragon-blooded",
+    "packages": [
+      {
+        "id": "srd51",
+        "version": "0.6.0"
+      }
+    ],
+    "ruleset": "srd51"
+  },
+  "play": {
+    "concentration": {
+      "saveDc": "max(10, floor(damage / 2))"
+    },
+    "conditions": [
+      {
+        "id": "srd51.condition.blinded",
+        "name": {
+          "en": "Blinded"
+        }
+      },
+      {
+        "id": "srd51.condition.charmed",
+        "name": {
+          "en": "Charmed"
+        }
+      },
+      {
+        "id": "srd51.condition.deafened",
+        "name": {
+          "en": "Deafened"
+        }
+      },
+      {
+        "cumulative": true,
+        "id": "srd51.condition.exhaustion",
+        "maxLevel": 6,
+        "name": {
+          "en": "Exhaustion"
+        }
+      },
+      {
+        "id": "srd51.condition.frightened",
+        "name": {
+          "en": "Frightened"
+        }
+      },
+      {
+        "id": "srd51.condition.grappled",
+        "name": {
+          "en": "Grappled"
+        }
+      },
+      {
+        "id": "srd51.condition.incapacitated",
+        "name": {
+          "en": "Incapacitated"
+        }
+      },
+      {
+        "id": "srd51.condition.invisible",
+        "name": {
+          "en": "Invisible"
+        }
+      },
+      {
+        "id": "srd51.condition.paralyzed",
+        "name": {
+          "en": "Paralyzed"
+        }
+      },
+      {
+        "id": "srd51.condition.petrified",
+        "name": {
+          "en": "Petrified"
+        }
+      },
+      {
+        "id": "srd51.condition.poisoned",
+        "name": {
+          "en": "Poisoned"
+        }
+      },
+      {
+        "id": "srd51.condition.prone",
+        "name": {
+          "en": "Prone"
+        }
+      },
+      {
+        "id": "srd51.condition.restrained",
+        "name": {
+          "en": "Restrained"
+        }
+      },
+      {
+        "id": "srd51.condition.stunned",
+        "name": {
+          "en": "Stunned"
+        }
+      },
+      {
+        "id": "srd51.condition.unconscious",
+        "name": {
+          "en": "Unconscious"
+        }
+      }
+    ],
+    "deathSaves": {
+      "damage": {
+        "failures": 1
+      },
+      "dc": 10,
+      "failures": 3,
+      "natural1": {
+        "failures": 2
+      },
+      "natural20": {
+        "hitPoints": 1
+      },
+      "successes": 3
+    },
+    "hitDice": [
+      {
+        "die": 6,
+        "total": 1
+      }
+    ],
+    "rests": {
+      "long": {
+        "conditionLevelsRecovered": 1,
+        "hitDiceRecovered": 1,
+        "hitPoints": "full",
+        "hours": 8
+      },
+      "short": {
+        "hitDice": "spend",
+        "hours": 1
+      }
+    }
+  },
+  "proficiencies": [
+    {
+      "expertise": false,
+      "item": "common",
+      "source": {
+        "entity": "srd51.species.dragonborn",
+        "package": "srd51"
+      },
+      "type": "language"
+    },
+    {
+      "expertise": false,
+      "item": "draconic",
+      "source": {
+        "entity": "srd51.species.dragonborn",
+        "package": "srd51"
+      },
+      "type": "language"
+    },
+    {
+      "expertise": false,
+      "item": "dwarvish",
+      "source": {
+        "entity": "srd51.background.acolyte",
+        "package": "srd51"
+      },
+      "type": "language"
+    },
+    {
+      "expertise": false,
+      "item": "elvish",
+      "source": {
+        "entity": "srd51.background.acolyte",
+        "package": "srd51"
+      },
+      "type": "language"
+    },
+    {
+      "expertise": false,
+      "item": "cha",
+      "source": {
+        "entity": "srd51.class.sorcerer",
+        "package": "srd51"
+      },
+      "type": "save"
+    },
+    {
+      "expertise": false,
+      "item": "con",
+      "source": {
+        "entity": "srd51.class.sorcerer",
+        "package": "srd51"
+      },
+      "type": "save"
+    },
+    {
+      "expertise": false,
+      "item": "arcana",
+      "source": {
+        "entity": "srd51.class.sorcerer",
+        "package": "srd51"
+      },
+      "type": "skill"
+    },
+    {
+      "expertise": false,
+      "item": "insight",
+      "source": {
+        "entity": "srd51.background.acolyte",
+        "package": "srd51"
+      },
+      "type": "skill"
+    },
+    {
+      "expertise": false,
+      "item": "intimidation",
+      "source": {
+        "entity": "srd51.class.sorcerer",
+        "package": "srd51"
+      },
+      "type": "skill"
+    },
+    {
+      "expertise": false,
+      "item": "religion",
+      "source": {
+        "entity": "srd51.background.acolyte",
+        "package": "srd51"
+      },
+      "type": "skill"
+    },
+    {
+      "expertise": false,
+      "item": "dagger",
+      "source": {
+        "entity": "srd51.class.sorcerer",
+        "package": "srd51"
+      },
+      "type": "weapon"
+    },
+    {
+      "expertise": false,
+      "item": "dart",
+      "source": {
+        "entity": "srd51.class.sorcerer",
+        "package": "srd51"
+      },
+      "type": "weapon"
+    },
+    {
+      "expertise": false,
+      "item": "light-crossbow",
+      "source": {
+        "entity": "srd51.class.sorcerer",
+        "package": "srd51"
+      },
+      "type": "weapon"
+    },
+    {
+      "expertise": false,
+      "item": "quarterstaff",
+      "source": {
+        "entity": "srd51.class.sorcerer",
+        "package": "srd51"
+      },
+      "type": "weapon"
+    },
+    {
+      "expertise": false,
+      "item": "sling",
+      "source": {
+        "entity": "srd51.class.sorcerer",
+        "package": "srd51"
+      },
+      "type": "weapon"
+    }
+  ],
+  "resources": [
+    {
+      "current": null,
+      "display": "pips",
+      "id": "breath-weapon",
+      "max": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "None"
+            },
+            "source": {
+              "entity": "srd51.ruleset",
+              "package": "srd51"
+            },
+            "value": 0
+          },
+          {
+            "applied": true,
+            "kind": "set",
+            "label": {
+              "en": "Breath Weapon"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.species.dragonborn",
+              "feature": "srd51.feature.dragonborn.breath-weapon",
+              "package": "srd51"
+            },
+            "value": 1
+          }
+        ],
+        "value": 1
+      },
+      "name": {
+        "en": "Breath Weapon"
+      },
+      "recharge": [
+        {
+          "amount": "full",
+          "on": "short-rest"
+        },
+        {
+          "amount": "full",
+          "on": "long-rest"
+        }
+      ],
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.species.dragonborn",
+        "feature": "srd51.feature.dragonborn.breath-weapon",
+        "package": "srd51"
+      }
+    }
+  ],
+  "rollModifiers": [],
+  "sections": [
+    "identity",
+    "core",
+    "abilities",
+    "saves",
+    "skills",
+    "combat",
+    "attacks",
+    "actions",
+    "resources",
+    "spellcasting",
+    "spells",
+    "features",
+    "equipment",
+    "personality",
+    "conditions",
+    "notes",
+    "credits"
+  ],
+  "spellcasting": [
+    {
+      "ability": "cha",
+      "attackBonus": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "Proficiency bonus"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.class.sorcerer",
+              "feature": "srd51.feature.sorcerer.spellcasting",
+              "package": "srd51"
+            },
+            "value": 2
+          },
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "CHA modifier"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.class.sorcerer",
+              "feature": "srd51.feature.sorcerer.spellcasting",
+              "package": "srd51"
+            },
+            "value": 3
+          }
+        ],
+        "value": 5
+      },
+      "cantripsKnown": 4,
+      "class": "srd51.class.sorcerer",
+      "dc": {
+        "provenance": [
+          {
+            "applied": true,
+            "kind": "base",
+            "label": {
+              "en": "Base"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.class.sorcerer",
+              "feature": "srd51.feature.sorcerer.spellcasting",
+              "package": "srd51"
+            },
+            "value": 8
+          },
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "Proficiency bonus"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.class.sorcerer",
+              "feature": "srd51.feature.sorcerer.spellcasting",
+              "package": "srd51"
+            },
+            "value": 2
+          },
+          {
+            "applied": true,
+            "kind": "add",
+            "label": {
+              "en": "CHA modifier"
+            },
+            "source": {
+              "effectIndex": 0,
+              "entity": "srd51.class.sorcerer",
+              "feature": "srd51.feature.sorcerer.spellcasting",
+              "package": "srd51"
+            },
+            "value": 3
+          }
+        ],
+        "value": 13
+      },
+      "list": "srd51.spell-list.sorcerer",
+      "preparation": "known",
+      "ritual": false,
+      "slots": [
+        {
+          "current": null,
+          "level": 1,
+          "max": 2
+        }
+      ],
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.sorcerer",
+        "feature": "srd51.feature.sorcerer.spellcasting",
+        "package": "srd51"
+      },
+      "spellsKnown": 2
+    }
+  ],
+  "spells": [
+    {
+      "ability": "cha",
+      "as": "cantrip",
+      "caster": "srd51.class.sorcerer",
+      "duration": {
+        "type": "instantaneous"
+      },
+      "id": "srd51.spell.acid-splash",
+      "level": 0,
+      "name": {
+        "en": "Acid Splash"
+      },
+      "paidWith": {
+        "free": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.sorcerer",
+        "feature": "srd51.feature.sorcerer.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "cantrip",
+      "caster": "srd51.class.sorcerer",
+      "duration": {
+        "rounds": 1,
+        "type": "timed"
+      },
+      "id": "srd51.spell.chill-touch",
+      "level": 0,
+      "name": {
+        "en": "Chill Touch"
+      },
+      "paidWith": {
+        "free": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.sorcerer",
+        "feature": "srd51.feature.sorcerer.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "cantrip",
+      "caster": "srd51.class.sorcerer",
+      "duration": {
+        "concentration": true,
+        "minutes": 1,
+        "type": "timed"
+      },
+      "id": "srd51.spell.dancing-lights",
+      "level": 0,
+      "name": {
+        "en": "Dancing Lights"
+      },
+      "paidWith": {
+        "free": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.sorcerer",
+        "feature": "srd51.feature.sorcerer.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "cantrip",
+      "caster": "srd51.class.sorcerer",
+      "duration": {
+        "type": "instantaneous"
+      },
+      "id": "srd51.spell.fire-bolt",
+      "level": 0,
+      "name": {
+        "en": "Fire Bolt"
+      },
+      "paidWith": {
+        "free": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.sorcerer",
+        "feature": "srd51.feature.sorcerer.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "known",
+      "caster": "srd51.class.sorcerer",
+      "duration": {
+        "type": "instantaneous"
+      },
+      "id": "srd51.spell.burning-hands",
+      "level": 1,
+      "name": {
+        "en": "Burning Hands"
+      },
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.sorcerer",
+        "feature": "srd51.feature.sorcerer.spellcasting",
+        "package": "srd51"
+      }
+    },
+    {
+      "ability": "cha",
+      "as": "known",
+      "caster": "srd51.class.sorcerer",
+      "duration": {
+        "hours": 1,
+        "type": "timed"
+      },
+      "id": "srd51.spell.charm-person",
+      "level": 1,
+      "name": {
+        "en": "Charm Person"
+      },
+      "onCast": [
+        {
+          "condition": "srd51.condition.charmed",
+          "expires": {
+            "hours": 1
+          },
+          "kind": "applyCondition",
+          "note": {
+            "en": "On a failed Wisdom saving throw (made with advantage if you or your companions are fighting the target); ends if you or your companions do anything harmful to it. The target regards you as a friendly acquaintance and knows it was charmed when the spell ends. One additional creature (within 30 feet of the others) for each slot level above 1st."
+          },
+          "target": "other"
+        }
+      ],
+      "paidWith": {
+        "slot": true
+      },
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.class.sorcerer",
+        "feature": "srd51.feature.sorcerer.spellcasting",
+        "package": "srd51"
+      }
+    }
+  ],
+  "texts": [
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 2,
+        "entity": "srd51.subclass.sorcerer.draconic-bloodline",
+        "feature": "srd51.feature.draconic-bloodline.dragon-ancestor",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Whenever you make a Charisma check when interacting with dragons, your proficiency bonus is doubled if it applies to the check."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.background.acolyte",
+        "feature": "srd51.feature.acolyte.shelter-of-the-faithful",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "You and your companions can expect free healing and care at temples of your faith."
+      }
+    },
+    {
+      "section": "features",
+      "source": {
+        "effectIndex": 0,
+        "entity": "srd51.subclass.sorcerer.draconic-bloodline",
+        "feature": "red",
+        "package": "srd51"
+      },
+      "text": {
+        "en": "Draconic ancestry: red dragon (fire)."
+      }
+    }
+  ],
+  "toggles": [],
+  "values": {
+    "ability.cha": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 15
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Ability Score Increase"
+          },
+          "source": {
+            "effectIndex": 1,
+            "entity": "srd51.species.dragonborn",
+            "feature": "srd51.feature.dragonborn.ability-score-increase",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 16
+    },
+    "ability.con": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 14
+        }
+      ],
+      "value": 14
+    },
+    "ability.dex": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 13
+        }
+      ],
+      "value": 13
+    },
+    "ability.int": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 10
+        }
+      ],
+      "value": 10
+    },
+    "ability.str": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 8
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Ability Score Increase"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.species.dragonborn",
+            "feature": "srd51.feature.dragonborn.ability-score-increase",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 10
+    },
+    "ability.wis": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base score"
+          },
+          "source": {
+            "package": ""
+          },
+          "value": 12
+        }
+      ],
+      "value": 12
+    },
+    "ac": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        },
+        {
+          "applied": true,
+          "formula": "13 + mod(dex)",
+          "kind": "set-formula",
+          "label": {
+            "en": "Draconic Resilience"
+          },
+          "source": {
+            "effectIndex": 1,
+            "entity": "srd51.subclass.sorcerer.draconic-bloodline",
+            "feature": "srd51.feature.draconic-bloodline.draconic-resilience",
+            "package": "srd51"
+          },
+          "value": 14
+        }
+      ],
+      "value": 14
+    },
+    "attacks.perAction": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "One attack per Attack action"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "carry.capacity": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength score × 15"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 150
+        }
+      ],
+      "value": 150
+    },
+    "check.cha": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 3
+    },
+    "check.con": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Constitution modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "check.dex": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "check.int": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "check.str": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "check.wis": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "hp.max": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "hitDie + mod(con)",
+          "kind": "base",
+          "label": {
+            "en": "Level 1 (Sorcerer)"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 8
+        },
+        {
+          "applied": true,
+          "formula": "1 × sorcerer level",
+          "kind": "add",
+          "label": {
+            "en": "Draconic Resilience"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.subclass.sorcerer.draconic-bloodline",
+            "feature": "srd51.feature.draconic-bloodline.draconic-resilience",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 9
+    },
+    "initiative": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "jump.high": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "3 + Strength modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 3
+    },
+    "jump.long": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength score in feet"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        }
+      ],
+      "value": 10
+    },
+    "mod.cha": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 3
+    },
+    "mod.con": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Constitution modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "mod.dex": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "mod.int": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "mod.str": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Strength modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "mod.wis": {
+      "provenance": [
+        {
+          "applied": true,
+          "formula": "floor((score - 10) / 2)",
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "passive.acrobatics": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "acrobatics bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 11
+    },
+    "passive.animal-handling": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "animal-handling bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 11
+    },
+    "passive.arcana": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "arcana bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 12
+    },
+    "passive.athletics": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "athletics bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 10
+    },
+    "passive.deception": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "deception bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 13
+    },
+    "passive.history": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "history bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 10
+    },
+    "passive.insight": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "insight bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 13
+    },
+    "passive.intimidation": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "intimidation bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 5
+        }
+      ],
+      "value": 15
+    },
+    "passive.investigation": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "investigation bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 10
+    },
+    "passive.medicine": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "medicine bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 11
+    },
+    "passive.nature": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "nature bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 10
+    },
+    "passive.perception": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "perception bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 11
+    },
+    "passive.performance": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "performance bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 13
+    },
+    "passive.persuasion": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "persuasion bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 13
+    },
+    "passive.religion": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "religion bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 12
+    },
+    "passive.sleight-of-hand": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "sleight-of-hand bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 11
+    },
+    "passive.stealth": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "stealth bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 11
+    },
+    "passive.survival": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Base"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 10
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "survival bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 11
+    },
+    "proficiencyBonus": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Proficiency bonus by level"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "resource.breath-weapon.max": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "None"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        },
+        {
+          "applied": true,
+          "kind": "set",
+          "label": {
+            "en": "Breath Weapon"
+          },
+          "source": {
+            "effectIndex": 0,
+            "entity": "srd51.species.dragonborn",
+            "feature": "srd51.feature.dragonborn.breath-weapon",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "save.cha": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 5
+    },
+    "save.con": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Constitution modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 4
+    },
+    "save.dex": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "save.int": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "save.str": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "save.wis": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "skill.acrobatics": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "skill.animal-handling": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "skill.arcana": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "skill.athletics": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Strength modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "skill.deception": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 3
+    },
+    "skill.history": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "skill.insight": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 3
+    },
+    "skill.intimidation": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 5
+    },
+    "skill.investigation": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "skill.medicine": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "skill.nature": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        }
+      ],
+      "value": 0
+    },
+    "skill.perception": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "skill.performance": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 3
+    },
+    "skill.persuasion": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Charisma modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 3
+        }
+      ],
+      "value": 3
+    },
+    "skill.religion": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Intelligence modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 0
+        },
+        {
+          "applied": true,
+          "kind": "add",
+          "label": {
+            "en": "Proficiency bonus"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 2
+        }
+      ],
+      "value": 2
+    },
+    "skill.sleight-of-hand": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "skill.stealth": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Dexterity modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "skill.survival": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Wisdom modifier"
+          },
+          "source": {
+            "entity": "srd51.ruleset",
+            "package": "srd51"
+          },
+          "value": 1
+        }
+      ],
+      "value": 1
+    },
+    "speed.walk": {
+      "provenance": [
+        {
+          "applied": true,
+          "kind": "base",
+          "label": {
+            "en": "Species speed"
+          },
+          "source": {
+            "entity": "srd51.species.dragonborn",
+            "package": ""
+          },
+          "value": 30
+        }
+      ],
+      "value": 30
+    }
+  },
+  "warnings": []
+}
+
