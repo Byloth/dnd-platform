@@ -469,8 +469,19 @@
       "fix": "Vai a {step}",
       "save": "Salva il personaggio",
       "saveNote": "Viene salvato in questo browser; lo troverai nella pagina dei personaggi.",
+      "saveChanges": "Salva le modifiche",
+      "saveChangesNote": "Il personaggio in questo browser viene sostituito da questo.",
       "needsName": "Dai un nome al personaggio per salvarlo.",
       "failed": "Non è stato possibile salvare il personaggio. Riprova; la bozza è ancora qui."
+    },
+    "edit": {
+      "title": "Modifica {name}",
+      "unnamed": "un personaggio",
+      "missing": "In questo browser non c'è un personaggio a questo indirizzo; si possono modificare solo i propri personaggi.",
+      "resume": {
+        "heading": "Stavi modificando questo personaggio",
+        "text": "Le modifiche sono conservate in questo browser. Continua da lì, o ricomincia dal personaggio com'è salvato."
+      }
     }
   }
 }

@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-    import { STEPS } from "@/stores/wizard";
     import type { StepId } from "@/stores/wizard";
 
     /**
@@ -7,18 +6,18 @@
      * as current, the completed ones carry a tick, any step can be reached in any order. Each dot is named
      * "n. Step name" (its visible number first, WCAG 2.5.3), plus "done" when completed.
      */
-    const props = defineProps<{ current: StepId, done: (step: StepId) => boolean }>();
+    const props = defineProps<{ steps: readonly StepId[], current: StepId, done: (step: StepId) => boolean }>();
     const emit = defineEmits<{ go: [step: StepId] }>();
 
     const { t } = useI18n();
 
-    const index = computed(() => STEPS.indexOf(props.current));
+    const index = computed(() => props.steps.indexOf(props.current));
 </script>
 
 <template>
     <nav class="wizard-stepper" :aria-label="t('wizard.progress')">
         <ol class="wizard-stepper__dots">
-            <li v-for="(step, i) in STEPS"
+            <li v-for="(step, i) in steps"
                 :key="step"
                 class="wizard-stepper__item"
                 :class="{
@@ -37,7 +36,7 @@
             </li>
         </ol>
         <p class="wizard-stepper__current">
-            <span class="wizard-stepper__count">{{ t("wizard.stepOf", { n: index + 1, total: STEPS.length }) }}</span>
+            <span class="wizard-stepper__count">{{ t("wizard.stepOf", { n: index + 1, total: steps.length }) }}</span>
             <span aria-hidden="true"> · </span>
             <strong>{{ t(`wizard.steps.${current}`) }}</strong>
         </p>

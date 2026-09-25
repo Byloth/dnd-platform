@@ -469,8 +469,19 @@
       "fix": "Button beside an open thing, to its step. Parameter: {step}, the step's name.",
       "save": "The review's button that stores the character and opens its sheet.",
       "saveNote": "Beside the save button, when it is enabled.",
+      "saveChanges": "The review's save button when editing a stored character.",
+      "saveChangesNote": "Beside it: what saving does.",
       "needsName": "Beside the save button, when it is disabled for want of a name.",
       "failed": "When storing the character fails."
+    },
+    "edit": {
+      "title": "Page title while editing a stored character. Parameter: {name}.",
+      "unnamed": "Stands in for {name} in the title while the character has no name.",
+      "missing": "When the edit address names no stored character (a demo character, or one from another browser).",
+      "resume": {
+        "heading": "When an edit draft of this character is found in the browser.",
+        "text": "Explains the two buttons below (the same as for a new character's draft)."
+      }
     }
   }
 }

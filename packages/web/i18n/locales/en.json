@@ -469,8 +469,19 @@
       "fix": "Go to {step}",
       "save": "Save the character",
       "saveNote": "It is stored in this browser; you will find it on the characters page.",
+      "saveChanges": "Save the changes",
+      "saveChangesNote": "The character in this browser is replaced by this one.",
       "needsName": "Give your character a name to save it.",
       "failed": "The character could not be saved. Try again; your draft is still here."
+    },
+    "edit": {
+      "title": "Edit {name}",
+      "unnamed": "a character",
+      "missing": "There is no character with this address in this browser; only your own characters can be edited.",
+      "resume": {
+        "heading": "You were changing this character",
+        "text": "Your changes are kept in this browser. Go on with them, or start again from the character as it is saved."
+      }
     }
   }
 }

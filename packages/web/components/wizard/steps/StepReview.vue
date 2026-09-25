@@ -36,6 +36,12 @@
         undefined));
     const named = computed(() => Boolean(wizard.character?.name.trim()));
     const stepName = (step: StepId): string => t(`wizard.steps.${step}`);
+    const note = computed(() =>
+    {
+        if (!named.value) { return t("wizard.review.needsName"); }
+
+        return t(wizard.editing ? "wizard.review.saveChangesNote" : "wizard.review.saveNote");
+    });
 
     const issues = computed((): Issue[] =>
     {
@@ -137,10 +143,10 @@
                            aria-describedby="review-save-note"
                            @click="save">
                     <FontAwesome icon="hard-drive" aria-hidden="true" />
-                    {{ t("wizard.review.save") }}
+                    {{ t(wizard.editing ? "wizard.review.saveChanges" : "wizard.review.save") }}
                 </AppButton>
                 <p id="review-save-note" class="step-review__note">
-                    {{ named ? t("wizard.review.saveNote") : t("wizard.review.needsName") }}
+                    {{ note }}
                 </p>
             </div>
             <p v-if="saving === 'failed'"

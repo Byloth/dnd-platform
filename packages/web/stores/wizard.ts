@@ -25,6 +25,8 @@ export const STEPS = [
 export type StepId = typeof STEPS[number];
 
 export const DRAFT_KEY = "wizard-draft";
+/** The draft of a stored character being edited: one at a time, apart from the creation draft. */
+export const EDIT_KEY = "wizard-edit";
 /** How long the draft waits after a change before it is written. */
 const SAVE_DELAY = 300;
 
@@ -38,6 +40,10 @@ export interface WizardDraft
     readonly rolls?: readonly (number | null)[];
     /** The player's equipment selections, from which `choices.equipment` is rebuilt. */
     readonly equipment?: EquipmentSelection;
+    /** Whether `choices.equipment` is the stored character's own list, edited as it is, not rebuilt. */
+    readonly keptEquipment?: boolean;
+    /** The id of the stored character this draft edits; absent for a new character. */
+    readonly editing?: string;
     readonly savedAt: string;
 }
 
@@ -83,7 +89,15 @@ export const useWizardStore = defineStore("wizard", () =>
     /** The rolled totals as typed, one place per ability; `null` where nothing is typed yet. */
     const rolls = ref<(number | null)[]>([]);
     const equipment = ref<EquipmentSelection>(structuredClone(EMPTY_SELECTION));
+    /** True while the equipment is a stored character's own list (edited as it is) rather than rebuilt. */
+    const keptEquipment = ref(false);
+    /** The id of the stored character being edited; undefined while creating one. */
+    const editing = ref<string>();
     const sources = shallowRef<PackageSource[]>([]);
+
+    /** The steps on offer: editing a character has no concept step, an archetype only makes sense at the start. */
+    const steps = computed((): readonly StepId[] => (editing.value ? STEPS.filter((s) => s !== "concept") : STEPS));
+    const _key = (): string => (editing.value ? EDIT_KEY : DRAFT_KEY);
 
     let _saveTimer: ReturnType<typeof setTimeout> | undefined;
     let _saving: Promise<void> = Promise.resolve();
@@ -125,9 +139,12 @@ export const useWizardStore = defineStore("wizard", () =>
             rolls: rolls.value.length ? [...rolls.value] : undefined,
             // A plain copy: the selections are reactive all the way down, which IndexedDB cannot clone.
             equipment: JSON.parse(JSON.stringify(equipment.value)) as EquipmentSelection,
+            keptEquipment: keptEquipment.value || undefined,
+            editing: editing.value,
             savedAt: new Date().toISOString()
         });
-        _saving = _saving.then(() => useBrowserStorage().meta.set(DRAFT_KEY, draft as unknown as JSONValue));
+        const key = _key();
+        _saving = _saving.then(() => useBrowserStorage().meta.set(key, draft as unknown as JSONValue));
 
         await _saving;
     };
@@ -181,45 +198,82 @@ export const useWizardStore = defineStore("wizard", () =>
         const base = content.site.find((p) => p.manifest.kind === "base") ?? content.site[0];
         if (!base) { throw new Error("The site publishes no base package."); }
 
+        _cancelSave();
+        editing.value = undefined;
         character.value = emptyCharacter({ id: base.manifest.id, version: base.manifest.version });
         step.value = "content";
         archetype.value = undefined;
         rolls.value = [];
         equipment.value = structuredClone(EMPTY_SELECTION);
+        keptEquipment.value = false;
         await _loadSources();
         await save();
     };
 
-    /** The stored draft, if any, without loading it. */
-    const stored = async (): Promise<WizardDraft | undefined> =>
-        (await useBrowserStorage().meta.get<JSONValue>(DRAFT_KEY) ?? undefined) as WizardDraft | undefined;
-
-    /** Loads the stored draft; false when there is none. */
-    const resume = async (): Promise<boolean> =>
+    /**
+     * Opens a stored character in the wizard, at a step (the review by default); its draft is the edit draft,
+     * so a character being created is never touched. False when no character has this id.
+     */
+    const edit = async (id: string, at: StepId = "review"): Promise<boolean> =>
     {
-        const draft = await stored();
+        const found = await useBrowserStorage().characters.get(id);
+        if (!found) { return false; }
+
+        _cancelSave();
+        editing.value = id;
+        character.value = found;
+        step.value = at === "concept" ? "review" : at;
+        archetype.value = null;
+        rolls.value = [];
+        equipment.value = structuredClone(EMPTY_SELECTION);
+        keptEquipment.value = true;
+        await _loadSources();
+        await save();
+
+        return true;
+    };
+
+    /** The stored creation draft, or the edit draft of this character, without loading it. */
+    const stored = async (id?: string): Promise<WizardDraft | undefined> =>
+    {
+        const draft = (await useBrowserStorage().meta.get<JSONValue>(id ? EDIT_KEY : DRAFT_KEY) ?? undefined) as
+            WizardDraft | undefined;
+
+        return (!id || (draft?.editing === id)) ? draft : undefined;
+    };
+
+    /** Loads the stored creation draft, or the edit draft of this character; false when there is none. */
+    const resume = async (id?: string): Promise<boolean> =>
+    {
+        const draft = await stored(id);
         if (!draft) { return false; }
 
+        _cancelSave();
+        editing.value = draft.editing;
         character.value = draft.character;
         step.value = draft.step;
         archetype.value = draft.archetype;
         rolls.value = [...draft.rolls ?? []];
         equipment.value = structuredClone(draft.equipment ?? EMPTY_SELECTION);
+        keptEquipment.value = draft.keptEquipment ?? false;
         await _loadSources();
 
         return true;
     };
 
-    /** Forgets the stored draft and the one on screen. */
+    /** Forgets the draft on screen and its stored copy (the edit draft when editing). */
     const discard = async (): Promise<void> =>
     {
         _cancelSave();
+        const key = _key();
+        editing.value = undefined;
         character.value = undefined;
         archetype.value = undefined;
         rolls.value = [];
         equipment.value = structuredClone(EMPTY_SELECTION);
+        keptEquipment.value = false;
         step.value = "content";
-        await useBrowserStorage().meta.set(DRAFT_KEY, null);
+        await useBrowserStorage().meta.set(key, null);
     };
 
     const goTo = (next: StepId): void =>
@@ -246,7 +300,7 @@ export const useWizardStore = defineStore("wizard", () =>
     {
         const tools = _equipment();
         const current = character.value;
-        if (!tools || !current) { return; }
+        if (!tools || !current || keptEquipment.value) { return; }
         const entries = tools.build(current, equipment.value);
 
         const choices = defined({ ...current.choices, equipment: entries.length ? entries : undefined });
@@ -359,7 +413,7 @@ export const useWizardStore = defineStore("wizard", () =>
 
             return {
                 ...choices,
-                classes: [defined({ class: id, subclass: subclass, levels: 1 })],
+                classes: [defined({ class: id, subclass: subclass, levels: current?.levels ?? 1 })],
                 answers: _withoutAnswersOf(choices.answers, [current?.class, current?.subclass])
             };
         });
@@ -533,7 +587,30 @@ export const useWizardStore = defineStore("wizard", () =>
             removed: removed ? [...new Set([...s.removed, slot])] : s.removed.filter((k) => k !== slot)
         }));
 
+    /** The stored list, edited as it is (kept equipment). */
+    const _owned = (change: (entries: NonNullable<Choices["equipment"]>) => Choices["equipment"]): void =>
+        _choices((choices) =>
+        {
+            const entries = change([...choices.equipment ?? []]);
+
+            return { ...choices, equipment: entries?.length ? entries : undefined };
+        });
+
     const addItem = (item: string): void =>
+    {
+        if (keptEquipment.value)
+        {
+            _owned((entries) =>
+            {
+                const existing = entries.find((e) => e.item === item);
+
+                return existing ?
+                    entries.map((e) => (e === existing ? { ...e, quantity: (e.quantity ?? 1) + 1 } : e)) :
+                    [...entries, { item: item, quantity: 1 }];
+            });
+
+            return;
+        }
         _select((s) =>
         {
             const existing = s.added.findIndex((a) => a.item === item);
@@ -543,11 +620,31 @@ export const useWizardStore = defineStore("wizard", () =>
 
             return { ...s, added: added };
         });
+    };
 
-    const dropItem = (item: string): void => _select((s) => ({ ...s, added: s.added.filter((a) => a.item !== item) }));
+    const dropItem = (item: string): void =>
+    {
+        if (keptEquipment.value) { _owned((entries) => entries.filter((e) => e.item !== item)); }
+        else { _select((s) => ({ ...s, added: s.added.filter((a) => a.item !== item) })); }
+    };
 
     const equip = (item: string, on: boolean): void =>
-        _select((s) => ({ ...s, equipped: { ...s.equipped, [item]: on } }));
+    {
+        if (keptEquipment.value)
+        {
+            _owned((entries) => entries
+                .map((e) => (e.item === item ? defined({ ...e, equipped: on || undefined }) : e)));
+        }
+        else { _select((s) => ({ ...s, equipped: { ...s.equipped, [item]: on } })); }
+    };
+
+    /** Leaves the stored list for the starting equipment of the class and background, chosen again. */
+    const chooseEquipmentAgain = (): void =>
+    {
+        keptEquipment.value = false;
+        equipment.value = structuredClone(EMPTY_SELECTION);
+        _rebuildEquipment();
+    };
 
     /** The suggested purse, in copper: the grants' gold, plus removed items, minus added ones. */
     const suggestedCopper = computed((): number =>
@@ -613,8 +710,9 @@ export const useWizardStore = defineStore("wizard", () =>
 
     /**
      * Stores the draft as a character and forgets the draft; its id, or `undefined` without a name (the one thing
-     * the wizard asks before saving; owner, 2026-09-25). The character starts at full hit points and keeps its
-     * choices "as created" in a snapshot (docs/phase-1/02-content-and-character-stores.md).
+     * the wizard asks before saving; owner, 2026-09-25). A new character starts at full hit points and keeps its
+     * choices "as created" in a snapshot (docs/phase-1/02-content-and-character-stores.md); an edited one replaces
+     * its stored document.
      */
     const finish = async (): Promise<string | undefined> =>
     {
@@ -623,11 +721,28 @@ export const useWizardStore = defineStore("wizard", () =>
         if (!current || !name) { return undefined; }
 
         const sheet = useEngine().sheet(current, sources.value, { language: useNuxtApp().$i18n.locale.value }).sheet;
-        const max = sheet.values["hp.max"]?.value;
+        const value = sheet.values["hp.max"]?.value;
+        const max = typeof value === "number" ? value : 0;
+
+        if (editing.value)
+        {
+            // The state goes on as it was, but no more hit points than the new maximum; no new snapshot.
+            const hp = current.state.hp;
+            const changed: Character = {
+                ...current,
+                name: name,
+                state: { ...current.state, hp: { ...hp, current: Math.min(hp.current, max) } }
+            };
+            await useBrowserStorage().characters.put(JSON.parse(JSON.stringify(changed)) as Character);
+            await discard();
+
+            return changed.id;
+        }
+
         const created: Character = {
             ...current,
             name: name,
-            state: { ...current.state, hp: { current: typeof max === "number" ? max : 0, temporary: 0 } },
+            state: { ...current.state, hp: { current: max, temporary: 0 } },
             snapshots: [
                 ...current.snapshots ?? [],
                 { at: new Date().toISOString(), level: sheet.level, label: "as created", choices: current.choices }
@@ -658,9 +773,13 @@ export const useWizardStore = defineStore("wizard", () =>
         archetype,
         rolls,
         equipment,
+        keptEquipment,
+        editing,
+        steps,
         sources,
         packageSet,
         start,
+        edit,
         stored,
         resume,
         discard,
@@ -686,6 +805,7 @@ export const useWizardStore = defineStore("wizard", () =>
         addItem,
         dropItem,
         equip,
+        chooseEquipmentAgain,
         suggestedCopper,
         setCoins,
         useSuggestedCoins,

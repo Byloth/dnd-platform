@@ -1,10 +1,9 @@
 <script lang="ts" setup>
     import FontAwesome from "@/components/ui/FontAwesome.vue";
-    import { STEPS } from "@/stores/wizard";
     import type { StepId } from "@/stores/wizard";
 
     /** The steps by name, beside the wizard on desktop (owner, 2026-09-24): the same moves as the dots, spelled out. */
-    defineProps<{ current: StepId, done: (step: StepId) => boolean }>();
+    defineProps<{ steps: readonly StepId[], current: StepId, done: (step: StepId) => boolean }>();
     const emit = defineEmits<{ go: [step: StepId] }>();
 
     const { t } = useI18n();
@@ -13,7 +12,7 @@
 <template>
     <nav class="wizard-step-list" :aria-label="t('wizard.stepList')">
         <ol class="wizard-step-list__items">
-            <li v-for="(step, i) in STEPS" :key="step">
+            <li v-for="(step, i) in steps" :key="step">
                 <button type="button"
                         class="wizard-step-list__step"
                         :class="{

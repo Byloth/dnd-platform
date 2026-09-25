@@ -3,7 +3,6 @@
 
     import AppButton from "@/components/ui/AppButton.vue";
     import FontAwesome from "@/components/ui/FontAwesome.vue";
-    import { STEPS } from "@/stores/wizard";
     import type { StepId } from "@/stores/wizard";
 
     /**
@@ -11,14 +10,14 @@
      * everyone but an expert; what the choice changes and what to choose when unsure for a newcomer), the step's
      * content, and "Back" and "Next", never disabled: the wizard warns, it never blocks.
      */
-    const props = defineProps<{ step: StepId, helpLevel: HelpLevel }>();
+    const props = defineProps<{ steps: readonly StepId[], step: StepId, helpLevel: HelpLevel }>();
     const emit = defineEmits<{ go: [step: StepId] }>();
 
     const { t } = useI18n();
 
-    const index = computed(() => STEPS.indexOf(props.step));
-    const previous = computed(() => STEPS[index.value - 1]);
-    const next = computed(() => STEPS[index.value + 1]);
+    const index = computed(() => props.steps.indexOf(props.step));
+    const previous = computed(() => props.steps[index.value - 1]);
+    const next = computed(() => props.steps[index.value + 1]);
 </script>
 
 <template>

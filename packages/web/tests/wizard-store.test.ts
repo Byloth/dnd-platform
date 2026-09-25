@@ -286,4 +286,77 @@ describe("the creation wizard's store", () =>
         expect(await wizard.stored()).toBeUndefined();
         expect((await useCharacters().list())[0]).toMatchObject({ id: id, origin: "stored", summary: "Cleric 1" });
     });
+
+    describe("editing a stored character", () =>
+    {
+        async function stored(): Promise<string>
+        {
+            const wizard = useWizardStore();
+            wizard.chooseArchetype("srd51.archetype.steadfast-healer");
+            wizard.setName("Brother Alric");
+
+            return (await wizard.finish())!;
+        }
+
+        it("opens it without the concept step and keeps the creation draft apart", async () =>
+        {
+            const id = await stored();
+            const wizard = useWizardStore();
+            await wizard.start();
+            wizard.setName("Someone new");
+            await wizard.save();
+
+            expect(await wizard.edit(id, "class")).toBe(true);
+            expect(wizard.editing).toBe(id);
+            expect(wizard.step).toBe("class");
+            expect(wizard.steps).not.toContain("concept");
+            expect(wizard.character?.name).toBe("Brother Alric");
+            expect((await wizard.stored())?.character.name).toBe("Someone new");
+            expect((await wizard.stored(id))?.editing).toBe(id);
+            expect(await wizard.edit("nobody")).toBe(false);
+        });
+
+        it("replaces the stored document, with no new snapshot and no more hit points than the maximum", async () =>
+        {
+            const id = await stored();
+            const wizard = useWizardStore();
+            const before = await useBrowserStorage().characters.get(id);
+            const hurt = { ...before!.state, hp: { current: 99, temporary: 3 } };
+            await useBrowserStorage().characters.put({ ...before!, state: hurt });
+
+            await wizard.edit(id);
+            wizard.setAlignment("neutral-good");
+            expect(await wizard.finish()).toBe(id);
+
+            const after = await useBrowserStorage().characters.get(id);
+            expect(after?.choices.alignment).toBe("neutral-good");
+            expect(after?.snapshots).toEqual(before?.snapshots);
+            expect(after?.state.hp).toEqual({ current: before?.state.hp.current, temporary: 3 });
+            expect(await useBrowserStorage().characters.list()).toHaveLength(1);
+            expect(await wizard.stored(id)).toBeUndefined();
+        });
+
+        it("keeps the levels and the owned items through a class change, until chosen again", async () =>
+        {
+            const id = await stored();
+            const doc = await useBrowserStorage().characters.get(id);
+            type Classes = NonNullable<typeof doc>["choices"]["classes"];
+            const classes: Classes = [{ ...doc!.choices.classes![0]!, levels: 3 }];
+            await useBrowserStorage().characters.put({ ...doc!, choices: { ...doc!.choices, classes: classes } });
+            const wizard = useWizardStore();
+            await wizard.edit(id);
+            const owned = wizard.character?.choices.equipment;
+
+            wizard.chooseClass("srd51.class.fighter");
+            expect(wizard.character?.choices.classes?.[0]).toMatchObject({ class: "srd51.class.fighter", levels: 3 });
+            expect(wizard.character?.choices.equipment).toEqual(owned);
+
+            wizard.addItem("srd51.item.dagger");
+            expect(wizard.character?.choices.equipment?.at(-1)).toEqual({ item: "srd51.item.dagger", quantity: 1 });
+
+            wizard.chooseEquipmentAgain();
+            expect(wizard.keptEquipment).toBe(false);
+            expect(wizard.character?.choices.equipment?.some((e) => e.item === "srd51.item.chain-mail")).toBe(true);
+        });
+    });
 });
