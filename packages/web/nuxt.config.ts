@@ -2,12 +2,22 @@
 //
 // A static, client-rendered application (docs/phase-1/01-web-application.md): no server rendering, no server
 // routes, published on GitHub Pages by `nuxt generate`. The site path comes from NUXT_APP_BASE_URL at generate time.
+const baseURL = process.env["NUXT_APP_BASE_URL"] ?? "/dnd-platform/";
+
 export default defineNuxtConfig({
   ssr: false,
   app: {
-    baseURL: process.env["NUXT_APP_BASE_URL"] ?? "/dnd-platform/",
-    // The name until the application sets the page's own title (app.vue).
-    head: { title: "D&D Platform" },
+    baseURL: baseURL,
+    // The name until the application sets the page's own title (app.vue); the favicon is the navigation bar's
+    // d20 in the accent colour (the dark theme's accent under a dark system scheme), with PNG fallbacks.
+    head: {
+      title: "D&D Platform",
+      link: [
+        { rel: "icon", type: "image/svg+xml", href: `${baseURL}favicon.svg` },
+        { rel: "icon", sizes: "48x48", href: `${baseURL}favicon.ico` },
+        { rel: "apple-touch-icon", href: `${baseURL}apple-touch-icon.png` }
+      ]
+    },
     pageTransition: { name: "page", mode: "out-in" }
   },
   compatibilityDate: "2026-09-22",
