@@ -96,7 +96,7 @@
             box-shadow var(--duration-fast) var(--easing),
             background-color var(--duration-fast) var(--easing);
 
-        &:hover
+        &:hover:not(:disabled)
         {
             box-shadow: var(--shadow-2);
             text-decoration: none;
@@ -131,6 +131,14 @@
             background-color: transparent;
             box-shadow: none;
             color: var(--button-fill);
+        }
+
+        &:disabled
+        {
+            --button-fill: var(--color-unavailable);
+
+            box-shadow: none;
+            cursor: not-allowed;
         }
 
         &--small

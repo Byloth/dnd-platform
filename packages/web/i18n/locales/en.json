@@ -98,7 +98,8 @@
   "characters": {
     "heading": "Characters",
     "intro": "Create a character with guidance: every step explains what it changes, and an idea to start from fills in the rest. Or open one of the demo characters to see how a sheet explains every number.",
-    "demos": "Demo characters",
+    "stored": "Your characters",
+    "demo": "Demo characters",
     "loading": "Loading the characters…",
     "failed": "The characters could not be loaded."
   },
@@ -220,10 +221,6 @@
       "text": "Pick up where you left off, or start again from the beginning.",
       "resume": "Resume",
       "restart": "Start again"
-    },
-    "pending": {
-      "heading": "Arriving soon",
-      "text": "This step arrives with the next version. Your choices so far are saved in this browser."
     },
     "steps": {
       "content": "Content",
@@ -454,6 +451,26 @@
       },
       "suggestions": "Suggestions from your background",
       "use": "Use for {field}:"
+    },
+    "review": {
+      "purpose": "Your character as the sheet shows it. Check it, then save it in this browser.",
+      "consequence": "Anything still open is listed first, with the step that fixes it; you can save anyway and finish later from the sheet.",
+      "recommendation": "Tap any number on the sheet to see where it comes from.",
+      "ready": "Everything is in place",
+      "open": "One thing is still open | {n} things are still open",
+      "openHint": "None of these stops you from saving, except the name.",
+      "issues": {
+        "step": "{step}: this step is not done yet.",
+        "choice": "{owner}, {choice}: one more to choose. | {owner}, {choice}: {n} more to choose.",
+        "content": "Some content this character uses is not loaded here.",
+        "other": "The sheet reports something to check.",
+        "name": "Your character has no name yet."
+      },
+      "fix": "Go to {step}",
+      "save": "Save the character",
+      "saveNote": "It is stored in this browser; you will find it on the characters page.",
+      "needsName": "Give your character a name to save it.",
+      "failed": "The character could not be saved. Try again; your draft is still here."
     }
   }
 }

@@ -141,9 +141,13 @@ export function useBrowserStorage()
             (await _open()).delete("packages", packageKey(id, version))
     };
 
-    /** The stored characters (written from M1.5; read here to know which packages are in use). */
+    /** The stored characters, as documents: the wizard writes them (M1.4d3), the rest of the store is M1.5. */
     const characters = {
-        list: async (): Promise<Character[]> => (await _open()).getAll("characters")
+        get: async (id: string): Promise<Character | undefined> => (await _open()).get("characters", id),
+
+        list: async (): Promise<Character[]> => (await _open()).getAll("characters"),
+
+        put: async (character: Character): Promise<void> => (await _writable()).put("characters", character)
     };
 
     const meta = {

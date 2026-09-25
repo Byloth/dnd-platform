@@ -611,6 +611,36 @@ export const useWizardStore = defineStore("wizard", () =>
         });
     };
 
+    /**
+     * Stores the draft as a character and forgets the draft; its id, or `undefined` without a name (the one thing
+     * the wizard asks before saving; owner, 2026-09-25). The character starts at full hit points and keeps its
+     * choices "as created" in a snapshot (docs/phase-1/02-content-and-character-stores.md).
+     */
+    const finish = async (): Promise<string | undefined> =>
+    {
+        const current = character.value;
+        const name = current?.name.trim();
+        if (!current || !name) { return undefined; }
+
+        const sheet = useEngine().sheet(current, sources.value, { language: useNuxtApp().$i18n.locale.value }).sheet;
+        const max = sheet.values["hp.max"]?.value;
+        const created: Character = {
+            ...current,
+            name: name,
+            state: { ...current.state, hp: { current: typeof max === "number" ? max : 0, temporary: 0 } },
+            snapshots: [
+                ...current.snapshots ?? [],
+                { at: new Date().toISOString(), level: sheet.level, label: "as created", choices: current.choices }
+            ]
+        };
+
+        // A plain copy: IndexedDB cannot clone what Vue made reactive.
+        await useBrowserStorage().characters.put(JSON.parse(JSON.stringify(created)) as Character);
+        await discard();
+
+        return created.id;
+    };
+
     /** The archetype's recommendation for a key (`species`, `class`…) and why, when the draft started from one. */
     const recommendation = (key: keyof Archetype["recommends"]): { value: unknown, why?: string } | undefined =>
     {
@@ -662,6 +692,7 @@ export const useWizardStore = defineStore("wizard", () =>
         setName,
         setAlignment,
         setPersonal,
+        finish,
         recommendation
     };
 });

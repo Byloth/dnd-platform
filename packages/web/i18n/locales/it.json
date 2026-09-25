@@ -98,7 +98,8 @@
   "characters": {
     "heading": "Personaggi",
     "intro": "Crea un personaggio con una guida: ogni passo spiega cosa cambia, e un'idea da cui partire compila il resto. Oppure apri uno dei personaggi dimostrativi per vedere come una scheda spiega ogni numero.",
-    "demos": "Personaggi dimostrativi",
+    "stored": "I tuoi personaggi",
+    "demo": "Personaggi dimostrativi",
     "loading": "Caricamento dei personaggi…",
     "failed": "Impossibile caricare i personaggi."
   },
@@ -220,10 +221,6 @@
       "text": "Riprendi da dove eri rimasto, oppure ricomincia dall'inizio.",
       "resume": "Riprendi",
       "restart": "Ricomincia"
-    },
-    "pending": {
-      "heading": "In arrivo",
-      "text": "Questo passo arriva con la prossima versione. Le scelte fatte finora sono salvate in questo browser."
     },
     "steps": {
       "content": "Contenuti",
@@ -454,6 +451,26 @@
       },
       "suggestions": "Suggerimenti dal tuo background",
       "use": "Usa per {field}:"
+    },
+    "review": {
+      "purpose": "Il tuo personaggio come lo mostra la scheda. Controllalo, poi salvalo in questo browser.",
+      "consequence": "Quello che resta da fare è elencato per primo, con il passo che lo risolve; puoi salvare comunque e finire più tardi dalla scheda.",
+      "recommendation": "Tocca un numero qualsiasi della scheda per vedere da dove viene.",
+      "ready": "È tutto a posto",
+      "open": "Resta una cosa da fare | Restano {n} cose da fare",
+      "openHint": "Nessuna di queste ti impedisce di salvare, tranne il nome.",
+      "issues": {
+        "step": "{step}: questo passo non è ancora completo.",
+        "choice": "{owner}, {choice}: ancora una da scegliere. | {owner}, {choice}: ancora {n} da scegliere.",
+        "content": "Alcuni contenuti che il personaggio usa non sono caricati qui.",
+        "other": "La scheda segnala qualcosa da controllare.",
+        "name": "Il tuo personaggio non ha ancora un nome."
+      },
+      "fix": "Vai a {step}",
+      "save": "Salva il personaggio",
+      "saveNote": "Viene salvato in questo browser; lo troverai nella pagina dei personaggi.",
+      "needsName": "Dai un nome al personaggio per salvarlo.",
+      "failed": "Non è stato possibile salvare il personaggio. Riprova; la bozza è ancora qui."
     }
   }
 }

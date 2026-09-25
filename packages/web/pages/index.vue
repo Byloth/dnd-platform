@@ -2,12 +2,16 @@
     import AppButton from "@/components/ui/AppButton.vue";
     import FontAwesome from "@/components/ui/FontAwesome.vue";
 
-    // The characters page: until the user's own characters (M1.5), the site's demo characters, each linking its sheet.
+    // The characters page: the player's own characters, stored in this browser, then the site's demo characters,
+    // each linking its sheet.
 
     const { t } = useI18n();
     const { list } = useCharacters();
 
     const { data: characters, status } = await useAsyncData("characters", () => list());
+    const groups = computed(() => (["stored", "demo"] as const)
+        .map((origin) => ({ origin: origin, characters: (characters.value ?? []).filter((c) => c.origin === origin) }))
+        .filter((g) => g.characters.length > 0));
 </script>
 
 <template>
@@ -30,31 +34,35 @@
         <p v-else-if="status === 'error'" role="alert">
             {{ t("characters.failed") }}
         </p>
-        <section v-else
-                 class="characters-page__section"
-                 aria-labelledby="characters-demo-heading">
-            <h2 id="characters-demo-heading" class="characters-page__subtitle">
-                {{ t("characters.demos") }}
-            </h2>
-            <ul class="characters-page__list">
-                <li v-for="character in characters"
-                    :key="character.id"
-                    class="characters-page__item">
-                    <NuxtLink :to="{ name: 'characters-id', params: { id: character.id } }" class="character-card">
-                        <span class="character-card__crest" aria-hidden="true">
-                            {{ character.name.charAt(0) }}
-                        </span>
-                        <span class="character-card__text">
-                            <strong class="character-card__name">{{ character.name }}</strong>
-                            <span class="character-card__summary">{{ character.summary }}</span>
-                        </span>
-                        <FontAwesome class="character-card__go"
-                                     icon="chevron-right"
-                                     aria-hidden="true" />
-                    </NuxtLink>
-                </li>
-            </ul>
-        </section>
+        <template v-else>
+            <section v-for="group in groups"
+                     :key="group.origin"
+                     class="characters-page__section"
+                     :aria-labelledby="`characters-${group.origin}-heading`">
+                <h2 :id="`characters-${group.origin}-heading`" class="characters-page__subtitle">
+                    {{ t(`characters.${group.origin}`) }}
+                </h2>
+                <ul class="characters-page__list">
+                    <li v-for="character in group.characters"
+                        :key="character.id"
+                        class="characters-page__item">
+                        <NuxtLink :to="{ name: 'characters-id', params: { id: character.id } }"
+                                  class="character-card">
+                            <span class="character-card__crest" aria-hidden="true">
+                                {{ character.name.charAt(0) }}
+                            </span>
+                            <span class="character-card__text">
+                                <strong class="character-card__name">{{ character.name }}</strong>
+                                <span class="character-card__summary">{{ character.summary }}</span>
+                            </span>
+                            <FontAwesome class="character-card__go"
+                                         icon="chevron-right"
+                                         aria-hidden="true" />
+                        </NuxtLink>
+                    </li>
+                </ul>
+            </section>
+        </template>
     </div>
 </template>
 
@@ -73,6 +81,11 @@
         {
             color: var(--color-ink-muted);
             font-size: var(--text-lg);
+        }
+
+        &__section + &__section
+        {
+            margin-top: var(--space-7);
         }
 
         &__subtitle

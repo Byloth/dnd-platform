@@ -11,7 +11,7 @@
      * everyone but an expert; what the choice changes and what to choose when unsure for a newcomer), the step's
      * content, and "Back" and "Next", never disabled: the wizard warns, it never blocks.
      */
-    const props = defineProps<{ step: StepId, helpLevel: HelpLevel, copy: boolean }>();
+    const props = defineProps<{ step: StepId, helpLevel: HelpLevel }>();
     const emit = defineEmits<{ go: [step: StepId] }>();
 
     const { t } = useI18n();
@@ -27,7 +27,7 @@
             <h1 id="wizard-step-title" class="wizard-step__title">
                 {{ t(`wizard.steps.${step}`) }}
             </h1>
-            <template v-if="copy && helpLevel !== 'expert'">
+            <template v-if="helpLevel !== 'expert'">
                 <p class="wizard-step__purpose">
                     {{ t(`wizard.${step}.purpose`) }}
                 </p>

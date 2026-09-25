@@ -98,7 +98,8 @@
   "characters": {
     "heading": "The characters page (the home page).",
     "intro": "The characters page (the home page).",
-    "demos": "The characters page (the home page).",
+    "stored": "Heading of the characters stored in this browser, made with the creation wizard.",
+    "demo": "The characters page (the home page).",
     "loading": "The characters page (the home page).",
     "failed": "The characters page (the home page)."
   },
@@ -220,10 +221,6 @@
       "text": "Explains the two buttons below.",
       "resume": "Loads the saved draft.",
       "restart": "Discards the draft and starts a new character."
-    },
-    "pending": {
-      "heading": "Steps not built yet.",
-      "text": "Reassures that the draft is kept."
     },
     "steps": {
       "content": "The step's name, in the stepper and as its heading; short.",
@@ -454,6 +451,26 @@
       },
       "suggestions": "Disclosure with the background's suggestions for a field.",
       "use": "Read by screen readers before a suggestion's text, on the button that fills the field. Parameter: {field}."
+    },
+    "review": {
+      "purpose": "Step 9's purpose, shown under its heading to every help level but expert.",
+      "consequence": "Step 9, for a newcomer: the open things never block saving.",
+      "recommendation": "Step 9, for a newcomer: a tip about the sheet below.",
+      "ready": "Heading of the review's status when nothing is open.",
+      "open": "Heading of the review's status: how many things are open. Plural forms separated by |. Parameter: {n}.",
+      "openHint": "Under the heading, for a newcomer: only the name is required to save.",
+      "issues": {
+        "step": "An open thing: a step without what it asks for. Parameter: {step}, the step's name.",
+        "choice": "An open thing: a choice not fully answered. Plural forms separated by |. Parameters: {owner} (e.g. Cleric), {choice} (e.g. Skills), {n} how many are left.",
+        "content": "An open thing: a package or an entity the character uses is not loaded.",
+        "other": "An open thing the review cannot name; an expert sees the engine's message below it.",
+        "name": "An open thing: the character has no name; the one that blocks saving."
+      },
+      "fix": "Button beside an open thing, to its step. Parameter: {step}, the step's name.",
+      "save": "The review's button that stores the character and opens its sheet.",
+      "saveNote": "Beside the save button, when it is enabled.",
+      "needsName": "Beside the save button, when it is disabled for want of a name.",
+      "failed": "When storing the character fails."
     }
   }
 }

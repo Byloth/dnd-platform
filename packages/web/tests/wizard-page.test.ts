@@ -485,4 +485,70 @@ describe("the creation wizard", () =>
             expect(wrapper.text()).not.toMatch(/wizard\.|sheet\.[a-z]/);
         });
     });
+
+    describe("step 9, review", () =>
+    {
+        it("lists what is still open with the step that fixes it, and saves only with a name", async () =>
+        {
+            await useWizardStore().start();
+            useWizardStore().chooseArchetype(null);
+            const wrapper = await open("review");
+            await settle();
+
+            expect(wrapper.find("h1").text()).toBe("Review");
+            const issues = wrapper.findAll(".step-review__issue-text").map((i) => i.text());
+            expect(issues[0]).toBe("Your character has no name yet.");
+            expect(issues).toContain("Species: this step is not done yet.");
+            expect(wrapper.find(".sheet-view h2.sheet-view__name").exists()).toBe(true);
+            expect(wrapper.find(".sheet-view .warning-list").exists()).toBe(false);
+            expect(byName(wrapper, "Save the character")!.hasAttribute("disabled")).toBe(true);
+
+            byName(wrapper, "Go to Species")!.click();
+            await settle();
+            expect(wrapper.find("h1").text()).toBe("Species");
+        });
+
+        it("names an open choice by where it comes from", async () =>
+        {
+            await useWizardStore().start();
+            useWizardStore().chooseArchetype(null);
+            useWizardStore().chooseClass("srd51.class.cleric");
+            const wrapper = await open("review");
+            await settle();
+
+            expect(wrapper.findAll(".step-review__issue-text").map((i) => i.text()))
+                .toContain("Cleric, Skills: 2 more to choose.");
+        });
+
+        it("stores the character and opens its sheet", async () =>
+        {
+            await useWizardStore().start();
+            useWizardStore().chooseArchetype("srd51.archetype.steadfast-healer");
+            useWizardStore().setName("Brother Alric");
+            const wrapper = await open("review");
+            await settle();
+
+            byName(wrapper, "Save the character")!.click();
+            await until(() => useRouter().currentRoute.value.name === "characters-id");
+
+            const stored = await useBrowserStorage().characters.list();
+            expect(stored.map((c) => c.name)).toEqual(["Brother Alric"]);
+            expect(useRouter().currentRoute.value.params["id"]).toBe(stored[0]!.id);
+            expect(await useWizardStore().stored()).toBeUndefined();
+        });
+
+        it("speaks Italian", async () =>
+        {
+            usePreferencesStore().language = "it";
+            await useNuxtApp().$i18n.setLocale("it");
+            await useWizardStore().start();
+            useWizardStore().chooseArchetype(null);
+            const wrapper = await open("review");
+            await settle();
+
+            expect(wrapper.find("h1").text()).toBe("Riepilogo");
+            expect(wrapper.text()).toContain("Il tuo personaggio non ha ancora un nome.");
+            expect(wrapper.text()).not.toMatch(/wizard\.|sheet\.[a-z]/);
+        });
+    });
 });

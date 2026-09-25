@@ -7,8 +7,8 @@
     import StepClass from "@/components/wizard/steps/StepClass.vue";
     import StepConcept from "@/components/wizard/steps/StepConcept.vue";
     import StepContent from "@/components/wizard/steps/StepContent.vue";
-    import StepPending from "@/components/wizard/steps/StepPending.vue";
     import StepPersonality from "@/components/wizard/steps/StepPersonality.vue";
+    import StepReview from "@/components/wizard/steps/StepReview.vue";
     import StepSpecies from "@/components/wizard/steps/StepSpecies.vue";
     import WizardStep from "@/components/wizard/WizardStep.vue";
     import WizardStepList from "@/components/wizard/WizardStepList.vue";
@@ -30,7 +30,7 @@
     type Phase = "loading" | "resume" | "ready" | "failed";
     const phase = ref<Phase>("loading");
 
-    const STEP_VIEWS: Partial<Record<StepId, Component>> = {
+    const STEP_VIEWS: Record<StepId, Component> = {
         content: StepContent,
         concept: StepConcept,
         species: StepSpecies,
@@ -39,9 +39,10 @@
         abilities: StepAbilities,
         choices: StepChoices,
         equipment: StepEquipment,
-        personality: StepPersonality
+        personality: StepPersonality,
+        review: StepReview
     };
-    const view = computed(() => STEP_VIEWS[wizard.step] ?? StepPending);
+    const view = computed(() => STEP_VIEWS[wizard.step]);
 
     const done = (step: StepId): boolean => stepDone(step);
     const isStep = (value: unknown): value is StepId => STEPS.includes(value as StepId);
@@ -131,7 +132,6 @@
                 </aside>
                 <WizardStep :step="wizard.step"
                             :help-level="preferences.helpLevel"
-                            :copy="wizard.step in STEP_VIEWS"
                             @go="go">
                     <component :is="view" />
                 </WizardStep>

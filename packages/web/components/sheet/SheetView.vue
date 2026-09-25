@@ -17,7 +17,8 @@
     /**
      * The build-mode sheet (docs/phase-1/03-sheet-composer.md, "The build-mode screen"): the character's header,
      * the vital strip (sticky on a phone), the warnings, the pinned sections, then the sections in tree order —
-     * one column on a phone, two from a desktop width. Every number opens its explanation.
+     * one column on a phone, two from a desktop width. Every number opens its explanation. Embedded in the
+     * wizard's review, the name is not the page's heading and the review lists the warnings its own way.
      */
     const props = defineProps<{
         character: Character;
@@ -25,6 +26,7 @@
         helpLevel: HelpLevel;
         language: string;
         translate?: Translate;
+        embedded?: boolean;
     }>();
 
     const { t } = useI18n();
@@ -91,9 +93,9 @@
             <p class="sheet-view__level">
                 {{ t("sheetView.level", { level: identity.level }) }}
             </p>
-            <h1 class="sheet-view__name">
+            <component :is="embedded ? 'h2' : 'h1'" class="sheet-view__name">
                 {{ identity.name }}
-            </h1>
+            </component>
             <p class="sheet-view__parts">
                 {{ identity.parts.join(" · ") }}
             </p>
@@ -114,7 +116,7 @@
                        :raw="item.raw" />
         </section>
 
-        <WarningList v-if="composed.tree.warnings.length"
+        <WarningList v-if="!embedded && composed.tree.warnings.length"
                      class="sheet-view__warnings"
                      :warnings="composed.tree.warnings" />
 

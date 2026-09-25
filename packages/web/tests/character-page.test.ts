@@ -65,6 +65,16 @@ describe("the character page", () =>
         expect(wrapper.text()).toContain("Classe Armatura");
     });
 
+    it("shows a character stored in this browser", async () =>
+    {
+        const demo = await useCharacters().get("fixture-cleric-l5");
+        await useBrowserStorage().characters.put({ ...demo!, id: "character-mine", name: "Brother Alric" });
+        const wrapper = await open("character-mine");
+
+        expect(wrapper.find("h1").text()).toBe("Brother Alric");
+        expect(byName(wrapper, "Armor Class, 18")).toBeDefined();
+    });
+
     it("explains an unknown character and a package installed nowhere", async () =>
     {
         const unknown = await open("nobody");

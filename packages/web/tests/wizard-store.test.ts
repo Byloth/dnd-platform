@@ -8,6 +8,8 @@ import "fake-indexeddb/auto";
 
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 
+import { createAjv, validatorFor } from "@byloth/dnd-platform-schema/validate";
+
 import { DRAFT_KEY } from "@/stores/wizard";
 
 import { clearBrowserStorage, serveSite } from "./helpers";
@@ -260,5 +262,28 @@ describe("the creation wizard's store", () =>
         expect(wizard.character?.choices).not.toHaveProperty("alignment");
         wizard.setName("");
         expect(stepDone("personality")).toBe(false);
+    });
+
+    it("stores a named character at full hit points with its choices as created, and forgets the draft", async () =>
+    {
+        const wizard = useWizardStore();
+        wizard.chooseArchetype("srd51.archetype.steadfast-healer");
+        await wizard.save();
+        expect(await wizard.finish()).toBeUndefined();
+
+        wizard.setName("  Brother Alric ");
+        const max = useEngine().sheet(wizard.character!, wizard.sources, { language: "en" }).sheet.values["hp.max"];
+        const id = await wizard.finish();
+
+        const stored = await useBrowserStorage().characters.get(id!);
+        expect(stored?.name).toBe("Brother Alric");
+        expect(max?.value).toBeGreaterThan(8);
+        expect(stored?.state.hp).toEqual({ current: max?.value, temporary: 0 });
+        expect(stored?.snapshots).toEqual([expect.objectContaining({ level: 1, label: "as created" })]);
+        expect(stored?.snapshots?.[0]?.choices).toEqual(stored?.choices);
+        expect(validatorFor(createAjv(), "character")(stored)).toBe(true);
+        expect(wizard.character).toBeUndefined();
+        expect(await wizard.stored()).toBeUndefined();
+        expect((await useCharacters().list())[0]).toMatchObject({ id: id, origin: "stored", summary: "Cleric 1" });
     });
 });
