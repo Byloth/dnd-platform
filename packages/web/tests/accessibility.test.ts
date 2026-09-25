@@ -270,6 +270,17 @@ describe.each(LANGUAGES)("accessibility, in %s", (language) =>
         await expectAccessible(wrapper);
     });
 
+    it("the confirmation before deleting a character", async () =>
+    {
+        await speak(language);
+        await useBrowserStorage().characters.put({ ...character("cleric-l5"), id: "character-mine" });
+        const wrapper = await render(CharacterPage, { route: "/characters/character-mine" });
+        wrapper.find<HTMLButtonElement>(".sheet-view__actions .button--danger").element.click();
+        await flushPromises();
+        expect(wrapper.find(".confirm-dialog").exists()).toBe(true);
+        await expectAccessible(wrapper);
+    });
+
     it("the navigation bar and the footer", async () =>
     {
         await speak(language);

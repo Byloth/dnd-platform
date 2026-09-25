@@ -1,9 +1,12 @@
 import type { Character } from "@byloth/dnd-platform-engine";
 
+import { EDIT_KEY } from "@/stores/wizard";
+
 /**
  * The characters the application can show (docs/phase-1/02-content-and-character-stores.md): the ones stored in
  * this browser, made with the creation wizard (M1.4d3), then the site's demo characters, SRD-only fixtures
- * published by `web:prepare-content`. Deleting and the rest of the character store are M1.5.
+ * published by `web:prepare-content`. A stored character can be deleted (owner, 2026-09-25); export and import are
+ * M1.5.
  */
 
 export interface CharacterEntry
@@ -66,5 +69,19 @@ export function useCharacters()
         return { character: await $fetch<Character>(url, { responseType: "json" }), origin: "demo" };
     };
 
-    return { list, get };
+    /**
+     * Deletes a stored character, with what belongs to it: its edit draft and its sheet layout. Packages are
+     * never deleted with it (docs/phase-1/02-content-and-character-stores.md).
+     */
+    const remove = async (id: string): Promise<void> =>
+    {
+        const wizard = useWizardStore();
+        if (wizard.editing === id) { await wizard.discard(); }
+        else if (await wizard.stored(id)) { await useBrowserStorage().meta.set(EDIT_KEY, null); }
+
+        await useBrowserStorage().characters.remove(id);
+        usePreferencesStore().forgetSheet(id);
+    };
+
+    return { list, get, remove };
 }

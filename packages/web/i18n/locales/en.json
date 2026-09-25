@@ -115,6 +115,13 @@
       "heading": "Content not installed here",
       "text": "This character uses content that is not installed here: the package {id}. Load it on the Packages page, then come back.",
       "action": "Go to Packages"
+    },
+    "delete": {
+      "title": "Delete {name}?",
+      "text": "The character and everything you chose for it are deleted. This cannot be undone.",
+      "local": "It exists only in this browser: no copy is kept anywhere else.",
+      "confirm": "Delete {name}",
+      "cancel": "Keep the character"
     }
   },
   "terms": {
@@ -203,7 +210,8 @@
       "quantity": "× {count}"
     },
     "edit": "Edit",
-    "change": "Change"
+    "change": "Change",
+    "delete": "Delete"
   },
   "wizard": {
     "title": "New character",

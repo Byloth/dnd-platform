@@ -141,13 +141,15 @@ export function useBrowserStorage()
             (await _open()).delete("packages", packageKey(id, version))
     };
 
-    /** The stored characters, as documents: the wizard writes them (M1.4d3), the rest of the store is M1.5. */
+    /** The stored characters, as documents: the wizard writes them (M1.4d3), the sheet deletes them (M1.4e2). */
     const characters = {
         get: async (id: string): Promise<Character | undefined> => (await _open()).get("characters", id),
 
         list: async (): Promise<Character[]> => (await _open()).getAll("characters"),
 
-        put: async (character: Character): Promise<void> => (await _writable()).put("characters", character)
+        put: async (character: Character): Promise<void> => (await _writable()).put("characters", character),
+
+        remove: async (id: string): Promise<void> => (await _open()).delete("characters", id)
     };
 
     const meta = {

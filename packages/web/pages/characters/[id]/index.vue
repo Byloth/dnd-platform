@@ -3,10 +3,12 @@
     import type { PackageSource } from "@byloth/dnd-platform-loader";
 
     import SheetView from "@/components/sheet/SheetView.vue";
+    import ConfirmDialog from "@/components/ui/ConfirmDialog.vue";
     import { MissingPackageException } from "@/stores/content";
 
     // A character's build-mode sheet (docs/phase-1/03-sheet-composer.md): derived in the interface language and at
-    // the help level of the preferences; a stored character's can be reopened for editing, a demo's cannot.
+    // the help level of the preferences; a stored character's can be reopened for editing or deleted, a demo's
+    // cannot.
 
     type Loaded =
         {
@@ -70,6 +72,19 @@
             translate: translate
         });
     });
+
+    const deleting = ref(false);
+    /** Set once deleted: the sheet goes away first, so nothing of it (its layout) is written again. */
+    const removed = ref(false);
+    const remove = async (): Promise<void> =>
+    {
+        deleting.value = false;
+        removed.value = true;
+        await nextTick();
+        await useCharacters().remove(id.value);
+        clearNuxtData(["characters", `character-${id.value}`]);
+        await navigateTo({ name: "index" });
+    };
 </script>
 
 <template>
@@ -94,13 +109,25 @@
         <p v-else-if="status === 'error'" role="alert">
             {{ t("character.failed") }}
         </p>
-        <SheetView v-else-if="composed && data?.state === 'ready'"
+        <SheetView v-else-if="composed && data?.state === 'ready' && !removed"
                    :character="data.character"
                    :composed="composed"
                    :editable="data.stored"
                    :help-level="preferences.helpLevel"
                    :language="locale"
-                   :translate="translate" />
+                   :translate="translate"
+                   @remove="deleting = true" />
+        <ConfirmDialog v-if="data?.state === 'ready' && data.stored"
+                       :open="deleting"
+                       danger
+                       :title="t('character.delete.title', { name: data.character.name })"
+                       :confirm="t('character.delete.confirm', { name: data.character.name })"
+                       :cancel="t('character.delete.cancel')"
+                       @confirm="remove"
+                       @cancel="deleting = false">
+            <p>{{ t("character.delete.text") }}</p>
+            <p>{{ t("character.delete.local") }}</p>
+        </ConfirmDialog>
     </div>
 </template>
 

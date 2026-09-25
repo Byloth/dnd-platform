@@ -127,7 +127,14 @@ export const usePreferencesStore = defineStore("preferences", () =>
     const toggleCollapsed = (characterId: string, section: string): void =>
         toggle(sheetLayout(characterId).collapsed, section);
 
+    /** Forgets a character's layout, when the character is deleted. */
+    const forgetSheet = (characterId: string): void =>
+    {
+        const { [characterId]: _forgotten, ...rest } = sheets.value;
+        sheets.value = rest;
+    };
+
     return {
-        language, helpLevel, theme, contrast, pageSize, sheets, sheetLayout, togglePinned, toggleCollapsed
+        language, helpLevel, theme, contrast, pageSize, sheets, sheetLayout, togglePinned, toggleCollapsed, forgetSheet
     };
 });

@@ -115,6 +115,13 @@
       "heading": "Contenuto non installato",
       "text": "Questo personaggio usa contenuti non installati qui: il pacchetto {id}. Caricalo nella pagina Pacchetti, poi torna qui.",
       "action": "Vai ai Pacchetti"
+    },
+    "delete": {
+      "title": "Eliminare {name}?",
+      "text": "Il personaggio e tutte le sue scelte vengono eliminati. Non si può annullare.",
+      "local": "Esiste solo in questo browser: non ne resta una copia da nessun'altra parte.",
+      "confirm": "Elimina {name}",
+      "cancel": "Tieni il personaggio"
     }
   },
   "terms": {
@@ -203,7 +210,8 @@
       "quantity": "× {count}"
     },
     "edit": "Modifica",
-    "change": "Cambia"
+    "change": "Cambia",
+    "delete": "Elimina"
   },
   "wizard": {
     "title": "Nuovo personaggio",

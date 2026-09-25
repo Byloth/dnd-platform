@@ -26,8 +26,13 @@ registerEndpoint("/dnd-platform/content/characters/needs-a-book.json", () => ({
     id: "needs-a-book", name: "Needs a book", packages: [{ id: "phb14", version: "0.1.0" }]
 }));
 
+let _mounted: { unmount: () => void }[] = [];
+
 afterEach(async () =>
 {
+    // A page left mounted follows the shared router and would render the next test's character too.
+    for (const wrapper of _mounted) { wrapper.unmount(); }
+    _mounted = [];
     usePreferencesStore().$patch({ language: "en", helpLevel: "newcomer" });
     await useNuxtApp().$i18n.setLocale("en");
     await clearBrowserStorage();
@@ -36,6 +41,7 @@ afterEach(async () =>
 async function open(id: string)
 {
     const wrapper = await mountSuspended(CharacterPage, { route: `/characters/${id}` });
+    _mounted.push(wrapper);
     await flushPromises();
 
     return wrapper;
@@ -90,5 +96,36 @@ describe("the character page", () =>
         const missing = await open("needs-a-book");
         expect(missing.find("[role=alert]").text()).toContain("the package phb14");
         expect(missing.find("[role=alert] a").attributes("href")).toContain("/packages");
+    });
+
+    it("deletes a stored character after asking, and keeps it when told to", async () =>
+    {
+        const demo = await useCharacters().get("fixture-cleric-l5");
+        await useBrowserStorage().characters.put({ ...demo!.character, id: "character-gone", name: "Brother Alric" });
+        usePreferencesStore().togglePinned("character-gone", "abilities");
+        await useWizardStore().edit("character-gone");
+        const wrapper = await open("character-gone");
+
+        byName(wrapper, "Delete")!.click();
+        await flushPromises();
+        expect(wrapper.find(".confirm-dialog h2").text()).toBe("Delete Brother Alric?");
+        byName(wrapper, "Keep the character")!.click();
+        await flushPromises();
+        expect(await useBrowserStorage().characters.get("character-gone")).toBeDefined();
+
+        byName(wrapper, "Delete")!.click();
+        await flushPromises();
+        byName(wrapper, "Delete Brother Alric")!.click();
+        for (let i = 0; (i < 50) && (useRouter().currentRoute.value.name !== "index"); i += 1)
+        {
+            await flushPromises();
+            await new Promise((done) => setTimeout(done, 10));
+        }
+
+        expect(useRouter().currentRoute.value.name).toBe("index");
+        expect(await useBrowserStorage().characters.get("character-gone")).toBeUndefined();
+        expect(usePreferencesStore().sheets).not.toHaveProperty("character-gone");
+        expect(await useWizardStore().stored("character-gone")).toBeUndefined();
+        expect((await useCharacters().list()).some((c) => c.id === "character-gone")).toBe(false);
     });
 });

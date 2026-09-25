@@ -23,7 +23,8 @@
      * the vital strip (sticky on a phone), the warnings, the pinned sections, then the sections in tree order —
      * one column on a phone, two from a desktop width. Every number opens its explanation. Embedded in the
      * wizard's review, the name is not the page's heading and the review lists the warnings its own way. An
-     * `editable` sheet (a stored character) offers "Edit" and, on the sections a creation step sets, "Change".
+     * `editable` sheet (a stored character) offers "Edit" and, on the sections a creation step sets, "Change",
+     * and "Delete", which the page confirms.
      */
     const props = defineProps<{
         character: Character;
@@ -34,6 +35,7 @@
         embedded?: boolean;
         editable?: boolean;
     }>();
+    const emit = defineEmits<{ remove: [] }>();
 
     const { t } = useI18n();
     const preferences = usePreferencesStore();
@@ -124,15 +126,22 @@
             <p v-if="helpLevel === 'newcomer'" class="sheet-view__hint">
                 {{ t("sheetView.explainHint") }}
             </p>
-            <AppButton v-if="editable"
-                       class="sheet-view__edit"
-                       theme="secondary"
-                       outline
-                       small
-                       :to="editAt('review')">
-                <FontAwesome icon="feather" aria-hidden="true" />
-                {{ t("sheetView.edit") }}
-            </AppButton>
+            <div v-if="editable" class="sheet-view__actions">
+                <AppButton theme="secondary"
+                           outline
+                           small
+                           :to="editAt('review')">
+                    <FontAwesome icon="feather" aria-hidden="true" />
+                    {{ t("sheetView.edit") }}
+                </AppButton>
+                <AppButton theme="danger"
+                           outline
+                           small
+                           @click="emit('remove')">
+                    <FontAwesome icon="trash" aria-hidden="true" />
+                    {{ t("sheetView.delete") }}
+                </AppButton>
+            </div>
         </header>
 
         <section v-if="vital.length"
@@ -257,8 +266,11 @@
             margin: var(--space-3) 0 0;
         }
 
-        &__edit
+        &__actions
         {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-2);
             margin-top: var(--space-4);
         }
 

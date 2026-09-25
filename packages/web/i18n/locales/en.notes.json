@@ -115,6 +115,13 @@
       "heading": "A character's sheet page: loading and error states.",
       "text": "A character's sheet page: loading and error states. Parameters: {id}.",
       "action": "A character's sheet page: loading and error states."
+    },
+    "delete": {
+      "title": "Heading of the confirmation before deleting a character. Parameter: {name}.",
+      "text": "What deleting does, and that it cannot be undone.",
+      "local": "Why nothing can bring it back: the character lives in this browser only (until export, M1.5).",
+      "confirm": "The destructive button. Parameter: {name}.",
+      "cancel": "The safe button, focused first."
     }
   },
   "terms": {
@@ -203,7 +210,8 @@
       "quantity": "The build-mode sheet screen: labels, accessible names and states around the composer's content. Parameters: {count}."
     },
     "edit": "Button in the sheet's header of a stored character: reopens it in the creation wizard, at the review.",
-    "change": "Link in a section's header, before the section's name for screen readers: reopens the character at the creation step that sets the section."
+    "change": "Link in a section's header, before the section's name for screen readers: reopens the character at the creation step that sets the section.",
+    "delete": "Button in the sheet's header of a stored character: asks to confirm, then deletes it."
   },
   "wizard": {
     "title": "The creation wizard's page title and heading.",
