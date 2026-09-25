@@ -97,7 +97,11 @@ export function runDerive(argv: readonly string[]): number
     let resolved;
     try
     {
-        resolved = resolvePackages(path, character, { repoRoot: repoRoot, extra: optionValues(argv, "--package") });
+        resolved = resolvePackages(path, character, {
+            repoRoot: repoRoot,
+            extra: optionValues(argv, "--package"),
+            ...(language !== undefined ? { language: language } : {})
+        });
     }
     catch (error)
     {

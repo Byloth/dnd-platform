@@ -94,6 +94,21 @@ function selectSources(
             frontier.push(dep.id);
         }
     }
+    // A translation is never selected (docs/phase-1/11): it comes with the packages it translates, all of them.
+    for (let added = true; added;)
+    {
+        added = false;
+        for (const source of sources)
+        {
+            const { id, kind, dependencies } = source.manifest;
+            if ((kind !== "translation") || keep.has(id)) { continue; }
+            if ((dependencies ?? []).every((d) => keep.has(d.id)))
+            {
+                keep.add(id);
+                added = true;
+            }
+        }
+    }
     for (const source of sources)
     {
         if (keep.has(source.manifest.id)) { continue; }
@@ -333,9 +348,44 @@ function applyPatch(index: Indexed, patch: SourceEntity, pkg: string, out: Diagn
     index.entities.set(data.target, { ...target, data: patched, patchedBy: [...target.patchedBy, patch.id] });
 }
 
-function applyTranslation(index: Indexed, translation: SourceEntity, pkg: string, out: Diagnostic[]): void
+/**
+ * Sets a translated string at a path of existing data. Unlike `setPath`, a key that itself holds dots (a patch's
+ * `append: { "levels.1.features": … }`) is recognised as one step: at each level the longest existing key that
+ * starts the rest of the path is taken.
+ */
+function setTranslated(target: Record<string, unknown>, path: string, value: unknown): void
+{
+    let node: Record<string, unknown> = target;
+    let rest = path;
+    for (;;)
+    {
+        const key = Object.keys(node)
+            .filter((k) => (rest === k) || rest.startsWith(`${k}.`))
+            .sort((a, b) => b.length - a.length)[0];
+        if (key === undefined) { break; }
+        const next = node[key];
+        if ((next === null) || (typeof next !== "object") || (rest === key)) { break; }
+        node = next as Record<string, unknown>;
+        rest = rest.slice(key.length + 1);
+    }
+    setPath(node, rest, value);
+}
+
+/** A copy of `target` with the translation's strings set under their language. */
+function translate<T>(target: T, translation: SourceEntity): T
 {
     const data = translation.data as TranslationData;
+    const translated = clone(target) as Record<string, unknown>;
+    for (const [path, text] of Object.entries(data.strings))
+    {
+        setTranslated(translated, `${path}.${data.language}`, text);
+    }
+
+    return translated as T;
+}
+
+function applyTranslation(index: Indexed, translation: SourceEntity, pkg: string, out: Diagnostic[]): void
+{
     const target = index.entities.get(translation.id);
     if (target === undefined)
     {
@@ -349,9 +399,7 @@ function applyTranslation(index: Indexed, translation: SourceEntity, pkg: string
 
         return;
     }
-    const translated = clone(target.data) as Record<string, unknown>;
-    for (const [path, text] of Object.entries(data.strings)) { setPath(translated, `${path}.${data.language}`, text); }
-    index.entities.set(translation.id, { ...target, data: translated });
+    index.entities.set(translation.id, { ...target, data: translate(target.data, translation) });
 }
 
 export function loadPackages(sources: readonly PackageSource[], options: LoadOptions = {}): PackageSet
@@ -395,8 +443,15 @@ export function loadPackages(sources: readonly PackageSource[], options: LoadOpt
         }
     }
 
-    // 1. top-level entities; 2. patches (they may append subspecies and features);
-    // 3. inline features and subspecies of the patched data; 4. translations; 5. selection.
+    // 1. top-level entities; 2. patches (they may append subspecies and features), each translated first by the
+    // translations keyed by the patch's id; 3. translations of entities, before 4. inline features and subspecies
+    // are indexed from the translated data, so they carry the translation too; 5. selection. A translation keyed
+    // by the ruleset's id translates the ruleset (languages, alignments, names).
+    const translations = sorted.flatMap((source) => source.entities
+        .filter((e) => e.type === "translation")
+        .map((e) => ({ entity: e, pkg: source.manifest.id })));
+    const patchIds = new Set(sorted.flatMap((s) => s.entities.filter((e) => e.type === "patch").map((e) => e.id)));
+    const rulesetId = (base?.ruleset as { id?: string } | undefined)?.id;
     const index: Indexed = {
         entities: new Map(),
         packages: new Set(sorted.map((s) => s.manifest.id)),
@@ -414,8 +469,16 @@ export function loadPackages(sources: readonly PackageSource[], options: LoadOpt
     {
         for (const entity of source.entities)
         {
-            if (entity.type === "patch") { applyPatch(index, entity, source.manifest.id, out); }
+            if (entity.type !== "patch") { continue; }
+            const translated = translations.filter((t) => t.entity.id === entity.id)
+                .reduce((patch, t) => ({ ...patch, data: translate(patch.data, t.entity) }), entity);
+            applyPatch(index, translated, source.manifest.id, out);
         }
+    }
+    for (const { entity, pkg } of translations)
+    {
+        if (patchIds.has(entity.id) || (entity.id === rulesetId)) { continue; }
+        applyTranslation(index, entity, pkg, out);
     }
     for (const owner of [...index.entities.values()])
     {
@@ -423,20 +486,15 @@ export function loadPackages(sources: readonly PackageSource[], options: LoadOpt
         if (owner.type !== "species") { continue; }
         for (const sub of indexSubspecies(index, owner, out)) { indexInlineFeatures(index, sub, out); }
     }
-    for (const source of sorted)
-    {
-        for (const entity of source.entities)
-        {
-            if (entity.type === "translation") { applyTranslation(index, entity, source.manifest.id, out); }
-        }
-    }
+    const ruleset = translations.filter((t) => t.entity.id === rulesetId)
+        .reduce((r, t) => translate(r, t.entity), (base?.ruleset ?? {}) as Ruleset);
     const cascade = options.selection !== undefined ? applySelection(index, options.selection, out) : EMPTY_CASCADE;
 
     const diagnostics: Diagnostics = { ok: out.every((d) => d.severity !== "error"), entries: out };
 
     return {
         order: sorted.map((s) => s.manifest),
-        ruleset: (base?.ruleset ?? {}) as Ruleset,
+        ruleset: ruleset,
         rulesetPackage: base?.manifest.id ?? "",
         entities: index.entities,
         diagnostics: diagnostics,

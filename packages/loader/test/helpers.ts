@@ -50,7 +50,7 @@ export interface Dependency { readonly id: string, readonly version: string }
 
 export function makeManifest(
     id: string,
-    kind: "base" | "extension",
+    kind: "base" | "extension" | "translation",
     dependencies: readonly Dependency[] = [],
     version = "0.1.0"
 ): PackageManifest

@@ -87,6 +87,50 @@ describe("loadPackages", () =>
         expect(set.diagnostics.ok).toBe(true);
     });
 
+    it("translates inline features, patches before they apply, and the ruleset", () =>
+    {
+        const inline = `${MINI}.feature.fighter.second-wind`;
+        const appended = "p.feature.fighter.action-surge";
+        const base = miniPackage({ entities: [cls(FIGHTER, { 1: { features: [feature(inline, [])] } })] });
+        const patch = {
+            id: "p.patch.surge",
+            target: FIGHTER,
+            append: { "levels.1.features": [feature(appended, [])] }
+        };
+        const book = extension("p", [MINI], [{ type: "patch", id: "p.patch.surge", data: patch }]);
+        const translation = (id: string, strings: Record<string, string>) =>
+            ({ type: "translation" as const, id: id, data: { language: "it", strings: strings } });
+        const it_ = extension("it", [MINI, "p"], [
+            translation(FIGHTER, { "levels.1.features.0.name": "Recuperare Energie" }),
+            translation("p.patch.surge", { "append.levels.1.features.0.name": "Azione Impetuosa" }),
+            translation(`${MINI}.ruleset`, { "skills.1.name": "Furtività" })
+        ]);
+        const set = loadPackages([base, book, it_]);
+        const name = (id: string): Record<string, string> =>
+            (set.entities.get(id)!.data as { name: Record<string, string> }).name;
+        const skill = set.ruleset.skills[1] as unknown as { name: Record<string, string> };
+
+        expect(name(inline)).toEqual({ en: "second-wind", it: "Recuperare Energie" });
+        expect(name(appended)).toEqual({ en: "action-surge", it: "Azione Impetuosa" });
+        expect(skill.name).toEqual({ it: "Furtività" });
+        expect(codes(set)).not.toContain("W_MISSING_ENTITY");
+    });
+
+    it("keeps a translation of the selected packages, never one of a package left out", () =>
+    {
+        const base = miniPackage({ entities: [cls(FIGHTER, { 1: { features: [] } })] });
+        const book = extension("p", [MINI]);
+        const translation = (id: string, deps: string[]): PackageSource => ({
+            manifest: { ...makeManifest(id, "translation", deps.map((d) => ({ id: d, version: "^0.1.0" }))) },
+            entities: []
+        });
+        const set = loadPackages([base, book, translation("mini-it", [MINI]), translation("p-it", ["p", "mini-it"])], {
+            selection: { packages: [MINI] }
+        });
+
+        expect(set.order.map((m) => m.id)).toEqual([MINI, "mini-it"]);
+    });
+
     it("indexes inline features and subspecies as entities of their own", () =>
     {
         const base = miniPackage({

@@ -4,7 +4,10 @@
  * root, `requires`, `selection`) wins; otherwise every package id the
  * character lists is looked up among the packages discovered under
  * `packages/content/` and `content-private/`, plus the directories passed
- * explicitly, which override a discovered package with the same id.
+ * explicitly, which override a discovered package with the same id. With a
+ * `language`, the discovered translation packages of that language whose
+ * packages are all loaded come too, as the web application adds them
+ * (docs/phase-1/11): a character never lists a translation.
  */
 
 import { existsSync, readFileSync } from "node:fs";
@@ -38,11 +41,46 @@ export interface ResolveOptions
     readonly repoRoot: string;
     /** Explicit package directories (`--package`). */
     readonly extra?: readonly string[];
+    /** The derivation language: its translation packages are added. */
+    readonly language?: string;
+}
+
+/** The translations of `language`, among the discovered and explicit packages, whose packages are all loaded. */
+function withTranslations(resolved: ResolvedPackages, options: ResolveOptions): ResolvedPackages
+{
+    if (options.language === undefined) { return resolved; }
+    const candidates = [...discoverPackages(options.repoRoot).map((p) => p.directory), ...options.extra ?? []]
+        .map((directory) => ({ directory: resolve(directory), source: readPackageSource(resolve(directory)) }))
+        .filter(({ source }) => (source.manifest.kind === "translation") &&
+            source.manifest.languages.includes(options.language!));
+    const sources = [...resolved.sources];
+    const directories = [...resolved.directories];
+    const present = new Set(sources.map((s) => s.manifest.id));
+    for (let added = true; added;)
+    {
+        added = false;
+        for (const { directory, source } of candidates)
+        {
+            if (present.has(source.manifest.id)) { continue; }
+            if (!source.manifest.dependencies.every((d) => present.has(d.id))) { continue; }
+            sources.push(source);
+            directories.push(directory);
+            present.add(source.manifest.id);
+            added = true;
+        }
+    }
+
+    return { ...resolved, sources: sources, directories: directories };
 }
 
 export class ResolveError extends Error { }
 
 export function resolvePackages(characterPath: string, character: Character, options: ResolveOptions): ResolvedPackages
+{
+    return withTranslations(resolveListed(characterPath, character, options), options);
+}
+
+function resolveListed(characterPath: string, character: Character, options: ResolveOptions): ResolvedPackages
 {
     const sibling = join(dirname(resolve(characterPath)), "packages.yaml");
     if (existsSync(sibling))

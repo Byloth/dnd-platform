@@ -1,12 +1,15 @@
 /**
- * Generate the skeleton of a translation package for the base package: one
- * file per entity under tools/import/work/translations/<lang>/<entity-id>.yaml
- * mapping every localised field path to an empty string.
+ * Generate (or refresh) the skeleton of a translation package: one file per entity, patch and ruleset of a source
+ * package under `<out>/translations/<lang>/<id>.yaml`, mapping every localised field path to its translation, an
+ * empty string until it is written (docs/phase-1/11-italian-content.md). Strings already translated in an existing
+ * file are kept; paths that no longer exist in the source are dropped and counted.
  *
- *   node tools/import/src/translation-skeleton.ts [lang=it]
+ *   node tools/import/src/translation-skeleton.ts [lang=it] [--package <source dir>] [--out <package dir>]
+ *
+ * Without options: the base package into tools/import/work/translations/<lang>/ (the original behaviour).
  */
 
-import { mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 
 import { parse, stringify } from "yaml";
@@ -14,8 +17,19 @@ import { parse, stringify } from "yaml";
 import { CONTENT_DIR } from "./emit.ts";
 import { IMPORT_DIR } from "./lib.ts";
 
-const language = process.argv[2] ?? "it";
-const OUT = resolve(IMPORT_DIR, "work", "translations", language);
+const args = process.argv.slice(2);
+const option = (name: string): string | undefined =>
+{
+    const index = args.indexOf(`--${name}`);
+
+    return index >= 0 ? args[index + 1] : undefined;
+};
+const language = args.find((a, i) => !a.startsWith("--") && !args[i - 1]?.startsWith("--")) ?? "it";
+const SOURCE = resolve(option("package") ?? CONTENT_DIR);
+const PACKAGE = option("out");
+const OUT = PACKAGE ?
+    resolve(PACKAGE, "translations", language) :
+    resolve(IMPORT_DIR, "work", "translations", language);
 mkdirSync(OUT, { recursive: true });
 
 function* yamlFiles(dir: string): Generator<string>
@@ -23,11 +37,15 @@ function* yamlFiles(dir: string): Generator<string>
     for (const entry of readdirSync(dir).sort())
     {
         const path = join(dir, entry);
-        if (statSync(path).isDirectory()) { yield* yamlFiles(path); }
-        else if (entry.endsWith(".yaml") && entry !== "package.yaml" && entry !== "ruleset.yaml") { yield path; }
+        if (statSync(path).isDirectory())
+        {
+            if (entry !== "translations") { yield* yamlFiles(path); }
+        }
+        else if (entry.endsWith(".yaml") && (entry !== "package.yaml")) { yield path; }
     }
 }
 
+/** The paths of the localised strings (`{ en: … }` maps) in a document, relative to it. */
 function localisedPaths(node: unknown, path: string, out: string[]): void
 {
     if (Array.isArray(node))
@@ -49,14 +67,28 @@ function localisedPaths(node: unknown, path: string, out: string[]): void
 
 let files = 0;
 let strings = 0;
-for (const file of yamlFiles(CONTENT_DIR))
+let kept = 0;
+let dropped = 0;
+for (const file of yamlFiles(SOURCE))
 {
-    const entity = parse(readFileSync(file, "utf8")) as Record<string, unknown>;
+    const document = parse(readFileSync(file, "utf8")) as Record<string, unknown> | null;
+    const id = document?.["id"];
+    if (typeof id !== "string") { continue; }
     const paths: string[] = [];
-    localisedPaths(entity, "", paths);
+    localisedPaths(document, "", paths);
     if (paths.length === 0) { continue; }
-    writeFileSync(resolve(OUT, `${String(entity["id"])}.yaml`), stringify(Object.fromEntries(paths.map((p) => [p, ""]))));
+
+    const target = resolve(OUT, `${id}.yaml`);
+    const previous = existsSync(target) ?
+        (parse(readFileSync(target, "utf8")) as Record<string, string> | null) ?? {} :
+        {};
+    const strings_ = Object.fromEntries(paths.map((p) => [p, previous[p] ?? ""]));
+    kept += paths.filter((p) => previous[p]).length;
+    dropped += Object.keys(previous).filter((p) => !paths.includes(p)).length;
+
+    writeFileSync(target, stringify(strings_, { lineWidth: 0 }));
     files += 1;
     strings += paths.length;
 }
-console.log(`translation skeleton (${language}): ${files} files, ${strings} strings in ${OUT}`);
+console.log(`translation skeleton (${language}) of ${SOURCE}: ${files} files, ${strings} strings ` +
+    `(${kept} already translated, ${dropped} dropped) in ${OUT}`);
