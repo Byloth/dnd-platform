@@ -24,7 +24,7 @@ export function useWizardContext()
     return { wizard, entities, helpLevel, recommended };
 }
 
-/** Whether a step has what it asks for; steps built later (M1.4c/d) are never done yet. */
+/** Whether a step has what it asks for; the review never is: saving it leaves the wizard. */
 export function stepDone(step: StepId): boolean
 {
     const wizard = useWizardStore();
@@ -63,6 +63,7 @@ export function stepDone(step: StepId): boolean
             return sheet.choices.every((c) => c.answered || (c.of === "asi-or-feat"));
         }
         case "equipment": return wizard.character?.state.currency !== undefined;
+        case "personality": return Boolean(wizard.character?.name.trim());
         default: return false;
     }
 }

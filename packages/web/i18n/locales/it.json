@@ -424,6 +424,36 @@
           "melee-weapons": "Un'arma da mischia"
         }
       }
+    },
+    "personality": {
+      "purpose": "Chi è il tuo personaggio: un nome, come vede il bene e il male, che cosa lo muove.",
+      "consequence": "Nulla di tutto questo cambia un numero sulla scheda; è ciò che interpreti al tavolo, e ciò su cui il Master può costruire una storia.",
+      "recommendation": "Per salvare basta un nome. Per il resto, scegli uno o due suggerimenti del tuo background e falli tuoi.",
+      "who": "Nome e allineamento",
+      "name": "Nome",
+      "needed": "serve per salvare",
+      "nameHint": "Il nome che preferisci; potrai cambiarlo dalla scheda.",
+      "alignment": "Allineamento",
+      "noAlignment": "Non scelto",
+      "alignmentHint": "La visione morale del personaggio, da legale buono a caotico malvagio; neutrale va bene se non sei sicuro.",
+      "personality": "Personalità",
+      "more": "Aspetto e note",
+      "fields": {
+        "traits": "Tratti caratteriali",
+        "ideals": "Ideali",
+        "bonds": "Legami",
+        "flaws": "Difetti",
+        "appearance": "Aspetto",
+        "notes": "Note"
+      },
+      "hints": {
+        "traits": "Due piccole cose che distinguono il tuo personaggio: un'abitudine, un modo di parlare, una passione.",
+        "ideals": "Ciò in cui il personaggio crede di più, il principio a cui non rinuncerebbe.",
+        "bonds": "Una persona, un luogo o una causa a cui il personaggio tiene più di ogni altra cosa.",
+        "flaws": "Una debolezza o un vizio che altri potrebbero usare contro il personaggio."
+      },
+      "suggestions": "Suggerimenti dal tuo background",
+      "use": "Usa per {field}:"
     }
   }
 }

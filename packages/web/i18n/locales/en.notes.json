@@ -424,6 +424,36 @@
           "melee-weapons": "Step 7 (equipment): label or phrase; keep {placeholders}."
         }
       }
+    },
+    "personality": {
+      "purpose": "Step 8's purpose, shown under its heading to every help level but expert.",
+      "consequence": "Step 8, for a newcomer: what these answers change (nothing on the sheet's numbers).",
+      "recommendation": "Step 8, for a newcomer: what to do when unsure.",
+      "who": "Heading of the name and alignment section.",
+      "name": "Label of the character's name field.",
+      "needed": "Beside the name's label: the name is required to save the character.",
+      "nameHint": "Under the name field, for a newcomer.",
+      "alignment": "Label of the alignment menu.",
+      "noAlignment": "The alignment menu's empty option.",
+      "alignmentHint": "Under the alignment menu, for a newcomer, before one is chosen; the alignment's own sentence replaces it.",
+      "personality": "Heading of the traits, ideals, bonds and flaws.",
+      "more": "Heading of the appearance and notes fields.",
+      "fields": {
+        "traits": "Label of a personality field; the D&D terms (PHB wording in each language).",
+        "ideals": "Label of a personality field; the D&D terms (PHB wording in each language).",
+        "bonds": "Label of a personality field; the D&D terms (PHB wording in each language).",
+        "flaws": "Label of a personality field; the D&D terms (PHB wording in each language).",
+        "appearance": "Label of a personality field; the D&D terms (PHB wording in each language).",
+        "notes": "Label of a personality field; the D&D terms (PHB wording in each language)."
+      },
+      "hints": {
+        "traits": "Under a personality field, for a newcomer: what to write, in one sentence.",
+        "ideals": "Under a personality field, for a newcomer: what to write, in one sentence.",
+        "bonds": "Under a personality field, for a newcomer: what to write, in one sentence.",
+        "flaws": "Under a personality field, for a newcomer: what to write, in one sentence."
+      },
+      "suggestions": "Disclosure with the background's suggestions for a field.",
+      "use": "Read by screen readers before a suggestion's text, on the button that fills the field. Parameter: {field}."
     }
   }
 }

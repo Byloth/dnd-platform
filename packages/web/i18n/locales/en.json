@@ -424,6 +424,36 @@
           "melee-weapons": "A melee weapon"
         }
       }
+    },
+    "personality": {
+      "purpose": "Who your character is: a name, how they see right and wrong, and what drives them.",
+      "consequence": "None of this changes a number on the sheet; it is what you play at the table, and what the Game Master can build a story on.",
+      "recommendation": "A name is all you need to save. For the rest, pick one or two suggestions from your background and make them your own.",
+      "who": "Name and alignment",
+      "name": "Name",
+      "needed": "needed to save",
+      "nameHint": "Any name you like; you can change it later from the sheet.",
+      "alignment": "Alignment",
+      "noAlignment": "Not chosen",
+      "alignmentHint": "Your character's moral outlook, from lawful good to chaotic evil; neutral is fine if you are unsure.",
+      "personality": "Personality",
+      "more": "Appearance and notes",
+      "fields": {
+        "traits": "Personality traits",
+        "ideals": "Ideals",
+        "bonds": "Bonds",
+        "flaws": "Flaws",
+        "appearance": "Appearance",
+        "notes": "Notes"
+      },
+      "hints": {
+        "traits": "Two small things that make your character stand out: a habit, a way of speaking, a passion.",
+        "ideals": "What your character believes in most, the principle they would not give up.",
+        "bonds": "A person, a place or a cause your character cares about above everything else.",
+        "flaws": "A weakness or a vice that others could use against your character."
+      },
+      "suggestions": "Suggestions from your background",
+      "use": "Use for {field}:"
     }
   }
 }

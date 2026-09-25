@@ -237,4 +237,28 @@ describe("the creation wizard's store", () =>
         expect(wizard.character?.choices.classes?.[0]).not.toHaveProperty("subclass");
         expect(wizard.character?.choices).not.toHaveProperty("answers");
     });
+
+    it("writes the name, the alignment and the player's own texts, and forgets an emptied one", () =>
+    {
+        const wizard = useWizardStore();
+        wizard.setName("Brother Alric");
+        wizard.setAlignment("lawful-good");
+        wizard.setPersonal("traits", "Nothing can shake my optimistic attitude.");
+        wizard.setPersonal("notes", "Owes the temple a favour.");
+
+        expect(wizard.character?.name).toBe("Brother Alric");
+        expect(wizard.character?.choices).toMatchObject({
+            alignment: "lawful-good",
+            personality: { traits: { en: "Nothing can shake my optimistic attitude." } },
+            notes: { en: "Owes the temple a favour." }
+        });
+        expect(stepDone("personality")).toBe(true);
+
+        wizard.setPersonal("traits", " ");
+        wizard.setAlignment(undefined);
+        expect(wizard.character?.choices).not.toHaveProperty("personality");
+        expect(wizard.character?.choices).not.toHaveProperty("alignment");
+        wizard.setName("");
+        expect(stepDone("personality")).toBe(false);
+    });
 });

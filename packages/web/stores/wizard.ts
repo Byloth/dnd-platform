@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 
-import type { Archetype, Class } from "@byloth/dnd-platform-schema";
+import type { Archetype, Class, LocalizedString } from "@byloth/dnd-platform-schema";
 import type { Character } from "@byloth/dnd-platform-engine";
 import type { PackageSet, PackageSource } from "@byloth/dnd-platform-loader";
 import type { JSONValue } from "@byloth/core";
@@ -571,6 +571,46 @@ export const useWizardStore = defineStore("wizard", () =>
 
     const useSuggestedCoins = (): void => setCoins(coins(suggestedCopper.value));
 
+    type Personal = "traits" | "ideals" | "bonds" | "flaws" | "appearance" | "notes";
+
+    const setName = (name: string): void =>
+    {
+        const current = character.value;
+        if (!current) { return; }
+
+        _write({ ...current, name: name });
+    };
+
+    /** An alignment id of the ruleset, or what the player typed; `undefined` clears it. */
+    const setAlignment = (alignment: string | undefined): void =>
+        _choices((choices) => ({ ...choices, alignment: alignment?.trim() || undefined }));
+
+    /**
+     * A text of the player's own, kept in the language it was first written in (the player writes one text, not
+     * a translation); an empty text removes the field.
+     */
+    const setPersonal = (key: Personal, text: string): void =>
+    {
+        const written = (previous: LocalizedString | undefined): LocalizedString | undefined =>
+        {
+            if (!text.trim()) { return undefined; }
+            const language = Object.keys(previous ?? {})[0] ?? useNuxtApp().$i18n.locale.value;
+
+            return { [language]: text };
+        };
+
+        _choices((choices) =>
+        {
+            if ((key === "appearance") || (key === "notes"))
+            {
+                return { ...choices, [key]: written(choices[key]) };
+            }
+            const personality = defined({ ...choices.personality, [key]: written(choices.personality?.[key]) });
+
+            return { ...choices, personality: Object.keys(personality).length ? personality : undefined };
+        });
+    };
+
     /** The archetype's recommendation for a key (`species`, `class`…) and why, when the draft started from one. */
     const recommendation = (key: keyof Archetype["recommends"]): { value: unknown, why?: string } | undefined =>
     {
@@ -619,6 +659,9 @@ export const useWizardStore = defineStore("wizard", () =>
         suggestedCopper,
         setCoins,
         useSuggestedCoins,
+        setName,
+        setAlignment,
+        setPersonal,
         recommendation
     };
 });

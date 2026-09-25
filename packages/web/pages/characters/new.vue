@@ -8,6 +8,7 @@
     import StepConcept from "@/components/wizard/steps/StepConcept.vue";
     import StepContent from "@/components/wizard/steps/StepContent.vue";
     import StepPending from "@/components/wizard/steps/StepPending.vue";
+    import StepPersonality from "@/components/wizard/steps/StepPersonality.vue";
     import StepSpecies from "@/components/wizard/steps/StepSpecies.vue";
     import WizardStep from "@/components/wizard/WizardStep.vue";
     import WizardStepList from "@/components/wizard/WizardStepList.vue";
@@ -37,7 +38,8 @@
         background: StepBackground,
         abilities: StepAbilities,
         choices: StepChoices,
-        equipment: StepEquipment
+        equipment: StepEquipment,
+        personality: StepPersonality
     };
     const view = computed(() => STEP_VIEWS[wizard.step] ?? StepPending);
 

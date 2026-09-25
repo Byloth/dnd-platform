@@ -139,7 +139,8 @@ describe("the creation wizard", () =>
 
         byName(wrapper, "9. Personality")!.click();
         await settle();
-        expect(wrapper.find(".wizard-pending").exists()).toBe(true);
+        expect(wrapper.find(".step-personality").exists()).toBe(true);
+        expect(byName(wrapper, "9. Personality, done")).toBeUndefined();
     });
 
     it("offers a stored draft back, and starts again when asked", async () =>
@@ -422,6 +423,65 @@ describe("the creation wizard", () =>
             expect(wrapper.find("h1").text()).toBe("Equipaggiamento");
             expect(wrapper.text()).toContain("Un'arma da guerra a scelta");
             expect(wrapper.find(".step-equipment__suggested").text()).toBe("Suggerite: 15 mo");
+            expect(wrapper.text()).not.toMatch(/wizard\.|sheet\.[a-z]/);
+        });
+    });
+
+    describe("step 8, personality", () =>
+    {
+        it("fills a field from the background's suggestions, and adds a line with a second one", async () =>
+        {
+            await useWizardStore().start();
+            useWizardStore().chooseArchetype("srd51.archetype.steadfast-healer");
+            const wrapper = await open("personality");
+
+            expect(wrapper.find("h1").text()).toBe("Personality");
+            const optimist = "Nothing can shake my optimistic attitude.";
+            byName(wrapper, `Use for Personality traits: ${optimist}`)!.click();
+            await settle();
+            const charity = "Charity. I always try to help those in need, no matter what the personal cost.";
+            byName(wrapper, `Use for Ideals: ${charity}`)!.click();
+            await settle();
+
+            const personality = useWizardStore().character?.choices.personality;
+            expect(personality?.traits).toEqual({ en: optimist });
+            expect(personality?.ideals).toEqual({ en: charity });
+            expect(byName(wrapper, `Use for Personality traits: ${optimist}`)!.hasAttribute("disabled")).toBe(true);
+
+            const quoter = "I quote (or misquote) sacred texts and proverbs in almost every situation.";
+            byName(wrapper, `Use for Personality traits: ${quoter}`)!.click();
+            await settle();
+            expect(useWizardStore().character?.choices.personality?.traits?.["en"]?.split("\n")).toHaveLength(2);
+        });
+
+        it("names the ruleset's alignments and says what the chosen one means", async () =>
+        {
+            await useWizardStore().start();
+            const wrapper = await open("personality");
+
+            const menu = wrapper.find(".step-personality__section select");
+            expect(menu.findAll("option").map((o) => o.text())).toContain("Chaotic Good");
+            await menu.setValue("neutral");
+            await settle();
+
+            expect(useWizardStore().character?.choices.alignment).toBe("neutral");
+            expect(wrapper.text()).toContain("Neutral (N) is the alignment of those who prefer to steer clear");
+            expect(stepDone("personality")).toBe(false);
+            await wrapper.find(".step-personality__section input").setValue("Mira");
+            await settle();
+            expect(stepDone("personality")).toBe(true);
+        });
+
+        it("speaks Italian", async () =>
+        {
+            usePreferencesStore().language = "it";
+            await useNuxtApp().$i18n.setLocale("it");
+            await useWizardStore().start();
+            useWizardStore().chooseArchetype("srd51.archetype.steadfast-healer");
+            const wrapper = await open("personality");
+
+            expect(wrapper.find("h1").text()).toBe("Personalità");
+            expect(wrapper.text()).toContain("Suggerimenti dal tuo background");
             expect(wrapper.text()).not.toMatch(/wizard\.|sheet\.[a-z]/);
         });
     });
