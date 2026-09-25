@@ -1,0 +1,13 @@
+name: Crollo del tetto
+text: |-
+  _Trappola meccanica_
+
+  Questa trappola utilizza un cavo teso per provocare il crollo dei sostegni che sorreggono una sezione instabile di un soffitto.
+
+  Il cavo è teso a 8 cm dal terreno tra due travi di sostegno e la CD per individuarlo è pari a 10. Il cavo teso può essere disinnescato senza subire danni superando una prova di Destrezza con CD 15 usando degli arnesi da scasso. Un personaggio senza gli arnesi da scasso può tentare di effettuare questa prova con svantaggio, usando una qualsiasi arma affilata o strumento appuntito. In caso di fallimento, la trappola si innesca.
+
+  Chiunque ispezioni le travi può facilmente notare che sono semplicemente incastrate in quella posizione. Con un'azione, un personaggio può rovesciare una trave, innescando la trappola.
+
+  La sezione di soffitto al di sopra del cavo teso è in pessime condizioni e chiunque la veda è in grado di capire che rischia di crollare.
+
+  Quando la trappola viene innescata, il soffitto pericolante crolla. Ogni creatura nell'area sotto la sezione instabile deve superare un tiro salvezza su Destrezza con CD 15 e subisce 22 (4d10) danni contundenti in caso di fallimento, o la metà dei danni in caso di successo. Una volta innescata la trappola, il pavimento dell'area si riempie di detriti e diventa un terreno difficile.

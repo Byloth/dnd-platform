@@ -1,0 +1,13 @@
+name: "Punti ferita"
+text: |-
+  I punti ferita rappresentano una combinazione di resistenza fisica e mentale, di volontà di vivere e di fortuna. Le creature con più punti ferita sono più difficili da uccidere. Quelle con meno punti ferita sono più fragili.
+
+  I punti ferita attuali di una creatura (in genere chiamati semplicemente punti ferita) possono essere un qualsiasi numero compreso tra 0 e i suoi punti ferita massimi. Questo numero cambia di frequente, man mano che una creatura subisce danni o viene curata.
+
+  Ogni volta che una creatura subisce danni, quell'ammontare di danni viene sottratto dai suoi punti ferita. La perdita di punti ferita non ha alcun effetto sulle capacità di una creatura finché essa non scende a 0 punti ferita.
+
+  ## Tiri per i danni
+
+  Ogni arma, incantesimo e capacità dannosa dei mostri specifica i danni che infligge. Si tirano il dado o i dadi di danno, si aggiungono gli eventuali modificatori e si applicano i danni al bersaglio. Le armi magiche, le capacità speciali e altri fattori possono conferire un bonus ai danni. Subendo penalità è possibile infliggere 0 danni, ma mai danni negativi. Quando un personaggio attacca con un'**arma**, aggiunge ai danni il suo modificatore di caratteristica (lo stesso modificatore usato per il tiro per colpire). Un **incantesimo** indica quali dadi tirare per i danni e se aggiungere o meno dei modificatori.
+
+  Se un incantesimo o un altro effetto infligge danni a **più** **di un bersaglio** allo stesso tempo, si tira per i danni una volta sola per tutti i bersagli. Per esempio, quando un mago lancia srd:fireball o un chierico lancia srd:flame-strike, i danni dell'incantesimo si tirano una volta sola per tutte le creature coinvolte nell'esplosione.

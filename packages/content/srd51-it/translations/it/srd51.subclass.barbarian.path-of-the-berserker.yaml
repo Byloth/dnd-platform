@@ -1,0 +1,26 @@
+name: Cammino del Berserker
+levels.3.features.0.name: Frenesia
+levels.3.features.0.text: A partire da quando sceglie questo cammino al 3° livello, il barbaro può entrare in frenesia quando è preda dell'ira. Se lo fa, per la durata della sua ira può effettuare un singolo attacco con arma da mischia come azione bonus in ognuno dei suoi turni successivi dopo questo. Quando l'ira termina, il barbaro subisce un livello di indebolimento (come descritto nell'appendice A).
+levels.3.features.0.effects.0.name: Attacco della Frenesia
+levels.3.features.0.effects.0.text: Quando sei in preda all'ira, puoi entrare in frenesia. Se lo fai, per la durata della tua ira puoi effettuare un singolo attacco con arma da mischia come azione bonus in ognuno dei tuoi turni successivi dopo questo. Quando l'ira termina, subisci un livello di indebolimento.
+levels.3.features.0.effects.0.onUse.0.text: Effettua un singolo attacco con arma da mischia.
+levels.3.features.0.effects.1.text: Quando l'ira termina dopo una frenesia, subisci un livello di indebolimento.
+levels.3.features.0.effects.1.note: "Lacuna: nessun aggancio per la fine di uno stato attivabile; applica a mano un livello di srd51.condition.exhaustion quando l'ira termina."
+levels.6.features.0.name: Ira Incontenibile
+levels.6.features.0.text: A partire dal 6° livello, il barbaro non può essere affascinato o spaventato mentre è in preda all'ira. Se è affascinato o spaventato quando scatena l'ira, quell'effetto è sospeso per tutta la durata dell'ira.
+levels.6.features.0.effects.1.text: Se sei affascinato o spaventato quando scateni l'ira, quell'effetto è sospeso per tutta la durata dell'ira.
+levels.6.features.0.effects.1.note: "Lacuna: la sospensione di una condizione già applicata per la durata dell'ira si risolve durante il gioco."
+levels.10.features.0.name: Presenza Intimidatoria
+levels.10.features.0.text: |-
+  A partire dal 10° livello, il barbaro può usare la sua azione per spaventare qualcuno con la sua presenza minacciosa. Quando lo fa, sceglie una creatura che è in grado di vedere entro 9 metri. Se la creatura è in grado di vedere o sentire il barbaro, deve superare un tiro salvezza su Saggezza (CD pari a 8 + il bonus di competenza del barbaro + il modificatore di Carisma del barbaro), altrimenti sarà spaventata dal barbaro fino alla fine del turno successivo di quest'ultimo. Nei turni successivi, il barbaro può usare la sua azione per estendere la durata di questo effetto sulla creatura spaventata fino alla fine del proprio turno successivo. Questo effetto si esaurisce se la creatura termina il suo turno fuori dalla linea di vista o oltre 18 metri di distanza dal barbaro.
+
+  Se la creatura supera il suo tiro salvezza, il barbaro non può più utilizzare questo privilegio su quella creatura per 24 ore.
+levels.10.features.0.effects.0.name: Presenza Intimidatoria
+levels.10.features.0.effects.0.text: Scegli una creatura che sei in grado di vedere entro 9 metri. Se la creatura è in grado di vederti o sentirti, deve superare un tiro salvezza su Saggezza (CD pari a 8 + il tuo bonus di competenza + il tuo modificatore di Carisma), altrimenti sarà spaventata da te fino alla fine del tuo turno successivo. Nei turni successivi, puoi usare la tua azione per estendere la durata di questo effetto sulla creatura spaventata fino alla fine del tuo turno successivo. Questo effetto si esaurisce se la creatura termina il suo turno fuori dalla linea di vista o oltre 18 metri di distanza da te. Se la creatura supera il suo tiro salvezza, non puoi più utilizzare questo privilegio su quella creatura per 24 ore.
+levels.10.features.0.effects.0.onUse.0.note: Se fallisce il tiro salvezza su Saggezza.
+levels.10.features.0.effects.0.onUse.1.text: Puoi estendere l'effetto con la tua azione nei turni successivi; termina se la creatura termina il suo turno fuori dalla linea di vista o oltre 18 metri di distanza. Se supera il tiro salvezza, la creatura è immune a questo privilegio per 24 ore.
+levels.14.features.0.name: Ritorsione
+levels.14.features.0.text: A partire dal 14° livello, quando il barbaro subisce danni da una creatura che si trova entro 1,5 metri da lui, può usare la sua reazione per effettuare un attacco con arma da mischia contro quella creatura.
+levels.14.features.0.effects.0.name: Ritorsione
+levels.14.features.0.effects.0.trigger: quando subisci danni da una creatura che si trova entro 1,5 metri da te
+levels.14.features.0.effects.0.text: Puoi usare la tua reazione per effettuare un attacco con arma da mischia contro quella creatura.

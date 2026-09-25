@@ -1,0 +1,19 @@
+name: Comando
+text: |-
+  L'incantatore rivolge una parola di comando a una creatura entro gittata che è in grado di vedere. Il bersaglio deve superare un tiro salvezza su Saggezza, altrimenti dovrà obbedire al comando nel suo turno successivo. L'incantesimo non ha effetto se il bersaglio è un non morto, se non comprende il linguaggio dell'incantatore o se il comando si rivela dannoso in modo diretto per il bersaglio. Di seguito sono descritti alcuni comandi tipici e i loro effetti. L'incantatore può impartire un comando diverso da quelli descritti di seguito. In questo caso, è il GM a determinare come si comporta il bersaglio. Se il bersaglio non può eseguire il comando, l'incantesimo termina.
+
+  **Avvicinati.** Il bersaglio si muove verso l'incantatore seguendo il percorso più breve e diretto, terminando il suo turno se giunge entro 1,5 metri da lui.
+
+  **Lascia.** Il bersaglio lascia cadere ciò che stava impugnando, poi termina il suo turno.
+
+  **Fuggi.** Il bersaglio usa il suo turno per allontanarsi dall'incantatore nel modo più rapido possibile.
+
+  **Supplica.** Il bersaglio cade a terra prono e termina il suo turno.
+
+  **Fermo.** Il bersaglio non si muove e non effettua azioni. Una creatura volante rimane in aria, se è in grado di farlo. Se deve muoversi per rimanere sospesa, copre in volo la distanza minima richiesta per rimanere in aria.
+higherLevel: |-
+  Quando l'incantatore lancia questo incantesimo usando uno slot incantesimo di 2° livello o superiore, può influenzare una creatura aggiuntiva per ogni slot di livello superiore al 1°. Quando l'incantatore le bersaglia, le creature devono trovarsi a non più di 9 metri l'una dall'altra.
+onCast.0.note: |-
+  Solo comando Supplica: il bersaglio cade a terra prono e termina il suo turno.
+onCast.1.text: |-
+  Se fallisce il tiro salvezza su Saggezza, il bersaglio obbedisce al tuo comando di una sola parola nel suo turno successivo (Avvicinati, Lascia, Fuggi, Supplica, Fermo o un altro comando il cui effetto è stabilito dal GM); nessun effetto sui non morti, sulle creature che non comprendono il tuo linguaggio o se il comando è dannoso in modo diretto per il bersaglio. Una creatura aggiuntiva (entro 9 metri dalle altre) per ogni slot di livello superiore al 1°.

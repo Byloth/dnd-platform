@@ -1,0 +1,70 @@
+name: "L'Immondo"
+levels.1.features.0.name: "Benedizione dell'Oscuro"
+levels.1.features.0.text: "A partire dal 1° livello, quando il warlock porta una creatura ostile a 0 punti ferita, ottiene un ammontare di punti ferita temporanei pari al proprio modificatore di Carisma + il proprio livello da warlock (minimo 1)."
+levels.1.features.0.effects.0.name: "Benedizione dell'Oscuro"
+levels.1.features.0.effects.0.trigger: "Quando porti una creatura ostile a 0 punti ferita."
+levels.1.features.0.effects.0.text: "Quando porti una creatura ostile a 0 punti ferita, ottieni un ammontare di punti ferita temporanei pari al tuo modificatore di Carisma + il tuo livello da warlock (minimo 1)."
+levels.1.features.0.effects.0.note: "Il motore di gioco non rileva l'evento che attiva l'effetto (portare una creatura ostile a 0 punti ferita); usalo quando accade."
+levels.1.features.1.name: "Lista ampliata degli incantesimi"
+levels.1.features.1.text: |-
+  L'Immondo permette al warlock di scegliere da una lista di incantesimi più ampia quando impara un nuovo incantesimo da warlock. I seguenti incantesimi sono aggiunti alla sua lista degli incantesimi da warlock.
+
+  ### Incantesimi ampliati dell'Immondo (tabella)
+  | Livello dell'incantesimo | Incantesimi |
+  | --- | --- |
+  | 1° | comando, mani brucianti |
+  | 2° | cecità/sordità, raggio rovente |
+  | 3° | nube maleodorante, palla di fuoco |
+  | 4° | muro di fuoco, scudo di fuoco |
+  | 5° | colpo infuocato, santificare |
+levels.6.features.0.name: "Fortuna dell'Oscuro"
+levels.6.features.0.text: |-
+  A partire dal 6° livello, il warlock può appellarsi al suo patrono per alterare il fato in suo favore. Quando effettua una prova di caratteristica o un tiro salvezza, può utilizzare questo privilegio per aggiungere un d10 al suo tiro. Può farlo dopo avere visto il tiro iniziale, ma prima che qualsiasi effetto del tiro sia applicato.
+
+  Una volta utilizzato questo privilegio, il warlock non può più utilizzarlo finché non completa un riposo breve o lungo.
+levels.6.features.0.effects.0.name: "Fortuna dell'Oscuro"
+levels.6.features.0.effects.1.name: "Fortuna dell'Oscuro"
+levels.6.features.0.effects.1.text: "Quando effettui una prova di caratteristica o un tiro salvezza, puoi utilizzare questo privilegio per aggiungere un d10 al tuo tiro. Puoi farlo dopo avere visto il tiro iniziale, ma prima che qualsiasi effetto del tiro sia applicato."
+levels.6.features.0.effects.1.onUse.0.text: "Aggiungi 1d10 alla prova di caratteristica o al tiro salvezza appena effettuato."
+levels.10.features.0.name: "Resilienza Immonda"
+levels.10.features.0.text: "A partire dal 10° livello, il warlock può scegliere un tipo di danno quando completa un riposo breve o lungo. Ottiene resistenza a quel tipo di danno finché non ne sceglie uno diverso tramite questo privilegio. I danni delle armi magiche o delle armi argentate ignorano questa resistenza."
+levels.10.features.0.effects.0.note: "Il tipo di danno si sceglie quando completi un riposo breve o lungo e può essere cambiato a ogni riposo; i danni delle armi magiche o delle armi argentate ignorano questa resistenza."
+levels.10.features.0.effects.0.options.0.name: "Acido"
+levels.10.features.0.effects.0.options.0.effects.0.note: "I danni delle armi magiche o delle armi argentate ignorano questa resistenza."
+levels.10.features.0.effects.0.options.1.name: "Contundente"
+levels.10.features.0.effects.0.options.1.effects.0.note: "I danni delle armi magiche o delle armi argentate ignorano questa resistenza."
+levels.10.features.0.effects.0.options.2.name: "Freddo"
+levels.10.features.0.effects.0.options.2.effects.0.note: "I danni delle armi magiche o delle armi argentate ignorano questa resistenza."
+levels.10.features.0.effects.0.options.3.name: "Fuoco"
+levels.10.features.0.effects.0.options.3.effects.0.note: "I danni delle armi magiche o delle armi argentate ignorano questa resistenza."
+levels.10.features.0.effects.0.options.4.name: "Forza"
+levels.10.features.0.effects.0.options.4.effects.0.note: "I danni delle armi magiche o delle armi argentate ignorano questa resistenza."
+levels.10.features.0.effects.0.options.5.name: "Fulmine"
+levels.10.features.0.effects.0.options.5.effects.0.note: "I danni delle armi magiche o delle armi argentate ignorano questa resistenza."
+levels.10.features.0.effects.0.options.6.name: "Necrotico"
+levels.10.features.0.effects.0.options.6.effects.0.note: "I danni delle armi magiche o delle armi argentate ignorano questa resistenza."
+levels.10.features.0.effects.0.options.7.name: "Perforante"
+levels.10.features.0.effects.0.options.7.effects.0.note: "I danni delle armi magiche o delle armi argentate ignorano questa resistenza."
+levels.10.features.0.effects.0.options.8.name: "Veleno"
+levels.10.features.0.effects.0.options.8.effects.0.note: "I danni delle armi magiche o delle armi argentate ignorano questa resistenza."
+levels.10.features.0.effects.0.options.9.name: "Psichico"
+levels.10.features.0.effects.0.options.9.effects.0.note: "I danni delle armi magiche o delle armi argentate ignorano questa resistenza."
+levels.10.features.0.effects.0.options.10.name: "Radioso"
+levels.10.features.0.effects.0.options.10.effects.0.note: "I danni delle armi magiche o delle armi argentate ignorano questa resistenza."
+levels.10.features.0.effects.0.options.11.name: "Tagliente"
+levels.10.features.0.effects.0.options.11.effects.0.note: "I danni delle armi magiche o delle armi argentate ignorano questa resistenza."
+levels.10.features.0.effects.0.options.12.name: "Tuono"
+levels.10.features.0.effects.0.options.12.effects.0.note: "I danni delle armi magiche o delle armi argentate ignorano questa resistenza."
+levels.14.features.0.name: "Scagliare all'inferno"
+levels.14.features.0.text: |-
+  A partire dal 14° livello, quando il warlock colpisce una creatura con un attacco, può utilizzare questo privilegio per trascinare istantaneamente il bersaglio sui piani inferiori. La creatura scompare e sfreccia attraverso un territorio da incubo.
+
+  Alla fine del turno successivo del warlock, il bersaglio torna nello spazio che occupava in precedenza, o nello spazio libero più vicino. Se il bersaglio non è un immondo, subisce 10d10 danni psichici in quanto resta sconvolto da questa esperienza terrificante.
+
+  Una volta utilizzato questo privilegio, il warlock non può più utilizzarlo finché non completa un riposo lungo.
+levels.14.features.0.effects.0.name: "Scagliare all'inferno"
+levels.14.features.0.effects.1.name: "Scagliare all'inferno"
+levels.14.features.0.effects.1.trigger: "Quando colpisci una creatura con un attacco."
+levels.14.features.0.effects.1.text: "Quando colpisci una creatura con un attacco, puoi utilizzare questo privilegio per trascinare istantaneamente il bersaglio sui piani inferiori. La creatura scompare e sfreccia attraverso un territorio da incubo. Alla fine del tuo turno successivo, il bersaglio torna nello spazio che occupava in precedenza, o nello spazio libero più vicino. Se il bersaglio non è un immondo, subisce 10d10 danni psichici in quanto resta sconvolto da questa esperienza terrificante."
+levels.14.features.0.effects.1.onUse.0.text: "Il bersaglio scompare fino alla fine del tuo turno successivo, poi torna nel suo spazio (o nello spazio libero più vicino)."
+levels.14.features.0.effects.1.onUse.1.note: "Inflitti quando il bersaglio torna alla fine del tuo turno successivo, solo se non è un immondo."

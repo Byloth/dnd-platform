@@ -1,0 +1,23 @@
+name: "Sensi"
+text: |-
+  La voce "Sensi" indica il punteggio di Saggezza (Percezione) passiva di un mostro, nonché i sensi speciali che il mostro potrebbe possedere. I sensi speciali sono descritti di seguito.
+
+  ## Vista cieca
+
+  Un mostro dotato di vista cieca può percepire l'ambiente circostante entro un raggio specifico senza affidarsi alla vista.
+
+  Le creature prive di occhi, come i grimlock e le melme grigie, solitamente dispongono di questo senso speciale, come anche le creature con radar o sensi amplificati, per esempio i pipistrelli e i draghi puri.
+
+  Se un mostro è cieco per natura, questo effetto è seguito da una nota tra parentesi, a indicare che il raggio della sua vista cieca definisce la gittata massima della sua percezione.
+
+  ## Scurovisione
+
+  Un mostro dotato di scurovisione può vedere nell'oscurità entro un raggio specifico. Entro quell'area, il mostro può vedere in condizioni di luce fioca come se si trattasse di luce intensa e nell'oscurità come se si trattasse di luce fioca. Nell'oscurità non è in grado di discernere i colori, ma solo le tonalità di grigio. Molte creature che vivono sottoterra sono dotate di questo senso speciale.
+
+  ### Percezione tellurica
+
+  Un mostro dotato di percezione tellurica è in grado di localizzare con esattezza l'origine delle vibrazioni che si propagano in una determinata area, a patto che lui e la fonte delle vibrazioni siano a contatto con lo stesso terreno o la stessa sostanza. La percezione tellurica non può essere utilizzata per individuare creature volanti o incorporee. Molte creature che scavano, come gli ankheg e gli umber hulk, sono dotate di questo senso speciale.
+
+  ## Vista pura
+
+  Un mostro dotato di vista pura può, entro un raggio specifico, vedere nell'oscurità normale e magica, vedere le creature e gli oggetti invisibili, individuare automaticamente le illusioni visive e superare i tiri salvezza contro di esse e percepire la forma originale di un mutaforma o di una creatura trasformata magicamente. Il mostro può inoltre vedere nel Piano Etereo entro lo stesso raggio.

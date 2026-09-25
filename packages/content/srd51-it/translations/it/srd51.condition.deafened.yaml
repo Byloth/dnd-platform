@@ -1,0 +1,4 @@
+name: Assordato
+text: "* Una creatura assordata non è in grado di sentire e fallisce automaticamente qualsiasi prova di caratteristica che richieda l'uso dell'udito."
+effects.0.text: Fallisci automaticamente qualsiasi prova di caratteristica che richieda l'uso dell'udito.
+effects.0.note: "Il motore delle regole non gestisce i tiri effettuati contro di te: l'effetto è mostrato come promemoria."

@@ -1,0 +1,16 @@
+name: Bastone del deperimento
+text: |-
+  Bastone, raro (richiede sintonia con un chierico, un druido o un warlock)
+
+  Questo bastone possiede 3 cariche e recupera 1d3 cariche consumate all'alba di ogni giorno.
+
+  Il bastone può anche essere brandito come un bastone ferrato magico. Se il colpo va a segno, infligge danni come un normale bastone ferrato e il personaggio può consumare 1 carica per infliggere al bersaglio 2d10 danni necrotici extra. Inoltre, il bersaglio deve superare un tiro salvezza su Costituzione con CD 15, altrimenti ha svantaggio per 1 ora a qualsiasi prova di caratteristica o tiro salvezza su Forza o Costituzione.
+attunement.by: un chierico, un druido o un warlock
+features.0.name: Bastone ferrato magico
+features.1.name: Deperimento
+features.1.effects.0.name: Deperimento
+features.1.effects.0.trigger: quando colpisci con il bastone
+features.1.effects.0.text: |-
+  Consuma 1 carica per infliggere al bersaglio 2d10 danni necrotici extra. Inoltre, il bersaglio deve superare un tiro salvezza su Costituzione con CD 15, altrimenti ha svantaggio per 1 ora a qualsiasi prova di caratteristica o tiro salvezza su Forza o Costituzione.
+features.1.effects.0.onHit.1.text: |-
+  Tiro salvezza su Costituzione con CD 15, altrimenti svantaggio per 1 ora alle prove e ai tiri salvezza su Forza e Costituzione.

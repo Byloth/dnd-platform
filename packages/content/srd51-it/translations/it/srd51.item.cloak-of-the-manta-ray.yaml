@@ -1,0 +1,9 @@
+name: Mantello della manta
+text: |-
+  Oggetto meraviglioso, non comune
+
+  Il personaggio che indossa questo mantello con il cappuccio tirato sulla testa può respirare sott'acqua e ottiene una velocità di nuotare pari a 18 metri. Per sollevare o abbassare il cappuccio è richiesta un'azione.
+features.0.name: Cappuccio
+features.0.effects.0.name: Sollevare o abbassare il cappuccio
+features.0.effects.0.text: Quando indossi questo mantello con il cappuccio tirato sulla testa, puoi respirare sott'acqua e ottieni una velocità di nuotare pari a 18 metri.
+features.0.effects.2.text: Con il cappuccio tirato sulla testa, puoi respirare sott'acqua.

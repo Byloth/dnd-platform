@@ -1,0 +1,5 @@
+name: Afferrato
+text: |-
+  * La velocità di una creatura afferrata diventa 0 e la creatura non può beneficiare di alcun bonus alla velocità.
+  * La condizione termina se chi ha afferrato la creatura è incapacitato (vedi la relativa condizione).
+  * La condizione termina anche se un effetto rimuove la creatura afferrata dalla portata di chi l'ha afferrata o dell'effetto afferrante, come per esempio se viene scagliata lontano dall'incantesimo *onda tonante*.

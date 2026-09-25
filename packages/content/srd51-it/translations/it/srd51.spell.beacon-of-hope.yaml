@@ -1,0 +1,7 @@
+name: Faro di speranza
+text: |-
+  Questo incantesimo infonde speranza e vitalità. L'incantatore sceglie un qualsiasi numero di creature entro gittata. Per la durata dell'incantesimo, ogni bersaglio dispone di vantaggio ai tiri salvezza su Saggezza, ai tiri salvezza contro morte e recupera il numero massimo di punti ferita possibile da qualsiasi guarigione.
+effects.2.text: |-
+  Recuperi il numero massimo di punti ferita possibile da qualsiasi guarigione.
+effects.2.note: |-
+  La guarigione massimizzata non è esprimibile in v0.

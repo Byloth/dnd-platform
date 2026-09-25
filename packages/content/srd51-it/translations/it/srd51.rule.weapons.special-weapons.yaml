@@ -1,0 +1,9 @@
+name: Armi speciali
+text: |-
+  Le armi che fanno uso di regole speciali sono descritte di seguito.
+
+  **_Lancia da cavaliere._** Il personaggio subisce svantaggio quando usa una lancia da cavaliere per attaccare un bersaglio entro 1,5 metri da lui. Inoltre, una lancia da cavaliere deve essere impugnata a due mani quando il personaggio non è in sella.
+
+  **_Rete._** Una creatura di taglia Grande o inferiore che viene colpita da una rete è trattenuta finché non viene liberata. Una rete non ha effetto sulle creature prive di forma o di taglia Enorme o superiore. Una creatura può usare la sua azione per effettuare una prova di Forza con CD 10 e liberare se stessa o qualcun altro nel suo raggio in caso di successo. La creatura può essere liberata senza essere ferita anche infliggendo 5 danni taglienti alla rete (CA 10), ponendo fine all'effetto e distruggendo la rete.
+
+  Quando il personaggio usa un'azione, un'azione bonus o una reazione per attaccare con una rete, può effettuare un solo attacco, a prescindere dal numero che potrebbe effettuare normalmente.

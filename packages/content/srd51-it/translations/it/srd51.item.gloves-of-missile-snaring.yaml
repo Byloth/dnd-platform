@@ -1,0 +1,10 @@
+name: Guanti catturaproiettili
+text: |-
+  Oggetto meraviglioso, non comune (richiede sintonia)
+
+  Questi guanti sembrano quasi fondersi con le mani del personaggio nel momento in cui li indossa. Quando il personaggio viene colpito da un attacco con arma a distanza, può usare la sua reazione per ridurre i danni di 1d10 + il suo modificatore di Destrezza, purché abbia una mano libera. Se riduce i danni a 0, può afferrare il proiettile, purché si tratti di un oggetto abbastanza piccolo da essere tenuto in mano.
+features.0.name: Cattura dei proiettili
+features.0.effects.0.name: Catturare un proiettile
+features.0.effects.0.trigger: quando vieni colpito da un attacco con arma a distanza, purché tu abbia una mano libera
+features.0.effects.0.text: Riduci i danni di 1d10 + il tuo modificatore di Destrezza. Se riduci i danni a 0, puoi afferrare il proiettile, purché si tratti di un oggetto abbastanza piccolo da essere tenuto in quella mano.
+features.0.effects.0.onUse.0.text: "Riduzione dei danni: 1d10 + mod(dex)."

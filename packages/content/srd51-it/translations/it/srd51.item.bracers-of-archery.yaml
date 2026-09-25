@@ -1,0 +1,8 @@
+name: Bracciali dell'arciere
+text: |-
+  Oggetto meraviglioso, non comune (richiede sintonia)
+
+  Quando il personaggio indossa questi bracciali, possiede competenza nell'arco lungo e nell'arco corto e ottiene un bonus di +2 ai tiri per i danni inflitti da attacchi a distanza effettuati con tali armi.
+features.0.name: Tiro
+features.0.effects.1.note: +2 ai tiri per i danni inflitti da attacchi a distanza effettuati con un arco lungo.
+features.0.effects.2.note: +2 ai tiri per i danni inflitti da attacchi a distanza effettuati con un arco corto.

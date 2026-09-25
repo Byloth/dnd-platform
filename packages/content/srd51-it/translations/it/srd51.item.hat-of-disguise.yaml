@@ -1,0 +1,8 @@
+name: Cappello del camuffamento
+text: |-
+  Oggetto meraviglioso, non comune (richiede sintonia)
+
+  Finché indossa questo cappello, il personaggio può usare un'azione per lanciare con esso l'incantesimo camuffare se stesso a volontà. L'incantesimo termina se il cappello viene rimosso.
+features.0.name: Camuffare se stesso
+features.0.text: Finché indossa questo cappello, il personaggio può usare un'azione per lanciare con esso l'incantesimo camuffare se stesso a volontà. L'incantesimo termina se il cappello viene rimosso.
+features.0.effects.0.note: Lo lanci a volontà con un'azione, senza spendere uno slot incantesimo. L'incantesimo termina se il cappello viene rimosso.

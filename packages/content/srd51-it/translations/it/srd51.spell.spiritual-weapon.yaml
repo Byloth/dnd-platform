@@ -1,0 +1,10 @@
+name: Arma spirituale
+text: |-
+  L'incantatore crea entro gittata un'arma fluttuante spettrale che permane per la durata dell'incantesimo o finché l'incantatore non lo lancia di nuovo. Quando lancia l'incantesimo, l'incantatore può effettuare un attacco in mischia con incantesimo contro una creatura entro 1,5 metri dall'arma. Se il colpo va a segno, il bersaglio subisce 1d8 danni da forza + il modificatore di caratteristica da incantatore. Come azione bonus nel suo turno, l'incantatore può muovere l'arma di un massimo di 6 metri e ripetere l'attacco contro una creatura situata entro 1,5 metri da essa. L'arma può assumere la forma che l'incantatore preferisce. I chierici di una divinità associata a un tipo particolare di arma (come per esempio St. Cuthbert, noto per la sua mazza, o Thor per il suo martello) con questo incantesimo creeranno delle armi somiglianti a quelle della loro divinità.
+higherLevel: |-
+  Quando l'incantatore lancia questo incantesimo usando uno slot incantesimo di 3° livello o superiore, i danni aumentano di 1d8 per ogni due slot di livello superiore al 2°.
+effects.0.name: Arma spirituale
+effects.0.text: |-
+  Muovi l'arma fino a 6 metri ed effettua un attacco in mischia con incantesimo contro una creatura entro 1,5 metri da essa: 1d8 danni da forza + il tuo modificatore di caratteristica da incantatore, +1d8 per ogni due slot di livello superiore al 2°.
+onCast.0.text: |-
+  L'attacco in mischia con incantesimo effettuato al lancio infligge 1d8 danni da forza + il tuo modificatore di caratteristica da incantatore (in v0 il linguaggio delle formule non ha una variabile per la caratteristica da incantatore).

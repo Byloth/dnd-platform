@@ -1,0 +1,6 @@
+name: Muro di fuoco
+components.m: Un frammento di fosforo.
+text: |-
+  L'incantatore crea un muro di fuoco su una superficie solida entro gittata. Il muro può essere lungo fino a 18 metri, alto 6 metri e spesso 30 cm, oppure essere un muro circolare del diametro massimo di 6 metri, alto 6 metri e spesso 30 cm. Il muro è opaco e permane per tutta la durata dell'incantesimo. Quando il muro appare, ogni creatura nella sua area deve effettuare un tiro salvezza su Destrezza. Se lo fallisce, subisce 5d8 danni da fuoco, o la metà dei danni in caso di successo. Un lato del muro, scelto dall'incantatore al momento del lancio dell'incantesimo, infligge 5d8 danni da fuoco a ogni creatura che termina il proprio turno entro 3 metri da quel lato o all'interno del muro. Una creatura subisce gli stessi danni quando attraversa il muro per la prima volta in un turno o vi termina il suo turno. L'altro lato del muro non infligge danni.
+higherLevel: |-
+  Quando l'incantatore lancia questo incantesimo usando uno slot incantesimo di 5° livello o superiore, i danni aumentano di 1d8 per ogni slot di livello superiore al 4°.

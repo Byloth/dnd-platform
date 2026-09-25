@@ -1,0 +1,22 @@
+name: Anello di scudo mentale
+text: |-
+  Anello, non comune (richiede sintonia)
+
+  Mentre il personaggio indossa questo anello, è immune alla magia che permette alle altre creature di leggere i suoi pensieri, scoprire se sta mentendo, conoscere il suo allineamento o determinare il suo tipo di creatura. Le creature possono comunicare telepaticamente con il personaggio solamente se egli lo consente.
+
+  Il personaggio può usare un'azione per fare in modo che l'anello diventi invisibile finché non usa un'altra azione per farlo tornare visibile, finché non si toglie l'anello o finché non muore.
+
+  Se il personaggio muore mentre indossa l'anello, la sua anima entra dentro quest'ultimo, a meno che esso non ospiti già un'altra anima. Il personaggio può rimanere nell'anello o raggiungere l'aldilà. Finché l'anima del personaggio si trova nell'anello, può comunicare telepaticamente con qualsiasi creatura che lo indossi. La creatura che indossa l'anello non può impedire questa comunicazione telepatica.
+features.0.name: Scudo mentale
+features.0.text: |-
+  Mentre il personaggio indossa questo anello, è immune alla magia che permette alle altre creature di leggere i suoi pensieri, scoprire se sta mentendo, conoscere il suo allineamento o determinare il suo tipo di creatura. Le creature possono comunicare telepaticamente con il personaggio solamente se egli lo consente.
+features.0.effects.0.text: |-
+  Sei immune alla magia che permette alle altre creature di leggere i tuoi pensieri, scoprire se stai mentendo, conoscere il tuo allineamento o determinare il tuo tipo di creatura. Le creature possono comunicare telepaticamente con te solamente se lo consenti.
+features.0.effects.0.note: |-
+  L'immunità agli effetti di divinazione non ha una voce tra le difese.
+features.1.name: Nascondere l'anello
+features.1.text: |-
+  Il personaggio può usare un'azione per fare in modo che l'anello diventi invisibile finché non usa un'altra azione per farlo tornare visibile, finché non si toglie l'anello o finché non muore. Se il personaggio muore mentre indossa l'anello, la sua anima entra dentro quest'ultimo, a meno che esso non ospiti già un'altra anima.
+features.1.effects.0.name: Nascondere l'anello
+features.1.effects.0.text: |-
+  L'anello diventa invisibile finché non usi un'altra azione per farlo tornare visibile, finché non te lo togli o finché non muori.

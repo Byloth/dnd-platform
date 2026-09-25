@@ -1,0 +1,5 @@
+name: Nube mortale
+text: |-
+  L'incantatore genera una sfera composta da una velenosa nebbia giallo-verdastra del raggio di 6 metri centrata su un punto a sua scelta situato entro gittata. La nebbia si diffonde oltre gli angoli e permane per tutta la durata dell'incantesimo o finché un vento forte non la disperde, ponendo fine all'incantesimo. La sua area è pesantemente oscurata. Quando una creatura entra nell'area dell'incantesimo per la prima volta in un turno o inizia il suo turno qui, deve superare un tiro salvezza su Costituzione. In caso di fallimento, subisce 5d8 danni da veleno, o la metà dei danni in caso di successo. Le creature sono influenzate dall'incantesimo anche se trattengono il respiro o non hanno bisogno di respirare. La nebbia si muove serpeggiando lungo il terreno e allontanandosi di 3 metri dall'incantatore all'inizio di ogni suo turno. I vapori sono più pesanti dell'aria e rimangono al livello più basso del terreno, riversandosi anche nelle aperture.
+higherLevel: |-
+  Quando l'incantatore lancia questo incantesimo usando uno slot incantesimo di 6° livello o superiore, i danni aumentano di 1d8 per ogni slot di livello superiore al 5°.

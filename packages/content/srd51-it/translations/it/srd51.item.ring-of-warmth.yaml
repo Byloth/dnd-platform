@@ -1,0 +1,7 @@
+name: Anello del calore
+text: |-
+  Anello, non comune (richiede sintonia)
+
+  Finché il personaggio indossa questo anello, ottiene resistenza ai danni da freddo. Inoltre, il personaggio e tutto ciò che indossa e trasporta non subiscono effetti nocivi dalle basse temperature fino a -45 °C.
+features.0.name: Calore
+features.0.effects.0.note: Inoltre tu e tutto ciò che indossi e trasporti non subite effetti nocivi dalle basse temperature fino a -45 °C.

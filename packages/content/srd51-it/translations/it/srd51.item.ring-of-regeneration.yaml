@@ -1,0 +1,11 @@
+name: Anello di rigenerazione
+text: |-
+  Anello, molto raro (richiede sintonia)
+
+  Finché il personaggio indossa questo anello, recupera 1d6 punti ferita ogni 10 minuti, purché possieda almeno 1 punto ferita. Se il personaggio perde una parte del corpo, l'anello fa ricrescere la parte mancante facendola tornare alla piena funzionalità dopo 1d6 + 1 giorni, purché il personaggio abbia almeno 1 punto ferita in tutto questo periodo di tempo.
+features.0.name: Rigenerazione
+features.0.text: |-
+  Finché il personaggio indossa questo anello, recupera 1d6 punti ferita ogni 10 minuti, purché possieda almeno 1 punto ferita. Se il personaggio perde una parte del corpo, l'anello fa ricrescere la parte mancante facendola tornare alla piena funzionalità dopo 1d6 + 1 giorni, purché il personaggio abbia almeno 1 punto ferita in tutto questo periodo di tempo.
+features.0.effects.0.text: |-
+  Recuperi 1d6 punti ferita ogni 10 minuti, purché tu abbia almeno 1 punto ferita. Una parte del corpo perduta ricresce dopo 1d6 + 1 giorni, se hai almeno 1 punto ferita per tutto questo periodo.
+features.0.effects.0.note: La guarigione periodica al di fuori dei riposi non ha un tipo nel catalogo.

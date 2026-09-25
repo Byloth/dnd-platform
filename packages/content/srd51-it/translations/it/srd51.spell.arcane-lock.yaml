@@ -1,0 +1,4 @@
+name: Serratura arcana
+components.m: Polvere d'oro del valore di almeno 25 mo, che l'incantesimo consuma.
+text: |-
+  L'incantatore tocca una porta, una finestra, un portale, un forziere o un altro punto di accesso chiuso, che diventa chiuso a chiave per la durata dell'incantesimo. L'incantatore e le creature da lui designate al momento del lancio dell'incantesimo possono aprire l'oggetto normalmente. L'incantatore può anche stabilire una parola d'ordine che, una volta pronunciata entro 1,5 metri dall'oggetto, sopprime l'incantesimo per 1 minuto. Altrimenti l'oggetto è impenetrabile finché non viene rotto o finché l'incantesimo non viene dissolto o soppresso. Lanciare scassinare sull'oggetto sopprime serratura arcana per 10 minuti. Finché è influenzato da questo incantesimo, l'oggetto è più difficile da rompere o da forzare perché la CD per romperlo o per scassinare le eventuali serrature presenti aumenta di 10.

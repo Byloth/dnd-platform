@@ -1,0 +1,7 @@
+name: Prono
+text: |-
+  * L'unica opzione di movimento di una creatura prona è strisciare, a meno che non si rialzi in piedi, ponendo in quel modo fine alla sua condizione.
+  * La creatura subisce svantaggio ai tiri per colpire.
+  * Un tiro per colpire contro la creatura ottiene vantaggio se l'attaccante si trova entro 1,5 metri dalla creatura. Altrimenti, il tiro per colpire subisce svantaggio.
+effects.1.text: Gli attacchi contro di te ottengono vantaggio entro 1,5 metri e subiscono svantaggio altrimenti; puoi muoverti solo strisciando.
+effects.1.note: "Il motore delle regole non gestisce i tiri effettuati contro di te: l'effetto è mostrato come promemoria."

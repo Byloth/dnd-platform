@@ -1,0 +1,6 @@
+name: Palla di fuoco
+components.m: Una pallina di guano di pipistrello e zolfo.
+text: |-
+  Una scia di luce brillante parte dall'indice dell'incantatore e sfreccia fino a un punto a sua scelta entro gittata, provocando un'esplosione di fiamme con un profondo boato. Ogni creatura situata entro una sfera del raggio di 6 metri centrata su quel punto deve effettuare un tiro salvezza su Destrezza. In caso di fallimento, subisce 8d6 danni da fuoco, o la metà dei danni in caso di successo. Il fuoco si diffonde oltre gli angoli e incendia ogni oggetto infiammabile nell'area che non sia indossato o trasportato.
+higherLevel: |-
+  Quando l'incantatore lancia questo incantesimo usando uno slot incantesimo di 4° livello o superiore, i danni aumentano di 1d6 per ogni slot di livello superiore al 3°.

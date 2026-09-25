@@ -1,0 +1,20 @@
+name: "Prerequisiti"
+text: |-
+  Per qualificarsi per una nuova classe, un personaggio deve soddisfare i prerequisiti dei punteggi di caratteristica sia per la propria classe attuale che per quella nuova, come indicato nella tabella "Prerequisiti di multiclasse". Per esempio, un barbaro che decide di diventare multiclasse acquisendo la classe del druido deve possedere sia un punteggio di Forza che un punteggio di Saggezza pari o superiori a 13. Non potendo beneficiare dell'addestramento completo che riceverebbe un personaggio esordiente, il personaggio multiclasse deve colmare le lacune nella sua nuova classe dimostrando di esservi portato per natura attraverso dei punteggi di caratteristica superiori alla media.
+
+  **Prerequisiti di multiclasse (tabella)**
+
+  | Classe    | Punteggio di caratteristica minimo |
+  |-----------|------------------------------------|
+  | Barbaro   | Forza 13                           |
+  | Bardo     | Carisma 13                         |
+  | Chierico  | Saggezza 13                        |
+  | Druido    | Saggezza 13                        |
+  | Guerriero | Forza 13 o Destrezza 13            |
+  | Monaco    | Destrezza 13 e Saggezza 13         |
+  | Paladino  | Forza 13 e Carisma 13              |
+  | Ranger    | Destrezza 13 e Saggezza 13         |
+  | Ladro     | Destrezza 13                       |
+  | Stregone  | Carisma 13                         |
+  | Warlock   | Carisma 13                         |
+  | Mago      | Intelligenza 13                    |

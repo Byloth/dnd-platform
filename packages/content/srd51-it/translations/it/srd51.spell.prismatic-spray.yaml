@@ -1,0 +1,19 @@
+name: Spruzzo prismatico
+text: |-
+  Otto raggi di luce multicolore si sprigionano dalla mano dell'incantatore. Ognuno di essi è di un colore diverso e ha un potere e una funzione differente. Ogni creatura situata in un cono di 18 metri deve effettuare un tiro salvezza su Destrezza. Per ogni bersaglio, si tira un d8 per determinare da quale raggio colorato viene influenzato.
+
+  **1. Rosso.** Il bersaglio subisce 10d6 danni da fuoco in caso di fallimento, o la metà dei danni in caso di successo.
+
+  **2. Arancione.** Il bersaglio subisce 10d6 danni da acido in caso di fallimento, o la metà dei danni in caso di successo.
+
+  **3. Giallo.** Il bersaglio subisce 10d6 danni da fulmine in caso di fallimento, o la metà dei danni in caso di successo.
+
+  **4. Verde.** Il bersaglio subisce 10d6 danni da veleno in caso di fallimento, o la metà dei danni in caso di successo.
+
+  **5. Blu.** Il bersaglio subisce 10d6 danni da freddo in caso di fallimento, o la metà dei danni in caso di successo.
+
+  **6. Indaco.** Se fallisce il tiro salvezza, il bersaglio è trattenuto e deve effettuare un tiro salvezza su Costituzione alla fine di ogni suo turno. Se lo supera per tre volte, l'incantesimo termina, mentre se lo fallisce per tre volte, viene tramutato in pietra permanentemente ed è soggetto alla condizione pietrificato. Non è necessario che i tiri superati o falliti siano consecutivi: si tiene semplicemente il conto di entrambi finché il bersaglio non ne accumula tre di un certo tipo.
+
+  **7. Viola.** Se fallisce il tiro salvezza, il bersaglio è accecato e deve effettuare un tiro salvezza su Saggezza all'inizio del turno successivo dell'incantatore. Se lo supera, non è più accecato, mentre se lo fallisce, viene trasportato su un altro piano di esistenza a scelta del GM e non è più accecato. (Solitamente, una creatura che si trova su un piano diverso da quello di origine viene esiliata sul suo piano di origine, mentre le altre creature vengono inviate sul Piano Astrale o sul Piano Etereo.)
+
+  **8. Speciale.** Il bersaglio viene colpito da due raggi. Si tira altre due volte, ignorando i risultati di 8.

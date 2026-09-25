@@ -1,0 +1,81 @@
+name: "Discendenza Draconica"
+levels.1.features.0.name: "Resilienza draconica"
+levels.1.features.0.text: |-
+  La magia, scorrendo nel corpo dello stregone, fa emergere alcuni tratti fisici dei draghi suoi antenati. Al 1° livello, il massimo dei punti ferita dello stregone aumenta di 1 e aumenta di nuovo di 1 ogni volta che il personaggio acquisisce un livello in questa classe.
+
+  Inoltre, alcune parti della sua pelle si ricoprono di un sottile strato di scaglie simili a quelle di un drago. Quando lo stregone non indossa armature, la sua CA è pari a 13 + il suo modificatore di Destrezza.
+levels.1.features.0.effects.0.note: "+1 punto ferita al 1° livello e +1 di nuovo ogni volta che acquisisci un livello in questa classe (il bonus segue i livelli da stregone, non i livelli totali)."
+levels.1.features.0.effects.1.note: "Quando non indossi armature, la tua CA è pari a 13 + il tuo modificatore di Destrezza."
+levels.1.features.1.name: "Antenato draconico"
+levels.1.features.1.text: |-
+  Al 1° livello, lo stregone sceglie un tipo di drago come suo antenato. Il tipo di danno associato a ogni drago sarà utilizzato dai privilegi che lo stregone otterrà in seguito.
+
+  ### Antenato draconico (tabella)
+  | Drago | Tipo di Danni |
+  | --- | --- |
+  | Nero | Acido |
+  | Blu | Fulmine |
+  | Ottone | Fuoco |
+  | Bronzo | Fulmine |
+  | Rame | Acido |
+  | Oro | Fuoco |
+  | Verde | Veleno |
+  | Rosso | Fuoco |
+  | Argento | Freddo |
+  | Bianco | Freddo |
+
+  Lo stregone è in grado di parlare, leggere e scrivere in Draconico. Inoltre, ogni volta che effettua una prova di Carisma per interagire con i draghi, il suo bonus di competenza raddoppia se è applicabile alla prova.
+levels.1.features.1.effects.0.note: "Il tipo di danno associato al tuo drago sarà utilizzato dai privilegi che otterrai in seguito (Affinità elementale)."
+levels.1.features.1.effects.0.options.0.name: "Drago nero"
+levels.1.features.1.effects.0.options.0.text: "Tipo di danno: acido."
+levels.1.features.1.effects.0.options.0.effects.0.text: "Antenato draconico: drago nero (acido)."
+levels.1.features.1.effects.0.options.1.name: "Drago blu"
+levels.1.features.1.effects.0.options.1.text: "Tipo di danno: fulmine."
+levels.1.features.1.effects.0.options.1.effects.0.text: "Antenato draconico: drago blu (fulmine)."
+levels.1.features.1.effects.0.options.2.name: "Drago d'ottone"
+levels.1.features.1.effects.0.options.2.text: "Tipo di danno: fuoco."
+levels.1.features.1.effects.0.options.2.effects.0.text: "Antenato draconico: drago d'ottone (fuoco)."
+levels.1.features.1.effects.0.options.3.name: "Drago di bronzo"
+levels.1.features.1.effects.0.options.3.text: "Tipo di danno: fulmine."
+levels.1.features.1.effects.0.options.3.effects.0.text: "Antenato draconico: drago di bronzo (fulmine)."
+levels.1.features.1.effects.0.options.4.name: "Drago di rame"
+levels.1.features.1.effects.0.options.4.text: "Tipo di danno: acido."
+levels.1.features.1.effects.0.options.4.effects.0.text: "Antenato draconico: drago di rame (acido)."
+levels.1.features.1.effects.0.options.5.name: "Drago d'oro"
+levels.1.features.1.effects.0.options.5.text: "Tipo di danno: fuoco."
+levels.1.features.1.effects.0.options.5.effects.0.text: "Antenato draconico: drago d'oro (fuoco)."
+levels.1.features.1.effects.0.options.6.name: "Drago verde"
+levels.1.features.1.effects.0.options.6.text: "Tipo di danno: veleno."
+levels.1.features.1.effects.0.options.6.effects.0.text: "Antenato draconico: drago verde (veleno)."
+levels.1.features.1.effects.0.options.7.name: "Drago rosso"
+levels.1.features.1.effects.0.options.7.text: "Tipo di danno: fuoco."
+levels.1.features.1.effects.0.options.7.effects.0.text: "Antenato draconico: drago rosso (fuoco)."
+levels.1.features.1.effects.0.options.8.name: "Drago d'argento"
+levels.1.features.1.effects.0.options.8.text: "Tipo di danno: freddo."
+levels.1.features.1.effects.0.options.8.effects.0.text: "Antenato draconico: drago d'argento (freddo)."
+levels.1.features.1.effects.0.options.9.name: "Drago bianco"
+levels.1.features.1.effects.0.options.9.text: "Tipo di danno: freddo."
+levels.1.features.1.effects.0.options.9.effects.0.text: "Antenato draconico: drago bianco (freddo)."
+levels.1.features.1.effects.2.text: "Ogni volta che effettui una prova di Carisma per interagire con i draghi, il tuo bonus di competenza raddoppia se è applicabile alla prova."
+levels.1.features.1.effects.2.note: "Una prova limitata a un tipo di creatura non ha un bersaglio di modifica; applica a mano il bonus di competenza raddoppiato."
+levels.6.features.0.name: "Affinità elementale"
+levels.6.features.0.text: "A partire dal 6° livello, quando lo stregone lancia un incantesimo che infligge danni del tipo associato al suo antenato draconico, può aggiungere il suo modificatore di Carisma a un tiro per i danni di quell'incantesimo. Allo stesso tempo, lo stregone può spendere 1 punto stregoneria per ottenere resistenza a quel tipo di danno per 1 ora."
+levels.6.features.0.effects.0.text: "Quando lanci un incantesimo che infligge danni del tipo associato al tuo antenato draconico, puoi aggiungere il tuo modificatore di Carisma a un tiro per i danni di quell'incantesimo."
+levels.6.features.0.effects.0.note: "Un bonus ai danni limitato agli incantesimi di un solo tipo di danno non ha un bersaglio di modifica; aggiungi a mano il tuo modificatore di Carisma a un tiro per i danni."
+levels.6.features.0.effects.1.name: "Affinità elementale (resistenza)"
+levels.6.features.0.effects.1.text: "Quando lanci un incantesimo che infligge danni del tipo associato al tuo antenato draconico, puoi spendere 1 punto stregoneria per ottenere resistenza a quel tipo di danno per 1 ora."
+levels.14.features.0.name: "Ali di drago"
+levels.14.features.0.text: |-
+  Al 14° livello, lo stregone sviluppa la capacità di generare un paio di ali di drago sulla sua schiena, ottenendo una velocità di volare pari alla sua velocità attuale. Lo stregone può generare queste ali come azione bonus nel suo turno. Le ali durano finché lo stregone non le congeda con un'azione bonus durante il proprio turno.
+
+  Lo stregone non può manifestare le sue ali mentre indossa un'armatura, a meno che l'armatura non sia concepita per accoglierle; i vestiti che non sono stati concepiti per tale scopo potrebbero venire distrutti quando lo stregone le manifesta.
+levels.14.features.0.effects.0.name: "Ali di drago"
+levels.14.features.0.effects.0.text: "Come azione bonus nel tuo turno generi un paio di ali di drago sulla tua schiena, ottenendo una velocità di volare pari alla tua velocità attuale. Le ali durano finché non le congedi con un'azione bonus durante il tuo turno. Non puoi manifestare le tue ali mentre indossi un'armatura, a meno che l'armatura non sia concepita per accoglierle; i vestiti che non sono stati concepiti per tale scopo potrebbero venire distrutti quando le manifesti."
+levels.14.features.0.effects.1.text: "Finché le tue ali di drago sono manifestate, hai una velocità di volare pari alla tua attuale velocità base sul terreno."
+levels.14.features.0.effects.1.note: "Una velocità di volare pari all'attuale velocità base sul terreno non ha una formula (le velocità non sono utilizzabili nelle formule); leggila dalla tua velocità base sul terreno finché le ali sono manifestate."
+levels.18.features.0.name: "Presenza draconica"
+levels.18.features.0.text: "A partire dal 18° livello, lo stregone può incanalare la presenza terrificante del suo antenato draconico, rendendo le creature intorno a lui affascinate o spaventate. Con un'azione, lo stregone può spendere 5 punti stregoneria per attingere a questo potere ed emanare un'aura di soggezione o di paura (a sua scelta) entro una distanza di 18 metri. Per 1 minuto o finché non perde la sua concentrazione (come se stesse lanciando un incantesimo che richiede concentrazione), ogni creatura ostile che inizia il suo turno entro questa aura deve superare un tiro salvezza su Saggezza o sarà affascinata (se lo stregone ha scelto soggezione) o spaventata (se ha scelto paura) finché l'aura non termina. Una creatura che supera questo tiro salvezza è immune all'aura dello stregone per 24 ore."
+levels.18.features.0.effects.0.name: "Presenza draconica"
+levels.18.features.0.effects.0.text: "Con un'azione, puoi spendere 5 punti stregoneria per emanare un'aura di soggezione o di paura (a tua scelta) entro una distanza di 18 metri. Per 1 minuto o finché non perdi la tua concentrazione (come se stessi lanciando un incantesimo che richiede concentrazione), ogni creatura ostile che inizia il suo turno entro questa aura deve superare un tiro salvezza su Saggezza o sarà affascinata (se hai scelto soggezione) o spaventata (se hai scelto paura) finché l'aura non termina. Una creatura che supera questo tiro salvezza è immune alla tua aura per 24 ore."
+levels.18.features.0.effects.0.onUse.0.text: "Scegli soggezione (affascinato) o paura (spaventato). Ogni creatura ostile che inizia il suo turno entro 18 metri effettua un tiro salvezza su Saggezza; se lo fallisce è affascinata o spaventata finché l'aura non termina, se lo supera è immune alla tua aura per 24 ore."
+levels.18.features.0.effects.0.note: "Il testo non indica la CD del tiro salvezza, quindi non ne è dichiarata alcuna; la condizione è imposta ad altre creature all'inizio dei loro turni, cosa che il motore di gioco non traccia."

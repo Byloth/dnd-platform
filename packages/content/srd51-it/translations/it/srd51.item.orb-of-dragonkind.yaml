@@ -1,0 +1,61 @@
+name: Sfera della stirpe dei draghi
+text: |-
+  Oggetto meraviglioso, manufatto (richiede sintonia)
+
+  Molti secoli fa, gli elfi e gli umani combatterono una terribile guerra contro dei draghi malvagi. Quando il mondo sembrava ormai condannato, dei potenti maghi si riunirono e compirono la loro magia più grande, forgiando cinque Sfere della stirpe dei draghi (o Sfere del drago) che li aiutassero a sconfiggere i draghi. Ognuna di esse venne portata in una delle cinque torri dei maghi, dove vennero usate per ribaltare le sorti della guerra. I maghi usarono le sfere per attirare i draghi e distruggerli con le loro potenti magie.
+
+  Quando, secoli dopo, le torri dei maghi caddero, le sfere furono distrutte o si persero nelle leggende: al momento, si pensa che ne siano rimaste solo tre. Nei secoli la loro magia ha subito varie trasformazioni e mutamenti: anche se la loro funzione primaria di richiamare i draghi persiste, ora esse conferiscono anche un certo grado di controllo su quelle creature.
+
+  Ogni sfera contiene l'essenza di un drago malvagio, una presenza che si ribella contro l'uso coatto della propria magia. Chi non ha una forza di volontà sufficientemente potente rischia di cadere a sua volta sotto il controllo della sfera.
+
+  Una sfera è una sfera di cristallo intagliata del diametro di circa 25 cm. Quando viene usata, cresce fino a raggiungere 50 cm di diametro e al suo interno è visibile una nebbia turbinante.
+
+  Quando il personaggio è in sintonia con la sfera, può usare un'azione per scrutare nelle sue profondità e pronunciarne la parola d'ordine. Deve poi effettuare una prova di Carisma con CD 15. Se la prova viene superata, il personaggio ottiene il controllo della sfera finché rimane in sintonia con essa. Se fallisce, il personaggio è affascinato dall'oggetto finché rimane in sintonia con esso.
+
+  Mentre è affascinato dalla sfera, il personaggio non può interrompere volontariamente la sintonia con essa, che lancia *suggestione* su di lui a volontà (CD del tiro salvezza 18), incitandolo ad agire per favorire i suoi scopi malvagi. L'essenza del drago all'interno della sfera potrebbe desiderare molte cose: l'annientamento di un popolo particolare, la liberazione dalla sfera, seminare sofferenza nel mondo, promuovere il culto di Tiamat o qualsiasi altra cosa il GM decida.
+
+  ***Proprietà casuali.*** Una sfera della stirpe dei draghi ha le seguenti proprietà casuali:
+
+  2 proprietà benefiche minori
+
+  1 proprietà nociva minore
+
+  1 proprietà nociva maggiore
+
+  ***Incantesimi.*** La sfera ha 7 cariche e recupera 1d4 + 3 cariche consumate all'alba di ogni giorno. Mentre il personaggio la controlla, può usare un'azione per consumare 1 o più delle sue cariche per lanciare uno dei seguenti incantesimi (CD del tiro salvezza 18): *cura ferite* (versione di 5° livello, 3 cariche), *luce diurna* (1 carica), *interdizione alla morte* (2 cariche) o *scrutare* (3 cariche).
+
+  Inoltre, il personaggio può usare un'azione per lanciare con la sfera l'incantesimo *individuazione del magico* senza consumare alcuna carica.
+
+  ***Richiamare draghi.*** Mentre il personaggio controlla la sfera, può usare un'azione per obbligare il manufatto a inviare un richiamo telepatico che si estende in tutte le direzioni per 60 km. I draghi malvagi situati entro quel raggio sono obbligati a raggiungere la sfera il più velocemente possibile lungo il percorso più diretto. Le divinità dei draghi come Tiamat sono immuni a questo richiamo. I draghi attirati dalla sfera potrebbero essere ostili nei confronti del personaggio per essere stati obbligati ad agire contro il loro volere. Una volta che il personaggio ha usato questa proprietà, non può riutilizzarla per 1 ora.
+
+  ***Distruggere una sfera.*** Una sfera della stirpe dei draghi sembra fragile ma è resistente alla maggior parte dei danni, inclusi gli attacchi e i soffi dei draghi. Tuttavia, l'incantesimo *disintegrazione* o un colpo inflitto con un'arma magica +3 è sufficiente a distruggerla.
+features.0.name: Comandare la sfera
+features.0.text: |-
+  Quando il personaggio è in sintonia con la sfera, può usare un'azione per scrutare nelle sue profondità e pronunciarne la parola d'ordine. Deve poi effettuare una prova di Carisma con CD 15. Se la prova viene superata, il personaggio ottiene il controllo della sfera finché rimane in sintonia con essa. Se fallisce, il personaggio è affascinato dall'oggetto finché rimane in sintonia con esso. Mentre è affascinato dalla sfera, il personaggio non può interrompere volontariamente la sintonia con essa, che lancia *suggestione* su di lui a volontà (CD del tiro salvezza 18), incitandolo ad agire per favorire i suoi scopi malvagi.
+features.0.effects.0.name: Comandare la sfera
+features.0.effects.0.onUse.0.text: |-
+  Il personaggio effettua una prova di Carisma con CD 15. In caso di successo controlla la sfera finché rimane in sintonia; in caso di fallimento ne è affascinato finché rimane in sintonia, non può interrompere volontariamente la sintonia e la sfera lancia *suggestione* su di lui a volontà (CD del tiro salvezza 18).
+features.0.effects.0.text: |-
+  Si scruta nella sfera pronunciandone la parola d'ordine, poi si effettua una prova di Carisma con CD 15 per controllarla.
+features.1.name: Proprietà casuali
+features.1.text: |-
+  Una sfera della stirpe dei draghi ha le seguenti proprietà casuali: 2 proprietà benefiche minori, 1 proprietà nociva minore, 1 proprietà nociva maggiore.
+features.1.effects.0.text: |-
+  2 proprietà benefiche minori, 1 proprietà nociva minore, 1 proprietà nociva maggiore (tabelle dei manufatti, a scelta del GM).
+features.1.effects.0.note: Le proprietà casuali dei manufatti sono testo per il GM.
+features.2.name: Incantesimi
+features.2.text: |-
+  Mentre il personaggio controlla la sfera, può usare un'azione per consumare 1 o più delle sue cariche per lanciare uno dei seguenti incantesimi (CD del tiro salvezza 18): *cura ferite* (versione di 5° livello, 3 cariche), *luce diurna* (1 carica), *interdizione alla morte* (2 cariche) o *scrutare* (3 cariche). Inoltre, il personaggio può usare un'azione per lanciare con la sfera l'incantesimo *individuazione del magico* senza consumare alcuna carica.
+features.2.effects.0.note: Solo mentre il personaggio controlla la sfera. CD del tiro salvezza 18.
+features.2.effects.1.note: Solo mentre il personaggio controlla la sfera. CD del tiro salvezza 18.
+features.2.effects.2.note: Solo mentre il personaggio controlla la sfera. CD del tiro salvezza 18.
+features.2.effects.3.note: Solo mentre il personaggio controlla la sfera. CD del tiro salvezza 18.
+features.2.effects.4.note: Si lancia con un'azione senza consumare cariche né slot.
+features.3.name: Richiamare draghi
+features.3.text: |-
+  Mentre il personaggio controlla la sfera, può usare un'azione per obbligare il manufatto a inviare un richiamo telepatico che si estende in tutte le direzioni per 60 km. I draghi malvagi situati entro quel raggio sono obbligati a raggiungere la sfera il più velocemente possibile lungo il percorso più diretto. Le divinità dei draghi come Tiamat sono immuni a questo richiamo. I draghi attirati dalla sfera potrebbero essere ostili nei confronti del personaggio per essere stati obbligati ad agire contro il loro volere. Una volta che il personaggio ha usato questa proprietà, non può riutilizzarla per 1 ora.
+features.3.effects.0.name: Richiamare draghi
+features.3.effects.0.onUse.0.text: |-
+  I draghi malvagi entro 60 km sono obbligati a raggiungere la sfera lungo il percorso più diretto; le divinità dei draghi sono immuni. La proprietà non può essere riutilizzata per 1 ora.
+features.3.effects.0.text: |-
+  Si invia un richiamo telepatico ai draghi malvagi entro 60 km. Una volta ogni ora, solo mentre il personaggio controlla la sfera.

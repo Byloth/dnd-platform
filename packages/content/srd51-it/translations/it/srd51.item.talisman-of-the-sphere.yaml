@@ -1,0 +1,14 @@
+name: Talismano della sfera
+text: |-
+  Oggetto meraviglioso, leggendario (richiede sintonia)
+
+  Quando il personaggio effettua una prova di Intelligenza (Arcano) per controllare una sfera annientatrice mentre impugna il talismano, il suo bonus di competenza a quella prova raddoppia. Inoltre, quando il personaggio inizia il proprio turno mentre controlla una sfera annientatrice, può usare un'azione per farla levitare di 3 metri più una distanza aggiuntiva pari a 3 m × il suo modificatore di Intelligenza.
+features.0.name: Controllo della sfera
+features.0.effects.0.text: |-
+  Quando effettui una prova di Intelligenza (Arcano) per controllare una sfera annientatrice mentre impugni questo talismano, il tuo bonus di competenza a quella prova raddoppia.
+features.0.effects.0.note: |-
+  Un bonus di competenza raddoppiato su un singolo uso specifico di un'abilità non ha un bersaglio nella v0; è mostrato come testo.
+features.0.effects.1.name: Far levitare la sfera
+features.0.effects.1.text: |-
+  Quando inizi il tuo turno mentre controlli una sfera annientatrice, la fai levitare di 3 metri più una distanza aggiuntiva pari a 3 m × il tuo modificatore di Intelligenza.
+features.0.effects.1.onUse.0.text: Fai levitare la sfera di 3 + 3 × mod(int) metri.

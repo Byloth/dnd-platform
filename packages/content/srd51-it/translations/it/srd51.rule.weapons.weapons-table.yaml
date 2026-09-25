@@ -1,0 +1,45 @@
+name: Armi
+text: |-
+  | Nome | Costo | Danni | Peso | Proprietà |
+  |---|---|---|---|---|
+  | **_Armi da mischia semplici_** | | | | |
+  | Randello | 1 ma | 1d4 contundenti | 1 kg | Leggera |
+  | Pugnale | 2 mo | 1d4 perforanti | 0,5 kg | Accurata, Lancio (gittata 6/18), Leggera |
+  | Randello pesante | 2 ma | 1d8 contundenti | 5 kg | Due mani |
+  | Ascia | 5 mo | 1d6 taglienti | 1 kg | Lancio (gittata 6/18), Leggera |
+  | Giavellotto | 5 ma | 1d6 perforanti | 1 kg | Lancio (gittata 9/36) |
+  | Martello leggero | 2 mo | 1d4 contundenti | 1 kg | Lancio (gittata 6/18), Leggera |
+  | Mazza | 5 mo | 1d6 contundenti | 2 kg | - |
+  | Bastone ferrato | 2 ma | 1d6 contundenti | 2 kg | Versatile (1d8) |
+  | Falcetto | 1 mo | 1d4 taglienti | 1 kg | Leggera |
+  | Lancia | 1 mo | 1d6 perforanti | 1,5 kg | Lancio (gittata 6/18), Versatile (1d8) |
+  | **_Armi a distanza semplici_** | | | | |
+  | Balestra leggera | 25 mo | 1d8 perforanti | 2,5 kg | Due mani, Munizioni (gittata 24/96), Ricarica |
+  | Dardo | 5 mr | 1d4 perforanti | 0,125 kg | Accurata, Lancio (gittata 6/18) |
+  | Arco corto | 25 mo | 1d6 perforanti | 1 kg | Due mani, Munizioni (gittata 24/96) |
+  | Fionda | 1 ma | 1d4 contundenti | - | Munizioni (gittata 9/36) |
+  | **_Armi da mischia da guerra_** | | | | |
+  | Ascia da battaglia | 10 mo | 1d8 taglienti | 2 kg | Versatile (1d10) |
+  | Mazzafrusto | 10 mo | 1d8 contundenti | 1 kg | - |
+  | Falcione | 20 mo | 1d10 taglienti | 3 kg | Due mani, Pesante, Portata |
+  | Ascia bipenne | 30 mo | 1d12 taglienti | 3,5 kg | Due mani, Pesante |
+  | Spadone | 50 mo | 2d6 taglienti | 3 kg | Due mani, Pesante |
+  | Alabarda | 20 mo | 1d10 taglienti | 3 kg | Due mani, Pesante, Portata |
+  | Lancia da cavaliere | 10 mo | 1d12 perforanti | 3 kg | Portata, Speciale |
+  | Spada lunga | 15 mo | 1d8 taglienti | 1,5 kg | Versatile (1d10) |
+  | Maglio | 10 mo | 2d6 contundenti | 5 kg | Due mani, Pesante |
+  | Mazza chiodata | 15 mo | 1d8 perforanti | 2 kg | - |
+  | Picca | 5 mo | 1d10 perforanti | 9 kg | Due mani, Pesante, Portata |
+  | Stocco | 25 mo | 1d8 perforanti | 1 kg | Accurata |
+  | Scimitarra | 25 mo | 1d6 taglienti | 1,5 kg | Accurata, Leggera |
+  | Spada corta | 10 mo | 1d6 perforanti | 1 kg | Accurata, Leggera |
+  | Tridente | 5 mo | 1d6 perforanti | 2 kg | Lancio (gittata 6/18), Versatile (1d8) |
+  | Piccone da guerra | 5 mo | 1d8 perforanti | 1 kg | - |
+  | Martello da guerra | 15 mo | 1d8 contundenti | 1 kg | Versatile (1d10) |
+  | Frusta | 2 mo | 1d4 taglienti | 1,5 kg | Accurata, Portata |
+  | **_Armi a distanza da guerra_** | | | | |
+  | Cerbottana | 10 mo | 1 perforante | 0,5 kg | Munizioni (gittata 7,5/30), Ricarica |
+  | Balestra a mano | 75 mo | 1d6 perforanti | 1,5 kg | Leggera, Munizioni (gittata 9/36), Ricarica |
+  | Balestra pesante | 50 mo | 1d10 perforanti | 9 kg | Due mani, Munizioni (gittata 30/120), Pesante, Ricarica |
+  | Arco lungo | 50 mo | 1d8 perforanti | 1 kg | Due mani, Munizioni (gittata 45/180), Pesante |
+  | Rete | 1 mo | - | 1,5 kg | Lancio (gittata 1,5/4,5), Speciale |

@@ -1,0 +1,7 @@
+name: Eroismo
+text: |-
+  Una creatura consenziente toccata dall'incantatore è animata da grande coraggio. Fino al termine dell'incantesimo, la creatura è immune alla condizione spaventato e all'inizio di ogni suo turno ottiene una quantità di punti ferita temporanei pari al modificatore di caratteristica da incantatore. Al termine dell'incantesimo, il bersaglio perde tutti i punti ferita temporanei rimasti dall'incantesimo.
+effects.1.text: |-
+  All'inizio di ogni suo turno ottiene una quantità di punti ferita temporanei pari al modificatore di caratteristica da incantatore dell'incantatore; quelli rimasti vanno persi al termine dell'incantesimo.
+effects.1.note: |-
+  I punti ferita temporanei a ogni turno non possono essere espressi come tempHp: le formule della v0 non hanno una variabile per la caratteristica da incantatore e gli incantesimi non hanno onTurnStart.

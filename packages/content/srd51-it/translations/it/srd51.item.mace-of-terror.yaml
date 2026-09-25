@@ -1,0 +1,17 @@
+name: Mazza del terrore
+text: |-
+  Arma (mazza), rara (richiede sintonia)
+
+  Quest'arma magica possiede 3 cariche. Mentre la impugna, il personaggio può usare un'azione e consumare 1 carica per sprigionare un'ondata di terrore. Tutte le creature scelte dal personaggio e situate in un raggio di 9 metri da lui devono superare un tiro salvezza su Saggezza con CD 15, altrimenti diventano spaventate da lui per 1 minuto. Una creatura spaventata deve spendere i suoi turni tentando di allontanarsi il più possibile dal personaggio e non può volontariamente muoversi in uno spazio entro 9 metri da lui. Inoltre, non può effettuare reazioni. Come azione, può usare solo l'azione di Scatto o tentare di fuggire da un effetto che le impedisce di muoversi. Se non può muoversi in alcuno spazio, la creatura può usare l'azione di Schivata. Alla fine di ogni suo turno, la creatura può ripetere il tiro salvezza e, se lo supera, l'effetto per lei svanisce.
+
+  La mazza recupera 1d3 cariche consumate all'alba di ogni giorno.
+features.0.name: Arma magica
+features.0.text: Questa è un'arma magica.
+features.1.name: Ondata di terrore
+features.1.text: |-
+  Mentre la impugna, il personaggio può usare un'azione e consumare 1 carica per sprigionare un'ondata di terrore. Tutte le creature scelte dal personaggio e situate in un raggio di 9 metri da lui devono superare un tiro salvezza su Saggezza con CD 15, altrimenti diventano spaventate da lui per 1 minuto. Una creatura spaventata deve spendere i suoi turni tentando di allontanarsi il più possibile dal personaggio e non può volontariamente muoversi in uno spazio entro 9 metri da lui. Inoltre, non può effettuare reazioni. Come azione, può usare solo l'azione di Scatto o tentare di fuggire da un effetto che le impedisce di muoversi. Se non può muoversi in alcuno spazio, la creatura può usare l'azione di Schivata. Alla fine di ogni suo turno, la creatura può ripetere il tiro salvezza e, se lo supera, l'effetto per lei svanisce.
+features.1.effects.0.name: Ondata di terrore
+features.1.effects.0.onUse.0.note: |-
+  Ogni creatura scelta dal personaggio entro 9 metri che fallisce il tiro salvezza. Mentre è spaventata in questo modo, deve allontanarsi il più possibile dal personaggio, non può volontariamente avvicinarsi entro 9 metri da lui, non può effettuare reazioni e può solo usare l'azione di Scatto (o di Schivata se non può muoversi). Ripete il tiro salvezza alla fine di ogni suo turno.
+features.1.effects.0.text: |-
+  Ogni creatura scelta dal personaggio entro 9 metri deve superare un tiro salvezza su Saggezza con CD 15, altrimenti è spaventata da lui per 1 minuto.

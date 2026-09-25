@@ -1,0 +1,23 @@
+name: Indebolimento
+text: |-
+  Alcune capacità speciali e pericoli ambientali, come l'inedia e gli effetti a lungo termine di temperature gelide o torride, possono indurre una condizione speciale chiamata indebolimento. L'indebolimento è misurato in sei livelli. Un effetto può indurre nella creatura uno o più livelli di indebolimento, come specificato nella sua descrizione.
+
+  | Livello | Effetto |
+  | --- | --- |
+  | 1 | Svantaggio alle prove di caratteristica |
+  | 2 | Velocità dimezzata |
+  | 3 | Svantaggio a tiri per colpire e tiri salvezza |
+  | 4 | Punti ferita massimi dimezzati |
+  | 5 | Velocità ridotta a 0 |
+  | 6 | Morte |
+
+  Se una creatura già indebolita subisce un ulteriore effetto di indebolimento, il suo attuale livello di indebolimento aumenta della quantità specificata nella descrizione dell'effetto.
+  Una creatura subisce l'effetto del suo livello di indebolimento attuale nonché quelli relativi a tutti i livelli inferiori. Per esempio, se una creatura soffre di un indebolimento di livello 2, la sua velocità è dimezzata e subisce svantaggio alle prove di caratteristica.
+  Un effetto che rimuove l'indebolimento ne riduce il livello come indicato nella sua descrizione; inoltre, tutti gli effetti di indebolimento terminano se il livello di indebolimento di una creatura scende a meno di 1.
+  Il livello di indebolimento di una creatura viene ridotto di 1 quando completa un riposo lungo, purché abbia anche mangiato e bevuto qualcosa.
+levels.1.text: Svantaggio alle prove di caratteristica
+levels.2.text: Velocità dimezzata
+levels.3.text: Svantaggio a tiri per colpire e tiri salvezza
+levels.4.text: Punti ferita massimi dimezzati
+levels.5.text: Velocità ridotta a 0
+levels.6.text: Morte

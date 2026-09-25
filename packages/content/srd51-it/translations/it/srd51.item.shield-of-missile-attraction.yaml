@@ -1,0 +1,13 @@
+name: Scudo attiraproiettili
+text: |-
+  Armatura (scudo), rara (richiede sintonia)
+
+  Mentre il personaggio impugna questo scudo, ottiene resistenza ai danni inflitti dagli attacchi con armi a distanza.
+
+  ***Maledizione.*** Questo scudo è maledetto. Entrando in sintonia con lo scudo, il personaggio diventa soggetto alla maledizione finché su di lui non viene lanciato l'incantesimo *rimuovi maledizione* o un'altra magia simile. Rimuovendo lo scudo, la maledizione non svanisce. Ogni volta che qualcuno effettua un attacco con arma a distanza il cui bersaglio si trova entro 3 metri dal personaggio, quest'ultimo diventa il bersaglio dell'attacco a causa della maledizione.
+features.0.name: Resistenza ai proiettili
+features.0.effects.0.note: La resistenza dipende dal tipo di attacco anziché da un tipo di danno; il motore di gioco la mostra come testo.
+features.1.name: Maledizione
+features.1.effects.0.text: |-
+  Entrando in sintonia con lo scudo diventi soggetto alla maledizione finché su di te non viene lanciato l'incantesimo *rimuovi maledizione* o un'altra magia simile; rimuovendo lo scudo, la maledizione non svanisce. Ogni volta che qualcuno effettua un attacco con arma a distanza il cui bersaglio si trova entro 3 metri da te, diventi il bersaglio dell'attacco a causa della maledizione.
+features.1.effects.0.note: Il reindirizzamento degli attacchi si risolve al tavolo.

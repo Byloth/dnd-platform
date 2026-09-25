@@ -1,0 +1,5 @@
+name: Tintura pallida
+text: |-
+  Una creatura vittima di questo veleno deve superare un tiro salvezza su Costituzione con CD 16, altrimenti subisce 3 (1d6) danni da veleno e viene avvelenata. La creatura avvelenata deve ripetere il tiro salvezza ogni 24 ore, subendo 3 (1d6) danni da veleno se lo fallisce. Finché l'effetto del veleno non termina, i danni che infligge non possono essere curati in alcun modo. Dopo sette tiri salvezza superati, l'effetto termina e la creatura può guarire normalmente.
+
+  **_Ingestione._** Una creatura deve ingerire un'intera dose di questo tipo di veleno per subirne gli effetti. La dose può essere somministrata attraverso un cibo o un liquido. Il GM potrebbe decidere che una dose parziale abbia un effetto ridotto, per esempio conferendo vantaggio al tiro salvezza o infliggendo solo la metà dei danni in caso di fallimento.

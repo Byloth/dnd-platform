@@ -1,0 +1,7 @@
+name: "Punti ferita"
+text: |-
+  Un mostro solitamente muore o viene distrutto quando scende a 0 punti ferita. Per ulteriori informazioni sui punti ferita, vedi il *Manuale del Giocatore*.
+
+  I punti ferita di un mostro sono presentati sia come formula di dadi che come valore medio: per esempio, un mostro con 2d8 punti ferita ha in media 9 punti ferita (2 × 4½).
+
+  La taglia di un mostro determina il dado da usare per calcolare i suoi punti ferita, come indicato dalla tabella "Dadi Vita in base alla taglia".

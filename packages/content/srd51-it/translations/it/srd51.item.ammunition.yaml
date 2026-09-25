@@ -1,0 +1,15 @@
+name: "Munizione +1, +2 o +3"
+text: |-
+  Arma (qualsiasi munizione), non comune (+1), rara (+2) o molto rara (+3)
+
+  Il personaggio ottiene un bonus ai tiri per colpire e ai tiri per i danni effettuati con questa munizione magica. Il bonus è determinato dalla rarità della munizione. Una volta colpito il bersaglio, la munizione non è più magica.
+features.0.name: Bonus della munizione magica
+features.0.effects.0.options.0.name: "+1 (non comune)"
+features.0.effects.0.options.0.effects.0.note: |-
+  Solo per gli attacchi effettuati con questa munizione; una volta colpito il bersaglio, la munizione non è più magica.
+features.0.effects.0.options.1.name: "+2 (rara)"
+features.0.effects.0.options.1.effects.0.note: |-
+  Solo per gli attacchi effettuati con questa munizione; una volta colpito il bersaglio, la munizione non è più magica.
+features.0.effects.0.options.2.name: "+3 (molto rara)"
+features.0.effects.0.options.2.effects.0.note: |-
+  Solo per gli attacchi effettuati con questa munizione; una volta colpito il bersaglio, la munizione non è più magica.

@@ -1,0 +1,3 @@
+name: "Difesa Senza Armatura"
+text: |-
+  Se il personaggio possiede già il privilegio Difesa Senza Armatura, non può ottenerlo di nuovo da un'altra classe.

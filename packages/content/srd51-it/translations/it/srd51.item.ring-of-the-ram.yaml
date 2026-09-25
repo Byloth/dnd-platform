@@ -1,0 +1,19 @@
+name: Anello dell'ariete
+text: |-
+  Anello, raro (richiede sintonia)
+
+  Questo anello possiede 3 cariche e recupera 1d3 cariche consumate all'alba di ogni giorno. Mentre il personaggio lo indossa, può usare un'azione per consumare da 1 a 3 cariche e attaccare una creatura che è in grado di vedere entro 18 metri da lui. L'anello crea una testa d'ariete spettrale ed effettua il suo tiro per colpire con un bonus di +7. Se il colpo va a segno, per ogni carica consumata il bersaglio subisce 2d10 danni da forza e viene spinto lontano dal personaggio per 1,5 metri.
+
+  In alternativa, il personaggio può usare un'azione per consumare da 1 a 3 cariche dell'anello e tentare di rompere un oggetto che è in grado di vedere situato entro 18 metri da lui e che non sia indossato o trasportato. L'anello effettua una prova di Forza con un bonus di +5 per ogni carica consumata.
+features.0.name: Ariete spettrale
+features.0.effects.0.name: Ariete spettrale
+features.0.effects.0.text: |-
+  Consuma da 1 a 3 cariche per attaccare una creatura che sei in grado di vedere entro 18 metri. L'anello effettua il suo tiro per colpire con un bonus di +7. Se il colpo va a segno, per ogni carica consumata il bersaglio subisce 2d10 danni da forza e viene spinto lontano da te di 1,5 metri.
+features.0.effects.0.note: |-
+  Il tiro per colpire ha un bonus fisso di +7 (senza modificatore di caratteristica né competenza). I danni e la spinta aumentano con le cariche consumate: da 1 a 3.
+features.0.effects.0.onHit.0.text: 2d10 danni da forza e una spinta di 1,5 metri per ogni carica consumata.
+features.1.name: Rompere oggetti
+features.1.effects.0.name: Rompere oggetti
+features.1.effects.0.text: |-
+  Consuma da 1 a 3 cariche per tentare di rompere un oggetto che sei in grado di vedere entro 18 metri e che non sia indossato o trasportato. L'anello effettua una prova di Forza con un bonus di +5 per ogni carica consumata.
+features.1.effects.0.onUse.0.text: Prova di Forza con +5 per ogni carica consumata (da 1 a 3 cariche).

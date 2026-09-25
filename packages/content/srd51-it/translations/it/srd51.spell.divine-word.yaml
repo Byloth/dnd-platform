@@ -1,0 +1,14 @@
+name: Parola divina
+text: |-
+  L'incantatore pronuncia una parola divina, pregna del potere che plasmò il mondo all'alba della creazione. L'incantatore sceglie un qualsiasi numero di creature entro gittata che è in grado di vedere: ogni creatura in grado di sentirlo deve effettuare un tiro salvezza su Carisma. Se lo fallisce, una creatura soffre un effetto basato sui suoi punti ferita attuali:
+  - 50 punti ferita o meno: assordata per 1 minuto
+  - 40 punti ferita o meno: assordata e accecata per 10 minuti
+  - 30 punti ferita o meno: assordata, accecata e stordita per 1 ora
+  - 20 punti ferita o meno: uccisa istantaneamente
+
+  Indipendentemente dai suoi punti ferita, un celestiale, un elementale, un folletto o un immondo che fallisce il suo tiro salvezza viene respinto sul suo piano d'origine (se non vi si trova già) e non può ritornare sul piano attuale dell'incantatore per 24 ore in alcun modo a eccezione che tramite un incantesimo desiderio.
+onCast.0.note: |-
+  Se fallisce un tiro salvezza su Carisma, in base ai punti ferita attuali: 50 o meno, assordata per 1 minuto; 40 o meno, assordata e accecata per 10 minuti; 30 o meno, assordata, accecata e stordita per 1 ora; 20 o meno, uccisa istantaneamente.
+onCast.1.note: Solo a 40 punti ferita o meno (10 minuti) o a 30 o meno (1 ora).
+onCast.2.text: |-
+  Lo stato "stordita" di questo incantesimo corrisponde al "dazed" del testo inglese, che non è una condizione standard. Un celestiale, un elementale, un folletto o un immondo che fallisce il suo tiro salvezza viene respinto sul suo piano d'origine e non può ritornare per 24 ore in alcun modo a eccezione che tramite un incantesimo desiderio.

@@ -1,0 +1,5 @@
+name: Rituali
+text: |-
+  A certi incantesimi è abbinato un descrittore speciale: rituale. Un tale incantesimo può essere lanciato seguendo le normali regole di lancio degli incantesimi, oppure può essere lanciato come rituale. La versione rituale di un incantesimo richiede 10 minuti in più rispetto alla norma per essere lanciata. Inoltre non spende uno slot incantesimo, il che significa che la versione rituale di un incantesimo non può essere lanciata a un livello superiore.
+
+  Per lanciare un incantesimo come rituale, un incantatore deve possedere un privilegio che gli consenta di farlo. Il chierico e il druido, per esempio, possiedono questo tipo di privilegio. L'incantatore deve anche avere preparato l'incantesimo o averlo incluso nella sua lista degli incantesimi conosciuti, a meno che il privilegio del personaggio non specifichi diversamente, come nel caso del mago.

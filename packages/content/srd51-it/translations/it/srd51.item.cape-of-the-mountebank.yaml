@@ -1,0 +1,9 @@
+name: Cappa del saltimbanco
+text: |-
+  Oggetto meraviglioso, raro
+
+  Questa cappa emana un leggero odore di zolfo. Quando il personaggio la indossa, può usare un'azione per lanciare l'incantesimo porta dimensionale. Questa proprietà non può essere riutilizzata fino all'alba successiva.
+
+  Quando scompare, il personaggio lascia dietro di sé una nuvola di fumo, che si materializza anche nel luogo in cui ricompare. Il fumo rende leggermente oscurati i due luoghi e si disperde alla fine del turno successivo del personaggio. Un vento leggero o più forte disperde il fumo.
+features.0.name: Porta dimensionale
+features.0.effects.0.note: Lanciato con un'azione. Quando scompari, lasci dietro di te una nuvola di fumo e ricompari in una nuvola simile a destinazione; il fumo rende leggermente oscurati i due luoghi e si disperde alla fine del tuo turno successivo.

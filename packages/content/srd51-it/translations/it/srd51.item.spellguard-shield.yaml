@@ -1,0 +1,7 @@
+name: Scudo anti-incantesimi
+text: |-
+  Armatura (scudo), molto raro (richiede sintonia)
+
+  Mentre il personaggio impugna questo scudo, dispone di vantaggio ai tiri salvezza contro gli incantesimi e altri effetti magici. Inoltre, gli attacchi con incantesimo contro di lui subiscono svantaggio.
+features.0.name: Protezione dagli incantesimi
+features.0.effects.1.text: Gli attacchi con incantesimo contro di te subiscono svantaggio finché impugni questo scudo.

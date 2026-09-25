@@ -1,0 +1,6 @@
+name: Trama ipnotica
+components.m: Un bastoncino d'incenso acceso o una fiala di cristallo piena di materiale fosforescente.
+text: |-
+  L'incantatore crea un intreccio di colori che si snoda nell'aria all'interno di un cubo di 9 metri entro gittata, apparendo per qualche secondo prima di svanire. Ogni creatura presente nell'area che vede l'intreccio deve effettuare un tiro salvezza su Saggezza. Se lo fallisce, rimane affascinata per tutta la durata dell'incantesimo, in quel momento è incapacitata e ha una velocità di movimento pari a 0. L'incantesimo su una creatura influenzata termina se questa subisce danni o se qualcuno usa un'azione per scuoterla, destandola dal suo stato confusionale.
+onCast.2.text: |-
+  Ogni creatura nel cubo di 9 metri che vede l'intreccio, con un tiro salvezza su Saggezza fallito. Mentre è affascinata è incapacitata e ha una velocità di movimento pari a 0. L'incantesimo termina per una creatura che subisce danni o che qualcuno scuote dal suo stato confusionale usando un'azione.

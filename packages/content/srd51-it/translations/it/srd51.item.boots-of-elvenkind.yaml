@@ -1,0 +1,7 @@
+name: Stivali elfici
+text: |-
+  Oggetto meraviglioso, non comune
+
+  Indossando questi stivali, il personaggio non fa alcun rumore quando cammina, a prescindere dalla superficie su cui si muove. Dispone inoltre di vantaggio alle prove di Destrezza (Furtività) effettuate per muoversi silenziosamente.
+features.0.name: Passi silenziosi
+features.0.effects.0.note: Solo alle prove di Destrezza (Furtività) effettuate per muoverti silenziosamente; non fai alcun rumore quando cammini, a prescindere dalla superficie.

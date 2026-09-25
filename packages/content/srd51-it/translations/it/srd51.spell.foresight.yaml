@@ -1,0 +1,6 @@
+name: Previsione
+components.m: Una piuma di colibrì.
+text: |-
+  L'incantatore tocca una creatura consenziente e le conferisce una capacità limitata di vedere nell'immediato futuro. Per la durata dell'incantesimo, il bersaglio non può essere sorpreso e dispone di vantaggio ai tiri per colpire, prove di caratteristica e tiri salvezza. Inoltre, le altre creature subiscono svantaggio ai tiri per colpire indirizzati contro il bersaglio. Questo incantesimo termina immediatamente se l'incantatore lo lancia nuovamente prima che la sua durata termini.
+effects.3.text: Non puoi essere sorpreso e le altre creature subiscono svantaggio ai tiri per colpire indirizzati contro di te.
+effects.3.note: Lo svantaggio agli attacchi effettuati contro il personaggio non è esprimibile in v0. L'incantesimo termina immediatamente se l'incantatore lo lancia nuovamente prima che la sua durata termini.

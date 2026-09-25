@@ -1,0 +1,4 @@
+name: Intralciare
+text: |-
+  Erbacce e rampicanti spuntano dal terreno in un'area di 6 metri per lato che ha origine da un punto situato entro gittata. Per la durata dell'incantesimo, i vegetali trasformano quell'area in un terreno difficile. Una creatura all'interno dell'area quando viene lanciato l'incantesimo deve superare un tiro salvezza su Forza, altrimenti è trattenuta da vegetali intralcianti fino al termine dell'incantesimo. Una creatura così trattenuta può usare la sua azione per effettuare una prova di Forza contro la CD del tiro salvezza sull'incantesimo. In caso di successo, si libera. Al termine dell'incantesimo, i vegetali evocati avvizziscono.
+onCast.0.note: Se una creatura all'interno dell'area quando viene lanciato l'incantesimo fallisce il tiro salvezza su Forza; l'area è terreno difficile. Una creatura trattenuta può usare la sua azione per effettuare una prova di Forza contro la CD del tiro salvezza sull'incantesimo per liberarsi.

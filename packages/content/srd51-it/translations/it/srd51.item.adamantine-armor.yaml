@@ -1,0 +1,10 @@
+name: Armatura adamantina
+text: |-
+  Armatura (media o pesante, ma non di pelle), non comune
+
+  Quest'armatura include dei rinforzi di adamantio, uno dei materiali più duri in assoluto. Tutti i colpi critici che un personaggio subisce mentre indossa questa armatura diventano colpi normali.
+features.0.name: I colpi critici diventano colpi normali
+features.0.effects.0.text: |-
+  Mentre indossi quest'armatura, tutti i colpi critici che subisci diventano colpi normali.
+features.0.effects.0.note: |-
+  I colpi critici subiti sono risolti da chi attacca; nessun valore della scheda cambia e il motore di gioco non ha un aggancio per gli attacchi contro di te.

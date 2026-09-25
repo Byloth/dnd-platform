@@ -1,0 +1,7 @@
+name: Aura sacra
+components.m: Un minuscolo reliquiario del valore di almeno 1.000 mo contenente una reliquia sacra, come un brandello della tunica di un santo o un frammento di pergamena di un testo religioso.
+text: |-
+  Dall'incantatore si diffonde una luce divina che si materializza in un tenue bagliore in un raggio di 9 metri intorno a lui. Le creature da lui scelte presenti in quell'area al momento del lancio proiettano luce fioca in un raggio di 1,5 metri e dispongono di vantaggio ai tiri salvezza; le altre creature subiscono svantaggio ai tiri per colpire contro di loro fino al termine dell'incantesimo. Inoltre, quando una creatura influenzata dall'incantesimo viene colpita da un immondo o un non morto con un attacco in mischia, l'aura emette un bagliore accecante e l'attaccante deve superare un tiro salvezza su Costituzione, altrimenti sarà accecato fino al termine dell'incantesimo.
+effects.1.text: |-
+  Proietti luce fioca in un raggio di 1,5 metri; le altre creature subiscono svantaggio ai tiri per colpire contro di te. Quando un immondo o un non morto ti colpisce con un attacco in mischia, deve superare un tiro salvezza su Costituzione, altrimenti sarà accecato fino al termine dell'incantesimo.
+effects.1.note: "Lo svantaggio dell'attaccante e l'accecamento di immondi e non morti dipendono dall'attaccante: solo promemoria."

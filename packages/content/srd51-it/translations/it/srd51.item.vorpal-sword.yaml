@@ -1,0 +1,19 @@
+name: Spada vorpal
+text: |-
+  Arma (qualsiasi spada che infligga danni taglienti), leggendaria (richiede sintonia)
+
+  Il personaggio ottiene un bonus di +3 ai tiri per colpire e ai tiri per i danni effettuati con quest'arma magica. Inoltre, l'arma ignora la resistenza ai danni taglienti.
+
+  Quando il personaggio attacca con quest'arma una creatura che possiede almeno una testa e ottiene un risultato di 20 al tiro per colpire, riesce a tagliare una testa della creatura. La creatura muore se non riesce a sopravvivere senza testa. Una creatura è immune a questo effetto se è immune ai danni taglienti, non possiede o non ha bisogno di una testa, ha azioni leggendarie, oppure se il GM decide che la creatura è troppo grande perché la sua testa possa essere tagliata con quest'arma. Tale creatura subisce invece 6d8 danni taglienti extra dal colpo.
+features.0.name: Arma magica
+features.0.effects.0.note: |-
+  Qualsiasi spada che infligga danni taglienti; quest'oggetto non ha proprietà di un'arma base proprie.
+features.0.effects.1.text: L'arma ignora la resistenza ai danni taglienti.
+features.0.effects.1.note: |-
+  Ignorare una resistenza è una proprietà dell'arma senza un tipo nella v0; si applica al tavolo.
+features.1.name: Vorpal
+features.1.effects.0.name: Vorpal
+features.1.effects.0.trigger: quando ottieni 20 al tiro per colpire contro una creatura che possiede almeno una testa
+features.1.effects.0.text: |-
+  Tagli una testa della creatura; muore se non riesce a sopravvivere senza testa. Una creatura è immune se è immune ai danni taglienti, non possiede o non ha bisogno di una testa, ha azioni leggendarie, oppure se il GM decide che è troppo grande perché la sua testa possa essere tagliata; tale creatura subisce invece 6d8 danni taglienti extra dal colpo.
+features.1.effects.0.onHit.0.note: Solo per le creature immuni alla decapitazione; altrimenti la testa viene tagliata.

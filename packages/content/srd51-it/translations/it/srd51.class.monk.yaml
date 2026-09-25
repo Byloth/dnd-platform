@@ -1,0 +1,171 @@
+name: Monaco
+levels.1.features.0.name: Arti Marziali
+levels.1.features.0.text: |-
+  Al 1° livello, grazie alla sua perizia nelle arti marziali, un monaco padroneggia uno stile di combattimento che fa uso di colpi senz'armi e armi da monaco, vale a dire spade corte e qualsiasi arma da mischia semplice che non possieda la proprietà a due mani o la proprietà pesante.
+
+  Un monaco ottiene i benefici seguenti fintantoché è senz'armi o impugna soltanto armi da monaco, non indossa alcuna armatura e non impugna uno scudo:
+
+  * Un monaco può usare Destrezza anziché Forza per i tiri per colpire e i tiri per i danni dei suoi colpi senz'armi e delle sue armi da monaco.
+  * Un monaco può tirare un d4 al posto dei normali danni del suo colpo senz'armi o della sua arma da monaco. Questo dado cambia man mano che il personaggio acquisisce altri livelli da monaco, come indicato nella colonna "Arti Marziali" nella tabella "Monaco".
+  * Quando un monaco usa l'azione Attacco con un colpo senz'armi o un'arma da monaco nel suo turno, può effettuare un colpo senz'armi come azione bonus. Per esempio, se il monaco effettua l'azione Attacco con un bastone ferrato, può anche effettuare un colpo senz'armi come azione bonus, presumendo che non abbia già effettuato un'azione bonus in quel turno.
+
+  Alcuni monasteri utilizzano armi da monaco dalla forma particolare. Per esempio, un monaco potrebbe usare un randello composto da due sbarre di legno collegate da una breve catena (chiamato nunchaku) o un falcetto con una lama più corta e meno ricurva (chiamato kama). A prescindere dal nome usato per un'arma da monaco, il monaco può usare le statistiche di gioco fornite dall'arma.
+levels.1.features.0.effects.0.note: |-
+  Puoi usare Destrezza anziché Forza; il dado sostituisce i normali danni dell'attacco.
+levels.1.features.0.effects.1.note: |-
+  Puoi usare Destrezza anziché Forza; il dado sostituisce i normali danni dell'attacco.
+levels.1.features.0.effects.2.name: Colpo senz'armi di Arti Marziali
+levels.1.features.0.effects.2.text: |-
+  Quando usi l'azione Attacco con un colpo senz'armi o un'arma da monaco nel tuo turno, puoi effettuare un colpo senz'armi come azione bonus.
+levels.1.features.1.name: Difesa Senza Armatura
+levels.1.features.1.text: |-
+  A partire dal 1° livello, mentre un monaco non indossa alcuna armatura e non impugna uno scudo, la sua CA è pari a 10 + il suo modificatore di Destrezza + il suo modificatore di Saggezza.
+levels.2.features.0.name: Ki
+levels.2.features.0.text: |-
+  A partire dal 2° livello, il monaco è in grado di imbrigliare l'energia mistica del ki grazie al suo addestramento. Il suo accesso a questa energia è rappresentato da un certo numero di punti ki determinato dal livello da monaco, come indicato nella colonna "Punti Ki" nella tabella "Monaco".
+
+  Un monaco può spendere questi punti per alimentare i vari privilegi del ki. Inizialmente il monaco conosce tre di questi privilegi: Difesa Paziente, Passo del Vento e Raffica di Colpi. Apprenderà ulteriori privilegi del ki man mano che acquisirà altri livelli in questa classe.
+
+  Quando il monaco spende un punto ki, quel punto non è più disponibile finché non completa un riposo breve o lungo, alla fine del quale il monaco riassorbe in sé tutto il ki che aveva speso. Il monaco deve trascorrere almeno 30 minuti in meditazione durante il riposo per recuperare i suoi punti ki.
+
+  Alcuni privilegi del ki di un monaco richiedono al bersaglio di effettuare un tiro salvezza per resistere ai loro effetti. La CD del tiro salvezza viene definita nel modo seguente:
+
+  *CD del tiro salvezza del Ki* = 8 + il bonus di competenza + il modificatore di Saggezza
+
+  ### Raffica di Colpi
+
+  Subito dopo avere effettuato l'azione Attacco nel suo turno, il monaco può spendere 1 punto ki per sferrare due colpi senz'armi come azione bonus.
+
+  ### Difesa Paziente
+
+  Un monaco può spendere 1 punto ki per effettuare l'azione Schivata come azione bonus nel suo turno.
+
+  ### Passo del Vento
+
+  Un monaco può spendere 1 punto ki per effettuare l'azione Disimpegno o Scatto come azione bonus nel suo turno; inoltre, la sua distanza di salto raddoppia per quel turno.
+levels.2.features.0.effects.0.name: Punti ki
+levels.2.features.0.effects.0.note: |-
+  CD del tiro salvezza del Ki = 8 + il tuo bonus di competenza + il tuo modificatore di Saggezza; indicata sulle azioni che richiedono un tiro salvezza.
+levels.2.features.0.effects.1.name: Raffica di Colpi
+levels.2.features.0.effects.1.text: |-
+  Subito dopo avere effettuato l'azione Attacco nel tuo turno, puoi spendere 1 punto ki per sferrare due colpi senz'armi come azione bonus.
+levels.2.features.0.effects.1.onUse.0.text: |-
+  Sferra due colpi senz'armi (tira l'attacco due volte).
+levels.2.features.0.effects.2.name: Difesa Paziente
+levels.2.features.0.effects.2.text: |-
+  Puoi spendere 1 punto ki per effettuare l'azione Schivata come azione bonus nel tuo turno.
+levels.2.features.0.effects.2.onUse.0.text: |-
+  Schivata: fino all'inizio del tuo turno successivo, i tiri per colpire contro di te subiscono svantaggio e disponi di vantaggio ai tiri salvezza su Destrezza.
+levels.2.features.0.effects.4.name: Passo del Vento
+levels.2.features.0.effects.4.text: |-
+  Puoi spendere 1 punto ki per effettuare l'azione Disimpegno o Scatto come azione bonus nel tuo turno; inoltre, la tua distanza di salto raddoppia per quel turno.
+levels.2.features.0.effects.4.onUse.0.text: |-
+  Scegli Disimpegno o Scatto.
+levels.2.features.1.name: Movimento Senza Armatura
+levels.2.features.1.text: |-
+  A partire dal 2° livello, la velocità di un monaco aumenta di 3 metri finché il monaco non indossa alcuna armatura e non impugna uno scudo. Questo bonus aumenta man mano che il personaggio acquisisce altri livelli da monaco, come indicato nella tabella "Monaco".
+
+  Al 9° livello, un monaco ottiene la capacità di muoversi lungo le superfici verticali e sulle superfici liquide durante il suo turno senza cadere durante il movimento.
+levels.3.features.0.name: Deviare Proiettili
+levels.3.features.0.text: |-
+  A partire dal 3° livello, un monaco può usare la sua reazione per deviare o afferrare un proiettile quando viene colpito da un attacco con arma a distanza. Quando lo fa, il danno che subisce dall'attacco è ridotto di 1d10 + il suo modificatore di Destrezza + il suo livello da monaco.
+
+  Se il monaco riduce i danni a 0, può afferrare il proiettile, se quest'ultimo è abbastanza piccolo da essere tenuto in mano e se il monaco ha almeno una mano libera. Se afferra un proiettile in questo modo, può spendere 1 punto ki per effettuare un attacco a distanza con l'arma o con la munizione che ha appena afferrato, come parte della stessa reazione. Il monaco effettua questo attacco con competenza, a prescindere dalle sue competenze nelle armi, e il proiettile è considerato un'arma da monaco ai fini di questo attacco, con una gittata normale di 6 metri e una gittata lunga di 18 metri.
+levels.3.features.0.effects.0.name: Deviare Proiettili
+levels.3.features.0.effects.0.trigger: |-
+  quando vieni colpito da un attacco con arma a distanza
+levels.3.features.0.effects.0.text: |-
+  Riduci il danno che subisci dall'attacco di 1d10 + il tuo modificatore di Destrezza + il tuo livello da monaco. Se lo riduci a 0 e puoi tenere in mano il proiettile, puoi spendere 1 punto ki per rilanciarlo come parte della stessa reazione.
+levels.3.features.0.effects.0.onUse.0.text: |-
+  Riduzione del danno: 1d10 + mod(dex) + classLevel(monk). Rilanciare il proiettile costa 1 ki ed è un attacco a distanza con competenza, gittata 6/18 m, che usa il dado di Arti Marziali.
+levels.3.features.1.name: Tradizione Monastica
+levels.3.features.1.text: |-
+  Quando arriva al 3° livello, il monaco si vota a una tradizione monastica, per esempio la Via della Mano Aperta. La tradizione scelta conferisce al monaco alcuni privilegi al 3° livello e poi di nuovo al 6°, 11° e 17° livello.
+levels.4.features.0.name: Aumento dei Punteggi di Caratteristica
+levels.4.features.0.text: |-
+  Quando arriva al 4° livello, e poi di nuovo all'8°, 12°, 16° e 19° livello, un monaco può aumentare di 2 un punteggio di caratteristica a sua scelta, oppure può aumentare di 1 due punteggi di caratteristica a sua scelta. Come di consueto, non è consentito aumentare un punteggio di caratteristica a più di 20 utilizzando questo privilegio.
+levels.4.features.1.name: Caduta Lenta
+levels.4.features.1.text: |-
+  A partire dal 4° livello, un monaco può usare la sua reazione quando cade per ridurre gli eventuali danni da caduta di un ammontare pari a cinque volte il suo livello da monaco.
+levels.4.features.1.effects.0.name: Caduta Lenta
+levels.4.features.1.effects.0.trigger: |-
+  quando cadi
+levels.4.features.1.effects.0.text: |-
+  Riduci gli eventuali danni da caduta che subisci di un ammontare pari a cinque volte il tuo livello da monaco.
+levels.4.features.1.effects.0.onUse.0.text: |-
+  Riduzione del danno: 5 * classLevel(monk).
+levels.5.features.0.name: Attacco Extra
+levels.5.features.0.text: |-
+  A partire dal 5° livello, un monaco può attaccare due volte anziché una, ogni volta che effettua l'azione di Attacco nel proprio turno.
+levels.5.features.1.name: Colpo Stordente
+levels.5.features.1.text: |-
+  A partire dal 5° livello, un monaco può interferire con il ki che fluisce nel corpo di un avversario. Quando il monaco colpisce un'altra creatura con un attacco con arma da mischia, può spendere 1 punto ki per tentare di eseguire un Colpo Stordente. Il bersaglio deve superare un tiro salvezza su Costituzione, altrimenti sarà stordito fino alla fine del turno successivo del monaco.
+levels.5.features.1.effects.0.name: Colpo Stordente
+levels.5.features.1.effects.0.trigger: |-
+  quando colpisci un'altra creatura con un attacco con arma da mischia
+levels.5.features.1.effects.0.text: |-
+  Quando colpisci un'altra creatura con un attacco con arma da mischia, puoi spendere 1 punto ki per tentare di eseguire un Colpo Stordente. Il bersaglio deve superare un tiro salvezza su Costituzione, altrimenti sarà stordito fino alla fine del tuo turno successivo.
+levels.5.features.1.effects.0.onHit.0.note: |-
+  Solo se il bersaglio fallisce il tiro salvezza su Costituzione.
+levels.6.features.0.name: Colpi Ki Potenziati
+levels.6.features.0.text: |-
+  A partire dal 6° livello, i colpi senz'armi del monaco sono considerati magici ai fini di oltrepassare la resistenza e l'immunità agli attacchi e ai danni non magici.
+levels.6.features.0.effects.0.note: |-
+  I tuoi colpi senz'armi sono considerati magici ai fini di oltrepassare la resistenza e l'immunità agli attacchi e ai danni non magici.
+levels.7.features.0.name: Elusione
+levels.7.features.0.text: |-
+  Al 7° livello, grazie alla sua agilità istintiva, il monaco può schivare certi effetti ad area come il soffio di fulmine di un drago blu o un incantesimo *palla di fuoco*. Quando il monaco è soggetto a un effetto che gli consente di effettuare un tiro salvezza su Destrezza per dimezzare i danni, non subisce alcun danno se supera il tiro salvezza, e soltanto la metà dei danni se lo fallisce.
+levels.7.features.0.effects.0.text: |-
+  Elusione: quando sei soggetto a un effetto che ti consente di effettuare un tiro salvezza su Destrezza per dimezzare i danni, non subisci alcun danno se superi il tiro salvezza, e soltanto la metà dei danni se lo fallisci.
+levels.7.features.0.effects.0.note: |-
+  Lacuna: una regola sull'esito del tiro salvezza (nessun danno in caso di successo, metà in caso di fallimento per i tiri salvezza su Destrezza che dimezzano i danni) che la modalità di gioco deve agganciare; nulla da calcolare sulla scheda.
+levels.7.features.1.name: Mente Lucida
+levels.7.features.1.text: |-
+  A partire dal 7° livello, un monaco può usare la sua azione per porre termine a un effetto su se stesso che lo rende affascinato o spaventato.
+levels.7.features.1.effects.0.name: Mente Lucida
+levels.7.features.1.effects.0.text: |-
+  Puoi usare la tua azione per porre termine a un effetto su te stesso che ti rende affascinato o spaventato.
+levels.7.features.1.effects.0.onUse.0.text: |-
+  Poni termine a un effetto su te stesso che ti rende affascinato o spaventato.
+levels.10.features.0.name: Purezza del Corpo
+levels.10.features.0.text: |-
+  Al 10° livello, il monaco ha una tale padronanza del ki da diventare immune alle malattie e al veleno.
+levels.13.features.0.name: Lingua del Sole e della Luna
+levels.13.features.0.text: |-
+  A partire dal 13° livello, un monaco impara a sfiorare il ki delle altre menti ed è in grado di comprendere tutte le lingue parlate. Inoltre, qualsiasi creatura che sia in grado di capire una lingua può anche capire ciò che il monaco dice.
+levels.13.features.0.effects.0.text: |-
+  Sei in grado di comprendere tutte le lingue parlate. Inoltre, qualsiasi creatura che sia in grado di capire una lingua può anche capire ciò che dici.
+levels.13.features.0.effects.0.note: |-
+  Lacuna: grant-proficiency non ha una voce "tutte le lingue"; mostrato come testo.
+levels.14.features.0.name: Anima Adamantina
+levels.14.features.0.text: |-
+  A partire dal 14° livello, il monaco ha una tale padronanza del ki da ottenere competenza in tutti i tiri salvezza.
+
+  Inoltre, ogni volta che effettua un tiro salvezza e fallisce, può spendere 1 punto ki per ripetere il tiro. Deve usare il nuovo risultato.
+levels.14.features.0.effects.1.name: Anima Adamantina
+levels.14.features.0.effects.1.trigger: |-
+  quando fallisci un tiro salvezza
+levels.14.features.0.effects.1.text: |-
+  Ogni volta che effettui un tiro salvezza e fallisci, puoi spendere 1 punto ki per ripetere il tiro. Devi usare il nuovo risultato.
+levels.15.features.0.name: Corpo Senza Tempo
+levels.15.features.0.text: |-
+  Al 15° livello, il monaco è pervaso dal ki a tal punto da non essere toccato dalla fragilità della vecchiaia. Inoltre, non può invecchiare magicamente. Tuttavia, può sempre morire di vecchiaia. Oltre a ciò, non ha più bisogno di bere o di mangiare.
+levels.18.features.0.name: Corpo Vuoto
+levels.18.features.0.text: |-
+  A partire dal 18° livello, il monaco può usare la sua azione per spendere 4 punti ki e diventare invisibile per 1 minuto. Durante quel periodo di tempo ottiene anche resistenza a tutti i danni tranne a quelli da forza.
+
+  Inoltre, il monaco può spendere 8 punti ki in modo da lanciare l'incantesimo *proiezione astrale* senza avere bisogno di componenti materiali. Quando lo fa, non può portare nessun'altra creatura con sé.
+levels.18.features.0.effects.0.name: Corpo Vuoto
+levels.18.features.0.effects.0.text: |-
+  Puoi usare la tua azione per spendere 4 punti ki e diventare invisibile per 1 minuto. Durante quel periodo di tempo ottieni anche resistenza a tutti i danni tranne a quelli da forza.
+levels.18.features.0.effects.1.note: |-
+  Resistenza a tutti i danni tranne a quelli da forza finché Corpo Vuoto è attivo.
+levels.18.features.0.effects.2.note: |-
+  Lanci *proiezione astrale* spendendo 8 punti ki, senza avere bisogno di componenti materiali. Non puoi portare nessun'altra creatura con te.
+levels.20.features.0.name: Perfezione Interiore
+levels.20.features.0.text: |-
+  Al 20° livello, quando un monaco tira per l'iniziativa e non gli rimane alcun punto ki, recupera 4 punti ki.
+levels.20.features.0.effects.0.text: |-
+  Perfezione Interiore: quando tiri per l'iniziativa e non ti rimane alcun punto ki, recuperi 4 punti ki.
+levels.20.features.0.effects.0.note: |-
+  Lacuna: un evento di risorsa attivato dall'iniziativa; il motore non ha un aggancio all'iniziativa, quindi i 4 punti ki vanno ripristinati a mano.

@@ -1,0 +1,5 @@
+name: "Attivare un oggetto"
+text: |-
+  Alcuni oggetti magici per essere attivati richiedono a chi li vuole utilizzare di fare qualcosa di speciale, per esempio impugnare l'oggetto e pronunciare una parola d'ordine. La descrizione di ogni categoria di oggetto o di ogni oggetto singolo specifica in che modo tale oggetto viene attivato. Alcuni oggetti, per venire attivati, seguono le seguenti regole.
+
+  Se un oggetto richiede un'azione per essere attivato, tale azione non è una funzione dell'azione Usare un oggetto, quindi non è possibile usare un privilegio come Mani Veloci del ladro per attivarlo.

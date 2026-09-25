@@ -1,0 +1,11 @@
+name: Punteggi di caratteristica e modificatori
+text: |-
+  A ogni caratteristica di una creatura è abbinato un punteggio, un numero che definisce la scala di quella caratteristica. Un punteggio di caratteristica non misura semplicemente le capacità innate, ma descrive anche l'addestramento di una creatura e la sua competenza nelle attività correlate a quella caratteristica.
+
+  Un punteggio di 10 o 11 è considerato medio per un umano normale, ma gli avventurieri e buona parte dei mostri sono individui al di sopra della media. Un punteggio di 18 è il più alto che un individuo solitamente può raggiungere. Gli avventurieri possono ottenere punteggi fino a 20, mentre i mostri e gli esseri divini possono avere punteggi massimi di 30.
+
+  A ogni caratteristica è abbinato anche un modificatore derivato dal punteggio, che può variare da -5 (per un punteggio di caratteristica di 1) a +10 (per un punteggio di 30). La tabella "Punteggi di caratteristica e modificatori" elenca i modificatori di caratteristica per tutta la gamma dei punteggi di caratteristica possibili, che va da 1 a 30.
+
+  Per determinare un modificatore di caratteristica senza consultare la tabella è sufficiente sottrarre 10 al punteggio di caratteristica e poi dividere il risultato per 2 (arrotondando per difetto).
+
+  Dal momento che i modificatori di caratteristica influenzano praticamente ogni tiro per colpire, prova di caratteristica e tiro salvezza, essi entrano in gioco molto più spesso dei punteggi a cui sono associati.

@@ -1,0 +1,6 @@
+name: Freccia acida
+components.m: Foglia di rabarbaro in polvere e stomaco di vipera.
+text: |-
+  Una freccia verde scintillante sfreccia verso un bersaglio entro gittata ed esplode in uno spruzzo di acido, effettuando un attacco a distanza con incantesimo contro il bersaglio. Se il colpo va a segno, il bersaglio subisce immediatamente 4d4 danni da acido e 2d4 danni da acido alla fine del suo turno successivo. Se il colpo manca, la freccia schizza il bersaglio con l'acido per la metà del danno iniziale e non infligge alcun danno alla fine del suo turno successivo.
+higherLevel: |-
+  Quando l'incantatore lancia questo incantesimo usando uno slot incantesimo di 3° livello o superiore, i danni (sia iniziali che successivi) aumentano di 1d4 per ogni slot di livello superiore al 2°.

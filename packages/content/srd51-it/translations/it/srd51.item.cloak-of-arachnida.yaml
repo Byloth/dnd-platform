@@ -1,0 +1,20 @@
+name: Mantello dell'aracnide
+text: |-
+  Oggetto meraviglioso, molto raro (richiede sintonia)
+
+  Questo raffinato indumento di seta nera è intessuto con sottilissimi fili argentati. Il personaggio che lo indossa riceve i benefici seguenti:
+
+  * Resistenza ai danni da veleno.
+
+  * Velocità di scalare pari alla propria velocità base sul terreno.
+
+  * Può muoversi in alto, in basso e lateralmente sulle superfici verticali e a testa in giù sui soffitti mantenendo le mani libere.
+
+  * Non può essere bloccato da alcun tipo di ragnatela e può muoversi attraverso di esse come se fossero terreno difficile.
+
+  * Può usare un'azione per lanciare l'incantesimo ragnatela (CD del tiro salvezza 13). La ragnatela creata dall'incantesimo riempie un'area doppia rispetto al normale. Una volta usata, la proprietà del mantello non può essere riutilizzata fino all'alba successiva.
+features.0.name: Mantello dell'aracnide
+features.0.effects.1.text: Hai una velocità di scalare pari alla tua velocità base sul terreno. Puoi muoverti in alto, in basso e lateralmente sulle superfici verticali e a testa in giù sui soffitti mantenendo le mani libere.
+features.0.effects.1.note: Il linguaggio delle formule non ha una variabile per la velocità base sul terreno, quindi la velocità di scalare non viene calcolata; impostala pari alla tua velocità base sul terreno.
+features.0.effects.2.text: Non puoi essere bloccato da alcun tipo di ragnatela e puoi muoverti attraverso di esse come se fossero terreno difficile.
+features.0.effects.3.note: Lanciato con un'azione, con CD del tiro salvezza 13; la ragnatela riempie un'area doppia rispetto al normale.

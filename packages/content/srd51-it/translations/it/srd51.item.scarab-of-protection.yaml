@@ -1,0 +1,17 @@
+name: Scarabeo di protezione
+text: |-
+  Oggetto meraviglioso, leggendario (richiede sintonia)
+
+  Se il personaggio impugna questo medaglione a forma di scarabeo per 1 round, sulla superficie dell'oggetto compare una scritta che ne rivela la natura magica. Mentre il personaggio porta sulla sua persona lo scarabeo, questo fornisce due benefici:
+
+  Il personaggio dispone di vantaggio ai tiri salvezza contro gli incantesimi.
+
+  Lo scarabeo possiede 12 cariche. Se il personaggio fallisce un tiro salvezza contro un incantesimo di necromanzia o un effetto nocivo proveniente da una creatura non morta, può usare la sua reazione e consumare 1 carica per trasformare il tiro salvezza fallito in un successo. Una volta consumata l'ultima carica, lo scarabeo si sbriciola ed è distrutto.
+features.0.name: Protezione dagli incantesimi
+features.0.effects.0.note: Impugnare il medaglione per 1 round ne rivela la natura magica; i benefici si applicano finché lo porti sulla tua persona.
+features.1.name: Trasformare un tiro salvezza fallito
+features.1.effects.0.name: Trasformare un tiro salvezza fallito
+features.1.effects.0.trigger: quando fallisci un tiro salvezza contro un incantesimo di necromanzia o un effetto nocivo proveniente da una creatura non morta
+features.1.effects.0.text: |-
+  Consuma 1 carica per trasformare il tiro salvezza fallito in un successo. Le cariche non si ricaricano mai; una volta consumata l'ultima carica, lo scarabeo si sbriciola.
+features.1.effects.0.onUse.0.text: Il tiro salvezza fallito diventa un successo.

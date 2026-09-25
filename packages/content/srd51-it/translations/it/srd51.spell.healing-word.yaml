@@ -1,0 +1,6 @@
+name: Parola guaritrice
+text: |-
+  Una creatura scelta dall'incantatore entro gittata e che egli sia in grado di vedere recupera un ammontare di punti ferita pari a 1d4 + il modificatore di caratteristica da incantatore. Questo incantesimo non ha effetto sui non morti o sui costrutti.
+higherLevel: |-
+  Quando l'incantatore lancia questo incantesimo usando uno slot incantesimo di 2° livello o superiore, la guarigione aumenta di 1d4 per ogni slot di livello superiore al 1°.
+onCast.0.note: Più il tuo modificatore di caratteristica da incantatore (il linguaggio delle formule non ha una variabile per la caratteristica da incantatore in v0). Nessun effetto sui non morti o sui costrutti.

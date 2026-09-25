@@ -1,0 +1,12 @@
+name: "Cavalcature e altri animali"
+text: |-
+  | Cavalcatura        | Costo  | Velocità | Capacità di trasporto |
+  |--------------------|--------|----------|-----------------------|
+  | Cammello           | 50 mo  | 15 m     | 240 kg                |
+  | Asino o mulo       | 8 mo   | 12 m     | 210 kg                |
+  | Elefante           | 200 mo | 12 m     | 660 kg                |
+  | Cavallo da tiro    | 50 mo  | 12 m     | 270 kg                |
+  | Cavallo da galoppo | 75 mo  | 18 m     | 240 kg                |
+  | Mastino            | 25 mo  | 12 m     | 97,5 kg               |
+  | Pony               | 30 mo  | 12 m     | 112,5 kg              |
+  | Cavallo da guerra  | 400 mo | 18 m     | 270 kg                |

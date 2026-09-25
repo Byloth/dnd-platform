@@ -1,0 +1,31 @@
+name: Esempi di veleno
+text: |-
+  Ogni tipo di veleno infligge effetti debilitanti diversi.
+
+  **_Sangue dell'assassino (Ingestione)_**. Una creatura vittima di questo veleno deve effettuare un tiro salvezza su Costituzione con CD 10. Se lo fallisce, subisce 6 (1d12) danni da veleno e rimane avvelenata per 24 ore. In caso di successo, subisce soltanto la metà di quei danni e non viene avvelenata.
+
+  **_Fumi di othur bruciato (Inalazione)_**. Una creatura vittima di questo veleno deve superare un tiro salvezza su Costituzione con CD 13, altrimenti subisce 10 (3d6) danni da veleno e deve ripetere il tiro salvezza all'inizio di ogni suo turno. A ogni successivo tiro salvezza fallito, il personaggio subisce 3 (1d6) danni da veleno. Dopo tre tiri salvezza superati, gli effetti del veleno terminano.
+
+  **_Muco di vermeiena (Contatto)_**. Questo veleno deve essere estratto da un vermeiena morto o incapacitato. Una creatura vittima di questo veleno deve superare un tiro salvezza su Costituzione con CD 13, altrimenti viene avvelenata per 1 minuto, rimanendo paralizzata per quel periodo. La creatura può ripetere il tiro salvezza alla fine di ogni suo turno e, se lo supera, l'effetto per lei termina.
+
+  **_Veleno di drow (Ferimento)_**. Questo veleno è solitamente prodotto soltanto dai drow e solo in un luogo lontano dalla luce del sole. Una creatura vittima di questo veleno deve superare un tiro salvezza su Costituzione con CD 13, altrimenti viene avvelenata per 1 ora. Se il tiro salvezza fallisce di 5 o più, la creatura avvelenata rimane anche priva di sensi e si risveglia se subisce danni o se un'altra creatura usa un'azione per svegliarla scuotendola.
+
+  **_Essenza di etere (Inalazione)_**. Una creatura vittima di questo veleno deve superare un tiro salvezza su Costituzione con CD 15, altrimenti viene avvelenata per 8 ore, rimanendo anche priva di sensi per quel periodo. La creatura si risveglia se subisce danni o se un'altra creatura usa un'azione per svegliarla scuotendola.
+
+  **_Malizia (Inalazione)_**. Una creatura vittima di questo veleno deve superare un tiro salvezza su Costituzione con CD 15, altrimenti viene avvelenata per 1 ora, rimanendo anche accecata per quel periodo.
+
+  **_Lacrime di mezzanotte (Ingestione)_**. Una creatura che ingerisce questo veleno non ne subisce gli effetti fino allo scoccare della mezzanotte. Se nel frattempo il veleno non è stato neutralizzato, la creatura deve effettuare un tiro salvezza su Costituzione con CD 17, subendo 31 (9d6) danni da veleno in caso di fallimento, o la metà dei danni in caso di successo.
+
+  **_Olio di taggit (Contatto)_**. Una creatura vittima di questo veleno deve superare un tiro salvezza su Costituzione con CD 13, altrimenti viene avvelenata per 24 ore, rimanendo anche priva di sensi per quel periodo. La creatura si risveglia se subisce danni.
+
+  **_Tintura pallida (Ingestione)_**. Una creatura vittima di questo veleno deve superare un tiro salvezza su Costituzione con CD 16, altrimenti subisce 3 (1d6) danni da veleno e viene avvelenata. La creatura avvelenata deve ripetere il tiro salvezza ogni 24 ore, subendo 3 (1d6) danni da veleno se lo fallisce. Finché l'effetto del veleno non termina, i danni che infligge non possono essere curati in alcun modo. Dopo sette tiri salvezza superati, l'effetto termina e la creatura può guarire normalmente.
+
+  **_Veleno di verme purpureo (Ferimento)_**. Questo veleno deve essere estratto da un verme purpureo morto o incapacitato. Una creatura vittima di questo veleno deve effettuare un tiro salvezza su Costituzione con CD 19 e subisce 42 (12d6) danni da veleno in caso di fallimento, o la metà dei danni in caso di successo.
+
+  **_Veleno di serpente (Ferimento)_**. Questo veleno deve essere estratto da un serpente velenoso gigante morto o incapacitato. Una creatura vittima di questo veleno deve effettuare un tiro salvezza su Costituzione con CD 11 e subisce 10 (3d6) danni da veleno in caso di fallimento, o la metà dei danni in caso di successo.
+
+  **_Torpore (Ingestione)_**. Una creatura vittima di questo veleno deve superare un tiro salvezza su Costituzione con CD 15, altrimenti viene avvelenata per 4d6 ore, rimanendo anche incapacitata per quel periodo.
+
+  **_Siero della verità (Ingestione)_**. Una creatura vittima di questo veleno deve superare un tiro salvezza su Costituzione con CD 11, altrimenti viene avvelenata per 1 ora. La creatura avvelenata non può mentire consapevolmente, come se fosse sotto l'effetto di un incantesimo _zona di verità_.
+
+  **_Veleno di viverna (Ferimento)_**. Questo veleno deve essere estratto da una viverna morta o incapacitata. Una creatura vittima di questo veleno deve effettuare un tiro salvezza su Costituzione con CD 15 e subisce 24 (7d6) danni da veleno in caso di fallimento, o la metà dei danni in caso di successo.

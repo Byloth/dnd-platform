@@ -1,0 +1,17 @@
+name: Vigilanza e interdizione
+components.m: Incenso bruciato, una piccola dose di zolfo e olio, uno spago annodato, una piccola quantità di sangue di umber hulk e una piccola verga d'argento del valore di almeno 10 mo.
+text: |-
+  L'incantatore crea una difesa che protegge un'area di terreno di massimo 225 metri quadrati (un'area di 15 metri per lato, cento aree di 1,5 metri per lato o venticinque aree di 3 metri per lato). L'area protetta può essere alta fino a 6 metri e avere la forma desiderata dall'incantatore. È anche possibile proteggere diversi piani di una roccaforte dividendo l'area su di essi, purché l'incantatore possa camminare in ogni area contigua mentre lancia l'incantesimo. Al momento del lancio, l'incantatore può specificare quali individui non subiscono alcuni o tutti gli effetti da lui scelti. Può anche specificare una parola d'ordine che, quando pronunciata a voce alta, rende chi la pronuncia immune a questi effetti. Vigilanza e interdizione crea i seguenti effetti nell'area protetta.
+
+  **Corridoi.** La nebbia riempie tutti i corridoi protetti, oscurandoli pesantemente. Inoltre, a ogni incrocio o diramazione che richieda di scegliere una direzione, una creatura diversa dall'incantatore ha una probabilità del 50% di credere di andare in una direzione differente da quella che ha scelto.
+
+  **Porte.** Tutte le porte nell'area protetta vengono chiuse a chiave magicamente, come sigillate da un incantesimo serratura arcana. Inoltre, l'incantatore può coprire fino a dieci porte con un'illusione (equivalente alla funzione di oggetto illusorio dell'incantesimo illusione minore) per farle apparire come normali sezioni di parete.
+
+  **Scale.** Tutte le scale nell'area protetta si riempiono da cima a fondo di ragnatele, come succederebbe lanciando un incantesimo ragnatela. Per la durata dell'incantesimo vigilanza e interdizione, i fili di queste ragnatele si riformano in 10 minuti se vengono bruciate o strappate.
+
+  **Altri effetti dell'incantesimo.** L'incantatore può collocare uno dei seguenti effetti magici a sua scelta all'interno dell'area protetta della roccaforte.
+  - Collocare luci danzanti in quattro corridoi, specificando anche un semplice schema che le luci ripetono per la durata di vigilanza e interdizione.
+  - Collocare bocca magica in due luoghi.
+  - Collocare nube maleodorante in due luoghi. Il vapore compare nei luoghi scelti e riappare nel giro di 10 minuti se disperso dal vento fintantoché vigilanza e interdizione permane.
+  - Collocare una folata di vento costante in un corridoio o in una stanza.
+  - Collocare una suggestione in un luogo. L'incantatore seleziona un'area di un massimo di 1,5 metri per lato e qualsiasi creatura che vi entri o la attraversi riceve mentalmente la suggestione. L'intera area protetta emana magia. Un incantesimo dissolvi magie lanciato con successo su un effetto specifico rimuove solamente quello. L'incantatore può creare una struttura permanentemente protetta da vigilanza e interdizione lanciando l'incantesimo sulla struttura ogni giorno per un anno.

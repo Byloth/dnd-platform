@@ -1,0 +1,12 @@
+name: Stivali della velocità
+text: |-
+  Oggetto meraviglioso, raro (richiede sintonia)
+
+  Il personaggio che indossa questi stivali può usare un'azione bonus per battere i tacchi. Fatto questo, gli stivali raddoppiano la sua velocità base sul terreno e le creature che effettuano un attacco di opportunità contro di lui subiscono svantaggio ai tiri per colpire. Se il personaggio batte di nuovo i tacchi, pone fine all'effetto.
+
+  Dopo avere usato la proprietà degli stivali per un totale di 10 minuti, la magia smette di funzionare finché il personaggio non completa un riposo lungo.
+features.0.name: Stivali della velocità
+features.0.effects.0.name: Battere i tacchi
+features.0.effects.0.text: Gli stivali raddoppiano la tua velocità base sul terreno e le creature che effettuano un attacco di opportunità contro di te subiscono svantaggio al tiro per colpire. Batti di nuovo i tacchi per porre fine all'effetto. Dopo avere usato la proprietà per un totale di 10 minuti, la magia smette di funzionare finché non completi un riposo lungo.
+features.0.effects.0.note: "Le cariche dell'oggetto tengono il conto dei 10 minuti di utilizzo: spendi 1 carica per ogni minuto (o frazione di minuto) in cui gli stivali restano attivi."
+features.0.effects.2.text: Finché gli stivali sono attivi, le creature che effettuano un attacco di opportunità contro di te subiscono svantaggio al tiro per colpire.

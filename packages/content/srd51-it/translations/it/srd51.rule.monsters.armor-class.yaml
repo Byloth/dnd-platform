@@ -1,0 +1,3 @@
+name: "Classe Armatura"
+text: |-
+  Un mostro che indossa un'armatura o porta uno scudo possiede una Classe Armatura (CA) che tiene conto della sua armatura, del suo scudo e della sua Destrezza. Altrimenti, la CA di un mostro è basata soltanto sul suo modificatore di Destrezza e sulla sua armatura naturale, se ne possiede una. Se un mostro possiede un'armatura naturale, indossa un'armatura o porta uno scudo, è indicato tra parentesi dopo il suo valore di CA.

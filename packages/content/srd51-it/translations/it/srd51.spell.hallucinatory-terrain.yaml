@@ -1,0 +1,6 @@
+name: Terreno illusorio
+components.m: Una pietra, un rametto e un frammento di un vegetale florido.
+text: |-
+  L'incantatore fa in modo che un terreno naturale in un cubo di 45 metri abbia l'aspetto, i suoni e gli odori di un altro tipo di terreno naturale. Un campo aperto o una strada potrebbe così sembrare una palude, una collina, un crepaccio o qualche altro tipo di terreno difficile e invalicabile. Allo stesso modo, uno stagno potrebbe apparire come un prato erboso, un precipizio come un dolce pendio o un fosso erto di rocce come una strada ampia e accogliente. Tuttavia, le strutture artificiali, l'equipaggiamento e le creature all'interno dell'area non cambiano aspetto.
+
+  Inoltre, le caratteristiche tattili del terreno rimangono invariate, quindi le creature che entrano nell'area hanno buone probabilità di accorgersi dell'illusione. Se la differenza non è ovvia al tatto, una creatura che esamina attentamente l'illusione può tentare una prova di Intelligenza (Indagare) contro la CD del tiro salvezza sull'incantesimo per non essere tratta in inganno. Una creatura che riconosce l'illusione per ciò che è la vede come un'immagine nebulosa sovrapposta al terreno.

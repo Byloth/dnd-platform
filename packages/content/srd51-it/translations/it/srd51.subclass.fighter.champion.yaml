@@ -1,0 +1,42 @@
+name: Campione
+levels.3.features.0.name: Critico Migliorato
+levels.3.features.0.text: A partire da quando il guerriero sceglie questo archetipo al 3° livello, i suoi attacchi con un'arma mettono a segno un colpo critico con un risultato di 19 o 20 al tiro.
+levels.3.features.0.effects.0.note: I tuoi attacchi con un'arma mettono a segno un colpo critico con un risultato di 19 o 20 al tiro.
+levels.7.features.0.name: Atleta Straordinario
+levels.7.features.0.text: |-
+  A partire dal 7° livello, il guerriero può aggiungere metà del suo bonus di competenza (arrotondato per eccesso) a qualsiasi prova di Forza, Destrezza o Costituzione che effettua e che non utilizzi già il suo bonus di competenza.
+
+  Inoltre, quando il guerriero effettua un salto in lungo con rincorsa, la distanza che copre aumenta di un numero di metri pari al suo modificatore di Forza.
+levels.7.features.0.effects.0.note: Metà del tuo bonus di competenza (arrotondato per eccesso) alle prove di Forza che non utilizzano già il tuo bonus di competenza.
+levels.7.features.0.effects.1.note: Metà del tuo bonus di competenza (arrotondato per eccesso) alle prove di Destrezza che non utilizzano già il tuo bonus di competenza.
+levels.7.features.0.effects.2.note: Metà del tuo bonus di competenza (arrotondato per eccesso) alle prove di Costituzione che non utilizzano già il tuo bonus di competenza.
+levels.7.features.0.effects.3.note: L'iniziativa è una prova di Destrezza.
+levels.7.features.0.effects.8.note: Quando effettui un salto in lungo con rincorsa, la distanza che copri aumenta di 0,3 metri per ogni punto del tuo modificatore di Forza.
+levels.10.features.0.name: Stile di combattimento aggiuntivo
+levels.10.features.0.text: Al 10° livello, il guerriero può scegliere una seconda opzione dal privilegio di classe Stile di Combattimento.
+levels.10.features.0.effects.0.note: Una seconda opzione dal privilegio di classe Stile di Combattimento. Non puoi scegliere uno stile di combattimento più di una volta.
+levels.10.features.0.effects.0.options.0.name: Tiro
+levels.10.features.0.effects.0.options.0.text: Il guerriero ottiene un bonus di +2 ai tiri per colpire che effettua con le armi a distanza.
+levels.10.features.0.effects.0.options.1.name: Difesa
+levels.10.features.0.effects.0.options.1.text: Finché indossa un'armatura, il guerriero ottiene un bonus di +1 alla CA.
+levels.10.features.0.effects.0.options.2.name: Duellare
+levels.10.features.0.effects.0.options.2.text: Quando il guerriero impugna un'arma da mischia in una mano e non impugna altre armi, ottiene un bonus di +2 ai tiri per i danni di quell'arma.
+levels.10.features.0.effects.0.options.3.name: Combattere con Armi Possenti
+levels.10.features.0.effects.0.options.3.text: Quando il guerriero ottiene un 1 o un 2 a un tiro per i danni di un attacco che ha effettuato con un'arma da mischia impugnata a due mani, può ripetere il tiro e deve usare il nuovo risultato, anche se ottiene ancora un 1 o un 2. L'arma deve possedere la proprietà a due mani o versatile affinché il guerriero ottenga questo beneficio.
+levels.10.features.0.effects.0.options.3.effects.0.text: "Combattere con Armi Possenti: quando ottieni un 1 o un 2 a un dado dei danni con un'arma da mischia impugnata a due mani (a due mani o versatile), ripeti il tiro del dado e usa il nuovo risultato."
+levels.10.features.0.effects.0.options.3.effects.0.note: "Gestione in gioco: il motore non ripete i singoli dadi dei danni con risultato 1 o 2."
+levels.10.features.0.effects.0.options.4.name: Protezione
+levels.10.features.0.effects.0.options.4.text: Quando una creatura che il guerriero sia in grado di vedere attacca un bersaglio diverso dal guerriero e situato entro 1,5 metri da lui, il guerriero può usare la sua reazione per infliggere svantaggio al tiro per colpire della creatura. Il guerriero deve impugnare uno scudo.
+levels.10.features.0.effects.0.options.4.effects.0.name: Protezione
+levels.10.features.0.effects.0.options.4.effects.0.trigger: quando una creatura che sei in grado di vedere attacca un bersaglio diverso da te e situato entro 1,5 metri da te
+levels.10.features.0.effects.0.options.4.effects.0.text: Infliggi svantaggio al tiro per colpire della creatura. Devi impugnare uno scudo.
+levels.10.features.0.effects.0.options.5.name: Combattere con Due Armi
+levels.10.features.0.effects.0.options.5.text: Quando il guerriero combatte con due armi, può aggiungere il suo modificatore di caratteristica ai danni del secondo attacco.
+levels.10.features.0.effects.0.options.5.effects.0.text: "Combattere con Due Armi: quando combatti con due armi, aggiungi il tuo modificatore di caratteristica ai danni del secondo attacco."
+levels.10.features.0.effects.0.options.5.effects.0.note: "Gestione in gioco: il motore non calcola il modificatore ai danni dell'attacco con l'arma secondaria."
+levels.15.features.0.name: Critico Superiore
+levels.15.features.0.text: A partire dal 15° livello, gli attacchi con arma del guerriero mettono a segno un colpo critico con un risultato di 18–20 al tiro.
+levels.15.features.0.effects.0.note: I tuoi attacchi con arma mettono a segno un colpo critico con un risultato di 18–20 al tiro. Sostituisce Critico Migliorato.
+levels.18.features.0.name: Sopravvissuto
+levels.18.features.0.text: Al 18° livello, il guerriero giunge all'apice della sua resilienza in battaglia. All'inizio di ogni suo turno, recupera un ammontare di punti ferita pari a 5 + il suo modificatore di Costituzione, se non gli rimane più della metà dei suoi punti ferita. Non ottiene questo beneficio se ha 0 punti ferita.
+levels.18.features.0.onTurnStart.0.note: Solo se non ti rimane più della metà dei tuoi punti ferita e hai più di 0 punti ferita.

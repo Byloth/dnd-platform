@@ -1,0 +1,9 @@
+name: "Incantesimi"
+text: |-
+  Un mostro dotato del tratto speciale Incantesimi possiede un livello dell'incantatore e degli slot incantesimo che può usare per lanciare i suoi incantesimi di livello pari o superiore al 1° (come spiegato nel *Manuale del Giocatore*). Il livello dell'incantatore è usato anche per gli eventuali trucchetti inclusi nel tratto.
+
+  Il mostro possiede una lista di incantesimi conosciuti o preparati appartenenti a una classe specifica. Questa lista potrebbe anche includere degli incantesimi appartenenti a un privilegio di quella classe, come il privilegio Dominio Divino del chierico o Circolo Druidico del druido. Il mostro è considerato un membro di quella classe quando deve usare o entrare in sintonia con un oggetto magico che richiede l'appartenenza alla classe in questione o l'accesso alla sua lista degli incantesimi.
+
+  Un mostro può lanciare un incantesimo della sua lista a un livello più alto, se possiede uno slot incantesimo che gli consente di farlo. Per esempio, un drow mago con l'incantesimo *fulmine* di 3° livello può lanciarlo come incantesimo di 5° livello usando uno dei suoi slot incantesimo di 5° livello.
+
+  Il GM può cambiare gli incantesimi conosciuti o preparati da un mostro, sostituendo un qualsiasi incantesimo della sua lista con un incantesimo dello stesso livello e della stessa lista di classe. Se lo fa, potrebbe rendere il mostro una minaccia maggiore o minore rispetto a quanto suggerito dal suo grado di sfida.

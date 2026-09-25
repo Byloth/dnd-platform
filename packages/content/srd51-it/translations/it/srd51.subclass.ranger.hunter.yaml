@@ -1,0 +1,88 @@
+name: "Cacciatore"
+levels.3.features.0.name: "Preda del Cacciatore"
+levels.3.features.0.text: |-
+  Al 3° livello, il ranger ottiene uno dei seguenti privilegi a sua scelta.
+
+  ***Sterminatore di colossi.*** La tenacia del ranger può logorare anche il più potente degli avversari. Quando il ranger colpisce una creatura con un attacco con arma, quella creatura subisce 1d8 danni extra se è al di sotto dei suoi punti ferita massimi. Può infliggere questi danni extra solo una volta per turno.
+
+  ***Uccisore di giganti.*** Quando una creatura di taglia Grande o superiore entro 1,5 metri dal ranger colpisce o manca il ranger con un attacco, quest'ultimo può usare la sua reazione per attaccare la creatura immediatamente dopo il suo attacco, purché sia in grado di vederla.
+
+  ***Devastatore dell'orda.*** Una volta per ogni suo turno, quando sferra un attacco con arma, il ranger può effettuare un altro attacco con la stessa arma contro una creatura diversa situata entro 1,5 metri dal bersaglio originale ed entro la gittata della sua arma.
+levels.3.features.0.effects.0.options.0.name: "Sterminatore di colossi"
+levels.3.features.0.effects.0.options.0.text: "La tenacia del ranger può logorare anche il più potente degli avversari. Quando il ranger colpisce una creatura con un attacco con arma, quella creatura subisce 1d8 danni extra se è al di sotto dei suoi punti ferita massimi. Può infliggere questi danni extra solo una volta per turno."
+levels.3.features.0.effects.0.options.0.effects.0.name: "Sterminatore di colossi"
+levels.3.features.0.effects.0.options.0.effects.0.trigger: "quando colpisci con un attacco con arma una creatura che è al di sotto dei suoi punti ferita massimi"
+levels.3.features.0.effects.0.options.0.effects.0.text: "La creatura subisce 1d8 danni extra. Una volta per turno."
+levels.3.features.0.effects.0.options.0.effects.0.onHit.0.note: "Solo se il bersaglio è al di sotto dei suoi punti ferita massimi; i danni extra sono dello stesso tipo dei danni dell'arma."
+levels.3.features.0.effects.0.options.1.name: "Uccisore di giganti"
+levels.3.features.0.effects.0.options.1.text: "Quando una creatura di taglia Grande o superiore entro 1,5 metri dal ranger colpisce o manca il ranger con un attacco, quest'ultimo può usare la sua reazione per attaccare la creatura immediatamente dopo il suo attacco, purché sia in grado di vederla."
+levels.3.features.0.effects.0.options.1.effects.0.name: "Uccisore di giganti"
+levels.3.features.0.effects.0.options.1.effects.0.trigger: "quando una creatura di taglia Grande o superiore entro 1,5 metri da te ti colpisce o ti manca con un attacco e sei in grado di vederla"
+levels.3.features.0.effects.0.options.1.effects.0.text: "Attacchi quella creatura immediatamente dopo il suo attacco."
+levels.3.features.0.effects.0.options.1.effects.0.onUse.0.text: "Effettui un attacco con arma contro la creatura che ha innescato la reazione."
+levels.3.features.0.effects.0.options.2.name: "Devastatore dell'orda"
+levels.3.features.0.effects.0.options.2.text: "Una volta per ogni suo turno, quando sferra un attacco con arma, il ranger può effettuare un altro attacco con la stessa arma contro una creatura diversa situata entro 1,5 metri dal bersaglio originale ed entro la gittata della sua arma."
+levels.3.features.0.effects.0.options.2.effects.0.name: "Devastatore dell'orda"
+levels.3.features.0.effects.0.options.2.effects.0.text: "Una volta per ogni tuo turno, quando sferri un attacco con arma, effettui un altro attacco con la stessa arma contro una creatura diversa situata entro 1,5 metri dal bersaglio originale ed entro la gittata della tua arma."
+levels.3.features.0.effects.0.options.2.effects.0.onUse.0.text: "Un attacco aggiuntivo con la stessa arma contro una creatura diversa entro 1,5 metri dal bersaglio originale; una volta per turno."
+levels.7.features.0.name: "Tattiche difensive"
+levels.7.features.0.text: |-
+  Al 7° livello, il ranger ottiene uno dei seguenti privilegi a sua scelta.
+
+  ***Sfuggire all'orda.*** Gli attacchi di opportunità contro il ranger subiscono svantaggio.
+
+  ***Difesa dal multiattacco.*** Quando una creatura colpisce il ranger con un attacco, il ranger ottiene un bonus di +4 alla CA contro tutti gli attacchi successivi effettuati da quella creatura per il resto del turno.
+
+  ***Volontà d'acciaio.*** Il ranger dispone di vantaggio ai tiri salvezza contro l'essere spaventato.
+levels.7.features.0.effects.0.options.0.name: "Sfuggire all'orda"
+levels.7.features.0.effects.0.options.0.text: "Gli attacchi di opportunità contro il ranger subiscono svantaggio."
+levels.7.features.0.effects.0.options.0.effects.0.text: "Gli attacchi di opportunità contro di te subiscono svantaggio."
+levels.7.features.0.effects.0.options.0.effects.0.note: "Lo svantaggio ai tiri altrui (quelli dell'attaccante) non ha un tipo nel catalogo; si applica durante il gioco."
+levels.7.features.0.effects.0.options.1.name: "Difesa dal multiattacco"
+levels.7.features.0.effects.0.options.1.text: "Quando una creatura colpisce il ranger con un attacco, il ranger ottiene un bonus di +4 alla CA contro tutti gli attacchi successivi effettuati da quella creatura per il resto del turno."
+levels.7.features.0.effects.0.options.1.effects.0.text: "Quando una creatura ti colpisce con un attacco, ottieni un bonus di +4 alla CA contro tutti gli attacchi successivi effettuati da quella creatura per il resto del turno."
+levels.7.features.0.effects.0.options.1.effects.0.note: "Un bonus alla CA contro un solo attaccante per il resto di un turno non ha un tipo nel catalogo; si applica durante il gioco."
+levels.7.features.0.effects.0.options.2.name: "Volontà d'acciaio"
+levels.7.features.0.effects.0.options.2.text: "Il ranger dispone di vantaggio ai tiri salvezza contro l'essere spaventato."
+levels.11.features.0.name: "Multiattacco"
+levels.11.features.0.text: |-
+  All'11° livello, il ranger ottiene uno dei seguenti privilegi a sua scelta.
+
+  ***Raffica.*** Il ranger può usare la sua azione per effettuare un attacco a distanza contro un qualsiasi numero di creature entro 3 metri da un punto che egli sia in grado di vedere e che si trovi entro la gittata della sua arma. Il ranger deve avere munizioni sufficienti per ogni bersaglio, come di consueto, ed effettua un tiro per colpire separato per ogni bersaglio.
+
+  ***Attacco turbinante.*** Il ranger può usare la sua azione per sferrare un attacco in mischia contro un qualsiasi numero di creature entro 1,5 metri da sé, effettuando un tiro per colpire separato per ogni bersaglio.
+levels.11.features.0.effects.0.options.0.name: "Raffica"
+levels.11.features.0.effects.0.options.0.text: "Il ranger può usare la sua azione per effettuare un attacco a distanza contro un qualsiasi numero di creature entro 3 metri da un punto che egli sia in grado di vedere e che si trovi entro la gittata della sua arma. Il ranger deve avere munizioni sufficienti per ogni bersaglio, come di consueto, ed effettua un tiro per colpire separato per ogni bersaglio."
+levels.11.features.0.effects.0.options.0.effects.0.name: "Raffica"
+levels.11.features.0.effects.0.options.0.effects.0.text: "Effettui un attacco a distanza contro un qualsiasi numero di creature entro 3 metri da un punto che sei in grado di vedere e che si trovi entro la gittata della tua arma. Devi avere munizioni sufficienti per ogni bersaglio, come di consueto, ed effettui un tiro per colpire separato per ogni bersaglio."
+levels.11.features.0.effects.0.options.0.effects.0.onUse.0.text: "Un tiro per colpire a distanza separato per ogni bersaglio entro 3 metri dal punto scelto; una munizione per ogni bersaglio."
+levels.11.features.0.effects.0.options.1.name: "Attacco turbinante"
+levels.11.features.0.effects.0.options.1.text: "Il ranger può usare la sua azione per sferrare un attacco in mischia contro un qualsiasi numero di creature entro 1,5 metri da sé, effettuando un tiro per colpire separato per ogni bersaglio."
+levels.11.features.0.effects.0.options.1.effects.0.name: "Attacco turbinante"
+levels.11.features.0.effects.0.options.1.effects.0.text: "Sferri un attacco in mischia contro un qualsiasi numero di creature entro 1,5 metri da te, effettuando un tiro per colpire separato per ogni bersaglio."
+levels.11.features.0.effects.0.options.1.effects.0.onUse.0.text: "Un tiro per colpire in mischia separato per ogni creatura entro 1,5 metri da te."
+levels.15.features.0.name: "Difesa del cacciatore superiore"
+levels.15.features.0.text: |-
+  Al 15° livello, il ranger ottiene uno dei seguenti privilegi a sua scelta.
+
+  ***Elusione.*** Quando il ranger è soggetto a un effetto che gli consente di effettuare un tiro salvezza su Destrezza per dimezzare i danni, come il soffio di fuoco di un drago rosso o un incantesimo *fulmine*, non subisce alcun danno se supera il tiro salvezza, e soltanto la metà dei danni se lo fallisce.
+
+  ***Opporsi alla marea.*** Quando una creatura ostile manca il ranger con un attacco in mischia, il ranger può usare la sua reazione per obbligare quella creatura a ripetere lo stesso attacco contro un'altra creatura (che non sia essa stessa) a scelta del ranger.
+
+  ***Schivata prodigiosa.*** Quando un attaccante che il ranger è in grado di vedere colpisce il ranger con un attacco, quest'ultimo può usare la sua reazione per dimezzare i danni che subirebbe dall'attacco.
+levels.15.features.0.effects.0.options.0.name: "Elusione"
+levels.15.features.0.effects.0.options.0.text: "Quando il ranger è soggetto a un effetto che gli consente di effettuare un tiro salvezza su Destrezza per dimezzare i danni, come il soffio di fuoco di un drago rosso o un incantesimo *fulmine*, non subisce alcun danno se supera il tiro salvezza, e soltanto la metà dei danni se lo fallisce."
+levels.15.features.0.effects.0.options.0.effects.0.text: "Quando sei soggetto a un effetto che ti consente di effettuare un tiro salvezza su Destrezza per dimezzare i danni, non subisci alcun danno se superi il tiro salvezza, e soltanto la metà dei danni se lo fallisci."
+levels.15.features.0.effects.0.options.0.effects.0.note: "Regola sull'esito del tiro salvezza, risolta durante il gioco; nessun tipo nel catalogo."
+levels.15.features.0.effects.0.options.1.name: "Opporsi alla marea"
+levels.15.features.0.effects.0.options.1.text: "Quando una creatura ostile manca il ranger con un attacco in mischia, il ranger può usare la sua reazione per obbligare quella creatura a ripetere lo stesso attacco contro un'altra creatura (che non sia essa stessa) a scelta del ranger."
+levels.15.features.0.effects.0.options.1.effects.0.name: "Opporsi alla marea"
+levels.15.features.0.effects.0.options.1.effects.0.trigger: "quando una creatura ostile ti manca con un attacco in mischia"
+levels.15.features.0.effects.0.options.1.effects.0.text: "Obblighi quella creatura a ripetere lo stesso attacco contro un'altra creatura (che non sia essa stessa) a tua scelta."
+levels.15.features.0.effects.0.options.1.effects.0.onUse.0.text: "L'attaccante ripete lo stesso attacco contro un'altra creatura a tua scelta (non contro sé stesso)."
+levels.15.features.0.effects.0.options.2.name: "Schivata prodigiosa"
+levels.15.features.0.effects.0.options.2.text: "Quando un attaccante che il ranger è in grado di vedere colpisce il ranger con un attacco, quest'ultimo può usare la sua reazione per dimezzare i danni che subirebbe dall'attacco."
+levels.15.features.0.effects.0.options.2.effects.0.name: "Schivata prodigiosa"
+levels.15.features.0.effects.0.options.2.effects.0.trigger: "quando un attaccante che sei in grado di vedere ti colpisce con un attacco"
+levels.15.features.0.effects.0.options.2.effects.0.text: "Dimezzi i danni che subiresti dall'attacco."
+levels.15.features.0.effects.0.options.2.effects.0.onUse.0.text: "I danni dell'attacco che ha innescato la reazione sono dimezzati."

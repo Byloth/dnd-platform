@@ -1,0 +1,8 @@
+name: Occhiali della Notte
+text: |-
+  Oggetto meraviglioso, non comune
+
+  Finché il personaggio indossa queste lenti scure, ottiene scurovisione entro un raggio di 18 metri. Se possiede già la scurovisione, gli occhiali ne aumentano il raggio di 18 metri.
+features.0.name: Scurovisione
+features.0.text: Finché il personaggio indossa queste lenti scure, ottiene scurovisione entro un raggio di 18 metri. Se possiede già la scurovisione, gli occhiali ne aumentano il raggio di 18 metri.
+features.0.effects.0.note: Scurovisione entro 18 metri, o 18 metri in più se possiedi già la scurovisione.

@@ -1,0 +1,4 @@
+name: Protezione dall'energia
+text: |-
+  Per la durata dell'incantesimo, una creatura consenziente toccata dall'incantatore dispone di resistenza a un tipo di danni a scelta di quest'ultimo: acido, freddo, fulmine, fuoco o tuono.
+effects.0.note: Solo uno di questi tipi di danni, scelto al momento del lancio dell'incantesimo.

@@ -1,0 +1,7 @@
+name: Ventaglio
+text: |-
+  Oggetto meraviglioso, non comune
+
+  Mentre il personaggio impugna il ventaglio, può usare un'azione per lanciare con esso l'incantesimo folata di vento (CD del tiro salvezza 13). Una volta usato, il ventaglio non deve essere riutilizzato fino all'alba successiva. Ogni volta che viene riutilizzato prima di allora, c'è una probabilità cumulativa del 20 percento che l'oggetto non funzioni e si riduca in inutili brandelli di tessuto non magici.
+features.0.name: Folata di vento
+features.0.effects.0.note: "CD del tiro salvezza 13; si lancia con un'azione mentre impugni il ventaglio. Una volta usato, il ventaglio non deve essere riutilizzato fino all'alba successiva: ogni ulteriore utilizzo prima di allora ha una probabilità cumulativa del 20 percento di non funzionare e di ridurre il ventaglio in inutili brandelli di tessuto non magici."

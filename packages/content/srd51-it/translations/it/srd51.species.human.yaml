@@ -1,0 +1,14 @@
+name: Umano
+text: Anche se è difficile stabilire delle generalizzazioni sugli umani, un personaggio umano sarà dotato dei tratti seguenti.
+features.0.name: Incremento dei punteggi di caratteristica
+features.0.text: Ogni punteggio di caratteristica di un umano aumenta di 1.
+features.1.name: Velocità
+features.1.text: La velocità base sul terreno di un umano è di 9 metri.
+features.2.name: Età
+features.2.text: Un umano raggiunge la maturità tra i 18 e i 20 anni e vive meno di un secolo.
+features.3.name: Allineamento
+features.3.text: Gli umani non tendono ad alcun allineamento in particolare. Presso di loro è possibile trovare il meglio e il peggio che gli esseri viventi hanno da offrire.
+features.4.name: Taglia
+features.4.text: L'altezza e la corporatura possono variare drasticamente da un umano all'altro, oscillando tra 1,5 e 1,8 metri o più. A prescindere dalla sua effettiva altezza, un umano è una creatura di taglia Media.
+features.5.name: Linguaggi
+features.5.text: "Gli umani parlano, leggono e scrivono in Comune e in un linguaggio extra a scelta. In genere imparano la lingua del popolo con cui hanno più contatti, anche quando si tratta di dialetti sconosciuti ai più. Amano molto impreziosire la loro parlata con parole prese da altri linguaggi: imprecazioni in Orchesco, espressioni elfiche dal suono melodioso, termini militari nanici e così via."

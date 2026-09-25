@@ -1,0 +1,14 @@
+name: Ascia del berserker
+text: |-
+  Arma (qualsiasi ascia), rara (richiede sintonia)
+
+  Il personaggio ottiene un bonus di +1 ai tiri per colpire e ai tiri per i danni effettuati con quest'arma magica. Inoltre, una volta entrato in sintonia con l'arma, i suoi punti ferita massimi aumentano di 1 per ogni livello acquisito.
+
+  ***Maledizione.*** Quest'ascia è maledetta e la sua maledizione si trasmette al personaggio quando entra in sintonia con essa. Finché è maledetto, il personaggio non vuole separarsene e non la perde mai di vista. Subisce inoltre svantaggio ai tiri per colpire effettuati con tutte le altre armi, a meno che nel raggio di 18 metri non ci sia alcun nemico che è in grado di vedere o udire.
+
+  Ogni volta che una creatura ostile infligge danni al personaggio mentre questi è in possesso dell'ascia, il personaggio deve superare un tiro salvezza su Saggezza con CD 15, altrimenti entra in uno stato di berserk. Finché è in stato di berserk, il personaggio deve usare la sua azione ogni round per attaccare con l'ascia la creatura a lui più vicina. Se il personaggio può effettuare attacchi extra come parte della sua azione Attacco, li effettua muovendosi per attaccare la creatura successiva più vicina dopo avere abbattuto il bersaglio attuale. Se i bersagli possibili sono più di uno, ne attacca uno a caso. Il personaggio rimane in uno stato di berserk fino a quando non ci sono più creature che può vedere o udire entro un raggio di 18 metri all'inizio del suo turno.
+features.0.name: Bonus di +1
+features.0.effects.1.note: Finché sei in sintonia con l'arma, i tuoi punti ferita massimi aumentano di 1 per ogni livello che hai acquisito.
+features.1.name: Maledizione
+features.1.effects.1.text: "Maledizione. Quest'ascia è maledetta e la sua maledizione si trasmette a te quando entri in sintonia con essa. Finché sei maledetto, non vuoi separarti dall'ascia e non la perdi mai di vista. Ogni volta che una creatura ostile ti infligge danni mentre sei in possesso dell'ascia, devi superare un tiro salvezza su Saggezza con CD 15, altrimenti entri in uno stato di berserk: devi usare la tua azione ogni round per attaccare con l'ascia la creatura a te più vicina, fino a quando all'inizio del tuo turno non ci sono più creature che puoi vedere o udire entro un raggio di 18 metri."
+features.1.effects.1.note: Lo stato di berserk si gestisce al tavolo; il motore di gioco non ha un aggancio sui danni subiti.

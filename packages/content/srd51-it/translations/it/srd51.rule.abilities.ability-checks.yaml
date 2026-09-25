@@ -1,0 +1,9 @@
+name: Prove di caratteristica
+text: |-
+  Una prova di caratteristica misura le doti innate e l'addestramento di un personaggio o di un mostro di fronte a una sfida da superare. Il GM richiede una prova di caratteristica quando un personaggio o un mostro si cimenta in un'azione (diversa da un attacco) che abbia una probabilità di fallimento. Quando l'esito è incerto, i dadi determinano il risultato di quell'azione.
+
+  Per ogni prova di caratteristica, il GM decide quale delle sei caratteristiche è rilevante per l'impresa da compiere e la difficoltà dell'impresa, rappresentata da una Classe Difficoltà.
+
+  Più è difficile un'impresa, più alta è la sua CD. La tabella "Classi Difficoltà Tipiche" indica le CD più comuni.
+
+  Per effettuare una prova di caratteristica si tira un d20 e si aggiunge il modificatore di caratteristica relativo. Come negli altri tiri del d20, si applicano i bonus e le penalità previste e si confronta il totale con la CD. Se il totale è pari o superiore alla CD, la prova di caratteristica va a buon fine: la creatura supera la sfida in cui era impegnata. Altrimenti è un fallimento, il che significa che il personaggio o il mostro non compie progressi verso l'obiettivo, oppure che compie progressi limitati ma subisce al contempo conseguenze negative a scelta del GM.

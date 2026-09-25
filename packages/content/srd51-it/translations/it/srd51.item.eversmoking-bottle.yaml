@@ -1,0 +1,12 @@
+name: "Bottiglia del fumo perenne"
+text: |-
+  Oggetto meraviglioso, non comune
+
+  Da questa bottiglia di ottone del peso di 0,5 kg e chiusa da un tappo di piombo si levano dei sottili fili di fumo. Quando il personaggio usa un'azione per rimuovere il tappo, si sprigiona una fitta nube di fumo che si diffonde in un raggio di 18 metri dalla bottiglia. L'area coperta dal fumo è pesantemente oscurata. Per ogni minuto in cui la bottiglia resta aperta e all'interno della nube, il raggio aumenta di 3 metri finché non arriva a un raggio massimo di 36 metri.
+
+  La nube permane finché la bottiglia resta aperta. Per chiudere la bottiglia il personaggio deve usare un'azione per pronunciare la sua parola d'ordine. Una volta chiusa, il fumo si disperde dopo 10 minuti. Un vento moderato (da 15 a 30 km orari) disperde il fumo nel giro di 1 minuto, mentre un vento forte (oltre 30 km orari) lo disperde in 1 round.
+features.0.name: "Fumo"
+features.0.effects.0.name: "Rimuovere il tappo"
+features.0.effects.0.text: "Si sprigiona una fitta nube di fumo che si diffonde in un raggio di 18 metri dalla bottiglia; l'area è pesantemente oscurata. Per ogni minuto in cui la bottiglia resta aperta e all'interno della nube, il raggio aumenta di 3 metri, fino a 36 metri. La nube permane finché la bottiglia resta aperta."
+features.0.effects.1.name: "Chiudere la bottiglia"
+features.0.effects.1.text: "Pronuncia la parola d'ordine per chiudere la bottiglia. Il fumo si disperde dopo 10 minuti; un vento moderato lo disperde nel giro di 1 minuto e un vento forte in 1 round."

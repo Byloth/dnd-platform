@@ -1,0 +1,101 @@
+name: Pietra di Ioun
+text: |-
+  Oggetto meraviglioso, rarità variabile (richiede sintonia)
+
+  La pietra di Ioun deve il suo nome a Ioun, dea della conoscenza e della profezia venerata su alcuni mondi. Esistono molti tipi di queste pietre, ognuno dei quali ha una diversa combinazione di forma e colore.
+
+  Quando il personaggio usa un'azione per lanciare in aria una pietra, l'oggetto inizia a orbitare intorno alla sua testa a una distanza di 1d3 × 30 cm, conferendogli determinati benefici. Da allora in poi, se un'altra creatura desidera sottrarre la pietra al personaggio, deve usare un'azione per afferrarla o intrappolarla, effettuando con successo un tiro per colpire contro CA 24 o una prova di Destrezza (Acrobazia) con CD 24. Il possessore può usare un'azione per afferrare e riporre la pietra, terminandone l'effetto.
+
+  Una pietra possiede CA 24, 10 punti ferita e resistenza a tutti i danni. Quando orbita intorno alla testa del personaggio, è considerata un oggetto indossato.
+
+  ***Assorbimento (molto rara).*** Finché orbita intorno alla testa del personaggio, questo ellissoide color lavanda chiaro gli permette di usare la sua reazione per annullare un incantesimo di 4° livello o inferiore lanciato da una creatura che il personaggio è in grado di vedere e che ha solo lui come bersaglio.
+
+  Dopo aver annullato 20 livelli di incantesimi, la pietra prende fuoco, assume una tonalità grigia e opaca, e perde la sua magia. Se il personaggio è il bersaglio di un incantesimo il cui livello supera il numero di livelli di incantesimo rimasti nella pietra, tale incantesimo non può essere annullato.
+
+  ***Agilità (molto rara).*** Finché questa sfera color rosso scuro orbita intorno alla testa del personaggio, il suo punteggio di Destrezza aumenta di 2, fino a un massimo di 20.
+
+  ***Consapevolezza (rara).*** Finché questo romboide blu scuro orbita intorno alla sua testa, il personaggio non può essere sorpreso.
+
+  ***Tempra (molto rara).*** Finché questo romboide rosa orbita intorno alla testa del personaggio, il suo punteggio di Costituzione aumenta di 2, fino a un massimo di 20.
+
+  ***Assorbimento superiore (leggendaria).*** Finché orbita intorno alla testa del personaggio, questo ellissoide verde e color lavanda gli permette di usare la sua reazione per annullare un incantesimo di 8° livello o inferiore lanciato da una creatura che il personaggio è in grado di vedere e che ha solo lui come bersaglio.
+
+  Dopo aver annullato 50 livelli di incantesimi, la pietra prende fuoco, assume una tonalità grigia e opaca, e perde la sua magia. Se il personaggio è il bersaglio di un incantesimo il cui livello supera il numero di livelli di incantesimo rimasti nella pietra, tale incantesimo non può essere annullato.
+
+  ***Intuizione (molto rara).*** Finché questa sfera blu incandescente orbita intorno alla testa del personaggio, il suo punteggio di Saggezza aumenta di 2, fino a un massimo di 20.
+
+  ***Intelletto (molto rara).*** Finché questa sfera blu e scarlatta orbita intorno alla testa del personaggio, il suo punteggio di Intelligenza aumenta di 2, fino a un massimo di 20.
+
+  ***Autorità (molto rara).*** Finché questa sfera rosa e verde orbita intorno alla testa del personaggio, il suo punteggio di Carisma aumenta di 2, fino a un massimo di 20.
+
+  ***Maestria (leggendaria).*** Finché questo prisma verde chiaro orbita intorno alla testa del personaggio, il suo bonus di competenza aumenta di 1.
+
+  ***Protezione (rara).*** Finché questo prisma rosa antico orbita intorno alla testa del personaggio, quest'ultimo ottiene un bonus di +1 alla sua CA.
+
+  ***Rigenerazione (leggendaria).*** Finché questo fuso color madreperla orbita intorno alla testa del personaggio, questo recupera 15 punti ferita alla fine di ogni ora, purché abbia almeno 1 punto ferita.
+
+  ***Riserva (rara).*** Questo prisma viola acceso accumula al suo interno gli incantesimi lanciati su di esso, conservandoli finché il personaggio non li usa. Può contenere fino a 3 livelli di incantesimo per volta. Quando viene trovata, contiene 1d4 - 1 livelli di incantesimi accumulati a scelta del GM.
+
+  Qualsiasi creatura può lanciare nella pietra un incantesimo di livello compreso tra il 1° e il 3° toccandola al momento del lancio dell'incantesimo. L'incantesimo non ha alcun effetto, a parte quello di essere immagazzinato nella pietra. Se la pietra non può contenere altri incantesimi, quello lanciato viene sprecato senza provocare alcun effetto. Il livello dello slot usato per lanciare l'incantesimo determina lo spazio che occupa nella pietra.
+
+  Finché la pietra orbita intorno alla testa del personaggio, quest'ultimo può lanciare qualsiasi incantesimo conservato al suo interno. L'incantesimo usa il livello di slot, la CD del tiro salvezza sull'incantesimo, il bonus all'attacco con incantesimo e la caratteristica da incantatore di chi l'ha lanciato in origine, ma sotto ogni altro aspetto si considera che sia stato il personaggio a lanciarlo. L'incantesimo lanciato dalla pietra non è più conservato al suo interno, liberando il relativo spazio.
+
+  ***Forza (molto rara).*** Finché questo romboide azzurro orbita intorno alla testa del personaggio, il suo punteggio di Forza aumenta di 2, fino a un massimo di 20.
+
+  ***Sostentamento (rara).*** Finché questo fuso trasparente orbita intorno alla testa del personaggio, quest'ultimo non ha bisogno di mangiare o bere.
+features.0.name: Tipo di pietra
+features.0.text: Esistono molti tipi di pietre di Ioun, ognuno dei quali ha una diversa combinazione di forma e colore. Quando il personaggio usa un'azione per lanciare in aria una pietra, l'oggetto inizia a orbitare intorno alla sua testa a una distanza di 1d3 × 30 cm, conferendogli determinati benefici. Il possessore può usare un'azione per afferrare e riporre la pietra, terminandone l'effetto.
+features.0.effects.0.options.0.name: Assorbimento (molto rara)
+features.0.effects.0.options.0.text: Finché orbita intorno alla testa del personaggio, questo ellissoide color lavanda chiaro gli permette di usare la sua reazione per annullare un incantesimo di 4° livello o inferiore lanciato da una creatura che il personaggio è in grado di vedere e che ha solo lui come bersaglio. Dopo aver annullato 20 livelli di incantesimi, la pietra prende fuoco, assume una tonalità grigia e opaca, e perde la sua magia.
+features.0.effects.0.options.0.effects.0.name: Livelli di incantesimo rimasti
+features.0.effects.0.options.0.effects.0.note: La pietra non recupera mai livelli; quando arrivano a 0, si esaurisce.
+features.0.effects.0.options.0.effects.1.name: Assorbire un incantesimo
+features.0.effects.0.options.0.effects.1.trigger: quando una creatura che sei in grado di vedere lancia un incantesimo di 4° livello o inferiore che ha solo te come bersaglio
+features.0.effects.0.options.0.effects.1.onUse.0.text: L'incantesimo è annullato. Spendi un numero di livelli di incantesimo della pietra pari al livello dell'incantesimo; la pietra non può annullare un incantesimo il cui livello supera i livelli rimasti.
+features.0.effects.0.options.0.effects.1.text: Annulli un incantesimo di 4° livello o inferiore lanciato da una creatura che sei in grado di vedere e che ha solo te come bersaglio.
+features.0.effects.0.options.1.name: Agilità (molto rara)
+features.0.effects.0.options.1.text: Finché questa sfera color rosso scuro orbita intorno alla testa del personaggio, il suo punteggio di Destrezza aumenta di 2, fino a un massimo di 20.
+features.0.effects.0.options.1.effects.0.note: Fino a un massimo di 20.
+features.0.effects.0.options.2.name: Consapevolezza (rara)
+features.0.effects.0.options.2.text: Finché questo romboide blu scuro orbita intorno alla sua testa, il personaggio non può essere sorpreso.
+features.0.effects.0.options.2.effects.0.text: Finché questo romboide blu scuro orbita intorno alla tua testa, non puoi essere sorpreso.
+features.0.effects.0.options.2.effects.0.note: L'immunità alla sorpresa non ha un tipo di effetto nel catalogo.
+features.0.effects.0.options.3.name: Tempra (molto rara)
+features.0.effects.0.options.3.text: Finché questo romboide rosa orbita intorno alla testa del personaggio, il suo punteggio di Costituzione aumenta di 2, fino a un massimo di 20.
+features.0.effects.0.options.3.effects.0.note: Fino a un massimo di 20.
+features.0.effects.0.options.4.name: Assorbimento superiore (leggendaria)
+features.0.effects.0.options.4.text: Finché orbita intorno alla testa del personaggio, questo ellissoide verde e color lavanda gli permette di usare la sua reazione per annullare un incantesimo di 8° livello o inferiore lanciato da una creatura che il personaggio è in grado di vedere e che ha solo lui come bersaglio. Dopo aver annullato 50 livelli di incantesimi, la pietra prende fuoco, assume una tonalità grigia e opaca, e perde la sua magia.
+features.0.effects.0.options.4.effects.0.name: Livelli di incantesimo rimasti
+features.0.effects.0.options.4.effects.0.note: La pietra non recupera mai livelli; quando arrivano a 0, si esaurisce.
+features.0.effects.0.options.4.effects.1.name: Assorbire un incantesimo
+features.0.effects.0.options.4.effects.1.trigger: quando una creatura che sei in grado di vedere lancia un incantesimo di 8° livello o inferiore che ha solo te come bersaglio
+features.0.effects.0.options.4.effects.1.onUse.0.text: L'incantesimo è annullato. Spendi un numero di livelli di incantesimo della pietra pari al livello dell'incantesimo; la pietra non può annullare un incantesimo il cui livello supera i livelli rimasti.
+features.0.effects.0.options.4.effects.1.text: Annulli un incantesimo di 8° livello o inferiore lanciato da una creatura che sei in grado di vedere e che ha solo te come bersaglio.
+features.0.effects.0.options.5.name: Intuizione (molto rara)
+features.0.effects.0.options.5.text: Finché questa sfera blu incandescente orbita intorno alla testa del personaggio, il suo punteggio di Saggezza aumenta di 2, fino a un massimo di 20.
+features.0.effects.0.options.5.effects.0.note: Fino a un massimo di 20.
+features.0.effects.0.options.6.name: Intelletto (molto rara)
+features.0.effects.0.options.6.text: Finché questa sfera blu e scarlatta orbita intorno alla testa del personaggio, il suo punteggio di Intelligenza aumenta di 2, fino a un massimo di 20.
+features.0.effects.0.options.6.effects.0.note: Fino a un massimo di 20.
+features.0.effects.0.options.7.name: Autorità (molto rara)
+features.0.effects.0.options.7.text: Finché questa sfera rosa e verde orbita intorno alla testa del personaggio, il suo punteggio di Carisma aumenta di 2, fino a un massimo di 20.
+features.0.effects.0.options.7.effects.0.note: Fino a un massimo di 20.
+features.0.effects.0.options.8.name: Maestria (leggendaria)
+features.0.effects.0.options.8.text: Finché questo prisma verde chiaro orbita intorno alla testa del personaggio, il suo bonus di competenza aumenta di 1.
+features.0.effects.0.options.9.name: Protezione (rara)
+features.0.effects.0.options.9.text: Finché questo prisma rosa antico orbita intorno alla testa del personaggio, quest'ultimo ottiene un bonus di +1 alla sua CA.
+features.0.effects.0.options.10.name: Rigenerazione (leggendaria)
+features.0.effects.0.options.10.text: Finché questo fuso color madreperla orbita intorno alla testa del personaggio, questo recupera 15 punti ferita alla fine di ogni ora, purché abbia almeno 1 punto ferita.
+features.0.effects.0.options.10.effects.0.text: Finché questo fuso color madreperla orbita intorno alla tua testa, recuperi 15 punti ferita alla fine di ogni ora, purché tu abbia almeno 1 punto ferita.
+features.0.effects.0.options.10.effects.0.note: La guarigione oraria al di fuori dei riposi non ha un tipo di effetto nel catalogo.
+features.0.effects.0.options.11.name: Riserva (rara)
+features.0.effects.0.options.11.text: Questo prisma viola acceso accumula al suo interno gli incantesimi lanciati su di esso, conservandoli finché il personaggio non li usa. Può contenere fino a 3 livelli di incantesimo per volta. Qualsiasi creatura può lanciare nella pietra un incantesimo di livello compreso tra il 1° e il 3° toccandola al momento del lancio dell'incantesimo. Finché la pietra orbita intorno alla testa del personaggio, quest'ultimo può lanciare qualsiasi incantesimo conservato al suo interno, usando il livello di slot, la CD del tiro salvezza sull'incantesimo, il bonus all'attacco con incantesimo e la caratteristica da incantatore di chi l'ha lanciato in origine.
+features.0.effects.0.options.11.effects.0.text: La pietra conserva fino a 3 livelli di incantesimi lanciati al suo interno (dal 1° al 3° livello). Finché orbita intorno alla tua testa, puoi lanciare qualsiasi incantesimo conservato usando il livello di slot, la CD del tiro salvezza sull'incantesimo, il bonus all'attacco con incantesimo e la caratteristica da incantatore di chi l'ha lanciato in origine; l'incantesimo non è poi più conservato.
+features.0.effects.0.options.11.effects.0.note: La conservazione di incantesimi (una riserva limitata in livelli di incantesimi lanciati in seguito con le statistiche dell'incantatore originale) non ha un tipo di effetto nel catalogo.
+features.0.effects.0.options.12.name: Forza (molto rara)
+features.0.effects.0.options.12.text: Finché questo romboide azzurro orbita intorno alla testa del personaggio, il suo punteggio di Forza aumenta di 2, fino a un massimo di 20.
+features.0.effects.0.options.12.effects.0.note: Fino a un massimo di 20.
+features.0.effects.0.options.13.name: Sostentamento (rara)
+features.0.effects.0.options.13.text: Finché questo fuso trasparente orbita intorno alla testa del personaggio, quest'ultimo non ha bisogno di mangiare o bere.
+features.0.effects.0.options.13.effects.0.text: Finché questo fuso trasparente orbita intorno alla tua testa, non hai bisogno di mangiare o bere.
+features.0.effects.0.options.13.effects.0.note: Solo testo.

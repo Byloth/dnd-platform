@@ -1,0 +1,9 @@
+name: Gittata
+text: |-
+  Il bersaglio di un incantesimo deve trovarsi entro la sua gittata. Nel caso di incantesimi come _dardo incantato_, il bersaglio è una creatura. Nel caso di incantesimi come _palla di fuoco_, il bersaglio è un punto nello spazio in cui la sfera di fuoco esplode.
+
+  La gittata della maggior parte degli incantesimi è espressa in metri. Alcuni incantesimi possono bersagliare soltanto una creatura a contatto con l'incantatore (incluso l'incantatore stesso). Altri incantesimi, come l'incantesimo _scudo_, influenzano soltanto l'incantatore. In questi incantesimi la gittata è indicata con il termine "incantatore".
+
+  Anche gli incantesimi che generano coni o linee di effetto che hanno origine dal personaggio hanno una gittata di "incantatore", a indicare che il punto di origine dell'effetto magico è l'incantatore stesso (vedi "Aree di effetto").
+
+  Una volta che un incantesimo è stato lanciato, i suoi effetti non sono limitati dalla sua gittata, a meno che la descrizione dell'incantesimo non specifichi altrimenti.

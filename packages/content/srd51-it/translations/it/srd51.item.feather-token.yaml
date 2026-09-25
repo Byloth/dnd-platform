@@ -1,0 +1,57 @@
+name: "Piuma magica"
+text: |-
+  Oggetto meraviglioso, raro
+
+  Questo minuscolo oggetto ha l'aspetto di una piuma. Esistono vari tipi di piume, ognuna con un effetto monouso diverso. Il GM può scegliere il tipo di piuma o determinarlo casualmente.
+
+  | d100 | Piuma |
+
+  |---|---|
+
+  | 01–20 | Ancora |
+
+  | 21–35 | Uccello |
+
+  | 36–50 | Ventaglio |
+
+  | 51–65 | Barca cigno |
+
+  | 66–90 | Albero |
+
+  | 91–100 | Frusta |
+
+  ***Ancora.*** Il personaggio può usare un'azione per toccare con la piuma una barca o una nave. Per le 24 ore successive, il vascello non può essere spostato in alcun modo. Toccando nuovamente il vascello con la piuma, l'effetto termina. Quando l'effetto termina, la piuma scompare.
+
+  ***Uccello.*** Il personaggio può usare un'azione per lanciare la piuma in aria per 1,5 metri. Al posto della piuma compare un enorme uccello dal piumaggio sgargiante. L'uccello ha le statistiche di un roc, ma obbedisce ai semplici comandi del personaggio e non può attaccare. Può trasportare fino a 250 kg di peso alla sua velocità massima (24 km orari fino a un massimo di 216 km al giorno, con un'ora di riposo ogni 3 ore di viaggio) o 500 kg a velocità dimezzata. L'uccello scompare dopo aver percorso in volo la sua distanza massima per un giorno di viaggio o se scende a 0 punti ferita. Il personaggio può congedare l'uccello con un'azione.
+
+  ***Ventaglio.*** Se il personaggio si trova su una barca o una nave, può usare un'azione per lanciare la piuma in aria per 3 metri. Al posto della piuma compare un gigantesco ventaglio che si agita da solo. Il ventaglio fluttua in aria e crea un vento abbastanza forte da gonfiare le vele di una nave, aumentandone la velocità di 7,5 km orari per un periodo di 8 ore. Il personaggio può congedare il ventaglio con un'azione.
+
+  ***Barca cigno.*** Il personaggio può usare un'azione per toccare con la piuma uno specchio d'acqua del diametro di almeno 18 metri. Al posto della piuma compare una barca a forma di cigno, lunga 15 metri e larga 6 metri, che si muove da sola sull'acqua a una velocità di 9 km orari. Finché si trova a bordo della barca, il personaggio può usare un'azione per ordinarle di avanzare o virare di un massimo di 90 gradi. La barca può trasportare fino a trentadue creature di taglia Media o inferiore. Una creatura Grande conta come quattro creature Medie e una creatura Enorme conta come nove creature Medie. La barca permane per 24 ore e poi scompare. Il personaggio può congedare la barca con un'azione.
+
+  ***Albero.*** Il personaggio deve trovarsi all'esterno per usare questa piuma. Può usare un'azione per toccare con la piuma uno spazio libero sul terreno. Al posto della piuma compare una quercia non magica. L'albero è alto 18 metri, ha un tronco del diametro di 1,5 metri e i rami sulla cima si estendono in un raggio di 6 metri.
+
+  ***Frusta.*** Il personaggio può usare un'azione per lanciare la piuma in un punto entro 3 metri da lui. Al posto della piuma compare una frusta che fluttua nell'aria. Il personaggio può allora usare un'azione bonus per effettuare un attacco in mischia con incantesimo contro una creatura situata entro 3 metri dalla frusta, con un bonus di attacco di +9. Se il colpo va a segno, il bersaglio subisce 1d6 + 5 danni da forza.
+
+  Come azione bonus nel suo turno, il personaggio può dirigere la frusta in volo per una distanza massima di 6 metri e ripetere l'attacco contro un bersaglio situato entro 3 metri da essa. La frusta scompare dopo 1 ora, quando il personaggio usa un'azione per congedarla o quando questi è incapacitato o muore.
+features.0.name: "Piuma magica"
+features.0.effects.0.note: "Il GM sceglie il tipo di piuma o lo determina casualmente (d100). Ogni piuma ha un unico uso."
+features.0.effects.0.options.0.name: "Ancora"
+features.0.effects.0.options.0.effects.0.name: "Toccare un vascello con la piuma"
+features.0.effects.0.options.0.effects.0.text: "Per le 24 ore successive, la barca o la nave non può essere spostata in alcun modo. Toccando nuovamente il vascello con la piuma, l'effetto termina; quando termina, la piuma scompare."
+features.0.effects.0.options.1.name: "Uccello"
+features.0.effects.0.options.1.effects.0.name: "Lanciare la piuma in aria"
+features.0.effects.0.options.1.effects.0.text: "Al suo posto compare un enorme uccello dal piumaggio sgargiante con le statistiche di un roc; obbedisce ai tuoi semplici comandi e non può attaccare. Trasporta fino a 250 kg a 24 km orari (216 km al giorno, con un'ora di riposo ogni 3 ore di volo) o 500 kg a velocità dimezzata. Scompare dopo aver percorso in volo la sua distanza massima per un giorno, se scende a 0 punti ferita o quando lo congedi con un'azione."
+features.0.effects.0.options.2.name: "Ventaglio"
+features.0.effects.0.options.2.effects.0.name: "Lanciare in aria la piuma su una nave"
+features.0.effects.0.options.2.effects.0.text: "Al suo posto compare un gigantesco ventaglio che si agita da solo e crea un vento abbastanza forte da gonfiare le vele di una nave, aumentandone la velocità di 7,5 km orari per 8 ore. Puoi congedare il ventaglio con un'azione."
+features.0.effects.0.options.3.name: "Barca cigno"
+features.0.effects.0.options.3.effects.0.name: "Toccare uno specchio d'acqua con la piuma"
+features.0.effects.0.options.3.effects.0.text: "Su uno specchio d'acqua del diametro di almeno 18 metri compare una barca a forma di cigno lunga 15 metri e larga 6 metri, che si muove da sola a 9 km orari; con un'azione, mentre sei a bordo, puoi ordinarle di avanzare o virare di un massimo di 90 gradi. Trasporta fino a trentadue creature di taglia Media o inferiore e permane per 24 ore o finché non la congedi con un'azione."
+features.0.effects.0.options.4.name: "Albero"
+features.0.effects.0.options.4.effects.0.name: "Toccare il terreno all'esterno con la piuma"
+features.0.effects.0.options.4.effects.0.text: "Compare una quercia non magica: alta 18 metri, con un tronco del diametro di 1,5 metri e rami che sulla cima si estendono in un raggio di 6 metri."
+features.0.effects.0.options.5.name: "Frusta"
+features.0.effects.0.options.5.effects.0.name: "Lanciare la piuma"
+features.0.effects.0.options.5.effects.0.text: "Al posto della piuma compare una frusta che fluttua nell'aria in un punto entro 3 metri da te. Scompare dopo 1 ora, quando la congedi con un'azione o quando sei incapacitato o muori."
+features.0.effects.0.options.5.effects.1.name: "Attacco della frusta"
+features.0.effects.0.options.5.effects.1.text: "Dirigi la frusta in volo per una distanza massima di 6 metri, poi effettua un attacco in mischia con incantesimo con un bonus di attacco di +9 contro una creatura situata entro 3 metri da essa. Se il colpo va a segno, il bersaglio subisce 1d6 + 5 danni da forza."

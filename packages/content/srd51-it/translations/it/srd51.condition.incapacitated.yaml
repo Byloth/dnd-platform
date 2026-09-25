@@ -1,0 +1,4 @@
+name: Incapacitato
+text: "* Una creatura incapacitata non può effettuare azioni o reazioni."
+effects.0.text: Non puoi effettuare azioni o reazioni.
+effects.0.note: "Il motore delle regole non gestisce i tiri effettuati contro di te: l'effetto è mostrato come promemoria."

@@ -1,0 +1,6 @@
+name: Rinascita
+components.m: Diamanti del valore di 300 mo, che l'incantesimo consuma.
+text: |-
+  L'incantatore tocca una creatura morta nell'ultimo minuto e la creatura torna in vita con 1 punto ferita. Questo incantesimo non può riportare in vita una creatura morta di vecchiaia e non può ripristinare le eventuali parti del corpo mancanti.
+onCast.0.note: |-
+  Una creatura morta nell'ultimo minuto torna in vita con 1 punto ferita; non una creatura morta di vecchiaia, e le parti del corpo mancanti non vengono ripristinate.

@@ -1,0 +1,8 @@
+name: Rianimare morti
+components.m: Un diamante del valore di almeno 500 mo, che l'incantesimo consuma.
+text: |-
+  L'incantatore riporta in vita con il suo tocco una creatura morta da meno di 10 giorni. Se la sua anima è consenziente e libera di riunirsi al corpo, la creatura torna in vita con 1 punto ferita. Questo incantesimo inoltre neutralizza qualsiasi veleno e cura le malattie non magiche che influenzavano la creatura al momento della morte. Tuttavia, non rimuove malattie magiche, maledizioni o effetti simili che, se non vengono rimossi prima del lancio, affliggeranno il bersaglio una volta tornato in vita. Questo incantesimo non può riportare in vita una creatura non morta. L'incantesimo richiude tutte le ferite mortali, ma non ripristina le parti del corpo mancanti. Se una creatura è priva di organi o parti del corpo essenziali per la sua sopravvivenza, come per esempio la testa, l'incantesimo fallisce automaticamente. Il ritorno dalla morte è un vero e proprio travaglio. Il bersaglio subisce una penalità di -4 a tutti i tiri per colpire, tiri salvezza e prove di caratteristica. Ogni volta che completa un riposo lungo, questa penalità viene ridotta di 1 finché non sparisce del tutto.
+onCast.0.note: |-
+  Una creatura morta da non più di 10 giorni, la cui anima è consenziente e libera, torna in vita con 1 punto ferita; i veleni e le malattie non magiche vengono neutralizzati. I non morti non possono essere riportati in vita e l'incantesimo fallisce se mancano parti del corpo essenziali per la sopravvivenza.
+onCast.1.text: |-
+  Il bersaglio subisce una penalità di -4 a tutti i tiri per colpire, tiri salvezza e prove di caratteristica, ridotta di 1 ogni volta che completa un riposo lungo finché non sparisce del tutto.

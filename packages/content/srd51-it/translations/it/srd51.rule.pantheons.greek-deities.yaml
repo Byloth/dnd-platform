@@ -1,0 +1,23 @@
+name: "Divinità greche"
+text: |-
+  | Divinità                                           | Allineamento | Domini suggeriti       | Simbolo                                 |
+  |----------------------------------------------------|--------------|------------------------|-----------------------------------------|
+  | Zeus, dio del cielo e signore degli dèi            | N            | Tempesta               | Pugno che stringe un fascio di fulmini  |
+  | Afrodite, dea dell'amore e della bellezza          | CB           | Luce                   | Conchiglia                              |
+  | Apollo, dio della luce, della musica e della guarigione | CB      | Conoscenza, Luce, Vita | Lira                                    |
+  | Ares, dio della guerra e dei conflitti             | CM           | Guerra                 | Lancia                                  |
+  | Artemide, dea della caccia e del parto             | NB           | Natura, Vita           | Arco e freccia su disco lunare          |
+  | Atena, dea della saggezza e della civiltà          | LB           | Conoscenza, Guerra     | Civetta                                 |
+  | Demetra, dea dell'agricoltura                      | NB           | Vita                   | Testa di giumenta                       |
+  | Dioniso, dio dei piaceri e del vino                | CN           | Vita                   | Tirso (bastone sormontato da una pigna) |
+  | Ade, dio degli inferi                              | LM           | Morte                  | Ariete nero                             |
+  | Ecate, dea della magia e della luna                | CM           | Conoscenza, Inganno    | Luna calante                            |
+  | Efesto, dio della forgiatura e dell'artigianato    | NB           | Conoscenza             | Incudine e martello                     |
+  | Era, dea del matrimonio e degli intrighi           | CN           | Inganno                | Ventaglio di piume di pavone            |
+  | Ercole, dio della forza e dell'avventura           | CB           | Guerra, Tempesta       | Testa di leone                          |
+  | Ermes, dio dei viaggi e del commercio              | CB           | Inganno                | Caduceo (bastone alato con serpenti)    |
+  | Estia, dea del focolare e della famiglia           | NB           | Vita                   | Focolare                                |
+  | Nike, dea della vittoria                           | LN           | Guerra                 | Donna alata                             |
+  | Pan, dio della natura                              | CN           | Natura                 | Siringa (flauto di Pan)                 |
+  | Poseidone, dio del mare e dei terremoti            | CN           | Tempesta               | Tridente                                |
+  | Tiche, dea della buona sorte                       | N            | Inganno                | Pentacolo rosso                         |

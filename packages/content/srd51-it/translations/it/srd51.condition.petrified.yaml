@@ -1,0 +1,10 @@
+name: Pietrificato
+text: |-
+  * Una creatura pietrificata viene trasformata, assieme a ogni oggetto non magico che trasporta o indossa, in una sostanza solida inanimata (solitamente pietra). La creatura cessa di invecchiare e il suo peso viene decuplicato.
+  * La creatura è incapacitata (vedi la relativa condizione), non può muoversi o parlare, né è consapevole di ciò che le accade attorno.
+  * I tiri per colpire contro la creatura ottengono vantaggio.
+  * La creatura fallisce automaticamente i tiri salvezza su Forza e Destrezza.
+  * La creatura è dotata di resistenza a tutti i danni.
+  * La creatura è immune a veleni e malattie, ma eventuali veleni o malattie già presenti nel suo sistema vengono solo sospesi, non neutralizzati.
+effects.8.text: Incapacitato, inconsapevole di ciò che ti accade attorno; fallisci automaticamente i tiri salvezza su Forza e Destrezza; gli attacchi contro di te ottengono vantaggio.
+effects.8.note: "Il motore delle regole non gestisce i tiri effettuati contro di te: l'effetto è mostrato come promemoria."

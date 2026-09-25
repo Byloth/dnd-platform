@@ -1,0 +1,20 @@
+name: Arco del giuramento
+text: |-
+  Arma (arco lungo), molto rara (richiede sintonia)
+
+  Quando il personaggio incocca una freccia, quest'arco sussurra in Elfico: "Rapida sconfitta ai miei nemici". Quando il personaggio usa quest'arma per effettuare un attacco a distanza, può pronunciare la seguente frase come parola d'ordine: "Morte rapida a chi mi ha fatto un torto". Il bersaglio dell'attacco diventa nemico giurato del personaggio fino alla sua morte o all'alba del settimo giorno dopo l'attacco. Il personaggio può avere un solo nemico giurato alla volta. Quando il suo nemico giurato muore, può sceglierne un altro a partire dall'alba successiva.
+
+  Quando il personaggio effettua un tiro per colpire a distanza con quest'arma contro il suo nemico giurato, dispone di vantaggio al tiro. Inoltre, il bersaglio non ottiene alcun beneficio da una copertura che non sia totale e il personaggio non subisce svantaggio a causa della lunga gittata. Se l'attacco va a segno, il nemico giurato del personaggio subisce 3d6 danni perforanti extra.
+
+  Finché il nemico giurato è in vita, il personaggio subisce svantaggio ai tiri per colpire effettuati con tutte le altre armi.
+features.0.name: Nemico giurato
+features.0.text: |-
+  Quando il personaggio usa quest'arma per effettuare un attacco a distanza, può pronunciare la seguente frase come parola d'ordine: "Morte rapida a chi mi ha fatto un torto". Il bersaglio dell'attacco diventa nemico giurato del personaggio fino alla sua morte o all'alba del settimo giorno dopo l'attacco. Il personaggio può avere un solo nemico giurato alla volta. Quando il suo nemico giurato muore, può sceglierne un altro a partire dall'alba successiva. Quando il personaggio effettua un tiro per colpire a distanza con quest'arma contro il suo nemico giurato, dispone di vantaggio al tiro. Inoltre, il bersaglio non ottiene alcun beneficio da una copertura che non sia totale e il personaggio non subisce svantaggio a causa della lunga gittata. Se l'attacco va a segno, il nemico giurato del personaggio subisce 3d6 danni perforanti extra. Finché il nemico giurato è in vita, il personaggio subisce svantaggio ai tiri per colpire effettuati con tutte le altre armi.
+features.0.effects.0.name: Giurare un nemico
+features.0.effects.0.text: |-
+  Se il personaggio pronuncia la parola d'ordine quando effettua un attacco a distanza con l'arco, il bersaglio diventa nemico giurato del personaggio fino alla sua morte o all'alba del settimo giorno dopo l'attacco. Un solo nemico giurato alla volta; dopo la sua morte, il personaggio può sceglierne un altro a partire dall'alba successiva.
+features.0.effects.1.note: |-
+  Tiri per colpire a distanza con quest'arco contro il nemico giurato. Il bersaglio non ottiene alcun beneficio da una copertura che non sia totale e il personaggio non subisce svantaggio a causa della lunga gittata.
+features.0.effects.2.note: Solo quando l'attacco colpisce il nemico giurato.
+features.0.effects.3.note: |-
+  Solo ai tiri per colpire con armi diverse dall'arco del giuramento, finché il nemico giurato è in vita.

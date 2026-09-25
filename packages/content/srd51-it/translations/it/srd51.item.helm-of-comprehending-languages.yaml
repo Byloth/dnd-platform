@@ -1,0 +1,8 @@
+name: Elmo della comprensione dei linguaggi
+text: |-
+  Oggetto meraviglioso, non comune
+
+  Finché il personaggio indossa questo elmo, può usare un'azione per lanciare con esso l'incantesimo comprensione dei linguaggi a volontà.
+features.0.name: Comprensione dei linguaggi
+features.0.text: Finché il personaggio indossa questo elmo, può usare un'azione per lanciare con esso l'incantesimo comprensione dei linguaggi a volontà.
+features.0.effects.0.note: Lo lanci a volontà con un'azione, senza spendere uno slot incantesimo.

@@ -1,0 +1,8 @@
+name: Mantello della resistenza agli incantesimi
+text: |-
+  Oggetto meraviglioso, raro (richiede sintonia)
+
+  Finché il personaggio indossa questo mantello, dispone di vantaggio ai tiri salvezza contro gli incantesimi.
+features.0.name: Resistenza agli incantesimi
+features.0.text: |-
+  Finché il personaggio indossa questo mantello, dispone di vantaggio ai tiri salvezza contro gli incantesimi.

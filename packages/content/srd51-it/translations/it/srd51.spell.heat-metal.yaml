@@ -1,0 +1,10 @@
+name: Riscaldare il metallo
+components.m: Un pezzo di ferro e una fiamma.
+text: |-
+  L'incantatore sceglie un oggetto lavorato in metallo, come un'arma in metallo o un'armatura di metallo media o pesante entro gittata che è in grado di vedere e la rende incandescente. Qualsiasi creatura a contatto fisico con l'oggetto subisce 2d8 danni da fuoco al momento del lancio dell'incantesimo, fino al termine del quale l'incantatore può usare un'azione bonus in ogni suo turno successivo per causare nuovamente questo danno. Se una creatura sta stringendo o indossando l'oggetto e ne subisce i danni, deve superare un tiro salvezza su Costituzione o, se possibile, lasciar cadere l'oggetto. Se ciò non avviene, il bersaglio ha svantaggio ai tiri per colpire e alle prove di caratteristica effettuati prima dell'inizio del turno successivo dell'incantatore.
+higherLevel: |-
+  Quando l'incantatore lancia questo incantesimo usando uno slot incantesimo di 3° livello o superiore, i danni aumentano di 1d8 per ogni slot di livello superiore al 2°.
+effects.0.name: Riscaldare il metallo (ripetere)
+effects.0.text: Infliggi nuovamente i 2d8 danni da fuoco a qualsiasi creatura a contatto fisico con l'oggetto riscaldato.
+onCast.0.text: |-
+  Nessun tiro salvezza contro i danni. Una creatura che stringe o indossa l'oggetto e ne subisce i danni deve superare un tiro salvezza su Costituzione o, se possibile, lasciar cadere l'oggetto; se non lo lascia cadere, ha svantaggio ai tiri per colpire e alle prove di caratteristica fino all'inizio del tuo turno successivo.

@@ -1,0 +1,17 @@
+name: Confusione
+components.m: Tre gusci di noce.
+text: |-
+  Questo incantesimo assale e sconvolge le menti delle creature, provocando allucinazioni e azioni incontrollate. Ogni creatura all'interno di una sfera del raggio di 3 metri, centrata su un punto a scelta dell'incantatore entro gittata, deve superare un tiro salvezza su Saggezza al lancio dell'incantesimo, altrimenti ne viene influenzata.
+
+  Un bersaglio influenzato non può effettuare reazioni e deve tirare un d10 all'inizio di ogni suo turno per determinare il suo comportamento.
+
+  | d10 | Comportamento |
+  |---|---|
+  | 1 | La creatura utilizza tutti i suoi movimenti per spostarsi in una direzione casuale. Per determinare la direzione, l'incantatore tira un d8 assegnando una direzione a ogni faccia del dado. La creatura non effettua un'azione in questo turno. |
+  | 2–6 | La creatura non si muove né effettua un'azione in questo turno. |
+  | 7–8 | La creatura utilizza la sua azione per effettuare un attacco in mischia contro un'altra creatura nella sua portata determinata casualmente. Se non è presente alcuna creatura nella sua portata, non fa nulla in questo turno. |
+  | 9–10 | La creatura può agire e muoversi normalmente. |
+
+  Un bersaglio influenzato può effettuare un tiro salvezza su Saggezza alla fine di ogni suo turno. Se ha successo, questo effetto per lui termina.
+higherLevel: |-
+  Quando l'incantatore lancia questo incantesimo usando uno slot incantesimo di 5° livello o superiore, il raggio della sfera aumenta di 1,5 metri per ogni slot di livello superiore al 4°.

@@ -1,0 +1,4 @@
+name: Cura ferite di massa
+text: "Un'ondata di energia curativa si sprigiona da un punto a scelta dell'incantatore entro gittata. L'incantatore sceglie fino a sei creature in una sfera di 9 metri di raggio centrata su quel punto: ogni bersaglio recupera una quantità di punti ferita pari a 3d8 + il modificatore di caratteristica da incantatore. Questo incantesimo non ha effetto sui non morti o sui costrutti."
+higherLevel: Quando l'incantatore lancia questo incantesimo usando uno slot incantesimo di 6° livello o superiore, la guarigione aumenta di 1d8 per ogni slot di livello superiore al 5°.
+onCast.0.note: Più il modificatore di caratteristica da incantatore, a ognuna di un massimo di sei creature in una sfera di 9 metri di raggio. Nessun effetto sui non morti o sui costrutti.

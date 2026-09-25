@@ -1,0 +1,10 @@
+name: Mantello elfico
+text: |-
+  Oggetto meraviglioso, non comune (richiede sintonia)
+
+  Quando il personaggio indossa questo mantello con il cappuccio tirato sulla testa, le prove di Saggezza (Percezione) effettuate per vederlo subiscono svantaggio; il personaggio dispone inoltre di vantaggio alle prove di Destrezza (Furtività) effettuate per nascondersi, in quanto il mantello cambia colore per mimetizzarsi con l'ambiente circostante. Per sollevare o abbassare il cappuccio è richiesta un'azione.
+features.0.name: Cappuccio
+features.0.effects.0.name: Sollevare o abbassare il cappuccio
+features.0.effects.0.text: Quando indossi questo mantello con il cappuccio tirato sulla testa, le prove di Saggezza (Percezione) effettuate per vederti subiscono svantaggio e disponi di vantaggio alle prove di Destrezza (Furtività) effettuate per nasconderti, in quanto il mantello cambia colore per mimetizzarsi con l'ambiente circostante.
+features.0.effects.1.note: Solo alle prove di Destrezza (Furtività) effettuate per nasconderti, con il cappuccio tirato sulla testa.
+features.0.effects.2.text: Con il cappuccio tirato sulla testa, le prove di Saggezza (Percezione) effettuate per vederti subiscono svantaggio.

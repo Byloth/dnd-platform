@@ -1,0 +1,15 @@
+name: Bersagli
+text: |-
+  Un tipico incantesimo prevede che l'incantatore scelga uno o più bersagli che saranno influenzati dalla sua magia. La descrizione di un incantesimo indica se esso ha come bersaglio creature, oggetti o il punto di origine di un'area di effetto (descritta di seguito).
+
+  A meno che non abbia un effetto percettibile, una creatura potrebbe perfino non accorgersi di essere stata bersagliata da un incantesimo. Effetti come fulmini o esplosioni sono evidenti, ma un effetto più sottile, come leggere i pensieri di una creatura, solitamente passa inosservato, a meno che l'incantesimo non specifichi altrimenti.
+
+  ### Percorso libero fino al bersaglio
+
+  Per bersagliare qualcosa, l'incantatore deve avere un percorso libero fino al bersaglio, che quindi non deve trovarsi dietro copertura totale.
+
+  Se l'incantatore colloca un'area di effetto in un punto che non può vedere ed è presente un'ostruzione (come ad esempio un muro) tra l'incantatore e quel punto, il punto di origine si forma sul lato più vicino di quell'ostruzione.
+
+  ### Bersagliare se stessi
+
+  Se un incantesimo bersaglia una creatura a scelta dell'incantatore, questi può scegliere se stesso, a meno che la creatura non debba essere ostile o non sia specificato che deve trattarsi di una creatura diversa. Se l'incantatore si trova nell'area di effetto di un incantesimo che ha lanciato, può bersagliare se stesso.

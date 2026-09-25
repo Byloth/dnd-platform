@@ -1,0 +1,13 @@
+name: "Fabbricare oggetti"
+text: |-
+  Un personaggio può fabbricare oggetti non magici di qualsiasi tipo, dall'equipaggiamento d'avventura alle opere d'arte. Deve avere competenza negli strumenti correlati all'oggetto che cerca di creare (solitamente strumenti da artigiano). Potrebbe anche avere bisogno di materiali o luoghi particolari per crearli.
+
+  Per esempio, chi è competente negli strumenti da fabbro avrà bisogno di una forgia per fabbricare una spada o un'armatura.
+
+  Per ogni giorno fuori servizio trascorso a fabbricare oggetti, un personaggio può fabbricare uno o più oggetti di un valore di mercato totale che non superi le 5 mo e deve consumare una quantità di materie prime di valore pari alla metà del valore totale di mercato. Se desidera fabbricare qualcosa che abbia un valore totale di mercato superiore a 5 mo, ogni giorno farà dei progressi pari a 5 mo, finché non raggiunge il valore di mercato dell'oggetto.
+
+  Per esempio, se decide di fabbricarsi autonomamente un'armatura a piastre (del valore di mercato di 1.500 mo), dovrà lavorarci per 300 giorni.
+
+  Più personaggi possono unire le forze per fabbricare un singolo oggetto, purché tutti i personaggi abbiano competenza negli strumenti richiesti e lavorino nello stesso luogo. Ogni personaggio contribuisce con un valore di 5 mo al giorno al processo di fabbricazione dell'oggetto. Per esempio, tre personaggi dotati di competenza negli strumenti richiesti e delle strutture adeguate possono fabbricare un'armatura a piastre in 100 giorni a un costo totale di 750 mo.
+
+  Quando fabbrica un oggetto, un personaggio può condurre uno stile di vita modesto senza dover pagare 1 mo al giorno, o uno stile di vita agiato a metà del costo normale.

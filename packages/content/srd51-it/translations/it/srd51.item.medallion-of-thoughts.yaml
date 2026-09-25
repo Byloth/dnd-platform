@@ -1,0 +1,9 @@
+name: Medaglione dei pensieri
+text: |-
+  Oggetto meraviglioso, non comune (richiede sintonia)
+
+  Questo medaglione possiede 3 cariche. Finché il personaggio lo indossa, può usare un'azione e consumare 1 carica per lanciare l'incantesimo *individuazione dei pensieri* (CD del tiro salvezza 13). Il medaglione recupera 1d3 cariche consumate all'alba di ogni giorno.
+features.0.name: Individuazione dei pensieri
+features.0.text: |-
+  Finché il personaggio lo indossa, può usare un'azione e consumare 1 carica per lanciare l'incantesimo *individuazione dei pensieri* (CD del tiro salvezza 13).
+features.0.effects.0.note: CD del tiro salvezza 13.

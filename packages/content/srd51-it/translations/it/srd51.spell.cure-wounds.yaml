@@ -1,0 +1,6 @@
+name: Cura ferite
+text: |-
+  Una creatura toccata dall'incantatore recupera un numero di punti ferita pari a 1d8 + il modificatore di caratteristica da incantatore. Questo incantesimo non ha effetto sui non morti o sui costrutti.
+higherLevel: |-
+  Quando l'incantatore lancia questo incantesimo usando uno slot incantesimo di 2° livello o superiore, la guarigione aumenta di 1d8 per ogni slot di livello superiore al 1°.
+onCast.0.note: Più il modificatore di caratteristica da incantatore (nella v0 il linguaggio delle formule non ha una variabile per la caratteristica da incantatore).

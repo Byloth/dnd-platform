@@ -1,0 +1,179 @@
+name: Paladino
+levels.1.features.0.name: Percezione del Divino
+levels.1.features.0.text: |-
+  Un paladino percepisce una presenza del male particolarmente forte, come se un fetore assalisse le sue narici, mentre una forte presenza del bene equivale per lui a una musica celestiale che risuona nelle sue orecchie. Con un'azione, un paladino può proiettare le sue percezioni attorno a sé per avvertire la presenza di queste forze. Fino alla fine del suo turno successivo, il paladino conosce l'ubicazione di ogni celestiale, immondo o non morto entro 18 metri da lui e che non si trova sotto copertura totale. Il paladino riconosce il tipo (celestiale, immondo o non morto) di qualsiasi creatura di cui riesca a percepire la presenza, ma non la sua identità (il conte vampiro Strahd von Zarovich, per esempio). Entro lo stesso raggio, il paladino individua anche la presenza di qualsiasi luogo o oggetto sacro o sacrilego, con gli stessi effetti dell'incantesimo santificare.
+
+  Il paladino può utilizzare questo privilegio un numero di volte pari a 1 + il suo modificatore di Carisma. Quando completa un riposo lungo, recupera tutti gli utilizzi spesi.
+levels.1.features.0.effects.0.name: Percezione del Divino
+levels.1.features.0.effects.1.name: Percezione del Divino
+levels.1.features.0.effects.1.text: |-
+  Con un'azione, proietti le tue percezioni attorno a te. Fino alla fine del tuo turno successivo, conosci l'ubicazione di ogni celestiale, immondo o non morto entro 18 metri da te che non si trova sotto copertura totale, e ne riconosci il tipo (celestiale, immondo o non morto) ma non l'identità. Entro lo stesso raggio, individui anche qualsiasi luogo o oggetto sacro o sacrilego, con gli stessi effetti dell'incantesimo santificare.
+levels.1.features.0.effects.1.onUse.0.text: |-
+  Fino alla fine del tuo turno successivo, percepisci celestiali, immondi e non morti entro 18 metri (non sotto copertura totale) e luoghi o oggetti sacri o sacrileghi.
+levels.1.features.1.name: Imposizione delle Mani
+levels.1.features.1.text: |-
+  Il tocco benedetto di un paladino è in grado di guarire le ferite. Un paladino possiede una riserva di poteri curativi che si ricostituisce quando completa un riposo lungo. Grazie a quella riserva, può ripristinare un numero totale di punti ferita pari a 5 volte il proprio livello da paladino.
+
+  Con un'azione, il paladino può toccare una creatura e attingere al potere della sua riserva per ripristinare un certo numero di punti ferita in quella creatura, fino all'ammontare massimo rimasto nella sua riserva.
+
+  In alternativa, può spendere 5 punti ferita dalla sua riserva di guarigione per curare il bersaglio da una malattia o neutralizzare un veleno a cui è soggetto. Il paladino può curare più malattie e neutralizzare più veleni con un singolo utilizzo di Imposizione delle Mani, spendendo separatamente i punti ferita per ogni caso.
+
+  Questo privilegio non ha effetto sui costrutti e sui non morti.
+levels.1.features.1.effects.0.name: Riserva di Imposizione delle Mani
+levels.1.features.1.effects.1.name: Imposizione delle Mani
+levels.1.features.1.effects.1.text: |-
+  Tocchi una creatura e attingi al potere della tua riserva per ripristinare un certo numero di punti ferita in quella creatura, fino all'ammontare massimo rimasto nella tua riserva. Questo privilegio non ha effetto sui costrutti e sui non morti.
+levels.1.features.1.effects.1.onUse.0.note: |-
+  Scegli quanti punti spendere; ogni punto speso dalla riserva ripristina 1 punto ferita, fino all'ammontare rimasto nella riserva. Il costo di 1 è il minimo, non l'ammontare.
+levels.1.features.1.effects.1.note: |-
+  L'ammontare curato è scelto dal giocatore al momento dell'uso; il motore non gestisce ancora un costo di risorsa variabile.
+levels.1.features.1.effects.2.name: Imposizione delle Mani (curare malattie o veleni)
+levels.1.features.1.effects.2.text: |-
+  Spendi 5 punti ferita dalla tua riserva di guarigione per curare il bersaglio da una malattia o neutralizzare un veleno a cui è soggetto. Puoi curare più malattie e neutralizzare più veleni con un singolo utilizzo di Imposizione delle Mani, spendendo separatamente i punti ferita per ogni caso. Questo privilegio non ha effetto sui costrutti e sui non morti.
+levels.1.features.1.effects.2.onUse.0.text: |-
+  Cura una malattia o neutralizza un veleno a cui è soggetta la creatura toccata (5 punti per ciascuno; ripeti nella stessa azione per altre malattie o altri veleni).
+levels.2.features.0.name: Punizione Divina
+levels.2.features.0.text: |-
+  A partire dal 2° livello, quando il paladino colpisce una creatura con un attacco con arma da mischia, può spendere uno slot incantesimo per infliggere danni radiosi al bersaglio in aggiunta ai danni dell'arma. I danni extra sono 2d8 per uno slot incantesimo di 1° livello, più 1d8 per ogni livello di incantesimo superiore al 1°, fino a un massimo di 5d8. I danni aumentano di 1d8 se il bersaglio è un non morto o un immondo.
+levels.2.features.0.effects.0.name: Punizione Divina
+levels.2.features.0.effects.0.trigger: quando colpisci una creatura con un attacco con arma da mischia
+levels.2.features.0.effects.0.text: |-
+  Quando colpisci una creatura con un attacco con arma da mischia, puoi spendere uno slot incantesimo per infliggere danni radiosi al bersaglio in aggiunta ai danni dell'arma. I danni extra sono 2d8 per uno slot incantesimo di 1° livello, più 1d8 per ogni livello di incantesimo superiore al 1°, fino a un massimo di 5d8. I danni aumentano di 1d8 se il bersaglio è un non morto o un immondo.
+levels.2.features.0.effects.0.onHit.0.note: |-
+  2d8 per uno slot di 1° livello, più 1d8 per ogni livello dello slot superiore al 1° (massimo 5d8); +1d8 se il bersaglio è un non morto o un immondo.
+levels.2.features.0.effects.0.note: |-
+  Il costo è fisso a uno slot di 1° livello; spendere uno slot di livello superiore per ottenere più dadi non è ancora esprimibile (nel costo non esiste una variabile per il livello dello slot).
+levels.2.features.1.name: Stile di Combattimento
+levels.2.features.1.text: |-
+  Al 2° livello, un paladino adotta uno stile di combattimento in cui specializzarsi scegliendo una tra le opzioni seguenti. Non è consentito scegliere uno stile di combattimento più di una volta, anche se in seguito il paladino ha diritto a scegliere di nuovo.
+
+  ### Difesa
+
+  Finché indossa un'armatura, il paladino ottiene un bonus di +1 alla CA.
+
+  ### Duellare
+
+  Quando il paladino impugna un'arma da mischia in una mano e non impugna altre armi, ottiene un bonus di +2 ai tiri per i danni di quell'arma.
+
+  ### Combattere con Armi Possenti
+
+  Quando il paladino ottiene un 1 o un 2 a un tiro per i danni di un attacco che ha effettuato con un'arma da mischia impugnata a due mani, può ripetere il tiro e deve usare il nuovo risultato. L'arma deve possedere la proprietà a due mani o versatile affinché il paladino ottenga questo beneficio.
+
+  ### Protezione
+
+  Quando una creatura che il paladino sia in grado di vedere attacca un bersaglio diverso dal paladino e situato entro 1,5 metri da lui, il paladino può usare la sua reazione per infliggere svantaggio al tiro per colpire della creatura. Il paladino deve impugnare uno scudo.
+levels.2.features.1.effects.0.note: |-
+  Non è consentito scegliere uno stile di combattimento più di una volta, anche se in seguito il paladino ha diritto a scegliere di nuovo.
+levels.2.features.1.effects.0.options.0.name: Difesa
+levels.2.features.1.effects.0.options.0.text: |-
+  Finché indossa un'armatura, il paladino ottiene un bonus di +1 alla CA.
+levels.2.features.1.effects.0.options.1.name: Duellare
+levels.2.features.1.effects.0.options.1.text: |-
+  Quando il paladino impugna un'arma da mischia in una mano e non impugna altre armi, ottiene un bonus di +2 ai tiri per i danni di quell'arma.
+levels.2.features.1.effects.0.options.2.name: Combattere con Armi Possenti
+levels.2.features.1.effects.0.options.2.text: |-
+  Quando il paladino ottiene un 1 o un 2 a un tiro per i danni di un attacco che ha effettuato con un'arma da mischia impugnata a due mani, può ripetere il tiro e deve usare il nuovo risultato. L'arma deve possedere la proprietà a due mani o versatile affinché il paladino ottenga questo beneficio.
+levels.2.features.1.effects.0.options.2.effects.0.text: |-
+  Combattere con Armi Possenti: quando ottieni un 1 o un 2 a un dado dei danni di un attacco con un'arma da mischia impugnata a due mani (proprietà a due mani o versatile), ripeti il tiro di quel dado e usa il nuovo risultato.
+levels.2.features.1.effects.0.options.2.effects.0.note: |-
+  Ripetere i singoli dadi dei danni che mostrano 1 o 2 non ha un tipo di effetto nel catalogo; si risolve durante il gioco.
+levels.2.features.1.effects.0.options.3.name: Protezione
+levels.2.features.1.effects.0.options.3.text: |-
+  Quando una creatura che il paladino sia in grado di vedere attacca un bersaglio diverso dal paladino e situato entro 1,5 metri da lui, il paladino può usare la sua reazione per infliggere svantaggio al tiro per colpire della creatura. Il paladino deve impugnare uno scudo.
+levels.2.features.1.effects.0.options.3.effects.0.name: Protezione
+levels.2.features.1.effects.0.options.3.effects.0.trigger: quando una creatura che sei in grado di vedere attacca un bersaglio diverso da te e situato entro 1,5 metri da te
+levels.2.features.1.effects.0.options.3.effects.0.text: |-
+  Infliggi svantaggio al tiro per colpire. Devi impugnare uno scudo.
+levels.2.features.1.effects.0.options.3.effects.0.onUse.0.text: |-
+  Il tiro per colpire che ha attivato la reazione è effettuato con svantaggio.
+levels.2.features.2.name: Incantesimi
+levels.2.features.2.text: |-
+  Quando arriva al 2° livello, un paladino attinge alla magia divina attraverso la preghiera e la meditazione al fine di lanciare incantesimi in modo molto simile a un chierico.
+
+  ### Preparare e lanciare incantesimi
+
+  La tabella "Paladino" indica quanti slot incantesimo possiede un paladino per lanciare i suoi incantesimi. Per lanciare uno dei suoi incantesimi da paladino di 1° livello o superiore, deve spendere uno slot incantesimo di livello pari o superiore a quello dell'incantesimo. Recupera tutti gli slot incantesimo spesi quando completa un riposo lungo.
+
+  Il paladino prepara la lista degli incantesimi da paladino disponibili da lanciare scegliendoli dalla lista degli incantesimi da paladino. Quando lo fa, deve scegliere un numero di incantesimi da paladino pari al suo modificatore di Carisma + metà del suo livello da paladino arrotondato per difetto (minimo un incantesimo). Gli incantesimi devono essere di un livello di cui il paladino possiede degli slot incantesimo.
+
+  Per esempio, un paladino di 5° livello possiede quattro slot incantesimo di 1° livello e due slot incantesimo di 2° livello. Con Carisma pari a 14, la lista dei suoi incantesimi preparati può includere quattro incantesimi di 1° o 2° livello, in qualsiasi combinazione. Se prepara l'incantesimo di 1° livello cura ferite, potrà lanciarlo usando uno slot incantesimo di 1° livello o di 2° livello. Il lancio di quell'incantesimo non lo rimuove dalla lista di incantesimi preparati.
+
+  Il paladino può cambiare la lista dei suoi incantesimi preparati quando completa un riposo lungo. Per preparare una nuova lista di incantesimi da paladino, il personaggio deve passare un certo ammontare di tempo in preghiera e meditazione: almeno 1 minuto per livello di incantesimo per ogni incantesimo nella sua lista.
+
+  ### Caratteristica da incantatore
+
+  Carisma è la caratteristica da incantatore usata per gli incantesimi da paladino, dal momento che il suo potere deriva dalla forza delle sue convinzioni. Usa Carisma ogni volta che un incantesimo fa riferimento alla sua caratteristica da incantatore. Usa inoltre il suo modificatore di Carisma per definire la CD del tiro salvezza di un incantesimo da paladino da lui lanciato e quando effettua un tiro per colpire con un incantesimo.
+
+  **CD del tiro salvezza sull'incantesimo** = 8 + il bonus di competenza + il modificatore di Carisma
+
+  **Modificatore di attacco dell'incantesimo** = il bonus di competenza + il modificatore di Carisma
+  Focus da incantatore
+
+  Un paladino può usare un simbolo sacro come focus da incantatore per i suoi incantesimi da paladino.
+levels.3.features.0.name: Salute Divina
+levels.3.features.0.text: |-
+  Giunto al 3° livello, un paladino diventa immune alle malattie grazie alla magia divina.
+levels.3.features.1.name: Giuramento Sacro
+levels.3.features.1.text: |-
+  Una volta giunto al 3° livello, il paladino formula il giuramento che lo vincolerà alla sua vocazione per sempre. Finora il paladino ha vissuto una fase preparatoria in cui si è dedicato a una causa, ma non ha ancora formulato un giuramento. Ora deve scegliere tra il Giuramento di Devozione, il Giuramento degli Antichi e il Giuramento di Vendetta, tutti descritti alla fine della descrizione della classe.
+
+  Il giuramento scelto gli conferisce alcuni privilegi al 3° livello e poi di nuovo al 7°, 15° e 20° livello. Questi privilegi includono alcuni incantesimi di giuramento e il privilegio Incanalare Divinità.
+
+  ### Incantesimi di giuramento
+
+  A ogni giuramento è associata una lista di incantesimi. Il paladino ottiene l'accesso a questi incantesimi ai livelli specificati nella descrizione del giuramento. Una volta ottenuto l'accesso a un incantesimo, quell'incantesimo è sempre considerato preparato e non conta al fine di determinare il numero di incantesimi che il paladino può preparare ogni giorno.
+
+  Se il paladino possiede un incantesimo di giuramento che non compare sulla lista degli incantesimi da paladino, quell'incantesimo è comunque considerato un incantesimo da paladino per lui.
+
+  ### Incanalare Divinità
+
+  Grazie al suo giuramento, un paladino può incanalare l'energia divina per alimentare alcuni effetti magici. Ogni opzione di Incanalare Divinità fornitagli dal suo giuramento include la spiegazione del suo utilizzo.
+
+  Quando un paladino utilizza Incanalare Divinità, può scegliere quale opzione usare. Deve poi completare un riposo breve o lungo per utilizzare di nuovo Incanalare Divinità.
+
+  Alcuni effetti di Incanalare Divinità richiedono dei tiri salvezza. Quando un paladino utilizza un tale effetto, la CD è pari alla CD del tiro salvezza sui suoi incantesimi da paladino.
+levels.3.features.1.effects.0.name: Incanalare Divinità
+levels.3.features.1.effects.0.note: |-
+  Dichiarata qui perché le opzioni di Incanalare Divinità di ogni Giuramento Sacro spendono questa riserva; i privilegi del giuramento aggiungono le opzioni.
+levels.4.features.0.name: Aumento dei Punteggi di Caratteristica
+levels.4.features.0.text: |-
+  Quando arriva al 4° livello, e poi di nuovo all'8°, 12°, 16° e 19° livello, un paladino può aumentare di 2 un punteggio di caratteristica a sua scelta, oppure può aumentare di 1 due punteggi di caratteristica a sua scelta. Come di consueto, non è consentito aumentare un punteggio di caratteristica a più di 20 utilizzando questo privilegio.
+levels.5.features.0.name: Attacco Extra
+levels.5.features.0.text: |-
+  A partire dal 5° livello, un paladino può attaccare due volte anziché una, ogni volta che effettua l'azione Attacco nel proprio turno.
+levels.6.features.0.name: Aura di Protezione
+levels.6.features.0.text: |-
+  A partire dal 6° livello, ogni volta che il paladino o una creatura amica entro 3 metri da lui deve effettuare un tiro salvezza, il paladino o la creatura in questione ottiene un bonus al tiro salvezza pari al modificatore di Carisma del paladino (fino a un bonus minimo di +1). Il paladino deve essere cosciente per conferire questo bonus.
+
+  Al 18° livello, la gittata di quest'aura aumenta a 9 metri.
+levels.6.features.0.effects.0.note: Si applica finché sei cosciente.
+levels.6.features.0.effects.1.text: |-
+  Le creature amiche entro 3 metri da te (9 metri al 18° livello) ottengono lo stesso bonus ai loro tiri salvezza finché sei cosciente.
+levels.6.features.0.effects.1.note: |-
+  Il bonus agli alleati e la condizione di essere cosciente si gestiscono durante il gioco; la gittata è table(paladin.aura-range).
+levels.10.features.0.name: Aura di Coraggio
+levels.10.features.0.text: |-
+  A partire dal 10° livello, il paladino e le creature amiche entro 3 metri da lui non possono essere spaventati finché il paladino è cosciente.
+
+  Al 18° livello, la gittata di quest'aura aumenta a 9 metri.
+levels.10.features.0.effects.0.note: Si applica finché sei cosciente.
+levels.10.features.0.effects.1.text: |-
+  Le creature amiche entro 3 metri da te (9 metri al 18° livello) non possono essere spaventate finché sei cosciente.
+levels.10.features.0.effects.1.note: |-
+  L'immunità per gli alleati e la condizione di essere cosciente si gestiscono durante il gioco; la gittata è table(paladin.aura-range).
+levels.11.features.0.name: Punizione Divina Migliorata
+levels.11.features.0.text: |-
+  All'11° livello, il paladino è talmente pervaso dalla potenza della giustizia che tutti i suoi colpi con le armi si caricano di potere divino. Ogni volta che colpisce una creatura con un'arma da mischia, quella creatura subisce 1d8 danni radiosi extra. Se il paladino usa anche Punizione Divina insieme a un attacco, aggiunge questi danni ai danni extra di Punizione Divina.
+levels.11.features.0.effects.0.note: |-
+  Ogni volta che colpisci una creatura con un'arma da mischia, quella creatura subisce 1d8 danni radiosi extra; se usi anche Punizione Divina, aggiungi questi danni ai danni extra di Punizione Divina.
+levels.14.features.0.name: Tocco Purificatore
+levels.14.features.0.text: |-
+  A partire dal 14° livello, il paladino può usare la sua azione per terminare un incantesimo su se stesso o su una creatura consenziente che sta toccando.
+
+  Il paladino può utilizzare questo privilegio un numero di volte pari al suo modificatore di Carisma (fino a un minimo di una volta). Recupera gli utilizzi spesi quando completa un riposo lungo.
+levels.14.features.0.effects.0.name: Tocco Purificatore
+levels.14.features.0.effects.1.name: Tocco Purificatore
+levels.14.features.0.effects.1.text: |-
+  Usi la tua azione per terminare un incantesimo su te stesso o su una creatura consenziente che stai toccando.
+levels.14.features.0.effects.1.onUse.0.text: |-
+  Termina un incantesimo su te stesso o su una creatura consenziente che tocchi.

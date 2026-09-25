@@ -1,0 +1,12 @@
+name: Arma spietata
+text: |-
+  Arma (qualsiasi), rara
+
+  Quando il personaggio ottiene un risultato di 20 al tiro per colpire con quest'arma magica, il colpo critico infligge 2d6 danni extra del tipo inflitto dall'arma.
+features.0.name: Arma magica
+features.0.effects.0.note: Qualsiasi arma; quest'oggetto non ha proprietà di un'arma base proprie.
+features.1.name: Spietata
+features.1.effects.0.name: Spietata
+features.1.effects.0.trigger: quando ottieni 20 al tiro per colpire con quest'arma
+features.1.effects.0.text: Il tuo colpo critico infligge 2d6 danni extra del tipo inflitto dall'arma.
+features.1.effects.0.onHit.0.note: Del tipo di danni dell'arma.

@@ -1,0 +1,7 @@
+name: Elmo del teletrasporto
+text: |-
+  Oggetto meraviglioso, raro (richiede sintonia)
+
+  Questo elmo possiede 3 cariche. Finché il personaggio lo indossa, può usare un'azione e consumare 1 carica per lanciare l'incantesimo teletrasporto. L'elmo recupera 1d3 cariche consumate all'alba di ogni giorno.
+features.0.name: Teletrasporto
+features.0.text: Finché il personaggio indossa l'elmo, può usare un'azione e consumare 1 carica per lanciare l'incantesimo teletrasporto.

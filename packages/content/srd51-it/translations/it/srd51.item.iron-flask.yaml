@@ -1,0 +1,48 @@
+name: Ampolla di ferro
+text: |-
+  Oggetto meraviglioso, leggendario
+
+  Questa bottiglia di ferro è chiusa da un tappo d'ottone. Il personaggio può usare un'azione per pronunciarne la parola d'ordine puntandola verso una creatura che è in grado di vedere e che è situata entro 18 metri da lui. Se il bersaglio è originario di un piano di esistenza diverso da quello in cui si trova ora, deve superare un tiro salvezza su Saggezza con CD 17, altrimenti viene intrappolato all'interno dell'ampolla. Se il bersaglio è stato intrappolato nell'ampolla in precedenza, dispone di vantaggio al tiro salvezza. Una volta intrappolata, la creatura rimane nell'ampolla finché non viene liberata. L'ampolla può contenere una sola creatura alla volta. Una creatura intrappolata nell'ampolla non ha bisogno di respirare, mangiare o bere e non invecchia.
+
+  Il personaggio può usare un'azione per rimuovere il tappo dell'ampolla e liberare la creatura prigioniera al suo interno. La creatura è amichevole nei confronti del personaggio e dei suoi compagni per 1 ora, durante la quale ubbidisce ai suoi comandi. Se non riceve alcun comando o riceve un comando che potrebbe portarla alla morte, si limita a difendersi senza eseguire alcuna azione. Alla fine dell'ora, la creatura torna a comportarsi come previsto dalla sua natura e dal suo allineamento.
+
+  Un incantesimo *identificare* rivela se l'ampolla contiene una creatura, ma l'unico modo per determinare di che tipo di creatura si tratta è aprirla. Quando viene trovata, l'ampolla può contenere già una creatura, scelta o determinata a caso dal GM.
+
+  | d100 | Contenuto |
+  |---|---|
+  | 1-50 | Vuota |
+  | 51-54 | Demone (tipo 1) |
+  | 55-58 | Demone (tipo 2) |
+  | 59-62 | Demone (tipo 3) |
+  | 63-64 | Demone (tipo 4) |
+  | 65 | Demone (tipo 5) |
+  | 66 | Demone (tipo 6) |
+  | 67 | Deva |
+  | 68-69 | Diavolo (maggiore) |
+  | 70-73 | Diavolo (minore) |
+  | 74-75 | Djinni |
+  | 76-77 | Efreeti |
+  | 78-83 | Elementale (qualsiasi) |
+  | 84-86 | Cacciatore invisibile |
+  | 87-90 | Megera notturna |
+  | 91 | Planetar |
+  | 92-95 | Salamandra |
+  | 96 | Solar |
+  | 97-99 | Succube/incubo |
+  | 100 | Xorn |
+features.0.name: Intrappolare una creatura
+features.0.text: |-
+  Il personaggio può usare un'azione per pronunciarne la parola d'ordine puntandola verso una creatura che è in grado di vedere e che è situata entro 18 metri da lui. Se il bersaglio è originario di un piano di esistenza diverso da quello in cui si trova ora, deve superare un tiro salvezza su Saggezza con CD 17, altrimenti viene intrappolato all'interno dell'ampolla. Se il bersaglio è stato intrappolato nell'ampolla in precedenza, dispone di vantaggio al tiro salvezza. Una volta intrappolata, la creatura rimane nell'ampolla finché non viene liberata. L'ampolla può contenere una sola creatura alla volta.
+features.0.effects.0.name: Intrappolare una creatura
+features.0.effects.0.onUse.0.text: |-
+  Può essere intrappolata solo una creatura originaria di un altro piano. Dispone di vantaggio al tiro salvezza se l'ampolla l'ha già intrappolata in precedenza. L'ampolla contiene una sola creatura alla volta.
+features.0.effects.0.text: |-
+  Si punta l'ampolla verso una creatura visibile entro 18 metri. Se è originaria di un altro piano, deve superare un tiro salvezza su Saggezza con CD 17, altrimenti viene intrappolata nell'ampolla.
+features.1.name: Liberare
+features.1.text: |-
+  Il personaggio può usare un'azione per rimuovere il tappo dell'ampolla e liberare la creatura prigioniera al suo interno. La creatura è amichevole nei confronti del personaggio e dei suoi compagni per 1 ora, durante la quale ubbidisce ai suoi comandi.
+features.1.effects.0.name: Liberare
+features.1.effects.0.onUse.0.text: |-
+  La creatura liberata è amichevole nei confronti del personaggio e dei suoi compagni per 1 ora e ubbidisce ai suoi comandi. Se non riceve alcun comando o riceve un comando che potrebbe portarla alla morte, si limita a difendersi senza eseguire alcuna azione.
+features.1.effects.0.text: |-
+  Si rimuove il tappo per liberare la creatura contenuta nell'ampolla, che ubbidisce al personaggio per 1 ora.

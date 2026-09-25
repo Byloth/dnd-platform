@@ -1,0 +1,12 @@
+name: "Armatura demoniaca"
+text: |-
+  Armatura (armatura a piastre), molto rara (richiede sintonia)
+
+  Mentre il personaggio indossa questa armatura, ottiene un bonus di +1 alla CA ed è in grado di comprendere e parlare l'Abissale. Inoltre, i guanti d'arme artigliati dell'armatura trasformano i colpi senz'armi effettuati con le mani in armi magiche che infliggono 1d8 danni taglienti, con un bonus di +1 ai tiri per colpire e ai tiri per i danni.
+
+  ***Maledizione.*** Una volta indossata quest'armatura maledetta, il personaggio non può togliersela a meno che non sia bersagliato da un incantesimo rimuovi maledizione o una magia analoga. Mentre l'indossa, il personaggio subisce svantaggio ai tiri per colpire contro i demoni e ai tiri salvezza contro i loro incantesimi e le loro abilità speciali.
+features.0.name: "Armatura demoniaca"
+features.0.effects.1.note: "Mentre indossi l'armatura, sei in grado di comprendere e parlare l'Abissale."
+features.0.effects.2.note: "I guanti d'arme artigliati dell'armatura trasformano i colpi senz'armi effettuati con le mani in armi magiche."
+features.1.name: "Maledizione"
+features.1.effects.2.text: "Maledizione. Una volta indossata quest'armatura maledetta, non puoi togliertela a meno che tu non sia bersagliato da un incantesimo rimuovi maledizione o una magia analoga."

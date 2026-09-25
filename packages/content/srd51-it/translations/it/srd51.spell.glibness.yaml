@@ -1,0 +1,6 @@
+name: Loquacità
+text: |-
+  Fino al termine dell'incantesimo, quando l'incantatore effettua una prova di Carisma, può sostituire il risultato del tiro con un 15. Inoltre, a prescindere da ciò che dice, le magie in grado di determinare se un bersaglio stia dicendo o meno la verità indicano che l'incantatore è sincero.
+effects.0.text: |-
+  Quando effettui una prova di Carisma, puoi sostituire il risultato del tiro con un 15. Le magie in grado di determinare se stai dicendo la verità indicano che sei sincero.
+effects.0.note: Sostituire il risultato del d20 non può essere espresso da modify in v0.

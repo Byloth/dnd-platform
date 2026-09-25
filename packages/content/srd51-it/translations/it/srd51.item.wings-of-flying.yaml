@@ -1,0 +1,12 @@
+name: Ali del volo
+text: |-
+  Oggetto meraviglioso, raro (richiede sintonia)
+
+  Mentre il personaggio indossa questo mantello, può usare un'azione per pronunciarne la parola d'ordine. Quando lo fa, il mantello si trasforma in un paio di ali da pipistrello o da uccello che spuntano dalla sua schiena per 1 ora o finché il personaggio non usa un'azione per ripetere la parola d'ordine. Le ali gli forniscono una velocità di volare di 18 metri. Quando scompaiono, il personaggio non può riutilizzarle per 1d12 ore.
+features.0.name: Ali
+features.0.effects.0.name: Ali del volo
+features.0.effects.0.note: Quando le ali scompaiono, non puoi riutilizzarle per 1d12 ore; non esiste un recupero a tempo, quindi ripristinale a mano.
+features.0.effects.1.name: Far spuntare le ali
+features.0.effects.1.text: "Pronuncia la parola d'ordine: il mantello si trasforma in un paio di ali da pipistrello o da uccello che spuntano dalla tua schiena per 1 ora o finché non usi un'azione per ripetere la parola d'ordine. Le ali ti forniscono una velocità di volare di 18 metri."
+features.0.effects.2.name: Congedare le ali
+features.0.effects.2.text: Ripeti la parola d'ordine per far scomparire le ali.

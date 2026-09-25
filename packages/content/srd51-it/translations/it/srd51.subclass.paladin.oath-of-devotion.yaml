@@ -1,0 +1,71 @@
+name: Giuramento di Devozione
+levels.3.features.0.name: Incanalare Divinità
+levels.3.features.0.text: |-
+  Quando il paladino presta questo giuramento al 3° livello, ottiene le due seguenti opzioni di Incanalare Divinità.
+
+  **Arma Consacrata.** Con un'azione, il paladino può utilizzare Incanalare Divinità per infondere un flusso di energia positiva in un'arma da lui impugnata. Per 1 minuto il paladino aggiunge il suo modificatore di Carisma ai tiri per colpire effettuati con quell'arma (fino a un bonus minimo di +1). L'arma emette inoltre luce intensa entro un raggio di 6 metri e luce fioca per ulteriori 6 metri. Se l'arma non è già magica, diventa magica per questa durata.
+
+  Il paladino può porre termine a questo effetto nel suo turno come parte di qualsiasi altra azione. Se non impugna o non trasporta più questa arma, o se cade privo di sensi, questo effetto termina.
+
+  **Scacciare i Sacrileghi.** Con un'azione, il paladino può utilizzare Incanalare Divinità, brandire il suo simbolo sacro e pronunciare una preghiera di condanna nei confronti degli immondi e dei non morti. Ogni immondo o non morto che sia in grado di vedere o sentire il paladino e che si trovi entro 9 metri da lui deve effettuare un tiro salvezza su Saggezza. Se lo fallisce, la creatura è scacciata per 1 minuto o finché non subisce danni.
+
+  Una creatura scacciata deve spendere i suoi turni tentando di allontanarsi il più possibile dal paladino e non può volontariamente muoversi in uno spazio entro 9 metri da lui. Inoltre, non può effettuare reazioni. Come sua azione può usare solo l'azione di Scatto o tentare di fuggire da un effetto che gli impedisce di muoversi. Se non può muoversi in alcuno spazio, la creatura può usare l'azione Schivata.
+levels.3.features.0.effects.0.name: "Incanalare Divinità: Arma Consacrata"
+levels.3.features.0.effects.0.text: Infondi un flusso di energia positiva in un'arma da te impugnata. Per 1 minuto aggiungi il tuo modificatore di Carisma ai tiri per colpire effettuati con quell'arma (fino a un bonus minimo di +1). L'arma emette inoltre luce intensa entro un raggio di 6 metri e luce fioca per ulteriori 6 metri. Se l'arma non è già magica, diventa magica per questa durata. Puoi porre termine a questo effetto nel tuo turno come parte di qualsiasi altra azione. Se non impugni o non trasporti più questa arma, o se cadi privo di sensi, questo effetto termina.
+levels.3.features.0.effects.0.onUse.0.text: Scegli l'arma. Emette luce intensa entro un raggio di 6 metri e luce fioca per ulteriori 6 metri. L'effetto termina prima se smetti di impugnare o trasportare l'arma o se cadi privo di sensi.
+levels.3.features.0.effects.1.note: Solo l'arma a cui è stata infusa Arma Consacrata; il motore non può distinguere una singola arma, quindi il bonus è mostrato su ogni attacco finché lo stato è attivo.
+levels.3.features.0.effects.2.name: "Incanalare Divinità: Scacciare i Sacrileghi"
+levels.3.features.0.effects.2.text: Brandisci il tuo simbolo sacro e pronunci una preghiera di condanna nei confronti degli immondi e dei non morti. Ogni immondo o non morto che sia in grado di vederti o sentirti e che si trovi entro 9 metri da te deve effettuare un tiro salvezza su Saggezza. Se lo fallisce, la creatura è scacciata per 1 minuto o finché non subisce danni. Una creatura scacciata deve spendere i suoi turni tentando di allontanarsi il più possibile da te e non può volontariamente muoversi in uno spazio entro 9 metri da te. Inoltre, non può effettuare reazioni. Come sua azione può usare solo l'azione di Scatto o tentare di fuggire da un effetto che le impedisce di muoversi. Se non può muoversi in alcuno spazio, la creatura può usare l'azione Schivata.
+levels.3.features.0.effects.2.onUse.0.text: Ogni immondo o non morto entro 9 metri che sia in grado di vederti o sentirti effettua un tiro salvezza su Saggezza contro la CD del tiro salvezza sui tuoi incantesimi da paladino; se lo fallisce, è scacciato per 1 minuto o finché non subisce danni.
+levels.3.features.0.effects.2.note: La risorsa Incanalare Divinità (1 utilizzo, recuperato con un riposo breve o lungo) è dichiarata dal privilegio Giuramento Sacro; la CD è la CD del tiro salvezza sugli incantesimi da paladino.
+levels.3.features.1.name: Incantesimi di giuramento
+levels.3.features.1.text: |-
+  Il paladino ottiene gli incantesimi seguenti ai livelli da paladino elencati.
+
+  ### Incantesimi del Giuramento di Devozione
+  | Livello da paladino | Incantesimi |
+  | --- | --- |
+  | 3° | protezione dal bene e dal male, santuario |
+  | 5° | ristorare inferiore, zona di verità |
+  | 9° | dissolvi magie, faro di speranza |
+  | 13° | guardiano della fede, libertà di movimento |
+  | 17° | colpo infuocato, comunione |
+levels.3.features.1.effects.0.note: Gli incantesimi di giuramento sono sempre preparati, non contano al fine di determinare il numero di incantesimi che puoi preparare e contano come incantesimi da paladino per te.
+levels.3.features.2.name: Dettami di devozione
+levels.3.features.2.text: |-
+  Sebbene le parole e gli obblighi esatti del Giuramento di Devozione possano variare, i paladini di questo giuramento condividono i seguenti precetti.
+
+  *Onestà.* Non mentire e non rubare. Che la tua parola sia vincolante come una promessa.
+
+  *Coraggio.* Non avere mai paura di agire, anche se la prudenza è sempre sinonimo di saggezza.
+
+  *Compassione.* Aiuta gli altri, proteggi i deboli e punisci coloro che li minacciano. Mostra pietà ai tuoi nemici, ma che la tua pietà sia accompagnata dalla saggezza.
+
+  *Onore.* Tratta gli altri con gentilezza e lascia che i tuoi atti onorevoli siano di esempio per loro. Fa' tutto il bene possibile, provocando il minimo danno possibile.
+
+  *Dovere.* Sii responsabile delle tue azioni e delle loro conseguenze, proteggi coloro che sono stati affidati alle tue cure e obbedisci a chi esercita la sua legittima autorità su di te.
+levels.7.features.0.name: Aura di devozione
+levels.7.features.0.text: |-
+  A partire dal 7° livello, il paladino e le creature amiche entro 3 metri da lui non possono essere affascinate finché il paladino è cosciente.
+
+  Al 18° livello, la gittata di quest'aura aumenta a 9 metri.
+levels.7.features.0.effects.0.note: Si applica finché sei cosciente.
+levels.7.features.0.effects.1.text: Le creature amiche entro 3 metri da te (9 metri al 18° livello) non possono essere affascinate finché sei cosciente.
+levels.7.features.0.effects.1.note: L'immunità per gli alleati e la condizione di essere cosciente sono gestite in gioco; la gittata è table(paladin.aura-range).
+levels.15.features.0.name: Purezza di Spirito
+levels.15.features.0.text: A partire dal 15° livello, il paladino è sempre sotto l'effetto di un incantesimo *protezione dal bene e dal male*.
+levels.15.features.0.effects.0.text: Sei sempre sotto l'effetto di un incantesimo protezione dal bene e dal male.
+levels.15.features.0.effects.0.note: "Capacità mancante: applicare permanentemente al personaggio gli effetti continui di un incantesimo (apply-spell-effect); vedi srd51.spell.protection-from-evil-and-good."
+levels.20.features.0.name: Nube Sacra
+levels.20.features.0.text: |-
+  Al 20° livello, con un'azione, il paladino può emanare un'aura di luce solare. Per 1 minuto, il paladino emette luce intensa attorno a sé entro un raggio di 9 metri e luce fioca per ulteriori 9 metri.
+
+  Ogni volta che una creatura nemica inizia il suo turno nella luce intensa, subisce 10 danni radiosi.
+
+  Inoltre, per la durata dell'effetto, il paladino dispone di vantaggio ai tiri salvezza contro gli incantesimi lanciati dagli immondi o dai non morti.
+
+  Una volta utilizzato questo privilegio, il paladino non può più utilizzarlo finché non completa un riposo lungo.
+levels.20.features.0.effects.0.name: Nube Sacra
+levels.20.features.0.effects.1.name: Nube Sacra
+levels.20.features.0.effects.1.text: Emani un'aura di luce solare. Per 1 minuto, emetti luce intensa attorno a te entro un raggio di 9 metri e luce fioca per ulteriori 9 metri. Ogni volta che una creatura nemica inizia il suo turno nella luce intensa, subisce 10 danni radiosi. Inoltre, per la durata dell'effetto, disponi di vantaggio ai tiri salvezza contro gli incantesimi lanciati dagli immondi o dai non morti.
+levels.20.features.0.effects.1.onUse.0.text: Per 1 minuto, ogni nemico che inizia il suo turno nella luce intensa (raggio di 9 metri) subisce 10 danni radiosi.

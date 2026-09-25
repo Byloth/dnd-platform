@@ -1,0 +1,11 @@
+name: Statua del soffio di fuoco
+text: |-
+  _Trappola magica_
+
+  Questa trappola si attiva quando un intruso calpesta una piastra a pressione nascosta, rilasciando un getto magico di fiamme da una statua vicina. La statua può avere qualsiasi aspetto, da quello di un drago a quello di un mago nell'atto di lanciare un incantesimo.
+
+  La CD per individuare la piastra a pressione o i deboli segni di bruciature presenti sul pavimento e sulle pareti è pari a 15. Un incantesimo o un altro effetto in grado di percepire la presenza della magia, come _individuazione del magico_, rivela un'aura di magia di invocazione attorno alla statua.
+
+  La trappola viene innescata quando sulla piastra a pressione si trovano più di 10 kg, sprigionando dalla statua un cono di fuoco di 9 metri. Ogni creatura nel cono di fuoco deve effettuare un tiro salvezza su Destrezza con CD 13 e subisce 22 (4d10) danni da fuoco in caso di fallimento, o la metà dei danni in caso di successo.
+
+  Inserire uno spuntone di ferro o un oggetto analogo sotto la piastra a pressione impedisce alla trappola di attivarsi. Un incantesimo _dissolvi magie_ (CD 13) lanciato contro la statua distrugge la trappola.

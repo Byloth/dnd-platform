@@ -1,0 +1,10 @@
+name: Bacchetta della ragnatela
+text: |-
+  Bacchetta, non comune (richiede sintonia con un incantatore)
+
+  Questa bacchetta possiede 7 cariche. Mentre il personaggio la impugna, può usare un'azione per consumare 1 carica e lanciare con essa l'incantesimo ragnatela (CD del tiro salvezza 15).
+
+  All'alba di ogni giorno, la bacchetta recupera 1d6 + 1 cariche consumate. Se il personaggio consuma l'ultima carica, deve tirare un d20: se ottiene 1, la bacchetta diventa cenere e viene distrutta.
+attunement.by: un incantatore
+features.0.name: Ragnatela
+features.0.effects.0.note: "CD del tiro salvezza 15; si lancia con un'azione mentre impugni la bacchetta. Se consumi l'ultima carica, tira un d20: con un 1 la bacchetta diventa cenere e viene distrutta."

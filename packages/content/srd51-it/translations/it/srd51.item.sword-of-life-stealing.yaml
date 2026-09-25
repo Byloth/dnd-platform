@@ -1,0 +1,14 @@
+name: Spada del furto vitale
+text: |-
+  Arma (qualsiasi spada), rara (richiede sintonia)
+
+  Quando il personaggio attacca una creatura con quest'arma magica e ottiene 20 al tiro per colpire, il bersaglio subisce 3d6 danni necrotici extra se non è un costrutto o un non morto. Il personaggio riceve inoltre punti ferita temporanei pari ai danni extra inflitti.
+features.0.name: Arma magica
+features.0.effects.0.note: Qualsiasi spada; quest'oggetto non ha proprietà di un'arma base proprie.
+features.1.name: Furto vitale
+features.1.effects.0.name: Furto vitale
+features.1.effects.0.trigger: quando ottieni 20 a un tiro per colpire con quest'arma contro una creatura
+features.1.effects.0.text: |-
+  Il bersaglio subisce 3d6 danni necrotici extra, se non è un costrutto o un non morto. Ricevi punti ferita temporanei pari ai danni extra inflitti.
+features.1.effects.0.onHit.0.note: Non contro costrutti o non morti.
+features.1.effects.0.onHit.1.text: Ricevi punti ferita temporanei pari ai danni necrotici inflitti.

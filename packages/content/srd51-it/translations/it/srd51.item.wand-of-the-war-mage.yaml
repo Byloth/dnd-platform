@@ -1,0 +1,9 @@
+name: Bacchetta del mago da guerra +1, +2 o +3
+text: |-
+  Bacchetta, non comune (+1), rara (+2) o molto rara (+3) (richiede sintonia con un incantatore)
+
+  Mentre il personaggio impugna questa bacchetta, riceve un bonus ai tiri per colpire con incantesimo determinato dalla rarità della bacchetta. Il personaggio può inoltre ignorare mezza copertura quando effettua un attacco con incantesimo.
+attunement.by: un incantatore
+features.0.name: Mago da guerra
+features.0.effects.0.note: "Il bonus è determinato dalla rarità della bacchetta: +1 (non comune), +2 (rara) o +3 (molto rara). Questa voce riporta il valore +1; per le altre varianti il valore va cambiato."
+features.0.effects.1.text: Ignori mezza copertura quando effettui un attacco con incantesimo.

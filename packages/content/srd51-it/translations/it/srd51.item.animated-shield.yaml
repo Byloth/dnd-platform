@@ -1,0 +1,11 @@
+name: Scudo animato
+text: |-
+  Armatura (scudo), molto raro (richiede sintonia)
+
+  Il personaggio che impugna questo scudo può pronunciare la sua parola d'ordine come azione bonus per animarlo. Lo scudo si solleva in aria e fluttua nello spazio del personaggio per proteggerlo come quando quest'ultimo lo impugna normalmente, ma lasciandogli le mani libere. Lo scudo resta animato per 1 minuto, finché il personaggio non usa un'azione bonus per terminare l'effetto o finché il personaggio non diventa incapacitato o muore. In questi casi, lo scudo cade a terra o torna in mano al personaggio, se questi ha almeno una mano libera.
+features.0.name: Animare
+features.0.effects.0.name: Animare lo scudo
+features.0.effects.0.text: |-
+  Pronuncia la parola d'ordine per far fluttuare lo scudo nel tuo spazio e proteggerti come se lo impugnassi, lasciandoti le mani libere. Lo scudo resta animato per 1 minuto, finché non usi un'azione bonus per terminare l'effetto o finché non diventi incapacitato o muori.
+features.0.effects.0.note: |-
+  Mentre è animato, il normale bonus alla CA dello scudo si applica con le mani libere; il motore non distingue uno scudo fluttuante da uno impugnato, quindi tienilo equipaggiato.

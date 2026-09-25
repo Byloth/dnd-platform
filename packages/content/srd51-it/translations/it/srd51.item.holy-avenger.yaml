@@ -1,0 +1,14 @@
+name: Sacro vendicatore
+text: |-
+  Arma (qualsiasi spada), leggendaria (richiede sintonia con un paladino)
+
+  Il personaggio ottiene un bonus di +3 ai tiri per colpire e ai tiri per i danni effettuati con quest'arma magica. Quando colpisce con quest'arma un immondo o un non morto, quella creatura subisce 2d10 danni radiosi extra.
+
+  Finché il personaggio impugna la spada sguainata, essa emana intorno a sé un'aura del raggio di 3 metri. Il personaggio e tutte le creature amichevoli nei suoi confronti situate all'interno dell'aura dispongono di vantaggio ai tiri salvezza contro gli incantesimi e gli altri effetti magici. Se il personaggio possiede 17 o più livelli nella classe del paladino, il raggio dell'aura aumenta a 9 metri.
+attunement.by: un paladino
+features.0.name: Arma magica
+features.0.text: Il personaggio ottiene un bonus di +3 ai tiri per colpire e ai tiri per i danni effettuati con quest'arma magica. Quando colpisce con quest'arma un immondo o un non morto, quella creatura subisce 2d10 danni radiosi extra.
+features.0.effects.1.note: Solo quando colpisci un immondo o un non morto.
+features.1.name: Aura
+features.1.text: Finché il personaggio impugna la spada sguainata, essa emana intorno a sé un'aura del raggio di 3 metri. Il personaggio e tutte le creature amichevoli nei suoi confronti situate all'interno dell'aura dispongono di vantaggio ai tiri salvezza contro gli incantesimi e gli altri effetti magici. Se il personaggio possiede 17 o più livelli nella classe del paladino, il raggio dell'aura aumenta a 9 metri.
+features.1.effects.0.note: Finché impugni la spada sguainata. Le creature amichevoli nei tuoi confronti entro 3 metri condividono il vantaggio; 9 metri se possiedi 17 o più livelli da paladino.

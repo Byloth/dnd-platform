@@ -1,0 +1,16 @@
+name: Talismano della rimarginazione
+text: |-
+  Oggetto meraviglioso, non comune (richiede sintonia)
+
+  Finché il personaggio indossa questo pendente, si stabilizza automaticamente ogni volta che sta per morire all'inizio del suo turno. Inoltre, ogni volta che tira un Dado Vita per recuperare punti ferita, raddoppia il numero di punti ferita ripristinati.
+features.0.name: Rimarginazione
+features.0.text: |-
+  Finché il personaggio indossa questo pendente, si stabilizza automaticamente ogni volta che sta per morire all'inizio del suo turno. Inoltre, ogni volta che tira un Dado Vita per recuperare punti ferita, raddoppia il numero di punti ferita ripristinati.
+features.0.effects.0.text: |-
+  Ogni volta che tiri un Dado Vita per recuperare punti ferita, raddoppia il numero di punti ferita ripristinati.
+features.0.effects.0.note: |-
+  La guarigione dei Dadi Vita non ha un bersaglio di modifica.
+features.0.onTurnStart.0.text: |-
+  Se stai per morire all'inizio del tuo turno, ti stabilizzi.
+features.0.onRest.0.text: |-
+  Ogni volta che tiri un Dado Vita per recuperare punti ferita, raddoppia il numero di punti ferita ripristinati.

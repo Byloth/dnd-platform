@@ -1,0 +1,7 @@
+name: Beffa crudele
+text: |-
+  L'incantatore pronuncia una sequenza di insulti mescolati a impercettibili ammaliamenti contro una creatura entro gittata che è in grado di vedere. Se il bersaglio è in grado di sentirlo (non è necessario che lo capisca), deve superare un tiro salvezza su Saggezza, altrimenti subisce 1d4 danni psichici e svantaggio al tiro per colpire successivo che effettua prima della fine del suo turno successivo.
+higherLevel: |-
+  I danni di questo incantesimo aumentano di 1d4 quando l'incantatore raggiunge il 5° livello (2d4), l'11° livello (3d4) e il 17° livello (4d4).
+onCast.0.text: |-
+  Solo se il bersaglio è in grado di sentirti. Se fallisce il tiro salvezza, subisce anche svantaggio al tiro per colpire successivo che effettua prima della fine del suo turno successivo.

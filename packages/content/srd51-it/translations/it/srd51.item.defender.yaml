@@ -1,0 +1,11 @@
+name: "Difensiva"
+text: |-
+  Arma (qualsiasi spada), leggendaria (richiede sintonia)
+
+  Il personaggio ottiene un bonus di +3 ai tiri per colpire e ai tiri per i danni effettuati con quest'arma magica.
+
+  La prima volta in ogni suo turno in cui attacca con quest'arma, il personaggio può trasferire tutto il bonus dell'arma o parte di esso alla propria Classe Armatura, anziché usarlo negli attacchi effettuati in quel turno. Potrebbe, per esempio, ridurre il bonus ai tiri per colpire e a quelli per i danni a +1 e ottenere un bonus di +2 alla CA. I bonus modificati restano in vigore fino all'inizio del turno successivo del personaggio, che deve però impugnare l'arma per ottenere il bonus alla CA.
+features.0.name: "Bonus di +3"
+features.0.effects.1.name: "Trasferire il bonus della spada alla CA"
+features.0.effects.1.text: "La prima volta in ogni tuo turno in cui attacchi con la spada, puoi trasferire tutto il bonus di +3 della spada o parte di esso alla tua Classe Armatura, anziché usarlo negli attacchi effettuati in quel turno (per esempio, +1 ai tiri per colpire e ai tiri per i danni e +2 alla CA). I bonus modificati restano in vigore fino all'inizio del tuo turno successivo; devi impugnare la spada per ottenere il bonus alla CA."
+features.0.effects.1.onUse.0.text: "Scegli la ripartizione: riduci il bonus ai tiri per colpire e ai tiri per i danni della quantità che aggiungi alla CA (fino a +3), fino all'inizio del tuo turno successivo."

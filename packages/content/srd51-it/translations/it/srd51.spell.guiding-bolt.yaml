@@ -1,0 +1,7 @@
+name: Dardo tracciante
+text: |-
+  Un lampo di luce sfreccia verso una creatura entro gittata scelta dall'incantatore, effettuando un attacco a distanza con incantesimo contro il bersaglio. Se il colpo va a segno, il bersaglio subisce 4d6 danni radiosi e il successivo tiro per colpire effettuato contro il bersaglio entro la fine del turno successivo dell'incantatore dispone di vantaggio, grazie all'alone mistico di luce fioca che lo avvolge fino ad allora.
+higherLevel: |-
+  Quando l'incantatore lancia questo incantesimo usando uno slot incantesimo di 2° livello o superiore, i danni aumentano di 1d6 per ogni slot di livello superiore al 1°.
+effects.0.text: Il successivo tiro per colpire effettuato contro questo bersaglio prima della fine del turno successivo dell'incantatore dispone di vantaggio.
+effects.0.note: Il vantaggio agli attacchi effettuati contro il bersaglio non è esprimibile in v0.

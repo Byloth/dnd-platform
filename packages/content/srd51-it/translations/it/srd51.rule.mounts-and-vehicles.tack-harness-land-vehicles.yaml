@@ -1,0 +1,19 @@
+name: "Finimenti e veicoli da tiro"
+text: |-
+  | Oggetto                | Costo  | Peso    |
+  |------------------------|--------|---------|
+  | Bardatura              | ×4     | ×2      |
+  | Morso e briglie        | 2 mo   | 0,5 kg  |
+  | Carrozza               | 100 mo | 300 kg  |
+  | Carretto               | 15 mo  | 100 kg  |
+  | Biga                   | 250 mo | 50 kg   |
+  | Nutrimento (al giorno) | 5 mr   | 5 kg    |
+  | **_Sella_**            |        |         |
+  | - Esotica              | 60 mo  | 20 kg   |
+  | - Militare             | 20 mo  | 15 kg   |
+  | - Da carico            | 5 mo   | 7,5 kg  |
+  | - Da galoppo           | 10 mo  | 12,5 kg |
+  | Bisacce                | 4 mo   | 4 kg    |
+  | Slitta                 | 20 mo  | 150 kg  |
+  | Stalle (al giorno)     | 5 ma   | —       |
+  | Carro                  | 35 mo  | 200 kg  |

@@ -1,0 +1,11 @@
+name: Bonus di competenza
+text: |-
+  Ogni personaggio possiede un bonus di competenza determinato dal livello. Anche i mostri possiedono questo bonus, indicato nella loro scheda delle statistiche. Il bonus viene usato nelle regole relative alle prove di caratteristica, ai tiri salvezza e ai tiri per colpire.
+
+  Il bonus di competenza non può essere aggiunto a un singolo tiro del dado o a un altro numero più di una volta. Per esempio, se due regole diverse affermano che un personaggio può aggiungere il proprio bonus di competenza a un tiro salvezza su Saggezza, quel personaggio aggiunge comunque il bonus soltanto una volta quando effettua il tiro salvezza.
+
+  In alcune occasioni il bonus di competenza potrebbe essere moltiplicato o diviso (raddoppiato o dimezzato, per esempio) prima di essere applicato. Per esempio, il privilegio Maestria del ladro raddoppia il bonus di competenza di certe prove di caratteristica. Se una circostanza suggerisce che il bonus di competenza del personaggio vada applicato più di una volta allo stesso tiro, il personaggio lo aggiunge comunque soltanto una volta e lo moltiplica o lo divide soltanto una volta.
+
+  Allo stesso modo, se un privilegio o un effetto consente a un personaggio di moltiplicare il suo bonus di competenza quando effettua una prova di caratteristica che normalmente non beneficerebbe del suo bonus di competenza, quel bonus non viene comunque aggiunto alla prova. Ai fini di quella prova, il bonus di competenza del personaggio è 0, dal momento che 0 moltiplicato per qualsiasi numero è sempre pari a 0. Per esempio, se un personaggio è privo di competenza nell'abilità Storia, non ottiene alcun beneficio da un privilegio che gli permette di raddoppiare il suo bonus di competenza quando effettua una prova di Intelligenza (Storia).
+
+  In generale, un personaggio non moltiplica il suo bonus di competenza ai tiri per colpire o ai tiri salvezza. Se un privilegio o un effetto gli consente di farlo, si applicano queste stesse regole.

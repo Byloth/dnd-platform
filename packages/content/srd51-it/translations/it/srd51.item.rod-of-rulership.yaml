@@ -1,0 +1,11 @@
+name: Verga della sovranità
+text: |-
+  Verga, rara (richiede sintonia)
+
+  Il personaggio può usare un'azione per mostrare la verga e costringere all'obbedienza ogni creatura a sua scelta che è in grado di vedere situata entro 36 metri da lui. Ogni bersaglio deve superare un tiro salvezza su Saggezza con CD 15, altrimenti rimane affascinato dal personaggio per 8 ore. Finché è affascinata in questo modo, una creatura considera il personaggio come un capo in cui ha piena fiducia. Se il personaggio o i suoi compagni le fanno del male o se riceve l'ordine di agire in modo contrario alla sua natura, la creatura smette di essere affascinata in questo modo. La verga non può essere riutilizzata fino all'alba successiva.
+features.0.name: Costringere all'obbedienza
+features.0.effects.0.name: Verga della sovranità
+features.0.effects.1.name: Costringere all'obbedienza
+features.0.effects.1.text: |-
+  Mostra la verga e costringi all'obbedienza ogni creatura a tua scelta che sei in grado di vedere entro 36 metri. Ogni bersaglio deve superare un tiro salvezza su Saggezza con CD 15, altrimenti rimane affascinato da te per 8 ore, considerandoti un capo in cui ha piena fiducia. Un bersaglio a cui tu o i tuoi compagni fate del male, o che riceve l'ordine di agire in modo contrario alla sua natura, smette di essere affascinato.
+features.0.effects.1.onUse.0.note: Solo i bersagli che falliscono il tiro salvezza su Saggezza con CD 15.

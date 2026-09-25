@@ -1,0 +1,3 @@
+name: Schivata
+text: |-
+  Quando un personaggio effettua l'azione di Schivata, pensa esclusivamente a evitare gli attacchi. Fino all'inizio del suo turno successivo, ogni tiro per colpire effettuato contro di lui subisce svantaggio se il personaggio è in grado di vedere l'attaccante, e ogni suo tiro salvezza su Destrezza dispone di vantaggio. Il personaggio perde questo beneficio se è incapacitato o se la sua velocità scende a 0.

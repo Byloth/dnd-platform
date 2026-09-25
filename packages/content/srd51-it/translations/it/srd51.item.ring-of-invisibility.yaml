@@ -1,0 +1,15 @@
+name: Anello di invisibilità
+text: |-
+  Anello, leggendario (richiede sintonia)
+
+  Mentre il personaggio indossa questo anello, può usare un'azione per diventare invisibile insieme a tutto ciò che indossa o trasporta. Rimane invisibile finché l'anello non è rimosso, finché non attacca o lancia un incantesimo o finché non usa un'azione bonus per diventare di nuovo visibile.
+features.0.name: Diventare invisibile
+features.0.text: |-
+  Mentre il personaggio indossa questo anello, può usare un'azione per diventare invisibile insieme a tutto ciò che indossa o trasporta. Rimane invisibile finché l'anello non è rimosso, finché non attacca o lancia un incantesimo o finché non usa un'azione bonus per diventare di nuovo visibile.
+features.0.effects.0.name: Diventare invisibile
+features.0.effects.0.onUse.0.note: |-
+  Tutto ciò che indossi o trasporti diventa invisibile assieme a te. L'effetto termina quando l'anello viene rimosso, quando attacchi o lanci un incantesimo o quando usi un'azione bonus per diventare di nuovo visibile.
+features.0.effects.0.text: |-
+  Diventi invisibile finché l'anello non viene rimosso, finché non attacchi o lanci un incantesimo o finché non usi un'azione bonus per diventare visibile.
+features.0.effects.1.name: Diventare visibile
+features.0.effects.1.text: Termina l'invisibilità dell'anello.

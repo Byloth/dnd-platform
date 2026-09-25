@@ -1,0 +1,24 @@
+name: Tunica degli occhi
+text: |-
+  Oggetto meraviglioso, raro (richiede sintonia)
+
+  Questa tunica è decorata con un motivo raffigurante vari occhi. Mentre il personaggio la indossa ottiene i benefici seguenti:
+
+  La tunica gli consente di vedere in tutte le direzioni e il personaggio dispone di vantaggio alle prove di Saggezza (Percezione) basate sulla vista.
+
+  Il personaggio ha scurovisione entro un raggio di 36 metri.
+
+  Il personaggio può vedere le creature e gli oggetti invisibili ed è in grado di vedere il Piano Etereo entro un raggio di 36 metri.
+
+  Gli occhi della tunica non possono essere chiusi e non distolgono lo sguardo in alcun modo. Anche se il personaggio può chiudere i propri occhi o distogliere il proprio sguardo, finché indossa la tunica non è mai considerato con gli occhi chiusi o distolti.
+
+  Un incantesimo *luce* lanciato sulla tunica o un incantesimo *luce diurna* lanciato entro 1,5 metri dalla tunica rende il personaggio accecato per 1 minuto. Alla fine di ogni suo turno, il personaggio può effettuare un tiro salvezza su Costituzione (CD 11 per *luce* o CD 15 per *luce diurna*), terminando la cecità in caso di successo.
+features.0.name: Visione a tutto tondo
+features.0.effects.0.note: Prove basate sulla vista; la tunica ti consente di vedere in tutte le direzioni.
+features.1.name: Scurovisione
+features.2.name: Vedere l'invisibile
+features.2.effects.0.text: Puoi vedere le creature e gli oggetti invisibili e sei in grado di vedere il Piano Etereo entro un raggio di 36 metri.
+features.3.name: Occhi che non si chiudono
+features.3.effects.0.text: |-
+  Gli occhi della tunica non possono essere chiusi né distogliere lo sguardo; finché la indossi non sei mai considerato con gli occhi chiusi o distolti. Un incantesimo *luce* lanciato sulla tunica o un incantesimo *luce diurna* lanciato entro 1,5 metri da essa ti rende accecato per 1 minuto; alla fine di ogni tuo turno puoi effettuare un tiro salvezza su Costituzione (CD 11 per *luce*, CD 15 per *luce diurna*), terminando la cecità in caso di successo.
+features.3.effects.0.note: La cecità e il suo tiro salvezza ripetuto si applicano al tavolo.

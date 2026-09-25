@@ -1,0 +1,7 @@
+name: Trattenuto
+text: |-
+  * La velocità di una creatura trattenuta diventa 0 e la creatura non può beneficiare di alcun bonus alla velocità.
+  * I tiri per colpire contro la creatura ottengono vantaggio, mentre i tiri per colpire della creatura subiscono svantaggio.
+  * La creatura subisce svantaggio ai tiri salvezza su Destrezza.
+effects.7.text: I tiri per colpire contro di te ottengono vantaggio.
+effects.7.note: "Il motore delle regole non gestisce i tiri effettuati contro di te: l'effetto è mostrato come promemoria."

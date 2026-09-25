@@ -1,0 +1,43 @@
+name: Aree di effetto
+text: |-
+  Incantesimi come _mani brucianti_ e _cono di freddo_ coprono un'area, quindi possono influenzare più creature simultaneamente.
+
+  La descrizione di un incantesimo specifica la sua area di effetto, che solitamente può avere una delle cinque forme seguenti: cilindro, cono, cubo, linea o sfera. Ogni area di effetto ha un **punto di origine**, da cui l'energia dell'incantesimo si dirama. Le regole relative a ogni forma specificano dove posizionare il punto di origine. Solitamente il punto di origine è un punto nello spazio, ma certi incantesimi hanno un'area il cui punto di origine è una creatura o un oggetto.
+
+  L'effetto di un incantesimo si espande in linee rette dal punto di origine. Se nessuna linea retta può estendersi dal punto di origine fino a un dato luogo entro l'area di effetto senza essere bloccata, quel luogo non è incluso nell'area dell'incantesimo. Per bloccare una di queste linee immaginarie, un'ostruzione deve fornire copertura totale.
+
+  ### Cono
+
+  Un cono si estende dal suo punto di origine in una direzione scelta dall'incantatore. La larghezza del cono in un determinato punto della sua lunghezza è pari alla distanza di quel punto dal punto di origine. L'area di effetto di un cono specifica la sua lunghezza massima.
+
+  Il punto di origine di un cono non è incluso nella sua area di effetto, a meno che l'incantatore non decida altrimenti.
+
+  ### Cubo
+
+  L'incantatore sceglie il punto di origine di un cubo, che può trovarsi su una qualsiasi faccia dell'effetto cubico. La taglia del cubo è espressa indicando la lunghezza di ogni suo spigolo.
+
+  Il punto di origine di un cubo non è incluso nella sua area di effetto, a meno che l'incantatore non decida altrimenti.
+
+  ### Cilindro
+
+  Il punto di origine di un cilindro è il centro di un cerchio il cui raggio è indicato nella descrizione dell'incantesimo. Il cerchio deve trovarsi a terra o all'altezza dell'effetto magico. L'energia del cilindro si espande in linee rette dal punto di origine fino al perimetro del cerchio, per formare la base del cilindro. Poi l'effetto magico si proietta verso l'alto dalla base o verso il basso dalla cima, per una distanza pari all'altezza del cilindro.
+
+  Il punto di origine di un cilindro è incluso nella sua area di effetto.
+
+  ### Linea
+
+  Una linea si estende dal suo punto di origine e procede lungo una retta per tutta la sua lunghezza, coprendo l'area definita dalla sua larghezza.
+
+  Il punto di origine di una linea non è incluso nella sua area di effetto, a meno che l'incantatore non decida altrimenti.
+
+  ### Sfera
+
+  L'incantatore sceglie il punto di origine della sfera e la sfera si estende da quel punto. La taglia della sfera è espressa in metri e indica il raggio che si estende da quel punto.
+
+  Il punto di origine di una sfera è incluso nella sua area di effetto.
+
+  ## Tiri salvezza
+
+  Molti incantesimi specificano che un bersaglio può effettuare un tiro salvezza per evitare tutti gli effetti dell'incantesimo o parte di essi. L'incantesimo specifica la caratteristica che il bersaglio usa per il tiro salvezza e cosa succede in caso di successo o fallimento.
+
+  La CD per resistere a un incantesimo dell'incantatore è pari a 8 + il suo modificatore di caratteristica da incantatore + il suo bonus di competenza + qualsiasi modificatore speciale.

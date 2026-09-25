@@ -1,0 +1,18 @@
+name: "Gemma elementale"
+text: |-
+  Oggetto meraviglioso, non comune
+
+  Questa gemma contiene un frammento di energia elementale. Quando il personaggio usa un'azione per romperla, evoca un elementale come se avesse lanciato l'incantesimo evoca elementale e la gemma perde la sua magia. Il tipo di gemma determina il tipo di elementale evocato.
+
+  | Gemma | Elementale evocato |
+
+  |---|---|
+
+  | Zaffiro blu | Elementale dell'aria |
+
+  | Diamante giallo | Elementale della terra |
+
+  | Corindone rosso | Elementale del fuoco |
+
+  | Smeraldo | Elementale dell'acqua |
+onUse.0.text: "Rompi la gemma con un'azione: evochi un elementale come se avessi lanciato l'incantesimo evoca elementale e la gemma perde la sua magia. Il tipo di gemma determina l'elementale: zaffiro blu (aria), diamante giallo (terra), corindone rosso (fuoco), smeraldo (acqua)."

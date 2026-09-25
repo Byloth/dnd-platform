@@ -1,0 +1,23 @@
+name: Cintura nanica
+text: |-
+  Oggetto meraviglioso, raro (richiede sintonia)
+
+  Il personaggio che indossa questa cintura riceve i seguenti benefici:
+
+  Il suo punteggio di Costituzione aumenta di 2, fino a un massimo di 20.
+
+  Dispone di vantaggio alle prove di Carisma (Persuasione) effettuate per interagire con i nani.
+
+  Inoltre, dopo che il personaggio che indossa la cintura è entrato in sintonia con essa, ogni mattina all'alba c'è una probabilità del 50 percento che gli spuntino barba e baffi, premesso che il suo corpo possa svilupparli, o che la sua barba cresca vistosamente, se già ne ha una.
+
+  Se non è un nano, ottiene i seguenti benefici aggiuntivi finché indossa la cintura:
+
+  Vantaggio ai tiri salvezza contro il veleno e resistenza ai danni da veleno.
+
+  È in grado di parlare, leggere e scrivere il Nanico.
+features.0.name: Cintura nanica
+features.0.effects.0.note: Il tuo punteggio di Costituzione aumenta di 2, fino a un massimo di 20.
+features.0.effects.1.note: L'aumento conferito dalla cintura non può portare il punteggio oltre 20; ignora questo limite se la tua Costituzione era già più alta senza la cintura.
+features.0.effects.2.note: Vantaggio alle prove di Carisma (Persuasione) effettuate per interagire con i nani.
+features.0.effects.3.text: Dopo che sei entrato in sintonia con la cintura, ogni mattina all'alba c'è una probabilità del 50 percento che ti spuntino barba e baffi, premesso che il tuo corpo possa svilupparli, o che la tua barba cresca vistosamente, se già ne hai una.
+features.1.name: Benefici per chi non è un nano

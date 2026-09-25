@@ -1,0 +1,40 @@
+name: Forza
+text: |-
+  La Forza misura la potenza del corpo, l'addestramento fisico e l'efficacia con cui un personaggio è in grado di esercitare la propria potenza fisica.
+
+  ## Prove di Forza
+
+  Una prova di Forza può rappresentare ogni tentativo di sollevare, spingere, tirare o spezzare qualcosa, di farsi strada attraverso uno spazio, o di applicare in altri modi la forza bruta a una situazione. L'abilità Atletica rappresenta una maggiore prestanza in certi tipi di prove di Forza.
+
+  ### Atletica
+
+  Un personaggio effettua una prova di Forza (Atletica) nelle situazioni difficili in cui si imbatte quando nuota, salta o scala. Di seguito sono elencate alcune attività di esempio:  - Il personaggio tenta di scalare una parete rocciosa ripida o scivolosa, evita pericoli mentre scala un muro o si aggrappa a una superficie mentre qualcosa tenta di farlo cadere.
+  - Il personaggio tenta di compiere un salto particolarmente lungo o un salto acrobatico.
+  - Il personaggio si sforza di nuotare o di rimanere a galla in una corrente insidiosa, un mare in tempesta o un'area densa di alghe. Oppure un'altra creatura tenta di trascinarlo sott'acqua o di impedirgli in altro modo di nuotare.
+
+  ## Altre prove di Forza
+
+  Il GM potrebbe richiedere una prova di Forza anche quando un personaggio tenta di compiere imprese come:  - Forzare l'apertura di una porta ostruita, chiusa a chiave o sbarrata - Liberarsi da costrizioni - Spingersi attraverso un tunnel troppo angusto - Farsi trainare da un carro rimanendo aggrappati - Rovesciare una statua - Evitare che un macigno inizi a rotolare
+
+
+  ## Tiri per colpire e danni
+
+  Un personaggio aggiunge il suo modificatore di Forza ai suoi tiri per colpire e ai tiri per i danni quando attacca con un'arma da mischia come una mazza, un'ascia da battaglia o un giavellotto. Le armi da mischia si usano per effettuare attacchi in mischia nel combattimento corpo a corpo, ma alcune possono anche essere lanciate per effettuare attacchi a distanza.
+
+  ## Sollevamento e trasporto
+
+  Il punteggio di Forza di un personaggio determina il peso che egli è in grado di trasportare. I termini seguenti definiscono ciò che un personaggio è in grado di sollevare o trasportare.
+
+  **Capacità di trasporto.** La capacità di trasporto di un personaggio è pari al suo punteggio di Forza moltiplicato per 7,5. Questo è il peso (in kg) che un personaggio è in grado di trasportare, sufficiente a evitare che la maggior parte dei personaggi debba preoccuparsi di questo fattore.
+
+  **Spingere, trascinare o sollevare.** Un personaggio può spingere, trascinare o sollevare un peso in kg pari al doppio della sua capacità di trasporto (o a 15 volte il suo punteggio di Forza). Quando un personaggio spinge o trascina un peso superiore alla sua capacità di trasporto, la sua velocità si riduce a 1,5 metri.
+
+  **Taglia e Forza.** Le creature più grandi sono in grado di sorreggere un peso maggiore, mentre quelle di taglia Minuscola possono trasportare solo pesi più ridotti. Per ogni categoria di taglia superiore alla Media, la capacità di trasporto di una creatura e il peso che essa può spingere, trascinare o sollevare raddoppiano. Nel caso di una creatura Minuscola, quei pesi vengono dimezzati.
+
+  ## Variante: ingombro
+
+  Le regole per il sollevamento e il trasporto sono volutamente semplici. Quella che segue è una variante destinata a chi desidera regole più dettagliate per determinare se un personaggio è ostacolato dal peso dell'equipaggiamento. Quando si usa questa variante, è possibile ignorare la colonna "Forza" nella tabella "Armature".
+
+  Se il personaggio trasporta un peso superiore a 2,5 volte il suo punteggio di Forza, è **ingombrato**, il che significa che la sua velocità si riduce di 3 metri.
+
+  Se trasporta un peso superiore a 5 volte il suo punteggio di Forza ma entro la sua capacità di trasporto, è invece **pesantemente ingombrato**, il che significa che la sua velocità si riduce di 6 metri e che il personaggio subisce svantaggio alle prove di caratteristica, ai tiri per colpire e ai tiri salvezza che usano Forza, Destrezza o Costituzione.

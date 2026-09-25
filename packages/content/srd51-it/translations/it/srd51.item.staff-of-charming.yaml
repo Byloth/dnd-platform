@@ -1,0 +1,23 @@
+name: Bastone dello charme
+text: |-
+  Bastone, raro (richiede sintonia con un bardo, un chierico, un druido, un mago, uno stregone o un warlock)
+
+  Mentre il personaggio impugna questo bastone, può usare un'azione e consumare 1 delle sue 10 cariche per lanciare con esso *charme su persone*, *comando* o *comprensione dei linguaggi* usando la sua CD del tiro salvezza sull'incantesimo. Il bastone può anche essere usato come un bastone ferrato magico.
+
+  Se il personaggio impugna il bastone e fallisce un tiro salvezza contro un incantesimo di ammaliamento che ha solo lui come bersaglio, può trasformare il tiro salvezza fallito in un successo. Una volta usata, quest'azione non può essere riutilizzata fino all'alba successiva. Se il personaggio supera il tiro salvezza contro un incantesimo di ammaliamento che ha solo lui come bersaglio, con o senza l'intervento del bastone, può usare la sua reazione e consumare 1 carica del bastone per riflettere l'incantesimo contro il suo incantatore, come se fosse stato il personaggio a lanciarlo.
+
+  Il bastone recupera 1d8 + 2 cariche consumate all'alba di ogni giorno. Se il personaggio consuma l'ultima carica, deve tirare un d20; con un 1, il bastone diventa un bastone ferrato non magico.
+attunement.by: un bardo, un chierico, un druido, un mago, uno stregone o un warlock
+features.0.name: Bastone ferrato magico
+features.1.name: Incantesimi
+features.1.effects.0.note: "Si lanciano con un'azione usando la tua CD del tiro salvezza sull'incantesimo. Se consumi l'ultima carica, tira un d20: con un 1 il bastone diventa un bastone ferrato non magico."
+features.2.name: Protezione dall'ammaliamento
+features.2.effects.0.name: Protezione dall'ammaliamento
+features.2.effects.1.name: Trasformare un tiro salvezza fallito
+features.2.effects.1.trigger: quando fallisci un tiro salvezza contro un incantesimo di ammaliamento che ha solo te come bersaglio
+features.2.effects.1.text: Trasformi il tiro salvezza fallito in un successo.
+features.2.effects.1.onUse.0.text: Il tiro salvezza fallito diventa un successo.
+features.2.effects.2.name: Riflettere l'incantesimo
+features.2.effects.2.trigger: quando superi un tiro salvezza contro un incantesimo di ammaliamento che ha solo te come bersaglio
+features.2.effects.2.text: Rifletti l'incantesimo contro il suo incantatore, come se fossi stato tu a lanciarlo.
+features.2.effects.2.onUse.0.text: L'incantatore diventa il bersaglio del proprio incantesimo, come se fossi stato tu a lanciarlo.

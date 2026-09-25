@@ -1,0 +1,9 @@
+name: Tocco del vampiro
+text: |-
+  Il tocco della mano dell'incantatore, avviluppata in una cortina d'ombra, può risucchiare l'energia vitale delle altre creature per curare le proprie ferite. L'incantatore effettua un attacco in mischia con incantesimo contro una creatura entro la sua portata. Se il colpo va a segno, il bersaglio subisce 3d6 danni necrotici e l'incantatore recupera una quantità di punti ferita pari alla metà dei danni necrotici inflitti. Fino al termine dell'incantesimo, l'incantatore con un'azione può effettuare di nuovo l'attacco a ogni suo turno.
+higherLevel: |-
+  Quando l'incantatore lancia questo incantesimo usando uno slot incantesimo di 4° livello o superiore, i danni aumentano di 1d6 per ogni slot di livello superiore al 3°.
+effects.0.name: Tocco del vampiro (ripetizione)
+effects.0.onHit.0.text: Recuperi una quantità di punti ferita pari alla metà dei danni necrotici inflitti.
+effects.0.text: Effettui di nuovo l'attacco in mischia con incantesimo contro una creatura entro la tua portata; +1d6 per ogni slot di livello superiore al 3°.
+onCast.0.text: Se il colpo va a segno, recuperi una quantità di punti ferita pari alla metà dei danni necrotici inflitti.

@@ -1,0 +1,3 @@
+name: "Soglia di danno"
+text: |-
+  Certi oggetti molto grossi, come le mura di un castello, sono sovente più resistenti e per questo possiedono una soglia di danno. Un oggetto che possiede una soglia di danno è immune a tutti i danni, a meno che non subisca una quantità di danni pari o superiore alla sua soglia di danno da un singolo attacco o effetto, nel qual caso li subisce normalmente. I danni che non riescono a eguagliare o superare la soglia di danno di un oggetto sono considerati superficiali e non riducono i punti ferita dell'oggetto.

@@ -1,0 +1,5 @@
+name: Onda tonante
+text: |-
+  Un'ondata di energia tonante si propaga dall'incantatore. Ogni creatura entro un cubo con spigolo di 4,5 metri originato dall'incantatore deve effettuare un tiro salvezza su Costituzione. Se lo fallisce, subisce 2d8 danni da tuono e viene spinta a una distanza di 3 metri dall'incantatore, mentre se lo supera subisce soltanto la metà di quei danni e non viene spinta. Inoltre, gli oggetti non fissati e completamente situati all'interno dell'area di effetto dell'incantesimo vengono automaticamente spinti a una distanza di 3 metri dall'incantatore. L'incantesimo emette il rumore di una fragorosa esplosione udibile fino a 90 metri di distanza.
+higherLevel: |-
+  Quando l'incantatore lancia questo incantesimo usando uno slot incantesimo di 2° livello o superiore, i danni aumentano di 1d8 per ogni slot di livello superiore al 1°.

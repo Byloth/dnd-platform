@@ -1,0 +1,7 @@
+name: Anello di telecinesi
+text: |-
+  Anello, molto raro (richiede sintonia)
+
+  Finché il personaggio indossa questo anello, può lanciare l'incantesimo *telecinesi* a volontà, ma il bersaglio dell'incantesimo può essere solo un oggetto che non è indossato o trasportato.
+features.0.name: Telecinesi a volontà
+features.0.effects.0.note: A volontà; puoi bersagliare solo oggetti che non sono indossati o trasportati.

@@ -1,0 +1,14 @@
+name: Bastone del gelo
+text: |-
+  Bastone, molto raro (richiede sintonia con un druido, un mago, uno stregone o un warlock)
+
+  Mentre il personaggio impugna questo bastone, ottiene resistenza ai danni da freddo.
+
+  Il bastone possiede 10 cariche. Mentre il personaggio lo impugna, può usare un'azione per consumare 1 o più delle sue cariche e lanciare uno dei seguenti incantesimi usando la CD del tiro salvezza sull'incantesimo: cono di freddo (5 cariche), muro di ghiaccio (4 cariche), nube di nebbia (1 carica) o tempesta di ghiaccio (4 cariche).
+
+  All'alba di ogni giorno, il bastone recupera 1d6 + 4 cariche consumate. Se il personaggio consuma l'ultima carica, deve tirare un d20; se ottiene 1, il bastone si trasforma in acqua e viene distrutto.
+attunement.by: un druido, un mago, uno stregone o un warlock
+features.0.name: Resistenza al freddo
+features.1.name: Incantesimi
+features.1.effects.0.note: |-
+  Si lancia con un'azione usando la tua CD del tiro salvezza sull'incantesimo. Se consumi l'ultima carica, tira un d20: con un 1 il bastone si trasforma in acqua e viene distrutto.

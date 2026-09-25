@@ -1,0 +1,16 @@
+name: Dissolvi il bene e il male
+components.m: Acqua santa o polvere d'argento e ferro.
+text: |-
+  L'incantatore viene circondato da un'energia scintillante che lo protegge da folletti, non morti e creature originarie di un piano diverso dal Piano Materiale. Per tutta la durata dell'incantesimo, celestiali, elementali, folletti, immondi e non morti subiscono svantaggio ai tiri per colpire effettuati contro l'incantatore. L'incantatore può terminare prematuramente l'incantesimo usando una delle funzioni speciali seguenti.
+
+  **Spezzare ammaliamento.** Con un'azione, l'incantatore tocca una creatura entro gittata affascinata, spaventata o posseduta da un celestiale, un elementale, un folletto, un immondo o un non morto. La creatura toccata non è più affascinata, spaventata o posseduta da quelle creature.
+
+  **Congedo.** Con un'azione, l'incantatore effettua un attacco in mischia con questo incantesimo contro un celestiale, un elementale, un folletto, un immondo o un non morto entro gittata. Se il colpo va a segno, l'incantatore tenta di respingere la creatura sul suo piano d'origine. Questa deve superare un tiro salvezza su Carisma, altrimenti viene cacciata sul suo piano d'origine (se non vi si trova già). Se non si trovano già sul loro piano d'origine, i non morti vengono respinti nella Coltre Oscura e i folletti nella Selva Fatata.
+effects.0.text: Celestiali, elementali, folletti, immondi e non morti subiscono svantaggio ai tiri per colpire effettuati contro l'incantatore.
+effects.0.note: Lo svantaggio agli attacchi effettuati contro il personaggio non è esprimibile nella v0.
+effects.1.name: "Dissolvi il bene e il male: Spezzare ammaliamento"
+effects.1.text: |-
+  Tocca una creatura entro portata affascinata, spaventata o posseduta da un celestiale, un elementale, un folletto, un immondo o un non morto: la creatura non è più affascinata, spaventata o posseduta da quelle creature. Usare questa funzione pone termine all'incantesimo.
+effects.2.name: "Dissolvi il bene e il male: Congedo"
+effects.2.text: |-
+  Effettua un attacco in mischia con incantesimo contro un celestiale, un elementale, un folletto, un immondo o un non morto entro portata. Se il colpo va a segno, la creatura deve superare un tiro salvezza su Carisma, altrimenti viene cacciata sul suo piano d'origine (i non morti nella Coltre Oscura, i folletti nella Selva Fatata). Usare questa funzione pone termine all'incantesimo.

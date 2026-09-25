@@ -1,0 +1,24 @@
+name: Santificare
+components.m: Erbe, oli e incenso del valore di almeno 1.000 mo, che l'incantesimo consuma.
+text: |-
+  L'incantatore tocca un punto e infonde un potere sacro (o sacrilego) in un'area del raggio massimo di 18 metri intorno a esso. L'incantesimo tuttavia fallisce se il raggio comprende un'area già sotto l'effetto dell'incantesimo santificare. L'area influenzata è soggetta agli effetti seguenti. Per prima cosa, celestiali, elementali, folletti, immondi e non morti non possono entrare nell'area o affascinare, spaventare o possedere le creature al suo interno. Nel momento in cui entra nell'area, qualsiasi creatura affascinata, spaventata o posseduta da questo tipo di creature non ne è più influenzata. L'incantatore può inoltre escludere uno o più tipi delle creature sopracitate da questo effetto. In secondo luogo, l'incantatore può vincolare un effetto aggiuntivo all'area, scegliendo dalla lista seguente o utilizzando un effetto offerto dal GM. Alcuni di questi effetti si applicano alle creature all'interno dell'area e l'incantatore può decidere se questo avviene per ognuna di esse, per quelle che seguono una divinità o un capo specifico, oppure per quelle appartenenti a un tipo specifico, come per esempio orchi o troll. Quando una creatura che ne sarebbe influenzata entra nell'area dell'incantesimo per la prima volta in un turno o inizia il suo turno qui, deve superare un tiro salvezza su Carisma. In caso di successo, la creatura ignora l'effetto aggiuntivo finché non lascia l'area.
+
+  **Coraggio.** Le creature influenzate non possono essere spaventate mentre si trovano nell'area.
+
+  **Oscurità.** L'area si riempie di oscurità: la luce normale, nonché quella magica creata da incantesimi di livello inferiore rispetto allo slot usato in questo caso dall'incantatore, non possono illuminare l'area.
+
+  **Luce diurna.** L'area è pervasa di luce intensa: l'oscurità magica creata da incantesimi di livello inferiore rispetto allo slot usato in questo caso dall'incantatore non può oscurare la luce.
+
+  **Protezione dell'energia.** Le creature influenzate nell'area ottengono resistenza a un tipo di danno a scelta dell'incantatore, a eccezione dei danni contundenti, perforanti o taglienti.
+
+  **Vulnerabilità all'energia.** Le creature influenzate nell'area ottengono vulnerabilità a un tipo di danno a scelta dell'incantatore, a eccezione dei danni contundenti, perforanti o taglienti.
+
+  **Eterno riposo.** I cadaveri sepolti nell'area non possono diventare non morti.
+
+  **Interferenza extradimensionale.** Le creature influenzate non possono muoversi o viaggiare usando il teletrasporto o mezzi extradimensionali o interplanari.
+
+  **Paura.** Le creature influenzate sono spaventate mentre si trovano nell'area.
+
+  **Silenzio.** L'area è insonorizzata, nessun suono può fuoriuscire o penetrare al suo interno.
+
+  **Linguaggi.** Le creature influenzate possono comunicare con qualsiasi creatura all'interno dell'area, anche se non condividono il medesimo linguaggio.

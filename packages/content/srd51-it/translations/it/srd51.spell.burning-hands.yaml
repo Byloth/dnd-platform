@@ -1,0 +1,5 @@
+name: Mani brucianti
+text: |-
+  L'incantatore apre le mani, punta i pollici l'uno contro l'altro e dalla punta delle sue dita protese si propaga un sottile velo di fiamme. Ogni creatura entro un cono di 4,5 metri deve effettuare un tiro salvezza su Destrezza. In caso di fallimento, la creatura subisce 3d6 danni da fuoco, o la metà dei danni in caso di successo. Il fuoco incendia ogni oggetto infiammabile nell'area che non sia indossato o trasportato.
+higherLevel: |-
+  Quando l'incantatore lancia questo incantesimo usando uno slot incantesimo di 2° livello o superiore, i danni aumentano di 1d6 per ogni slot di livello superiore al 1°.

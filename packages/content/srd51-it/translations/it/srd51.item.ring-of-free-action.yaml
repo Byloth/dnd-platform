@@ -1,0 +1,10 @@
+name: Anello della libertà di azione
+text: |-
+  Anello, raro (richiede sintonia)
+
+  Mentre il personaggio indossa questo anello, il terreno difficile non gli costa movimento extra. Inoltre, la magia non può né ridurre la sua velocità né renderlo paralizzato o trattenuto.
+features.0.name: Libertà di azione
+features.0.text: |-
+  Mentre il personaggio indossa questo anello, il terreno difficile non gli costa movimento extra. Inoltre, la magia non può né ridurre la sua velocità né renderlo paralizzato o trattenuto.
+features.0.effects.0.note: |-
+  Solo contro la magia. La magia non può nemmeno ridurre la tua velocità, e il terreno difficile non ti costa movimento extra.

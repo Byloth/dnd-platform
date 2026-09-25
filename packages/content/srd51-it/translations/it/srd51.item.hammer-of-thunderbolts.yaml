@@ -1,0 +1,23 @@
+name: Martello dei fulmini
+text: |-
+  Arma (maglio), leggendaria
+
+  Il personaggio ottiene un bonus di +1 ai tiri per colpire e ai tiri per i danni effettuati con quest'arma magica.
+
+  Anatema dei giganti (richiede sintonia). Per entrare in sintonia con quest'arma, il personaggio deve indossare una cintura della forza dei giganti (di qualunque tipo) e dei guanti del potere orchesco. La sintonia termina se il personaggio rimuove uno qualsiasi di questi oggetti. Finché il personaggio è in sintonia con l'arma e la impugna, il suo punteggio di Forza aumenta di 4 e può superare 20, ma non 30. Quando il personaggio ottiene un 20 ai tiri per colpire effettuati con quest'arma contro un gigante, quest'ultimo deve superare un tiro salvezza su Costituzione con CD 17, altrimenti muore.
+
+  Il martello, inoltre, possiede 5 cariche. Finché il personaggio è in sintonia con esso, può consumare 1 carica e usarlo per effettuare un attacco con arma a distanza, come se avesse la proprietà da lancio con una gittata normale di 6 metri e una gittata lunga di 18 metri. Se l'attacco va a segno, il martello genera un rombo di tuono udibile fino a 90 metri di distanza. Il bersaglio e ogni creatura entro 9 metri dal martello devono superare un tiro salvezza su Costituzione con CD 17, altrimenti diventano stordite fino alla fine del turno successivo del personaggio. Il martello recupera 1d4 + 1 cariche consumate all'alba di ogni giorno.
+attunement.by: una creatura che indossa una cintura della forza dei giganti (di qualunque tipo) e dei guanti del potere orchesco; la sintonia termina se rimuovi uno qualsiasi di questi oggetti
+features.0.name: Arma magica
+features.0.text: Il personaggio ottiene un bonus di +1 ai tiri per colpire e ai tiri per i danni effettuati con quest'arma magica.
+features.1.name: Anatema dei giganti
+features.1.text: Finché il personaggio è in sintonia con l'arma e la impugna, il suo punteggio di Forza aumenta di 4 e può superare 20, ma non 30. Quando il personaggio ottiene un 20 ai tiri per colpire effettuati con quest'arma contro un gigante, quest'ultimo deve superare un tiro salvezza su Costituzione con CD 17, altrimenti muore.
+features.1.effects.0.note: Solo finché sei in sintonia con il martello e lo impugni.
+features.1.effects.1.note: Il punteggio di Forza può superare 20, ma non 30.
+features.1.effects.2.text: Quando ottieni un 20 ai tiri per colpire effettuati con quest'arma contro un gigante, quest'ultimo deve superare un tiro salvezza su Costituzione con CD 17, altrimenti muore.
+features.1.effects.2.note: Un tiro salvezza contro la morte istantanea per i giganti colpiti con un 20; nessun tipo di effetto nel catalogo.
+features.2.name: Rombo di tuono
+features.2.text: Finché il personaggio è in sintonia con il martello, può consumare 1 carica e usarlo per effettuare un attacco con arma a distanza, come se avesse la proprietà da lancio con una gittata normale di 6 metri e una gittata lunga di 18 metri. Se l'attacco va a segno, il martello genera un rombo di tuono udibile fino a 90 metri di distanza. Il bersaglio e ogni creatura entro 9 metri dal martello devono superare un tiro salvezza su Costituzione con CD 17, altrimenti diventano stordite fino alla fine del turno successivo del personaggio.
+features.2.effects.0.name: Scagliare il martello
+features.2.effects.0.onHit.0.note: Il bersaglio e ogni creatura entro 9 metri da esso devono superare un tiro salvezza su Costituzione con CD 17, altrimenti diventano stordite fino alla fine del tuo turno successivo.
+features.2.effects.0.text: Effettui un attacco con arma a distanza con il martello come se avesse la proprietà da lancio (gittata 6/18 metri). Se va a segno, il bersaglio e ogni creatura entro 9 metri da esso devono superare un tiro salvezza su Costituzione con CD 17, altrimenti diventano stordite fino alla fine del tuo turno successivo.

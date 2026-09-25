@@ -1,0 +1,5 @@
+name: Scatto
+text: |-
+  Quando un personaggio effettua l'azione di Scatto, ottiene del movimento extra per il turno attuale. Questo incremento è pari alla sua velocità, dopo avere applicato gli eventuali modificatori. Per esempio, se un personaggio ha una velocità di 9 metri, nel suo turno può muoversi di 18 metri se scatta.
+
+  Ogni aumento o riduzione della velocità del personaggio cambia questo movimento aggiuntivo dello stesso valore. Per esempio, se la velocità di 9 metri di un personaggio è ridotta a 4,5 metri, nel suo turno può muoversi di 9 metri se scatta.

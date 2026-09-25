@@ -1,0 +1,8 @@
+name: Aura magica dell'arcanista
+components.m: Un piccolo quadrato di seta.
+text: |-
+  L'incantatore pone con il suo tocco un'illusione su una creatura o un oggetto in modo che gli incantesimi di divinazione rivelino informazioni false su di esso. Il bersaglio può essere una creatura consenziente o un oggetto che non sia trasportato o indossato da un'altra creatura. Quando questo incantesimo viene lanciato, l'incantatore sceglie uno o entrambi gli effetti seguenti, che permangono per tutta la durata dell'incantesimo. Se l'incantatore lancia questo incantesimo sulla stessa creatura o sullo stesso oggetto ogni giorno per 30 giorni, ponendo ogni volta su di esso lo stesso effetto, l'illusione permane finché non viene dissolta.
+
+  **Falsa aura.** L'incantatore modifica il modo in cui il bersaglio appare agli incantesimi e agli effetti magici che individuano le aure magiche, come per esempio individuazione del magico. L'incantatore può fare in modo che un oggetto non magico appaia come magico e viceversa, oppure può cambiare l'aura magica di un oggetto in modo che sembri appartenere a una scuola di magia specifica a sua scelta. Quando usa questo effetto su un oggetto, l'incantatore può rendere la falsa magia apparente a qualsiasi creatura che maneggi l'oggetto.
+
+  **Maschera.** L'incantatore modifica il modo in cui il bersaglio appare agli incantesimi e agli effetti magici che individuano i tipi di creature, come per esempio Percezione del Divino dei paladini o l'innesco di un incantesimo simbolo. L'incantatore sceglie un tipo di creatura: gli altri incantesimi ed effetti magici considereranno il bersaglio come fosse una creatura di quel tipo o allineamento.

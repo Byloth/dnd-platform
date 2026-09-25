@@ -1,0 +1,6 @@
+name: Affascinato
+text: |-
+  * Una creatura affascinata non può attaccare chi l'ha affascinata né bersagliarlo con capacità o effetti magici dannosi.
+  * Chi ha affascinato la creatura dispone di vantaggio a qualsiasi prova di caratteristica effettuata per interagire socialmente con essa.
+effects.0.text: Non puoi attaccare chi ti ha affascinato; chi ti ha affascinato dispone di vantaggio alle prove per interagire socialmente con te.
+effects.0.note: "Il motore delle regole non gestisce i tiri effettuati contro di te: l'effetto è mostrato come promemoria."

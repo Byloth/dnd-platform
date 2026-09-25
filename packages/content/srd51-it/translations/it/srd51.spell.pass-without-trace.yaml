@@ -1,0 +1,4 @@
+name: Passare senza tracce
+components.m: Cenere di una foglia di vischio bruciata e un rametto di abete.
+text: L'incantatore è avvolto da un velo d'ombra e di silenzio che impedisce a lui e ai suoi compagni di essere individuati. Per la durata dell'incantesimo, ogni creatura scelta dall'incantatore e situata entro 9 metri da lui (incluso se stesso) ha un bonus di +10 alle prove di Destrezza (Furtività) e le sue tracce sono impossibili da seguire se non tramite mezzi magici. Una creatura che riceve questo bonus non lascia impronte o altre tracce del proprio passaggio.
+effects.1.text: Le sue tracce sono impossibili da seguire se non tramite mezzi magici; non lascia impronte.

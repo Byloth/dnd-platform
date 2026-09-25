@@ -1,0 +1,9 @@
+name: Ago avvelenato
+text: |-
+  _Trappola meccanica_
+
+  Un ago avvelenato è nascosto nella serratura di un forziere del tesoro o in un altro oggetto che la creatura può aprire. Chi apre il forziere senza la chiave giusta fa scattare l'ago, che trasmette una dose di veleno.
+
+  Quando la trappola viene innescata, l'ago si estende per 8 cm dalla serratura. Una creatura entro gittata subisce 1 danno perforante e 11 (2d10) danni da veleno, e deve superare un tiro salvezza su Costituzione con CD 15, altrimenti è avvelenata per 1 ora.
+
+  Un personaggio può dedurre la presenza della trappola dalle alterazioni apportate alla serratura per ospitare l'ago superando una prova di Intelligenza (Indagare) con CD 20. La trappola può essere disattivata rimuovendo l'ago dalla serratura superando una prova di Destrezza con CD 15 usando gli arnesi da scasso. Un tentativo fallito di scassinare la serratura fa scattare la trappola.

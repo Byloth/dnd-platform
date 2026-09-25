@@ -1,0 +1,24 @@
+name: Sfera di cristallo
+text: |-
+  Oggetto meraviglioso, molto raro o leggendario (richiede sintonia)
+
+  Una tipica sfera di cristallo, un oggetto molto raro, ha un diametro di circa 15 cm. Mentre il personaggio tocca la sfera, può lanciare l'incantesimo scrutare (CD del tiro salvezza 17).
+
+  Le seguenti varianti della sfera di cristallo sono oggetti leggendari e hanno proprietà aggiuntive.
+
+  ***Sfera di cristallo della lettura del pensiero.*** Mentre il personaggio scruta con la sfera di cristallo, può usare un'azione per lanciare l'incantesimo individuazione dei pensieri (CD del tiro salvezza 17) su creature che è in grado di vedere situate entro 9 metri dal sensore dell'incantesimo. Non è obbligato a concentrarsi su individuazione dei pensieri per mantenerlo per la sua durata, ma se scrutare viene interrotto, anche l'incantesimo si interrompe.
+
+  ***Sfera di cristallo della telepatia.*** Mentre il personaggio scruta con la sfera di cristallo, può comunicare telepaticamente con le creature che è in grado di vedere situate entro 9 metri dal sensore dell'incantesimo. Può anche usare un'azione per lanciare su una di quelle creature l'incantesimo suggestione (CD del tiro salvezza 17) attraverso il sensore. Non è obbligato a concentrarsi su suggestione per mantenerlo per la sua durata, ma se scrutare viene interrotto, anche l'incantesimo si interrompe. Una volta usato, il potere di suggestione della sfera di cristallo non può essere riutilizzato fino all'alba successiva.
+
+  ***Sfera di cristallo della visione del vero.*** Mentre il personaggio scruta con la sfera di cristallo, ottiene vista pura entro un raggio di 36 metri centrato sul sensore dell'incantesimo.
+features.0.name: Scrutare
+features.0.effects.0.note: Lanciato mentre tocchi la sfera di cristallo, CD del tiro salvezza 17.
+features.0.effects.1.note: La tipica sfera di cristallo è molto rara; le tre varianti sono leggendarie e hanno una proprietà aggiuntiva.
+features.0.effects.1.options.0.name: Sfera di cristallo tipica (molto rara)
+features.0.effects.1.options.1.name: Sfera di cristallo della lettura del pensiero (leggendaria)
+features.0.effects.1.options.1.effects.0.note: Lanciato con un'azione (CD del tiro salvezza 17) mentre scruti con la sfera di cristallo, su creature che sei in grado di vedere situate entro 9 metri dal sensore dell'incantesimo. Non è necessaria la concentrazione, ma termina se scrutare viene interrotto.
+features.0.effects.1.options.2.name: Sfera di cristallo della telepatia (leggendaria)
+features.0.effects.1.options.2.effects.0.text: Mentre scruti con la sfera di cristallo, puoi comunicare telepaticamente con le creature che sei in grado di vedere situate entro 9 metri dal sensore dell'incantesimo.
+features.0.effects.1.options.2.effects.1.note: Lanciato con un'azione (CD del tiro salvezza 17) attraverso il sensore su una creatura che sei in grado di vedere situata entro 9 metri da esso, mentre scruti. Non è necessaria la concentrazione, ma termina se scrutare viene interrotto.
+features.0.effects.1.options.3.name: Sfera di cristallo della visione del vero (leggendaria)
+features.0.effects.1.options.3.effects.0.text: Mentre scruti con la sfera di cristallo, ottieni vista pura entro un raggio di 36 metri centrato sul sensore dell'incantesimo.

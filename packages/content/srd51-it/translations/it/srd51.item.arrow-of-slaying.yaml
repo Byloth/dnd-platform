@@ -1,0 +1,11 @@
+name: Freccia assassina
+text: |-
+  Arma (freccia), molto rara
+
+  Una freccia assassina è un'arma magica creata per uccidere un particolare tipo di creatura. Alcune frecce sono più specializzate di altre; esistono, per esempio, sia frecce assassine dei draghi che frecce assassine dei draghi blu. Se una creatura appartenente al tipo, razza o gruppo associato alla freccia assassina subisce danni da essa, deve effettuare un tiro salvezza su Costituzione con CD 17; se lo fallisce, subisce 6d10 danni perforanti extra, mentre se lo supera, subisce la metà di quei danni.
+
+  Una volta che la freccia assassina ha inflitto i suoi danni extra a una creatura, diventa una freccia non magica.
+
+  Esistono anche altri tipi di munizioni magiche con le stesse caratteristiche, come i quadrelli assassini, utilizzabili dalle balestre, ma le frecce sono le più comuni.
+onUse.0.text: |-
+  Se una creatura del tipo, razza o gruppo associato a questa freccia subisce danni da essa, deve effettuare un tiro salvezza su Costituzione con CD 17; se lo fallisce, subisce 6d10 danni perforanti extra, mentre se lo supera, subisce la metà di quei danni. Una volta che la freccia ha inflitto i suoi danni extra, diventa una freccia non magica.

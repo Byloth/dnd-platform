@@ -1,0 +1,9 @@
+name: Verga inamovibile
+text: |-
+  Verga, non comune
+
+  Questa verga piatta di ferro è dotata di un tasto su un'estremità. Il personaggio può usare un'azione per premere il tasto e fare in modo che la verga si fissi magicamente nel luogo in cui si trova. Finché una creatura non usa un'azione per premere nuovamente il tasto, la verga non si sposta, sfidando anche la forza di gravità. La verga può sostenere un peso massimo di 4 tonnellate; un peso superiore fa sì che la verga si disattivi e cada. Una creatura può usare un'azione per effettuare una prova di Forza con CD 30, spostando la verga per un massimo di 3 metri in caso di successo.
+features.0.name: Fissare sul posto
+features.0.text: Questa verga piatta di ferro è dotata di un tasto su un'estremità. Il personaggio può usare un'azione per premere il tasto e fare in modo che la verga si fissi magicamente nel luogo in cui si trova. Finché una creatura non usa un'azione per premere nuovamente il tasto, la verga non si sposta, sfidando anche la forza di gravità. La verga può sostenere un peso massimo di 4 tonnellate; un peso superiore fa sì che la verga si disattivi e cada. Una creatura può usare un'azione per effettuare una prova di Forza con CD 30, spostando la verga per un massimo di 3 metri in caso di successo.
+features.0.effects.0.name: Premere il tasto
+features.0.effects.0.text: La verga si fissa magicamente nel luogo in cui si trova finché il tasto non viene premuto di nuovo. Sostiene fino a 4 tonnellate; una prova di Forza con CD 30 la sposta di un massimo di 3 metri.

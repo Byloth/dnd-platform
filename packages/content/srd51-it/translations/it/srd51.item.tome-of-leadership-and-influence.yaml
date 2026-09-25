@@ -1,0 +1,7 @@
+name: Tomo del comando e dell'influenza
+text: |-
+  Oggetto meraviglioso, molto raro
+
+  Questo libro contiene una serie di suggerimenti su come persuadere e ispirare gli altri, e le sue parole sono cariche di magia. Se il personaggio trascorre 48 ore in un periodo massimo di 6 giorni a studiare il contenuto del libro e ad applicarne i precetti, il suo punteggio di Carisma aumenta di 2, come anche il massimo ottenibile in quel punteggio. Una volta letto, il libro perde il suo potere: lo riacquisterà dopo un secolo.
+onUse.0.text: |-
+  Dopo aver trascorso 48 ore in un periodo massimo di 6 giorni a studiare il libro, il tuo punteggio di Carisma aumenta di 2, come anche il massimo ottenibile in quel punteggio. Registra l'aumento permanente sul personaggio; il tomo perde poi il suo potere e lo riacquista dopo un secolo.

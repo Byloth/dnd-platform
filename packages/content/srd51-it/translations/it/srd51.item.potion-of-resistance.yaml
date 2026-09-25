@@ -1,0 +1,20 @@
+name: Pozione di resistenza
+text: |-
+  Pozione, non comune
+
+  Quando beve questa pozione, il personaggio ottiene resistenza per 1 ora a un tipo di danno che il GM sceglie o determina casualmente tra le opzioni sottostanti.
+
+  | d10 | Tipo di danno |
+  |---|---|
+  | 1 | Acido |
+  | 2 | Freddo |
+  | 3 | Fuoco |
+  | 4 | Forza |
+  | 5 | Fulmine |
+  | 6 | Necrotico |
+  | 7 | Veleno |
+  | 8 | Psichico |
+  | 9 | Radioso |
+  | 10 | Tuono |
+onUse.0.text: |-
+  Quando bevi questa pozione, ottieni resistenza a un tipo di danno per 1 ora (acido, freddo, fuoco, forza, fulmine, necrotico, veleno, psichico, radioso o tuono, scelto o determinato casualmente dal GM).

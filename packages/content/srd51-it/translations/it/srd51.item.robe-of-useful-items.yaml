@@ -1,0 +1,55 @@
+name: Tunica degli oggetti utili
+text: |-
+  Oggetto meraviglioso, non comune
+
+  Su questa tunica sono visibili alcune toppe di varie forme e colori. Finché il personaggio indossa la tunica, può usare un'azione per staccare una delle toppe, trasformandola nell'oggetto o nella creatura che essa raffigura. Quando anche l'ultima toppa viene staccata, la tunica diventa un capo d'abbigliamento comune.
+
+  La tunica possiede due copie di ognuna delle seguenti toppe:
+
+  Pugnale
+
+  Lanterna a lente sporgente (piena e accesa)
+
+  Specchio di acciaio
+
+  Asta da 3 metri
+
+  Corda di canapa (15 metri, arrotolata)
+
+  Sacco
+
+  La tunica possiede altre 4d4 toppe, scelte dal GM o determinate casualmente.
+
+  | d100 | Toppa |
+
+  |---|---|
+
+  | 01-08 | Una borsa con 100 mo |
+
+  | 09-15 | Un forziere d'argento (lungo 30 cm, largo e profondo 15 cm) del valore di 500 mo |
+
+  | 16-22 | Una porta di ferro (larga fino a 3 metri e alta 3 metri, sbarrata sul lato scelto dal personaggio) che può essere collocata in un'apertura entro portata del personaggio; la porta si adatta all'apertura, posizionandosi e infilandosi sui cardini |
+
+  | 23-30 | 10 gemme del valore di 100 mo ciascuna |
+
+  | 31-44 | Una scala a pioli di legno (lunga 7,2 metri) 45-51 Un cavallo da galoppo dotato di bisacce |
+
+  | 52-59 | Una fossa (un cubo con spigolo di 3 metri) che il personaggio può collocare sul terreno entro 3 metri da lui |
+
+  | 60-68 | 4 *pozioni di guarigione* |
+
+  | 69-75 | Una barca a remi (lunga 3,6 metri) |
+
+  | 76-83 | Una *pergamena magica* contenente un incantesimo di livello compreso tra il 1° e il 3° |
+
+  | 84-90 | 2 mastini |
+
+  | 91-96 | Una finestra (60 per 120 cm, profonda fino a 60 cm) che il personaggio può collocare su una superficie verticale entro la sua portata |
+
+  | 97-100 | Un ariete portatile |
+features.0.name: Toppe
+features.0.effects.0.name: Staccare una toppa
+features.0.effects.0.text: |-
+  Stacca una delle toppe della tunica, trasformandola nell'oggetto o nella creatura che essa raffigura. Quando anche l'ultima toppa viene staccata, la tunica diventa un capo d'abbigliamento comune.
+features.0.effects.0.onUse.0.text: |-
+  La tunica possiede due copie di ognuna di queste toppe: pugnale, lanterna a lente sporgente (piena e accesa), specchio di acciaio, asta da 3 metri, corda di canapa (15 metri, arrotolata), sacco; più altre 4d4 toppe scelte dal GM o tirate sulla tabella d100 dell'oggetto. Tieni il conto delle toppe rimaste a mano; non si ricaricano.

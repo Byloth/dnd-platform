@@ -1,0 +1,6 @@
+name: Pozione del respirare sott'acqua
+text: |-
+  Pozione, non comune
+
+  Il personaggio può respirare sott'acqua per 1 ora dopo aver bevuto questa pozione. Il suo liquido verde torbido ha un odore salmastro e al suo interno galleggia una bolla simile a una medusa.
+onUse.0.text: Puoi respirare sott'acqua per 1 ora dopo aver bevuto questa pozione.

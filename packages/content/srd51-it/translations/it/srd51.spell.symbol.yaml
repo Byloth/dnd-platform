@@ -1,0 +1,20 @@
+name: Simbolo
+components.m: Mercurio, fosforo e polvere di diamante e opale del valore totale di almeno 1.000 mo, che l'incantesimo consuma.
+text: |-
+  Quando lancia questo incantesimo, l'incantatore traccia un glifo nocivo su una superficie (come una sezione di pavimento, una parete o un tavolo) o, al fine di nasconderlo, all'interno di un oggetto che può essere chiuso (come un libro, una pergamena o un forziere del tesoro). Se sceglie una superficie, il glifo può coprire un'area massima del diametro di 3 metri. Se l'incantatore sceglie un oggetto, questo non deve essere spostato; se ciò avviene, una volta che l'oggetto si allontana per più di 3 metri dal luogo in cui è stato lanciato l'incantesimo, il glifo si infrange e l'incantesimo termina senza essere innescato. Il glifo è pressoché invisibile e per scorgerlo è necessario superare una prova di Intelligenza (Indagare) contro la CD del tiro salvezza sull'incantesimo. Quando questo incantesimo viene lanciato, l'incantatore decide cosa innesca il glifo. Nel caso di glifi tracciati su una superficie, gli inneschi più comuni includono: toccare o camminare su di essi, rimuovere un altro oggetto che li copre, avvicinarsi a una certa distanza da loro o manipolare gli oggetti su cui sono tracciati. Nel caso di glifi tracciati all'interno di un oggetto, gli inneschi più comuni sono: aprire l'oggetto, avvicinarsi a una certa distanza da esso, oppure vedere o leggere il glifo. L'incantatore può definire l'innesco in modo che l'incantesimo si attivi solamente in certe circostanze o in base a certe caratteristiche fisiche di una creatura (come peso o altezza) o al suo tipo (per esempio, la protezione potrebbe attivarsi solo contro megere o mutaforma). L'incantatore può inoltre specificare condizioni per evitare di innescare il glifo, come pronunciare una specifica parola d'ordine. Quando traccia il glifo, l'incantatore sceglie una delle seguenti opzioni per determinarne l'effetto. Una volta attivato, il glifo brilla, proiettando luce fioca in una sfera di 18 metri di raggio per 10 minuti, dopodiché l'incantesimo termina. Ogni creatura all'interno della sfera quando il glifo si attiva, oppure che entra nella sfera per la prima volta in un turno o termina qui il suo turno, ne subisce l'effetto.
+
+  **Morte.** Ogni bersaglio deve effettuare un tiro salvezza su Costituzione, subendo 10d10 danni necrotici in caso di fallimento, o la metà dei danni in caso di successo.
+
+  **Discordia.** Ogni bersaglio deve effettuare un tiro salvezza su Costituzione. Se lo fallisce, inizia a discutere e litigare con le altre creature per 1 minuto, durante il quale non è in grado di comunicare in modo significativo e subisce svantaggio ai tiri per colpire e alle prove di caratteristica.
+
+  **Paura.** Ogni bersaglio deve superare un tiro salvezza su Saggezza, altrimenti diventa spaventato per 1 minuto. Mentre è in questo stato, il bersaglio lascia cadere ciò che stava impugnando e, se ne è in grado, deve allontanarsi di almeno 9 metri dal glifo in ogni suo turno.
+
+  **Disperazione.** Ogni bersaglio deve effettuare un tiro salvezza su Carisma. Se lo fallisce, è sopraffatto dalla disperazione per 1 minuto, durante il quale non può attaccare o bersagliare qualsiasi creatura con abilità, incantesimi o altri effetti magici nocivi.
+
+  **Pazzia.** Ogni bersaglio deve effettuare un tiro salvezza su Intelligenza. Se lo fallisce, impazzisce per 1 minuto. Una creatura in questa condizione non può effettuare azioni, capire i discorsi altrui o leggere e si limita a farfugliare parole senza senso. Il GM ne controlla i movimenti, che sono imprevedibili.
+
+  **Dolore.** Ogni bersaglio deve superare un tiro salvezza su Costituzione, altrimenti diventa incapacitato a causa di dolori lancinanti per 1 minuto.
+
+  **Sonno.** Ogni bersaglio deve superare un tiro salvezza su Saggezza, altrimenti cade privo di sensi per 10 minuti. Una creatura si risveglia se subisce danni o se qualcuno usa un'azione per scuoterla o schiaffeggiarla.
+
+  **Stordimento.** Ogni bersaglio deve superare un tiro salvezza su Saggezza, altrimenti diventa stordito per 1 minuto.

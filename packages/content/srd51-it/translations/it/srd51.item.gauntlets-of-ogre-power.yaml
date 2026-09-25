@@ -1,0 +1,7 @@
+name: "Guanti del potere orchesco"
+text: |-
+  Oggetto meraviglioso, non comune (richiede sintonia)
+
+  Finché il personaggio indossa questi guanti, il suo punteggio di Forza è pari a 19. Non hanno alcun effetto se il suo punteggio di Forza è già pari o superiore a 19.
+features.0.name: "Forza 19"
+features.0.effects.0.note: "Finché indossi questi guanti, il tuo punteggio di Forza è pari a 19; non hanno alcun effetto se è già pari o superiore a 19."

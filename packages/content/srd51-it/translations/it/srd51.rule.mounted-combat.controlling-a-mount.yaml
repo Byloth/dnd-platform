@@ -1,0 +1,9 @@
+name: "Controllare una cavalcatura"
+text: |-
+  Quando un personaggio è in sella ha due opzioni. Può controllare la cavalcatura o permetterle di agire indipendentemente. Le creature intelligenti, come i draghi, agiscono indipendentemente.
+
+  Un personaggio può controllare una cavalcatura solo se questa è stata addestrata a tale scopo. Si presume che i cavalli domestici, gli asini e altre creature simili abbiano ricevuto questo addestramento. L'iniziativa di una cavalcatura controllata cambia per coincidere con la tua nel momento in cui sali in sella. La cavalcatura si muove secondo le tue indicazioni e ha solo tre opzioni di azione: Disimpegno, Scatto e Schivata. Una cavalcatura controllata può muoversi e agire già nel turno in cui il personaggio sale in sella.
+
+  Una cavalcatura indipendente conserva il suo posto nell'ordine di iniziativa. Portare un cavalcatore non pone restrizioni alle azioni che la cavalcatura può effettuare: la creatura si muove e agisce come desidera. Potrebbe fuggire dal combattimento, avventarsi ad attaccare e divorare un nemico gravemente ferito o agire contro la volontà del personaggio in altri modi.
+
+  In entrambi i casi, se la cavalcatura provoca un attacco di opportunità quando il personaggio è in sella, l'attaccante può scegliere se bersagliare il personaggio o la cavalcatura.

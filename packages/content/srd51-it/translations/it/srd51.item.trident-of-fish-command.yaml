@@ -1,0 +1,9 @@
+name: Tridente del comando dei pesci
+text: |-
+  Arma (tridente), non comune (richiede sintonia)
+
+  Questo tridente è un'arma magica. Possiede 3 cariche. Finché il personaggio lo trasporta, può usare un'azione e spendere 1 carica per lanciare con esso l'incantesimo dominare bestie (CD del tiro salvezza 15) su una bestia dotata di una velocità di nuotare innata. Il tridente recupera 1d3 cariche consumate all'alba di ogni giorno.
+features.0.name: Arma magica
+features.1.name: Comando dei pesci
+features.1.effects.0.note: |-
+  CD del tiro salvezza 15; si lancia con un'azione mentre trasporti il tridente, solo su una bestia dotata di una velocità di nuotare innata.

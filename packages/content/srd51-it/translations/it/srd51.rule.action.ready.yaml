@@ -1,0 +1,9 @@
+name: Prepararsi
+text: |-
+  A volte un personaggio vuole battere un avversario sul tempo o aspettare che si verifichi una data circostanza prima di agire. A tale scopo, nel suo turno, può effettuare l'azione di Prepararsi, che gli consente di agire usando la sua reazione prima dell'inizio del suo turno successivo.
+
+  Per prima cosa, il giocatore deve decidere quale circostanza percettibile innescherà la reazione del personaggio. Poi deve scegliere quale azione effettuare in risposta a quell'innesco, oppure può decidere di muoversi al massimo della sua velocità. Alcuni esempi includono: "Se il cultista passa sopra la botola, tiro la leva che la apre" e "Se il goblin si avvicina a me, mi muovo per allontanarmi".
+
+  Quando l'innesco si verifica, il personaggio può scegliere se eseguire la sua reazione non appena l'innesco si è concluso o se ignorarlo. È bene ricordare che un personaggio può effettuare soltanto una reazione per round.
+
+  Quando un personaggio prepara un incantesimo, lo lancia normalmente ma trattiene la sua energia, liberandola con la sua reazione quando l'innesco si verifica. Al fine di poter essere preparato, un incantesimo deve avere un tempo di lancio di 1 azione, e trattenere la magia dell'incantesimo richiede concentrazione. Se la concentrazione viene meno, l'incantesimo si dissipa senza avere effetto. Per esempio, se un personaggio si concentra sull'incantesimo srd:web e prepara srd:magic-missile, il suo incantesimo srd:web termina e se il personaggio subisce danni prima di liberare srd:magic-missile con la sua reazione, la sua concentrazione potrebbe interrompersi.

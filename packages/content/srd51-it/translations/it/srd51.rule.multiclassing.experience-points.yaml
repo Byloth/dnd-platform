@@ -1,0 +1,3 @@
+name: "Punti esperienza"
+text: |-
+  Il costo in punti esperienza per acquisire un livello è sempre basato sul livello totale del personaggio, come indicato nella tabella "Avanzamento dei personaggi", e non sul suo livello in una particolare classe. Quindi un personaggio multiclasse chierico 6/guerriero 1 deve accumulare abbastanza PE per arrivare all'8° livello prima di poter acquisire il suo secondo livello come guerriero o il suo settimo livello come chierico.

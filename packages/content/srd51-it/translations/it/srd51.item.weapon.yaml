@@ -1,0 +1,7 @@
+name: "Arma +1, +2 o +3"
+text: |-
+  Arma (qualsiasi), non comune (+1), rara (+2) o molto rara (+3)
+
+  Il personaggio ottiene un bonus ai tiri per colpire e ai tiri per i danni effettuati con quest'arma magica. Il bonus è determinato dalla rarità dell'arma.
+features.0.name: Arma magica
+features.0.effects.0.note: "Il bonus è determinato dalla rarità dell'arma: +1 (non comune), +2 (rara) o +3 (molto rara). Questa voce riporta il valore +1 e nessuna proprietà di un'arma base; per le altre varianti il valore va cambiato."

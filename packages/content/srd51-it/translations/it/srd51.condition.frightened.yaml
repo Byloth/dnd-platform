@@ -1,0 +1,6 @@
+name: Spaventato
+text: |-
+  * Una creatura spaventata subisce svantaggio alle prove di caratteristica e ai tiri per colpire finché la fonte della sua paura rimane entro linea di vista.
+  * La creatura non può muoversi per avvicinarsi volontariamente alla fonte della sua paura.
+effects.0.note: Finché la fonte della tua paura rimane entro linea di vista.
+effects.1.note: Finché la fonte della tua paura rimane entro linea di vista.

@@ -1,0 +1,13 @@
+name: Santuario privato
+components.m: Una sottile lamina di piombo, un frammento di vetro opaco, un pezzo di cotone o stoffa e polvere di crisolito.
+text: |-
+  L'incantatore rende magicamente sicura un'area entro gittata: un cubo le cui dimensioni possono variare da un minimo di 1,5 metri a un massimo di 30 metri. L'incantesimo permane per tutta la sua durata o finché l'incantatore non usa un'azione per interromperlo. Quando lancia l'incantesimo, l'incantatore decide che tipo di sicurezza esso fornisce, scegliendo una o più tra le proprietà seguenti:
+  - I suoni non possono attraversare la barriera ai confini dell'area protetta.
+  - La barriera nell'area protetta appare oscura e nebulosa, rendendo impossibile vedere oltre (anche utilizzando scurovisione).
+  - I sensori creati dagli incantesimi di divinazione non possono apparire all'interno dell'area protetta né oltrepassarne il perimetro.
+  - Le creature nell'area non possono essere bersaglio di incantesimi di divinazione.
+  - Nulla può teletrasportarsi dentro o fuori dall'area protetta.
+  - I viaggi planari sono bloccati all'interno dell'area protetta.
+  Lanciare questo incantesimo nello stesso punto ogni giorno per un anno rende l'effetto permanente.
+higherLevel: |-
+  Quando l'incantatore lancia questo incantesimo usando uno slot incantesimo di 5° livello o superiore, può aumentare la dimensione del cubo di 30 metri per ogni slot di livello superiore al 4°. Quindi è possibile proteggere un cubo con lato lungo fino a 60 metri usando uno slot incantesimo di 5° livello.

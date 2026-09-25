@@ -1,0 +1,3 @@
+name: "Attacco Extra"
+text: |-
+  Se il personaggio ottiene il privilegio Attacco Extra da più di una classe, i privilegi non sono cumulativi. Il personaggio non può effettuare più di due attacchi con questo privilegio a meno che non sia esplicitamente specificato che questo è possibile (la versione di Attacco Extra del guerriero lo rende possibile). Analogamente, la supplica occulta del warlock Lama assetata non conferisce al personaggio alcun attacco aggiuntivo se il personaggio possiede Attacco Extra.

@@ -1,0 +1,18 @@
+name: Fasce metalliche del legame
+text: |-
+  Oggetto meraviglioso, raro
+
+  Questa sfera di metallo arrugginito ha un diametro di 7,5 cm e pesa 0,5 kg. Il personaggio può usare un'azione per pronunciare la parola d'ordine della sfera e lanciarla contro una creatura di taglia Enorme o inferiore che è in grado di vedere situata entro 18 metri da lui. Mentre sfreccia in aria, la sfera si apre rivelando un groviglio di fasce metalliche.
+
+  Il personaggio effettua un tiro per colpire a distanza con un bonus di attacco pari al suo modificatore di Destrezza più il suo bonus di competenza. Se il colpo va a segno, il bersaglio è trattenuto finché il personaggio non usa un'azione bonus per pronunciare di nuovo la parola d'ordine e liberarlo. Se lo fa, o se l'attacco manca il bersaglio, le fasce si ritraggono e tornano a formare la sfera originale.
+
+  Una creatura, anche quella trattenuta, può usare un'azione per effettuare una prova di Forza con CD 20 per spezzare le fasce metalliche. In caso di successo, l'oggetto è distrutto e la creatura trattenuta viene liberata. Se la prova fallisce, ogni ulteriore tentativo effettuato dalla stessa creatura fallisce automaticamente finché non sono trascorse 24 ore.
+
+  Una volta usate, le fasce non possono essere riutilizzate fino all'alba successiva.
+features.0.name: Lanciare la sfera
+features.0.text: Il personaggio può usare un'azione per pronunciare la parola d'ordine della sfera e lanciarla contro una creatura di taglia Enorme o inferiore che è in grado di vedere situata entro 18 metri da lui. Il personaggio effettua un tiro per colpire a distanza con un bonus di attacco pari al suo modificatore di Destrezza più il suo bonus di competenza. Se il colpo va a segno, il bersaglio è trattenuto finché il personaggio non usa un'azione bonus per pronunciare di nuovo la parola d'ordine e liberarlo. Una creatura, anche quella trattenuta, può usare un'azione per effettuare una prova di Forza con CD 20 per spezzare le fasce metalliche. Una volta usate, le fasce non possono essere riutilizzate fino all'alba successiva.
+features.0.effects.0.name: Lanciare la sfera
+features.0.effects.0.onHit.0.note: Finché non usi un'azione bonus per pronunciare di nuovo la parola d'ordine, o finché una creatura non spezza le fasce con una prova di Forza con CD 20 (distruggendo l'oggetto). Una creatura che fallisce la prova non può riprovare per 24 ore.
+features.0.effects.0.text: Attacco a distanza (modificatore di Destrezza più bonus di competenza) contro una creatura di taglia Enorme o inferiore entro 18 metri. Se il colpo va a segno, il bersaglio è trattenuto finché non viene liberato.
+features.0.effects.1.name: Liberare
+features.0.effects.1.text: Pronunci di nuovo la parola d'ordine per liberare la creatura trattenuta; le fasce si ritraggono e tornano a formare la sfera.

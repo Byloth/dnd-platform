@@ -1,0 +1,11 @@
+name: "Febbre giuliva"
+text: |-
+  Questa malattia bersaglia gli umanoidi, nonostante gli gnomi ne siano stranamente immuni. Finché le vittime ne sono afflitte, sono spesso scosse da attacchi di risate deliranti e, per questo, la malattia è comunemente e morbosamente soprannominata: "gli strilli".
+
+  I sintomi si manifestano 1d4 ore dopo l'infezione e includono febbre e disorientamento. La creatura infetta subisce un livello di indebolimento che non può essere rimosso finché la malattia non viene curata.
+
+  Qualsiasi evento che genera tensione nella creatura infetta, come partecipare a un combattimento, subire danni, provare paura o avere un incubo, obbliga la creatura a effettuare un tiro salvezza su Costituzione con CD 13. Se lo fallisce, la creatura subisce 5 (1d10) danni psichici e viene incapacitata da risate spasmodiche per 1 minuto. La creatura può ripetere il tiro salvezza alla fine di ogni suo turno e, se lo supera, le risate spasmodiche terminano e non è più incapacitata.
+
+  Qualsiasi creatura umanoide che inizi il proprio turno entro 3 metri da una creatura infetta in preda a un attacco di risate deve superare un tiro salvezza su Costituzione con CD 10, altrimenti viene a sua volta infettata. Una volta che una creatura supera questo tiro salvezza, diventa immune agli attacchi di risate di quella particolare creatura infetta per 24 ore.
+
+  Al termine di ogni riposo lungo, una creatura infetta può effettuare un tiro salvezza su Costituzione con CD 13. In caso di successo, la CD di questo tiro salvezza e quello effettuato per evitare un attacco di risate scende di 1d6. Quando la CD del tiro salvezza scende a 0, la creatura guarisce dalla malattia. Una creatura che fallisce tre di questi tiri salvezza riceve una forma di follia imprecisata casuale, come descritto in seguito.

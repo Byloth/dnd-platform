@@ -1,0 +1,7 @@
+name: Protezione dal bene e dal male
+components.m: Acqua santa o polvere d'argento e ferro, che l'incantesimo consuma.
+text: |-
+  Fino al termine dell'incantesimo, una creatura consenziente toccata è protetta contro i seguenti tipi di creature: aberrazioni, celestiali, elementali, folletti, immondi e non morti. La protezione garantisce diversi vantaggi. Le creature contro cui è attiva subiscono svantaggio ai tiri per colpire indirizzati contro il bersaglio; inoltre, il bersaglio non può essere affascinato, spaventato o posseduto da creature analoghe. Se il bersaglio è già affascinato, spaventato o posseduto da una tale creatura, possiede vantaggio a qualsiasi nuovo tiro salvezza contro il relativo effetto.
+effects.1.text: |-
+  Aberrazioni, celestiali, elementali, folletti, immondi e non morti subiscono svantaggio ai tiri per colpire contro di te e non possono affascinarti, spaventarti o possederti.
+effects.1.note: "Dipende dal tipo di creatura dell'attaccante: solo promemoria."

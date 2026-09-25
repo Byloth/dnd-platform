@@ -1,0 +1,17 @@
+name: Spada Ruba nove vite
+text: |-
+  Arma (qualsiasi spada), molto rara (richiede sintonia)
+
+  Il personaggio ottiene un bonus di +2 ai tiri per colpire e ai tiri per i danni effettuati con quest'arma magica.
+
+  La spada possiede 1d8 + 1 cariche. Quando il personaggio mette a segno un colpo critico contro una creatura con meno di 100 punti ferita, quest'ultima deve superare un tiro salvezza su Costituzione con CD 15, altrimenti muore all'istante poiché la spada risucchia l'energia vitale dal suo corpo (i costrutti e i non morti sono immuni a questo effetto). La spada perde 1 carica per ogni creatura uccisa in questo modo. Quando termina le cariche, la spada perde questa proprietà.
+features.0.name: Arma magica
+features.0.text: |-
+  Il personaggio ottiene un bonus di +2 ai tiri per colpire e ai tiri per i danni effettuati con quest'arma magica.
+features.1.name: Ruba vite
+features.1.text: |-
+  La spada possiede 1d8 + 1 cariche. Quando il personaggio mette a segno un colpo critico contro una creatura con meno di 100 punti ferita, quest'ultima deve superare un tiro salvezza su Costituzione con CD 15, altrimenti muore all'istante poiché la spada risucchia l'energia vitale dal suo corpo (i costrutti e i non morti sono immuni a questo effetto). La spada perde 1 carica per ogni creatura uccisa in questo modo. Quando termina le cariche, la spada perde questa proprietà.
+features.1.effects.0.text: |-
+  Quando il personaggio mette a segno un colpo critico contro una creatura con meno di 100 punti ferita, quest'ultima deve superare un tiro salvezza su Costituzione con CD 15, altrimenti muore all'istante (i costrutti e i non morti sono immuni). La spada perde 1 carica per ogni creatura uccisa in questo modo; le cariche non si recuperano mai e, quando le termina, la spada perde questa proprietà.
+features.1.effects.0.note: |-
+  Un tiro salvezza contro la morte su colpo critico; nessun tipo di effetto lo esprime. Consumare manualmente una carica quando una creatura viene uccisa.

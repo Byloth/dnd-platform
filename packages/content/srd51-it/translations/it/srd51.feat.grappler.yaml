@@ -1,0 +1,5 @@
+name: Lottatore
+text: |-
+  Il personaggio ha sviluppato le abilità necessarie per farsi valere nella lotta corpo a corpo. Ottiene i seguenti benefici:
+  - Dispone di vantaggio ai tiri per colpire contro una creatura con cui sta lottando.
+  - Può usare la sua azione per tentare di immobilizzare una creatura da lui afferrata. La creatura effettua un tiro salvezza su Forza o su Destrezza contro la CD di manovra del personaggio. Se lo fallisce, il personaggio e la creatura sono entrambi trattenuti fino alla fine della lotta.

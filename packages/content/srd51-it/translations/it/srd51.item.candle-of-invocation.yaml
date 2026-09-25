@@ -1,0 +1,40 @@
+name: Candela dell'invocazione
+text: |-
+  Oggetto meraviglioso, molto raro (richiede sintonia)
+
+  Questa candela lunga e sottile è dedicata a una divinità, di cui condivide l'allineamento. L'allineamento della candela può essere determinato con l'incantesimo individuazione del bene e del male. Il GM può scegliere liberamente la divinità e il relativo allineamento della candela o determinare quest'ultimo casualmente.
+
+  | d20 | Allineamento |
+
+  |---|---|
+
+  | 1–2 | Caotico malvagio |
+
+  | 3–4 | Caotico neutrale |
+
+  | 5–7 | Caotico buono |
+
+  | 8–9 | Neutrale malvagio |
+
+  | 10–11 | Neutrale |
+
+  | 12–13 | Neutrale buono |
+
+  | 14–15 | Legale malvagio |
+
+  | 16–17 | Legale neutrale |
+
+  | 18–20 | Legale buono |
+
+  La magia della candela si attiva quando la candela viene accesa; l'accensione richiede un'azione. La candela può ardere per 4 ore, dopodiché viene distrutta. Il personaggio può spegnerla prima che si esaurisca per usarla successivamente. Il tempo di utilizzo va sottratto in frazioni da 1 minuto dal tempo totale per cui la candela può ardere.
+
+  Mentre è accesa, la candela proietta luce fioca entro un raggio di 9 metri. Tutte le creature illuminate dalla luce e il cui allineamento corrisponde a quello della candela dispongono di vantaggio ai tiri per colpire, ai tiri salvezza e alle prove di caratteristica. Inoltre, chierici e druidi nell'area illuminata con allineamento corrispondente a quello della candela possono lanciare gli incantesimi preparati di 1° livello senza consumare slot incantesimo, anche se i loro effetti saranno considerati pari a quelli lanciati con uno slot di 1° livello.
+
+  In alternativa, quando un personaggio accende la candela per la prima volta, può usarla per lanciare l'incantesimo portale. In questo modo la candela viene distrutta.
+features.0.name: Invocazione
+features.0.effects.0.name: Accendere la candela
+features.0.effects.0.text: La candela arde per un totale di 4 ore, dopodiché viene distrutta; puoi spegnerla prima che si esaurisca (il tempo di utilizzo va sottratto in frazioni da 1 minuto). Mentre è accesa, proietta luce fioca entro un raggio di 9 metri.
+features.0.effects.0.onUse.0.text: "Tieni il conto del tempo di utilizzo: 4 ore in totale, sottratte in frazioni da 1 minuto."
+features.0.effects.1.text: Mentre la candela è accesa, tutte le creature illuminate dalla sua luce e il cui allineamento corrisponde a quello della candela dispongono di vantaggio ai tiri per colpire, ai tiri salvezza e alle prove di caratteristica. Chierici e druidi nell'area illuminata con allineamento corrispondente a quello della candela possono lanciare gli incantesimi preparati di 1° livello senza consumare slot incantesimo, come se fossero lanciati con uno slot di 1° livello.
+features.0.effects.1.note: Il vantaggio si applica a ogni creatura illuminata con l'allineamento della candela, non solo a te; il motore non può confrontare gli allineamenti, quindi applicalo a mano finché la candela è accesa.
+features.0.effects.2.note: Solo quando accendi la candela per la prima volta; in questo modo la candela viene distrutta.

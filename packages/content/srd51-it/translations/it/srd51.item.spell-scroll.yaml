@@ -1,0 +1,39 @@
+name: Pergamena magica
+text: |-
+  Pergamena, rarità variabile
+
+  Una pergamena magica contiene le parole di un unico incantesimo, scritto in un linguaggio mistico. Se l'incantesimo è nella lista degli incantesimi della classe del personaggio, quest'ultimo può leggere la pergamena e lanciare l'incantesimo senza fornire componenti materiali. In caso contrario, la pergamena è incomprensibile. Lanciare l'incantesimo leggendo la pergamena richiede il normale tempo di lancio dell'incantesimo. Una volta lanciato l'incantesimo, le parole svaniscono e la pergamena si polverizza. Se il lancio viene interrotto, la pergamena non viene perduta.
+
+  Se l'incantesimo si trova sulla lista degli incantesimi della classe del personaggio, ma è di un livello più alto rispetto a quelli che può lanciare normalmente, il personaggio deve effettuare una prova di caratteristica usando la sua caratteristica da incantatore per determinare se riesce a lanciarlo. La CD è pari a 10 + il livello dell'incantesimo. In caso di fallimento, l'incantesimo scompare dalla pergamena senza alcun altro effetto.
+
+  Il livello dell'incantesimo sulla pergamena determina la CD del tiro salvezza dell'incantesimo e il bonus di attacco, così come la rarità della pergamena, come illustrato nella tabella Pergamena magica.
+
+  Pergamena magica (tabella)
+
+  | Livello dell'incantesimo | Rarità | CD Tiro Salvezza | Bonus di Attacco |
+
+  |---|---|---|---|
+
+  | Trucchetto | Comune | 13 | +5 |
+
+  | 1° | Comune | 13 | +5 |
+
+  | 2° | Non comune | 13 | +5 |
+
+  | 3° | Non comune | 15 | +7 |
+
+  | 4° | Rara | 15 | +7 |
+
+  | 5° | Rara | 17 | +9 |
+
+  | 6° | Molto rara | 17 | +9 |
+
+  | 7° | Molto rara | 18 | +10 |
+
+  | 8° | Molto rara | 18 | +10 |
+
+  | 9° | Leggendaria | 19 | +11 |
+
+  Un incantesimo da mago su una pergamena magica può essere copiato allo stesso modo di quelli contenuti in un libro degli incantesimi. Per copiare un incantesimo da una pergamena magica, chi lo copia deve superare una prova di Intelligenza (Arcano) con CD pari a 10 + il livello dell'incantesimo. Se supera la prova, copia l'incantesimo con successo. A prescindere dal risultato della prova, la pergamena magica viene distrutta.
+onUse.0.text: |-
+  Se l'incantesimo è nella lista degli incantesimi della tua classe, leggi la pergamena per lanciare l'incantesimo (normale tempo di lancio, senza componenti materiali); la pergamena poi si polverizza. Se l'incantesimo è di un livello più alto rispetto a quelli che puoi lanciare normalmente, effettua prima una prova con la tua caratteristica da incantatore con CD 10 + il livello dell'incantesimo; in caso di fallimento l'incantesimo va perduto. CD del tiro salvezza e bonus di attacco per livello dell'incantesimo: trucchetto e 1° 13/+5, 2° 13/+5, 3° 15/+7, 4° 15/+7, 5° 17/+9, 6° 17/+9, 7° 18/+10, 8° 18/+10, 9° 19/+11.

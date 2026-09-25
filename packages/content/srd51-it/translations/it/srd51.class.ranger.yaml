@@ -1,0 +1,451 @@
+name: |-
+  Ranger
+levels.1.features.0.name: |-
+  Nemico Prescelto
+levels.1.features.0.text: |-
+  A partire dal 1° livello, un ranger dimostra una notevole esperienza nello studiare, seguire le tracce, dare la caccia e perfino parlare con un certo tipo di nemico.
+
+  Il giocatore seleziona un tipo di nemico prescelto: aberrazioni, bestie, celestiali, costrutti, draghi, elementali, folletti, giganti, immondi, melme, mostruosità, non morti o vegetali. In alternativa, può scegliere due razze di umanoidi (per esempio gnoll e orchi) come nemici prescelti.
+
+  Il ranger dispone di vantaggio alle prove di Saggezza (Sopravvivenza) effettuate per seguire le tracce dei suoi nemici prescelti, nonché alle prove di Intelligenza per ricordare le informazioni a essi relative.
+
+  Quando ottiene questo privilegio, il ranger apprende anche un linguaggio a sua scelta tra quelli parlati dal suo nemico prescelto (ammesso che ne parli uno).
+
+  Il ranger sceglie un nemico prescelto aggiuntivo (e un linguaggio a esso associato) al 6° e al 14° livello. Man mano che acquisisce livelli, le sue scelte dovrebbero riflettere i tipi di mostri che ha incontrato nel corso delle sue avventure.
+levels.1.features.0.effects.0.options.0.name: |-
+  Aberrazioni
+levels.1.features.0.effects.0.options.0.effects.0.text: |-
+  Nemico prescelto: aberrazioni.
+levels.1.features.0.effects.0.options.1.name: |-
+  Bestie
+levels.1.features.0.effects.0.options.1.effects.0.text: |-
+  Nemico prescelto: bestie.
+levels.1.features.0.effects.0.options.2.name: |-
+  Celestiali
+levels.1.features.0.effects.0.options.2.effects.0.text: |-
+  Nemico prescelto: celestiali.
+levels.1.features.0.effects.0.options.3.name: |-
+  Costrutti
+levels.1.features.0.effects.0.options.3.effects.0.text: |-
+  Nemico prescelto: costrutti.
+levels.1.features.0.effects.0.options.4.name: |-
+  Draghi
+levels.1.features.0.effects.0.options.4.effects.0.text: |-
+  Nemico prescelto: draghi.
+levels.1.features.0.effects.0.options.5.name: |-
+  Elementali
+levels.1.features.0.effects.0.options.5.effects.0.text: |-
+  Nemico prescelto: elementali.
+levels.1.features.0.effects.0.options.6.name: |-
+  Folletti
+levels.1.features.0.effects.0.options.6.effects.0.text: |-
+  Nemico prescelto: folletti.
+levels.1.features.0.effects.0.options.7.name: |-
+  Immondi
+levels.1.features.0.effects.0.options.7.effects.0.text: |-
+  Nemico prescelto: immondi.
+levels.1.features.0.effects.0.options.8.name: |-
+  Giganti
+levels.1.features.0.effects.0.options.8.effects.0.text: |-
+  Nemico prescelto: giganti.
+levels.1.features.0.effects.0.options.9.name: |-
+  Mostruosità
+levels.1.features.0.effects.0.options.9.effects.0.text: |-
+  Nemico prescelto: mostruosità.
+levels.1.features.0.effects.0.options.10.name: |-
+  Melme
+levels.1.features.0.effects.0.options.10.effects.0.text: |-
+  Nemico prescelto: melme.
+levels.1.features.0.effects.0.options.11.name: |-
+  Vegetali
+levels.1.features.0.effects.0.options.11.effects.0.text: |-
+  Nemico prescelto: vegetali.
+levels.1.features.0.effects.0.options.12.name: |-
+  Non morti
+levels.1.features.0.effects.0.options.12.effects.0.text: |-
+  Nemico prescelto: non morti.
+levels.1.features.0.effects.0.options.13.name: |-
+  Due razze di umanoidi
+levels.1.features.0.effects.0.options.13.text: |-
+  Scegli due razze di umanoidi (per esempio gnoll e orchi) come nemici prescelti.
+levels.1.features.0.effects.0.options.13.effects.0.text: |-
+  Nemico prescelto: due razze di umanoidi a tua scelta (per esempio gnoll e orchi).
+levels.1.features.0.effects.1.note: |-
+  Un linguaggio a tua scelta tra quelli parlati dai tuoi nemici prescelti (ammesso che ne parlino uno).
+levels.1.features.0.effects.2.options.0.name: |-
+  Aberrazioni
+levels.1.features.0.effects.2.options.0.effects.0.text: |-
+  Nemico prescelto: aberrazioni.
+levels.1.features.0.effects.2.options.1.name: |-
+  Bestie
+levels.1.features.0.effects.2.options.1.effects.0.text: |-
+  Nemico prescelto: bestie.
+levels.1.features.0.effects.2.options.2.name: |-
+  Celestiali
+levels.1.features.0.effects.2.options.2.effects.0.text: |-
+  Nemico prescelto: celestiali.
+levels.1.features.0.effects.2.options.3.name: |-
+  Costrutti
+levels.1.features.0.effects.2.options.3.effects.0.text: |-
+  Nemico prescelto: costrutti.
+levels.1.features.0.effects.2.options.4.name: |-
+  Draghi
+levels.1.features.0.effects.2.options.4.effects.0.text: |-
+  Nemico prescelto: draghi.
+levels.1.features.0.effects.2.options.5.name: |-
+  Elementali
+levels.1.features.0.effects.2.options.5.effects.0.text: |-
+  Nemico prescelto: elementali.
+levels.1.features.0.effects.2.options.6.name: |-
+  Folletti
+levels.1.features.0.effects.2.options.6.effects.0.text: |-
+  Nemico prescelto: folletti.
+levels.1.features.0.effects.2.options.7.name: |-
+  Immondi
+levels.1.features.0.effects.2.options.7.effects.0.text: |-
+  Nemico prescelto: immondi.
+levels.1.features.0.effects.2.options.8.name: |-
+  Giganti
+levels.1.features.0.effects.2.options.8.effects.0.text: |-
+  Nemico prescelto: giganti.
+levels.1.features.0.effects.2.options.9.name: |-
+  Mostruosità
+levels.1.features.0.effects.2.options.9.effects.0.text: |-
+  Nemico prescelto: mostruosità.
+levels.1.features.0.effects.2.options.10.name: |-
+  Melme
+levels.1.features.0.effects.2.options.10.effects.0.text: |-
+  Nemico prescelto: melme.
+levels.1.features.0.effects.2.options.11.name: |-
+  Vegetali
+levels.1.features.0.effects.2.options.11.effects.0.text: |-
+  Nemico prescelto: vegetali.
+levels.1.features.0.effects.2.options.12.name: |-
+  Non morti
+levels.1.features.0.effects.2.options.12.effects.0.text: |-
+  Nemico prescelto: non morti.
+levels.1.features.0.effects.2.options.13.name: |-
+  Due razze di umanoidi
+levels.1.features.0.effects.2.options.13.text: |-
+  Scegli due razze di umanoidi (per esempio gnoll e orchi) come nemici prescelti.
+levels.1.features.0.effects.2.options.13.effects.0.text: |-
+  Nemico prescelto: due razze di umanoidi a tua scelta (per esempio gnoll e orchi).
+levels.1.features.0.effects.3.note: |-
+  Un linguaggio a tua scelta tra quelli parlati dai tuoi nemici prescelti (ammesso che ne parlino uno).
+levels.1.features.0.effects.4.options.0.name: |-
+  Aberrazioni
+levels.1.features.0.effects.4.options.0.effects.0.text: |-
+  Nemico prescelto: aberrazioni.
+levels.1.features.0.effects.4.options.1.name: |-
+  Bestie
+levels.1.features.0.effects.4.options.1.effects.0.text: |-
+  Nemico prescelto: bestie.
+levels.1.features.0.effects.4.options.2.name: |-
+  Celestiali
+levels.1.features.0.effects.4.options.2.effects.0.text: |-
+  Nemico prescelto: celestiali.
+levels.1.features.0.effects.4.options.3.name: |-
+  Costrutti
+levels.1.features.0.effects.4.options.3.effects.0.text: |-
+  Nemico prescelto: costrutti.
+levels.1.features.0.effects.4.options.4.name: |-
+  Draghi
+levels.1.features.0.effects.4.options.4.effects.0.text: |-
+  Nemico prescelto: draghi.
+levels.1.features.0.effects.4.options.5.name: |-
+  Elementali
+levels.1.features.0.effects.4.options.5.effects.0.text: |-
+  Nemico prescelto: elementali.
+levels.1.features.0.effects.4.options.6.name: |-
+  Folletti
+levels.1.features.0.effects.4.options.6.effects.0.text: |-
+  Nemico prescelto: folletti.
+levels.1.features.0.effects.4.options.7.name: |-
+  Immondi
+levels.1.features.0.effects.4.options.7.effects.0.text: |-
+  Nemico prescelto: immondi.
+levels.1.features.0.effects.4.options.8.name: |-
+  Giganti
+levels.1.features.0.effects.4.options.8.effects.0.text: |-
+  Nemico prescelto: giganti.
+levels.1.features.0.effects.4.options.9.name: |-
+  Mostruosità
+levels.1.features.0.effects.4.options.9.effects.0.text: |-
+  Nemico prescelto: mostruosità.
+levels.1.features.0.effects.4.options.10.name: |-
+  Melme
+levels.1.features.0.effects.4.options.10.effects.0.text: |-
+  Nemico prescelto: melme.
+levels.1.features.0.effects.4.options.11.name: |-
+  Vegetali
+levels.1.features.0.effects.4.options.11.effects.0.text: |-
+  Nemico prescelto: vegetali.
+levels.1.features.0.effects.4.options.12.name: |-
+  Non morti
+levels.1.features.0.effects.4.options.12.effects.0.text: |-
+  Nemico prescelto: non morti.
+levels.1.features.0.effects.4.options.13.name: |-
+  Due razze di umanoidi
+levels.1.features.0.effects.4.options.13.text: |-
+  Scegli due razze di umanoidi (per esempio gnoll e orchi) come nemici prescelti.
+levels.1.features.0.effects.4.options.13.effects.0.text: |-
+  Nemico prescelto: due razze di umanoidi a tua scelta (per esempio gnoll e orchi).
+levels.1.features.0.effects.5.note: |-
+  Un linguaggio a tua scelta tra quelli parlati dai tuoi nemici prescelti (ammesso che ne parlino uno).
+levels.1.features.1.name: |-
+  Esploratore Nato
+levels.1.features.1.text: |-
+  Il ranger conosce molto bene un tipo di ambiente naturale ed è particolarmente abile nel viaggiare e sopravvivere in quelle regioni. Il giocatore sceglie un tipo di terreno prescelto: artico, costa, deserto, foresta, montagna, palude o prateria. Quando il ranger effettua una prova di Intelligenza o di Saggezza relativa al suo terreno prescelto, raddoppia il suo bonus di competenza se usa un'abilità in cui possiede competenza.
+
+  Quando viaggia per un'ora o più in una regione del suo terreno prescelto, il ranger ottiene i benefici seguenti:
+
+  * Il terreno difficile non rallenta il viaggio del suo gruppo.
+  * Il suo gruppo non può smarrirsi, se non per cause magiche.
+  * Anche se il ranger è impegnato in un'altra attività mentre viaggia (per esempio foraggiare, orientarsi o seguire tracce), rimane all'erta nei confronti dei potenziali pericoli.
+  * Se il ranger viaggia da solo, può muoversi furtivamente a passo normale.
+  * Quando foraggia, il ranger trova il doppio del cibo che troverebbe normalmente.
+  * Quando segue le tracce di altre creature, apprende anche il loro numero esatto, le loro taglie e da quanto tempo sono passate nell'area.
+
+  Il ranger sceglie altri tipi di terreno prescelto al 6° e al 10° livello.
+levels.1.features.1.effects.0.options.0.name: |-
+  Artico
+levels.1.features.1.effects.0.options.0.effects.0.text: |-
+  Terreno prescelto: artico.
+levels.1.features.1.effects.0.options.1.name: |-
+  Costa
+levels.1.features.1.effects.0.options.1.effects.0.text: |-
+  Terreno prescelto: costa.
+levels.1.features.1.effects.0.options.2.name: |-
+  Deserto
+levels.1.features.1.effects.0.options.2.effects.0.text: |-
+  Terreno prescelto: deserto.
+levels.1.features.1.effects.0.options.3.name: |-
+  Foresta
+levels.1.features.1.effects.0.options.3.effects.0.text: |-
+  Terreno prescelto: foresta.
+levels.1.features.1.effects.0.options.4.name: |-
+  Prateria
+levels.1.features.1.effects.0.options.4.effects.0.text: |-
+  Terreno prescelto: prateria.
+levels.1.features.1.effects.0.options.5.name: |-
+  Montagna
+levels.1.features.1.effects.0.options.5.effects.0.text: |-
+  Terreno prescelto: montagna.
+levels.1.features.1.effects.0.options.6.name: |-
+  Palude
+levels.1.features.1.effects.0.options.6.effects.0.text: |-
+  Terreno prescelto: palude.
+levels.1.features.1.effects.1.options.0.name: |-
+  Artico
+levels.1.features.1.effects.1.options.0.effects.0.text: |-
+  Terreno prescelto: artico.
+levels.1.features.1.effects.1.options.1.name: |-
+  Costa
+levels.1.features.1.effects.1.options.1.effects.0.text: |-
+  Terreno prescelto: costa.
+levels.1.features.1.effects.1.options.2.name: |-
+  Deserto
+levels.1.features.1.effects.1.options.2.effects.0.text: |-
+  Terreno prescelto: deserto.
+levels.1.features.1.effects.1.options.3.name: |-
+  Foresta
+levels.1.features.1.effects.1.options.3.effects.0.text: |-
+  Terreno prescelto: foresta.
+levels.1.features.1.effects.1.options.4.name: |-
+  Prateria
+levels.1.features.1.effects.1.options.4.effects.0.text: |-
+  Terreno prescelto: prateria.
+levels.1.features.1.effects.1.options.5.name: |-
+  Montagna
+levels.1.features.1.effects.1.options.5.effects.0.text: |-
+  Terreno prescelto: montagna.
+levels.1.features.1.effects.1.options.6.name: |-
+  Palude
+levels.1.features.1.effects.1.options.6.effects.0.text: |-
+  Terreno prescelto: palude.
+levels.1.features.1.effects.2.options.0.name: |-
+  Artico
+levels.1.features.1.effects.2.options.0.effects.0.text: |-
+  Terreno prescelto: artico.
+levels.1.features.1.effects.2.options.1.name: |-
+  Costa
+levels.1.features.1.effects.2.options.1.effects.0.text: |-
+  Terreno prescelto: costa.
+levels.1.features.1.effects.2.options.2.name: |-
+  Deserto
+levels.1.features.1.effects.2.options.2.effects.0.text: |-
+  Terreno prescelto: deserto.
+levels.1.features.1.effects.2.options.3.name: |-
+  Foresta
+levels.1.features.1.effects.2.options.3.effects.0.text: |-
+  Terreno prescelto: foresta.
+levels.1.features.1.effects.2.options.4.name: |-
+  Prateria
+levels.1.features.1.effects.2.options.4.effects.0.text: |-
+  Terreno prescelto: prateria.
+levels.1.features.1.effects.2.options.5.name: |-
+  Montagna
+levels.1.features.1.effects.2.options.5.effects.0.text: |-
+  Terreno prescelto: montagna.
+levels.1.features.1.effects.2.options.6.name: |-
+  Palude
+levels.1.features.1.effects.2.options.6.effects.0.text: |-
+  Terreno prescelto: palude.
+levels.1.features.1.effects.3.text: |-
+  Quando effettui una prova di Intelligenza o di Saggezza relativa al tuo terreno prescelto, raddoppi il tuo bonus di competenza se usi un'abilità in cui possiedi competenza.
+levels.1.features.1.effects.3.note: |-
+  Situazionale: è il giocatore a stabilire che la prova è relativa al terreno prescelto; non è una Maestria registrata sulla scheda.
+levels.1.features.1.effects.4.text: |-
+  Quando viaggi per un'ora o più nel tuo terreno prescelto: il terreno difficile non rallenta il viaggio del tuo gruppo; il tuo gruppo non può smarrirsi, se non per cause magiche; anche se sei impegnato in un'altra attività mentre viaggi (per esempio foraggiare, orientarti o seguire tracce), rimani all'erta nei confronti dei potenziali pericoli; se viaggi da solo, puoi muoverti furtivamente a passo normale; quando foraggi, trovi il doppio del cibo che troveresti normalmente; quando segui le tracce di altre creature, apprendi anche il loro numero esatto, le loro taglie e da quanto tempo sono passate nell'area.
+levels.1.features.1.effects.4.note: |-
+  I benefici di viaggio sono narrativi; nessun tipo di effetto nel catalogo.
+levels.2.features.0.name: |-
+  Stile di Combattimento
+levels.2.features.0.text: |-
+  Al 2° livello, un ranger adotta uno stile di combattimento in cui specializzarsi scegliendo una tra le opzioni seguenti. Non è consentito scegliere uno stile di combattimento più di una volta, anche se in seguito il ranger ha diritto a scegliere di nuovo.
+
+  ### Tiro
+
+  Il ranger ottiene un bonus di +2 ai tiri per colpire che effettua con le armi a distanza.
+
+  ### Difesa
+
+  Finché indossa un'armatura, il ranger ottiene un bonus di +1 alla CA.
+
+  ### Duellare
+
+  Quando il ranger impugna un'arma da mischia in una mano e non impugna altre armi, ottiene un bonus di +2 ai tiri per i danni di quell'arma.
+
+  ### Combattere con Due Armi
+
+  Quando il ranger combatte con due armi, può aggiungere il suo modificatore di caratteristica ai danni del secondo attacco.
+levels.2.features.0.effects.0.note: |-
+  Non è consentito scegliere uno stile di combattimento più di una volta, anche se in seguito il ranger ha diritto a scegliere di nuovo.
+levels.2.features.0.effects.0.options.0.name: |-
+  Tiro
+levels.2.features.0.effects.0.options.0.text: |-
+  Il ranger ottiene un bonus di +2 ai tiri per colpire che effettua con le armi a distanza.
+levels.2.features.0.effects.0.options.1.name: |-
+  Difesa
+levels.2.features.0.effects.0.options.1.text: |-
+  Finché indossa un'armatura, il ranger ottiene un bonus di +1 alla CA.
+levels.2.features.0.effects.0.options.2.name: |-
+  Duellare
+levels.2.features.0.effects.0.options.2.text: |-
+  Quando il ranger impugna un'arma da mischia in una mano e non impugna altre armi, ottiene un bonus di +2 ai tiri per i danni di quell'arma.
+levels.2.features.0.effects.0.options.3.name: |-
+  Combattere con Due Armi
+levels.2.features.0.effects.0.options.3.text: |-
+  Quando il ranger combatte con due armi, può aggiungere il suo modificatore di caratteristica ai danni del secondo attacco.
+levels.2.features.0.effects.0.options.3.effects.0.text: |-
+  Combattere con Due Armi: quando combatti con due armi, aggiungi il tuo modificatore di caratteristica ai danni del secondo attacco.
+levels.2.features.0.effects.0.options.3.effects.0.note: |-
+  L'attacco con la mano secondaria come azione bonus non è ancora una riga di attacco distinta, quindi il modificatore sul secondo attacco si applica durante il gioco.
+levels.2.features.1.name: |-
+  Incantesimi
+levels.2.features.1.text: |-
+  Quando arriva al 2° livello, un ranger impara a usare l'essenza magica della natura per lanciare incantesimi in modo molto simile a un druido. Vedi il capitolo 10 per le regole generali degli incantesimi e il capitolo 11 per la lista degli incantesimi da ranger.
+
+  ### Slot incantesimo
+
+  La tabella "Ranger" indica quanti slot incantesimo possiede un ranger per lanciare i suoi incantesimi di 1° livello e di livello superiore. Per lanciare uno di questi incantesimi, deve spendere uno slot incantesimo di livello pari o superiore a quello dell'incantesimo. Recupera tutti gli slot incantesimo spesi quando completa un riposo lungo.
+
+  Per esempio, se un ranger conosce l'incantesimo di 1° livello amicizia con gli animali e possiede uno slot incantesimo di 1° livello e uno slot incantesimo di 2° livello, può lanciare amicizia con gli animali usando uno qualsiasi dei due slot.
+
+  ### Incantesimi conosciuti di 1° livello e di livello superiore
+
+  Un ranger conosce due incantesimi di 1° livello a sua scelta dalla lista degli incantesimi da ranger.
+
+  La colonna "Incantesimi conosciuti" nella tabella "Ranger" indica quando un ranger impara altri incantesimi da ranger a sua scelta. Ognuno di questi incantesimi deve appartenere a un livello di cui possiede degli slot incantesimo. Per esempio, quando un ranger arriva al 5° livello, può imparare un nuovo incantesimo di 1° o di 2° livello.
+
+  Inoltre, quando un ranger acquisisce un livello, può scegliere un incantesimo da ranger che conosce e sostituirlo con un altro incantesimo dalla lista degli incantesimi da ranger; anche il nuovo incantesimo deve essere di un livello di cui il ranger possiede degli slot incantesimo.
+
+  ### Caratteristica da incantatore
+
+  Saggezza è la caratteristica da incantatore per gli incantesimi da ranger, dal momento che la sua magia deriva dalla sintonia con la natura. Un ranger usa Saggezza ogni volta che un incantesimo fa riferimento alla sua caratteristica da incantatore. Usa inoltre il suo modificatore di Saggezza per definire la CD del tiro salvezza di un incantesimo da ranger da lui lanciato e quando effettua un tiro per colpire con un incantesimo.
+
+  **CD del tiro salvezza sull'incantesimo** = 8 + il bonus di competenza + il modificatore di Saggezza
+
+  **Modificatore di attacco dell'incantesimo** = il bonus di competenza + il modificatore di Saggezza
+levels.3.features.0.name: |-
+  Consapevolezza Primordiale
+levels.3.features.0.text: |-
+  A partire dal 3° livello, un ranger può usare la sua azione e spendere uno slot incantesimo da ranger per concentrare la sua percezione sull'area attorno a lui. Per 1 minuto per ogni livello dello slot incantesimo speso, il ranger può percepire se le seguenti creature sono presenti entro 1,5 km da lui (o entro 9 km se si trova nel suo terreno prescelto): aberrazioni, celestiali, draghi, elementali, folletti, immondi e non morti. Questo privilegio non rivela la posizione esatta o il numero delle creature.
+levels.3.features.0.effects.0.name: |-
+  Consapevolezza Primordiale
+levels.3.features.0.effects.0.text: |-
+  Usi la tua azione e spendi uno slot incantesimo da ranger per concentrare la tua percezione sull'area attorno a te. Per 1 minuto per ogni livello dello slot incantesimo speso, puoi percepire se le seguenti creature sono presenti entro 1,5 km da te (o entro 9 km se ti trovi nel tuo terreno prescelto): aberrazioni, celestiali, draghi, elementali, folletti, immondi e non morti. Questo privilegio non rivela la posizione esatta o il numero delle creature.
+levels.3.features.0.effects.0.onUse.0.text: |-
+  Per 1 minuto per ogni livello dello slot speso, percepisci se aberrazioni, celestiali, draghi, elementali, folletti, immondi o non morti sono presenti entro 1,5 km (9 km nel tuo terreno prescelto); non la loro posizione né il loro numero.
+levels.3.features.0.effects.0.note: |-
+  Il costo è fisso a uno slot di 1° livello e la durata a 1 minuto; spendere uno slot di livello superiore per una durata maggiore non è ancora esprimibile (nel costo non esiste una variabile per il livello dello slot).
+levels.3.features.1.name: |-
+  Archetipo Ranger
+levels.3.features.1.text: |-
+  Al 3° livello, un ranger sceglie un archetipo che si sforzerà di emulare: Cacciatore o Signore delle Bestie, entrambi descritti alla fine della descrizione della classe. Questa scelta gli conferisce alcuni privilegi al 3° livello e poi di nuovo al 7°, 11° e 15° livello.
+levels.4.features.0.name: |-
+  Aumento dei Punteggi di Caratteristica
+levels.4.features.0.text: |-
+  Quando arriva al 4° livello, e poi di nuovo all'8°, 12°, 16° e 19° livello, un ranger può aumentare di 2 un punteggio di caratteristica a sua scelta, oppure può aumentare di 1 due punteggi di caratteristica a sua scelta. Come di consueto, non è consentito aumentare un punteggio di caratteristica a più di 20 utilizzando questo privilegio.
+levels.5.features.0.name: |-
+  Attacco Extra
+levels.5.features.0.text: |-
+  A partire dal 5° livello, un ranger può attaccare due volte anziché una, ogni volta che effettua l'azione Attacco nel proprio turno.
+levels.8.features.0.name: |-
+  Andatura sul Territorio
+levels.8.features.0.text: |-
+  A partire dall'8° livello, muoversi attraverso il terreno difficile non magico non richiede più un costo in movimento extra al ranger. Inoltre, può passare attraverso i vegetali non magici senza esserne rallentato e senza subire danni se tali vegetali presentano spine, aculei o altri pericoli simili.
+
+  Inoltre, il ranger dispone di vantaggio ai tiri salvezza contro i vegetali creati magicamente o manipolati per ostacolare il movimento, come quelli creati dall'incantesimo intralciare.
+levels.8.features.0.effects.1.text: |-
+  Muoverti attraverso il terreno difficile non magico non ti richiede un costo in movimento extra. Inoltre, puoi passare attraverso i vegetali non magici senza esserne rallentato e senza subire danni se tali vegetali presentano spine, aculei o altri pericoli simili.
+levels.8.features.0.effects.1.note: |-
+  Le regole sul costo del movimento non hanno un tipo di effetto nel catalogo; si applicano durante il gioco.
+levels.10.features.0.name: |-
+  Nascondersi in Piena Vista
+levels.10.features.0.text: |-
+  A partire dal 10° livello, un ranger può impiegare 1 minuto per mimetizzarsi con l'ambiente. Deve essere in grado di accedere a fango fresco, terriccio, vegetali, fuliggine e altro materiale naturale adatto con cui mimetizzarsi.
+
+  Una volta mimetizzatosi in questo modo, può tentare di nascondersi appiattendosi contro una superficie solida, come un albero o una parete, che sia alta e larga almeno quanto lui. Il ranger ottiene un bonus di +10 alle prove di Destrezza (Furtività) finché rimane dove si trova senza muoversi e senza effettuare azioni. Se si muove o effettua un'azione o una reazione, dovrà mimetizzarsi di nuovo per ottenere questo beneficio.
+levels.10.features.0.effects.0.name: |-
+  Nascondersi in Piena Vista
+levels.10.features.0.effects.0.text: |-
+  Impieghi 1 minuto per mimetizzarti con l'ambiente (devi poter accedere a fango fresco, terriccio, vegetali, fuliggine e altro materiale naturale adatto). Una volta mimetizzato, puoi tentare di nasconderti appiattendoti contro una superficie solida, come un albero o una parete, che sia alta e larga almeno quanto te. Ottieni un bonus di +10 alle prove di Destrezza (Furtività) finché rimani dove ti trovi senza muoverti e senza effettuare azioni. Se ti muovi o effettui un'azione o una reazione, dovrai mimetizzarti di nuovo per ottenere questo beneficio.
+levels.10.features.0.effects.0.onUse.0.text: |-
+  Richiede 1 minuto. Disattiva lo stato non appena ti muovi o effettui un'azione o una reazione.
+levels.10.features.0.effects.1.note: |-
+  Solo mentre sei mimetizzato e appiattito contro una superficie solida, senza muoverti e senza effettuare azioni.
+levels.14.features.0.name: |-
+  Svanire
+levels.14.features.0.text: |-
+  A partire dal 14° livello, un ranger può usare l'azione Nascondersi come azione bonus nel suo turno. Oltre a questo, non è possibile seguire le sue tracce tramite mezzi non magici, a meno che il ranger non decida di lasciare una pista.
+levels.14.features.0.effects.0.name: |-
+  Svanire
+levels.14.features.0.effects.0.text: |-
+  Puoi usare l'azione Nascondersi come azione bonus nel tuo turno.
+levels.14.features.0.effects.0.onUse.0.text: |-
+  Esegui l'azione Nascondersi (effettua una prova di Destrezza (Furtività)).
+levels.14.features.0.effects.1.text: |-
+  Non è possibile seguire le tue tracce tramite mezzi non magici, a meno che tu non decida di lasciare una pista.
+levels.18.features.0.name: |-
+  Sensi Ferini
+levels.18.features.0.text: |-
+  Al 18° livello, un ranger sviluppa un senso soprannaturale che gli permette di combattere anche con le creature che non è in grado di vedere. Quando un ranger attacca una creatura che non è in grado di vedere, la sua incapacità nel localizzarla non impone svantaggio ai suoi tiri per colpire contro di essa.
+
+  Il ranger è inoltre consapevole della posizione di qualsiasi creatura invisibile entro 9 metri da lui, purché quella creatura non sia nascosta a lui e il ranger non sia accecato o assordato.
+levels.18.features.0.effects.0.text: |-
+  Quando attacchi una creatura che non sei in grado di vedere, la tua incapacità nel localizzarla non impone svantaggio ai tuoi tiri per colpire contro di essa.
+levels.18.features.0.effects.0.note: |-
+  Annullare lo svantaggio contro un bersaglio che non vedi è una regola dei tiri che si applica durante il gioco; nessun tipo di effetto nel catalogo.
+levels.18.features.0.effects.1.text: |-
+  Sei consapevole della posizione di qualsiasi creatura invisibile entro 9 metri da te, purché quella creatura non sia nascosta a te e tu non sia accecato o assordato.
+levels.20.features.0.name: |-
+  Sterminatore di Nemici
+levels.20.features.0.text: |-
+  Al 20° livello, un ranger diventa un cacciatore implacabile dei suoi nemici. Una volta per ogni suo turno, può aggiungere il suo modificatore di Saggezza al tiro per colpire o al tiro per i danni di un attacco da lui effettuato contro uno dei suoi nemici prescelti. Può scegliere di utilizzare questo privilegio prima o dopo il tiro, ma prima che qualsiasi effetto del tiro sia applicato.
+levels.20.features.0.effects.0.name: |-
+  Sterminatore di Nemici
+levels.20.features.0.effects.0.text: |-
+  Una volta per ogni tuo turno, puoi aggiungere il tuo modificatore di Saggezza al tiro per colpire o al tiro per i danni di un attacco da te effettuato contro uno dei tuoi nemici prescelti. Puoi scegliere di utilizzare questo privilegio prima o dopo il tiro, ma prima che qualsiasi effetto del tiro sia applicato.
+levels.20.features.0.effects.0.onUse.0.text: |-
+  Aggiungi il tuo modificatore di Saggezza (mod(wis)) al tiro per colpire o al tiro per i danni di un attacco contro un nemico prescelto; una volta per turno, prima o dopo il tiro ma prima che i suoi effetti siano applicati.

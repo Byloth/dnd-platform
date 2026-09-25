@@ -1,0 +1,8 @@
+name: Guanti del nuotare e scalare
+text: |-
+  Oggetto meraviglioso, non comune (richiede sintonia)
+
+  Finché il personaggio indossa questi guanti, scalare e nuotare non gli costano alcun movimento extra; inoltre, ottiene un bonus di +5 alle prove di Forza (Atletica) effettuate per scalare o nuotare.
+features.0.name: Scalare e nuotare
+features.0.text: Finché il personaggio indossa questi guanti, scalare e nuotare non gli costano alcun movimento extra; inoltre, ottiene un bonus di +5 alle prove di Forza (Atletica) effettuate per scalare o nuotare.
+features.0.effects.0.note: Solo alle prove di Forza (Atletica) effettuate per scalare o nuotare. Scalare e nuotare non costano movimento extra.

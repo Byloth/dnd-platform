@@ -1,0 +1,7 @@
+name: Pozione di crescita
+text: |-
+  Pozione, non comune
+
+  Quando il personaggio beve questa pozione, ottiene l'effetto "ingrandire" dell'incantesimo *ingrandire/ridurre*, per 1d4 ore (non è richiesta la concentrazione). All'interno della pozione è visibile un piccolo nucleo rosso che si espande progressivamente fino a tingere tutto il liquido trasparente intorno a esso per poi contrarsi fino a diventare un granello minuscolo. Agitare la bottiglia non interrompe il processo.
+onUse.0.text: |-
+  Quando bevi questa pozione, ottieni l'effetto "ingrandire" dell'incantesimo *ingrandire/ridurre* per 1d4 ore (non è richiesta la concentrazione).

@@ -1,0 +1,12 @@
+name: Mantello del pipistrello
+text: |-
+  Oggetto meraviglioso, raro (richiede sintonia)
+
+  Il personaggio che indossa questo mantello dispone di vantaggio alle prove di Destrezza (Furtività). In un'area di luce fioca o di oscurità, può afferrare i lembi del mantello con entrambe le mani e usarlo per volare a una velocità di 12 metri. Se per qualunque motivo il personaggio lascia un lembo del mantello o esce dalla zona di luce fioca o di oscurità, perde questa velocità di volare.
+
+  Fintantoché il personaggio indossa il mantello in un'area di luce fioca o di oscurità, può usare un'azione per lanciare l'incantesimo metamorfosi su se stesso per trasformarsi in un pipistrello. In forma di pipistrello mantiene i suoi punteggi di Intelligenza, Saggezza e Carisma. Il mantello non può essere riutilizzato in questo modo fino all'alba successiva.
+features.0.name: Mantello del pipistrello
+features.0.effects.1.name: Afferrare i lembi del mantello per volare
+features.0.effects.1.text: In un'area di luce fioca o di oscurità, puoi afferrare i lembi del mantello con entrambe le mani e usarlo per volare a una velocità di 12 metri. Se lasci un lembo del mantello mentre voli in questo modo, o se esci dalla zona di luce fioca o di oscurità, perdi questa velocità di volare.
+features.0.effects.2.note: Solo in luce fioca o nell'oscurità, mentre afferri i lembi del mantello con entrambe le mani.
+features.0.effects.3.note: Lanciato su te stesso con un'azione, solo in luce fioca o nell'oscurità, per trasformarti in un pipistrello; mantieni i tuoi punteggi di Intelligenza, Saggezza e Carisma.

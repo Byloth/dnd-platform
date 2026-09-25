@@ -1,0 +1,6 @@
+name: Invisibile
+text: |-
+  * Una creatura invisibile è impossibile da vedere senza l'aiuto della magia o di sensi speciali. Agli effetti del nascondersi, è considerata pesantemente oscurata. La sua ubicazione può essere intuita dai rumori che emette o dalle tracce che lascia.
+  * I tiri per colpire contro la creatura subiscono svantaggio, mentre i tiri per colpire della creatura ottengono vantaggio.
+effects.1.text: I tiri per colpire contro di te subiscono svantaggio; agli effetti del nascondersi, sei considerato pesantemente oscurato.
+effects.1.note: "Il motore delle regole non gestisce i tiri effettuati contro di te: l'effetto è mostrato come promemoria."

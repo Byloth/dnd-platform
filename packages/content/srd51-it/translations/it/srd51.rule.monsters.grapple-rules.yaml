@@ -1,0 +1,5 @@
+name: "Afferrare: regole per i mostri"
+text: |-
+  Molti mostri dispongono di attacchi speciali che permettono loro di afferrare rapidamente la preda. Quando un mostro va a segno con tale attacco, non ha bisogno di effettuare un'ulteriore prova di caratteristica per determinare se riesce ad afferrare la preda, a meno che l'attacco non specifichi diversamente.
+
+  Una creatura afferrata dal mostro può usare la sua azione per tentare di sfuggire. Per farlo, deve superare una prova di Forza (Atletica) o Destrezza (Acrobazia) contro la CD per sfuggire indicata nella scheda delle statistiche del mostro. Se non viene fornita una CD per sfuggire, si presume che essa sia pari a 10 + il modificatore di Forza (Atletica) del mostro.

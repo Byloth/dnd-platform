@@ -1,0 +1,4 @@
+name: Santuario
+components.m: Uno specchietto d'argento.
+text: |-
+  L'incantatore protegge dagli attacchi una creatura situata entro gittata. Finché l'incantesimo non termina, ogni creatura che bersaglia la creatura protetta con un attacco o un incantesimo che infligge danni deve prima effettuare un tiro salvezza su Saggezza. Se lo fallisce, deve scegliere un nuovo bersaglio o perdere l'attacco o l'incantesimo. Questo incantesimo non protegge la creatura bersaglio dagli effetti ad area, come l'esplosione di una palla di fuoco. Se la creatura protetta effettua un attacco o lancia un incantesimo che influenza una creatura nemica, questo incantesimo termina.

@@ -1,0 +1,12 @@
+name: "Dadi Vita in base alla taglia"
+text: |-
+  | Taglia del mostro | Dado Vita | Media dei PF per dado |
+  |-------------------|-----------|----------------------------|
+  | Minuscola | d4 | 2½ |
+  | Piccola | d6 | 3½ |
+  | Media | d8 | 4½ |
+  | Grande | d10 | 5½ |
+  | Enorme | d12 | 6½ |
+  | Mastodontica | d20 | 10½ |
+
+  Anche il modificatore di Costituzione di un mostro influenza il suo numero di punti ferita. Il suo modificatore di Costituzione va moltiplicato per il numero di Dadi Vita che possiede e il risultato si somma ai suoi punti ferita. Per esempio, se un mostro ha un punteggio di Costituzione pari a 12 (con un modificatore di +1) e 2d8 Dadi Vita, avrà 2d8 + 2 punti ferita (per una media di 11).

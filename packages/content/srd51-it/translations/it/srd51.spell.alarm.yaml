@@ -1,0 +1,6 @@
+name: Allarme
+components.m: Un campanellino e un pezzo di prezioso filo d'argento.
+text: |-
+  L'incantatore predispone un allarme contro le visite indesiderate, scegliendo una porta, una finestra o un'area entro gittata che non sia più ampia di un cubo di 6 metri. Finché l'incantesimo non termina, un allarme avverte l'incantatore tutte le volte che una creatura di taglia Minuscola o superiore tocca o entra nell'area protetta.
+
+  Al momento del lancio dell'incantesimo, l'incantatore designa quali creature non faranno scattare l'allarme. Sceglie inoltre se l'allarme è mentale o udibile. Se l'allarme è mentale, un tintinnio risuona nella mente dell'incantatore se questi si trova entro 1,5 km dall'area protetta. Questo suono lo sveglia se sta dormendo. Un allarme udibile produce il suono di una campanella per 10 secondi entro 18 metri.

@@ -1,0 +1,24 @@
+name: Gemma della luminosità
+text: |-
+  Oggetto meraviglioso, non comune
+
+  Questo prisma possiede 50 cariche. Quando il personaggio lo tiene in mano, può usare un'azione per pronunciare una delle sue tre parole d'ordine per generare uno degli effetti seguenti:
+
+  La prima parola d'ordine fa sì che la gemma proietti luce intensa in un raggio di 9 metri e luce fioca per altri 9 metri. Questo effetto non fa consumare cariche e dura finché il personaggio non usa un'azione bonus per ripetere la parola d'ordine o finché non usa un'altra funzione della gemma.
+
+  La seconda parola d'ordine consuma 1 carica della gemma e fa sì che quest'ultima proietti un raggio di luce scintillante contro una creatura situata entro 18 metri dal personaggio e che egli è in grado di vedere. La creatura deve superare un tiro salvezza su Costituzione con CD 15, altrimenti è accecata per 1 minuto. La creatura può ripetere il tiro salvezza alla fine di ogni suo turno e, se lo supera, l'effetto per lei svanisce.
+
+  La terza parola d'ordine consuma 5 cariche e fa sì che si sprigioni una luce accecante in un cono di 9 metri originato dalla gemma. Ogni creatura situata nel cono deve effettuare un tiro salvezza come se fosse stata colpita dal raggio di luce creato dalla seconda parola d'ordine.
+
+  Quando tutte le cariche sono state utilizzate, la gemma diventa un gioiello non magico del valore di 50 mo.
+features.0.name: Parole d'ordine
+features.0.effects.0.name: "Prima parola d'ordine: proiettare luce"
+features.0.effects.0.text: La gemma proietta luce intensa in un raggio di 9 metri e luce fioca per altri 9 metri. Questo effetto non consuma cariche e dura finché non usi un'azione bonus per ripetere la parola d'ordine o finché non usi un'altra funzione della gemma.
+features.0.effects.1.name: "Seconda parola d'ordine: raggio di luce"
+features.0.effects.1.text: La gemma proietta un raggio di luce scintillante contro una creatura che sei in grado di vedere entro 18 metri. La creatura deve superare un tiro salvezza su Costituzione con CD 15, altrimenti è accecata per 1 minuto; può ripetere il tiro salvezza alla fine di ogni suo turno e, se lo supera, l'effetto svanisce.
+features.0.effects.1.onUse.0.note: Solo se il bersaglio fallisce il tiro salvezza su Costituzione con CD 15; il bersaglio ripete il tiro salvezza alla fine di ogni suo turno.
+features.0.effects.2.name: "Terza parola d'ordine: bagliore accecante"
+features.0.effects.2.text: La gemma sprigiona una luce accecante in un cono di 9 metri originato da essa. Ogni creatura nel cono deve effettuare lo stesso tiro salvezza del raggio di luce e, se lo fallisce, è accecata per 1 minuto.
+features.0.effects.2.onUse.0.text: "Ogni creatura nel cono di 9 metri: tiro salvezza su Costituzione con CD 15, altrimenti accecata per 1 minuto; ripete il tiro salvezza alla fine di ogni suo turno."
+features.0.effects.3.text: Quando tutte le cariche sono state utilizzate, la gemma diventa un gioiello non magico del valore di 50 mo.
+features.0.effects.3.note: Le cariche non si ricaricano mai.

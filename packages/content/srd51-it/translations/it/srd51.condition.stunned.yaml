@@ -1,0 +1,7 @@
+name: Stordito
+text: |-
+  * Una creatura stordita è incapacitata (vedi la relativa condizione), non può muoversi e può parlare soltanto a fatica.
+  * La creatura fallisce automaticamente i tiri salvezza su Forza e Destrezza.
+  * I tiri per colpire contro la creatura ottengono vantaggio.
+effects.5.text: Incapacitato; fallisci automaticamente i tiri salvezza su Forza e Destrezza; gli attacchi contro di te ottengono vantaggio.
+effects.5.note: "Il motore delle regole non gestisce i tiri effettuati contro di te: l'effetto è mostrato come promemoria."

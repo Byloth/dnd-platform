@@ -1,0 +1,100 @@
+name: Chierico
+levels.1.features.0.name: Dominio Divino
+levels.1.features.0.text: |-
+  Il chierico sceglie un dominio correlato alla sua divinità, per esempio Vita. Ogni dominio è descritto in dettaglio alla fine della sezione di questa classe e fornisce esempi di varie divinità a esso associate. Questa scelta conferisce al chierico alcuni incantesimi di dominio e altri privilegi al 1° livello. Conferisce inoltre ulteriori modi di utilizzare Incanalare Divinità quando il chierico ottiene quel privilegio al 2° livello e benefici ulteriori al 6°, all'8° e al 17° livello.
+
+  ### Incantesimi di dominio
+  A ogni dominio corrisponde una lista di incantesimi (gli incantesimi di dominio) che il chierico ottiene ai livelli da chierico indicati nella descrizione del dominio. Quando un chierico ottiene un incantesimo di dominio, quell'incantesimo è sempre considerato preparato e non conta al fine di determinare il numero di incantesimi che il chierico può preparare ogni giorno.
+  Se il chierico possiede un incantesimo di dominio che non compare nella lista degli incantesimi da chierico, quell'incantesimo è comunque considerato un incantesimo da chierico per lui.
+levels.1.features.1.name: Incantesimi
+levels.1.features.1.text: |-
+  Un chierico è un tramite del potere divino e come tale è in grado di lanciare incantesimi da chierico.
+
+  ###Trucchetti
+
+  Al 1° livello, un chierico conosce tre trucchetti a sua scelta tratti dalla lista degli incantesimi da chierico. Apprende ulteriori trucchetti da chierico a sua scelta ai livelli successivi, come indicato dalla colonna "Trucchetti Conosciuti" nella tabella "Chierico".
+  Preparare e lanciare incantesimi
+
+  La tabella "Chierico" indica quanti slot incantesimo possiede un chierico per lanciare i suoi incantesimi di 1° livello e di livello superiore. Per lanciare uno di questi incantesimi, deve spendere uno slot incantesimo di livello pari o superiore a quello dell'incantesimo. Recupera tutti gli slot incantesimo spesi quando completa un riposo lungo.
+
+  Il chierico prepara la lista degli incantesimi da chierico disponibili da lanciare scegliendoli dalla lista degli incantesimi da chierico. Quando lo fa, deve scegliere un numero di incantesimi da chierico pari al suo modificatore di Saggezza + il suo livello da chierico (minimo di un incantesimo). Gli incantesimi devono essere di un livello di cui possiede degli slot incantesimo.
+
+  Per esempio, un chierico di 3° livello possiede quattro slot incantesimo di 1° livello e due slot incantesimo di 2° livello. Con Saggezza pari a 16, la lista dei suoi incantesimi preparati può includere sei incantesimi di 1° o 2° livello, in qualsiasi combinazione. Se prepara l'incantesimo di 1° livello *cura ferite*, potrà lanciarlo usando uno slot incantesimo di 1° livello o di 2° livello. Il lancio di quell'incantesimo non rimuove quell'incantesimo dalla lista di incantesimi preparati.
+
+  Può cambiare la lista dei suoi incantesimi preparati quando completa un riposo lungo. Per preparare una nuova lista di incantesimi da chierico è necessario un certo ammontare di tempo da trascorrere in preghiera e meditazione: almeno 1 minuto per livello di incantesimo per ogni incantesimo nella sua lista.
+
+  ###Caratteristica da incantatore
+
+  Saggezza è la caratteristica da incantatore usata per gli incantesimi da chierico. Il potere degli incantesimi di un chierico deriva dalla sua devozione nei confronti della divinità. Usa Saggezza ogni volta che un incantesimo da chierico fa riferimento alla sua caratteristica da incantatore. Usa inoltre il suo modificatore di Saggezza per definire la CD del tiro salvezza di un incantesimo da chierico da lui lanciato e quando effettua un tiro per colpire con un incantesimo.
+
+  **CD del tiro salvezza sull'incantesimo** = 8 + il bonus di competenza + il modificatore di Saggezza
+
+  **Modificatore di attacco dell'incantesimo** = il bonus di competenza + il modificatore di Saggezza
+
+  ###Celebrare rituali
+
+  Un chierico può lanciare un incantesimo da chierico come rituale se quell'incantesimo possiede il descrittore rituale e il chierico lo ha preparato.
+
+  ###Focus da incantatore
+
+  Un chierico può usare un simbolo sacro (vedi capitolo 5, "Equipaggiamento") come focus da incantatore per i suoi incantesimi da chierico.
+levels.2.features.0.name: Incanalare Divinità
+levels.2.features.0.text: |-
+  Al 2° livello, un chierico ottiene la capacità di incanalare energia divina direttamente dalla sua divinità e usa quell'energia per alimentare gli effetti magici. Un chierico parte con due effetti di questo tipo: Scacciare Non Morti e un effetto determinato dal suo dominio. Alcuni domini conferiscono al chierico degli effetti aggiuntivi man mano che avanza di livello, nel modo indicato nella descrizione del dominio.
+
+  Quando un chierico utilizza Incanalare Divinità, può scegliere quale effetto creare. Deve poi completare un riposo breve o lungo per utilizzare di nuovo Incanalare Divinità.
+
+  Alcuni effetti di Incanalare Divinità richiedono dei tiri salvezza. Quando un chierico utilizza un tale effetto, la CD è pari alla CD del tiro salvezza sui suoi incantesimi da chierico.
+
+  A partire dal 6° livello, un chierico può utilizzare Incanalare Divinità due volte tra un riposo e l'altro. Inoltre, a partire dal 18° livello, può usarlo tre volte tra un riposo e l'altro. Quando completa un riposo breve o lungo, recupera gli utilizzi spesi.
+
+  ### Incanalare Divinità: Scacciare Non Morti
+
+  Con un'azione, il chierico brandisce il suo simbolo sacro e pronuncia una preghiera di condanna nei confronti dei non morti. Ogni non morto che è in grado di vedere o sentire il chierico e si trova entro 9 metri da lui deve effettuare un tiro salvezza su Saggezza. Se lo fallisce, la creatura è considerata scacciata per 1 minuto o finché non subisce danni.
+
+  Una creatura scacciata deve spendere i suoi turni tentando di allontanarsi il più possibile dal chierico e non può volontariamente muoversi in uno spazio entro 9 metri da lui. Inoltre, non può effettuare reazioni. Come sua azione può usare solo l'azione di Scatto o tentare di fuggire da un effetto che gli impedisce di muoversi. Se non può muoversi in alcuno spazio, la creatura può usare l'azione di Schivata.
+levels.2.features.0.effects.0.name: Incanalare Divinità
+levels.2.features.0.effects.0.note: |-
+  CD del tiro salvezza di Incanalare Divinità = la CD del tiro salvezza sui tuoi incantesimi da chierico (8 + il tuo bonus di competenza + il tuo modificatore di Saggezza).
+levels.2.features.0.effects.1.name: "Incanalare Divinità: Scacciare Non Morti"
+levels.2.features.0.effects.1.text: |-
+  Brandisci il tuo simbolo sacro e pronunci una preghiera di condanna nei confronti dei non morti. Ogni non morto che è in grado di vederti o sentirti e si trova entro 9 metri da te deve effettuare un tiro salvezza su Saggezza. Se lo fallisce, la creatura è considerata scacciata per 1 minuto o finché non subisce danni.
+levels.2.features.0.effects.1.onUse.0.text: |-
+  Una creatura scacciata deve spendere i suoi turni tentando di allontanarsi il più possibile da te e non può volontariamente muoversi in uno spazio entro 9 metri da te. Inoltre, non può effettuare reazioni. Come sua azione può usare solo l'azione di Scatto o tentare di fuggire da un effetto che le impedisce di muoversi. Se non può muoversi in alcuno spazio, la creatura può usare l'azione di Schivata.
+levels.4.features.0.name: Aumento dei Punteggi di Caratteristica
+levels.4.features.0.text: |-
+  Quando arriva al 4° livello e poi di nuovo all'8°, al 12°, al 16° e al 19° livello, un chierico può aumentare di 2 un punteggio di caratteristica a sua scelta, oppure può aumentare di 1 due punteggi di caratteristica a sua scelta. Come di consueto, non è consentito aumentare un punteggio di caratteristica a più di 20 utilizzando questo privilegio.
+levels.5.features.0.name: Distruggere Non Morti
+levels.5.features.0.text: |-
+  A partire dal 5° livello, quando un non morto fallisce il suo tiro salvezza contro il privilegio Scacciare Non Morti del chierico, quella creatura è distrutta istantaneamente se il suo grado di sfida è pari o inferiore a una certa soglia, come indicato dalla tabella "Distruggere Non Morti".
+
+  ### Distruggere Non Morti (tabella)
+
+  | Livello da chierico | Distruggere i Non Morti di GS... |
+  |---|---|
+  | 5° | 1/2 o inferiore |
+  | 8° | 1 o inferiore |
+  | 11° | 2 o inferiore |
+  | 14° | 3 o inferiore |
+  | 17° | 4 o inferiore |
+levels.5.features.0.effects.0.text: |-
+  Quando un non morto fallisce il suo tiro salvezza contro il tuo privilegio Scacciare Non Morti, quella creatura è distrutta istantaneamente se il suo grado di sfida è pari o inferiore a una soglia: 1/2 al 5° livello, 1 all'8°, 2 all'11°, 3 al 14°, 4 al 17°.
+levels.5.features.0.effects.0.note: |-
+  Lacuna: effetto aggiuntivo dell'azione Scacciare Non Morti risolto al tavolo; la soglia di GS è table(cleric.destroy-undead-cr).
+levels.10.features.0.name: Intervento Divino
+levels.10.features.0.text: |-
+  A partire dal 10° livello, un chierico può appellarsi alla propria divinità affinché intervenga a suo beneficio nel momento del bisogno.
+
+  Per implorare l'aiuto della sua divinità, il chierico deve usare un'azione. Deve descrivere l'assistenza che desidera ottenere e tirare un dado percentuale. Se ottiene con il tiro un numero pari o inferiore al suo livello da chierico, la divinità interviene. È il GM a scegliere la natura dell'intervento; l'effetto di qualsiasi incantesimo da chierico o incantesimo di dominio è appropriato.
+
+  Se la divinità interviene, il chierico non può più utilizzare questo privilegio per 7 giorni. Altrimenti può utilizzarlo di nuovo dopo che ha completato un riposo lungo.
+
+  Al 20° livello, la richiesta di intervento del chierico ha successo automaticamente, senza che sia richiesto alcun tiro.
+levels.10.features.0.effects.0.name: Intervento Divino
+levels.10.features.0.effects.0.note: |-
+  Lacuna: se la divinità interviene, non puoi più utilizzare questo privilegio per 7 giorni; un blocco di 7 giorni non è un tipo di recupero previsto dal catalogo, quindi in quel caso il recupero con il riposo lungo va sospeso a mano.
+levels.10.features.0.effects.1.name: Intervento Divino
+levels.10.features.0.effects.1.text: |-
+  Descrivi l'assistenza che desideri ottenere e tira un dado percentuale. Se ottieni con il tiro un numero pari o inferiore al tuo livello da chierico, la divinità interviene. È il GM a scegliere la natura dell'intervento; l'effetto di qualsiasi incantesimo da chierico o incantesimo di dominio è appropriato. Se la divinità interviene, non puoi più utilizzare questo privilegio per 7 giorni. Altrimenti puoi utilizzarlo di nuovo dopo che hai completato un riposo lungo. Al 20° livello, la tua richiesta di intervento ha successo automaticamente, senza che sia richiesto alcun tiro.
+levels.10.features.0.effects.1.onUse.0.text: |-
+  Tira un d100: successo con un risultato pari o inferiore a classLevel(cleric); automatico al 20° livello. In caso di successo, nessun ulteriore utilizzo per 7 giorni.

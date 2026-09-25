@@ -1,0 +1,8 @@
+name: "Recuperare le forze"
+text: |-
+  Un personaggio può usare il tempo fuori servizio tra un'avventura e l'altra per riprendersi da una ferita debilitante, una malattia o un veleno.
+
+  Dopo tre giorni fuori servizio trascorsi a recuperare le forze, il personaggio può effettuare un tiro salvezza su Costituzione con CD 15. Se lo supera, può scegliere uno dei risultati seguenti:
+
+  - Terminare un effetto presente su di lui che gli impedisce di recuperare punti ferita.
+  - Per le 24 ore successive, ottiene vantaggio ai tiri salvezza contro una malattia o veleno da cui è attualmente influenzato.

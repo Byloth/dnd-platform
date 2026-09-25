@@ -1,0 +1,12 @@
+name: Lama infuocata
+components.m: Foglia di sommacco.
+text: |-
+  L'incantatore evoca una lama infuocata nella sua mano libera. La lama ha forma e dimensioni simili a una scimitarra e permane per tutta la durata dell'incantesimo. Se l'incantatore la lascia cadere, la lama scompare, ma può essere evocata di nuovo come azione bonus. Con questo incantesimo, l'incantatore può usare la sua azione per effettuare un attacco in mischia con incantesimo con la lama infuocata. Se il colpo va a segno, il bersaglio subisce 3d6 danni da fuoco. La lama infuocata emana luce intensa in un raggio di 3 metri e luce fioca per ulteriori 3 metri.
+higherLevel: |-
+  Quando l'incantatore lancia questo incantesimo usando uno slot incantesimo di 4° livello o superiore, i danni aumentano di 1d6 per ogni due slot di livello superiore al 2°.
+effects.0.name: "Lama infuocata: attacco"
+effects.0.text: Effettui un attacco in mischia con incantesimo con la lama infuocata; se il colpo va a segno, il bersaglio subisce 3d6 danni da fuoco.
+effects.0.note: I danni aumentano di 1d6 per ogni due slot di livello superiore al 2°.
+effects.1.name: "Lama infuocata: evocare di nuovo"
+effects.1.text: Se lasci cadere la lama, questa scompare; puoi evocarla di nuovo come azione bonus.
+effects.2.text: La lama infuocata emana luce intensa in un raggio di 3 metri e luce fioca per ulteriori 3 metri.

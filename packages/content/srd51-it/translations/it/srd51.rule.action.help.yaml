@@ -1,0 +1,7 @@
+name: Aiuto
+text: |-
+  Un personaggio può aiutare un'altra creatura a portare a termine un compito.
+
+  Quando un personaggio effettua l'azione di Aiuto, la creatura aiutata ottiene vantaggio alla successiva prova di caratteristica che effettua per eseguire il compito per cui ha ricevuto aiuto, purché effettui la prova prima dell'inizio del turno successivo del personaggio.
+
+  In alternativa, un personaggio può aiutare una creatura amica ad attaccare una creatura situata entro 1,5 metri da sé. Il personaggio esegue una finta, distrae il bersaglio o collabora con il suo alleato in altro modo al fine di rendere l'attacco di quest'ultimo più efficace. Se l'alleato attacca il bersaglio prima del turno successivo del personaggio, il primo tiro per colpire che effettua dispone di vantaggio.

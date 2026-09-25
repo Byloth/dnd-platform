@@ -1,0 +1,40 @@
+name: "Incantesimi"
+text: |-
+  Le capacità da incantatore del personaggio dipendono in parte dai suoi livelli combinati in tutte le sue classi da incantatore e in parte dai suoi livelli individuali in quelle classi. Una volta ottenuto il privilegio Incantesimi da più di una classe, il personaggio usa le regole sottostanti. Se un personaggio multiclasse possiede il privilegio Incantesimi soltanto da una classe, segue le regole descritte in quella classe.
+
+  **_Incantesimi conosciuti e preparati._** Il personaggio determina gli incantesimi che conosce e che può preparare per ogni classe separatamente, come se fosse un membro monoclasse appartenente a quella classe. Per esempio, un ranger 4/mago 3 conosce tre incantesimi da ranger di 1° livello in base ai suoi livelli nella classe del ranger. Come mago di 3° livello conosce tre trucchetti da mago e il suo libro degli incantesimi contiene dieci incantesimi da mago, due dei quali (quelli ottenuti quando il personaggio è giunto al 3° livello come mago) possono essere incantesimi di 2° livello. Se la sua Intelligenza è pari a 16, può preparare sei incantesimi da mago dal suo libro degli incantesimi.
+
+  Ogni incantesimo che il personaggio conosce e prepara è associato a una delle sue classi; il personaggio userà la caratteristica da incantatore di quella classe quando lancia l'incantesimo. Analogamente, un focus da incantatore come un simbolo sacro può essere usato soltanto per gli incantesimi della classe associata a quel focus.
+
+  **_Slot incantesimo._** Il personaggio determina i suoi slot incantesimo disponibili sommando tutti i suoi livelli nelle classi bardo, chierico, druido, mago e stregone, oltre a metà dei suoi livelli (arrotondati per difetto) nelle classi paladino e ranger. Userà questo totale per determinare i suoi slot incantesimo consultando la tabella "Incantatore multiclasse".
+
+  Se il personaggio possiede più classi da incantatore, quella tabella potrebbe fornirgli degli slot incantesimo di un livello superiore a quello degli incantesimi che conosce o che è in grado di preparare. Può usare quegli slot, ma soltanto per lanciare i suoi incantesimi di livello inferiore. Se un incantesimo di livello inferiore da lui lanciato, come _mani brucianti_, prevede un effetto potenziato se lanciato con uno slot di livello superiore, il personaggio può usare l'effetto potenziato, anche se non possiede alcun incantesimo di quel livello superiore.
+
+  Per esempio, il multiclasse sopraccitato, ranger 4/mago 3, è considerato un personaggio di 5° livello ai fini dei suoi slot incantesimo: possiede i suoi quattro slot incantesimo di 1° livello, tre slot di 2° livello e due slot di 3° livello. Tuttavia, non conosce incantesimi di 3° livello, né incantesimi da ranger di 2° livello. Può usare gli slot incantesimo di quei livelli per lanciare gli incantesimi che conosce e, se lo desidera, potenziare i loro effetti.
+
+  **_Magia del Patto._** Se il personaggio possiede sia il privilegio di classe Incantesimi che il privilegio di classe Magia del Patto fornito dalla classe del warlock, può usare gli slot incantesimo che ottiene dalla Magia del Patto per lanciare gli incantesimi che conosce o che ha preparato dalle classi con il privilegio di classe Incantesimi, e può usare gli slot incantesimo che ottiene dal privilegio di classe Incantesimi per lanciare gli incantesimi da warlock che conosce.
+
+  **Incantatore multiclasse: slot incantesimo per livello di incantesimo (tabella)**
+
+  | Livello | 1° | 2° | 3° | 4° | 5° | 6° | 7° | 8° | 9° |
+  |---------|----|----|----|----|----|----|----|----|----|
+  | 1°      | 2  | —  | —  | —  | —  | —  | —  | —  | —  |
+  | 2°      | 3  | —  | —  | —  | —  | —  | —  | —  | —  |
+  | 3°      | 4  | 2  | —  | —  | —  | —  | —  | —  | —  |
+  | 4°      | 4  | 3  | —  | —  | —  | —  | —  | —  | —  |
+  | 5°      | 4  | 3  | 2  | —  | —  | —  | —  | —  | —  |
+  | 6°      | 4  | 3  | 3  | —  | —  | —  | —  | —  | —  |
+  | 7°      | 4  | 3  | 3  | 1  | —  | —  | —  | —  | —  |
+  | 8°      | 4  | 3  | 3  | 2  | —  | —  | —  | —  | —  |
+  | 9°      | 4  | 3  | 3  | 3  | 1  | —  | —  | —  | —  |
+  | 10°     | 4  | 3  | 3  | 3  | 2  | —  | —  | —  | —  |
+  | 11°     | 4  | 3  | 3  | 3  | 2  | 1  | —  | —  | —  |
+  | 12°     | 4  | 3  | 3  | 3  | 2  | 1  | —  | —  | —  |
+  | 13°     | 4  | 3  | 3  | 3  | 2  | 1  | 1  | —  | —  |
+  | 14°     | 4  | 3  | 3  | 3  | 2  | 1  | 1  | —  | —  |
+  | 15°     | 4  | 3  | 3  | 3  | 2  | 1  | 1  | 1  | —  |
+  | 16°     | 4  | 3  | 3  | 3  | 2  | 1  | 1  | 1  | —  |
+  | 17°     | 4  | 3  | 3  | 3  | 2  | 1  | 1  | 1  | 1  |
+  | 18°     | 4  | 3  | 3  | 3  | 3  | 1  | 1  | 1  | 1  |
+  | 19°     | 4  | 3  | 3  | 3  | 3  | 2  | 1  | 1  | 1  |
+  | 20°     | 4  | 3  | 3  | 3  | 3  | 2  | 2  | 1  | 1  |

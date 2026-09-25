@@ -1,0 +1,5 @@
+name: Gittata
+text: |-
+  Un personaggio può effettuare un attacco a distanza soltanto contro un bersaglio che si trovi entro una gittata specifica. Se un attacco a distanza (come per esempio un incantesimo) prevede una singola gittata, non è possibile attaccare un bersaglio oltre tale raggio.
+
+  Alcuni attacchi a distanza, come quelli effettuati con un arco lungo o un arco corto, prevedono due gittate. Il numero più piccolo indica la gittata normale, mentre quello più grande indica la gittata lunga. Se il bersaglio si trova oltre la gittata normale, il tiro per colpire del personaggio subisce svantaggio; se si trova oltre la gittata lunga, il personaggio non può attaccarlo.

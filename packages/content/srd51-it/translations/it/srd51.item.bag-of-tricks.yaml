@@ -1,0 +1,59 @@
+name: Borsa dei trucchi
+text: |-
+  Oggetto meraviglioso, non comune
+
+  Questa borsa dall'aspetto ordinario, fatta di stoffa di colore grigio, ruggine o marrone, sembra vuota. Frugando al suo interno, si trova invece un piccolo oggetto lanuginoso. La borsa pesa 250 grammi.
+
+  Un personaggio può usare un'azione per estrarre l'oggetto lanuginoso dalla borsa e lanciarlo fino a 6 metri di distanza. Quando atterra, l'oggetto si trasforma in una creatura determinata tirando un d8 e consultando la tabella corrispondente al colore della borsa posseduta. La creatura scompare all'alba successiva o quando viene ridotta a 0 punti ferita.
+
+  La creatura è amichevole nei confronti del possessore della borsa e dei suoi compagni e agisce nel turno di chi la possiede. Quest'ultimo può usare un'azione bonus per ordinare alla creatura come muoversi e agire nel turno successivo, o per impartirle comandi generici come attaccare i nemici. In assenza di tali ordini, la creatura agisce in modo appropriato alla sua natura.
+
+  Dopo che dalla borsa sono stati estratti tre oggetti lanuginosi, non può essere riutilizzata fino all'alba successiva.
+
+  Borsa dei trucchi grigia:
+
+  | d8 | Creatura |
+  |---|---|
+  | 01 | Faina |
+  | 02 | Topo gigante |
+  | 03 | Tasso |
+  | 04 | Cinghiale |
+  | 05 | Pantera |
+  | 06 | Tasso gigante |
+  | 07 | Lupo feroce |
+  | 08 | Alce gigante |
+
+  Borsa dei trucchi ruggine:
+
+  | d8 | Creatura |
+  |---|---|
+  | 01 | Topo |
+  | 02 | Gufo |
+  | 03 | Mastino |
+  | 04 | Capra |
+  | 05 | Capra gigante |
+  | 06 | Cinghiale gigante |
+  | 07 | Leone |
+  | 08 | Orso bruno |
+
+  Borsa dei trucchi marrone:
+
+  | d8 | Creatura |
+  |---|---|
+  | 01 | Sciacallo |
+  | 02 | Gorilla |
+  | 03 | Babbuino |
+  | 04 | Beccoaguzzo |
+  | 05 | Orso nero |
+  | 06 | Faina gigante |
+  | 07 | Iena gigante |
+  | 08 | Tigre |
+features.0.name: Oggetto lanuginoso
+features.0.effects.0.name: Estrarre e lanciare un oggetto lanuginoso
+features.0.effects.0.text: |-
+  Lancia l'oggetto lanuginoso fino a 6 metri di distanza. Quando atterra, si trasforma in una creatura determinata tirando un d8 sulla tabella corrispondente al colore della borsa. La creatura è amichevole nei confronti tuoi e dei tuoi compagni, agisce nel tuo turno e scompare all'alba successiva o quando viene ridotta a 0 punti ferita. Dopo che sono stati estratti tre oggetti, la borsa non può essere riutilizzata fino all'alba successiva.
+features.0.effects.0.onUse.0.text: |-
+  Tira un d8 sulla tabella corrispondente al colore della borsa (grigia, ruggine o marrone) per determinare la creatura.
+features.0.effects.1.name: Comandare la creatura
+features.0.effects.1.text: |-
+  Ordina alla creatura come muoversi e quale azione compiere nel suo turno successivo, o impartiscile comandi generici come attaccare i tuoi nemici.

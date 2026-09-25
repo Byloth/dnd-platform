@@ -1,0 +1,9 @@
+name: Prove passive
+text: |-
+  Una prova passiva è un tipo particolare di prova di caratteristica che non richiede alcun tiro di dadi. Una prova di questo tipo rappresenta il risultato medio di un'azione intrapresa ripetutamente, come per esempio cercare assiduamente porte segrete; in alternativa può essere usata quando il GM vuole determinare segretamente se i personaggi riescono a fare qualcosa senza tirare i dadi, come per esempio notare un mostro nascosto.
+
+  Il totale della prova passiva di un personaggio si determina nel modo seguente:  > 10 + tutti i modificatori che normalmente si applicano alla prova  Se il personaggio dispone di vantaggio alla prova, si aggiunge 5. Se invece subisce svantaggio, si sottrae 5. Il totale di una prova passiva è indicato come **punteggio**.
+
+  Per esempio, se un personaggio di 1° livello possiede Saggezza 15 e ha competenza in Percezione, avrà un punteggio di Saggezza (Percezione) passiva pari a 14.
+
+  Le regole per nascondersi, descritte nella sezione "Destrezza" di seguito, sono basate sulle prove passive, come anche le regole di esplorazione.

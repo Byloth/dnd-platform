@@ -1,0 +1,10 @@
+name: Talismano della salute
+text: |-
+  Oggetto meraviglioso, non comune
+
+  Finché il personaggio indossa questo pendente, è immune a ogni forma di malattia. Se era già infetto prima di indossarlo, gli effetti della malattia sono soppressi fintantoché il personaggio lo indossa.
+features.0.name: Immunità alle malattie
+features.0.text: |-
+  Finché il personaggio indossa questo pendente, è immune a ogni forma di malattia. Se era già infetto prima di indossarlo, gli effetti della malattia sono soppressi fintantoché il personaggio lo indossa.
+features.0.effects.0.note: |-
+  Una malattia già contratta è soppressa finché indossi il pendente.

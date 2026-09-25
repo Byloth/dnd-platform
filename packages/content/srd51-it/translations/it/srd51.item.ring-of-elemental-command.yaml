@@ -1,0 +1,105 @@
+name: Anello del comando degli elementali
+text: |-
+  Anello, leggendario (richiede sintonia)
+
+  Questo anello è collegato a un Piano Elementale scelto dal GM o determinato in maniera casuale.
+
+  Finché il personaggio indossa questo anello, dispone di vantaggio ai tiri per colpire contro gli elementali provenienti dal piano a esso collegato; questi ultimi, inoltre, subiscono svantaggio ai tiri per colpire contro di lui. Il personaggio ha anche accesso alle proprietà basate sul piano collegato.
+
+  L'anello possiede 5 cariche e recupera 1d4 + 1 cariche consumate all'alba di ogni giorno. Gli incantesimi lanciati dall'anello hanno una CD del tiro salvezza pari a 17.
+
+  ***Anello del comando degli elementali dell'aria.*** Il personaggio può consumare 2 cariche dell'anello per lanciare *dominare mostri* su un elementale dell'aria. Inoltre, quando il personaggio cade, scende di 18 metri per round senza subire danni dalla caduta. Può anche parlare e capire l'Auran.
+
+  Se il personaggio contribuisce a uccidere un elementale dell'aria mentre è in sintonia con l'anello, ottiene le seguenti proprietà aggiuntive:
+
+  Possiede resistenza ai danni da fulmine.
+
+  Possiede una velocità di volare pari alla sua velocità base e può fluttuare.
+
+  Può lanciare dall'anello gli incantesimi seguenti, consumando il numero necessario di cariche: *catena di fulmini* (3 cariche), *folata di vento* (2 cariche) o *muro di vento* (1 carica).
+
+  ***Anello del comando degli elementali della terra.*** Il personaggio può consumare 2 cariche dell'anello per lanciare *dominare mostri* su un elementale della terra. Inoltre, può muoversi su un terreno difficile formato da macerie, rocce o terriccio come se fosse terreno normale. Può anche parlare e capire il Terran.
+
+  Se il personaggio contribuisce a uccidere un elementale della terra mentre è in sintonia con l'anello, ottiene le seguenti proprietà aggiuntive:
+
+  Possiede resistenza ai danni da acido.
+
+  Può muoversi attraverso la terra solida o la roccia come se fossero aree di terreno difficile. Se termina il suo turno in una di queste aree, viene spostato nell'ultimo spazio libero che ha occupato.
+
+  Può lanciare dall'anello gli incantesimi seguenti, consumando il numero necessario di cariche: *muro di pietra* (3 cariche), *pelle di pietra* (3 cariche) o *scolpire pietra* (2 cariche).
+
+  ***Anello del comando degli elementali del fuoco.*** Il personaggio può consumare 2 cariche dell'anello per lanciare *dominare mostri* su un elementale del fuoco. Inoltre, dispone di resistenza ai danni da fuoco. Può anche parlare e capire l'Ignan.
+
+  Se il personaggio contribuisce a uccidere un elementale del fuoco mentre è in sintonia con l'anello, ottiene le seguenti proprietà aggiuntive:
+
+  Ottiene immunità ai danni da fuoco.
+
+  Può lanciare dall'anello gli incantesimi seguenti, consumando il numero necessario di cariche: *mani brucianti* (1 carica), *muro di fuoco* (3 cariche) o *palla di fuoco* (2 cariche).
+
+  ***Anello del comando degli elementali dell'acqua.*** Il personaggio può consumare 2 cariche dell'anello per lanciare *dominare mostri* su un elementale dell'acqua. Inoltre, può stare in piedi e camminare sulle superfici liquide come se fossero terreno solido. Può anche parlare e capire l'Aquan.
+
+  Se il personaggio contribuisce a uccidere un elementale dell'acqua mentre è in sintonia con l'anello, ottiene le seguenti proprietà aggiuntive:
+
+  Può respirare sott'acqua e ha una velocità di nuotare pari alla sua velocità base sul terreno.
+
+  Può lanciare dall'anello gli incantesimi seguenti, consumando il numero necessario di cariche: *controllare acqua* (3 cariche), *creare o distruggere acqua* (1 carica), *muro di ghiaccio* (3 cariche) o *tempesta di ghiaccio* (2 cariche).
+features.0.name: Flagello degli elementali
+features.0.text: |-
+  Finché il personaggio indossa questo anello, dispone di vantaggio ai tiri per colpire contro gli elementali provenienti dal piano a esso collegato; questi ultimi, inoltre, subiscono svantaggio ai tiri per colpire contro di lui.
+features.0.effects.0.note: |-
+  Anche gli elementali del piano collegato subiscono svantaggio ai tiri per colpire contro di te.
+features.1.name: Piano collegato
+features.1.text: |-
+  Questo anello è collegato a un Piano Elementale scelto dal GM o determinato in maniera casuale. Gli incantesimi lanciati dall'anello hanno una CD del tiro salvezza pari a 17. Ogni piano conferisce proprietà specifiche, e altre ancora quando il personaggio contribuisce a uccidere un elementale di quel piano mentre è in sintonia con l'anello.
+features.1.effects.0.options.0.name: Anello del comando degli elementali dell'aria
+features.1.effects.0.options.0.text: |-
+  Il personaggio può consumare 2 cariche dell'anello per lanciare *dominare mostri* su un elementale dell'aria. Inoltre, quando il personaggio cade, scende di 18 metri per round senza subire danni dalla caduta. Può anche parlare e capire l'Auran. Se il personaggio contribuisce a uccidere un elementale dell'aria mentre è in sintonia con l'anello, ottiene resistenza ai danni da fulmine e una velocità di volare pari alla sua velocità base (e può fluttuare), e può lanciare dall'anello *catena di fulmini* (3 cariche), *folata di vento* (2 cariche) o *muro di vento* (1 carica).
+features.1.effects.0.options.0.effects.0.note: Solo su un elementale dell'aria. CD del tiro salvezza 17.
+features.1.effects.0.options.0.effects.1.text: |-
+  Quando cadi, scendi di 18 metri per round senza subire danni dalla caduta.
+features.1.effects.0.options.0.effects.1.note: Una regola sulla caduta, non una difesa contro un tipo di danno.
+features.1.effects.0.options.0.effects.3.note: Solo dopo che hai contribuito a uccidere un elementale dell'aria mentre sei in sintonia con l'anello.
+features.1.effects.0.options.0.effects.4.text: |-
+  Dopo che hai contribuito a uccidere un elementale dell'aria mentre sei in sintonia con l'anello, possiedi una velocità di volare pari alla tua velocità base sul terreno e puoi fluttuare.
+features.1.effects.0.options.0.effects.4.note: |-
+  Lo sblocco con l'uccisione è una condizione narrativa senza una chiave di condizione, e il linguaggio delle formule non ha una variabile per la velocità base sul terreno.
+features.1.effects.0.options.0.effects.5.note: Solo dopo che hai contribuito a uccidere un elementale dell'aria mentre sei in sintonia con l'anello. CD del tiro salvezza 17.
+features.1.effects.0.options.0.effects.6.note: Solo dopo che hai contribuito a uccidere un elementale dell'aria mentre sei in sintonia con l'anello. CD del tiro salvezza 17.
+features.1.effects.0.options.0.effects.7.note: Solo dopo che hai contribuito a uccidere un elementale dell'aria mentre sei in sintonia con l'anello. CD del tiro salvezza 17.
+features.1.effects.0.options.1.name: Anello del comando degli elementali della terra
+features.1.effects.0.options.1.text: |-
+  Il personaggio può consumare 2 cariche dell'anello per lanciare *dominare mostri* su un elementale della terra. Inoltre, può muoversi su un terreno difficile formato da macerie, rocce o terriccio come se fosse terreno normale. Può anche parlare e capire il Terran. Se il personaggio contribuisce a uccidere un elementale della terra mentre è in sintonia con l'anello, ottiene resistenza ai danni da acido, può muoversi attraverso la terra solida o la roccia come se fossero aree di terreno difficile (se termina il suo turno in una di queste aree, viene spostato nell'ultimo spazio libero che ha occupato) e può lanciare dall'anello *muro di pietra* (3 cariche), *pelle di pietra* (3 cariche) o *scolpire pietra* (2 cariche).
+features.1.effects.0.options.1.effects.0.note: Solo su un elementale della terra. CD del tiro salvezza 17.
+features.1.effects.0.options.1.effects.1.text: |-
+  Puoi muoverti su un terreno difficile formato da macerie, rocce o terriccio come se fosse terreno normale.
+features.1.effects.0.options.1.effects.1.note: Solo testo.
+features.1.effects.0.options.1.effects.3.note: Solo dopo che hai contribuito a uccidere un elementale della terra mentre sei in sintonia con l'anello.
+features.1.effects.0.options.1.effects.4.text: |-
+  Dopo che hai contribuito a uccidere un elementale della terra mentre sei in sintonia con l'anello, puoi muoverti attraverso la terra solida o la roccia come se fossero aree di terreno difficile. Se termini il tuo turno in una di queste aree, vieni spostato nell'ultimo spazio libero che hai occupato.
+features.1.effects.0.options.1.effects.4.note: Lo sblocco con l'uccisione è una condizione narrativa senza una chiave di condizione.
+features.1.effects.0.options.1.effects.5.note: Solo dopo che hai contribuito a uccidere un elementale della terra mentre sei in sintonia con l'anello. CD del tiro salvezza 17.
+features.1.effects.0.options.1.effects.6.note: Solo dopo che hai contribuito a uccidere un elementale della terra mentre sei in sintonia con l'anello. CD del tiro salvezza 17.
+features.1.effects.0.options.1.effects.7.note: Solo dopo che hai contribuito a uccidere un elementale della terra mentre sei in sintonia con l'anello. CD del tiro salvezza 17.
+features.1.effects.0.options.2.name: Anello del comando degli elementali del fuoco
+features.1.effects.0.options.2.text: |-
+  Il personaggio può consumare 2 cariche dell'anello per lanciare *dominare mostri* su un elementale del fuoco. Inoltre, dispone di resistenza ai danni da fuoco. Può anche parlare e capire l'Ignan. Se il personaggio contribuisce a uccidere un elementale del fuoco mentre è in sintonia con l'anello, ottiene immunità ai danni da fuoco e può lanciare dall'anello *mani brucianti* (1 carica), *palla di fuoco* (2 cariche) e *muro di fuoco* (3 cariche).
+features.1.effects.0.options.2.effects.0.note: Solo su un elementale del fuoco. CD del tiro salvezza 17.
+features.1.effects.0.options.2.effects.3.note: Solo dopo che hai contribuito a uccidere un elementale del fuoco mentre sei in sintonia con l'anello.
+features.1.effects.0.options.2.effects.4.note: Solo dopo che hai contribuito a uccidere un elementale del fuoco mentre sei in sintonia con l'anello. CD del tiro salvezza 17.
+features.1.effects.0.options.2.effects.5.note: Solo dopo che hai contribuito a uccidere un elementale del fuoco mentre sei in sintonia con l'anello. CD del tiro salvezza 17.
+features.1.effects.0.options.2.effects.6.note: Solo dopo che hai contribuito a uccidere un elementale del fuoco mentre sei in sintonia con l'anello. CD del tiro salvezza 17.
+features.1.effects.0.options.3.name: Anello del comando degli elementali dell'acqua
+features.1.effects.0.options.3.text: |-
+  Il personaggio può consumare 2 cariche dell'anello per lanciare *dominare mostri* su un elementale dell'acqua. Inoltre, può stare in piedi e camminare sulle superfici liquide come se fossero terreno solido. Può anche parlare e capire l'Aquan. Se il personaggio contribuisce a uccidere un elementale dell'acqua mentre è in sintonia con l'anello, può respirare sott'acqua, ha una velocità di nuotare pari alla sua velocità base sul terreno e può lanciare dall'anello *creare o distruggere acqua* (1 carica), *controllare acqua* (3 cariche), *tempesta di ghiaccio* (2 cariche) o *muro di ghiaccio* (3 cariche).
+features.1.effects.0.options.3.effects.0.note: Solo su un elementale dell'acqua. CD del tiro salvezza 17.
+features.1.effects.0.options.3.effects.1.text: |-
+  Puoi stare in piedi e camminare sulle superfici liquide come se fossero terreno solido.
+features.1.effects.0.options.3.effects.1.note: Solo testo.
+features.1.effects.0.options.3.effects.3.text: |-
+  Dopo che hai contribuito a uccidere un elementale dell'acqua mentre sei in sintonia con l'anello, puoi respirare sott'acqua e hai una velocità di nuotare pari alla tua velocità base sul terreno.
+features.1.effects.0.options.3.effects.3.note: |-
+  Lo sblocco con l'uccisione è una condizione narrativa senza una chiave di condizione, e il linguaggio delle formule non ha una variabile per la velocità base sul terreno.
+features.1.effects.0.options.3.effects.4.note: Solo dopo che hai contribuito a uccidere un elementale dell'acqua mentre sei in sintonia con l'anello. CD del tiro salvezza 17.
+features.1.effects.0.options.3.effects.5.note: Solo dopo che hai contribuito a uccidere un elementale dell'acqua mentre sei in sintonia con l'anello. CD del tiro salvezza 17.
+features.1.effects.0.options.3.effects.6.note: Solo dopo che hai contribuito a uccidere un elementale dell'acqua mentre sei in sintonia con l'anello. CD del tiro salvezza 17.
+features.1.effects.0.options.3.effects.7.note: Solo dopo che hai contribuito a uccidere un elementale dell'acqua mentre sei in sintonia con l'anello. CD del tiro salvezza 17.

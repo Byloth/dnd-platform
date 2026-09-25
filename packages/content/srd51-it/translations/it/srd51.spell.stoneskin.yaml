@@ -1,0 +1,5 @@
+name: Pelle di pietra
+components.m: Polvere di diamante del valore di 100 mo, che l'incantesimo consuma.
+text: |-
+  Questo incantesimo rende la pelle di una creatura consenziente toccata dall'incantatore dura come la pietra. Fino al termine dell'incantesimo, il bersaglio è resistente ai danni contundenti, perforanti e taglienti non magici.
+effects.0.note: Solo danni non magici.

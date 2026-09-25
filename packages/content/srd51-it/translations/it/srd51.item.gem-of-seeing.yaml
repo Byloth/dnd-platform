@@ -1,0 +1,11 @@
+name: Gemma della visione
+text: |-
+  Oggetto meraviglioso, raro (richiede sintonia)
+
+  Questa gemma possiede 3 cariche. Con un'azione, il personaggio può pronunciare la sua parola d'ordine e consumare 1 carica. Per i 10 minuti successivi, guardando attraverso la gemma il personaggio ottiene vista pura entro un raggio di 36 metri.
+
+  La gemma recupera 1d3 cariche consumate all'alba di ogni giorno.
+features.0.name: Vista pura
+features.0.effects.0.name: Pronunciare la parola d'ordine della gemma
+features.0.effects.0.text: Per i 10 minuti successivi, guardando attraverso la gemma ottieni vista pura entro un raggio di 36 metri.
+features.0.effects.1.note: Solo quando guardi attraverso la gemma.

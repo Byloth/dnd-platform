@@ -1,0 +1,58 @@
+name: Cubo di forza
+text: |-
+  Oggetto meraviglioso, raro (richiede sintonia)
+
+  Questo cubo ha uno spigolo di circa 2,5 cm. Su ogni faccia è raffigurato un simbolo diverso, che può essere premuto. Inizialmente il cubo possiede 36 cariche e recupera 1d20 cariche consumate all'alba di ogni giorno.
+
+  Il personaggio può usare un'azione per premere una delle facce del cubo, consumando un numero di cariche basato sulla faccia scelta, come indicato nella tabella "Facce del cubo di forza". Ogni faccia ha un effetto diverso. Se al cubo non rimangono abbastanza cariche, non accade nulla. Altrimenti si materializza una barriera di forza invisibile, che forma un cubo con spigolo di 4,5 metri. La barriera è centrata sul personaggio, si sposta insieme a lui e dura 1 minuto, fino a quando il personaggio non usa un'azione per premere la sesta faccia o finché il cubo non termina le cariche. È possibile cambiare l'effetto della barriera premendo una faccia diversa del cubo e consumando il relativo numero di cariche: in questo caso anche la durata riparte da zero.
+
+  Se il movimento del personaggio porta la barriera in contatto con un corpo solido che non può passare attraverso il cubo, il personaggio non può avvicinarsi ulteriormente a quell'oggetto fintantoché la barriera resta attiva.
+
+  Facce del cubo di forza
+
+  | Faccia | Cariche | Effetto |
+
+  |---|---|---|
+
+  | 1 | 1 | Gas, vento e nebbia non possono attraversare la barriera.
+
+  | 2 | 2 | Il materiale inorganico non può attraversare la barriera. Pareti, pavimenti e soffitti possono attraversarla a discrezione del personaggio.
+
+  | 3 | 3 | Il materiale organico non può attraversare la barriera.
+
+  | 4 | 4 | Gli effetti degli incantesimi non possono attraversare la barriera.
+
+  | 5 | 5 | Nulla può attraversare la barriera. Pareti, pavimenti e soffitti possono attraversarla a discrezione del personaggio.
+
+  | 6 | 0 | La barriera si disattiva.
+
+  Il cubo perde cariche quando la barriera viene bersagliata da certi incantesimi o entra in contatto con gli effetti di certi incantesimi o oggetti magici, come indicato dalla tabella seguente.
+
+  | Incantesimo o oggetto | Cariche perse |
+
+  |---|---|
+
+  | Corno della distruzione | 1d10 |
+
+  | Disintegrazione | 1d12 |
+
+  | Muro di fuoco | 1d4 |
+
+  | Passapareti | 1d6 |
+
+  | Spruzzo prismatico | 1d20 |
+features.0.name: Facce del cubo di forza
+features.0.effects.0.text: "Premere una faccia crea una barriera di forza invisibile che forma un cubo con spigolo di 4,5 metri, centrata su di te e che si sposta insieme a te; dura 1 minuto, finché non premi la sesta faccia o finché il cubo non termina le cariche. Premere una faccia diversa cambia l'effetto della barriera e fa ripartire da zero la durata. Se al cubo non rimangono abbastanza cariche, non accade nulla. Il cubo perde cariche quando la barriera viene bersagliata da certi incantesimi od oggetti: disintegrazione 1d12, corno della distruzione 1d10, passapareti 1d6, spruzzo prismatico 1d20, muro di fuoco 1d4."
+features.0.effects.1.name: "Faccia 1: gas, vento e nebbia non passano"
+features.0.effects.1.text: Gas, vento e nebbia non possono attraversare la barriera.
+features.0.effects.2.name: "Faccia 2: il materiale inorganico non passa"
+features.0.effects.2.text: Il materiale inorganico non può attraversare la barriera. Pareti, pavimenti e soffitti possono attraversarla a tua discrezione.
+features.0.effects.3.name: "Faccia 3: il materiale organico non passa"
+features.0.effects.3.text: Il materiale organico non può attraversare la barriera.
+features.0.effects.4.name: "Faccia 4: gli effetti degli incantesimi non passano"
+features.0.effects.4.text: Gli effetti degli incantesimi non possono attraversare la barriera.
+features.0.effects.5.name: "Faccia 5: nulla passa"
+features.0.effects.5.text: Nulla può attraversare la barriera. Pareti, pavimenti e soffitti possono attraversarla a tua discrezione.
+features.0.effects.6.name: "Faccia 6: disattivare la barriera"
+features.0.effects.6.text: La barriera si disattiva.
+features.0.effects.6.note: Non costa cariche; disattiva l'interruttore della barriera.

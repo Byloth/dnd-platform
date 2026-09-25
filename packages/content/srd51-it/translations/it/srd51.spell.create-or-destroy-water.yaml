@@ -1,0 +1,10 @@
+name: Creare o distruggere acqua
+components.m: Una goccia d'acqua per creare l'acqua o qualche granello di sabbia per distruggerla.
+text: |-
+  L'incantatore crea o distrugge l'acqua.
+
+  **Creare acqua.** L'incantatore crea fino a 45 litri d'acqua pulita in un contenitore aperto entro gittata. In alternativa, l'acqua cade sotto forma di pioggia in un cubo di 9 metri per lato entro gittata, estinguendo le fiamme nell'area.
+
+  **Distruggere acqua.** L'incantatore distrugge fino a 45 litri d'acqua in un contenitore aperto entro gittata. In alternativa, distrugge la nebbia presente in un cubo di 9 metri per lato entro gittata.
+higherLevel: |-
+  Quando l'incantatore lancia questo incantesimo usando uno slot incantesimo di 2° livello o superiore, crea o distrugge 45 litri aggiuntivi d'acqua, oppure la grandezza del cubo aumenta di 1,5 metri, per ogni slot di livello superiore al 1°.

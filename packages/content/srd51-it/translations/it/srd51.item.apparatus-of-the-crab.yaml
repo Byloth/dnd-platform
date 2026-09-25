@@ -1,0 +1,36 @@
+name: Apparatus del Granchio
+text: |-
+  Oggetto meraviglioso, leggendario
+
+  A prima vista quest'oggetto ha l'aspetto di un barile di ferro di taglia Grande sigillato e del peso di 250 kg. Il barile possiede una maniglia nascosta, che può essere trovata effettuando con successo una prova di Intelligenza (Indagare) con CD 20. La maniglia apre uno sportello posto a un'estremità del barile, che permette a due creature di taglia Media o inferiore di entrare. All'interno, sul lato opposto rispetto all'entrata, si trova una fila di dieci leve, tutte in posizione neutrale, che possono essere spostate in alto o in basso. Muovendo determinate leve, l'Apparatus si trasforma in un oggetto simile a un'aragosta gigante.
+
+  L'Apparatus del Granchio è un oggetto di taglia Grande dotato delle statistiche seguenti:
+
+  Classe Armatura: 20
+
+  Punti ferita: 200
+
+  Velocità: 9 m, nuotare 9 m (o 0 m per entrambi i movimenti quando le zampe e la coda sono ritratte all'interno)
+
+  Immunità ai danni: psichici, veleno
+
+  Per essere utilizzato come veicolo, l'Apparatus necessita di un pilota. Quando lo sportello dell'Apparatus è chiuso, l'abitacolo è sigillato e a tenuta stagna sia per l'aria che per l'acqua. L'abitacolo contiene una quantità d'aria sufficiente per 10 ore, da dividere per il numero di creature che respirano al suo interno.
+
+  L'Apparatus galleggia sull'acqua. Può anche immergersi fino a una profondità di 270 metri. Per ogni minuto trascorso al di sotto di tale profondità, il veicolo subisce 2d6 danni contundenti a causa della pressione.
+
+  Una creatura all'interno dell'abitacolo può usare un'azione per muovere su o giù fino a due leve. Dopo ogni uso, le leve tornano in posizione neutrale. Il funzionamento delle leve, da sinistra a destra, è descritto nella tabella "Leve dell'Apparatus del Granchio".
+
+  Leve dell'Apparatus del Granchio
+
+  | Leva | Su | Giù |
+  |---|---|---|
+  | 1 | Le zampe e la coda si estendono: l'Apparatus può camminare e nuotare. | Le zampe e la coda dell'Apparatus si ritirano, riducendo la sua velocità a 0 e impedendogli di beneficiare di bonus alla velocità. |
+  | 2 | La saracinesca dell'oblò anteriore si apre. | La saracinesca dell'oblò anteriore si chiude. |
+  | 3 | Le saracinesche degli oblò laterali si aprono (due per lato). | Le saracinesche degli oblò laterali si chiudono (due per lato). |
+  | 4 | Dalla zona anteriore dell'Apparatus si estendono due chele. | Le chele si ritraggono. |
+  | 5 | Ognuna delle chele estese effettua il seguente attacco con arma da mischia: +8 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 7 (2d6) danni contundenti. | Ognuna delle chele estese effettua il seguente attacco con arma da mischia: +8 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: Il bersaglio è afferrato (CD 15 per sfuggire). |
+  | 6 | L'Apparatus cammina o nuota in avanti. | L'Apparatus cammina o nuota all'indietro. |
+  | 7 | L'Apparatus si gira di 90 gradi verso sinistra. | L'Apparatus si gira di 90 gradi verso destra. |
+  | 8 | Strutture simili a occhi proiettano luce intensa in un raggio di 9 metri e luce fioca per altri 9 metri. | Le luci si spengono. |
+  | 9 | L'Apparatus si immerge di 6 metri nel liquido in cui si trova. | L'Apparatus risale per 6 metri nel liquido in cui si trova. |
+  | 10 | Lo sportello posteriore si sblocca e si apre. | Lo sportello posteriore si chiude e sigilla l'abitacolo. |

@@ -1,0 +1,22 @@
+name: Effetti delle trappole
+text: |-
+  Gli effetti delle trappole possono variare da fastidiosi a letali e possono usare elementi come frecce, spuntoni, lame, veleni, gas tossici, getti di fiamme e fosse profonde. Le trappole più letali combinano più effetti per uccidere, ferire, catturare o respingere le creature tanto sfortunate da attivarle. La descrizione di una trappola specifica cosa accade al momento dell'innesco.
+
+  Il bonus di attacco di una trappola, la CD del tiro salvezza per resistere ai suoi effetti e i danni che infligge possono variare in base al suo livello di gravità. Il GM può usare le tabelle "CD dei tiri salvezza e bonus di attacco" e "Gravità dei danni per livello" per ottenere una serie di suggerimenti basati sui tre livelli di gravità della trappola.
+
+  Una trappola concepita come **imprevisto** difficilmente ucciderà o danneggerà in modo grave i personaggi dei livelli indicati, mentre una trappola **pericolosa** ha buone probabilità di ferire gravemente (e potenzialmente uccidere) i personaggi dei livelli indicati. Una trappola **letale** ha buone probabilità di uccidere i personaggi dei livelli indicati.
+
+  **CD dei tiri salvezza e bonus di attacco (tabella)**
+  | Pericolo della trappola | CD del tiro salvezza | Bonus di attacco |
+  |-------------|---------|--------------|
+  | Imprevisto  | 10-11   | da +3 a +5   |
+  | Pericolosa  | 12-15   | da +6 a +8   |
+  | Letale      | 16-20   | da +9 a +12  |
+
+  **Gravità dei danni per livello (tabella)**
+  | Livello del personaggio | Imprevisto | Pericolosa | Letale |
+  |-----------------|---------|-----------|--------|
+  | 1°-4°           | 1d10    | 2d10      | 4d10   |
+  | 5°-10°          | 2d10    | 4d10      | 10d10  |
+  | 11°-16°         | 4d10    | 10d10     | 18d10  |
+  | 17°-20°         | 10d10   | 18d10     | 24d10  |

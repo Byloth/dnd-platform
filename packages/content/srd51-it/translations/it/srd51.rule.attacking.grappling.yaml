@@ -1,0 +1,13 @@
+name: Lottare
+text: |-
+  Quando un personaggio vuole afferrare una creatura o lottare con essa, può usare l'azione di Attacco per effettuare un attacco in mischia speciale: una lotta. Se è in grado di effettuare più attacchi tramite l'azione di Attacco, questo attacco si sostituisce a uno di essi.
+
+  Il bersaglio della lotta può essere al massimo più grande di una categoria di taglia rispetto a quella del personaggio e deve trovarsi entro la sua portata. Usando almeno una mano libera, il personaggio cerca di afferrare il bersaglio effettuando una prova di lotta anziché un tiro per colpire: una prova di Forza (Atletica) contrapposta alla prova di Forza (Atletica) o di Destrezza (Acrobazia) del bersaglio (che può scegliere quale delle due caratteristiche usare). In caso di successo, il personaggio impone al bersaglio la condizione srd:grappled. La condizione stessa specifica in che modo è possibile porvi termine e il personaggio può liberare il bersaglio in qualsiasi momento desideri (non è richiesta alcuna azione).
+
+  **Sfuggire a una lotta.** Una creatura afferrata può usare la sua azione per sfuggire. Per farlo deve superare una prova di Forza (Atletica) o Destrezza (Acrobazia) contrapposta alla prova di Forza (Atletica) del personaggio.
+
+  **Trasportare una creatura afferrata.** Quando il personaggio si muove, può trascinare o trasportare la creatura afferrata con sé, ma la sua velocità è dimezzata, a meno che la taglia della creatura non sia inferiore di due o più categorie rispetto a quella del personaggio.
+
+  > **Contese in combattimento**
+
+  > In battaglia spesso accade che un personaggio debba confrontare la propria potenza fisica con quella di un avversario. Tale sfida è rappresentata da una contesa. Questa sezione include le contese più comuni che richiedono un'azione in combattimento: lottare e spingere una creatura. Il GM può usare queste contese come modelli per improvvisarne delle altre.

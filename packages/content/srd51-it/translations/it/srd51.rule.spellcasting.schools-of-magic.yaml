@@ -1,0 +1,29 @@
+name: Le scuole di magia
+text: |-
+  Le accademie di magia raggruppano gli incantesimi in otto categorie chiamate scuole di magia. Gli studiosi, in particolare i maghi, applicano queste categorie a tutti gli incantesimi, in quanto credono che tutta la magia funzioni essenzialmente allo stesso modo, sia che derivi da studi rigorosi o sia conferita da una divinità.
+  >
+  > Le scuole di magia contribuiscono a descrivere gli incantesimi; non prevedono regole intrinseche, ma alcune regole potrebbero farvi riferimento.
+  >
+  > **Abiurazione**: questi incantesimi sono di natura protettiva, nonostante alcuni di essi abbiano usi offensivi. Gli incantesimi di abiurazione creano barriere magiche, annullano effetti dannosi, infliggono danni a intrusi o bandiscono creature su altri piani di esistenza.
+  >
+  > **Evocazione**: questi incantesimi possono trasportare oggetti e creature da un luogo all'altro. Alcuni di essi evocano oggetti o creature al fianco dell'incantatore, mentre altri gli permettono di teletrasportarsi in un luogo diverso. Inoltre, alcune evocazioni creano oggetti o effetti dal nulla.
+  >
+  > **Divinazione**: questi incantesimi rivelano informazioni sotto forma di segreti dimenticati da tempo, fugaci immagini del futuro, ubicazione di oggetti nascosti, verità dietro le illusioni, oppure visioni di persone o luoghi distanti.
+  >
+  > **Ammaliamento**: questi incantesimi agiscono sulla mente degli altri, influenzandone o controllandone il comportamento. Tali incantesimi possono fare in modo che i nemici vedano l'incantatore come un amico, costringere le creature ad adottare una certa condotta o addirittura controllarle come burattini.
+  >
+  > **Invocazione**: questi incantesimi manipolano l'energia magica per produrre l'effetto desiderato. Alcuni invocano esplosioni di fuoco o fulmini, altri incanalano energia positiva per guarire le ferite.
+  >
+  > **Illusione**: questi incantesimi ingannano i sensi e la mente. Tali incantesimi inducono le persone a vedere cose che non ci sono, lasciarsi sfuggire le cose intorno a loro, udire rumori fantasma o ricordare cose che non sono mai accadute. Alcune illusioni creano immagini fantasma che qualsiasi creatura può vedere, tuttavia le illusioni più insidiose imprimono un'immagine direttamente nella mente di una creatura.
+  >
+  > **Necromanzia**: questi incantesimi manipolano le energie della vita e della morte. Tali incantesimi possono concedere una riserva supplementare di forza vitale, assorbire l'energia vitale di una creatura, creare un non morto o persino riportare in vita i morti.
+  >
+  > Creare un non morto utilizzando incantesimi di necromanzia come _animare morti_ non è una buona azione e solo gli incantatori malvagi li usano frequentemente.
+  >
+  > **Trasmutazione**: questi incantesimi alterano le proprietà di creature, oggetti o ambienti. Gli incantesimi di trasmutazione potrebbero trasformare un nemico in una creatura innocua, rafforzare un alleato, muovere un oggetto al comando dell'incantatore o potenziare le capacità curative innate di una creatura per guarire rapidamente da una ferita.
+
+  ## Combinare gli effetti magici
+
+  Gli effetti di diversi incantesimi si sommano fintantoché le rispettive durate si sovrappongono. Tuttavia, gli effetti dello stesso incantesimo lanciato più volte non si combinano: viene infatti applicato solo il loro effetto più potente, come ad esempio il bonus più alto, mentre le durate degli incantesimi si sovrappongono.
+
+  Ad esempio, se due chierici lanciano _benedizione_ sullo stesso bersaglio, quel personaggio ottiene il beneficio dell'incantesimo solo una volta, senza poter lanciare due dadi bonus.

@@ -1,0 +1,11 @@
+name: "Saltare"
+text: |-
+  La Forza determina la distanza che un personaggio può coprire con un salto.
+
+  **Salto in lungo.** Quando un personaggio effettua un salto in lungo, copre una distanza pari al suo punteggio di Forza moltiplicato per 30 cm, purché si sia mosso di almeno 3 metri a piedi immediatamente prima di saltare. Se compie un salto in lungo da fermo, copre solo metà di quella distanza. In entrambi i casi, ogni 30 cm percorsi con il salto costano 30 cm di movimento.
+  Questa regola presume che l'altezza del salto sia irrilevante, come per esempio nel caso di un salto oltre un corso d'acqua o un baratro. A discrezione del GM, un personaggio potrebbe dover superare una prova di Forza (Atletica) con CD 10 per superare un ostacolo basso (che non superi in altezza un quarto della distanza coperta dal salto), come una siepe o un muretto.
+  Se fallisce, il personaggio colpisce l'ostacolo.
+  Se il personaggio atterra su terreno difficile deve superare una prova di Destrezza (Acrobazia) con CD 10 per atterrare in piedi, altrimenti atterra prono.
+
+  **Salto in alto.** Quando un personaggio compie un salto in alto, si solleva in aria di un'altezza pari a 3 + il suo modificatore di Forza moltiplicato per 30 cm, purché si sia mosso di almeno 3 metri a piedi immediatamente prima di saltare. Se compie un salto in alto da fermo, raggiunge solo metà di quell'altezza. In entrambi i casi, ogni 30 cm percorsi con il salto costano 30 cm di movimento. In alcune circostanze il GM può consentire al personaggio di effettuare una prova di Forza (Atletica) per saltare più in alto del normale.
+  Il personaggio può allungare le braccia fino a metà della propria altezza durante il salto, al fine di raggiungere una distanza pari all'altezza del salto più 1,5 volte la propria altezza.

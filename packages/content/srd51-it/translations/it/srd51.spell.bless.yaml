@@ -1,0 +1,6 @@
+name: Benedizione
+components.m: Uno spruzzo di acqua santa.
+text: |-
+  L'incantatore benedice fino a tre creature a sua scelta entro gittata. Ogni volta che un bersaglio effettua un tiro per colpire o un tiro salvezza prima che l'incantesimo termini, può tirare un d4 e aggiungere il numero ottenuto al tiro per colpire o al tiro salvezza.
+higherLevel: |-
+  Quando l'incantatore lancia questo incantesimo usando uno slot incantesimo di 2° livello o superiore, può bersagliare una creatura aggiuntiva per ogni slot di livello superiore al 1°.

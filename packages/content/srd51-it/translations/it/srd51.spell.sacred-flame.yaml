@@ -1,0 +1,5 @@
+name: Fiamma sacra
+text: |-
+  Un bagliore simile a una fiamma discende su una creatura entro gittata che l'incantatore è in grado di vedere. Il bersaglio deve superare un tiro salvezza su Destrezza, altrimenti subisce 1d8 danni radiosi. Inoltre, per questo tiro salvezza, non trae beneficio dalla copertura.
+higherLevel: |-
+  I danni di questo incantesimo aumentano di 1d8 quando l'incantatore raggiunge il 5° livello (2d8), l'11° livello (3d8) e il 17° livello (4d8).

@@ -1,0 +1,9 @@
+name: Marchio del cacciatore
+text: |-
+  L'incantatore sceglie una creatura entro gittata che è in grado di vedere, marchiandola misticamente come sua preda. Fino al termine dell'incantesimo, l'incantatore infligge 1d6 danni extra al bersaglio ogni volta che lo colpisce con un attacco con arma e inoltre dispone di vantaggio a ogni prova di Saggezza (Percezione) o Saggezza (Sopravvivenza) effettuata per trovarlo. Se il bersaglio scende a 0 punti ferita prima del termine dell'incantesimo, l'incantatore può usare un'azione bonus in un suo turno successivo per marchiare una nuova creatura.
+higherLevel: |-
+  Quando l'incantatore lancia questo incantesimo usando uno slot incantesimo di 3° o 4° livello, può mantenere la concentrazione sull'incantesimo fino a un massimo di 8 ore. Se usa uno slot incantesimo di 5° livello o superiore, la può mantenere fino a un massimo di 24 ore.
+effects.0.note: Solo attacchi con arma contro la creatura marchiata.
+effects.3.name: "Marchio del cacciatore: marchiare una nuova creatura"
+effects.3.text: Se il bersaglio marchiato è sceso a 0 punti ferita, marchia una nuova creatura che sei in grado di vedere.
+effects.4.text: Con uno slot di 3° o 4° livello, la concentrazione può durare fino a un massimo di 8 ore; con uno slot di 5° livello o superiore, fino a un massimo di 24 ore.

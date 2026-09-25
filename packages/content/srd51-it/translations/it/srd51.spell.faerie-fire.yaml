@@ -1,0 +1,6 @@
+name: Luminescenza
+text: |-
+  Ogni oggetto contenuto in un cubo di 6 metri entro gittata viene evidenziato da un alone di luce blu, verde o viola (a scelta dell'incantatore). Al momento del lancio dell'incantesimo, ogni creatura presente nell'area viene a sua volta evidenziata dall'alone di luce se fallisce un tiro salvezza su Destrezza. Gli oggetti e le creature influenzate proiettano luce fioca entro un raggio di 3 metri per tutta la durata dell'incantesimo. Ogni tiro per colpire contro una creatura o un oggetto influenzato dall'incantesimo dispone di vantaggio se l'attaccante è in grado di vederlo, e la creatura o l'oggetto influenzato non può trarre beneficio dal fatto di essere invisibile.
+effects.0.text: "Evidenziato dall'alone di luce: proietti luce fioca entro un raggio di 3 metri, ogni tiro per colpire contro di te dispone di vantaggio se l'attaccante è in grado di vederti e non puoi trarre beneficio dal fatto di essere invisibile."
+effects.0.note: Il vantaggio agli attacchi effettuati contro il personaggio non è esprimibile in v0.
+onCast.0.text: Le creature nel cubo di 6 metri vengono evidenziate se falliscono un tiro salvezza su Destrezza; gli oggetti vengono evidenziati automaticamente.

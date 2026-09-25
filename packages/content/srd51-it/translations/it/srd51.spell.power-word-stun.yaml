@@ -1,0 +1,3 @@
+name: Parola del potere stordire
+text: L'incantatore pronuncia una parola del potere che può sopraffare la mente di una creatura entro gittata che è in grado di vedere, lasciandola in uno stato confusionale. Se il bersaglio possiede 150 punti ferita o meno, è stordito. Altrimenti, l'incantesimo non sortisce alcun effetto. Il bersaglio stordito deve effettuare un tiro salvezza su Costituzione alla fine di ogni suo turno. In caso di successo, l'effetto di stordimento termina.
+onCast.0.note: "Nessun tiro salvezza al momento del lancio: il bersaglio è stordito solo se possiede 150 punti ferita o meno, altrimenti non c'è alcun effetto. Alla fine di ogni suo turno il bersaglio effettua un tiro salvezza su Costituzione; in caso di successo, lo stordimento termina."

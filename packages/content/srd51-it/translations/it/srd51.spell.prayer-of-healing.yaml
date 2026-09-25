@@ -1,0 +1,4 @@
+name: Preghiera di guarigione
+text: Fino a sei creature scelte dall'incantatore, entro gittata e che è in grado di vedere, recuperano un ammontare di punti ferita pari a 2d8 + il modificatore di caratteristica da incantatore. Questo incantesimo non ha effetto sui non morti o sui costrutti.
+higherLevel: Quando l'incantatore lancia questo incantesimo usando uno slot incantesimo di 3° livello o superiore, la guarigione aumenta di 1d8 per ogni slot di livello superiore al 2°.
+onCast.0.note: Più il modificatore di caratteristica da incantatore, a ognuna di un massimo di sei creature che l'incantatore è in grado di vedere. Nessun effetto sui non morti o sui costrutti.

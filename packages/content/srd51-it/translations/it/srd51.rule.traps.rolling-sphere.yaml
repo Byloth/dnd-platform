@@ -1,0 +1,13 @@
+name: Sfera rotolante
+text: |-
+  _Trappola meccanica_
+
+  Quando un peso pari o superiore a 10 kg si trova sulla piastra a pressione di questa trappola, una botola nascosta si apre sul soffitto, lasciando cadere una sfera di solida pietra del diametro di 3 metri che inizia a rotolare.
+
+  Un personaggio può individuare la botola e la piastra a pressione superando una prova di Saggezza (Percezione) con CD 15. Se un personaggio ispeziona il pavimento e supera una prova di Intelligenza (Indagare) con CD 15, nota delle variazioni nella malta e nella pietra che rivelano la presenza della piastra a pressione. La stessa prova effettuata ispezionando il soffitto rivela alcune variazioni nelle pietre lavorate e la presenza di una botola. Inserire uno spuntone di ferro o un oggetto analogo sotto la piastra a pressione impedisce alla trappola di attivarsi.
+
+  L'attivazione della sfera richiede a tutte le creature presenti di tirare per l'iniziativa. La sfera tira per l'iniziativa con un bonus di +8 e, nel suo turno, si muove di 18 metri in linea retta. La sfera può muoversi attraverso gli spazi delle creature e le creature possono muoversi all'interno del suo spazio, considerandolo un terreno difficile. Ogni volta che la sfera mentre sta rotolando entra nello spazio di una creatura o viceversa, quella creatura deve superare un tiro salvezza su Destrezza con CD 15 o subisce 55 (10d10) danni contundenti e viene buttata a terra prona.
+
+  La sfera si ferma quando colpisce una parete o una barriera analoga. Non può svoltare gli angoli, ma i costruttori di dungeon più intelligenti includono curve graduali nei passaggi vicini per consentire alla sfera di continuare a muoversi.
+
+  Con un'azione, una creatura situata entro 1,5 metri dalla sfera può provare a rallentarla effettuando una prova di Forza con CD 20. Se la prova viene superata, la velocità della sfera è ridotta di 4,5 metri e, se scende a 0, la sfera smette di muoversi e non è più una minaccia.

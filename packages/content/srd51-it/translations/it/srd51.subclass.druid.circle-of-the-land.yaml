@@ -1,0 +1,115 @@
+name: Circolo della Terra
+levels.2.features.0.name: Trucchetto bonus
+levels.2.features.0.text: Quando il druido sceglie questo circolo al 2° livello, apprende un trucchetto da druido aggiuntivo a sua scelta.
+levels.2.features.0.effects.0.note: Un trucchetto da druido aggiuntivo, oltre a quelli della colonna Trucchetti conosciuti della tabella "Druido".
+levels.2.features.1.name: Recupero naturale
+levels.2.features.1.text: |-
+  A partire dal 2° livello, il druido recupera parte della sua energia magica mettendosi seduto a meditare per entrare in comunione con la natura. Durante un riposo breve, il druido sceglie quali slot incantesimo spesi desidera recuperare. Questi slot incantesimo possono avere un livello totale pari o inferiore alla metà del livello da druido (arrotondato per eccesso) e nessuno slot può essere di livello pari o superiore al 6°. Il druido non può più utilizzare questo privilegio finché non completa un riposo lungo.
+
+  Per esempio, un druido di 4° livello può recuperare slot incantesimo per un valore totale di due livelli. Potrà quindi recuperare uno slot di 2° livello o due slot di 1° livello.
+levels.2.features.1.effects.0.name: Recupero naturale
+levels.2.features.1.effects.1.name: Recupero naturale
+levels.2.features.1.effects.1.trigger: durante un riposo breve
+levels.2.features.1.effects.1.text: Durante un riposo breve, scegli quali slot incantesimo spesi desideri recuperare. Questi slot incantesimo possono avere un livello totale pari o inferiore alla metà del tuo livello da druido (arrotondato per eccesso) e nessuno slot può essere di livello pari o superiore al 6°.
+levels.2.features.1.effects.1.onUse.0.note: Livello totale degli slot fino alla metà del tuo livello da druido (arrotondato per eccesso); nessuno slot di livello pari o superiore al 6°.
+levels.3.features.0.name: Incantesimi del Circolo
+levels.3.features.0.text: |-
+  Grazie al suo legame mistico con la terra, il druido è in grado di lanciare alcuni particolari incantesimi. Al 3°, 5°, 7° e 9° livello, il druido può accedere agli incantesimi del circolo collegati alla terra in cui è diventato un druido. Il giocatore sceglie quel tipo di territorio (artico, costa, deserto, foresta, montagna, palude o prateria) e consulta la lista di incantesimi a esso associata.
+
+  Una volta ottenuto l'accesso a un incantesimo del circolo, quell'incantesimo è sempre considerato preparato e non conta al fine di determinare il numero di incantesimi che il druido può preparare ogni giorno. Se il druido ottiene accesso a un incantesimo che non compare nella lista degli incantesimi da druido, quell'incantesimo è comunque considerato un incantesimo da druido per lui.
+
+  **Artico (tabella)**
+
+  | Livello da druido | Incantesimi del Circolo |
+  |---|---|
+  | 3° | blocca persone, crescita di spine |
+  | 5° | lentezza, tempesta di nevischio |
+  | 7° | libertà di movimento, tempesta di ghiaccio |
+  | 9° | comunione con la natura, cono di freddo |
+
+  **Costa (tabella)**
+
+  | Livello da druido | Incantesimi del Circolo |
+  |---|---|
+  | 3° | immagine speculare, passo velato |
+  | 5° | camminare sull'acqua, respirare sott'acqua |
+  | 7° | controllare acqua, libertà di movimento |
+  | 9° | evoca elementale, scrutare |
+
+  **Deserto (tabella)**
+
+  | Livello da druido | Incantesimi del Circolo |
+  |---|---|
+  | 3° | sfocatura, silenzio |
+  | 5° | creare cibo e acqua, protezione dall'energia |
+  | 7° | inaridire, terreno illusorio |
+  | 9° | muro di pietra, piaga degli insetti |
+
+  **Foresta (tabella)**
+
+  | Livello da druido | Incantesimi del Circolo |
+  |---|---|
+  | 3° | movimenti del ragno, pelle coriacea |
+  | 5° | crescita vegetale, invocare il fulmine |
+  | 7° | divinazione, libertà di movimento |
+  | 9° | comunione con la natura, traslazione arborea |
+
+  **Prateria (tabella)**
+
+  | Livello da druido | Incantesimi del Circolo |
+  |---|---|
+  | 3° | invisibilità, passare senza tracce |
+  | 5° | luce diurna, velocità |
+  | 7° | divinazione, libertà di movimento |
+  | 9° | piaga degli insetti, sogno |
+
+  **Montagna (tabella)**
+
+  | Livello da druido | Incantesimi del Circolo |
+  |---|---|
+  | 3° | crescita di spine, movimenti del ragno |
+  | 5° | fondersi nella pietra, fulmine |
+  | 7° | pelle di pietra, scolpire pietra |
+  | 9° | muro di pietra, passapareti |
+
+  **Palude (tabella)**
+
+  | Livello da druido | Incantesimi del Circolo |
+  |---|---|
+  | 3° | freccia acida, oscurità |
+  | 5° | camminare sull'acqua, nube maleodorante |
+  | 7° | libertà di movimento, localizza creatura |
+  | 9° | piaga degli insetti, scrutare |
+levels.3.features.0.effects.0.note: Scegli la terra in cui sei diventato un druido. Una volta ottenuto l'accesso a un incantesimo del circolo, quell'incantesimo è sempre considerato preparato e non conta al fine di determinare il numero di incantesimi che puoi preparare ogni giorno. Un incantesimo del circolo che non compare nella lista degli incantesimi da druido è comunque considerato un incantesimo da druido per te.
+levels.3.features.0.effects.0.options.0.name: Artico
+levels.3.features.0.effects.0.options.0.text: "Incantesimi del circolo dell'artico: 3° livello, blocca persone e crescita di spine; 5° livello, lentezza e tempesta di nevischio; 7° livello, libertà di movimento e tempesta di ghiaccio; 9° livello, comunione con la natura e cono di freddo."
+levels.3.features.0.effects.0.options.1.name: Costa
+levels.3.features.0.effects.0.options.1.text: "Incantesimi del circolo della costa: 3° livello, immagine speculare e passo velato; 5° livello, camminare sull'acqua e respirare sott'acqua; 7° livello, controllare acqua e libertà di movimento; 9° livello, evoca elementale e scrutare."
+levels.3.features.0.effects.0.options.2.name: Deserto
+levels.3.features.0.effects.0.options.2.text: "Incantesimi del circolo del deserto: 3° livello, sfocatura e silenzio; 5° livello, creare cibo e acqua e protezione dall'energia; 7° livello, inaridire e terreno illusorio; 9° livello, muro di pietra e piaga degli insetti."
+levels.3.features.0.effects.0.options.3.name: Foresta
+levels.3.features.0.effects.0.options.3.text: "Incantesimi del circolo della foresta: 3° livello, movimenti del ragno e pelle coriacea; 5° livello, crescita vegetale e invocare il fulmine; 7° livello, divinazione e libertà di movimento; 9° livello, comunione con la natura e traslazione arborea."
+levels.3.features.0.effects.0.options.4.name: Prateria
+levels.3.features.0.effects.0.options.4.text: "Incantesimi del circolo della prateria: 3° livello, invisibilità e passare senza tracce; 5° livello, luce diurna e velocità; 7° livello, divinazione e libertà di movimento; 9° livello, piaga degli insetti e sogno."
+levels.3.features.0.effects.0.options.5.name: Montagna
+levels.3.features.0.effects.0.options.5.text: "Incantesimi del circolo della montagna: 3° livello, crescita di spine e movimenti del ragno; 5° livello, fondersi nella pietra e fulmine; 7° livello, pelle di pietra e scolpire pietra; 9° livello, muro di pietra e passapareti."
+levels.3.features.0.effects.0.options.6.name: Palude
+levels.3.features.0.effects.0.options.6.text: "Incantesimi del circolo della palude: 3° livello, freccia acida e oscurità; 5° livello, camminare sull'acqua e nube maleodorante; 7° livello, libertà di movimento e localizza creatura; 9° livello, piaga degli insetti e scrutare."
+levels.6.features.0.name: Andatura sul Territorio
+levels.6.features.0.text: |-
+  A partire dal 6° livello, muoversi attraverso il terreno difficile non magico non richiede più un costo in movimento extra al druido. Inoltre, può passare attraverso i vegetali non magici senza esserne rallentato e senza subire danni se tali vegetali presentano spine, aculei o altri pericoli simili.
+
+  Infine, il druido dispone di vantaggio ai tiri salvezza contro i vegetali creati magicamente o manipolati per ostacolare il movimento, come quelli creati dall'incantesimo intralciare.
+levels.6.features.0.effects.0.text: Muoversi attraverso il terreno difficile non magico non ti richiede più un costo in movimento extra. Inoltre, puoi passare attraverso i vegetali non magici senza esserne rallentato e senza subire danni se tali vegetali presentano spine, aculei o altri pericoli simili.
+levels.6.features.0.effects.0.note: "Gestione in gioco: il terreno difficile e i pericoli dei vegetali dipendono dalla situazione e non sono tracciati dal motore."
+levels.10.features.0.name: Interdizione della Natura
+levels.10.features.0.text: Quando il druido arriva al 10° livello, non può essere affascinato o spaventato dagli elementali o dai folletti ed è immune ai veleni e alle malattie.
+levels.10.features.0.effects.2.text: Non puoi essere affascinato o spaventato dagli elementali o dai folletti.
+levels.10.features.0.effects.2.note: "Lacuna: un'immunità a condizioni limitata agli elementali e ai folletti come fonte; la difesa non può essere circoscritta per fonte, quindi è mostrata come testo."
+levels.14.features.0.name: Rifugio della Natura
+levels.14.features.0.text: |-
+  Quando il druido arriva al 14° livello, le creature del mondo naturale percepiscono il suo legame con la natura ed esitano ad attaccarlo. Quando una bestia o una creatura vegetale lo attacca, quella creatura deve effettuare un tiro salvezza su Saggezza contro la CD del tiro salvezza sull'incantesimo del druido. Se lo fallisce, deve scegliere un bersaglio diverso, altrimenti l'attacco manca automaticamente. Se invece lo supera, la creatura è immune a questo effetto per 24 ore.
+
+  La creatura è consapevole di questo effetto prima di effettuare il suo attacco contro il druido.
+levels.14.features.0.effects.0.text: Quando una bestia o una creatura vegetale ti attacca, quella creatura deve effettuare un tiro salvezza su Saggezza contro la CD del tiro salvezza sui tuoi incantesimi da druido. Se lo fallisce, deve scegliere un bersaglio diverso, altrimenti l'attacco manca automaticamente. Se invece lo supera, la creatura è immune a questo effetto per 24 ore. La creatura è consapevole di questo effetto prima di effettuare il suo attacco contro di te.
+levels.14.features.0.effects.0.note: "Gestione in gioco: un effetto passivo risolto dal tiro salvezza dell'attaccante contro la CD del tiro salvezza sui tuoi incantesimi; sulla scheda non viene calcolato nulla oltre alla CD."

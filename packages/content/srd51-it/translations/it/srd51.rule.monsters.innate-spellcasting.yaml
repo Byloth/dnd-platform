@@ -1,0 +1,7 @@
+name: "Incantesimi innati"
+text: |-
+  Un mostro dotato della capacità innata di lanciare incantesimi possiede il tratto speciale Incantesimi innati. Salvo dove specificato diversamente, un incantesimo innato di livello pari o superiore al 1° viene sempre lanciato al livello più basso possibile e non può essere lanciato a un livello superiore. Se un mostro possiede un trucchetto in cui il livello è rilevante e non viene fornito alcun livello, si usa il grado di sfida del mostro.
+
+  Un incantesimo innato può essere soggetto ad alcune regole o restrizioni speciali. Per esempio, un mago drow può lanciare l'incantesimo innato *levitazione*, ma quell'incantesimo ha una restrizione "solo se stesso": questo significa che l'incantesimo ha effetto solo sul mago drow.
+
+  Gli incantesimi innati di un mostro non possono essere scambiati con altri incantesimi. Se i suoi incantesimi innati non richiedono tiri per colpire, non viene fornito alcun bonus di attacco per essi.

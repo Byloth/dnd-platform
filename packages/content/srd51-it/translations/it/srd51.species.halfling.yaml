@@ -1,0 +1,53 @@
+name: "Halfling"
+text: |-
+  Un personaggio halfling possiede vari tratti in comune con tutti i membri della sua razza.
+features.0.name: "Incremento dei punteggi di caratteristica"
+features.0.text: |-
+  Il punteggio di Destrezza di un halfling aumenta di 2.
+features.1.name: "Velocità"
+features.1.text: |-
+  La velocità base sul terreno di un halfling è di 7,5 metri.
+features.2.name: "Età"
+features.2.text: |-
+  Un halfling raggiunge la maturità a 20 anni e generalmente vive circa fino alla metà del suo secondo secolo.
+features.3.name: "Allineamento"
+features.3.text: |-
+  Quasi tutti gli halfling sono legali buoni. Di norma sono creature gentili e di buon cuore, detestano vedere soffrire le altre creature e non sopportano la prepotenza. Sono anche molto ordinati e tradizionalisti e si affidano per ogni necessità alla loro comunità di appartenenza e alle certezze delle antiche tradizioni.
+features.4.name: "Taglia"
+features.4.text: |-
+  Un halfling è alto circa 90 cm e pesa circa 20 kg. È una creatura di taglia Piccola.
+features.5.name: "Linguaggi"
+features.5.text: |-
+  Un halfling sa parlare, leggere e scrivere in Comune e in Halfling. La lingua Halfling non è segreta, ma gli halfling non la condividono volentieri con i membri delle altre razze. Scrivono poco, quindi la letteratura halfling non è molto ricca. Le loro tradizioni orali, invece, sono molto ricche e diffuse. Quasi tutti gli halfling usano il Comune per comunicare con gli abitanti delle regioni in cui vivono o che attraversano nei loro viaggi.
+features.6.name: "Fortunato"
+features.6.text: |-
+  Quando ottiene 1 con un d20 a un tiro per colpire, a una prova di caratteristica o a un tiro salvezza, un halfling può ripetere il tiro del dado e deve usare il nuovo risultato.
+features.6.effects.0.name: "Fortunato"
+features.6.effects.0.trigger: "quando ottieni 1 con un d20 a un tiro per colpire, a una prova di caratteristica o a un tiro salvezza"
+features.6.effects.0.text: |-
+  Quando ottieni 1 con un d20 a un tiro per colpire, a una prova di caratteristica o a un tiro salvezza, puoi ripetere il tiro del dado e devi usare il nuovo risultato.
+features.6.effects.0.note: |-
+  Ripetizione di un 1 naturale nella modalità di gioco; si applica a quello dei tre tiri che è stato effettuato.
+features.7.name: "Coraggioso"
+features.7.text: |-
+  Un halfling dispone di vantaggio ai tiri salvezza per non essere spaventato.
+features.8.name: "Agilità halfling"
+features.8.text: |-
+  Un halfling può muoversi attraverso gli spazi di qualsiasi creatura di taglia più grande.
+features.8.effects.0.text: |-
+  Puoi muoverti attraverso lo spazio di qualsiasi creatura di taglia più grande della tua.
+features.8.effects.0.note: |-
+  Regola di movimento gestita al tavolo; nessun valore derivato.
+subspecies.0.name: "Piedelesto"
+subspecies.0.text: |-
+  Un halfling piedelesto è abile nel non farsi notare e può perfino usare le altre persone come copertura. Tende a essere sempre gentile e ad andare d'accordo con gli altri. I piedelesto sono la varietà di halfling che più ama viaggiare e spesso dimorano presso altre razze o conducono una vita da nomadi.
+subspecies.0.features.0.name: "Incremento dei punteggi di caratteristica"
+subspecies.0.features.0.text: |-
+  Il punteggio di Carisma di un halfling piedelesto aumenta di 1.
+subspecies.0.features.1.name: "Furtività innata"
+subspecies.0.features.1.text: |-
+  Un halfling piedelesto può tentare di nascondersi anche se è oscurato solo da una singola creatura, purché questa sia più grande di lui di almeno una taglia.
+subspecies.0.features.1.effects.0.text: |-
+  Puoi tentare di nasconderti anche se sei oscurato solo da una creatura più grande di te di almeno una taglia.
+subspecies.0.features.1.effects.0.note: |-
+  Regola del nascondersi gestita al tavolo; nessun valore derivato.

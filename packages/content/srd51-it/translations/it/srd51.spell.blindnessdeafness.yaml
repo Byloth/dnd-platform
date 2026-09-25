@@ -1,0 +1,9 @@
+name: Cecità/Sordità
+text: |-
+  L'incantatore può accecare o assordare un nemico, scegliendo una creatura entro gittata e che è in grado di vedere, che deve effettuare un tiro salvezza su Costituzione. Se lo fallisce, il bersaglio è accecato o assordato (a scelta dell'incantatore) per tutta la durata dell'incantesimo. Il bersaglio può effettuare un altro tiro salvezza su Costituzione alla fine di ogni suo turno. In caso di successo, l'incantesimo termina.
+higherLevel: |-
+  Quando l'incantatore lancia questo incantesimo usando uno slot incantesimo di 3° livello o superiore, può bersagliare una creatura aggiuntiva per ogni slot superiore al 2°.
+onCast.0.note: |-
+  Accecato o assordato a tua scelta se fallisce il tiro salvezza su Costituzione (applicane solo una delle due). Alla fine di ogni suo turno il bersaglio ripete il tiro salvezza; in caso di successo, l'incantesimo termina. Una creatura aggiuntiva per ogni slot di livello superiore al 2°.
+onCast.1.note: |-
+  Accecato o assordato a tua scelta (applicane solo una delle due).

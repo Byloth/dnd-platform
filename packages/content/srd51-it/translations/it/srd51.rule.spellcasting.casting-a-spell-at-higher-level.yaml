@@ -1,0 +1,5 @@
+name: Lanciare un incantesimo a un livello superiore
+text: |-
+  Quando un incantatore lancia un incantesimo usando uno slot di livello superiore rispetto a quello dell'incantesimo, l'incantesimo assume il livello superiore per quel lancio. Per esempio, se Umara lancia _dardo incantato_ usando uno dei suoi slot di 2° livello, quel _dardo incantato_ è di 2° livello. In altre parole, l'incantesimo si espande per occupare lo slot in cui viene inserito.
+
+  Alcuni incantesimi, quali _dardo incantato_ e _cura ferite_, hanno effetti più potenti quando vengono lanciati a un livello superiore, come indicato nella loro descrizione.

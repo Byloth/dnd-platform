@@ -1,0 +1,13 @@
+name: "Polvere prosciugante"
+text: |-
+  Oggetto meraviglioso, non comune
+
+  Questo pacchetto contiene 1d6 + 4 pizzichi di polvere. Con un'azione, il personaggio può spargere un pizzico di polvere sull'acqua. La polvere trasforma un cubo d'acqua con spigolo di 4,5 metri in una sfera delle dimensioni di una biglia, che fluttua o resta vicino al luogo in cui è caduta la polvere. Il peso della biglia è trascurabile.
+
+  Chiunque può usare un'azione per schiantare la biglia contro una superficie rigida, rompendola e liberando l'acqua che era stata assorbita. Quando questo accade, la magia della biglia termina.
+
+  Un elementale composto per la maggior parte d'acqua che si trovi esposto a un pizzico di questa polvere deve effettuare un tiro salvezza su Costituzione con CD 13; in caso di fallimento, subisce 10d6 danni necrotici, o la metà dei danni in caso di successo.
+features.0.name: "Pizzichi di polvere"
+features.0.effects.0.name: "Spargere un pizzico sull'acqua"
+features.0.effects.0.text: "La polvere trasforma un cubo d'acqua con spigolo di 4,5 metri in una sfera delle dimensioni di una biglia, dal peso trascurabile. Chiunque può usare un'azione per schiantare la biglia contro una superficie rigida, liberando l'acqua e ponendo fine alla magia della biglia. Un elementale composto per la maggior parte d'acqua che si trovi esposto a un pizzico deve effettuare un tiro salvezza su Costituzione con CD 13; in caso di fallimento, subisce 10d6 danni necrotici, o la metà in caso di successo."
+features.0.effects.0.onUse.0.text: "Il pacchetto contiene 1d6 + 4 pizzichi; tienine traccia a mano. Contro un elementale dell'acqua: tiro salvezza su Costituzione con CD 13, 10d6 danni necrotici, la metà in caso di successo."

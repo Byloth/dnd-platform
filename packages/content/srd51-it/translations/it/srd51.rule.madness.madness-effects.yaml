@@ -1,0 +1,58 @@
+name: "Effetti della follia"
+text: |-
+  La follia può essere temporanea, duratura o imprecisata. Molti degli effetti più comuni provocano forme di follia temporanee, che durano soltanto pochi minuti. Altri effetti più terrificanti o cumulativi possono indurre forme di follia durature o imprecisate.
+
+  Un personaggio afflitto da **follia temporanea** subisce un effetto dalla tabella "Follia temporanea" per 1d10 minuti.
+
+  Un personaggio afflitto da **follia duratura** subisce un effetto dalla tabella "Follia duratura" per 1d10 × 10 ore.
+
+  Un personaggio afflitto da **follia imprecisata** ottiene un nuovo difetto del personaggio nella tabella "Follia imprecisata" che permane finché non viene curato.
+
+  **Follia temporanea (tabella)**
+  | d100 | Effetto (dura 1d10 minuti) |
+  |--------|--------|
+  | 01-20 | Il personaggio si ritira nella propria mente e diventa paralizzato. Questo effetto termina se il personaggio subisce danni. |
+  | 21-30 | Il personaggio diventa incapacitato e trascorre la durata dell'effetto urlando, ridendo o piangendo. |
+  | 31-40 | Il personaggio diventa spaventato e a ogni round deve usare la sua azione e il suo movimento per fuggire dalla fonte della sua paura. |
+  | 41-50 | Il personaggio inizia a balbettare e non è in grado di parlare normalmente o lanciare incantesimi. |
+  | 51-60 | Il personaggio deve usare la sua azione a ogni round per attaccare la creatura più vicina. |
+  | 61-70 | Il personaggio soffre di vivide allucinazioni e subisce svantaggio alle prove di caratteristica. |
+  | 71-75 | Il personaggio fa qualsiasi cosa gli venga detto di fare purché non sia palesemente autodistruttiva. |
+  | 76-80 | Il personaggio soffre dell'impulso irrefrenabile di mangiare qualcosa di strano come terriccio, fanghiglia o escrementi. |
+  | 81-90 | Il personaggio è stordito. |
+  | 91-100 | Il personaggio cade privo di sensi. |
+
+  **Follia duratura (tabella)**
+  | d100 | Effetto (dura 1d10 × 10 ore) |
+  |--------|--------|
+  | 01-10 | Il personaggio si sente obbligato a ripetere un'attività specifica all'infinito, come per esempio lavarsi le mani, toccare qualcosa, pregare o contare le monete. |
+  | 11-20 | Il personaggio soffre di vivide allucinazioni e subisce svantaggio alle prove di caratteristica. |
+  | 21-30 | Il personaggio soffre di una grave forma di paranoia e subisce svantaggio alle prove di Saggezza e di Carisma. |
+  | 31-40 | Il personaggio prova una forte repulsione nei confronti di qualcosa (solitamente la fonte della sua follia), come se fosse sotto l'effetto antipatia dell'incantesimo antipatia/simpatia. |
+  | 41-45 | Il personaggio è affetto da un forte delirio. Il GM sceglie una pozione, dei cui effetti il personaggio immagina di risentire. |
+  | 46-55 | Il personaggio si affeziona a un "portafortuna", che può essere una persona o un oggetto e subisce svantaggio ai tiri per colpire, alle prove di caratteristica e ai tiri salvezza quando si allontana per più di 9 metri da esso. |
+  | 56-65 | Il personaggio è accecato (25%) o assordato (75%). |
+  | 66-75 | Il personaggio soffre di tremori e tic incontrollabili che gli impongono svantaggio ai tiri per colpire, alle prove di caratteristica e ai tiri salvezza basati su Forza e Destrezza. |
+  | 76-85 | Il personaggio soffre di amnesia parziale. Sa chi è e conserva i suoi tratti razziali e privilegi di classe, ma non riconosce le altre persone e non ricorda nulla di ciò che è avvenuto prima che cadesse preda della follia. |
+  | 86-90 | Ogni volta che il personaggio subisce danni, deve superare un tiro salvezza su Saggezza con CD 15, altrimenti subisce le conseguenze di un tiro salvezza fallito contro l'incantesimo confusione, il cui effetto dura 1 minuto. |
+  | 91-95 | Il personaggio perde la capacità di parlare. |
+  | 96-100 | Il personaggio cade privo di sensi e non si risveglia né se viene scosso né se subisce danni. |
+
+  **Follia imprecisata (tabella)**
+  | d100 | Difetto (permane finché non viene curato) |
+  |--------|--------|
+  | 01-15 | "Solo ubriacandomi evito di impazzire." |
+  | 16-25 | "Tengo tutto ciò che trovo." |
+  | 26-30 | "Cerco di diventare più simile a qualcuno che conosco, adottando il suo stile di vestire, i suoi modi di fare e il suo nome." |
+  | 31-35 | "Devo distorcere la verità, esagerare o mentire spudoratamente per risultare interessante agli occhi degli altri." |
+  | 36-45 | "Raggiungere il mio obiettivo è l'unica cosa che mi interessa e per farlo ignorerò tutto il resto." |
+  | 46-50 | "Mi riesce difficile provare interesse per qualsiasi cosa accada intorno a me." |
+  | 51-55 | "Non mi piace il modo in cui la gente continua a giudicarmi." |
+  | 56-70 | "Sono la persona più intelligente, più saggia, più forte, più veloce e più bella che io conosca." |
+  | 71-80 | "Ho la certezza che potenti nemici mi diano la caccia e che i loro agenti siano presenti ovunque io vada e mi osservino in ogni momento." |
+  | 81-85 | "C'è solo una persona di cui posso fidarmi e solo io sono in grado di vedere questo amico speciale." |
+  | 86-95 | "Non riesco a prendere nulla sul serio. Più la situazione è seria, più la trovo divertente." |
+  | 96-100 | "Ho scoperto che mi piace moltissimo uccidere la gente." |
+  ## Curare la follia
+
+  Un incantesimo _calmare emozioni_ può sopprimere gli effetti della follia, mentre un incantesimo _ristorare inferiore_ può rimuovere da un personaggio una follia temporanea o duratura. In base alla fonte della follia, anche _rimuovi maledizione_ e _dissolvi il bene e il male_ potrebbero rivelarsi efficaci. Inoltre, per rimuovere da un personaggio una follia imprecisata sono necessari un incantesimo _ristorare superiore_ o una magia più potente.

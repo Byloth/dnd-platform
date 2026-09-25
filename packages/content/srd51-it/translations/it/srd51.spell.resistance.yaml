@@ -1,0 +1,5 @@
+name: Resistenza
+components.m: Un mantello in miniatura.
+text: |-
+  L'incantatore tocca una creatura consenziente. Prima che l'incantesimo termini, il bersaglio può tirare un d4 e aggiungere il risultato ottenuto a un tiro salvezza a sua scelta. Può tirare il dado prima o dopo avere effettuato il tiro salvezza, dopodiché l'incantesimo termina.
+effects.0.note: Una sola volta, su un tiro salvezza a scelta del bersaglio, tirando il dado prima o dopo il tiro salvezza; poi l'incantesimo termina.

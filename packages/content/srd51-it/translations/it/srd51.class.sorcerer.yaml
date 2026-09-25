@@ -1,0 +1,186 @@
+name: Stregone
+levels.1.features.0.name: Origine Stregonesca
+levels.1.features.0.text: |-
+  Il giocatore sceglie un'origine stregonesca che definisca la fonte dei poteri magici innati dello stregone: Discendenza Draconica o Magia Selvaggia, entrambe descritte in dettaglio alla fine della sezione di questa classe.
+
+  Questa scelta conferisce allo stregone alcuni privilegi al 1° livello e poi di nuovo al 6°, 14° e 18° livello.
+levels.1.features.1.name: Incantesimi
+levels.1.features.1.text: |-
+  Un evento nel passato dello stregone o nella vita di un suo parente o antenato ha lasciato su di lui un segno indelebile, infondendogli magia arcana. È questa fonte di magia, qualunque sia la sua origine, ad alimentare i suoi incantesimi.
+
+  ### Trucchetti
+
+  Al 1° livello, uno stregone conosce quattro trucchetti a sua scelta tratti dalla lista degli incantesimi da stregone. Apprende ulteriori trucchetti da stregone a sua scelta ai livelli successivi, come indicato dalla colonna "Trucchetti conosciuti" nella tabella "Stregone".
+
+  ### Slot incantesimo
+
+  La tabella "Stregone" indica quanti slot incantesimo possiede uno stregone per lanciare i suoi incantesimi di 1° livello e di livello superiore. Per lanciare uno di questi incantesimi, deve spendere uno slot incantesimo di livello pari o superiore a quello dell'incantesimo. Recupera tutti gli slot incantesimo spesi quando completa un riposo lungo.
+
+  Per esempio, se uno stregone conosce l'incantesimo di 1° livello mani brucianti e possiede uno slot incantesimo di 1° livello e uno slot incantesimo di 2° livello, può lanciare mani brucianti usando uno qualsiasi dei due slot.
+
+  ### Incantesimi conosciuti di 1° livello e di livello superiore
+
+  Uno stregone conosce due incantesimi di 1° livello a sua scelta dalla lista degli incantesimi da stregone.
+
+  La colonna "Incantesimi conosciuti" nella tabella "Stregone" indica quando uno stregone impara altri incantesimi da stregone a sua scelta. Ognuno di questi incantesimi deve appartenere a un livello di cui lo stregone possiede degli slot incantesimo. Per esempio, quando uno stregone arriva al 3° livello, può imparare un nuovo incantesimo di 1° o di 2° livello.
+
+  Inoltre, quando uno stregone acquisisce un livello, può scegliere un incantesimo da stregone che conosce e sostituirlo con un altro incantesimo dalla lista degli incantesimi da stregone; anche il nuovo incantesimo deve essere di un livello di cui possiede degli slot incantesimo.
+
+  ### Caratteristica da incantatore
+
+  Carisma è la caratteristica da incantatore per gli incantesimi da stregone, dal momento che il potere magico di uno stregone dipende dall'intensità con cui egli riesce a proiettare la sua volontà nel mondo esterno. Usa Carisma ogni volta che un incantesimo fa riferimento alla sua caratteristica da incantatore. Usa inoltre il suo modificatore di Carisma per definire la CD del tiro salvezza di un incantesimo da stregone da lui lanciato e quando effettua un tiro per colpire con un incantesimo.
+
+  **CD del tiro salvezza sull'incantesimo** = 8 + il bonus di competenza + il modificatore di Carisma
+
+  **Modificatore di attacco dell'incantesimo** = il bonus di competenza + il modificatore di Carisma
+  Focus da incantatore
+
+  Uno stregone può usare un focus arcano come focus da incantatore per i suoi incantesimi da stregone.
+levels.2.features.0.name: Fonte di Magia
+levels.2.features.0.text: |-
+  Al 2° livello, uno stregone attinge a una profonda sorgente di magia interiore. Essa è rappresentata dai punti stregoneria, che gli consentono di creare una vasta gamma di effetti magici.
+
+  ### Punti stregoneria
+
+  Uno stregone parte con 2 punti stregoneria e ne ottiene altri ai livelli superiori, come indicato nella colonna "Punti stregoneria" nella tabella "Stregone". Uno stregone non può mai avere un numero di punti stregoneria superiore al numero indicato sulla tabella per il suo livello. Lo stregone recupera tutti i punti stregoneria spesi quando completa un riposo lungo.
+
+  ### Incantesimi Flessibili
+
+  Uno stregone può usare i suoi punti stregoneria per ottenere degli slot incantesimo aggiuntivi, oppure può sacrificare degli slot incantesimo per ottenere dei punti stregoneria aggiuntivi. Apprende altri modi in cui usare i suoi punti stregoneria quando arriva ai livelli superiori.
+
+  ***Creare slot incantesimo.*** Usando un'azione bonus nel proprio turno, uno stregone può trasformare i punti stregoneria non spesi in uno slot incantesimo. La tabella "Creazione degli slot incantesimo" indica il costo di creazione di uno slot incantesimo di ogni livello. Lo stregone non può creare slot incantesimo di livello superiore al 5°.
+
+  Ogni slot incantesimo creato tramite questo privilegio svanisce quando lo stregone completa un riposo lungo.
+
+  ### Creazione degli slot incantesimo (tabella)
+  | Livello dello slot incantesimo | Costo in punti stregoneria |
+  | --- | --- |
+  | 1° | 2 |
+  | 2° | 3 |
+  | 3° | 5 |
+  | 4° | 6 |
+  | 5° | 7 |
+
+  ***Convertire uno slot incantesimo in punti stregoneria.*** Come azione bonus nel proprio turno, uno stregone può spendere uno slot incantesimo per ottenere un numero di punti stregoneria pari al livello dello slot.
+levels.2.features.0.effects.0.name: Punti stregoneria
+levels.2.features.0.effects.1.name: Creare uno slot incantesimo
+levels.2.features.0.effects.1.text: |-
+  Usando un'azione bonus nel proprio turno, lo stregone può trasformare i punti stregoneria non spesi in uno slot incantesimo. Lo stregone non può creare slot incantesimo di livello superiore al 5°. Ogni slot incantesimo creato tramite questo privilegio svanisce quando lo stregone completa un riposo lungo.
+levels.2.features.0.effects.1.onUse.0.text: |-
+  Lo stregone spende i punti stregoneria corrispondenti al livello dello slot desiderato: 2 punti per uno slot di 1° livello, 3 per il 2°, 5 per il 3°, 6 per il 4°, 7 per il 5°. Lo slot creato svanisce quando lo stregone completa un riposo lungo.
+levels.2.features.0.effects.1.note: |-
+  Il costo dipende dal livello dello slot scelto al momento dell'uso e lo slot creato è uno stato di gioco aggiuntivo; nessuno dei due è ancora modellato, quindi i punti vanno spesi e lo slot va annotato a mano.
+levels.2.features.0.effects.2.name: Convertire uno slot incantesimo in punti stregoneria
+levels.2.features.0.effects.2.text: |-
+  Come azione bonus nel proprio turno, lo stregone può spendere uno slot incantesimo per ottenere un numero di punti stregoneria pari al livello dello slot.
+levels.2.features.0.effects.2.onUse.0.text: |-
+  Lo stregone spende uno slot incantesimo e recupera un numero di punti stregoneria pari al livello dello slot (senza mai superare il suo massimo).
+levels.2.features.0.effects.2.note: |-
+  Lo slot da spendere si sceglie al momento dell'uso; un restoreResource che dipende dal livello dello slot non è ancora esprimibile.
+levels.3.features.0.name: Metamagia
+levels.3.features.0.text: |-
+  Al 3° livello, uno stregone sviluppa la capacità di plasmare i suoi incantesimi per adattarli ai suoi bisogni e ottiene due delle seguenti opzioni di Metamagia a sua scelta. Ne ottiene un'altra al 10° livello e un'altra al 17° livello.
+
+  Lo stregone può usare soltanto un'opzione di Metamagia su un incantesimo quando lo lancia, a meno che non sia specificato diversamente.
+
+  ### Incantesimo preciso
+
+  Quando lo stregone lancia un incantesimo che obbliga altre creature a effettuare un tiro salvezza, può proteggere alcune di esse dalla piena forza dell'incantesimo. Per farlo spende 1 punto stregoneria e sceglie un numero massimo di creature pari al suo modificatore di Carisma (minimo una creatura). Ogni creatura scelta supera automaticamente il suo tiro salvezza contro l'incantesimo.
+
+  ### Incantesimo distante
+
+  Quando lo stregone lancia un incantesimo che ha una gittata pari o superiore a 1,5 metri, può spendere 1 punto stregoneria per raddoppiare la gittata dell'incantesimo.
+
+  Quando lancia un incantesimo che ha una gittata a contatto, può spendere 1 punto stregoneria per cambiare quella gittata in 9 metri.
+
+  ### Incantesimo potenziato
+
+  Quando lo stregone tira per i danni di un incantesimo, può spendere 1 punto stregoneria per ripetere il tiro di un numero massimo di dadi pari al suo modificatore di Carisma (minimo di uno). Deve usare i nuovi risultati.
+
+  Lo stregone può utilizzare Incantesimo potenziato anche se ha già utilizzato un'opzione diversa di Metamagia durante il lancio dell'incantesimo.
+
+  ### Incantesimo esteso
+
+  Quando lo stregone lancia un incantesimo di durata pari o superiore a 1 minuto, può spendere 1 punto stregoneria per raddoppiare la sua durata, fino a una durata massima di 24 ore.
+
+  ### Incantesimo intensificato
+
+  Quando lo stregone lancia un incantesimo che obbliga una creatura a effettuare un tiro salvezza per resistere ai suoi effetti, può spendere 3 punti stregoneria per infliggere svantaggio a un bersaglio dell'incantesimo in occasione del primo tiro salvezza che effettuerà contro l'incantesimo.
+
+  ### Incantesimo rapido
+
+  Quando lo stregone lancia un incantesimo che ha un tempo di lancio pari a 1 azione, può spendere 2 punti stregoneria per cambiare il tempo di lancio a 1 azione bonus per quel lancio.
+
+  ### Incantesimo celato
+
+  Quando lo stregone lancia un incantesimo, può spendere 1 punto stregoneria per lanciarlo senza componenti somatiche o verbali.
+
+  ### Incantesimo raddoppiato
+
+  Quando lo stregone lancia un incantesimo che bersaglia una sola creatura e non ha una gittata di "incantatore", può spendere un numero di punti stregoneria pari al livello dell'incantesimo per bersagliare con lo stesso incantesimo una seconda creatura entro gittata (1 punto stregoneria se l'incantesimo è un trucchetto).
+
+  Affinché sia selezionabile, un incantesimo non deve essere in grado di bersagliare più di una creatura al suo livello di incantesimo attuale. Per esempio, dardo incantato e raggio rovente non sono selezionabili, mentre raggio di gelo e globo cromatico sì.
+levels.3.features.0.effects.0.note: |-
+  Lo stregone ottiene un'altra opzione di Metamagia al 10° e al 17° livello (colonna "Metamagia conosciuta", table(sorcerer.metamagic-known)); il numero di opzioni di una scelta non può ancora seguire una tabella. Lo stregone può usare soltanto un'opzione di Metamagia su un incantesimo quando lo lancia, a meno che non sia specificato diversamente.
+levels.3.features.0.effects.0.options.0.name: Incantesimo preciso
+levels.3.features.0.effects.0.options.0.text: |-
+  Quando lo stregone lancia un incantesimo che obbliga altre creature a effettuare un tiro salvezza, può proteggere alcune di esse dalla piena forza dell'incantesimo. Per farlo spende 1 punto stregoneria e sceglie un numero massimo di creature pari al suo modificatore di Carisma (minimo una creatura). Ogni creatura scelta supera automaticamente il suo tiro salvezza contro l'incantesimo.
+levels.3.features.0.effects.0.options.0.effects.0.name: Incantesimo preciso
+levels.3.features.0.effects.0.options.0.effects.0.text: |-
+  Quando lo stregone lancia un incantesimo che obbliga altre creature a effettuare un tiro salvezza, spende 1 punto stregoneria e sceglie un numero massimo di quelle creature pari al suo modificatore di Carisma (minimo una); queste superano automaticamente il loro tiro salvezza contro l'incantesimo.
+levels.3.features.0.effects.0.options.1.name: Incantesimo distante
+levels.3.features.0.effects.0.options.1.text: |-
+  Quando lo stregone lancia un incantesimo che ha una gittata pari o superiore a 1,5 metri, può spendere 1 punto stregoneria per raddoppiare la gittata dell'incantesimo. Quando lancia un incantesimo che ha una gittata a contatto, può spendere 1 punto stregoneria per cambiare quella gittata in 9 metri.
+levels.3.features.0.effects.0.options.1.effects.0.name: Incantesimo distante
+levels.3.features.0.effects.0.options.1.effects.0.text: |-
+  Quando lo stregone lancia un incantesimo con una gittata pari o superiore a 1,5 metri, spende 1 punto stregoneria per raddoppiarne la gittata; un incantesimo con una gittata a contatto ottiene invece una gittata di 9 metri.
+levels.3.features.0.effects.0.options.2.name: Incantesimo potenziato
+levels.3.features.0.effects.0.options.2.text: |-
+  Quando lo stregone tira per i danni di un incantesimo, può spendere 1 punto stregoneria per ripetere il tiro di un numero massimo di dadi pari al suo modificatore di Carisma (minimo di uno). Deve usare i nuovi risultati. Lo stregone può utilizzare Incantesimo potenziato anche se ha già utilizzato un'opzione diversa di Metamagia durante il lancio dell'incantesimo.
+levels.3.features.0.effects.0.options.2.effects.0.name: Incantesimo potenziato
+levels.3.features.0.effects.0.options.2.effects.0.text: |-
+  Quando lo stregone tira per i danni di un incantesimo, spende 1 punto stregoneria per ripetere il tiro di un numero massimo di dadi dei danni pari al suo modificatore di Carisma (minimo uno); deve usare i nuovi risultati. Utilizzabile anche se ha già usato un'altra opzione di Metamagia sull'incantesimo.
+levels.3.features.0.effects.0.options.2.effects.0.onUse.0.note: |-
+  Ripete il tiro di un numero massimo di dadi dei danni pari al modificatore di Carisma (minimo uno).
+levels.3.features.0.effects.0.options.3.name: Incantesimo esteso
+levels.3.features.0.effects.0.options.3.text: |-
+  Quando lo stregone lancia un incantesimo di durata pari o superiore a 1 minuto, può spendere 1 punto stregoneria per raddoppiare la sua durata, fino a una durata massima di 24 ore.
+levels.3.features.0.effects.0.options.3.effects.0.name: Incantesimo esteso
+levels.3.features.0.effects.0.options.3.effects.0.text: |-
+  Quando lo stregone lancia un incantesimo di durata pari o superiore a 1 minuto, spende 1 punto stregoneria per raddoppiarne la durata, fino a un massimo di 24 ore.
+levels.3.features.0.effects.0.options.4.name: Incantesimo intensificato
+levels.3.features.0.effects.0.options.4.text: |-
+  Quando lo stregone lancia un incantesimo che obbliga una creatura a effettuare un tiro salvezza per resistere ai suoi effetti, può spendere 3 punti stregoneria per infliggere svantaggio a un bersaglio dell'incantesimo in occasione del primo tiro salvezza che effettuerà contro l'incantesimo.
+levels.3.features.0.effects.0.options.4.effects.0.name: Incantesimo intensificato
+levels.3.features.0.effects.0.options.4.effects.0.text: |-
+  Quando lo stregone lancia un incantesimo che obbliga una creatura a effettuare un tiro salvezza, spende 3 punti stregoneria per infliggere svantaggio a un bersaglio al primo tiro salvezza contro l'incantesimo.
+levels.3.features.0.effects.0.options.5.name: Incantesimo rapido
+levels.3.features.0.effects.0.options.5.text: |-
+  Quando lo stregone lancia un incantesimo che ha un tempo di lancio pari a 1 azione, può spendere 2 punti stregoneria per cambiare il tempo di lancio a 1 azione bonus per quel lancio.
+levels.3.features.0.effects.0.options.5.effects.0.name: Incantesimo rapido
+levels.3.features.0.effects.0.options.5.effects.0.text: |-
+  Quando lo stregone lancia un incantesimo con un tempo di lancio pari a 1 azione, spende 2 punti stregoneria per lanciarlo invece come azione bonus.
+levels.3.features.0.effects.0.options.6.name: Incantesimo celato
+levels.3.features.0.effects.0.options.6.text: |-
+  Quando lo stregone lancia un incantesimo, può spendere 1 punto stregoneria per lanciarlo senza componenti somatiche o verbali.
+levels.3.features.0.effects.0.options.6.effects.0.name: Incantesimo celato
+levels.3.features.0.effects.0.options.6.effects.0.text: |-
+  Quando lo stregone lancia un incantesimo, spende 1 punto stregoneria per lanciarlo senza componenti somatiche o verbali.
+levels.3.features.0.effects.0.options.7.name: Incantesimo raddoppiato
+levels.3.features.0.effects.0.options.7.text: |-
+  Quando lo stregone lancia un incantesimo che bersaglia una sola creatura e non ha una gittata di "incantatore", può spendere un numero di punti stregoneria pari al livello dell'incantesimo per bersagliare con lo stesso incantesimo una seconda creatura entro gittata (1 punto stregoneria se l'incantesimo è un trucchetto). Affinché sia selezionabile, un incantesimo non deve essere in grado di bersagliare più di una creatura al suo livello di incantesimo attuale.
+levels.3.features.0.effects.0.options.7.effects.0.name: Incantesimo raddoppiato
+levels.3.features.0.effects.0.options.7.effects.0.text: |-
+  Quando lo stregone lancia un incantesimo che bersaglia una sola creatura e non ha una gittata di "incantatore", spende un numero di punti stregoneria pari al livello dell'incantesimo (1 per un trucchetto) per bersagliare con lo stesso incantesimo una seconda creatura entro gittata. L'incantesimo non deve essere in grado di bersagliare più di una creatura al livello a cui viene lanciato.
+levels.3.features.0.effects.0.options.7.effects.0.onUse.0.text: |-
+  Lo stregone spende un numero di punti stregoneria pari al livello dell'incantesimo (1 per un trucchetto).
+levels.3.features.0.effects.0.options.7.effects.0.note: |-
+  Il costo è pari al livello dell'incantesimo lanciato, cosa che un costo fisso non può esprimere; i punti vanno sottratti a mano.
+levels.4.features.0.name: Aumento dei Punteggi di Caratteristica
+levels.4.features.0.text: |-
+  Quando arriva al 4° livello, e poi di nuovo all'8°, 12°, 16° e 19° livello, uno stregone può aumentare di 2 un punteggio di caratteristica a sua scelta, oppure può aumentare di 1 due punteggi di caratteristica a sua scelta. Come di consueto, non è consentito aumentare un punteggio di caratteristica a più di 20 utilizzando questo privilegio.
+levels.20.features.0.name: Ripristino Stregonesco
+levels.20.features.0.text: |-
+  Al 20° livello, uno stregone recupera 4 punti stregoneria spesi ogni volta che completa un riposo breve.
+levels.20.features.0.onRest.0.note: |-
+  Lo stregone recupera 4 punti stregoneria spesi ogni volta che completa un riposo breve (un riposo lungo li ripristina già tutti).

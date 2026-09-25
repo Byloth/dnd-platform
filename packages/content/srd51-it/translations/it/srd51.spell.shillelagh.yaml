@@ -1,0 +1,8 @@
+name: Randello incantato
+components.m: Vischio, una foglia di trifoglio e un randello o un bastone ferrato.
+text: |-
+  Il legno di un randello o di un bastone ferrato impugnato dall'incantatore è pervaso dal potere della natura. Per la durata dell'incantesimo, l'incantatore usa la propria caratteristica da incantatore anziché la Forza per i tiri per colpire e i tiri per i danni effettuati negli attacchi in mischia usando quell'arma: inoltre, i danni dell'arma sono calcolati con un d8. Se già non lo è, l'arma diventa magica. L'incantesimo termina se l'incantatore lo lancia di nuovo o lascia andare l'arma.
+effects.0.note: |-
+  Solo il randello che impugnavi quando hai lanciato l'incantesimo; usi la tua caratteristica da incantatore anziché la Forza per i tiri per colpire e i tiri per i danni dei suoi attacchi in mischia. Termina se lo lanci di nuovo o lasci andare l'arma.
+effects.1.note: |-
+  Solo il bastone ferrato che impugnavi quando hai lanciato l'incantesimo; usi la tua caratteristica da incantatore anziché la Forza per i tiri per colpire e i tiri per i danni dei suoi attacchi in mischia. Termina se lo lanci di nuovo o lasci andare l'arma.

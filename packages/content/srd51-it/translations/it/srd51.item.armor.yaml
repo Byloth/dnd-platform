@@ -1,0 +1,10 @@
+name: "Armatura +1, +2 o +3"
+text: |-
+  Armatura (leggera, media o pesante), rara (+1), molto rara (+2) o leggendaria (+3)
+
+  Il personaggio che indossa quest'armatura ottiene un bonus alla CA determinato dalla sua rarità.
+features.0.name: Bonus dell'armatura
+features.0.effects.0.note: Il bonus è determinato dalla rarità dell'armatura.
+features.0.effects.0.options.0.name: "+1 (rara)"
+features.0.effects.0.options.1.name: "+2 (molto rara)"
+features.0.effects.0.options.2.name: "+3 (leggendaria)"

@@ -1,0 +1,5 @@
+name: Livello dell'incantesimo
+text: |-
+  Ogni incantesimo appartiene a un livello compreso tra 0 e 9. Il livello di un incantesimo è un indicatore generale della sua potenza e può variare dall'umile (ma comunque notevole) _dardo incantato_ del 1° livello allo sconvolgente _desiderio_ del 9° livello. I trucchetti, incantesimi semplici ma potenti che i personaggi possono lanciare quasi automaticamente, sono di livello 0. Più alto è il livello di un incantesimo, più alto deve essere il livello dell'incantatore per poterlo usare.
+
+  Il livello dell'incantesimo e quello del personaggio non coincidono direttamente: generalmente un personaggio deve essere almeno di 17° livello (e non di 9° livello) per poter lanciare un incantesimo di 9° livello.

@@ -1,0 +1,13 @@
+name: Armatura a piastre della forma eterea
+text: |-
+  Armatura (armatura a piastre), leggendaria (richiede sintonia)
+
+  Finché il personaggio indossa questa armatura, può usare un'azione per pronunciarne la parola d'ordine e ottenere gli effetti dell'incantesimo *forma eterea* che dura per 10 minuti, finché non toglie l'armatura o finché non usa un'azione per pronunciare di nuovo la sua parola d'ordine. Questa proprietà dell'armatura non può essere riutilizzata fino all'alba successiva.
+features.0.name: Forma eterea
+features.0.text: |-
+  Finché il personaggio indossa questa armatura, può usare un'azione per pronunciarne la parola d'ordine e ottenere gli effetti dell'incantesimo *forma eterea* che dura per 10 minuti, finché non toglie l'armatura o finché non usa un'azione per pronunciare di nuovo la sua parola d'ordine. Questa proprietà dell'armatura non può essere riutilizzata fino all'alba successiva.
+features.0.effects.0.name: Forma eterea
+features.0.effects.0.onUse.0.text: |-
+  Ottieni l'effetto dell'incantesimo *forma eterea* per 10 minuti, finché non togli l'armatura o finché non usi un'azione per pronunciare di nuovo la parola d'ordine.
+features.0.effects.0.text: |-
+  Pronuncia la parola d'ordine per ottenere l'effetto dell'incantesimo *forma eterea* per 10 minuti.

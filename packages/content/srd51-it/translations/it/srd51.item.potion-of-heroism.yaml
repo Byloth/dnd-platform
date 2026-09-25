@@ -1,0 +1,8 @@
+name: Pozione di eroismo
+text: |-
+  Pozione, rara
+
+  Quando il personaggio beve questa pozione, ottiene 10 punti ferita temporanei che durano 1 ora. Per la stessa durata, il personaggio è sotto l'effetto dell'incantesimo *benedizione* (non è richiesta la concentrazione). Il liquido blu di questa pozione gorgoglia e fuma come se stesse bollendo.
+onUse.0.note: I punti ferita temporanei durano 1 ora.
+onUse.1.text: |-
+  Per 1 ora sei sotto l'effetto dell'incantesimo *benedizione* (non è richiesta la concentrazione).

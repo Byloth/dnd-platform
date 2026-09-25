@@ -1,0 +1,7 @@
+name: Reincarnazione
+components.m: Oli e unguenti rari del valore di almeno 1.000 mo, che l'incantesimo consuma.
+text: |-
+  L'incantatore tocca un umanoide defunto o una parte di umanoide defunto. Se la creatura non è morta da più di 10 giorni, l'incantesimo le forma un nuovo corpo adulto e poi richiama la sua anima all'interno di quel corpo. Se l'anima del bersaglio non è consenziente o libera di tornare, l'incantesimo non funziona. La magia crea un nuovo corpo in cui l'umanoide possa vivere, perciò è probabile che anche la razza della creatura cambi. Il GM tira un d 100 e consulta la tabella seguente per determinare quale forma assume la creatura quando torna in vita o, in alternativa, la può scegliere lui stesso.
+
+  **01-04** Dragonide **05-13** Nano delle colline **14-21** Nano delle montagne **22-25** Elfo oscuro **26-34** Elfo alto **35-42** Elfo dei boschi **43-46** Gnomo delle foreste **47-52** Gnomo delle rocce **53-56** Mezzelfo **57-60** Mezzorco **61-68** Halfling piedelesto **69-76** Halfling tozzo **77-96** Umano **97-00** Tiefling
+  La creatura reincarnata ricorda la sua vita e le sue esperienze passate. Conserva le capacità che possedeva nella sua forma originale, ma la sua razza precedente viene sostituita dalla nuova, così come i suoi tratti razziali.

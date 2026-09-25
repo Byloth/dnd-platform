@@ -1,0 +1,7 @@
+name: Vita falsata
+components.m: Una piccola quantità di alcol o liquori distillati.
+text: |-
+  L'incantatore si rafforza con un duplicato necromantico di vita, ottenendo 1d4 + 4 punti ferita temporanei per la durata dell'incantesimo.
+higherLevel: |-
+  Quando l'incantatore lancia questo incantesimo usando uno slot incantesimo di 2° livello o superiore, può ottenere 5 punti ferita temporanei aggiuntivi per ogni slot di livello superiore al 1°.
+onCast.0.note: Più 5 per ogni slot di livello superiore al 1°.

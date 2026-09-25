@@ -1,0 +1,6 @@
+name: Disintegrazione
+components.m: Una calamita e un pizzico di polvere.
+text: |-
+  Un sottile raggio verde si sprigiona dal dito indice dell'incantatore colpendo un bersaglio che è in grado di vedere entro gittata. Il bersaglio può essere una creatura, un oggetto o una creazione di forza magica, come un muro creato da muro di forza. Una creatura bersagliata da questo incantesimo deve effettuare un tiro salvezza su Destrezza. Se lo fallisce, subisce 10d6 + 40 danni da forza. Se questo danno riduce il bersaglio a 0 punti ferita, esso si disintegra. Una creatura disintegrata e tutto ciò che indossa e trasporta, a eccezione degli oggetti magici, si riduce a un cumulo di sottile polvere grigia. Una creatura può essere riportata in vita solo da un incantesimo resurrezione pura o desiderio. Questo incantesimo disintegra automaticamente un oggetto non magico di taglia Grande o inferiore, oppure una creazione di forza magica. Se il bersaglio è un oggetto di taglia Enorme o superiore, oppure una creazione di forza, questo incantesimo ne disintegra una parte pari a un cubo di 3 metri. Un oggetto magico non è influenzato dall'incantesimo.
+higherLevel: |-
+  Quando l'incantatore lancia questo incantesimo usando uno slot incantesimo di 7° livello o superiore, i danni aumentano di 3d6 per ogni slot di livello superiore al 6°.

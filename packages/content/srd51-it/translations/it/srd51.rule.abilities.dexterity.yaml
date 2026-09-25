@@ -1,0 +1,45 @@
+name: Destrezza
+text: |-
+  La Destrezza misura l'agilità, i riflessi e l'equilibrio.
+
+  ## Prove di Destrezza
+
+  Una prova di Destrezza può rappresentare ogni tentativo di muoversi agilmente, silenziosamente o rapidamente o di evitare di cadere quando ci si muove su una superficie precaria. Le abilità Acrobazia, Furtività e Rapidità di Mano rappresentano una maggiore bravura in certi tipi di prove di Destrezza.
+
+  ### Acrobazia
+
+  Una prova di Destrezza (Acrobazia) rappresenta il tentativo di un personaggio di rimanere in piedi in una situazione difficoltosa, come per esempio correre su una superficie ghiacciata, camminare in equilibrio su una corda tesa o barcamenarsi sul ponte di una nave durante una tempesta. Il GM potrebbe richiedere una prova di Destrezza (Acrobazia) per determinare se un personaggio è in grado di effettuare una manovra acrobatica, come tuffarsi, rotolare a terra, fare un salto mortale o una capriola a mezz'aria.
+
+  ### Rapidità di Mano
+
+  Ogni volta che un personaggio tenta di compiere un'impresa legata a manipolazione di precisione e destrezza manuale, come per esempio collocare un oggetto addosso a qualcun altro o nasconderne uno sulla propria persona, effettua una prova di Destrezza (Rapidità di Mano). Il GM potrebbe anche richiedere una prova di Destrezza (Rapidità di Mano) per determinare se può sottrarre un borsello o sfilare qualcosa dalla tasca di un'altra persona.
+
+  ## Furtività
+
+  Un personaggio effettua una prova di Destrezza (Furtività) quando tenta di nascondersi dai nemici, sgusciare alle spalle di una guardia, dileguarsi senza essere notato o aggredire qualcuno alle spalle senza essere visto o sentito.
+
+  ### Altre prove di Destrezza
+
+  Il GM potrebbe richiedere una prova di Destrezza anche quando un personaggio tenta di compiere imprese come:  - Controllare un carretto appesantito dal carico lungo una discesa ripida - Fare una curva stretta alla guida di una biga - Scassinare una serratura - Disinnescare una trappola - Legare saldamente un prigioniero - Divincolarsi da costrizioni - Suonare uno strumento a corda - Fabbricare un oggetto piccolo o dettagliato  **Nascondersi**  È il GM a decidere le circostanze in cui è possibile nascondersi. Quando un personaggio cerca di nascondersi, effettua una prova di Destrezza (Furtività). Finché non viene scoperto o smette di nascondersi, il totale di quella prova è contrapposto alla prova di Saggezza (Percezione) di qualsiasi creatura che cerchi attivamente un segno della presenza del personaggio.
+
+  Un personaggio non può nascondersi da una creatura in grado di vederlo chiaramente e tradisce la sua posizione se fa rumore, per esempio lanciando un grido di avvertimento o rovesciando un vaso.
+
+  Una creatura invisibile può sempre tentare di nascondersi. Dovrà però rimanere in silenzio e alcune tracce del suo passaggio potrebbero comunque essere notate.
+
+  In combattimento, la maggior parte delle creature rimane vigile nei confronti di possibili segnali di pericolo, quindi se un personaggio abbandona il suo nascondiglio e si avvicina a una creatura, solitamente questa lo nota. Tuttavia, in alcune circostanze il GM può consentire al personaggio di rimanere nascosto se si avvicina a una creatura distratta, fornendogli vantaggio a un tiro per colpire prima di essere visto.
+
+  **Percezione passiva.** Quando un personaggio è nascosto, c'è la possibilità che qualcuno lo noti anche se non lo sta cercando. Per determinare se una creatura nota passivamente il personaggio, il GM confronta la prova di Destrezza (Furtività) di quest'ultimo con il punteggio di Saggezza (Percezione) passiva della creatura, che è pari a 10 + il modificatore di Saggezza della creatura, nonché eventuali altri bonus o penalità. Se la creatura dispone di vantaggio, si aggiunge 5 a quel valore. Se invece subisce svantaggio, si sottrae 5. Per esempio, se un personaggio di 1° livello (con un bonus di competenza di +2) ha Saggezza pari a 15 (un modificatore di +2) e competenza in Percezione, la sua Saggezza (Percezione) passiva sarà pari a 14.
+
+  **Cosa è possibile vedere?** Un fattore rilevante nel determinare se sia o meno possibile trovare una creatura o un oggetto nascosto è la visibilità all'interno di un'area che potrebbe essere **leggermente** o **pesantemente oscurata**, come spiegato nella sezione "L'ambiente".
+
+  ## Tiri per colpire e danni
+
+  Il personaggio aggiunge il suo modificatore di Destrezza ai suoi tiri per colpire e ai tiri per i danni quando attacca con un'arma a distanza, come una fionda o un arco lungo. Può aggiungere il suo modificatore di Destrezza anche ai suoi tiri per colpire e ai tiri per i danni quando attacca con un'arma da mischia dotata della proprietà accurata, come un pugnale o uno stocco.
+
+  ## Classe Armatura
+
+  In base all'armatura indossata, un personaggio potrebbe aggiungere il suo modificatore di Destrezza (in parte o interamente) alla sua Classe Armatura.
+
+  ## Iniziativa
+
+  All'inizio di ogni combattimento un personaggio tira per l'iniziativa effettuando una prova di Destrezza. L'iniziativa determina l'ordine dei turni delle creature in combattimento.

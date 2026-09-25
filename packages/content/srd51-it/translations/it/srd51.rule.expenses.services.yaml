@@ -1,0 +1,23 @@
+name: "Servizi"
+text: |-
+  Gli avventurieri possono pagare i personaggi non giocanti affinché li aiutino o agiscano in loro vece nelle circostanze più disparate. La maggior parte di questi gregari è dotata di abilità pressoché ordinarie, mentre altri hanno padroneggiato un'arte o un mestiere e alcuni si sono specializzati in qualche abilità da avventuriero.
+
+  Alcuni dei tipi di servizi più basilari offerti dai gregari sono elencati nella tabella "Servizi". Altri gregari più comuni includono i numerosi abitanti di un tipico paese o cittadina che gli avventurieri possono ingaggiare per svolgere un compito specifico. Per esempio, un mago potrebbe pagare un falegname per farsi costruire un pregiato scrigno (e la sua replica in miniatura) da usare per l'incantesimo *scrigno segreto*. Un guerriero potrebbe commissionare a un fabbro la forgiatura di una spada speciale. Un bardo potrebbe pagare un sarto per farsi fare un abito pregiato da sfoggiare alla sua prossima esibizione al cospetto del duca.
+
+  Altri gregari forniscono servizi più esperti o più pericolosi. I soldati mercenari pagati per aiutare gli avventurieri ad affrontare un esercito di hobgoblin sono gregari, come anche i sapienti ingaggiati per condurre ricerche su argomenti antichi o esoterici. Se un avventuriero di alto livello fonda una roccaforte di qualche tipo, può ingaggiare un'intera schiera di servitori e agenti che gestiscano quel luogo, da un castellano o un sovrintendente ai manovali incaricati di tenere le stalle pulite. Questi gregari spesso beneficiano di un contratto a lungo termine che include un luogo dove vivere all'interno della roccaforte come parte del compenso offerto.
+
+  I gregari abili includono chiunque venga ingaggiato per sbrigare un servizio che richieda una competenza (in un'arma, in uno strumento o in un'abilità): un mercenario, un artigiano, uno scriba e così via. La paga indicata è quella minima, ma i più esperti potrebbero esigere una tariffa superiore. I gregari inesperti vengono ingaggiati per i lavori di fatica che non richiedono particolari abilità e possono includere manovali, facchini, camerieri e altri lavoratori simili.
+
+  **Servizi (tabella)**
+
+  | Servizio                        | Costo            |
+  |---------------------------------|------------------|
+  | **_Carrozza_**                  |                  |
+  | - Tra due paesi                 | 3 mr per 1,5 km  |
+  | - All'interno di una città      | 1 mr             |
+  | **_Gregario_**                  |                  |
+  | - Abile                         | 2 mo al giorno   |
+  | - Inesperto                     | 2 ma al giorno   |
+  | Messaggero                      | 2 mr per 1,5 km  |
+  | Pedaggio stradale o di ingresso | 1 mr             |
+  | Passaggio in nave               | 1 ma per 1,5 km  |

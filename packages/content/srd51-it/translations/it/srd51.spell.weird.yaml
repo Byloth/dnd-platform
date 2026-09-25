@@ -1,0 +1,5 @@
+name: Fatale
+text: |-
+  Attingendo alle paure più profonde di un gruppo di creature, l'incantatore crea nelle loro menti delle creature illusorie, visibili soltanto a loro. Ogni creatura all'interno di una sfera con raggio di 9 metri, centrata su un punto entro gittata a scelta dell'incantatore, deve effettuare un tiro salvezza su Saggezza. Se lo fallisce, rimane spaventata per tutta la durata dell'incantesimo. L'illusione fa leva sulle paure più profonde di una creatura, manifestando i suoi incubi peggiori come una minaccia implacabile. All'inizio di ogni suo turno, la creatura spaventata deve superare un tiro salvezza su Saggezza, altrimenti subisce 4d10 danni psichici. In caso di successo, l'incantesimo non ha più effetto su di lei.
+onCast.1.text: |-
+  Ogni creatura nella sfera con raggio di 9 metri, se fallisce il tiro salvezza su Saggezza. All'inizio di ogni suo turno una creatura spaventata deve superare un tiro salvezza su Saggezza, altrimenti subisce 4d10 danni psichici; in caso di successo, l'incantesimo non ha più effetto su di lei.

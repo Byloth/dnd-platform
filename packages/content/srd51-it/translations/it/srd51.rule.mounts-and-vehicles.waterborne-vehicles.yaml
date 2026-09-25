@@ -1,0 +1,10 @@
+name: "Imbarcazioni"
+text: |-
+  | Oggetto        | Costo      | Velocità  |
+  |----------------|------------|-----------|
+  | Galea          | 30.000 mo  | 6 km/h    |
+  | Barcone        | 3.000 mo   | 1,5 km/h  |
+  | Nave lunga     | 10.000 mo  | 4,5 km/h  |
+  | Barca a remi   | 50 mo      | 2,25 km/h |
+  | Nave a vela    | 10.000 mo  | 3 km/h    |
+  | Nave da guerra | 25.000 mo  | 3,75 km/h |

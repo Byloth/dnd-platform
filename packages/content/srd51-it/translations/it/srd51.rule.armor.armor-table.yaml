@@ -1,0 +1,21 @@
+name: Armature
+text: |-
+  | Armatura           | Costo    | Classe Armatura (CA)      | Forza    | Furtività    | Peso    |
+  |--------------------|----------|---------------------------|----------|--------------|---------|
+  | **_Armature leggere_** |      |                           |          |              |         |
+  | Imbottita          | 5 mo     | 11 + modificatore di Des  | —        | Svantaggio   | 4 kg    |
+  | Cuoio              | 10 mo    | 11 + modificatore di Des  | —        | —            | 5 kg    |
+  | Cuoio borchiato    | 45 mo    | 12 + modificatore di Des  | —        | —            | 6,5 kg  |
+  | **_Armature medie_** |        |                           |          |              |         |
+  | Pelle              | 10 mo    | 12 + modificatore di Des (max 2) | — | —            | 6 kg    |
+  | Giaco di maglia    | 50 mo    | 13 + modificatore di Des (max 2) | — | —            | 10 kg   |
+  | Corazza a scaglie  | 50 mo    | 14 + modificatore di Des (max 2) | — | Svantaggio   | 22,5 kg |
+  | Corazza di piastre | 400 mo   | 14 + modificatore di Des (max 2) | — | —            | 10 kg   |
+  | Mezza armatura     | 750 mo   | 15 + modificatore di Des (max 2) | — | Svantaggio   | 20 kg   |
+  | **_Armature pesanti_** |      |                           |          |              |         |
+  | Corazza ad anelli  | 30 mo    | 14                        | —        | Svantaggio   | 20 kg   |
+  | Cotta di maglia    | 75 mo    | 16                        | For 13   | Svantaggio   | 27,5 kg |
+  | Corazza a strisce  | 200 mo   | 17                        | For 15   | Svantaggio   | 30 kg   |
+  | Armatura a piastre | 1.500 mo | 18                        | For 15   | Svantaggio   | 32,5 kg |
+  | **_Scudi_**        |          |                           |          |              |         |
+  | Scudo              | 10 mo    | +2                        | —        | —            | 3 kg    |

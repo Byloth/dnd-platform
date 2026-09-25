@@ -1,0 +1,23 @@
+name: Spada affilata
+text: |-
+  Arma (qualsiasi spada che infligga danni taglienti), molto rara (richiede sintonia)
+
+  Quando il personaggio attacca un oggetto con questa spada magica e l'attacco va a segno, massimizza i dadi dei danni della sua arma contro il bersaglio.
+
+  Quando il personaggio attacca una creatura con quest'arma e ottiene 20 al tiro per colpire, il bersaglio subisce 4d6 danni taglienti extra. Dopodiché deve tirare un altro d20. Se ottiene 20, recide un arto al bersaglio (sarà il GM a determinare gli effetti di questa menomazione). Se la creatura è priva di arti, il personaggio recide invece una parte del corpo.
+
+  Inoltre, il personaggio può pronunciare la parola d'ordine della spada per fare in modo che la lama proietti luce intensa in un raggio di 3 metri e luce fioca per altri 3 metri. Pronunciando di nuovo la parola d'ordine, o rinfoderando la spada, la luce si spegne.
+features.0.name: Arma magica
+features.0.effects.0.note: |-
+  Qualsiasi spada che infligga danni taglienti; quest'oggetto non ha proprietà di un'arma base proprie. Quando colpisci un oggetto con essa, massimizzi i dadi dei danni della tua arma contro il bersaglio.
+features.1.name: Affilatura
+features.1.effects.0.name: Affilatura
+features.1.effects.0.trigger: quando ottieni 20 a un tiro per colpire con quest'arma contro una creatura
+features.1.effects.0.text: |-
+  Il bersaglio subisce 4d6 danni taglienti extra. Poi tiri un altro d20: se ottieni 20 recidi un arto al bersaglio, con gli effetti determinati dal GM; una creatura priva di arti perde invece una parte del corpo.
+features.1.effects.0.onHit.1.text: Tira un altro d20; con un 20 recidi un arto (il GM decide gli effetti).
+features.2.name: Luce
+features.2.effects.0.name: Proiettare luce
+features.2.effects.0.text: |-
+  Pronunci la parola d'ordine per fare in modo che la lama proietti luce intensa in un raggio di 3 metri e luce fioca per altri 3 metri. Pronunciando di nuovo la parola d'ordine, o rinfoderando la spada, la luce si spegne.
+features.2.effects.0.note: Il testo non indica il tipo di azione richiesto per pronunciare la parola d'ordine.

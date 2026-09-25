@@ -1,0 +1,5 @@
+name: Inaridire
+text: |-
+  L'energia necromantica si riversa su una creatura a scelta dell'incantatore, situata entro la sua gittata e che è in grado di vedere. Il bersaglio deve effettuare un tiro salvezza su Costituzione. In caso di fallimento, subisce 8d8 danni necrotici, o la metà dei danni in caso di successo. Questo incantesimo non ha effetto sui non morti o sui costrutti. Se l'incantatore bersaglia una creatura vegetale o un vegetale magico, tale bersaglio effettua il tiro salvezza con svantaggio e l'incantesimo infligge il massimo dei danni. Se l'incantatore bersaglia un vegetale non magico che non è una creatura, come un albero o un arbusto, tale bersaglio non effettua un tiro salvezza, ma semplicemente avvizzisce e muore.
+higherLevel: |-
+  Quando l'incantatore lancia questo incantesimo usando uno slot incantesimo di 5° livello o superiore, i danni aumentano di 1d8 per ogni slot di livello superiore al 4°.

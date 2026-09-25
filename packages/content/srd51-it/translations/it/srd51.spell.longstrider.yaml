@@ -1,0 +1,5 @@
+name: Passo veloce
+components.m: Un pizzico di terriccio.
+text: L'incantatore tocca una creatura, la cui velocità aumenta di 3 metri fino al termine dell'incantesimo.
+higherLevel: Quando l'incantatore lancia questo incantesimo usando uno slot incantesimo di 2° livello o superiore, può bersagliare una creatura aggiuntiva per ogni slot di livello superiore al 1°.
+effects.0.note: Ogni slot di livello superiore al 1° bersaglia una creatura aggiuntiva.

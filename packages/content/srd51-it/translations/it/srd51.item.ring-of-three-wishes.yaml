@@ -1,0 +1,7 @@
+name: Anello dei tre desideri
+text: |-
+  Anello, leggendario
+
+  Finché il personaggio indossa questo anello, può usare un'azione per consumare 1 delle sue 3 cariche e lanciare con esso l'incantesimo *desiderio*. L'anello smette di essere magico quando esaurisce le cariche.
+features.0.name: Desiderio
+features.0.effects.0.note: Si lancia con un'azione. Le cariche non si ricaricano mai; l'anello smette di essere magico quando usi l'ultima.

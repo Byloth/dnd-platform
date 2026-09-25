@@ -1,0 +1,11 @@
+name: Pozione velenosa
+text: |-
+  Pozione, non comune
+
+  Questa mistura ha l'aspetto, l'odore e il sapore di una *pozione di guarigione* o di altre pozioni benefiche. In realtà, si tratta di un veleno mascherato da un'illusione magica. L'incantesimo *identificare* rivela la sua vera natura.
+
+  Se il personaggio la beve, subisce 3d6 danni da veleno e deve superare un tiro salvezza su Costituzione con CD 13, altrimenti diventa avvelenato. All'inizio di ogni suo turno, finché è avvelenato in questo modo, subisce 3d6 danni da veleno. Alla fine di ogni suo turno, può ripetere il tiro salvezza: se lo supera, i danni da veleno che subisce nei turni successivi si riducono di 1d6. L'effetto della pozione termina quando questi danni scendono a 0.
+onUse.0.text: |-
+  Questa mistura ha l'aspetto, l'odore e il sapore di una *pozione di guarigione* o di altre pozioni benefiche; l'incantesimo *identificare* rivela la sua vera natura. Se la bevi, subisci 3d6 danni da veleno.
+onUse.1.note: |-
+  A meno che tu non superi un tiro salvezza su Costituzione con CD 13. Finché sei avvelenato in questo modo, subisci 3d6 danni da veleno all'inizio di ogni tuo turno; alla fine di ogni tuo turno puoi ripetere il tiro salvezza e, se lo superi, i danni nei turni successivi si riducono di 1d6. L'effetto termina quando questi danni scendono a 0.

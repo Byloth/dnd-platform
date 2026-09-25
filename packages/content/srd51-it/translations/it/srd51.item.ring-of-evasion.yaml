@@ -1,0 +1,12 @@
+name: Anello di eludere
+text: |-
+  Anello, raro (richiede sintonia)
+
+  Questo anello possiede 3 cariche e recupera 1d3 cariche consumate all'alba di ogni giorno. Quando il personaggio fallisce un tiro salvezza su Destrezza mentre indossa l'anello, può usare la sua reazione per consumare 1 carica e superare quel tiro salvezza.
+features.0.name: Eludere
+features.0.text: |-
+  Quando il personaggio fallisce un tiro salvezza su Destrezza mentre indossa l'anello, può usare la sua reazione per consumare 1 carica e superare quel tiro salvezza.
+features.0.effects.0.name: Eludere
+features.0.effects.0.trigger: quando fallisci un tiro salvezza su Destrezza
+features.0.effects.0.onUse.0.text: Superi invece quel tiro salvezza su Destrezza.
+features.0.effects.0.text: Consumi 1 carica per superare il tiro salvezza su Destrezza che hai appena fallito.

@@ -1,0 +1,7 @@
+name: Tempesta di nevischio
+components.m: Un pizzico di polvere e qualche goccia d'acqua.
+text: |-
+  Fino al termine dell'incantesimo, una pioggia gelida mista a nevischio cade in un cilindro, alto 6 metri e con raggio di 12 metri, centrato in un punto a scelta dell'incantatore entro gittata. L'area è pesantemente oscurata e le fiamme libere al suo interno vengono estinte. Il terreno nell'area è ricoperto di ghiaccio scivoloso che lo rende terreno difficile. Quando una creatura entra nell'area dell'incantesimo per la prima volta in un turno o inizia il suo turno qui, deve superare un tiro salvezza su Destrezza. Se lo fallisce, cade a terra prona. Se una creatura si sta concentrando nell'area dell'incantesimo, deve superare un tiro salvezza su Costituzione contro la CD del tiro salvezza sull'incantesimo o perde la concentrazione.
+onCast.0.note: Una creatura che entra nell'area per la prima volta in un turno o vi inizia il suo turno cade a terra prona se fallisce un tiro salvezza su Destrezza.
+onCast.1.text: |-
+  L'area è pesantemente oscurata ed è terreno difficile (ghiaccio scivoloso); le fiamme libere vengono estinte. Una creatura che si sta concentrando nell'area deve superare un tiro salvezza su Costituzione contro la CD del tiro salvezza sul tuo incantesimo o perde la concentrazione.

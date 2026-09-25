@@ -1,0 +1,16 @@
+name: Manuale dei golem
+text: |-
+  Oggetto meraviglioso, molto raro
+
+  Questo tomo contiene le informazioni e i rituali necessari alla creazione di un particolare tipo di golem. Il GM sceglie il tipo di golem o lo determina casualmente. Per decifrare e usare il manuale, il personaggio deve essere un incantatore e possedere almeno due slot incantesimo di 5° livello. Una creatura che non è in grado di usare il *manuale dei golem* e tenta di leggerlo comunque subisce 6d6 danni psichici.
+
+  | d20 | Golem | Tempo | Costo |
+  |---|---|---|---|
+  | 1-5 | Argilla | 30 giorni | 65.000 mo |
+  | 6-17 | Carne | 60 giorni | 50.000 mo |
+  | 18 | Ferro | 120 giorni | 100.000 mo |
+  | 19-20 | Pietra | 90 giorni | 80.000 mo |
+
+  Per creare un golem, il personaggio deve trascorrere il tempo indicato dalla tabella a lavorare ininterrottamente con il manuale a portata di mano e riposando al massimo per 8 ore al giorno. Deve inoltre pagare la somma specificata per procurarsi i materiali necessari.
+
+  Una volta terminato il processo di creazione del golem, il libro viene consumato da una fiammata soprannaturale. Il golem si anima quando su di esso vengono sparse le ceneri del manuale. Il golem è sotto il controllo del personaggio e comprende ed esegue i suoi comandi verbali.

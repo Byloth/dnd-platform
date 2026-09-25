@@ -1,0 +1,12 @@
+name: Stivali alati
+text: |-
+  Oggetto meraviglioso, non comune (richiede sintonia)
+
+  Quando il personaggio indossa questi stivali, ottiene una velocità di volare pari alla sua velocità base sul terreno. Può usare gli stivali per volare fino a un massimo di 4 ore consecutive o suddivise in voli più brevi della durata minima di 1 minuto. Se il personaggio è in volo quando la durata si esaurisce, scende a una velocità di 9 metri per round finché non atterra.
+
+  Gli stivali recuperano 2 ore di autonomia di volo per ogni 12 ore in cui non vengono utilizzati.
+features.0.name: Volo
+features.0.effects.0.text: Hai una velocità di volare pari alla tua velocità base sul terreno. Puoi usare gli stivali per volare fino a un massimo di 4 ore consecutive o suddivise in voli più brevi della durata minima di 1 minuto. Se sei in volo quando la durata si esaurisce, scendi a una velocità di 9 metri per round finché non atterri.
+features.0.effects.0.note: Nella v0 nessuna formula può fare riferimento alla velocità base sul terreno (una formula per speed.fly richiederebbe una variabile della velocità base); è mostrata come testo.
+features.0.effects.1.name: Volo (ore)
+features.0.effects.1.note: Gli stivali recuperano 2 ore di autonomia di volo per ogni 12 ore in cui non vengono utilizzati; non esiste un recupero a tempo, quindi ripristinale a mano. Ogni volo dura almeno 1 minuto.

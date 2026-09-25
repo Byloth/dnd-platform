@@ -1,0 +1,5 @@
+name: "Abilità"
+text: |-
+  La voce "Abilità" è riservata ai mostri competenti in una o più abilità. Per esempio, un mostro molto percettivo e furtivo potrebbe possedere dei bonus alle prove di Saggezza (Percezione) e Destrezza (Furtività).
+
+  Un bonus di abilità è dato dalla somma del modificatore di caratteristica rilevante del mostro e del suo bonus di competenza, determinato dal grado di sfida del mostro (come indicato nella tabella "Bonus di competenza per grado di sfida"). Altri modificatori potrebbero essere applicabili. Per esempio, un mostro potrebbe avere un bonus più alto del previsto (solitamente il doppio del suo bonus di competenza) a rappresentare la sua particolare maestria.

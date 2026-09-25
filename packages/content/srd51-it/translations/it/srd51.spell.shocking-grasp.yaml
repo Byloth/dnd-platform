@@ -1,0 +1,5 @@
+name: Stretta folgorante
+text: |-
+  Un fulmine si sprigiona dalla mano dell'incantatore per trasmettere una scarica folgorante a una creatura che prova a toccare. Con questo incantesimo, l'incantatore effettua un attacco in mischia con incantesimo contro il bersaglio. Se il bersaglio indossa un'armatura fatta di metallo, l'incantatore dispone di vantaggio al tiro per colpire. Se il colpo va a segno, il bersaglio subisce 1d8 danni da fulmine e non può effettuare reazioni fino all'inizio del proprio turno successivo.
+higherLevel: |-
+  I danni di questo incantesimo aumentano di 1d8 quando l'incantatore raggiunge il 5° livello (2d8), l'11° livello (3d8) e il 17° livello (4d8).

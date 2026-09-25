@@ -1,0 +1,13 @@
+name: Bastone del fuoco
+text: |-
+  Bastone, molto raro (richiede sintonia con un druido, un mago, uno stregone o un warlock)
+
+  Mentre il personaggio impugna questo bastone, ottiene resistenza ai danni da fuoco.
+
+  Il bastone possiede 10 cariche. Mentre il personaggio lo impugna, può usare un'azione per consumare 1 o più delle sue cariche e lanciare uno dei seguenti incantesimi usando la CD del tiro salvezza sull'incantesimo: *mani brucianti* (1 carica), *palla di fuoco* (3 cariche) o *muro di fuoco* (4 cariche).
+
+  All'alba di ogni giorno, il bastone recupera 1d6 + 4 cariche consumate. Se il personaggio consuma l'ultima carica, deve tirare un d20; se ottiene 1, il bastone si annerisce, viene ridotto in cenere ed è distrutto.
+attunement.by: un druido, un mago, uno stregone o un warlock
+features.0.name: Resistenza al fuoco
+features.1.name: Incantesimi
+features.1.effects.0.note: "Si lanciano con un'azione usando la tua CD del tiro salvezza sull'incantesimo. Se consumi l'ultima carica, tira un d20: con un 1 il bastone viene ridotto in cenere ed è distrutto."

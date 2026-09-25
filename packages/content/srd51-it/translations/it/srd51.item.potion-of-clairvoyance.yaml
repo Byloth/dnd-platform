@@ -1,0 +1,7 @@
+name: Pozione di chiaroveggenza
+text: |-
+  Pozione, rara
+
+  Quando il personaggio beve questa pozione, ottiene l'effetto dell'incantesimo *chiaroveggenza*. Nel liquido giallastro galleggia un globo oculare, che scompare quando la pozione viene aperta.
+onUse.0.text: |-
+  Quando bevi questa pozione, ottieni l'effetto dell'incantesimo *chiaroveggenza*.

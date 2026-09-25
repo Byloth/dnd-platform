@@ -1,0 +1,5 @@
+name: Nube di nebbia
+text: |-
+  L'incantatore genera una sfera di nebbia del raggio di 6 metri centrata su un punto entro gittata. La sfera si estende intorno agli angoli e la sua area è pesantemente oscurata. Permane per la durata dell'incantesimo o finché un vento di velocità moderata o superiore (almeno 15 km orari) non la disperde.
+higherLevel: |-
+  Quando l'incantatore lancia questo incantesimo usando uno slot incantesimo di 2° livello o superiore, il raggio della sfera di nebbia aumenta di 6 metri per ogni slot di livello superiore al 1°.

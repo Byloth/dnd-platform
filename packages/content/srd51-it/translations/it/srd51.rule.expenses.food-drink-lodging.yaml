@@ -1,0 +1,32 @@
+name: "Vitto e alloggio"
+text: |-
+  La tabella "Vitto e alloggio" indica i prezzi delle singole pietanze e del pernottamento per una singola notte. Questi prezzi sono inclusi nelle spese dello stile di vita totale di un personaggio.
+
+  **Vitto e alloggio (tabella)**
+
+  | Oggetto                  | Costo |
+  |--------------------------|-------|
+  | **_Birra_**              |       |
+  | - 4 litri                | 2 ma  |
+  | - Boccale                | 4 mr  |
+  | Banchetto (a persona)    | 10 mo |
+  | Pagnotta di pane         | 2 mr  |
+  | Pezzo di formaggio       | 1 ma  |
+  | **_Locanda (al giorno)_** |      |
+  | - Squallida              | 7 mr  |
+  | - Povera                 | 1 ma  |
+  | - Modesta                | 5 ma  |
+  | - Agiata                 | 8 ma  |
+  | - Ricca                  | 2 mo  |
+  | - Aristocratica          | 4 mo  |
+  | **_Vitto (al giorno)_**  |       |
+  | - Squallido              | 3 mr  |
+  | - Povero                 | 6 mr  |
+  | - Modesto                | 3 ma  |
+  | - Agiato                 | 5 ma  |
+  | - Ricco                  | 8 ma  |
+  | - Aristocratico          | 2 mo  |
+  | Pezzo di carne           | 3 ma  |
+  | **_Vino_**               |       |
+  | - Comune (caraffa)       | 2 ma  |
+  | - Pregiato (bottiglia)   | 10 mo |

@@ -1,0 +1,12 @@
+name: Forme animali
+text: |-
+  La magia dell'incantatore trasforma altre creature in bestie. L'incantatore sceglie un qualsiasi numero di creature consenzienti entro gittata che è in grado di vedere, trasformando ogni bersaglio nella forma di una bestia di taglia Grande o inferiore con un grado di sfida pari o inferiore a 4. Nei turni successivi, l'incantatore può usare la sua azione per trasformare le creature influenzate in altre forme.
+
+  La trasformazione permane su ogni bersaglio per la durata dell'incantesimo, oppure finché il bersaglio non scende a 0 punti ferita o muore. L'incantatore può scegliere una forma differente per ogni bersaglio, le cui statistiche di gioco vengono sostituite dalle statistiche della bestia scelta, purtuttavia conservando il proprio allineamento e punteggi di Intelligenza, Saggezza e Carisma. Il bersaglio assume i punti ferita della nuova forma e, quando riassume la sua forma normale, ritorna al numero di punti ferita che aveva prima della trasformazione. Se torna alla sua forma normale per essere sceso a 0 punti ferita, gli eventuali danni in eccesso si trasmettono alla sua forma normale. Fintantoché i danni in eccesso non riducono la forma normale della creatura a 0 punti ferita, questa non cade priva di sensi. La creatura è limitata alle azioni che può effettuare in base alla natura della sua nuova forma e non può parlare o lanciare incantesimi.
+
+  L'attrezzatura del bersaglio si fonde nella sua nuova forma e la creatura non può attivare, usare, impugnare o beneficiare del proprio equipaggiamento.
+effects.0.name: "Forme animali: cambiare forma"
+effects.0.text: Trasforma le creature influenzate in altre forme (bestie di taglia Grande o inferiore con un grado di sfida pari o inferiore a 4).
+effects.1.text: Le statistiche di gioco di ogni bersaglio vengono sostituite da quelle della bestia scelta (conserva il proprio allineamento e i punteggi di Intelligenza, Saggezza e Carisma); assume i punti ferita della bestia e torna alla sua forma normale a 0 punti ferita, trasmettendo i danni in eccesso; non può parlare o lanciare incantesimi; la sua attrezzatura si fonde nella nuova forma.
+effects.1.note: La sostituzione delle statistiche di una creatura con un blocco di statistiche non è supportata nella v0.
+onCast.0.text: I bersagli consenzienti assumono le statistiche di una bestia a scelta dell'incantatore; il GM fornisce le statistiche (nessun blocco di statistiche nella v0).

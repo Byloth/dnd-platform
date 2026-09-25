@@ -1,0 +1,9 @@
+name: Modificatori al tiro
+text: |-
+  Quando un personaggio effettua un tiro per colpire, i due modificatori più comuni sono un modificatore di caratteristica e il bonus di competenza del personaggio. Quando un mostro effettua un tiro per colpire, usa il modificatore indicato nella sua scheda delle statistiche.
+
+  **Modificatore di caratteristica.** Il modificatore di caratteristica usato per un attacco con arma da mischia è Forza, mentre quello usato per un attacco con un'arma a distanza è Destrezza. Le armi dotate della proprietà accurata o da lancio violano questa regola.
+
+  Anche alcuni incantesimi richiedono un tiro per colpire. Il modificatore di caratteristica da usare per un attacco con un incantesimo dipende dalla caratteristica da incantatore.
+
+  **Bonus di competenza.** Il personaggio aggiunge il suo bonus di competenza al suo tiro per colpire quando attacca usando un'arma in cui possiede competenza, nonché quando attacca con un incantesimo.

@@ -1,0 +1,13 @@
+name: Vantaggio e svantaggio
+text: |-
+  A volte un incantesimo o una capacità speciale specificano che il personaggio dispone di vantaggio o subisce svantaggio a una prova di caratteristica, un tiro salvezza o un tiro per colpire.
+  Quando questo accade, il personaggio tira un secondo d20 al momento di effettuare il tiro. Se dispone di vantaggio, usa il più alto dei due risultati, mentre se subisce svantaggio, usa il più basso. Per esempio, se subisce svantaggio e ottiene un 17 e un 5, userà il 5. Se invece dispone di vantaggio e ottiene quei risultati, userà il 17.
+
+  Se più situazioni influenzano un tiro e ognuna di quelle situazioni conferisce vantaggio o impone svantaggio a quel tiro, si tira comunque un solo d20 aggiuntivo.
+  Per esempio, se due situazioni favorevoli conferiscono vantaggio, il personaggio tira soltanto un d20 aggiuntivo.
+
+  Nel caso in cui un tiro disponga sia di vantaggio che di svantaggio, questi si annullano a vicenda e si tira un solo d20. Questo vale anche se più circostanze impongono svantaggio e soltanto una circostanza conferisce vantaggio e viceversa. In una situazione del genere, un personaggio non dispone né di vantaggio né di svantaggio.
+
+  Quando un personaggio dispone di vantaggio o svantaggio e un altro fattore del gioco, come per esempio il tratto Fortunato degli halfling, gli permette di ripetere il tiro del d20, quel personaggio può ripetere il tiro di uno solo dei dadi, ma può scegliere quale. Per esempio, se un halfling dispone di vantaggio o subisce svantaggio in una prova di caratteristica e ottiene come risultato un 1 e un 13, può usare il tratto Fortunato per ripetere il tiro dell'1.
+
+  Solitamente un personaggio dispone di vantaggio o subisce svantaggio tramite l'utilizzo di azioni, incantesimi o capacità speciali. Anche l'ispirazione può fornire vantaggio a un personaggio. Il GM può anche decidere che certe circostanze esercitino un'influenza sul tiro e conferiscano vantaggio o impongano svantaggio di conseguenza.

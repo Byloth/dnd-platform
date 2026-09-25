@@ -1,0 +1,95 @@
+name: "Mazzo delle meraviglie"
+text: |-
+  Oggetto meraviglioso, leggendario
+
+  Questo mazzo in genere si trova in una scatola o in un sacchetto ed è composto da una serie di carte di avorio o di vellum. La maggior parte di questi mazzi (il 75 percento) è composta soltanto da 13 carte, mentre il resto ne ha 22.
+
+  Prima di pescare una carta, il personaggio deve dichiarare quante carte ha intenzione di pescare complessivamente e poi pescarle in maniera casuale (è possibile usare un normale mazzo di carte opportunamente modificato per simulare quest'oggetto). Le eventuali carte pescate in eccesso oltre il numero dichiarato non hanno alcun effetto. Altrimenti, non appena il personaggio pesca una carta dal mazzo, la sua magia ha effetto. Il personaggio deve pescare ogni carta entro 1 ora dall'ultima carta pescata. Se non riesce a pescare il numero di carte dichiarato, le carte restanti volano via dal mazzo da sole e hanno effetto simultaneamente.
+
+  Una volta pescate dal mazzo, le carte svaniscono. A eccezione della Matta e del Giullare, le altre carte ricompaiono nel mazzo, quindi è possibile pescare la stessa carta due volte.
+
+  | Carta da gioco | Carta |
+
+  |---|---|
+
+  | Asso di quadri | Visir* |
+
+  | Re di quadri | Sole |
+
+  | Regina di quadri | Luna |
+
+  | Jack di quadri | Stella |
+
+  | Due di quadri | Cometa* |
+
+  | Asso di cuori | Destino* |
+
+  | Re di cuori | Trono |
+
+  | Regina di cuori | Chiave |
+
+  | Jack di cuori | Cavaliere |
+
+  | Due di cuori | Gemma* |
+
+  | Asso di fiori | Artigli* |
+
+  | Re di fiori | Il vuoto |
+
+  | Regina di fiori | Fiamme |
+
+  | Jack di fiori | Teschio |
+
+  | Due di fiori | Idiota* |
+
+  | Asso di picche | Prigione* |
+
+  | Re di picche | Rovina |
+
+  | Regina di picche | Eurialo |
+
+  | Jack di picche | Ladro |
+
+  | Due di picche | Bilancia* |
+
+  | Jolly (con marca) | Matta* |
+
+  | Jolly (senza marca) | Giullare |
+
+  * Presente solo in mazzi con 22 carte
+
+  ***Bilancia.*** La mente del personaggio è sottoposta a una sofferta alterazione che modifica il suo allineamento. Un legale diventa caotico, un buono diventa malvagio e viceversa. Se il personaggio è neutrale o senza allineamento, questa carta non ha alcun effetto su di lui.
+
+  ***Cometa.*** Se il personaggio sconfigge da solo il successivo mostro o gruppo di mostri ostili che incontra, ottiene abbastanza punti esperienza da aumentare di livello. Altrimenti, la carta non ha alcun effetto.
+
+  ***Prigione.*** Il personaggio scompare e resta intrappolato in stato di animazione sospesa all'interno di una sfera extradimensionale. Tutto ciò che indossava e trasportava resta nello spazio che occupava al momento della sua scomparsa. Il personaggio resta imprigionato finché non viene trovato e rimosso dalla sfera. Non è possibile localizzare il personaggio attraverso alcuna magia di divinazione, ma un incantesimo desiderio può rivelare la posizione della prigione. Il personaggio non può pescare altre carte.
+
+  ***Eurialo.*** Il volto di medusa raffigurato sulla carta maledice il personaggio. Finché è maledetto in questo modo, il personaggio subisce una penalità di –2 ai tiri salvezza. Solo un dio o la magia della carta Destino può porre fine a questa maledizione.
+
+  **Destino.** La trama della realtà si disfa e si ricompone, permettendo al personaggio di evitare o annullare un evento come se non fosse mai avvenuto. Il personaggio può usare la magia della carta non appena la pesca o in qualsiasi altro momento prima della sua morte.
+
+  ***Fiamme.*** Il personaggio si inimica un potente diavolo, che desidera condurlo alla rovina e avvelenerà la sua vita in ogni modo, assaporando ogni istante della sua sofferenza prima di tentare di distruggerlo. Questa ostilità dura finché uno dei due non muore.
+
+  ***Matta.*** Il personaggio perde 10.000 PE, scarta questa carta e ne pesca un'altra; la pesca di entrambe queste carte conta solo come una ai fini del numero dichiarato di carte da pescare. Se la perdita di questi PE provocasse la perdita di un livello, il personaggio perde invece solo l'ammontare di PE che gli consente di rimanere al livello attuale.
+
+  ***Gemma.*** Ai piedi del personaggio appaiono venticinque gemme del valore di 2.000 mo ognuna o cinquanta gemme del valore di 1.000 mo ognuna.
+
+  ***Idiota.*** Il punteggio di Intelligenza del personaggio si riduce permanentemente di 1d4 + 1 (fino a un punteggio minimo di 1). Il personaggio può pescare un'altra carta oltre al numero dichiarato.
+
+  ***Giullare.*** Il personaggio ottiene 10.000 PE oppure può pescare due carte aggiuntive oltre al numero dichiarato di carte da pescare.
+
+  ***Chiave.*** Nella mano del personaggio appare un'arma magica rara, molto rara o leggendaria in cui è competente. L'arma viene scelta dal GM.
+
+  ***Cavaliere.*** Il personaggio ottiene i servigi di un guerriero di 4° livello che appare in uno spazio a sua scelta entro 9 metri da lui. Il guerriero è della stessa razza del personaggio e lo serve fedelmente fino alla morte, convinto che sia stato il destino a condurlo da lui. Il personaggio ha il controllo del guerriero.
+
+  ***Luna.*** Il personaggio ottiene la capacità di lanciare l'incantesimo desiderio per 1d3 volte.
+
+  ***Ladro.*** Un personaggio non giocante a scelta del GM diventa ostile nei confronti del personaggio. L'identità del nuovo nemico è ignota al personaggio finché lo stesso PNG o qualcun altro non la rivela. Solo un incantesimo desiderio o un intervento divino possono annullare l'ostilità del PNG.
+
+  ***Rovina.*** Ogni forma di ricchezza trasportata o posseduta dal personaggio, a eccezione degli oggetti magici, va perduta. Le proprietà trasportabili svaniscono. Le attività commerciali, gli edifici e le terre possedute vanno perdute nel modo che richiede l'alterazione della realtà più limitata. Tutti i documenti che potrebbero dimostrare il possesso delle proprietà perdute a causa della carta svaniscono a loro volta.
+
+  ***Teschio.*** Il personaggio evoca un avatar della morte: uno spettrale scheletro umanoide avvolto in una veste nera stracciata e armato di una falce spettrale. Lo scheletro appare in uno spazio a scelta del GM entro 3 metri dal personaggio e lo attacca, intimando agli altri presenti di non immischiarsi. L'avatar combatte finché non uccide il personaggio o non scende a 0 punti ferita, nel qual caso scompare. Se qualcuno tenta di aiutare il personaggio, evoca a sua volta un altro avatar della morte. Una creatura uccisa da un avatar della morte non può essere riportata in vita.
+features.0.name: "Pescare carte"
+features.0.effects.0.name: "Pescare dal mazzo"
+features.0.effects.0.text: "Dichiara quante carte intendi pescare, poi pescale in maniera casuale; la magia di ogni carta ha effetto non appena viene pescata. Devi pescare ogni carta entro 1 ora dall'ultima carta pescata; se non riesci a pescare il numero di carte dichiarato, le carte restanti volano via dal mazzo e hanno effetto simultaneamente. Una carta pescata svanisce e, a eccezione della Matta e del Giullare, ricompare nel mazzo."
+features.0.effects.0.onUse.0.text: "Risolvi ogni carta con il GM usando le descrizioni delle carte del mazzo; gli effetti permanenti (Eurialo: –2 ai tiri salvezza; Idiota: Intelligenza ridotta di 1d4 + 1; Luna: desiderio 1d3 volte) vanno annotati a mano."

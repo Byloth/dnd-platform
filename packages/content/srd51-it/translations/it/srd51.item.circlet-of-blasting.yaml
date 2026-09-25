@@ -1,0 +1,7 @@
+name: Diadema incandescente
+text: |-
+  Oggetto meraviglioso, non comune
+
+  Il personaggio che indossa questo diadema può usare un'azione per lanciare l'incantesimo raggio rovente. I tiri per colpire effettuati per l'incantesimo ottengono un bonus di attacco di +5. Il diadema non può essere riutilizzato in questo modo fino all'alba successiva.
+features.0.name: Raggio rovente
+features.0.effects.0.note: Lanciato con un'azione; i tiri per colpire effettuati per l'incantesimo ottengono un bonus di attacco di +5.

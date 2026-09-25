@@ -1,0 +1,30 @@
+name: Armatura della resistenza
+text: |-
+  Armatura (leggera, media o pesante), rara (richiede sintonia)
+
+  Il personaggio che indossa questa armatura ottiene resistenza a un tipo di danno che il GM sceglie o determina casualmente tra le opzioni sottostanti.
+
+  | d10 | Tipo di danno |
+  |---|---|
+  | 1 | Acido |
+  | 2 | Freddo |
+  | 3 | Fuoco |
+  | 4 | Forza |
+  | 5 | Fulmine |
+  | 6 | Necrotico |
+  | 7 | Veleno |
+  | 8 | Psichico |
+  | 9 | Radioso |
+  | 10 | Tuono |
+features.0.name: Resistenza
+features.0.effects.0.note: Il GM sceglie il tipo di danno o lo determina casualmente (d10).
+features.0.effects.0.options.0.name: Acido
+features.0.effects.0.options.1.name: Freddo
+features.0.effects.0.options.2.name: Fuoco
+features.0.effects.0.options.3.name: Forza
+features.0.effects.0.options.4.name: Fulmine
+features.0.effects.0.options.5.name: Necrotico
+features.0.effects.0.options.6.name: Veleno
+features.0.effects.0.options.7.name: Psichico
+features.0.effects.0.options.8.name: Radioso
+features.0.effects.0.options.9.name: Tuono

@@ -1,0 +1,103 @@
+name: Druido
+levels.1.features.0.name: Druidico
+levels.1.features.0.text: |-
+  Un druido conosce il Druidico, la lingua segreta del suo ordine. Può parlarla e usarla per lasciare messaggi segreti. Il druido e coloro che conoscono questa lingua sono in grado di individuare tali messaggi automaticamente. Altri possono notare la presenza di un messaggio in Druidico superando una prova di Saggezza (Percezione) con CD 15, ma non possono decifrarlo senza l'aiuto della magia.
+levels.1.features.0.effects.0.note: |-
+  I messaggi segreti in Druidico sono individuati automaticamente da chi conosce questa lingua; gli altri possono notarli superando una prova di Saggezza (Percezione) con CD 15, ma non possono decifrarli senza l'aiuto della magia.
+levels.1.features.1.name: Incantesimi
+levels.1.features.1.text: |-
+  Un druido attinge all'essenza divina della natura stessa e può lanciare incantesimi che modellano tale essenza in base alla sua volontà.
+
+  ###Trucchetti
+
+  Al 1° livello, un druido conosce due trucchetti a sua scelta tratti dalla lista degli incantesimi da druido. Apprende ulteriori trucchetti da druido a sua scelta ai livelli successivi, come indicato dalla colonna "Trucchetti conosciuti" nella tabella "Druido".
+
+  ###Preparare e lanciare incantesimi
+
+  La tabella "Druido" indica quanti slot incantesimo possiede un druido per lanciare i suoi incantesimi di 1° livello e di livello superiore. Per lanciare uno di questi incantesimi, deve spendere uno slot incantesimo di livello pari o superiore a quello dell'incantesimo. Recupera tutti gli slot incantesimo spesi quando completa un riposo lungo.
+
+  Il druido prepara la lista degli incantesimi da druido disponibili da lanciare scegliendoli dalla lista degli incantesimi da druido. Quando lo fa, deve scegliere un numero di incantesimi da druido pari al suo modificatore di Saggezza + il suo livello da druido (minimo di un incantesimo). Gli incantesimi devono essere di un livello di cui possiede degli slot incantesimo.
+
+  Per esempio, un druido di 3° livello possiede quattro slot incantesimo di 1° livello e due slot incantesimo di 2° livello. Con Saggezza pari a 16, la lista dei suoi incantesimi preparati può includere sei incantesimi di 1° o 2° livello, in qualsiasi combinazione. Se prepara l'incantesimo di 1° livello *cura ferite*, potrà lanciarlo usando uno slot incantesimo di 1° livello o di 2° livello. Il lancio di quell'incantesimo non rimuove quell'incantesimo dalla lista di incantesimi preparati.
+
+  Può anche cambiare la lista dei suoi incantesimi preparati quando completa un riposo lungo. Per preparare una nuova lista di incantesimi da druido è necessario un certo ammontare di tempo da trascorrere in preghiera e meditazione: almeno 1 minuto per livello di incantesimo per ogni incantesimo nella sua lista.
+
+  ###Caratteristica da incantatore
+
+  Saggezza è la caratteristica da incantatore usata per gli incantesimi da druido, dato che il potere della sua magia deriva dalla sua devozione e dalla sua sintonia con la natura. Usa Saggezza ogni volta che un incantesimo fa riferimento alla sua caratteristica da incantatore. Usa inoltre il suo modificatore di Saggezza per definire la CD del tiro salvezza di un incantesimo da druido da lui lanciato e quando effettua un tiro per colpire con un incantesimo.
+
+  **CD del tiro salvezza sull'incantesimo** = 8 + il bonus di competenza + il modificatore di Saggezza
+
+  **Modificatore di attacco dell'incantesimo** = il bonus di competenza + il modificatore di Saggezza
+
+  ###Celebrare rituali
+
+  Un druido può lanciare un incantesimo da druido come rituale se quell'incantesimo possiede il descrittore rituale e il druido lo ha preparato.
+
+  ###Focus da incantatore
+
+  Un druido può usare un focus druidico (vedi capitolo 5, "Equipaggiamento") come focus da incantatore per i suoi incantesimi da druido.
+levels.2.features.0.name: Circolo Druidico
+levels.2.features.0.text: |-
+  Al 2° livello, un druido sceglie di aderire a un circolo druidico, per esempio il Circolo della Terra. Questa scelta gli conferisce alcuni privilegi al 2° livello e poi di nuovo al 6°, 10° e 14° livello.
+levels.2.features.1.name: Forma Selvatica
+levels.2.features.1.text: |-
+  A partire dal 2° livello, un druido può usare la sua azione per assumere magicamente la forma di una bestia che ha già visto in precedenza. Può utilizzare questo privilegio due volte e recupera gli utilizzi spesi quando completa un riposo breve o lungo.
+
+  Il livello da druido determina le bestie in cui egli può trasformarsi, come indicato nella tabella "Forme bestiali". Al 2° livello, per esempio, può trasformarsi in qualsiasi bestia che abbia un grado di sfida pari o inferiore a 1/4 che non abbia una velocità di nuotare o di volare.
+
+  | Livello | GS max | Limitazioni | Esempio |
+  | --- | --- | --- | --- |
+  | 2° | 1/4 | Nessuna velocità di nuotare o di volare | Lupo |
+  | 4° | 1/2 | Nessuna velocità di volare | Coccodrillo |
+  | 8° | 1 | - | Aquila gigante |
+
+  Un druido può rimanere in forma bestiale per un numero di ore pari alla metà del suo livello da druido (arrotondato per difetto), poi torna alla sua forma normale, a meno che non spenda un altro utilizzo di questo privilegio. Può tornare alla sua forma normale anticipatamente usando un'azione bonus nel suo turno. Torna automaticamente alla sua forma normale se cade privo di sensi, scende a 0 punti ferita o muore.
+
+  Finché il druido è trasformato, si applicano le regole seguenti:
+  Le statistiche di gioco del druido vengono sostituite dalle statistiche della bestia, ma il druido conserva il proprio allineamento, la propria personalità e i punteggi di Intelligenza, Saggezza e Carisma. Conserva inoltre tutte le sue abilità e competenze nei tiri salvezza, oltre a ottenere quelle della creatura. Se la creatura possiede una competenza che anche il druido possiede e il bonus nella sua scheda delle statistiche è superiore a quello del druido, il personaggio usa il bonus della creatura anziché il proprio. Se la creatura possiede delle azioni leggendarie o di tana, il druido non può usarle.
+
+  Quando si trasforma, il druido assume i punti ferita e i Dadi Vita della bestia. Quando torna alla sua forma normale, torna al numero di punti ferita che possedeva prima della trasformazione. Tuttavia, se torna alla sua forma normale per essere sceso a 0 punti ferita, gli eventuali danni in eccesso si trasmettono alla sua forma normale. Per esempio, se un druido in forma bestiale possiede 1 solo punto ferita e subisce 10 danni, torna alla sua forma normale e subisce 9 danni. Fintantoché i danni in eccesso non portano la forma normale del druido a 0 punti ferita, il druido non cade privo di sensi.
+
+  Il druido non può lanciare incantesimi e la sua capacità di parlare o di intraprendere qualsiasi azione che richieda le mani è limitata alle capacità della sua forma bestiale. La trasformazione non interrompe la concentrazione del druido su un incantesimo che ha già lanciato e non gli impedisce di effettuare azioni che fanno parte di un incantesimo già lanciato, come per esempio *invocare il fulmine*.
+
+  Un druido mantiene i benefici di tutti i privilegi forniti dalla sua classe, dalla sua razza e da qualsiasi altra fonte e può usarli se nella nuova forma è fisicamente in grado di farlo. Tuttavia, non può usare nessuno dei suoi sensi speciali, come per esempio la scurovisione, a meno che non li possieda anche nella sua nuova forma.
+
+  Un druido può scegliere se lasciare cadere l'equipaggiamento nel suo spazio, se tale equipaggiamento si fonde nella sua nuova forma o se indossarlo. L'equipaggiamento indossato funziona normalmente, ma spetta al GM decidere se è pratico o meno che la nuova forma indossi ogni determinato oggetto d'equipaggiamento, in base alla forma e alla taglia della creatura. L'equipaggiamento del druido non cambia per adattarsi alla nuova forma, e ogni oggetto di equipaggiamento che la nuova forma non può indossare deve cadere a terra o fondersi nella nuova forma del druido. L'equipaggiamento fuso non ha alcun effetto finché il druido non l'abbandona.
+levels.2.features.1.effects.0.name: Utilizzi di Forma Selvatica
+levels.2.features.1.effects.1.name: Forma Selvatica
+levels.2.features.1.effects.1.text: |-
+  Assumi magicamente la forma di una bestia che hai già visto in precedenza, con un grado di sfida non superiore a quello consentito dalla tabella "Forme bestiali" per il tuo livello da druido (nessuna velocità di nuotare o di volare prima del 4° livello, nessuna velocità di volare prima dell'8° livello). Puoi rimanere in forma bestiale per un numero di ore pari alla metà del tuo livello da druido (arrotondato per difetto).
+levels.2.features.1.effects.1.onUse.0.text: |-
+  GS massimo: table(druid.wild-shape-max-cr). Le tue statistiche di gioco vengono sostituite da quelle della bestia, ma conservi il tuo allineamento, la tua personalità, i punteggi di Intelligenza, Saggezza e Carisma e tutte le tue competenze nelle abilità e nei tiri salvezza (usa il bonus della bestia se è superiore). Assumi i punti ferita e i Dadi Vita della bestia; quando torni alla forma normale torni ai punti ferita che possedevi prima, e, se torni alla forma normale per essere sceso a 0 punti ferita, i danni in eccesso si trasmettono alla forma normale. Non puoi lanciare incantesimi mentre sei trasformato.
+levels.2.features.1.effects.2.name: Tornare dalla Forma Selvatica
+levels.2.features.1.effects.2.text: |-
+  Torni alla tua forma normale. Torni automaticamente alla tua forma normale se cadi privo di sensi, scendi a 0 punti ferita o muori.
+levels.2.features.1.effects.3.text: |-
+  Finché sei trasformato da Forma Selvatica, le tue statistiche di gioco vengono sostituite dalle statistiche della bestia; conservi il tuo allineamento, la tua personalità, i punteggi di Intelligenza, Saggezza e Carisma, le tue competenze nelle abilità e nei tiri salvezza e i benefici dei privilegi della tua classe, della tua razza e di altre fonti, se la nuova forma è fisicamente in grado di usarli. Non puoi usare i tuoi sensi speciali a meno che la forma non li possieda, e non puoi lanciare incantesimi. Il tuo equipaggiamento cade a terra, si fonde nella forma o viene indossato da essa.
+levels.2.features.1.effects.3.note: |-
+  Lacuna: sostituire la scheda con le statistiche di una bestia conservando i punteggi mentali e le competenze richiede una capacità di forma alternativa che il motore non possiede; la durata (metà del tuo livello da druido in ore), il trasferimento dei punti ferita e il divieto di lanciare incantesimi si gestiscono al tavolo. La tabella del GS massimo è la tabella di classe druid.wild-shape-max-cr.
+levels.4.features.0.name: Aumento dei Punteggi di Caratteristica
+levels.4.features.0.text: |-
+  Quando arriva al 4° livello e poi di nuovo all'8°, al 12°, al 16° e al 19° livello, un druido può aumentare di 2 un punteggio di caratteristica a sua scelta, oppure può aumentare di 1 due punteggi di caratteristica a sua scelta. Come di consueto, non è consentito aumentare un punteggio di caratteristica a più di 20 utilizzando questo privilegio.
+levels.18.features.0.name: Incantesimi Bestiali
+levels.18.features.0.text: |-
+  A partire dal 18° livello, un druido può lanciare molti dei suoi incantesimi da druido in qualsiasi forma assunta utilizzando Forma Selvatica. Può fornire le componenti somatiche e verbali di un incantesimo da druido anche quando è in forma bestiale, ma non è in grado di fornire componenti materiali.
+levels.18.features.0.effects.0.text: |-
+  Puoi lanciare molti dei tuoi incantesimi da druido in qualsiasi forma assunta utilizzando Forma Selvatica. Puoi fornire le componenti somatiche e verbali di un incantesimo da druido anche quando sei in forma bestiale, ma non sei in grado di fornire componenti materiali.
+levels.18.features.0.effects.0.note: |-
+  Lacuna: rimuove il divieto di lanciare incantesimi dello stato Forma Selvatica per gli incantesimi da druido senza componenti materiali; il motore non applica quel divieto.
+levels.18.features.1.name: Corpo Senza Tempo
+levels.18.features.1.text: |-
+  A partire dal 18° livello, la magia primordiale che fluisce nel druido rallenta il suo invecchiamento. Per ogni 10 anni trascorsi, il corpo del druido invecchia soltanto di 1 anno.
+levels.20.features.0.name: Arcidruido
+levels.20.features.0.text: |-
+  Al 20° livello, un druido può utilizzare Forma Selvatica un numero illimitato di volte.
+
+  Può inoltre ignorare le componenti verbali e somatiche dei suoi incantesimi da druido, nonché le eventuali componenti materiali prive di un costo e quelle che non sono consumate da un incantesimo. Un druido ottiene questo beneficio sia nella sua forma normale che nella forma bestiale assunta grazie a Forma Selvatica.
+levels.20.features.0.effects.0.note: |-
+  Puoi utilizzare Forma Selvatica un numero illimitato di volte.
+levels.20.features.0.effects.1.text: |-
+  Puoi ignorare le componenti verbali e somatiche dei tuoi incantesimi da druido, nonché le eventuali componenti materiali prive di un costo e quelle che non sono consumate da un incantesimo. Ottieni questo beneficio sia nella tua forma normale che nella forma bestiale assunta grazie a Forma Selvatica.
+levels.20.features.0.effects.1.note: |-
+  Lacuna: le componenti degli incantesimi non sono modellate dal motore.

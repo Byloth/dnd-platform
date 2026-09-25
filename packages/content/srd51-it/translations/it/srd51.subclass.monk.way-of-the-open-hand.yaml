@@ -1,0 +1,36 @@
+name: Via della Mano Aperta
+levels.3.features.0.name: Tecnica della Mano Aperta
+levels.3.features.0.text: |-
+  A partire da quando sceglie questa tradizione al 3° livello, il monaco può manipolare il ki del suo nemico quando imbriglia il proprio. Ogni volta che il monaco colpisce una creatura con un attacco concessogli dalla sua Raffica di Colpi, può imporre a quel bersaglio uno degli effetti seguenti:
+
+  * Deve superare un tiro salvezza su Destrezza, altrimenti viene buttato a terra prono.
+  * Deve superare un tiro salvezza su Forza. Se lo fallisce, il monaco può spingerlo di 4,5 metri allontanandolo da sé.
+  * Non può effettuare reazioni fino alla fine del turno successivo del monaco.
+levels.3.features.0.effects.0.name: Tecnica della Mano Aperta
+levels.3.features.0.effects.0.trigger: quando colpisci una creatura con un attacco concessoti dalla tua Raffica di Colpi
+levels.3.features.0.effects.0.text: "Imponi al bersaglio uno degli effetti seguenti: deve superare un tiro salvezza su Destrezza, altrimenti viene buttato a terra prono; deve superare un tiro salvezza su Forza, altrimenti puoi spingerlo fino a 4,5 metri allontanandolo da te; non può effettuare reazioni fino alla fine del tuo turno successivo."
+levels.3.features.0.effects.0.onHit.0.note: "Opzione 1: solo se il bersaglio fallisce un tiro salvezza su Destrezza."
+levels.3.features.0.effects.0.onHit.1.text: "Opzione 2: il bersaglio effettua un tiro salvezza su Forza; se lo fallisce, puoi spingerlo fino a 4,5 metri allontanandolo da te."
+levels.3.features.0.effects.0.onHit.2.text: "Opzione 3: il bersaglio non può effettuare reazioni fino alla fine del tuo turno successivo."
+levels.6.features.0.name: Integrità del Corpo
+levels.6.features.0.text: Al 6° livello, il monaco ottiene la capacità di curarsi. Con un'azione, recupera un ammontare di punti ferita pari a tre volte il suo livello da monaco. Deve completare un riposo lungo prima di poter utilizzare di nuovo questo privilegio.
+levels.6.features.0.effects.0.name: Integrità del Corpo
+levels.6.features.0.effects.1.name: Integrità del Corpo
+levels.6.features.0.effects.1.text: Con un'azione, puoi recuperare un ammontare di punti ferita pari a tre volte il tuo livello da monaco.
+levels.11.features.0.name: Tranquillità
+levels.11.features.0.text: A partire dall'11° livello, il monaco può entrare in una speciale forma di meditazione, circondandosi di un'aura di pace. Alla fine di un riposo lungo ottiene l'effetto di un incantesimo santuario che dura fino all'inizio del suo riposo lungo successivo (l'incantesimo può terminare anticipatamente come di consueto). La CD del tiro salvezza dell'incantesimo è pari a 8 + il modificatore di Saggezza del monaco + il bonus di competenza del monaco.
+levels.11.features.0.effects.0.text: Alla fine di un riposo lungo ottieni l'effetto di un incantesimo santuario che dura fino all'inizio del tuo riposo lungo successivo (l'incantesimo può terminare anticipatamente come di consueto). La CD del tiro salvezza dell'incantesimo è pari a 8 + il tuo modificatore di Saggezza + il tuo bonus di competenza.
+levels.11.features.0.effects.0.note: "Lacuna: applicare a te stesso l'effetto di un incantesimo al termine di un riposo, con una CD sostitutiva (8 + mod(wis) + proficiencyBonus), non ha un tipo nel catalogo; si tiene traccia durante il gioco."
+levels.11.features.0.onRest.0.text: "Alla fine di un riposo lungo: ottieni l'effetto di santuario fino all'inizio del tuo riposo lungo successivo, CD del tiro salvezza 8 + il tuo modificatore di Saggezza + il tuo bonus di competenza."
+levels.17.features.0.name: Palmo Tremante
+levels.17.features.0.text: |-
+  Al 17° livello, il monaco ottiene la capacità di scatenare vibrazioni letali nel corpo di un altro. Quando il monaco colpisce una creatura con un colpo senz'armi, può spendere 3 punti ki per dare il via a queste vibrazioni impercettibili, che durano un numero di giorni pari al suo livello da monaco. Le vibrazioni sono innocue, a meno che il monaco non usi la sua azione per interromperle. Per farlo, il monaco e il bersaglio devono trovarsi sullo stesso piano di esistenza. Quando il monaco usa questa azione, la creatura deve effettuare un tiro salvezza su Costituzione. Se lo fallisce, scende a 0 punti ferita, mentre se lo supera subisce 10d10 danni necrotici.
+
+  Il monaco può tenere soltanto una creatura alla volta sotto l'effetto di questo privilegio. Può scegliere di porre fine alle vibrazioni in modo innocuo senza usare un'azione.
+levels.17.features.0.effects.0.name: Palmo Tremante (avviare le vibrazioni)
+levels.17.features.0.effects.0.trigger: quando colpisci una creatura con un colpo senz'armi
+levels.17.features.0.effects.0.text: Spendi 3 punti ki per dare il via a vibrazioni impercettibili nel corpo del bersaglio, che durano un numero di giorni pari al tuo livello da monaco. Le vibrazioni sono innocue, a meno che tu non usi la tua azione per interromperle. Puoi tenere soltanto una creatura alla volta sotto questo effetto e puoi porre fine alle vibrazioni in modo innocuo senza usare un'azione.
+levels.17.features.0.effects.0.onHit.0.text: Il bersaglio è segnato per classLevel(monk) giorni. Può essere segnata soltanto una creatura alla volta.
+levels.17.features.0.effects.1.name: Palmo Tremante (interrompere le vibrazioni)
+levels.17.features.0.effects.1.text: Tu e il bersaglio dovete trovarvi sullo stesso piano di esistenza. La creatura deve effettuare un tiro salvezza su Costituzione. Se lo fallisce, scende a 0 punti ferita, mentre se lo supera subisce 10d10 danni necrotici.
+levels.17.features.0.effects.1.onUse.0.text: "Tiro salvezza fallito: il bersaglio scende a 0 punti ferita. Tiro salvezza superato: subisce 10d10 danni necrotici."

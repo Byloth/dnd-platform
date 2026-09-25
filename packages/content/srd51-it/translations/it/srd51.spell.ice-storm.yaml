@@ -1,0 +1,6 @@
+name: Tempesta di ghiaccio
+components.m: Un pizzico di polvere e qualche goccia d'acqua.
+text: |-
+  Chicchi di grandine duri come la roccia cadono sul terreno all'interno di un cilindro del raggio di 6 metri e dell'altezza di 12 metri centrato in un punto entro gittata. Ogni creatura presente nel cilindro deve effettuare un tiro salvezza su Destrezza, subendo 2d8 danni contundenti e 4d6 danni da freddo in caso di fallimento, o la metà dei danni in caso di successo. La grandine trasforma l'area di effetto della tempesta in un terreno difficile fino al termine del turno successivo dell'incantatore.
+higherLevel: |-
+  Quando l'incantatore lancia questo incantesimo usando uno slot incantesimo di 5° livello o superiore, i danni contundenti aumentano di 1d8 per ogni slot di livello superiore al 4°.

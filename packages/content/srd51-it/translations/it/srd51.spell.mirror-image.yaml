@@ -1,0 +1,11 @@
+name: Immagine speculare
+text: |-
+  Tre duplicati illusori dell'incantatore appaiono nel suo spazio. Fino al termine dell'incantesimo, i duplicati si muovono con l'incantatore e imitano le sue azioni, cambiando posizione in modo che sia impossibile individuare quale sia l'immagine reale. L'incantatore può utilizzare la sua azione per rimuovere i duplicati illusori.
+
+  Nel corso della durata dell'incantesimo, ogni volta che una creatura bersaglia l'incantatore con un attacco, quest'ultimo tira un d20 per determinare se l'attacco bersagli invece uno dei suoi duplicati.
+
+  Se l'incantatore ha tre duplicati, per spostare il bersaglio dell'attacco su un duplicato deve ottenere al tiro del d20 un 6 o più. Con due duplicati, deve ottenere un 8 o più. Con un duplicato, deve ottenere un 11 o più.
+
+  La CA di un duplicato è pari a 10 + il modificatore di Destrezza dell'incantatore. Se un attacco colpisce un duplicato, questo viene distrutto. I duplicati possono essere distrutti solo da un attacco che li colpisce, mentre ignorano tutti gli altri tipi di danni ed effetti. L'incantesimo termina quando tutti e tre i duplicati sono distrutti.
+
+  Una creatura non è influenzata da questo incantesimo se non può vedere, se si affida a sensi diversi dalla vista, come la vista cieca, o se può percepire la falsità delle illusioni, come nel caso sia dotata di vista pura.

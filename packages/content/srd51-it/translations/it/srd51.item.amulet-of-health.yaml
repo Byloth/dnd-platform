@@ -1,0 +1,8 @@
+name: Amuleto della salute
+text: |-
+  Oggetto meraviglioso, raro (richiede sintonia)
+
+  Il punteggio di Costituzione di chi indossa questo amuleto è pari a 19. Se il suo punteggio di Costituzione è già pari o superiore a 19, l'amuleto non ha alcun effetto.
+features.0.name: Costituzione 19
+features.0.effects.0.note: |-
+  Il tuo punteggio di Costituzione è pari a 19 finché indossi questo amuleto; nessun effetto se è già pari o superiore a 19.

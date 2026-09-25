@@ -1,0 +1,6 @@
+name: Accecato
+text: |-
+  * Una creatura accecata non è in grado di vedere e fallisce automaticamente qualsiasi prova di caratteristica che richieda l'uso della vista.
+  * I tiri per colpire contro la creatura dispongono di vantaggio, mentre i tiri per colpire della creatura subiscono svantaggio.
+effects.1.text: I tiri per colpire contro di te dispongono di vantaggio; fallisci automaticamente le prove che richiedono l'uso della vista.
+effects.1.note: "Il motore delle regole non gestisce i tiri effettuati contro di te: l'effetto è mostrato come promemoria."

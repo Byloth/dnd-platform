@@ -1,0 +1,16 @@
+name: Anello di influenza sugli animali
+text: |-
+  Anello, raro
+
+  Questo anello possiede 3 cariche e recupera 1d3 cariche consumate all'alba di ogni giorno. Mentre il personaggio lo indossa, può usare un'azione per consumare 1 carica e lanciare uno dei seguenti incantesimi:
+
+  *Amicizia con gli animali* (CD del tiro salvezza 13)
+
+  *Paura* (CD del tiro salvezza 13), bersagliando solo bestie con Intelligenza pari o inferiore a 3
+
+  *Parlare con gli animali*
+features.0.name: Incantesimi
+features.0.text: |-
+  Mentre il personaggio indossa l'anello, può usare un'azione per consumare 1 carica e lanciare uno dei seguenti incantesimi: *amicizia con gli animali* (CD del tiro salvezza 13), *paura* (CD del tiro salvezza 13, bersagliando solo bestie con Intelligenza pari o inferiore a 3) o *parlare con gli animali*.
+features.0.effects.0.note: |-
+  CD del tiro salvezza 13. *Paura* può bersagliare solo bestie con Intelligenza pari o inferiore a 3.

@@ -1,0 +1,27 @@
+name: "Statistiche degli oggetti"
+text: |-
+  Quando il tempo è un fatto importante, il GM può assegnare una Classe Armatura e una quantità di punti ferita a un oggetto distruttibile. Può inoltre assegnargli immunità, resistenze e vulnerabilità ad alcuni tipi di danno.
+
+  **_Classe Armatura_**. La Classe Armatura di un oggetto indica quanto sia difficile infliggergli danni quando viene colpito (in quanto non ha possibilità di schivare il colpo). La tabella "Classe Armatura degli oggetti" suggerisce i valori della CA relativi a vari materiali.
+
+  **Classe Armatura degli oggetti (tabella)**
+  | Materiale                 | CA |
+  |---------------------------|----|
+  | Stoffa, carta, corda      | 11 |
+  | Cristallo, vetro, ghiaccio | 13 |
+  | Legno, osso               | 15 |
+  | Pietra                    | 17 |
+  | Ferro, acciaio            | 19 |
+  | Mithral                   | 21 |
+  | Adamantio                 | 23 |
+
+  **_Punti ferita_**. I punti ferita di un oggetto indicano quanti danni può ricevere prima di perdere la sua integrità strutturale. Gli oggetti resilienti hanno più punti ferita di quelli fragili, come solitamente anche gli oggetti di taglia Grande rispetto a quelli di taglia Piccola, a meno che la rottura di una piccola parte dell'oggetto non sia sufficiente a distruggerlo nella sua interezza. Nella tabella "Punti ferita degli oggetti" sono elencati i punti ferita suggeriti per gli oggetti fragili e resilienti di taglia Grande o inferiore.
+
+  **Punti ferita degli oggetti (tabella)**
+
+  | Taglia                                | Fragile  | Resiliente |
+  |---------------------------------------|----------|------------|
+  | Minuscola (bottiglia, serratura)      | 2 (1d4)  | 5 (2d4)    |
+  | Piccola (forziere, liuto)             | 3 (1d6)  | 10 (3d6)   |
+  | Media (barile, lampadario)            | 4 (1d8)  | 18 (4d8)   |
+  | Grande (carretto, finestra di 3 × 3 m) | 5 (1d10) | 27 (5d10)  |

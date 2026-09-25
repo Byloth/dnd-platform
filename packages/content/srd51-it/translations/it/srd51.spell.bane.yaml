@@ -1,0 +1,12 @@
+name: Anatema
+components.m: Una goccia di sangue.
+text: |-
+  L'incantatore sceglie fino a tre creature situate entro gittata e che è in grado di vedere, le quali devono effettuare tiri salvezza su Carisma. Se un bersaglio fallisce questo tiro salvezza, ogni volta che effettua un tiro per colpire o un tiro salvezza prima che l'incantesimo termini, deve tirare un d4 e sottrarre il numero ottenuto al tiro per colpire o al tiro salvezza.
+higherLevel: |-
+  Quando l'incantatore lancia questo incantesimo usando uno slot incantesimo di 2° livello o superiore, può bersagliare una creatura aggiuntiva per ogni slot di livello superiore al 1°.
+effects.0.text: |-
+  Ogni volta che effettui un tiro per colpire o un tiro salvezza, tira un d4 e sottrai il numero ottenuto al tiro per colpire o al tiro salvezza.
+effects.0.note: |-
+  Una penalità espressa in dadi (-1d4) non può essere espressa da modify in v0.
+onCast.0.text: |-
+  Fino a tre creature effettuano un tiro salvezza su Carisma; sono influenzate solo quelle che lo falliscono. Una creatura aggiuntiva per ogni slot di livello superiore al 1°.

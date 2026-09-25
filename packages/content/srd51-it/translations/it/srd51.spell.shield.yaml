@@ -1,0 +1,5 @@
+name: Scudo
+castingTime.trigger: che l'incantatore effettua quando è colpito da un attacco o bersagliato dall'incantesimo dardo incantato
+text: |-
+  Una barriera di forza magica invisibile si materializza e protegge l'incantatore. Fino all'inizio del proprio turno successivo, l'incantatore ottiene un bonus di +5 alla CA da applicare anche all'attacco innescante e non subisce danni da dardo incantato.
+effects.1.text: Non subisci danni da dardo incantato.

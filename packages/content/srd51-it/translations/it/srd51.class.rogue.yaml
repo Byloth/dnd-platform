@@ -1,0 +1,93 @@
+name: Ladro
+levels.1.features.0.name: Maestria
+levels.1.features.0.text: |-
+  Al 1° livello, un ladro sceglie due tra le sue competenze nelle abilità, oppure una sua competenza in una abilità e la competenza negli arnesi da scasso. Il suo bonus di competenza raddoppia in ogni prova di caratteristica effettuata usando una delle competenze scelte.
+
+  Al 6° livello, il ladro sceglie altre due sue competenze (nelle abilità o negli arnesi da scasso) che ottengono questo beneficio.
+levels.1.features.0.effects.0.note: |-
+  Scegli due tue competenze nelle abilità, oppure una tua competenza in un'abilità e la tua competenza negli arnesi da scasso. Non è ancora possibile limitare la scelta alle competenze che già possiedi, e gli arnesi da scasso non possono essere scelti al posto di un'abilità.
+levels.1.features.0.effects.1.note: |-
+  Al 6° livello, scegli altre due tue competenze (nelle abilità o negli arnesi da scasso). Non è ancora possibile limitare la scelta alle competenze che già possiedi, e gli arnesi da scasso non possono essere scelti al posto di un'abilità.
+levels.1.features.1.name: Attacco Furtivo
+levels.1.features.1.text: |-
+  A partire dal 1° livello, un ladro sa come colpire con precisione sfruttando la distrazione di un avversario. Una volta per turno, il ladro può infliggere 1d6 danni extra a una creatura che colpisce con un attacco, se dispone di vantaggio al tiro per colpire. L'attacco deve utilizzare un'arma accurata o un'arma a distanza.
+
+  Il ladro non necessita di vantaggio al tiro per colpire se un altro nemico del bersaglio si trova entro 1,5 metri da esso (purché tale nemico non sia incapacitato) e se il tiro per colpire del ladro non subisce svantaggio.
+
+  L'ammontare di danni extra aumenta man mano che il ladro acquisisce livelli, come indicato nella colonna "Attacco Furtivo" nella tabella "Ladro".
+levels.1.features.1.effects.0.name: Attacco Furtivo
+levels.1.features.1.effects.0.trigger: |-
+  quando colpisci una creatura con un attacco usando un'arma accurata o un'arma a distanza e disponi di vantaggio al tiro per colpire, oppure un altro nemico del bersaglio si trova entro 1,5 metri da esso, tale nemico non è incapacitato e il tuo tiro per colpire non subisce svantaggio
+levels.1.features.1.effects.0.text: |-
+  Una volta per turno, puoi infliggere danni extra a una creatura che colpisci con un attacco, se disponi di vantaggio al tiro per colpire. L'attacco deve utilizzare un'arma accurata o un'arma a distanza. Non necessiti di vantaggio al tiro per colpire se un altro nemico del bersaglio si trova entro 1,5 metri da esso (purché tale nemico non sia incapacitato) e se il tuo tiro per colpire non subisce svantaggio.
+levels.1.features.1.effects.0.onHit.0.note: |-
+  I danni extra sono del tipo di danno dell'arma. Richiede vantaggio al tiro per colpire, oppure un nemico del bersaglio entro 1,5 metri da esso che non sia incapacitato, purché tu non subisca svantaggio.
+levels.1.features.2.name: Gergo Ladresco
+levels.1.features.2.text: |-
+  Durante il proprio addestramento, il ladro apprende il gergo ladresco, un misto di dialetto, termini colloquiali e codici che gli permette di nascondere dei messaggi in una conversazione apparentemente normale. Soltanto un'altra creatura che conosca il gergo ladresco capisce questi messaggi. Per trasmettere un concetto tramite il gergo ladresco serve il quadruplo del tempo che normalmente servirebbe per esprimerlo direttamente.
+
+  Inoltre, il ladro capisce una serie di simboli e segni segreti usati per trasmettere semplici messaggi brevi, per esempio per indicare se un'area è pericolosa, se un territorio ricade sotto il controllo di una gilda di ladri, se ci sono bottini o bersagli facili nei paraggi o se qualcuno è disposto a offrire un rifugio sicuro a un ladro in fuga.
+levels.1.features.2.effects.0.note: |-
+  Il gergo ladresco è rappresentato come un linguaggio; per trasmettere un messaggio serve il quadruplo del tempo che servirebbe per esprimere direttamente lo stesso concetto.
+levels.1.features.2.effects.1.text: |-
+  Capisci una serie di simboli e segni segreti usati per trasmettere semplici messaggi brevi, per esempio per indicare se un'area è pericolosa, se un territorio ricade sotto il controllo di una gilda di ladri, se ci sono bottini o bersagli facili nei paraggi o se qualcuno è disposto a offrire un rifugio sicuro a un ladro in fuga.
+levels.2.features.0.name: Azione Scaltra
+levels.2.features.0.text: |-
+  A partire dal 2° livello, la prontezza di spirito e l'agilità del ladro gli consentono di muoversi e di agire in fretta. Il ladro può effettuare un'azione bonus in ognuno dei suoi turni in combattimento. Questa azione può essere usata solo per effettuare l'azione di Disimpegno, Nascondersi o Scatto.
+levels.2.features.0.effects.0.name: Azione Scaltra
+levels.2.features.0.effects.0.text: |-
+  Puoi effettuare un'azione bonus in ognuno dei tuoi turni in combattimento. Questa azione può essere usata solo per effettuare l'azione di Disimpegno, Nascondersi o Scatto.
+levels.2.features.0.effects.0.onUse.0.text: Scegli Scatto, Disimpegno o Nascondersi.
+levels.3.features.0.name: Archetipo Ladresco
+levels.3.features.0.text: |-
+  Al 3° livello, un ladro sceglie un archetipo da emulare nell'esercizio delle sue capacità da ladro: Furfante, Assassino o Mistificatore Arcano, tutti descritti alla fine della descrizione della classe. L'archetipo scelto conferisce al ladro alcuni privilegi al 3° livello e poi di nuovo al 9°, 13° e 17° livello.
+levels.4.features.0.name: Aumento dei Punteggi di Caratteristica
+levels.4.features.0.text: |-
+  Quando arriva al 4° livello, e poi di nuovo all'8°, 10°, 12°, 16° e 19° livello, un ladro può aumentare di 2 un punteggio di caratteristica a sua scelta, oppure può aumentare di 1 due punteggi di caratteristica a sua scelta. Come di consueto, non è consentito aumentare un punteggio di caratteristica a più di 20 utilizzando questo privilegio.
+levels.5.features.0.name: Schivata Prodigiosa
+levels.5.features.0.text: |-
+  A partire dal 5° livello, quando un attaccante che il ladro è in grado di vedere colpisce il ladro con un attacco, quest'ultimo può usare la sua reazione per dimezzare i danni che subirebbe.
+levels.5.features.0.effects.0.name: Schivata Prodigiosa
+levels.5.features.0.effects.0.trigger: quando un attaccante che sei in grado di vedere ti colpisce con un attacco
+levels.5.features.0.effects.0.text: Dimezzi i danni che subiresti dall'attacco.
+levels.5.features.0.effects.0.onUse.0.text: I danni dell'attacco che ha attivato la reazione sono dimezzati.
+levels.7.features.0.name: Elusione
+levels.7.features.0.text: |-
+  A partire dal 7° livello, un ladro può schivare agilmente certi effetti ad area come il soffio di fuoco di un drago rosso o un incantesimo tempesta di ghiaccio. Quando il ladro è soggetto a un effetto che gli consente di effettuare un tiro salvezza su Destrezza per dimezzare i danni, non subisce alcun danno se lo supera, e soltanto la metà dei danni se lo fallisce.
+levels.7.features.0.effects.0.text: |-
+  Quando sei soggetto a un effetto che ti consente di effettuare un tiro salvezza su Destrezza per dimezzare i danni, non subisci alcun danno se lo superi, e soltanto la metà dei danni se lo fallisci.
+levels.7.features.0.effects.0.note: |-
+  Regola sull'esito del tiro salvezza risolta durante il gioco; nessun tipo di effetto nel catalogo.
+levels.11.features.0.name: Dote Affidabile
+levels.11.features.0.text: |-
+  All'11° livello, un ladro ha affinato le abilità da lui scelte fino a portarle quasi alla perfezione. Ogni volta che il ladro effettua una prova di caratteristica che gli permette di aggiungere il suo bonus di competenza, può considerare un tiro del d20 pari o inferiore a 9 come se fosse un 10.
+levels.11.features.0.effects.0.text: |-
+  Ogni volta che effettui una prova di caratteristica che ti permette di aggiungere il tuo bonus di competenza, puoi considerare un tiro del d20 pari o inferiore a 9 come se fosse un 10.
+levels.11.features.0.effects.0.note: |-
+  Un risultato minimo del d20 nelle prove con competenza non ha un tipo di effetto nel catalogo; si applica durante il gioco.
+levels.14.features.0.name: Percezione Cieca
+levels.14.features.0.text: |-
+  A partire dal 14° livello, se il ladro è in grado di sentire, è consapevole della posizione di ogni creatura nascosta o invisibile entro 3 metri da lui.
+levels.14.features.0.effects.0.text: |-
+  Se sei in grado di sentire, sei consapevole della posizione di ogni creatura nascosta o invisibile entro 3 metri da te.
+levels.15.features.0.name: Mente Sfuggente
+levels.15.features.0.text: |-
+  Al 15° livello, il ladro sviluppa una maggiore resistenza mentale. Ottiene competenza nei tiri salvezza su Saggezza.
+levels.18.features.0.name: Inafferrabile
+levels.18.features.0.text: |-
+  A partire dal 18° livello, il ladro è talmente sfuggente che gli attaccanti riescono raramente ad avere il sopravvento su di lui. Nessun tiro per colpire effettuato contro il ladro dispone di vantaggio, a meno che il ladro non sia incapacitato.
+levels.18.features.0.effects.0.text: |-
+  Nessun tiro per colpire effettuato contro di te dispone di vantaggio, a meno che tu non sia incapacitato.
+levels.18.features.0.effects.0.note: |-
+  Annullare il vantaggio sui tiri per colpire effettuati contro di te non ha un tipo di effetto nel catalogo; si applica durante il gioco.
+levels.20.features.0.name: Colpo di Fortuna
+levels.20.features.0.text: |-
+  Al 20° livello, il ladro sviluppa la prodigiosa tendenza ad avere successo proprio nel momento più opportuno. Se il suo attacco manca un bersaglio entro gittata, il ladro può trasformare l'attacco fallito in un attacco con successo. In alternativa, se fallisce una prova di caratteristica, può considerare il risultato del tiro del d20 come un 20.
+
+  Una volta utilizzato questo privilegio, il ladro non può più utilizzarlo finché non completa un riposo breve o lungo.
+levels.20.features.0.effects.0.name: Colpo di Fortuna
+levels.20.features.0.effects.1.name: Colpo di Fortuna
+levels.20.features.0.effects.1.text: |-
+  Se il tuo attacco manca un bersaglio entro gittata, puoi trasformare l'attacco fallito in un attacco con successo. In alternativa, se fallisci una prova di caratteristica, puoi considerare il risultato del tiro del d20 come un 20.
+levels.20.features.0.effects.1.onUse.0.text: |-
+  Trasforma un attacco mancato contro un bersaglio entro gittata in un attacco con successo, oppure considera il d20 di una prova di caratteristica fallita come un 20.

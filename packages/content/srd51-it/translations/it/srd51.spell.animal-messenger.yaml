@@ -1,0 +1,8 @@
+name: Animale messaggero
+components.m: Un boccone di cibo.
+text: |-
+  Tramite questo incantesimo, l'incantatore utilizza un animale per consegnare un messaggio, scegliendo una bestia di taglia Minuscola entro gittata e che è in grado di vedere, come uno scoiattolo, una ghiandaia azzurra o un pipistrello. L'incantatore specifica il luogo di consegna, che deve avere già visitato, e un destinatario che corrisponda a una descrizione generica, come "un uomo o una donna che indossa l'uniforme della guardia cittadina" o "un nano dai capelli rossi che indossa un cappello a punta". Inoltre, l'incantatore pronuncia un messaggio composto da un massimo di venticinque parole. La bestia bersaglio viaggia per la durata dell'incantesimo verso il luogo specificato, percorrendo circa 75 km in 24 ore nel caso sia un messaggero volante o 37,5 km nel caso di altri animali.
+
+  Al suo arrivo, il messaggero consegna il messaggio alla creatura descritta dall'incantatore, replicando il suono della sua voce. Il messaggero parla solamente con una creatura che corrisponda alla descrizione fornita dall'incantatore. Inoltre, se il messaggero non raggiunge la sua destinazione prima della fine dell'incantesimo, il messaggio viene perso e la bestia torna nel luogo dove l'incantatore ha lanciato questo incantesimo.
+higherLevel: |-
+  Se l'incantatore lancia questo incantesimo usando uno slot incantesimo di 3° livello o superiore, la sua durata aumenta di 48 ore per ogni slot di livello superiore al 2°.

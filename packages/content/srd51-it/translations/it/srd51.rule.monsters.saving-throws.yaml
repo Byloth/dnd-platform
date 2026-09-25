@@ -1,0 +1,5 @@
+name: "Tiri salvezza"
+text: |-
+  La voce "Tiri salvezza" è riservata alle creature in grado di resistere a certi tipi di effetto. Per esempio, una creatura difficile da affascinare o da spaventare potrebbe ottenere un bonus ai tiri salvezza su Saggezza. La maggior parte delle creature non possiede alcun bonus speciale ai tiri salvezza: in tal caso questa sezione è assente.
+
+  Un bonus al tiro salvezza è dato dalla somma del modificatore di caratteristica rilevante del mostro e del suo bonus di competenza, determinato dal grado di sfida del mostro (come indicato nella tabella "Bonus di competenza per grado di sfida").

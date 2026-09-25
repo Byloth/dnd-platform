@@ -1,0 +1,13 @@
+name: "Cibo e acqua"
+text: |-
+  I personaggi che non mangiano o non bevono subiscono gli effetti dell'indebolimento. L'indebolimento provocato dalla carenza di cibo o acqua non può essere rimosso finché il personaggio non mangia o non beve il completo ammontare di cibo e bevande indicato.
+  ## Cibo
+  Un personaggio ha bisogno di mezzo chilogrammo di cibo al giorno e può far durare le sue scorte di cibo più a lungo nutrendosi di metà razione. Mangiare 250 grammi di cibo al giorno conta come mezza giornata senza cibo.
+
+  Un personaggio può fare a meno del cibo per un numero di giorni pari a 3 + il suo modificatore di Costituzione (fino a un minimo di 1). Alla fine di ogni giorno oltre tale limite, si subisce automaticamente un livello di indebolimento.
+
+  Una giornata in cui il personaggio mangia normalmente riporta il conteggio delle sue giornate senza cibo a zero.## Acqua
+
+  Un personaggio ha bisogno di quattro litri d'acqua al giorno, o di otto litri al giorno se la giornata è calda. Un personaggio che beve soltanto la metà dell'ammontare di acqua richiesto deve superare un tiro salvezza su Costituzione con CD 15, altrimenti subisce un livello di indebolimento alla fine della giornata. Se un personaggio può accedere ad ancora meno acqua, subisce automaticamente un livello di indebolimento alla fine della giornata.
+
+  Se il personaggio possedeva già uno o più livelli di indebolimento, subisce in ogni caso due livelli.

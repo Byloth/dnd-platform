@@ -1,0 +1,5 @@
+name: Lanciare un incantesimo
+text: |-
+  Un personaggio che lancia un qualsiasi incantesimo segue sempre le stesse regole base, a prescindere dalla sua classe o dagli effetti dell'incantesimo.
+
+  La descrizione di ogni incantesimo inizia con una scheda di informazioni che comprende il nome, il livello, la scuola di magia, il tempo di lancio, la gittata, le componenti e la durata dell'incantesimo; il resto della sezione descrive invece l'effetto dell'incantesimo.

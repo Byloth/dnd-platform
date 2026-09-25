@@ -1,0 +1,18 @@
+name: Tunica delle stelle
+text: |-
+  Oggetto meraviglioso, molto raro (richiede sintonia)
+
+  Su questa tunica, di colore nero o blu scuro, sono ricamate minuscole stelle bianche o argentate. Quando il personaggio la indossa, ottiene un bonus di +1 ai tiri salvezza.
+
+  Sei stelle nella parte anteriore della tunica, in alto, sono particolarmente grandi. Mentre il personaggio indossa questa tunica, può usare un'azione per staccare una delle stelle e usarla per lanciare *dardo incantato* come incantesimo di 5° livello. Ogni giorno al tramonto, 1d6 stelle rimosse ricompaiono sulla tunica.
+
+  Mentre il personaggio indossa la tunica può usare un'azione per entrare nel Piano Astrale insieme a tutto ciò che indossa e trasporta, e vi rimane finché non usa un'azione per tornare sul piano in cui si trovava prima. Il personaggio ricompare nell'ultimo spazio che occupava o, se è occupato, nello spazio libero più vicino.
+features.0.name: Tunica delle stelle
+features.1.name: Stelle
+features.1.effects.0.note: |-
+  Con un'azione, stacca una delle sei stelle grandi (le cariche dell'oggetto) per lanciare *dardo incantato* come incantesimo di 5° livello. Ogni giorno al tramonto, 1d6 stelle rimosse ricompaiono: il vocabolario non prevede una ricarica al tramonto, quindi l'1d6 si ripristina a mano.
+features.2.name: Piano Astrale
+features.2.effects.0.name: Entrare nel Piano Astrale o lasciarlo
+features.2.effects.0.text: |-
+  Entri nel Piano Astrale insieme a tutto ciò che indossi e trasporti. Vi rimani finché non usi un'azione per tornare sul piano in cui ti trovavi, ricomparendo nell'ultimo spazio che occupavi o nello spazio libero più vicino.
+features.2.effects.0.onUse.0.text: Il viaggio planare si risolve al tavolo.

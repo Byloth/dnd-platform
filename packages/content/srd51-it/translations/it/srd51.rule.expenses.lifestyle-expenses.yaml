@@ -1,0 +1,33 @@
+name: "Spese dello stile di vita"
+text: |-
+  Le spese dello stile di vita sono un modo semplice per tenere conto dei costi della vita in un mondo fantasy. Coprono l'alloggio, il cibo, le bevande e tutte le altre necessità essenziali di un personaggio. Queste spese coprono inoltre il costo di manutenzione dell'equipaggiamento del personaggio, per consentirgli di essere pronto quando giungerà la prossima chiamata all'avventura.
+
+  All'inizio di ogni settimana o mese (a scelta del giocatore), ogni personaggio sceglie uno stile di vita dalla tabella "Spese dello stile di vita" e paga il prezzo richiesto per mantenere quello stile di vita. I prezzi elencati sono giornalieri, quindi chi desidera calcolare il suo costo di sostentamento per un periodo di trenta giorni dovrà moltiplicare il prezzo indicato per 30. Un personaggio può cambiare il suo stile di vita da un periodo all'altro, in base ai fondi a sua disposizione, oppure può mantenere lo stesso stile di vita nel corso di tutta la propria carriera.
+
+  La scelta dello stile di vita può avere delle conseguenze. Un personaggio che mantiene uno stile di vita ricco può stringere più facilmente contatti con i ricchi e i potenti, ma corre il rischio di attirare qualche ladro. Analogamente, uno stile di vita povero può aiutarlo a evitare i criminali, ma difficilmente gli consentirà di stringere relazioni con contatti importanti.
+
+  **Spese dello stile di vita (tabella)**
+
+  | Stile di vita | Prezzo/giorno    |
+  |---------------|------------------|
+  | Miserabile    | -                |
+  | Squallido     | 1 ma             |
+  | Povero        | 2 ma             |
+  | Modesto       | 1 mo             |
+  | Agiato        | 2 mo             |
+  | Ricco         | 4 mo             |
+  | Aristocratico | Minimo di 10 mo  |
+
+  **_Miserabile._** Il personaggio vive in condizioni disumane. Non ha un luogo che può chiamare casa e si ripara dove può, intrufolandosi nei granai, rannicchiandosi in vecchie casse o affidandosi al buon cuore di chi è più fortunato di lui. Uno stile di vita miserabile presenta pericoli in abbondanza. La violenza, le malattie e la fame seguono il personaggio ovunque vada. Gli altri miserabili potrebbero mettere gli occhi sulla sua armatura, le sue armi e la sua attrezzatura da avventuriero, che rappresentano una fortuna per i loro parametri. La maggior parte della gente non prende minimamente in considerazione il personaggio.
+
+  **_Squallido._** Il personaggio vive in una stalla piena di spifferi, una capanna dal pavimento di fango situata appena fuori dal paese o in un ostello pulcioso nel quartiere peggiore della città. Ha un minimo riparo dagli elementi, ma vive in un ambiente disperato e spesso violento, in luoghi colpiti da malattie, fame e disgrazie. La maggior parte della gente non lo prende minimamente in considerazione e la legge lo protegge poco o nulla. La maggior parte delle persone che conduce questo stile di vita è segnata da qualche terribile disgrazia: si tratta di personaggi bollati come esuli, affetti da un disturbo mentale o da una malattia di qualche tipo.
+
+  **_Povero._** Uno stile di vita povero significa dover tirare avanti senza le comodità disponibili in una comunità stabile. Vitto e alloggio essenziali, abiti di scarsa qualità e condizioni di vita imprevedibili generano come risultato uno stile di vita forse sufficiente a sopravvivere, ma di sicuro poco piacevole. Il personaggio dorme in un ostello o in una sala comune al piano superiore di una taverna. Beneficia di un minimo di protezione legale, ma deve comunque vedersela con atti di violenza, crimini e malattie. Manovali privi di una specializzazione, robivecchi, mendicanti, ladri, mercenari e altre figure poco raccomandabili tendono ad adottare questo stile di vita.
+
+  **_Modesto._** Uno stile di vita modesto tiene un personaggio fuori dai bassifondi e gli consente di prendersi cura del suo equipaggiamento. Il personaggio vive in una parte vecchia della città, ha una camera in affitto in una pensione, una locanda o un tempio. Non patisce la fame o la sete e vive in un ambiente pulito, anche se spartano. Gli individui comuni che conducono uno stile di vita modesto includono soldati con famiglia, manovali, studenti, sacerdoti, maghi dilettanti e così via.
+
+  **_Agiato._** Un personaggio in grado di adottare uno stile di vita agiato può permettersi abiti di qualità e prendersi cura del proprio equipaggiamento senza difficoltà. Vive in un'abitazione in un quartiere di buona fama o dispone di una stanza privata presso una locanda di qualità. Frequenta mercanti, abili artigiani e ufficiali militari.
+
+  **_Ricco._** Un personaggio che adotta uno stile di vita ricco vive nel lusso, anche se forse non ha raggiunto il prestigio sociale associato alla nobiltà e agli individui di sangue reale. Conduce uno stile di vita paragonabile a quello di un mercante di grande successo, uno stimato servitore di un casato reale o un proprietario di alcune piccole attività commerciali. Alloggia in una dimora rispettabile, solitamente una casa spaziosa in una bella parte della città o un comodo appartamento presso una locanda rinomata. Probabilmente è assistito da un piccolo gruppo di servitori.
+
+  **_Aristocratico._** Il personaggio vive una vita piena di ogni confort e ricchezza, e frequenta gli ambienti popolati dalle figure più potenti della comunità. Dispone di una dimora eccellente, forse una villetta nel quartiere più elegante della città o una serie di camere nella locanda più rinomata. Mangia nei ristoranti migliori, si serve presso i sarti più abili e alla moda, e può contare su vari servitori che si occupano di ogni suo bisogno. Riceve inviti agli eventi di società dei ricchi e dei potenti e trascorre le sue serate in compagnia di politici, capi di gilda, sommi sacerdoti e nobili. Deve anche vedersela con innumerevoli inganni e tradimenti perpetrati ai suoi danni. Più grande è la sua ricchezza, maggiori sono le possibilità che sia trascinato in qualche intrigo politico come pedina o partecipante attivo.

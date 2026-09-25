@@ -1,0 +1,35 @@
+name: Borsa dei fagioli magici
+text: |-
+  Oggetto meraviglioso, raro
+
+  Questa borsa di stoffa robusta contiene 3d4 fagioli secchi. La borsa pesa 250 grammi, più 125 grammi per ogni fagiolo presente al suo interno.
+
+  Se i fagioli vengono gettati a terra, generano un'esplosione in un raggio di 3 metri centrata sui fagioli stessi. Ogni creatura presente nell'area, incluso il possessore della borsa, deve effettuare un tiro salvezza su Destrezza con CD 15; in caso di fallimento, subisce 5d4 danni da fuoco, o la metà dei danni in caso di successo. Il fuoco incendia ogni oggetto infiammabile non indossato o trasportato presente nell'area.
+
+  Se un fagiolo viene prelevato dalla borsa, piantato nel terriccio o nella sabbia e innaffiato, dopo 1 minuto genera un effetto nel luogo in cui è stato piantato. Il GM può scegliere l'effetto dalla tabella seguente, determinarlo casualmente o crearne uno personalmente.
+
+  | d100 | Effetto |
+  |---|---|
+  | 01 | Spuntano 5d4 funghi velenosi. Se una creatura mangia un fungo, si tira un dado. Se il risultato del tiro è dispari, tale creatura deve superare un tiro salvezza su Costituzione con CD 15, altrimenti subisce 5d6 danni da veleno e diventa avvelenata per 1 ora. Se il risultato è pari, la creatura che ha mangiato il fungo ottiene 5d6 punti ferita temporanei per 1 ora. |
+  | 02–10 | Scaturisce un geyser che spruzza una colonna alta 9 metri di acqua, birra, succo di mirtillo, tè, aceto, vino od olio (a scelta del GM) per 1d12 round. |
+  | 11–20 | Spunta un treant. C'è una probabilità del 50 percento che sia caotico malvagio e attacchi. |
+  | 21–30 | Dal terreno emerge una statua di pietra animata ma immobile, con le sembianze del possessore della borsa, che pronuncia minacce verbali contro di lui. Se il possessore della borsa si allontana dalla statua, quando sopraggiungono altre creature, quest'ultima descrive loro il possessore come il più scellerato dei nemici e fornisce loro le informazioni per trovarlo e attaccarlo. Se il possessore si trova sullo stesso piano di esistenza della statua, questa conosce la sua posizione. La statua diventa inanimata dopo 24 ore. |
+  | 31–40 | Dal terreno si sprigiona un fuoco da campo azzurrognolo che arde per 24 ore (o finché non viene spento). |
+  | 41–50 | Spuntano dal terreno 1d6 + 6 boleti stridenti. |
+  | 51–60 | 1d4 + 8 rospi di colore rosa acceso si avvicinano. Non appena un rospo viene toccato, si trasforma in un mostro di taglia Grande o inferiore a scelta del GM. Il mostro permane per 1 minuto, poi scompare in uno sbuffo di fumo rosa brillante. |
+  | 61–70 | Un bulette affamato esce dal terreno e attacca. |
+  | 71–80 | Dal terreno cresce un albero da frutto da cui pendono 1d10 + 20 frutti, 1d8 dei quali hanno gli effetti di pozioni magiche determinate casualmente, mentre uno ha l'effetto di un veleno da ingestione a scelta del GM. L'albero svanisce dopo 1 ora. I frutti raccolti rimangono e conservano gli eventuali poteri magici per 30 giorni. |
+  | 81–90 | Dal terreno spunta un nido contenente 1d4 + 3 uova. Una creatura che mangia un uovo deve effettuare un tiro salvezza su Costituzione con CD 20: in caso di successo, il suo punteggio di caratteristica più basso aumenta permanentemente di 1 (in caso di più caratteristiche con lo stesso punteggio più basso, se ne sceglie una casualmente). Se lo fallisce, la creatura subisce invece 10d6 danni da forza causati da un'esplosione magica interna. |
+  | 91–99 | Una piramide a base quadrata con lato di 18 metri emerge dal terreno. Al suo interno si trova un sarcofago contenente un signore delle mummie. La piramide è considerata la tana del signore delle mummie e il suo sarcofago contiene un tesoro determinato dal GM. |
+  | 100 | Dal terreno si innalza una gigantesca pianta di fagioli che sale fino a un'altezza determinata dal GM. La sommità della pianta conduce in un luogo scelto dal GM, che può essere uno straordinario punto di osservazione, il castello di un gigante delle nuvole o un piano di esistenza diverso. |
+features.0.name: Fagioli
+features.0.effects.0.name: Svuotare la borsa
+features.0.effects.0.text: |-
+  I fagioli esplodono in un raggio di 3 metri. Ogni creatura presente nell'area, te compreso, deve effettuare un tiro salvezza su Destrezza con CD 15; in caso di fallimento, subisce 5d4 danni da fuoco, o la metà dei danni in caso di successo. Il fuoco incendia ogni oggetto infiammabile non indossato o trasportato presente nell'area.
+features.0.effects.0.onUse.0.text: |-
+  Tiro salvezza su Destrezza con CD 15 per ogni creatura entro 3 metri, te compreso: 5d4 danni da fuoco, la metà in caso di successo.
+features.0.effects.1.name: Piantare un fagiolo
+features.0.effects.1.text: |-
+  Preleva un fagiolo dalla borsa, piantalo nel terriccio o nella sabbia e innaffialo: dopo 1 minuto genera un effetto nel luogo in cui è stato piantato. Il GM sceglie un effetto dalla tabella d100 dell'oggetto, lo determina casualmente o ne crea uno.
+features.0.effects.1.onUse.0.text: |-
+  Il GM tira o sceglie sulla tabella d100 della borsa; quando viene trovata, la borsa contiene 3d4 fagioli.

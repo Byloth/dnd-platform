@@ -1,0 +1,12 @@
+name: Bacchetta di individuazione dei nemici
+text: |-
+  Bacchetta, rara (richiede sintonia)
+
+  Questa bacchetta possiede 7 cariche. Mentre il personaggio la impugna, può usare un'azione e spendere 1 carica per pronunciarne la parola d'ordine. Durante il minuto successivo, il personaggio conosce la direzione della creatura ostile a lui più vicina e situata entro 18 metri da lui, ma non la sua distanza precisa. La bacchetta può percepire la presenza di creature ostili eteree, invisibili, camuffate o nascoste, oltre a quelle in piena vista. L'effetto termina se il personaggio smette di impugnare la bacchetta.
+
+  All'alba di ogni giorno, la bacchetta recupera 1d6 + 1 cariche consumate. Se il personaggio consuma l'ultima carica, deve tirare un d20: se ottiene 1, la bacchetta diventa cenere e viene distrutta.
+features.0.name: Individuazione dei nemici
+features.0.effects.0.name: Individuazione dei nemici
+features.0.effects.0.text: |-
+  Pronunci la parola d'ordine: durante il minuto successivo, conosci la direzione della creatura ostile a te più vicina entro 18 metri, ma non la sua distanza. La bacchetta percepisce le creature ostili eteree, invisibili, camuffate o nascoste, oltre a quelle in piena vista. L'effetto termina se smetti di impugnare la bacchetta. Se consumi l'ultima carica, tira un d20: con un 1 la bacchetta diventa cenere e viene distrutta.
+features.0.effects.0.onUse.0.text: Per 1 minuto, conosci la direzione della creatura ostile più vicina entro 18 metri.

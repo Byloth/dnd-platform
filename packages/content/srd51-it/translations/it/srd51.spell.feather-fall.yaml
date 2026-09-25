@@ -1,0 +1,5 @@
+name: Caduta morbida
+castingTime.trigger: che l'incantatore può effettuare quando egli stesso o una creatura entro 18 metri da lui cade
+components.m: Una piccola piuma o un pezzo di piumino.
+text: |-
+  L'incantatore sceglie fino a cinque creature in caduta entro gittata. La velocità di discesa di una creatura in caduta rallenta fino a 18 metri per round finché l'incantesimo non termina. Se la creatura atterra prima che l'incantesimo termini, non subisce alcun danno da caduta e può atterrare in piedi, interrompendo l'effetto dell'incantesimo.

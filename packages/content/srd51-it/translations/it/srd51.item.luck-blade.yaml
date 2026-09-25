@@ -1,0 +1,27 @@
+name: Lama della fortuna
+text: |-
+  Arma (qualsiasi spada), leggendaria (richiede sintonia)
+
+  Il personaggio ottiene un bonus di +1 ai tiri per colpire e ai tiri per i danni effettuati con quest'arma magica. Finché porta la spada sulla sua persona, ottiene anche un bonus di +1 ai tiri salvezza.
+
+  ***Fortuna.*** Se il personaggio porta la spada sulla sua persona, può appellarsi alla sua fortuna (nessuna azione richiesta) e ripetere un tiro per colpire, una prova di caratteristica o un tiro salvezza il cui risultato non è di suo gradimento. Deve usare il risultato del secondo tiro. Questa proprietà non può essere riutilizzata fino all'alba successiva.
+
+  ***Desiderio.*** La spada possiede 1d4 - 1 cariche. Mentre il personaggio la impugna, può usare un'azione per consumare 1 carica e lanciare con essa l'incantesimo *desiderio*. Questa proprietà non può essere riutilizzata fino all'alba successiva. Quando finisce le cariche, la spada perde questa proprietà.
+features.0.name: Arma magica
+features.0.text: |-
+  Il personaggio ottiene un bonus di +1 ai tiri per colpire e ai tiri per i danni effettuati con quest'arma magica. Finché porta la spada sulla sua persona, ottiene anche un bonus di +1 ai tiri salvezza.
+features.0.effects.1.note: Finché il personaggio porta la spada sulla sua persona.
+features.1.name: Fortuna
+features.1.text: |-
+  Se il personaggio porta la spada sulla sua persona, può appellarsi alla sua fortuna (nessuna azione richiesta) e ripetere un tiro per colpire, una prova di caratteristica o un tiro salvezza il cui risultato non è di suo gradimento. Deve usare il risultato del secondo tiro. Questa proprietà non può essere riutilizzata fino all'alba successiva.
+features.1.effects.0.name: Fortuna
+features.1.effects.1.name: Fortuna
+features.1.effects.1.onUse.0.note: |-
+  Un tiro per colpire, una prova di caratteristica o un tiro salvezza il cui risultato non è di gradimento del personaggio. Deve usare il risultato del secondo tiro.
+features.1.effects.1.text: |-
+  Si ripete un tiro per colpire, una prova di caratteristica o un tiro salvezza il cui risultato non è di gradimento del personaggio. Deve usare il risultato del secondo tiro.
+features.2.name: Desiderio
+features.2.text: |-
+  La spada possiede 1d4 - 1 cariche. Mentre il personaggio la impugna, può usare un'azione per consumare 1 carica e lanciare con essa l'incantesimo *desiderio*. Questa proprietà non può essere riutilizzata fino all'alba successiva. Quando finisce le cariche, la spada perde questa proprietà.
+features.2.effects.0.note: |-
+  Al massimo una volta per alba. Le cariche non si recuperano mai; quando le finisce, la spada perde questa proprietà.

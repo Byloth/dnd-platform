@@ -1,0 +1,41 @@
+name: Bastone del potere
+text: |-
+  Bastone, molto raro (richiede sintonia con un mago, uno stregone o un warlock)
+
+  Questo bastone può essere impugnato come un bastone ferrato magico che garantisce un bonus di +2 ai tiri per colpire e ai tiri per i danni effettuati con esso. Mentre il personaggio lo impugna, ottiene un bonus di +2 alla Classe Armatura, ai tiri salvezza e ai tiri per colpire con incantesimo.
+
+  Il bastone possiede 20 cariche per le proprietà descritte di seguito. All'alba di ogni giorno, il bastone recupera 2d8 + 4 cariche consumate. Se il personaggio consuma l'ultima carica, deve tirare un d20; se ottiene 1, il bastone mantiene il suo bonus +2 ai tiri per colpire e ai tiri per i danni ma perde le sue altre proprietà; se ottiene 20, recupera 1d8 + 2 cariche.
+
+  ***Colpo poderoso.*** Quando il personaggio colpisce con un attacco in mischia usando il bastone, può consumare 1 carica per infliggere 1d6 danni da forza extra al bersaglio.
+
+  ***Incantesimi.*** Mentre il personaggio lo impugna, può usare un'azione per consumare 1 o più delle sue cariche e lanciare uno dei seguenti incantesimi usando la CD del tiro salvezza sull'incantesimo e il bonus di attacco dell'incantesimo: blocca mostri (5 cariche), cono di freddo (5 cariche), dardo incantato (1 carica), fulmine (versione di 5° livello, 5 cariche), globo di invulnerabilità (6 cariche), levitazione (2 cariche), muro di forza (5 cariche), palla di fuoco (versione di 5° livello, 5 cariche) o raggio di affaticamento (1 carica).
+
+  ***Colpo del castigo.*** Il personaggio può usare un'azione per spezzare il bastone sul ginocchio o contro una superficie solida ed effettuare un colpo del castigo. Il bastone è distrutto e sprigiona la magia che gli restava in un'esplosione che si espande fino a riempire una sfera del raggio di 9 metri centrata su di esso.
+
+  Il personaggio ha una probabilità del 50% di spostarsi istantaneamente su un piano di esistenza casuale per evitare l'esplosione. Se non riesce a evitare l'effetto, subisce danni da forza pari a 16 × il numero di cariche rimanenti nel bastone. Ogni altra creatura nell'area deve effettuare un tiro salvezza su Destrezza con CD 17: se lo fallisce, subisce un ammontare di danni basato sulla sua distanza dal punto di origine dell'esplosione, come indicato nella tabella sottostante. Ogni creatura che supera il tiro salvezza subisce soltanto la metà di quei danni.
+
+  | Distanza dall'origine | Danni |
+
+  |---|---|
+
+  | 3 m o meno | 8 × il numero di cariche nel bastone |
+
+  | Più di 3 m, fino a 6 m | 6 × il numero di cariche nel bastone |
+
+  | Più di 6 m, fino a 9 m | 4 × il numero di cariche nel bastone |
+attunement.by: un mago, uno stregone o un warlock
+features.0.name: Bastone ferrato magico
+features.1.name: Potere
+features.2.name: Colpo poderoso
+features.2.effects.0.name: Colpo poderoso
+features.2.effects.0.trigger: quando colpisci con un attacco in mischia usando il bastone
+features.2.effects.0.text: Consuma 1 carica per infliggere 1d6 danni da forza extra al bersaglio.
+features.3.name: Incantesimi
+features.3.effects.0.note: |-
+  Si lancia con un'azione usando la tua CD del tiro salvezza sull'incantesimo e il tuo bonus di attacco dell'incantesimo. Se consumi l'ultima carica, tira un d20: con un 1 il bastone mantiene il suo bonus +2 ma perde tutte le altre proprietà; con un 20 recupera 1d8 + 2 cariche.
+features.4.name: Colpo del castigo
+features.4.effects.0.name: Colpo del castigo
+features.4.effects.0.text: |-
+  Spezzi il bastone: è distrutto e sprigiona la magia che gli restava in un'esplosione che riempie una sfera del raggio di 9 metri centrata su di esso. Hai una probabilità del 50% di spostarti istantaneamente su un piano di esistenza casuale, evitando l'esplosione; altrimenti subisci danni da forza pari a 16 × il numero di cariche nel bastone. Ogni altra creatura nell'area effettua un tiro salvezza su Destrezza con CD 17 e subisce danni in base alla sua distanza dal punto di origine (la metà in caso di successo).
+features.4.effects.0.onUse.0.text: |-
+  Danni in base alla distanza: 3 m o meno 8 × cariche, più di 3 m fino a 6 m 6 × cariche, più di 6 m fino a 9 m 4 × cariche (danni da forza). Il bastone è distrutto.

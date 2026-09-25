@@ -1,0 +1,7 @@
+name: Stivali della levitazione
+text: |-
+  Oggetto meraviglioso, raro (richiede sintonia)
+
+  Il personaggio che indossa questi stivali può usare un'azione per lanciare l'incantesimo levitazione su se stesso a volontà.
+features.0.name: Levitazione a volontà
+features.0.effects.0.note: Lanciato solo su te stesso, con un'azione, a volontà.

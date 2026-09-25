@@ -1,0 +1,7 @@
+name: Velocità
+components.m: Una scaglia di radice di liquirizia.
+text: |-
+  L'incantatore sceglie una creatura consenziente entro gittata che è in grado di vedere. Finché l'incantesimo non termina, il bersaglio ottiene un bonus di +2 alla CA, dispone di vantaggio ai tiri salvezza su Destrezza, la sua velocità raddoppia e ottiene un'azione aggiuntiva per ogni turno. L'azione aggiuntiva può essere usata soltanto per effettuare un'azione Attacco (solo attacchi con un'arma), Disimpegno, Nascondersi, Scatto o Usare un oggetto. Quando l'incantesimo termina, il bersaglio non può muoversi o effettuare azioni fino alla fine del turno successivo, essendo sopraffatto da un'ondata di spossatezza.
+effects.3.name: Azione di Velocità
+effects.3.text: "Un'azione aggiuntiva: Attacco (solo attacchi con un'arma), Disimpegno, Nascondersi, Scatto o Usare un oggetto."
+effects.4.text: Quando l'incantesimo termina, non puoi muoverti o effettuare azioni fino alla fine del tuo turno successivo.

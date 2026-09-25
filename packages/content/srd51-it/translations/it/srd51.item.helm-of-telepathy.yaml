@@ -1,0 +1,15 @@
+name: Elmo della telepatia
+text: |-
+  Oggetto meraviglioso, non comune (richiede sintonia)
+
+  Mentre il personaggio indossa questo elmo, può usare un'azione per lanciare l'incantesimo individuazione dei pensieri (CD del tiro salvezza 13). Finché mantiene la concentrazione sull'incantesimo, può usare un'azione bonus per inviare un messaggio telepatico a una creatura su cui è concentrato e quest'ultima può usare un'azione bonus per rispondere.
+
+  Fintantoché il personaggio mantiene la concentrazione su una creatura tramite individuazione dei pensieri, può usare un'azione per lanciare l'incantesimo suggestione (CD del tiro salvezza 13) su di essa. Una volta usata, la proprietà di suggestione non è riutilizzabile fino all'alba successiva.
+features.0.name: Individuazione dei pensieri
+features.0.text: Mentre il personaggio indossa questo elmo, può usare un'azione per lanciare l'incantesimo individuazione dei pensieri (CD del tiro salvezza 13). Finché mantiene la concentrazione sull'incantesimo, può usare un'azione bonus per inviare un messaggio telepatico a una creatura su cui è concentrato e quest'ultima può usare un'azione bonus per rispondere.
+features.0.effects.0.note: Lo lanci con un'azione, senza spendere uno slot incantesimo, CD del tiro salvezza 13.
+features.0.effects.1.name: Messaggio telepatico
+features.0.effects.1.text: Finché mantieni la concentrazione su individuazione dei pensieri lanciato con l'elmo, invii un messaggio telepatico a una creatura su cui sei concentrato. Quest'ultima può usare un'azione bonus per rispondere, finché resti concentrato su di essa.
+features.1.name: Suggestione
+features.1.text: Fintantoché il personaggio mantiene la concentrazione su una creatura tramite individuazione dei pensieri, può usare un'azione per lanciare l'incantesimo suggestione (CD del tiro salvezza 13) su di essa. Una volta usata, la proprietà di suggestione non è riutilizzabile fino all'alba successiva.
+features.1.effects.0.note: Solo su una creatura su cui sei concentrato tramite individuazione dei pensieri, CD del tiro salvezza 13; una volta per alba (l'unica carica dell'elmo).

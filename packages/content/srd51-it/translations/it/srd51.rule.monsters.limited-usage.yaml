@@ -1,0 +1,11 @@
+name: "Uso limitato"
+text: |-
+  Alcune capacità speciali sono soggette a restrizioni riguardo al numero di volte in cui possono essere usate.
+
+  ***X/Giorno.*** La voce "X/giorno" indica che una capacità speciale può essere usata X volte e che un mostro deve completare un riposo lungo per recuperare gli usi spesi. Ad esempio, "1/giorno" significa che un'abilità speciale può essere usata una volta sola e che il mostro deve completare un riposo lungo per usarla di nuovo.
+
+  ***Ricarica X–Y.*** La voce "Ricarica X–Y" indica che un mostro può usare un'abilità speciale una volta e che quella capacità ha poi una probabilità casuale di ricaricarsi durante ogni round successivo di combattimento. All'inizio di ogni turno del mostro si tira un d6. Se il risultato è uno dei numeri specificati dalla voce di ricarica, il mostro recupera l'uso dell'abilità speciale. L'abilità si ricarica anche quando il mostro completa un riposo breve o lungo.
+
+  Ad esempio, "Ricarica 5–6" significa che il mostro può usare l'abilità speciale una volta. Poi, all'inizio del proprio turno, il mostro recupera l'uso di quella capacità se ottiene un risultato di 5 o 6 al tiro di un d6.
+
+  ***Ricarica dopo un riposo breve o lungo.*** Questa voce indica che un mostro può usare un'abilità speciale una volta e che deve completare un riposo breve o lungo per usarla di nuovo.

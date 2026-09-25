@@ -1,0 +1,7 @@
+name: "Salire e smontare dalla sella"
+text: |-
+  Una volta durante il proprio movimento, un personaggio può salire in sella a una cavalcatura situata a 1,5 metri da lui o smontare. Per farlo deve spendere un ammontare di movimento pari a metà della sua velocità. Per esempio, se possiede una velocità di 9 metri, deve spendere 4,5 metri di movimento per montare a cavallo. Non potrà quindi salire in sella se non gli rimangono 4,5 metri di movimento o se la sua velocità è 0.
+
+  Se un effetto fa muovere la cavalcatura contro la sua volontà quando il personaggio è in sella, quel personaggio deve superare un tiro salvezza su Destrezza con CD 10, altrimenti cadrà dalla cavalcatura, atterrando prono in uno spazio entro 1,5 metri da essa. Se il personaggio viene buttato a terra prono quando è in sella, deve effettuare lo stesso tiro salvezza.
+
+  Se la cavalcatura è buttata a terra prona, il personaggio può usare la sua reazione per smontare al momento della caduta e atterrare in piedi. Altrimenti è disarcionato e cade a terra prono in uno spazio entro 1,5 metri dalla cavalcatura.

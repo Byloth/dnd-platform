@@ -1,0 +1,4 @@
+name: Luce
+components.m: Una lucciola o del muschio fosforescente.
+text: |-
+  L'incantatore tocca un oggetto del volume di non più di 3 metri. Finché l'incantesimo non termina, l'oggetto proietta luce intensa entro un raggio di 6 metri e luce fioca per altri 6 metri. La luce può essere del colore che l'incantatore desidera. Coprire completamente l'oggetto con qualcosa di opaco blocca la luce. L'incantesimo termina se l'incantatore lo lancia di nuovo o lo interrompe con un'azione. Se l'incantatore bersaglia un oggetto impugnato o posseduto da una creatura ostile, quella creatura deve superare un tiro salvezza su Destrezza per evitare l'incantesimo.

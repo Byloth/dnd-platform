@@ -1,0 +1,18 @@
+name: Bastone dello sciame di insetti
+text: |-
+  Bastone, raro (richiede sintonia con un bardo, un chierico, un druido, un mago, uno stregone o un warlock)
+
+  Questo bastone possiede 10 cariche e, all'alba di ogni giorno, recupera 1d6 + 4 delle cariche spese. Se il personaggio consuma l'ultima carica, deve tirare un d20; se ottiene 1, uno sciame di insetti consuma e distrugge il bastone, poi si disperde.
+
+  ***Incantesimi.*** Mentre il personaggio impugna il bastone, può usare un'azione per consumare 1 o più delle sue cariche e lanciare uno dei seguenti incantesimi usando la CD del tiro salvezza sull'incantesimo: insetto gigante (4 cariche) o piaga degli insetti (5 cariche).
+
+  ***Nube di insetti.*** Mentre il personaggio impugna il bastone, può usare un'azione per consumare 1 carica e generare uno sciame di insetti volanti innocui che si diffonde in un raggio di 9 metri da lui. Gli insetti permangono per 10 minuti, rendendo l'area pesantemente oscurata per ogni altra creatura a eccezione del personaggio. Lo sciame si muove con il personaggio e rimane centrato su di lui. Un vento di intensità pari o superiore a 15 km orari disperde lo sciame e pone fine all'effetto.
+attunement.by: un bardo, un chierico, un druido, un mago, uno stregone o un warlock
+features.0.name: Incantesimi
+features.0.effects.0.note: |-
+  Si lancia con un'azione usando la tua CD del tiro salvezza sull'incantesimo. Se consumi l'ultima carica, tira un d20: con un 1 uno sciame di insetti consuma e distrugge il bastone.
+features.1.name: Nube di insetti
+features.1.effects.0.name: Nube di insetti
+features.1.effects.0.text: |-
+  Uno sciame di insetti volanti innocui si diffonde in un raggio di 9 metri da te per 10 minuti, rendendo l'area pesantemente oscurata per ogni creatura a eccezione di te. Lo sciame si muove con te e rimane centrato su di te. Un vento di intensità pari o superiore a 15 km orari lo disperde e pone fine all'effetto.
+features.1.effects.0.onUse.0.text: L'area è pesantemente oscurata per tutti tranne te per 10 minuti.

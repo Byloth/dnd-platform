@@ -1,0 +1,4 @@
+name: Armatura magica
+components.m: Un pezzo di cuoio trattato.
+text: L'incantatore tocca una creatura consenziente che non indossi un'armatura, che viene circondata da una forza magica protettiva fino al termine dell'incantesimo. La CA base del bersaglio diventa 13 + il suo modificatore di Destrezza. L'incantesimo termina se il bersaglio indossa un'armatura o se l'incantatore interrompe l'incantesimo con un'azione.
+effects.0.note: CA base finché il bersaglio non indossa un'armatura; l'incantesimo termina se il bersaglio indossa un'armatura o se l'incantatore lo interrompe con un'azione.

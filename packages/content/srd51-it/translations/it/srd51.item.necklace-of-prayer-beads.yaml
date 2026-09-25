@@ -1,0 +1,22 @@
+name: Collana di grani di preghiera
+text: |-
+  Oggetto meraviglioso, raro (richiede sintonia con un chierico, druido o paladino)
+
+  Questa collana ha 1d4 + 2 perle magiche fatte di acquamarina, perla nera o topazio, oltre a molte perle non magiche fatte di ambra, diaspro, citrino, corallo, giada, perla o quarzo. Se una perla magica viene rimossa dalla collana, perde la sua magia.
+
+  Esistono sei tipi di perle magiche. Il GM decide il tipo di ogni perla sulla collana o lo determina casualmente. La collana può includere più perle dello stesso tipo. Per usarne una, il personaggio deve indossare la collana. Ogni perla contiene un incantesimo che il personaggio può lanciare come azione bonus (usando la sua CD del tiro salvezza sull'incantesimo, quando è richiesto un tiro salvezza). Una volta lanciato l'incantesimo di una perla magica, quella perla non può più essere usata fino all'alba successiva.
+
+  | d20 | Perla... | Incantesimo |
+  |---|---|---|
+  | 1-6 | della benedizione | Benedizione |
+  | 7-12 | della guarigione | Cura ferite (2° livello) o ristorare inferiore |
+  | 13-16 | del favore | Ristorare superiore |
+  | 17-18 | della punizione | Punizione marchiante |
+  | 19 | dell'evocazione | Alleato planare |
+  | 20 | del camminare nel vento | Camminare nel vento |
+attunement.by: un chierico, druido o paladino
+features.0.name: Perle magiche
+features.0.text: |-
+  Questa collana ha 1d4 + 2 perle magiche. Esistono sei tipi di perle magiche; il GM decide il tipo di ogni perla sulla collana o lo determina casualmente, e la collana può includere più perle dello stesso tipo. Per usarne una, il personaggio deve indossare la collana. Ogni perla contiene un incantesimo che il personaggio può lanciare come azione bonus (usando la sua CD del tiro salvezza sull'incantesimo, quando è richiesto un tiro salvezza). Una volta lanciato l'incantesimo di una perla magica, quella perla non può più essere usata fino all'alba successiva. Perla della benedizione, *benedizione*; perla della guarigione, *cura ferite* (2° livello) o *ristorare inferiore*; perla del favore, *ristorare superiore*; perla della punizione, *punizione marchiante*; perla dell'evocazione, *alleato planare*; perla del camminare nel vento, *camminare nel vento*.
+features.0.effects.0.note: |-
+  Ogni carica è una perla, e ogni perla lancia solo il proprio incantesimo (benedizione, *benedizione*; guarigione, *cura ferite* di 2° livello o *ristorare inferiore*; favore, *ristorare superiore*; punizione, *punizione marchiante*; evocazione, *alleato planare*; camminare nel vento, *camminare nel vento*). Si lancia come azione bonus con la CD del tiro salvezza sull'incantesimo del personaggio.

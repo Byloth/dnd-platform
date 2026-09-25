@@ -1,0 +1,28 @@
+name: Cintura della forza dei giganti
+text: |-
+  Oggetto meraviglioso, rarità variabile (richiede sintonia)
+
+  Mentre il personaggio indossa questa cintura, il suo punteggio di Forza cambia in un determinato punteggio conferito dalla cintura. Se il punteggio di Forza del personaggio senza cintura è pari o superiore a quello conferito dall'oggetto, non ha alcun effetto.
+
+  Esistono sei varietà di questa cintura, corrispondenti per tipo e rarità ai sei tipi di giganti puri esistenti. La cintura della forza dei giganti delle pietre e la cintura della forza dei giganti del gelo sono diverse nell'aspetto, ma hanno lo stesso effetto.
+
+  | Tipo | Forza | Rarità |
+
+  |---|---|---|
+
+  | Giganti delle colline | 21 | Rara |
+
+  | Giganti delle pietre/del gelo | 23 | Molto rara |
+
+  | Giganti del fuoco | 25 | Molto rara |
+
+  | Giganti delle nuvole | 27 | Leggendaria |
+
+  | Giganti delle tempeste | 29 | Leggendaria |
+features.0.name: Forza dei giganti
+features.0.effects.0.note: Il tuo punteggio di Forza cambia nel punteggio conferito dalla cintura; nessun effetto se la tua Forza è già pari o superiore.
+features.0.effects.0.options.0.name: Gigante delle colline (21, rara)
+features.0.effects.0.options.1.name: Gigante delle pietre o del gelo (23, molto rara)
+features.0.effects.0.options.2.name: Gigante del fuoco (25, molto rara)
+features.0.effects.0.options.3.name: Gigante delle nuvole (27, leggendaria)
+features.0.effects.0.options.4.name: Gigante delle tempeste (29, leggendaria)

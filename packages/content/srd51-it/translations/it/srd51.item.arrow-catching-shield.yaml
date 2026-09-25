@@ -1,0 +1,13 @@
+name: Scudo catturafrecce
+text: |-
+  Armatura (scudo), rara (richiede sintonia)
+
+  Il personaggio che impugna questo scudo riceve un bonus di +2 alla CA contro gli attacchi a distanza. Questo bonus è cumulativo al normale bonus alla CA dello scudo. Inoltre, ogni volta che un avversario effettua un attacco a distanza contro un bersaglio entro 1,5 metri dal possessore dello scudo, quest'ultimo può usare la sua reazione per diventare il bersaglio dell'attacco al posto di quello inteso.
+features.0.name: Cattura frecce
+features.0.effects.0.text: |-
+  Ricevi un bonus di +2 alla CA contro gli attacchi a distanza mentre impugni questo scudo, cumulativo al normale bonus alla CA dello scudo.
+features.0.effects.0.note: |-
+  Un bonus alla CA contro i soli attacchi a distanza non si può esprimere come modifica (si applicherebbe a ogni attacco); applica a mano il +2 contro gli attacchi a distanza.
+features.0.effects.1.name: Intercettare un attacco a distanza
+features.0.effects.1.trigger: quando un avversario effettua un attacco a distanza contro un bersaglio entro 1,5 metri da te
+features.0.effects.1.text: Diventi il bersaglio dell'attacco al posto di quello inteso.

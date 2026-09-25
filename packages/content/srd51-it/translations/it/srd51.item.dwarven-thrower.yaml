@@ -1,0 +1,10 @@
+name: "Martello nanico da lancio"
+text: |-
+  Arma (martello da guerra), molto rara (richiede sintonia con un nano)
+
+  Il personaggio ottiene un bonus di +3 ai tiri per colpire e ai tiri per i danni effettuati con quest'arma magica. L'arma possiede la proprietà da lancio con una gittata normale di 6 metri e una gittata lunga di 18 metri. Quando il personaggio colpisce un bersaglio con un attacco a distanza con quest'arma, infligge 1d8 danni extra o 2d8 danni, se il bersaglio è un gigante. Subito dopo l'attacco, quest'arma torna in volo in mano al personaggio.
+attunement.by: "un nano"
+features.0.name: "Bonus di +3"
+features.1.name: "Da lancio"
+features.1.effects.0.note: "Solo quando colpisci con un attacco a distanza (da lancio): 1d8 danni extra, o 2d8 se il bersaglio è un gigante. Subito dopo l'attacco, l'arma torna in volo nella tua mano."
+features.1.effects.1.text: "Il martello possiede la proprietà da lancio con una gittata normale di 6 metri e una gittata lunga di 18 metri. Quando colpisci con un attacco a distanza effettuato con esso, infligge 1d8 danni extra o, se il bersaglio è un gigante, 2d8 danni. Subito dopo l'attacco, l'arma torna in volo nella tua mano."

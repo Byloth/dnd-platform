@@ -1,0 +1,5 @@
+name: Ritirata rapida
+text: |-
+  Questo incantesimo permette all'incantatore di muoversi a una velocità straordinaria. Quando lancia questo incantesimo e poi come azione bonus a ogni suo turno finché l'incantesimo non termina, può effettuare l'azione Scatto.
+effects.0.name: "Ritirata rapida: Scatto"
+effects.0.text: Puoi effettuare l'azione Scatto come azione bonus (anche quando lanci l'incantesimo).

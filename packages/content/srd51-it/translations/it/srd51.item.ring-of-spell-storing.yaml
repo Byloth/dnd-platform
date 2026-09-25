@@ -1,0 +1,14 @@
+name: Anello accumula incantesimi
+text: |-
+  Anello, raro (richiede sintonia)
+
+  Questo anello accumula gli incantesimi lanciati su di esso, finché un possessore in sintonia con esso non decide di usarli. L'anello può contenere fino a 5 livelli di incantesimo per volta. Quando viene trovato, contiene 1d6 - 1 livelli di incantesimi accumulati scelti dal GM.
+
+  Qualsiasi creatura può lanciare nell'anello un incantesimo di livello compreso tra il 1° e il 5° toccandolo al momento del lancio dell'incantesimo. L'incantesimo non ha alcun effetto, a parte quello di essere immagazzinato nell'anello. Se l'anello non può contenere altri incantesimi, quello lanciato viene sprecato senza provocare alcun effetto. Il livello dello slot usato per lanciare l'incantesimo determina lo spazio che occupa.
+
+  Finché il personaggio indossa l'anello, può lanciare qualsiasi incantesimo conservato al suo interno. L'incantesimo usa il livello di slot, la CD del tiro salvezza sull'incantesimo, il bonus all'attacco con incantesimo e la caratteristica da incantatore di chi l'ha lanciato in origine, ma sotto ogni altro aspetto si considera che sia stato il personaggio a lanciarlo. L'incantesimo lanciato dall'anello non è più conservato al suo interno, liberando il relativo spazio.
+features.0.name: Accumulare incantesimi
+features.0.effects.0.text: |-
+  L'anello accumula fino a 5 livelli di incantesimi lanciati al suo interno da qualsiasi creatura (dal 1° al 5° livello, ognuno dei quali occupa uno spazio pari al livello dello slot usato). Mentre lo indossi, puoi lanciare qualsiasi incantesimo accumulato usando il livello di slot, la CD del tiro salvezza, il bonus all'attacco con incantesimo e la caratteristica da incantatore di chi l'ha lanciato in origine; l'incantesimo poi lascia l'anello.
+features.0.effects.0.note: |-
+  L'accumulo di incantesimi (incantesimi lanciati in un oggetto e rilasciati in seguito con le statistiche dell'incantatore originale) non è esprimibile nella v0; è riportato come testo.

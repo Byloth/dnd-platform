@@ -1,0 +1,11 @@
+name: Braciere del comando degli elementali del fuoco
+text: |-
+  Oggetto meraviglioso, raro
+
+  Quando un fuoco arde in questo braciere di ottone, il personaggio può usare un'azione per pronunciarne la parola d'ordine ed evocare un elementale del fuoco, come se avesse lanciato l'incantesimo evoca elementale. Il braciere non può essere riutilizzato in questo modo fino all'alba successiva.
+
+  Il braciere pesa 2,5 kg.
+features.0.name: Evocare un elementale del fuoco
+features.0.effects.0.name: Evocare un elementale del fuoco
+features.0.effects.0.text: Quando un fuoco arde nel braciere, pronunciane la parola d'ordine per evocare un elementale del fuoco, come se avessi lanciato l'incantesimo evoca elementale. Il braciere non può essere riutilizzato in questo modo fino all'alba successiva.
+features.0.effects.0.onUse.0.text: Compare un elementale del fuoco come per evoca elementale (nel braciere deve ardere un fuoco); consulta l'incantesimo per il controllo e la durata.

@@ -1,0 +1,14 @@
+name: Perla del potere
+text: |-
+  Oggetto meraviglioso, non comune (richiede sintonia con un incantatore)
+
+  Finché il personaggio porta questa perla sulla sua persona, può usare un'azione per pronunciarne la parola d'ordine e recuperare uno slot incantesimo consumato. Se lo slot consumato era di livello pari o superiore al 4°, il nuovo slot sarà di 3° livello. Una volta usata, la perla non può essere riutilizzata fino all'alba successiva.
+attunement.by: un incantatore
+features.0.name: Recuperare uno slot incantesimo
+features.0.text: |-
+  Finché il personaggio porta questa perla sulla sua persona, può usare un'azione per pronunciarne la parola d'ordine e recuperare uno slot incantesimo consumato. Se lo slot consumato era di livello pari o superiore al 4°, il nuovo slot sarà di 3° livello. Una volta usata, la perla non può essere riutilizzata fino all'alba successiva.
+features.0.effects.0.name: Recuperare uno slot incantesimo
+features.0.effects.0.onUse.0.note: |-
+  Uno slot incantesimo consumato. Se lo slot consumato era di livello pari o superiore al 4°, il nuovo slot è di 3° livello.
+features.0.effects.0.text: |-
+  Pronuncia la parola d'ordine per recuperare uno slot incantesimo consumato (di 3° livello se lo slot consumato era di livello pari o superiore al 4°).

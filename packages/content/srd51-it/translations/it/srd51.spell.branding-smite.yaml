@@ -1,0 +1,5 @@
+name: Punizione marchiante
+text: |-
+  La prossima volta che l'incantatore colpisce una creatura con un attacco con arma prima della fine di questo incantesimo, l'arma risplende di un bagliore astrale. L'attacco infligge 2d6 danni radiosi extra al bersaglio, che diventa visibile nel caso fosse invisibile, proietta luce fioca in un raggio di 1,5 metri e non può tornare invisibile fino alla fine dell'incantesimo.
+higherLevel: |-
+  Quando l'incantatore lancia questo incantesimo usando uno slot incantesimo di 3° livello o superiore, i danni extra aumentano di 1d6 per ogni slot di livello superiore al 2°.

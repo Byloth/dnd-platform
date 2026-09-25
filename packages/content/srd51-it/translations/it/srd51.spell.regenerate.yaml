@@ -1,0 +1,6 @@
+name: Rigenerazione
+components.m: Una ruota della preghiera e acqua santa.
+text: |-
+  L'incantatore tocca una creatura e amplifica le sue capacità curative naturali, facendole recuperare 4d8 + 15 punti ferita. Per la durata dell'incantesimo, il bersaglio recupera 1 punto ferita all'inizio di ogni suo turno (10 punti ferita al minuto). Se al bersaglio sono state recise delle parti del corpo (dita, gambe, coda e così via), quelle parti ricrescono dopo 2 minuti e, se è in possesso della parte recisa, appoggiandola al moncone l'incantesimo rinsalda istantaneamente l'arto.
+effects.0.text: |-
+  Recupera 1 punto ferita all'inizio di ogni suo turno (10 punti ferita al minuto); le parti del corpo recise ricrescono dopo 2 minuti, o istantaneamente se appoggiate al moncone.

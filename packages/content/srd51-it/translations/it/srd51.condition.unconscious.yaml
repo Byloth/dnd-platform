@@ -1,0 +1,9 @@
+name: Privo di sensi
+text: |-
+  * Una creatura priva di sensi è incapacitata (vedi la relativa condizione), non è in grado di muoversi o parlare ed è inconsapevole di ciò che le accade attorno.
+  * La creatura lascia cadere tutto ciò che impugna e cade a terra prona.
+  * La creatura fallisce automaticamente i tiri salvezza su Forza e Destrezza.
+  * I tiri per colpire contro la creatura ottengono vantaggio.
+  * Ogni attacco che colpisce la creatura è un colpo critico se l'attaccante è situato entro 1,5 metri dalla creatura.
+effects.5.text: Incapacitato, prono, inconsapevole; fallisci automaticamente i tiri salvezza su Forza e Destrezza; gli attacchi contro di te ottengono vantaggio e sono colpi critici entro 1,5 metri.
+effects.5.note: "Il motore delle regole non gestisce i tiri effettuati contro di te: l'effetto è mostrato come promemoria."

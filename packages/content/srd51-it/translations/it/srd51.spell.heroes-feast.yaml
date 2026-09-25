@@ -1,0 +1,8 @@
+name: Banchetto degli eroi
+components.m: Una ciotola tempestata di gemme del valore di almeno 1.000 mo, che l'incantesimo consuma.
+text: |-
+  L'incantatore evoca un ricco banchetto, completo di sontuose pietanze e bevande. Consumare il banchetto richiede 1 ora, solo al termine della quale il convivio scompare e i suoi effetti benefici vengono applicati. Fino a un massimo di dodici altre creature possono partecipare al banchetto. Una creatura che partecipa al banchetto ne trae diversi benefici: viene curata da tutti i tipi di malattie e veleni, diventa immune ai veleni e alla condizione spaventato e dispone di vantaggio a tutti i tiri salvezza su Saggezza. Inoltre, i suoi punti ferita massimi aumentano di 2d10 e ottiene lo stesso numero di punti ferita. Questi benefici permangono per 24 ore.
+effects.0.note: Si tira una sola volta quando il banchetto viene consumato; il bersaglio ottiene inoltre lo stesso numero di punti ferita.
+onCast.0.note: Lo stesso numero tirato per l'aumento dei punti ferita massimi.
+onCast.1.text: |-
+  Consumare il banchetto richiede 1 ora e i benefici vengono applicati solo al termine, permanendo per 24 ore, per un massimo di dodici altre creature. Ogni partecipante viene inoltre curato da tutti i tipi di malattie e veleni.

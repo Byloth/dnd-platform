@@ -1,0 +1,25 @@
+name: Bastone dei boschi
+text: |-
+  Bastone, raro (richiede sintonia con un druido)
+
+  Questo bastone può essere impugnato come un bastone ferrato magico che garantisce un bonus di +2 ai tiri per colpire e ai tiri per i danni effettuati con esso. Mentre il personaggio lo impugna, ottiene un bonus di +2 ai tiri per colpire con incantesimo.
+
+  Il bastone possiede 10 cariche per le proprietà descritte di seguito. All'alba di ogni giorno, recupera 1d6 + 4 cariche consumate. Se il personaggio consuma l'ultima carica, deve tirare un d20; se ottiene 1, il bastone diventa un bastone ferrato non magico.
+
+  ***Incantesimi.*** Il personaggio può usare un'azione e consumare 1 o più cariche per lanciare con esso uno degli incantesimi seguenti, usando la sua CD del tiro salvezza sull'incantesimo: amicizia con gli animali (1 carica), localizza animali o vegetali (2 cariche), muro di spine (6 cariche), parlare con gli animali (1 carica), parlare con i vegetali (3 cariche), pelle coriacea (2 cariche) o risveglio (5 cariche).
+
+  Il personaggio può anche usare un'azione per lanciare con il bastone l'incantesimo passare senza tracce senza consumare alcuna carica. Forma arborea. Il personaggio può usare un'azione per piantare un'estremità del bastone in un tratto di terra fertile e consumare 1 carica per trasformare il bastone in un albero rigoglioso. L'albero è alto 18 metri, ha un tronco del diametro di 1,5 metri e i rami sulla cima si estendono in un raggio di 6 metri.
+
+  Sembra un normale albero, ma se su di lui viene lanciato un incantesimo individuazione del magico, emana una debole aura di magia di trasmutazione. Toccando l'albero e usando un'altra azione per pronunciare la parola d'ordine, il personaggio può riportare il bastone alla sua forma normale, facendo cadere ogni creatura che si trova su di esso.
+attunement.by: un druido
+features.0.name: Bastone ferrato magico
+features.1.name: Incantesimi
+features.1.effects.0.note: |-
+  Si lancia con un'azione usando la tua CD del tiro salvezza sull'incantesimo. Se consumi l'ultima carica, tira un d20: con un 1 il bastone diventa un bastone ferrato non magico.
+features.1.effects.5.note: Si lancia con il bastone con un'azione, senza consumare alcuna carica.
+features.2.name: Forma arborea
+features.2.effects.0.name: Forma arborea
+features.2.effects.0.text: |-
+  Pianti un'estremità del bastone in un tratto di terra fertile per trasformarlo in un albero rigoglioso alto 18 metri, con un tronco del diametro di 1,5 metri e rami che si estendono in un raggio di 6 metri. Sembra un normale albero, ma emana una debole aura di trasmutazione a individuazione del magico. Toccando l'albero, usi un'altra azione per pronunciare la parola d'ordine e riportare il bastone alla sua forma normale; ogni creatura che si trova sull'albero cade.
+features.2.effects.0.onUse.0.text: |-
+  L'albero rimane finché, toccandolo, non usi un'azione per pronunciare la parola d'ordine.

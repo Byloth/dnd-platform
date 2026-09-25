@@ -1,0 +1,15 @@
+name: Giavellotto del fulmine
+text: |-
+  Arma (giavellotto), non comune
+
+  Questo giavellotto è un'arma magica. Quando il personaggio lo scaglia pronunciandone la parola d'ordine, si trasforma in un fulmine che forma una linea larga 1,5 metri e si estende dal personaggio a un bersaglio situato entro 36 metri. Ogni creatura lungo la linea (a eccezione del personaggio e del bersaglio) deve effettuare un tiro salvezza su Destrezza con CD 13; se lo fallisce, subisce 4d6 danni da fulmine, mentre se lo supera subisce la metà di quei danni. Una volta raggiunto il bersaglio, il fulmine torna ad essere un giavellotto. Il personaggio effettua un attacco con arma a distanza contro il bersaglio; se il colpo va a segno, il bersaglio subisce i danni del giavellotto più 4d6 danni da fulmine.
+
+  La proprietà del giavellotto non può essere riutilizzata fino all'alba successiva. Nel frattempo, il giavellotto può comunque essere usato come arma magica.
+features.0.name: Arma magica
+features.0.text: Questo giavellotto è un'arma magica.
+features.1.name: Fulmine
+features.1.text: |-
+  Quando il personaggio lo scaglia pronunciandone la parola d'ordine, si trasforma in un fulmine che forma una linea larga 1,5 metri e si estende dal personaggio a un bersaglio situato entro 36 metri. Ogni creatura lungo la linea (a eccezione del personaggio e del bersaglio) deve effettuare un tiro salvezza su Destrezza con CD 13; se lo fallisce, subisce 4d6 danni da fulmine, mentre se lo supera subisce la metà di quei danni. Una volta raggiunto il bersaglio, il fulmine torna ad essere un giavellotto. Il personaggio effettua un attacco con arma a distanza contro il bersaglio; se il colpo va a segno, il bersaglio subisce i danni del giavellotto più 4d6 danni da fulmine. La proprietà del giavellotto non può essere riutilizzata fino all'alba successiva.
+features.1.effects.0.name: Fulmine
+features.1.effects.0.text: |-
+  Si scaglia il giavellotto pronunciandone la parola d'ordine. Ogni creatura lungo una linea larga 1,5 metri fino a un bersaglio entro 36 metri (a eccezione del personaggio e del bersaglio) effettua un tiro salvezza su Destrezza con CD 13 contro 4d6 danni da fulmine, la metà in caso di successo. Poi il personaggio effettua un attacco con arma a distanza contro il bersaglio; se il colpo va a segno, il bersaglio subisce i danni del giavellotto più 4d6 danni da fulmine.

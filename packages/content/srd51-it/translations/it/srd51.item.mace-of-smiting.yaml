@@ -1,0 +1,18 @@
+name: Mazza della punizione
+text: |-
+  Arma (mazza), rara
+
+  Il personaggio ottiene un bonus di +1 ai tiri per colpire e ai tiri per i danni effettuati con quest'arma magica. Quando la usa per attaccare un costrutto, questo bonus sale a +3.
+
+  Quando il personaggio ottiene un 20 a un tiro per colpire con quest'arma, il bersaglio subisce 2d6 danni contundenti extra o 4d6 danni contundenti se si tratta di un costrutto. Se dopo aver subito tali danni un costrutto scende a 25 punti ferita o meno, viene distrutto.
+features.0.name: Arma magica
+features.0.text: |-
+  Il personaggio ottiene un bonus di +1 ai tiri per colpire e ai tiri per i danni effettuati con quest'arma magica. Quando la usa per attaccare un costrutto, questo bonus sale a +3.
+features.0.effects.0.note: Il bonus è invece di +3 quando il personaggio attacca un costrutto.
+features.1.name: Punizione
+features.1.text: |-
+  Quando il personaggio ottiene un 20 a un tiro per colpire con quest'arma, il bersaglio subisce 2d6 danni contundenti extra o 4d6 danni contundenti se si tratta di un costrutto. Se dopo aver subito tali danni un costrutto scende a 25 punti ferita o meno, viene distrutto.
+features.1.effects.0.text: |-
+  Quando il personaggio ottiene un 20 a un tiro per colpire con quest'arma, il bersaglio subisce 2d6 danni contundenti extra o 4d6 danni contundenti se si tratta di un costrutto. Se dopo aver subito tali danni un costrutto scende a 25 punti ferita o meno, viene distrutto.
+features.1.effects.0.note: |-
+  Danni extra solo con un 20 naturale; modify-attacks non può subordinare i danni extra al risultato del tiro.

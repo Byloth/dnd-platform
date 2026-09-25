@@ -1,0 +1,19 @@
+name: Componenti
+text: |-
+  Le componenti di un incantesimo sono i requisiti fisici che un personaggio deve soddisfare al fine di lanciarlo. La descrizione di ogni incantesimo indica se richiede componenti verbali (V), somatiche (S) o materiali (M). Se il personaggio non è in grado di fornire una o più delle componenti richieste da un incantesimo, non è in grado di lanciare l'incantesimo.
+
+  ### Verbale (V)
+
+  Molti incantesimi prevedono che l'incantatore intoni una sequenza di parole mistiche. Le parole vere e proprie non sono la fonte del potere dell'incantesimo: è invece quella particolare combinazione di suoni, tonalità e riverbero ad attivare il flusso della magia. Pertanto, un personaggio imbavagliato o situato all'interno di un'area di silenzio come quella creata dall'incantesimo _silenzio_ non può lanciare un incantesimo con una componente verbale.
+
+  ### Somatica (S)
+
+  Per lanciare un incantesimo potrebbe essere necessario gesticolare energicamente o compiere elaborate sequenze di movimenti. Se un incantesimo richiede una componente somatica, l'incantatore deve avere almeno una mano libera al fine di eseguire quei gesti.
+
+  ### Materiale (M)
+
+  Per lanciare alcuni incantesimi sono richiesti degli oggetti specifici, indicati tra parentesi alla voce delle componenti. Un personaggio può usare una **borsa per componenti** o un **focus da incantatore** (descritti in "Equipaggiamento") al posto delle componenti specificate per un incantesimo. Ma se per una componente è indicato un costo, un personaggio deve essere in possesso di quella specifica componente prima di poter lanciare l'incantesimo.
+
+  Se un incantesimo prevede che la componente materiale sia consumata dall'incantesimo, l'incantatore deve fornire questa componente a ogni lancio dell'incantesimo.
+
+  Un incantatore deve avere una mano libera per accedere alle componenti materiali dell'incantesimo (o per impugnare un focus da incantatore), ma può essere la stessa mano che usa per fornire le componenti somatiche.

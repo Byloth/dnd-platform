@@ -1,0 +1,7 @@
+name: Fermaglio dello scudo
+text: |-
+  Oggetto meraviglioso, non comune (richiede sintonia)
+
+  Quando indossa questo fermaglio, il personaggio possiede resistenza ai danni da forza ed è immune ai danni inflitti dall'incantesimo dardo incantato.
+features.0.name: Scudo
+features.0.effects.1.note: Immunità ai danni inflitti dall'incantesimo dardo incantato.

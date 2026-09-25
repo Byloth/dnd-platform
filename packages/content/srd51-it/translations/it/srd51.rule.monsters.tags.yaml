@@ -1,0 +1,3 @@
+name: "Descrittori"
+text: |-
+  Uno o più descrittori potrebbero comparire tra parentesi dopo il tipo di mostro. Per esempio, un orco appartiene al tipo *umanoide (orco)*. I descrittori tra parentesi forniscono categorie aggiuntive per certe creature. Ai descrittori non è associata alcuna regola intrinseca, ma certi elementi del gioco, come alcuni oggetti magici, potrebbero farvi riferimento. Per esempio, una lancia particolarmente efficace contro i demoni funzionerebbe contro qualsiasi mostro con il descrittore demone.

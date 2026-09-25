@@ -1,0 +1,17 @@
+name: Unguento rigenerativo
+text: |-
+  Oggetto meraviglioso, non comune
+
+  Questo barattolo di vetro del diametro di 7,5 cm contiene 1d4 + 1 dosi di una densa mistura dal vago odore di aloe. Il barattolo e il suo contenuto pesano 250 grammi.
+
+  Con un'azione è possibile inghiottire una dose di unguento o spalmarsela sulla pelle. La creatura che la riceve recupera 2d8 + 2 punti ferita, cessa di essere avvelenata ed è curata da ogni malattia.
+features.0.name: Applicare una dose
+features.0.text: |-
+  Questo barattolo di vetro contiene 1d4 + 1 dosi di una densa mistura dal vago odore di aloe. Con un'azione è possibile inghiottire una dose di unguento o spalmarsela sulla pelle. La creatura che la riceve recupera 2d8 + 2 punti ferita, cessa di essere avvelenata ed è curata da ogni malattia.
+features.0.effects.0.name: Applicare una dose
+features.0.effects.0.onUse.0.note: |-
+  La creatura che inghiotte la dose o se la vede spalmare sulla pelle. Le dosi non si recuperano.
+features.0.effects.0.onUse.1.text: |-
+  La creatura cessa di essere avvelenata ed è curata da ogni malattia.
+features.0.effects.0.text: |-
+  Inghiotti una dose o spalmala sulla pelle. La creatura recupera 2d8 + 2 punti ferita, cessa di essere avvelenata ed è curata da ogni malattia.

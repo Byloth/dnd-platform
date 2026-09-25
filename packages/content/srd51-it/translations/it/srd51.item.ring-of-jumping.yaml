@@ -1,0 +1,10 @@
+name: Anello del saltare
+text: |-
+  Anello, non comune (richiede sintonia)
+
+  Mentre il personaggio indossa questo anello, può lanciare con esso l'incantesimo *saltare* a volontà come azione bonus, ma può bersagliare solo se stesso.
+features.0.name: Saltare
+features.0.text: |-
+  Mentre il personaggio indossa questo anello, può lanciare con esso l'incantesimo *saltare* a volontà come azione bonus, ma può bersagliare solo se stesso.
+features.0.effects.0.note: |-
+  Lo lanci a volontà come azione bonus, senza slot incantesimo, bersagliando solo te stesso.

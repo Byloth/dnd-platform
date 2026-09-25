@@ -1,0 +1,10 @@
+name: Bacchetta di missili magici
+text: |-
+  Bacchetta, non comune
+
+  Questa bacchetta possiede 7 cariche. Mentre il personaggio la impugna, può usare un'azione per consumare 1 o più delle sue cariche e lanciare con essa l'incantesimo dardo incantato. Consumando 1 carica, il personaggio lancia la versione di 1° livello dell'incantesimo. Può aumentare il livello dello slot incantesimo di 1 per ogni carica aggiuntiva consumata.
+
+  All'alba di ogni giorno, la bacchetta recupera 1d6 + 1 cariche consumate. Se il personaggio consuma l'ultima carica, deve tirare un d20: se ottiene 1, la bacchetta diventa cenere e viene distrutta.
+features.0.name: Dardo incantato
+features.0.effects.0.note: |-
+  Consumando 1 carica lanci la versione di 1° livello; ogni carica aggiuntiva consumata aumenta di 1 il livello dello slot incantesimo. Se consumi l'ultima carica, tira un d20: con un 1 la bacchetta diventa cenere e viene distrutta.

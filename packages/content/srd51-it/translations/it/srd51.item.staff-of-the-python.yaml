@@ -1,0 +1,19 @@
+name: Bastone del pitone
+text: |-
+  Bastone, non comune (richiede sintonia con un chierico, un druido o un warlock)
+
+  Il personaggio può usare un'azione per pronunciarne la parola d'ordine e gettarlo a terra entro 3 metri da lui. Il bastone diventa un serpente stritolatore gigante sotto il controllo del personaggio e agisce in base al proprio punteggio di iniziativa. Quando il personaggio usa un'azione bonus per pronunciare di nuovo la parola d'ordine, il bastone torna alla sua forma normale nello spazio occupato in precedenza dal serpente.
+
+  Durante il proprio turno, il personaggio può comandare mentalmente il serpente, purché questi si trovi entro 18 metri da lui e il personaggio non sia incapacitato. Il personaggio decide quale azione il serpente deve effettuare e dove si muoverà nel suo turno successivo, oppure può impartirgli un comando generico, come per esempio attaccare i nemici o fare la guardia a un luogo.
+
+  Se il serpente scende a 0 punti ferita, muore e torna alla forma di bastone. Dopodiché, il bastone va in frantumi e viene distrutto. Se il serpente torna alla forma di bastone prima di perdere tutti i punti ferita, li recupera tutti.
+attunement.by: un chierico, un druido o un warlock
+features.0.name: Pitone
+features.0.effects.0.name: Diventare un serpente stritolatore gigante
+features.0.effects.0.text: |-
+  Pronunci la parola d'ordine e getti il bastone a terra entro 3 metri: diventa un serpente stritolatore gigante sotto il tuo controllo che agisce in base al proprio punteggio di iniziativa. Durante il tuo turno puoi comandarlo mentalmente, purché si trovi entro 18 metri e tu non sia incapacitato, decidendo la sua azione e il suo movimento o impartendogli un comando generico. Se il serpente scende a 0 punti ferita muore, torna alla forma di bastone e il bastone va in frantumi; se torna alla forma di bastone prima di perdere tutti i punti ferita, li recupera tutti.
+features.0.effects.0.onUse.0.text: |-
+  Usa la scheda delle statistiche del serpente stritolatore gigante; le schede delle statistiche delle creature non fanno parte dei contenuti nella v0.
+features.0.effects.1.name: Riportare il bastone alla sua forma normale
+features.0.effects.1.text: |-
+  Pronunci di nuovo la parola d'ordine per riportare il bastone alla sua forma normale nello spazio occupato in precedenza dal serpente.

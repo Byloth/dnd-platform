@@ -1,0 +1,17 @@
+name: Pozione della forza dei giganti
+text: |-
+  Pozione, rarità variabile
+
+  Quando il personaggio beve questa pozione, il suo punteggio di Forza cambia per 1 ora, come determinato dal tipo di gigante (vedi la tabella sottostante). Se il punteggio di Forza del personaggio è pari o superiore a quello conferito dalla pozione, non ha alcun effetto.
+
+  Nel liquido trasparente di questa pozione galleggia un frammento d'unghia di un gigante del tipo appropriato. La *pozione della forza dei giganti del gelo* e la *pozione della forza dei giganti delle pietre* hanno lo stesso effetto.
+
+  | Tipo di gigante | Forza | Rarità |
+  |---|---|---|
+  | Giganti delle colline | 21 | Non comune |
+  | Giganti del gelo/delle pietre | 23 | Rara |
+  | Giganti del fuoco | 25 | Rara |
+  | Giganti delle nuvole | 27 | Molto rara |
+  | Giganti delle tempeste | 29 | Leggendaria |
+onUse.0.text: |-
+  Quando bevi questa pozione, il tuo punteggio di Forza cambia per 1 ora in base al tipo di gigante (colline 21, gelo o pietre 23, fuoco 25, nuvole 27, tempeste 29). Se il tuo punteggio di Forza è pari o superiore a quello conferito dalla pozione, non ha alcun effetto.

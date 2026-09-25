@@ -1,0 +1,8 @@
+name: Esilio
+components.m: Un oggetto sgradito al bersaglio.
+text: |-
+  L'incantatore tenta di inviare su un altro piano di esistenza una creatura entro gittata e che è in grado di vedere. Il bersaglio deve superare un tiro salvezza su Carisma altrimenti viene esiliato. Se il bersaglio proviene dal piano di esistenza su cui si trova, l'incantatore lo esilia su un semipiano innocuo. Finché si trova nel semipiano, il bersaglio è incapacitato e rimane in quel luogo fino al termine dell'incantesimo, per poi riapparire nello spazio che ha lasciato o nello spazio libero più vicino se tale spazio è occupato. Se il bersaglio proviene da un piano di esistenza differente di quello su cui si trova, viene esiliato sul suo piano di origine producendo un suono simile a un debole scoppio. Se l'incantesimo termina prima che sia trascorso 1 minuto, il bersaglio riappare nello spazio che ha lasciato o nello spazio libero più vicino se tale spazio è occupato; altrimenti non fa ritorno.
+higherLevel: |-
+  Quando l'incantatore lancia questo incantesimo usando uno slot incantesimo di 5° livello o superiore, può bersagliare una creatura aggiuntiva per ogni slot di livello superiore al 4°.
+onCast.0.note: |-
+  Se fallisce il tiro salvezza su Carisma, una creatura originaria del tuo piano viene esiliata su un semipiano innocuo, dove è incapacitata fino al termine dell'incantesimo, per poi riapparire nello spazio che ha lasciato. Una creatura originaria di un altro piano ritorna sul suo piano di origine e non fa ritorno se l'incantesimo dura un minuto intero. Una creatura aggiuntiva per ogni slot di livello superiore al 4°.

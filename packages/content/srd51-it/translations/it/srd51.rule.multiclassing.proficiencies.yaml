@@ -1,0 +1,20 @@
+name: "Competenze"
+text: |-
+  Quando un personaggio ottiene il suo primo livello in una classe diversa dalla sua classe iniziale, riceve soltanto alcune delle nuove competenze di partenza della nuova classe, come indicato nella tabella "Competenze dei multiclasse".
+
+  **Competenze dei multiclasse (tabella)**
+
+  | Classe    | Competenze ottenute                                                                                             |
+  |-----------|-----------------------------------------------------------------------------------------------------------------|
+  | Barbaro   | Scudi, armi semplici, armi da guerra                                                                            |
+  | Bardo     | Armature leggere, un'abilità a scelta, uno strumento musicale a scelta                                          |
+  | Chierico  | Armature leggere, armature medie, scudi                                                                         |
+  | Druido    | Armature leggere, armature medie, scudi (i druidi non usano armature e scudi fatti di metallo)                  |
+  | Guerriero | Armature leggere, armature medie, scudi, armi semplici, armi da guerra                                          |
+  | Monaco    | Armi semplici, spade corte                                                                                      |
+  | Paladino  | Armature leggere, armature medie, scudi, armi semplici, armi da guerra                                          |
+  | Ranger    | Armature leggere, armature medie, scudi, armi semplici, armi da guerra, un'abilità dalla lista delle abilità di classe |
+  | Ladro     | Armature leggere, un'abilità dalla lista delle abilità della classe, arnesi da scasso                           |
+  | Stregone  | —                                                                                                               |
+  | Warlock   | Armature leggere, armi semplici                                                                                 |
+  | Mago      | —                                                                                                               |

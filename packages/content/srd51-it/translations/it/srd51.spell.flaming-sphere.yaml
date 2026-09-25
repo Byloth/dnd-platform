@@ -1,0 +1,9 @@
+name: Sfera infuocata
+components.m: Un frammento di sego, un pizzico di zolfo e una manciata di polvere di ferro.
+text: |-
+  Una sfera di fuoco del diametro di 1,5 metri compare in uno spazio libero entro gittata a scelta dell'incantatore, dove permane per la durata dell'incantesimo. Ogni creatura che termina il suo turno entro 1,5 metri dalla sfera deve effettuare un tiro salvezza su Destrezza. Se lo fallisce, subisce 2d6 danni da fuoco, mentre se lo supera subisce soltanto la metà di quei danni. Come azione bonus, l'incantatore può muovere la sfera per un massimo di 9 metri. Se una creatura entra in contatto con la sfera, quella creatura deve effettuare il tiro salvezza contro i danni inflitti e la sfera, per quel turno, non può muoversi ulteriormente. Quando l'incantatore muove la sfera, può dirigerla oltre le barriere alte fino a 1,5 metri e farla saltare oltre le fosse larghe fino a 3 metri. La sfera incendia gli oggetti infiammabili che non sono indossati o trasportati, proiettando luce intensa entro un raggio di 6 metri e luce fioca per altri 6 metri.
+higherLevel: |-
+  Quando l'incantatore lancia questo incantesimo usando uno slot incantesimo di 3° livello o superiore, i danni aumentano di 1d6 per ogni slot di livello superiore al 2°.
+effects.0.name: "Sfera infuocata: muovere"
+effects.0.text: Muovi la sfera per un massimo di 9 metri (oltre le barriere alte fino a 1,5 metri e oltre le fosse larghe fino a 3 metri). Se la spingi contro una creatura, quella creatura effettua il tiro salvezza su Destrezza contro i danni della sfera e la sfera, per quel turno, non può muoversi ulteriormente.
+effects.0.note: I danni aumentano di 1d6 per ogni slot di livello superiore al 2°. Ogni creatura che termina il suo turno entro 1,5 metri dalla sfera effettua lo stesso tiro salvezza.

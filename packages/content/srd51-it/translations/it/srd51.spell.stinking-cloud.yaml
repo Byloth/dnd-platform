@@ -1,0 +1,4 @@
+name: Nube maleodorante
+components.m: Un uovo marcio o alcune foglie di cavolo puzzola.
+text: |-
+  L'incantatore genera una sfera di gas nauseante giallastro del raggio di 6 metri centrata su un punto entro gittata. La nuvola si estende intorno agli angoli, la sua area è pesantemente oscurata e permane nell'aria per tutta la durata dell'incantesimo. Ogni creatura che si trova completamente all'interno della nuvola all'inizio del proprio turno deve effettuare un tiro salvezza su Costituzione contro il veleno. Se lo fallisce, è scossa dai conati e usa la sua azione di quel turno per vomitare. Le creature che non hanno bisogno di respirare o sono immuni al veleno superano automaticamente questo tiro salvezza. Un vento moderato (almeno 15 km orari) disperde la nuvola dopo 4 round. Un vento forte (almeno 30 km orari) disperde la nuvola dopo 1 round.

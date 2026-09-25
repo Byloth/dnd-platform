@@ -1,0 +1,14 @@
+name: "Spadone del gelo"
+text: |-
+  Arma (qualsiasi spada), molto rara (richiede sintonia)
+
+  Quando il personaggio colpisce con un attacco effettuato con questa spada magica, il bersaglio subisce 1d6 danni da freddo extra. Inoltre, finché impugna la spada, il personaggio ha resistenza ai danni da fuoco.
+
+  A temperature gelide, la lama proietta luce intensa in un raggio di 3 metri e luce fioca per altri 3 metri.
+
+  Quando il personaggio sfodera quest'arma, può estinguere tutte le fiamme non magiche entro un raggio di 9 metri da lui. Questa proprietà non può essere utilizzata più di una volta ogni ora.
+features.0.name: "Gelo"
+features.0.effects.1.note: "Finché impugni la spada."
+features.0.effects.2.text: "A temperature gelide, la lama proietta luce intensa in un raggio di 3 metri e luce fioca per altri 3 metri."
+features.0.effects.3.name: "Estinguere le fiamme sfoderando la spada"
+features.0.effects.3.text: "Quando sfoderi quest'arma, puoi estinguere tutte le fiamme non magiche entro un raggio di 9 metri da te. Questa proprietà non può essere utilizzata più di una volta ogni ora."

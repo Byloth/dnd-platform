@@ -1,0 +1,5 @@
+name: Spingere una creatura
+text: |-
+  Usando l'azione di Attacco, un personaggio può effettuare un attacco in mischia speciale per spingere una creatura, scegliendo se buttarla a terra srd:prone o allontanarla da sé. Se è in grado di effettuare più attacchi tramite l'azione di Attacco, questo attacco si sostituisce a uno di essi.
+
+  Il bersaglio può essere al massimo più grande di una categoria di taglia rispetto a quella del personaggio e deve trovarsi entro la sua portata. Invece di effettuare un tiro per colpire, il personaggio effettua una prova di Forza (Atletica) contrapposta alla prova di Forza (Atletica) o di Destrezza (Acrobazia) del bersaglio (che può scegliere quale delle due caratteristiche usare). In caso di successo nella contesa, il personaggio butta il bersaglio a terra srd:prone oppure lo allontana di 1,5 metri da sé.

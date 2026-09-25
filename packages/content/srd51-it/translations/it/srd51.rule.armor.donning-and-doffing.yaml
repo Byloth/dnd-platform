@@ -1,0 +1,16 @@
+name: Indossare e togliere un'armatura
+text: |-
+  Il tempo richiesto per indossare o togliere un determinato tipo di armatura dipende dalla categoria.
+
+  **_Indossare._** Questo è il tempo richiesto per indossare l'armatura. Il personaggio beneficia della sua CA solo se impiega tutto il tempo richiesto per indossarla.
+
+  **_Togliere._** Questo è il tempo richiesto per togliere l'armatura. Se qualcuno aiuta il personaggio, il tempo è ridotto della metà.
+
+  **Indossare e togliere armature (tabella)**
+
+  | Categoria        | Indossare  | Togliere  |
+  |------------------|------------|-----------|
+  | Armature leggere | 1 minuto   | 1 minuto  |
+  | Armature medie   | 5 minuti   | 1 minuto  |
+  | Armature pesanti | 10 minuti  | 5 minuti  |
+  | Scudo            | 1 azione   | 1 azione  |

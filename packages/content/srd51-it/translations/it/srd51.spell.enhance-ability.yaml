@@ -1,0 +1,21 @@
+name: Caratteristica potenziata
+components.m: Un ciuffo di pelliccia o una piuma strappata a una bestia.
+text: |-
+  L'incantatore tocca una creatura e le concede un potenziamento magico, scegliendo uno tra gli effetti seguenti che permane fino al termine dell'incantesimo.
+
+  **Resistenza dell'orso.** Il bersaglio dispone di vantaggio alle prove di Costituzione e ottiene inoltre 2d6 punti ferita temporanei, che perde al termine dell'incantesimo.
+
+  **Forza del toro.** Il bersaglio dispone di vantaggio alle prove di Forza e la sua capacità di trasporto raddoppia.
+
+  **Grazia del gatto.** Il bersaglio dispone di vantaggio alle prove di Destrezza e non subisce danni se cade da 6 metri o meno, purché non sia incapacitato.
+
+  **Splendore dell'aquila.** Il bersaglio dispone di vantaggio alle prove di Carisma.
+
+  **Astuzia della volpe.** Il bersaglio dispone di vantaggio alle prove di Intelligenza.
+
+  **Saggezza del gufo.** Il bersaglio dispone di vantaggio alle prove di Saggezza.
+higherLevel: |-
+  Quando l'incantatore lancia questo incantesimo usando uno slot incantesimo di 3° livello o superiore, può bersagliare una creatura aggiuntiva per ogni slot superiore al 2°.
+effects.0.text: "Potenziato (un'opzione scelta al momento del lancio): Resistenza dell'orso (vantaggio alle prove di Costituzione, 2d6 punti ferita temporanei che si perdono al termine dell'incantesimo); Forza del toro (vantaggio alle prove di Forza, capacità di trasporto raddoppiata); Grazia del gatto (vantaggio alle prove di Destrezza, nessun danno da cadute di 6 metri o meno, purché non incapacitato); Splendore dell'aquila (vantaggio alle prove di Carisma); Astuzia della volpe (vantaggio alle prove di Intelligenza); Saggezza del gufo (vantaggio alle prove di Saggezza)."
+effects.0.note: Dipende dall'opzione scelta, quindi non è espresso come vantaggio ai tiri o come modifica di carry.capacity.
+onCast.0.note: Solo Resistenza dell'orso; si perdono al termine dell'incantesimo. Una creatura aggiuntiva per ogni slot di livello superiore al 2°.

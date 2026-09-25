@@ -1,0 +1,7 @@
+name: Pozione di amicizia con gli animali
+text: |-
+  Pozione, non comune
+
+  Quando il personaggio beve questa pozione, può lanciare l'incantesimo *amicizia con gli animali* (CD del tiro salvezza 13) a volontà per 1 ora. Agitando questo liquido melmoso si notano alcuni piccoli oggetti al suo interno: una squama di pesce, la lingua di un colibrì, l'artiglio di un gatto o un pelo di scoiattolo.
+onUse.0.text: |-
+  Quando bevi questa pozione, puoi lanciare l'incantesimo *amicizia con gli animali* (CD del tiro salvezza 13) a volontà per 1 ora.

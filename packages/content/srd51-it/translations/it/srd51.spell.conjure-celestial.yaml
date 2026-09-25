@@ -1,0 +1,9 @@
+name: Evoca celestiale
+text: |-
+  L'incantatore evoca un celestiale di grado di sfida pari o inferiore a 4, che appare in uno spazio libero entro gittata che è in grado di vedere. Il celestiale scompare quando scende a 0 punti ferita o al termine dell'incantesimo. Il celestiale è amichevole nei confronti dell'incantatore e dei suoi compagni per tutta la durata dell'incantesimo. Si tira per l'iniziativa del celestiale, che svolge i propri turni. Il celestiale obbedisce ai comandi verbali dell'incantatore (nessuna azione richiesta), a patto che non violino il suo allineamento. Se l'incantatore non impartisce comandi al celestiale, quest'ultimo si difende dalle creature ostili, ma non intraprende altre azioni. Il GM possiede le statistiche del celestiale.
+higherLevel: |-
+  Quando l'incantatore lancia questo incantesimo usando uno slot incantesimo di 9° livello, evoca un celestiale con grado di sfida pari o inferiore a 5.
+effects.0.text: |-
+  Il celestiale evocato (grado di sfida pari o inferiore a 4) è amichevole nei confronti tuoi e dei tuoi compagni, tira la propria iniziativa e obbedisce ai tuoi comandi verbali (nessuna azione richiesta) a patto che non violino il suo allineamento; senza comandi si limita a difendersi. Scompare quando scende a 0 punti ferita o quando l'incantesimo termina.
+onCast.0.text: |-
+  Il GM possiede le statistiche del celestiale (nessun blocco di statistiche in v0). Con uno slot di 9° livello il celestiale può essere di grado di sfida pari o inferiore a 5.

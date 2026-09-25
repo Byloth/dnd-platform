@@ -1,0 +1,23 @@
+name: Fosse
+text: |-
+  _Trappola meccanica_
+
+  Di seguito sono descritte quattro trappole base che fanno uso di una fossa.
+
+  **_Fossa semplice_**. Una trappola con fossa semplice consiste in una buca scavata nel terreno. La buca viene poi coperta da un grosso telo fissato ai margini della fossa e ricoperto di terriccio e detriti.
+
+  La CD per individuare la fossa è pari a 10. Chiunque metta piede sul telo precipita dentro la buca trascinando il drappo con sé e subisce una quantità di danni in base alla profondità della fossa (solitamente 3 metri, ma ne esistono di più profonde).
+
+  **_Fossa nascosta_**. Questa fossa possiede una copertura realizzata con lo stesso materiale del pavimento circostante.
+
+  Una creatura che supera una prova di Saggezza (Percezione) con CD 15 nota l'assenza di impronte sulla sezione di pavimento che forma la copertura della fossa. Per confermare invece che quella sezione di pavimento è in realtà la copertura di una fossa, deve superare una prova di Intelligenza (Indagare) con CD 15.
+
+  Quando una creatura calpesta la copertura, questa si spalanca come una botola, facendo cadere l'intruso nella fossa sottostante. La fossa è solitamente profonda 3 o 6 metri, ma può esserlo anche di più.
+
+  Una volta individuata la trappola con fossa, è possibile inserire uno spuntone di ferro o un oggetto analogo tra la copertura della fossa e il pavimento circostante per evitare che la botola si apra, rendendola sicura da attraversare. La copertura può anche essere mantenuta chiusa magicamente tramite l'incantesimo _serratura arcana_ o magie analoghe.
+
+  **_Fossa richiudibile_**. Questa trappola è identica a quella con fossa nascosta, con una sola eccezione: la copertura della fossa è una botola a molla. Dopo che la creatura è precipitata nella fossa, la copertura si richiude intrappolando la vittima all'interno.
+
+  Per aprire la copertura forzandola occorre superare una prova di Forza con CD 20 o, in alternativa, è possibile sfondarla. Un personaggio nella fossa può inoltre provare a disabilitare il meccanismo a molla dall'interno con una prova di Destrezza con CD 15 usando gli arnesi da scasso, purché sia in grado di raggiungere e vedere il meccanismo. In certi casi, esiste un meccanismo (solitamente nascosto dietro una porta segreta nelle vicinanze) che apre la fossa.
+
+  **_Fossa con spuntoni_**. Questa trappola è una fossa semplice, nascosta o richiudibile sul cui fondo sono stati piantati appuntiti spuntoni di legno o ferro. Una creatura che precipita nella fossa subisce 11 (2d10) danni perforanti dagli spuntoni, oltre agli eventuali danni da caduta. Le versioni di questa trappola ancora più crudeli presentano spuntoni coperti di veleno. In quel caso, chiunque subisca danni perforanti dagli spuntoni deve effettuare un tiro salvezza su Costituzione con CD 13, subendo 22 (4d10) danni da veleno in caso di fallimento, o la metà dei danni in caso di successo.

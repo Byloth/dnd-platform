@@ -1,0 +1,18 @@
+name: Campo anti-magia
+components.m: Un pizzico di polvere o di limatura di ferro.
+text: |-
+  Una sfera invisibile di 3 metri di raggio circonda l'incantatore. Quest'area è isolata dall'energia magica che pervade il multiverso: all'interno della sfera è impossibile lanciare incantesimi, le creature evocate scompaiono e perfino gli oggetti magici diventano comuni. Finché l'incantesimo non termina, la sfera si muove insieme all'incantatore ed è centrata su di lui. All'interno della sfera, gli incantesimi e gli altri effetti magici, eccetto quelli generati da un manufatto o da una divinità, vengono soppressi e non possono protendersi al suo interno. Uno slot speso per lanciare un incantesimo soppresso viene consumato. Mentre un effetto è soppresso, non funziona, ma il tempo che trascorre in questo stato conta ai fini della sua durata.
+
+  **Effetti a bersaglio.** Gli incantesimi o gli altri effetti magici, come dardo incantato e charme su persone, che bersagliano una creatura o un oggetto nella sfera, non hanno alcun effetto su quel bersaglio.
+
+  **Aree di magia.** L'area di un altro incantesimo o effetto magico, come palla di fuoco, non si può estendere all'interno della sfera. Se la sfera si sovrappone a un'area di magia, la parte di area coperta dalla sfera viene soppressa; per esempio, le fiamme create da un muro di fuoco vengono soppresse all'interno della sfera, creando un varco nel muro se la sovrapposizione è abbastanza ampia.
+
+  **Incantesimi.** Qualsiasi incantesimo o altro effetto magico su una creatura o un oggetto nella sfera viene soppresso finché la creatura o l'oggetto in questione si trova al suo interno.
+
+  **Oggetti magici.** All'interno della sfera, le proprietà e i poteri degli oggetti magici vengono soppressi. Per esempio, una spada lunga +1 all'interno della sfera funziona come una spada lunga non magica. Le proprietà e i poteri di un'arma magica vengono soppressi se essa è utilizzata contro un bersaglio che si trova all'interno della sfera o se è impugnata da un attaccante all'interno della sfera. Se un'arma magica o una munizione magica esce interamente dalla sfera (per esempio, se l'incantatore scaglia una freccia magica o una lancia magica contro un bersaglio fuori dalla sfera), la magia dell'oggetto cessa di essere soppressa dal momento stesso in cui esce.
+
+  **Viaggio magico.** All'interno della sfera, teletrasporto e viaggio planare non funzionano, che essa costituisca il punto di destinazione o quello di partenza di questi viaggi magici. Un portale per un altro luogo, mondo o piano di esistenza, oltre che un varco verso uno spazio extradimensionale (come quello creato da un incantesimo trucco della corda), si chiude temporaneamente finché si trova all'interno della sfera.
+
+  **Creature e oggetti.** Una creatura, oppure un oggetto evocato o creato dalla magia, smette temporaneamente di esistere all'interno della sfera, ma riappare immediatamente una volta che lo spazio che occupava non si trova più all'interno della sfera.
+
+  **Dissolvi magie.** Gli incantesimi e gli effetti magici, come dissolvi magie, non hanno alcun effetto sulla sfera. Allo stesso modo, le sfere create da incantesimi campo anti-magia diversi non si annullano a vicenda.

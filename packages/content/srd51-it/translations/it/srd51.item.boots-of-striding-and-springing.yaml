@@ -1,0 +1,10 @@
+name: Stivali molleggiati
+text: |-
+  Oggetto meraviglioso, non comune (richiede sintonia)
+
+  Fintantoché il personaggio indossa questi stivali, ha una velocità base sul terreno pari a 9 metri (a meno che la sua velocità normale non sia superiore), che non viene ridotta se è ingombrato o se indossa un'armatura pesante. Inoltre, il personaggio può saltare di una distanza tripla rispetto al normale, anche se non può superare la distanza concessa dal proprio movimento rimanente.
+features.0.name: Andatura e balzi
+features.0.effects.0.note: La tua velocità base sul terreno diventa 9 metri, a meno che non sia superiore, e non viene ridotta se sei ingombrato o se indossi un'armatura pesante.
+features.0.effects.1.note: Non puoi superare la distanza concessa dal tuo movimento rimanente.
+features.0.effects.2.note: Non puoi superare la distanza concessa dal tuo movimento rimanente.
+features.0.effects.3.text: La tua velocità non viene ridotta se sei ingombrato o se indossi un'armatura pesante.

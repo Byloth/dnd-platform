@@ -1,0 +1,61 @@
+name: "Creare oggetti magici senzienti"
+text: |-
+  Per rendere senziente un oggetto magico, è possibile creare la sua identità allo stesso modo in cui si crea quella di un PNG, con alcune eccezioni descritte di seguito.
+
+  ## Caratteristiche
+
+  Un oggetto magico senziente è dotato di punteggi di Intelligenza, Saggezza e Carisma. Il GM può scegliere i punteggi di caratteristica dell'oggetto o determinarli casualmente. Per farlo, tira 4d6 per ogni punteggio, rimuove il risultato più basso e somma gli altri.
+
+  ## Comunicazione
+
+  Un oggetto senziente può comunicare condividendo le sue emozioni, proiettando i suoi pensieri telepaticamente o parlando a voce alta. Il GM può scegliere in che modo l'oggetto comunica oppure può tirare sulla tabella seguente.
+
+  | d100 | Comunicazione |
+  |--------|-----------------------|
+  | 01–60 | L'oggetto comunica trasmettendo emozioni alla creatura che lo trasporta o lo impugna. |
+  | 61–90 | L'oggetto può parlare, leggere e capire uno o più linguaggi. |
+  | 91–00 | L'oggetto può parlare, leggere e capire uno o più linguaggi. In aggiunta, può comunicare telepaticamente con ogni personaggio che lo trasporta o lo impugna. |
+
+  ## Sensi
+
+  Un oggetto senziente ha una sua consapevolezza e può percepire l'ambiente circostante entro un raggio limitato. Il GM può scegliere i sensi di cui l'oggetto è dotato o tirare sulla tabella seguente.
+
+  | d4 | Sensi |
+  |-----|------------|
+  | 1 | Visione e udito normali entro 9 metri. |
+  | 2 | Visione e udito normali entro 18 metri. |
+  | 3 | Visione e udito normali entro 36 metri. |
+  | 4 | Scurovisione e udito entro 36 metri. |
+
+  ## Allineamento
+
+  Un oggetto magico senziente è dotato di un allineamento. Il suo creatore o la sua natura potrebbero suggerire un allineamento specifico. Altrimenti, il GM può scegliere un allineamento o tirare sulla tabella seguente.
+
+  | d100 | Allineamento |
+  |--------|---------------|
+  | 01–15 | Legale buono |
+  | 16–35 | Neutrale buono |
+  | 36–50 | Caotico buono |
+  | 51–63 | Legale neutrale |
+  | 64–73 | Neutrale |
+  | 74–85 | Caotico neutrale |
+  | 86–89 | Legale malvagio |
+  | 90–96 | Neutrale malvagio |
+  | 97–00 | Caotico malvagio |
+
+   ## Scopo speciale
+
+  Il GM può fornire a un oggetto senziente un obiettivo da perseguire, forse in maniera esclusiva. Fintantoché il suo possessore lo usa in modo consono a quello scopo, l'oggetto continua a collaborare. Ogni deviazione da quello scopo può generare un conflitto tra il possessore e l'oggetto, e potrebbe perfino spingere quest'ultimo a impedire l'uso delle sue proprietà attivate. Il GM può scegliere uno scopo speciale o tirare sulla tabella seguente.
+
+  | d10 | Scopo |
+  |-------|-------------|
+  | 1 | *Allineato:* L'oggetto cerca di sconfiggere o di distruggere chi appartiene a un allineamento diametralmente opposto al suo. (Un oggetto del genere non è mai neutrale.) |
+  | 2 | *Anatema:* L'oggetto cerca di sconfiggere o distruggere le creature di un particolare tipo, come gli immondi, i mutaforma, i troll o i maghi. |
+  | 3 | *Protettore:* L'oggetto cerca di difendere una razza o un tipo particolare di creatura, come gli elfi o i druidi. |
+  | 4 | *Crociato:* L'oggetto cerca di sconfiggere, indebolire o distruggere i servitori di una particolare divinità. |
+  | 5 | *Templare:* L'oggetto cerca di difendere i servitori e gli interessi di una particolare divinità. |
+  | 6 | *Distruttore:* L'oggetto ambisce a seminare la distruzione e incita il suo possessore a combattere arbitrariamente. |
+  | 7 | *In cerca di gloria:* L'oggetto vuole essere riconosciuto come migliore oggetto magico del mondo, rendendo il suo possessore un personaggio famoso o importante. |
+  | 8 | *In cerca di conoscenza:* L'oggetto ambisce ad accumulare conoscenza o è determinato a risolvere un mistero, apprendere un segreto o fare luce su una profezia enigmatica. |
+  | 9 | *In cerca del destino:* L'oggetto è convinto che lui e il suo possessore abbiano un ruolo cruciale da svolgere negli eventi futuri. |
+  | 10 | *In cerca del creatore:* L'oggetto è alla ricerca del suo creatore e vuole capire perché è stato creato. |

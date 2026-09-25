@@ -1,0 +1,16 @@
+name: "Conflitto"
+text: |-
+  Un oggetto senziente è dotato di volontà propria, modellata dalla sua personalità e dal suo allineamento. Se il suo possessore si comporta in modo contrario all'allineamento o allo scopo dell'oggetto, tra i due può nascere un conflitto. In questo caso, l'oggetto effettua una prova di Carisma contrapposta a quella del possessore. Se vince l'oggetto, avanza una o più delle seguenti richieste:
+
+  * L'oggetto insiste per essere trasportato o indossato costantemente.
+  * L'oggetto esige che il suo possessore si sbarazzi di tutto ciò che esso trova ripugnante.
+  * L'oggetto esige che il suo possessore si impegni a perseguire lo scopo dell'oggetto, escludendo ogni altro obiettivo.
+  * L'oggetto esige di essere ceduto a qualcun altro.
+
+  Se il possessore si rifiuta di esaudire le richieste dell'oggetto, quest'ultimo può reagire in uno o più dei modi seguenti:
+
+  * Impedire al possessore di entrare in sintonia con lui.
+  * Sopprimere una o più delle sue proprietà attivate.
+  * Tentare di assumere il controllo del possessore.
+
+  Se un oggetto senziente tenta di assumere il controllo del suo possessore, quest'ultimo deve effettuare un tiro salvezza su Carisma con una CD pari a 12 + il modificatore di Carisma dell'oggetto. Se lo fallisce, il possessore è affascinato dall'oggetto per 1d12 ore. Finché è affascinato, il possessore deve cercare di obbedire agli ordini dell'oggetto. Se il possessore subisce danni, può ripetere il tiro salvezza e terminare l'effetto in caso di successo. Sia che il tentativo di assumere il controllo del possessore abbia successo, sia che fallisca, l'oggetto non può riutilizzare questo potere fino all'alba successiva.

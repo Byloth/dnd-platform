@@ -1,0 +1,101 @@
+name: Guerriero
+levels.1.features.0.name: Stile di Combattimento
+levels.1.features.0.text: |-
+  Un guerriero adotta uno stile di combattimento in cui specializzarsi scegliendo una tra le opzioni seguenti. Non è consentito scegliere uno stile di combattimento più di una volta, anche se in seguito il guerriero ha diritto a scegliere di nuovo.
+
+  ###Tiro
+
+  Il guerriero ottiene un bonus di +2 ai tiri per colpire che effettua con le armi a distanza.
+
+  ###Difesa
+
+  Finché indossa un'armatura, il guerriero ottiene un bonus di +1 alla CA.
+
+  ###Duellare
+
+  Quando il guerriero impugna un'arma da mischia in una mano e non impugna altre armi, ottiene un bonus di +2 ai tiri per i danni di quell'arma.
+
+  ###Combattere con Armi Possenti
+
+  Quando il guerriero ottiene un 1 o un 2 a un tiro per i danni di un attacco che ha effettuato con un'arma da mischia impugnata a due mani, può ripetere il tiro e deve usare il nuovo risultato, anche se ottiene ancora un 1 o un 2. L'arma deve possedere la proprietà a due mani o versatile affinché il guerriero ottenga questo beneficio.
+
+  ###Protezione
+
+  Quando una creatura che il guerriero sia in grado di vedere attacca un bersaglio diverso dal guerriero e situato entro 1,5 metri da lui, il guerriero può usare la sua reazione per infliggere svantaggio al tiro per colpire della creatura. Il guerriero deve impugnare uno scudo.
+
+  ###Combattere con Due Armi
+
+  Quando il guerriero combatte con due armi, può aggiungere il suo modificatore di caratteristica ai danni del secondo attacco.
+levels.1.features.0.effects.0.options.0.name: Tiro
+levels.1.features.0.effects.0.options.0.text: |-
+  Il guerriero ottiene un bonus di +2 ai tiri per colpire che effettua con le armi a distanza.
+levels.1.features.0.effects.0.options.1.name: Difesa
+levels.1.features.0.effects.0.options.1.text: |-
+  Finché indossa un'armatura, il guerriero ottiene un bonus di +1 alla CA.
+levels.1.features.0.effects.0.options.2.name: Duellare
+levels.1.features.0.effects.0.options.2.text: |-
+  Quando il guerriero impugna un'arma da mischia in una mano e non impugna altre armi, ottiene un bonus di +2 ai tiri per i danni di quell'arma.
+levels.1.features.0.effects.0.options.3.name: Combattere con Armi Possenti
+levels.1.features.0.effects.0.options.3.text: |-
+  Quando il guerriero ottiene un 1 o un 2 a un tiro per i danni di un attacco che ha effettuato con un'arma da mischia impugnata a due mani, può ripetere il tiro e deve usare il nuovo risultato, anche se ottiene ancora un 1 o un 2. L'arma deve possedere la proprietà a due mani o versatile affinché il guerriero ottenga questo beneficio.
+levels.1.features.0.effects.0.options.3.effects.0.text: |-
+  Combattere con Armi Possenti: quando ottieni un 1 o un 2 a un dado dei danni con un'arma da mischia impugnata a due mani (a due mani o versatile), ripeti il tiro del dado e usa il nuovo risultato.
+levels.1.features.0.effects.0.options.3.effects.0.note: |-
+  Modalità di gioco: il motore non esegue la ripetizione dei singoli dadi dei danni che ottengono 1 o 2.
+levels.1.features.0.effects.0.options.4.name: Protezione
+levels.1.features.0.effects.0.options.4.text: |-
+  Quando una creatura che il guerriero sia in grado di vedere attacca un bersaglio diverso dal guerriero e situato entro 1,5 metri da lui, il guerriero può usare la sua reazione per infliggere svantaggio al tiro per colpire della creatura. Il guerriero deve impugnare uno scudo.
+levels.1.features.0.effects.0.options.4.effects.0.name: Protezione
+levels.1.features.0.effects.0.options.4.effects.0.trigger: |-
+  quando una creatura che sei in grado di vedere attacca un bersaglio diverso da te e situato entro 1,5 metri da te
+levels.1.features.0.effects.0.options.4.effects.0.text: |-
+  Infliggi svantaggio al tiro per colpire. Devi impugnare uno scudo.
+levels.1.features.0.effects.0.options.5.name: Combattere con Due Armi
+levels.1.features.0.effects.0.options.5.text: |-
+  Quando il guerriero combatte con due armi, può aggiungere il suo modificatore di caratteristica ai danni del secondo attacco.
+levels.1.features.0.effects.0.options.5.effects.0.text: |-
+  Combattere con Due Armi: quando combatti con due armi, aggiungi il tuo modificatore di caratteristica ai danni del secondo attacco.
+levels.1.features.0.effects.0.options.5.effects.0.note: |-
+  Modalità di gioco: il motore non calcola il modificatore ai danni dell'attacco con l'arma secondaria.
+levels.1.features.1.name: Recuperare Energie
+levels.1.features.1.text: |-
+  Un guerriero possiede una riserva limitata di resistenza fisica a cui può attingere per proteggersi dai danni. Nel suo turno può usare un'azione bonus per recuperare un ammontare di punti ferita pari a 1d10 + il suo livello da guerriero. Una volta utilizzato questo privilegio, il guerriero non può più utilizzarlo finché non completa un riposo breve o lungo.
+levels.1.features.1.effects.0.name: Recuperare Energie
+levels.1.features.1.effects.1.name: Recuperare Energie
+levels.1.features.1.effects.1.text: |-
+  Nel tuo turno puoi usare un'azione bonus per recuperare un ammontare di punti ferita pari a 1d10 + il tuo livello da guerriero.
+levels.2.features.0.name: Azione Impetuosa
+levels.2.features.0.text: |-
+  A partire dal 2° livello, un guerriero può spingersi oltre i suoi normali limiti per un istante. Nel suo turno può effettuare un'azione aggiuntiva oltre alla sua azione normale e a una possibile azione bonus.
+
+  Una volta utilizzato questo privilegio, il guerriero non può più utilizzarlo finché non completa un riposo breve o lungo. A partire dal 17° livello, il guerriero può utilizzare questo privilegio due volte prima di un riposo, ma soltanto una volta nello stesso turno.
+levels.2.features.0.effects.0.name: Azione Impetuosa
+levels.2.features.0.effects.1.name: Azione Impetuosa
+levels.2.features.0.effects.1.text: |-
+  Nel tuo turno puoi effettuare un'azione aggiuntiva oltre alla tua azione normale e a una possibile azione bonus. A partire dal 17° livello, puoi utilizzare questo privilegio due volte prima di un riposo, ma soltanto una volta nello stesso turno.
+levels.2.features.0.effects.1.onUse.0.text: |-
+  Effettua un'azione aggiuntiva in questo turno. Un solo utilizzo per turno.
+levels.3.features.0.name: Archetipo Marziale
+levels.3.features.0.text: |-
+  Al 3° livello, un guerriero sceglie un archetipo che si sforzerà di emulare tramite i suoi stili di combattimento e le sue tecniche, per esempio il Campione. L'archetipo scelto conferisce al guerriero alcuni privilegi al 3° livello e poi di nuovo al 7°, 10°, 15° e 18° livello.
+levels.4.features.0.name: Aumento dei Punteggi di Caratteristica
+levels.4.features.0.text: |-
+  Quando arriva al 4° livello e poi di nuovo al 6°, all'8°, al 12°, al 14°, al 16° e al 19° livello, un guerriero può aumentare di 2 un punteggio di caratteristica a sua scelta, oppure può aumentare di 1 due punteggi di caratteristica a sua scelta. Come di consueto, non è consentito aumentare un punteggio di caratteristica a più di 20 utilizzando questo privilegio.
+levels.5.features.0.name: Attacco Extra
+levels.5.features.0.text: |-
+  A partire dal 5° livello, un guerriero può attaccare due volte anziché una, ogni volta che effettua l'azione Attacco nel proprio turno.
+
+  Il numero di attacchi aumenta a tre quando il guerriero arriva all'11° livello e a quattro quando arriva al 20° livello.
+levels.5.features.0.effects.0.note: |-
+  Due attacchi al 5° livello, tre all'11° e quattro al 20° livello in questa classe.
+levels.9.features.0.name: Indomabile
+levels.9.features.0.text: |-
+  A partire dal 9° livello, un guerriero può ripetere un tiro salvezza che ha fallito. Se lo fa, deve usare il nuovo risultato e non può più utilizzare questo privilegio finché non completa un riposo lungo.
+
+  Un guerriero può utilizzare questo privilegio due volte tra un riposo lungo e l'altro a partire dal 13° livello e tre volte tra un riposo lungo e l'altro a partire dal 17° livello.
+levels.9.features.0.effects.0.name: Indomabile
+levels.9.features.0.effects.1.name: Indomabile
+levels.9.features.0.effects.1.trigger: |-
+  quando fallisci un tiro salvezza
+levels.9.features.0.effects.1.text: |-
+  Ripeti un tiro salvezza che hai fallito. Devi usare il nuovo risultato.

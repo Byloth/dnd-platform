@@ -1,0 +1,13 @@
+name: Stivali dell'inverno
+text: |-
+  Oggetto meraviglioso, non comune (richiede sintonia)
+
+  Questi stivali foderati di pelliccia sono comodi e caldi. Quando un personaggio li indossa, riceve i seguenti benefici:
+
+  * Possiede resistenza ai danni da freddo.
+
+  * Ignora il terreno difficile dovuto al ghiaccio o alla neve.
+
+  * Tollera il freddo fino a –45 gradi senza bisogno di ulteriori protezioni. Se indossa abiti pesanti, può arrivare a tollerare basse temperature fino a –73 gradi.
+features.0.name: Stivali dell'inverno
+features.0.effects.1.text: Ignori il terreno difficile dovuto al ghiaccio o alla neve. Tolleri il freddo fino a –45 gradi senza bisogno di ulteriori protezioni, o fino a –73 gradi se indossi abiti pesanti.

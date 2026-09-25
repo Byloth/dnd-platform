@@ -1,0 +1,10 @@
+name: Collana dell'adattamento
+text: |-
+  Oggetto meraviglioso, non comune (richiede sintonia)
+
+  Mentre il personaggio indossa questa collana, può respirare normalmente in qualsiasi ambiente e dispone di vantaggio ai tiri salvezza contro gas e vapori nocivi (come gli effetti di *nube maleodorante* e *nube mortale*, i veleni inalati e i soffi di alcuni draghi).
+features.0.name: Adattamento
+features.0.text: |-
+  Mentre il personaggio indossa questa collana, può respirare normalmente in qualsiasi ambiente e dispone di vantaggio ai tiri salvezza contro gas e vapori nocivi (come gli effetti di *nube maleodorante* e *nube mortale*, i veleni inalati e i soffi di alcuni draghi).
+features.0.effects.0.note: |-
+  Effetti di *nube mortale* e *nube maleodorante*, veleni inalati, soffi di alcuni draghi. Il personaggio può anche respirare normalmente in qualsiasi ambiente.

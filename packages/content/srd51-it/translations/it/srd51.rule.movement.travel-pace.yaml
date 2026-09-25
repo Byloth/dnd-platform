@@ -1,0 +1,11 @@
+name: "Passo di viaggio"
+text: |-
+  Quando viaggia, un gruppo di avventurieri può muoversi a passo normale, veloce o lento, come indicato dalla tabella "Passo di viaggio". La tabella determina la distanza che un gruppo riesce a coprire in un periodo di tempo e se il passo utilizzato prevede qualche effetto. Un passo veloce attenua la percezione dei personaggi, mentre un passo lento consente loro di muoversi di soppiatto e di esaminare l'area più attentamente.
+
+  **Marcia forzata.** La tabella "Passo di viaggio" presume che i personaggi viaggino per 8 ore al giorno. Possono spingersi oltre quel limite, ma rischiano l'indebolimento.
+
+  Per ogni ora di viaggio aggiuntiva oltre le 8 ore, i personaggi coprono la distanza indicata dalla colonna "Ora" relativa al loro passo, e ogni personaggio deve effettuare un tiro salvezza su Costituzione alla fine dell'ora. La CD è pari a 10 + 1 per ogni ora oltre l'ottava. In caso di tiro salvezza fallito, un personaggio subisce un livello di indebolimento.
+
+  **Cavalcature e veicoli.** Nei brevi periodi di tempo (fino a un massimo di un'ora), molti animali si muovono a velocità superiori a quelle degli umanoidi. Un personaggio in sella può avanzare al galoppo per circa un'ora, coprendo il doppio della distanza normalmente prevista per un passo veloce. Se ha a sua disposizione una cavalcatura fresca ogni 12–15 km, un personaggio può coprire distanze molto più lunghe a questo passo, ma le circostanze che lo consentono sono generalmente molto rare e si limitano alle aree densamente popolate.
+  I personaggi a bordo di carri, carrozze o altri veicoli terrestri avanzano a passo normale. I personaggi a bordo di un'imbarcazione sono limitati alla velocità di quell'imbarcazione, non subiscono le penalità dovute al passo veloce e non ottengono i benefici del passo lento. In base al tipo di vascello e alle dimensioni dell'equipaggio, un'imbarcazione potrebbe essere in grado di viaggiare anche per 24 ore al giorno.
+  Certe cavalcature speciali, come un pegaso o un grifone, o alcuni veicoli speciali, come un tappeto volante, consentono a un personaggio di viaggiare a velocità superiori.

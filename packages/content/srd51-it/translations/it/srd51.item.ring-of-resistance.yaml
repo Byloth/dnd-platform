@@ -1,0 +1,31 @@
+name: Anello di resistenza
+text: |-
+  Anello, raro (richiede sintonia)
+
+  Finché il personaggio indossa questo anello, ottiene resistenza a un tipo di danno. La gemma dell'anello indica il tipo di danno, che il GM può scegliere liberamente o determinare casualmente.
+
+  | d10 | Tipo di danno | Gemma |
+  |---|---|---|
+  | 1 | Acido | Perla |
+  | 2 | Freddo | Tormalina |
+  | 3 | Fuoco | Granato |
+  | 4 | Forza | Zaffiro |
+  | 5 | Fulmine | Citrino |
+  | 6 | Necrotico | Giaietto |
+  | 7 | Veleno | Ametista |
+  | 8 | Psichico | Giada |
+  | 9 | Radioso | Topazio |
+  | 10 | Tuono | Spinello |
+features.0.name: Resistenza
+features.0.text: |-
+  Finché il personaggio indossa questo anello, ottiene resistenza a un tipo di danno. La gemma dell'anello indica il tipo di danno, che il GM può scegliere liberamente o determinare casualmente.
+features.0.effects.0.options.0.name: Acido (perla)
+features.0.effects.0.options.1.name: Freddo (tormalina)
+features.0.effects.0.options.2.name: Fuoco (granato)
+features.0.effects.0.options.3.name: Forza (zaffiro)
+features.0.effects.0.options.4.name: Fulmine (citrino)
+features.0.effects.0.options.5.name: Necrotico (giaietto)
+features.0.effects.0.options.6.name: Veleno (ametista)
+features.0.effects.0.options.7.name: Psichico (giada)
+features.0.effects.0.options.8.name: Radioso (topazio)
+features.0.effects.0.options.9.name: Tuono (spinello)

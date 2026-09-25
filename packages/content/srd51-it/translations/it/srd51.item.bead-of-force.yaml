@@ -1,0 +1,10 @@
+name: Biglia di forza
+text: |-
+  Oggetto meraviglioso, raro
+
+  Questa piccola sfera nera ha un diametro di 2 cm e pesa 30 grammi. Generalmente le biglie di forza si trovano in gruppi di 1d4 + 4.
+
+  Un personaggio può usare un'azione per lanciare la biglia fino a un massimo di 18 metri. Quando colpisce qualcosa, la biglia esplode e si distrugge. Ogni creatura entro un raggio di 3 metri dal punto di impatto della biglia deve superare un tiro salvezza su Destrezza con CD 15, altrimenti subisce 5d4 danni da forza. Poi l'area viene rinchiusa per 1 minuto all'interno di una sfera di forza trasparente. Ogni creatura che ha fallito il tiro salvezza e si trovava completamente all'interno dell'area resta intrappolata all'interno. Chi ha superato il tiro salvezza o si trovava solo parzialmente all'interno dell'area viene allontanato dal centro della sfera e spinto all'esterno. Attraverso le pareti della sfera può passare solo aria respirabile. Non possono passare né attacchi né altri effetti.
+
+  Una creatura rinchiusa nell'area può usare la sua azione per spingere le pareti della sfera, muovendola a una velocità massima pari alla metà della propria velocità base sul terreno. La sfera può essere sollevata e la sua magia fa sì che il suo peso sia sempre pari a 0,5 kg, a prescindere dal peso delle creature al suo interno.
+onUse.0.text: Lancia la biglia fino a 18 metri con un'azione; quando colpisce qualcosa esplode e si distrugge. Ogni creatura entro un raggio di 3 metri deve superare un tiro salvezza su Destrezza con CD 15, altrimenti subisce 5d4 danni da forza. Poi l'area viene rinchiusa per 1 minuto all'interno di una sfera di forza trasparente, che intrappola le creature che hanno fallito il tiro salvezza e si trovano completamente al suo interno.

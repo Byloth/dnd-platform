@@ -1,0 +1,23 @@
+name: "Velocità"
+text: |-
+  La velocità di un mostro indica la distanza che è in grado di percorrere durante il proprio turno. Per maggiori informazioni sulla velocità, consulta il *Manuale del Giocatore*.
+
+  Tutte le creature possiedono una velocità base sul terreno, nota anche semplicemente come la velocità del mostro. Le creature prive di una forma di locomozione sul terreno hanno una velocità base sul terreno pari a 0 metri.
+
+  Alcune creature possiedono una o più delle seguenti modalità aggiuntive di movimento.
+
+  ## Scavare
+
+  Un mostro dotato di una velocità di scavare può usare tale velocità per muoversi attraverso la sabbia, la terra, il fango o il ghiaccio. Tuttavia, a meno che non sia dotato di un tratto speciale che glielo consenta, non è in grado di scavare nella roccia.
+
+  ## Scalare
+
+  Un mostro dotato di una velocità di scalare può usare tutto il suo movimento o una parte di esso per spostarsi sulle superfici verticali. Per scalare, il mostro non deve spendere alcun movimento extra.
+
+  ## Volare
+
+  Un mostro dotato di una velocità di volare può usare tutto il suo movimento o una parte di esso per volare. Alcuni mostri possiedono la capacità di fluttuare e sono molto difficili da abbattere (come spiegato nelle regole relative al volo nel *Manuale del Giocatore*). I mostri di questo tipo smettono di fluttuare quando muoiono.
+
+  ## Nuotare
+
+  Un mostro dotato di una velocità di nuotare non ha bisogno di spendere movimento extra per nuotare.

@@ -1,0 +1,9 @@
+name: "Epidemia fognaria"
+text: |-
+  Il termine epidemia fognaria comprende una vasta categoria di malattie che vengono incubate nelle fognature, nei mucchi di rifiuti e nelle paludi, e che vengono a volte trasmesse dalle creature che vivono in quelle aree, come topi e otyugh.
+
+  Quando una creatura umanoide viene morsa da una creatura portatrice di una di queste malattie o entra in contatto con liquami o escrementi contaminati da una di queste, deve superare un tiro salvezza su Costituzione con CD 11, altrimenti viene infettata.
+
+  I sintomi dell'epidemia fognaria si manifestano in una creatura infetta nel giro di 1d4 giorni e includono affaticamento e crampi. La creatura infetta subisce un livello di indebolimento, recupera solo la metà del normale numero di punti ferita quando spende Dadi Vita e non recupera punti ferita terminando un riposo lungo.
+
+  Al termine di ogni riposo lungo, una creatura infetta deve effettuare un tiro salvezza su Costituzione con CD 11. Se lo fallisce, il personaggio subisce un livello di indebolimento, mentre se lo supera, il suo livello di indebolimento si riduce di uno. Se un tiro salvezza superato riduce il livello di indebolimento della creatura a meno di 1, la creatura guarisce dalla malattia.

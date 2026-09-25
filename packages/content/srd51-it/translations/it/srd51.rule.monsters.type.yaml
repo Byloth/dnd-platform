@@ -1,0 +1,33 @@
+name: "Tipo"
+text: |-
+  Il tipo di un mostro definisce la sua essenza. Certi incantesimi, oggetti magici, privilegi di classe e altri effetti di gioco interagiscono in modi speciali con le creature di un particolare tipo. Per esempio, una *freccia assassina dei draghi* infligge danni extra non solo ai draghi, ma a tutte le creature del tipo drago, come le testuggini dragone e le viverne.
+
+  Il gioco include i seguenti tipi di mostro, a cui non è associata alcuna regola intrinseca.
+
+  **Le aberrazioni** sono esseri totalmente alieni. Molte sono dotate di capacità magiche innate frutto della loro mente aliena più che delle forze mistiche del mondo. Le aberrazioni più note sono gli aboleth, i beholder, i mind flayer e gli slaadi.
+
+  **Le bestie** sono creature non umanoidi che fanno parte del mondo naturale nell'ecologia fantastica. Alcune possono avere dei poteri magici, ma molte sono prive di intelligenza, non parlano alcun linguaggio e non fanno parte di alcuna società. Le bestie includono tutte le varietà di animali comuni, i dinosauri e le versioni giganti degli animali.
+
+  **I celestiali** sono creature originarie dei Piani Superiori. Molti servono una divinità e fungono da messaggeri o agenti sul piano mortale o sugli altri piani. I celestiali sono di natura buona, quindi un celestiale che si allontana dall'allineamento buono è un caso eccezionale nonché una rarità terrificante. I celestiali includono gli angeli, i couatl e i pegasi.
+
+  **I costrutti** non nascono: vengono creati. Alcuni sono programmati dai loro creatori per seguire una semplice serie di istruzioni, mentre altri sono senzienti e in grado di pensare in modo indipendente. I golem sono i costrutti più celebri. Molte creature originarie del piano esterno di Mechanus, come i modron, sono costrutti plasmati dalla materia grezza del piano tramite la volontà di creature più potenti.
+
+  **I draghi** sono grossi rettili di origini antiche con immensi poteri. I draghi puri, tra cui i draghi metallici buoni e i draghi cromatici malvagi, sono creature di grande intelligenza e dotate di poteri magici innati. Questa categoria include anche le creature imparentate alla lontana con i draghi puri, ma meno potenti, meno intelligenti e meno magiche, come le viverne e gli pseudodraghi.
+
+  **Gli elementali** sono creature originarie dei piani elementali. Alcune creature di questo tipo sono poco più che masse animate del loro rispettivo elemento, tra cui le creature chiamate semplicemente elementali. Altre sono dotate di una forma biologica in cui è stata infusa energia elementale. Le razze dei geni, come i djinn e gli efreeti, costituiscono le civiltà più importanti dei piani elementali. Tra le altre creature elementali figurano gli azer e i cacciatori invisibili.
+
+  **I folletti** sono creature magiche intrinsecamente legate alle forze della natura che si annidano nei boschi crepuscolari e nelle foreste nebbiose. In alcuni mondi sono saldamente ancorati alla Selva Fatata, nota anche come il Piano delle Fate. Alcuni sono presenti sui Piani Esterni, in particolare i piani di Arborea e delle Terre Bestiali. I folletti includono le driadi, i pixie e i satiri.
+
+  **Gli immondi** sono creature maligne originarie dei Piani Inferiori. Alcuni servono una divinità, ma molti altri seguono il comando degli arcidiavoli e dei principi dei demoni. I sacerdoti e i maghi malvagi a volte evocano gli immondi sul piano materiale affinché obbediscano ai loro ordini. Se un celestiale malvagio è una rarità, un immondo buono è praticamente inconcepibile. Gli immondi includono i demoni, i diavoli, i segugi infernali, i rakshasa e gli yugoloth.
+
+  **I giganti** sovrastano per dimensioni gli umani e i loro simili. Generalmente hanno forma umana, anche se alcuni possono avere più teste (come gli ettin) o essere afflitti da varie deformità (come i fomorian). Le sei varietà di giganti puri sono i giganti delle colline, i giganti delle pietre, i giganti del gelo, i giganti del fuoco, i giganti delle nuvole e i giganti delle tempeste. Anche altre creature come gli ogre e i troll sono considerate giganti.
+
+  **Gli umanoidi** sono i popoli principali degli universi di gioco fantasy. Civilizzati o selvaggi che siano, includono gli umani e una vasta gamma di altre specie. Hanno un loro linguaggio e una loro cultura, e in alcuni casi anche qualche rara capacità magica innata (sebbene la maggior parte degli umanoidi possa imparare a lanciare incantesimi). Generalmente si presentano come bipedi. Le razze umanoidi più comuni sono quelle più accessibili ai personaggi giocanti: umani, nani, elfi e halfling. Le razze di goblinoidi (goblin, hobgoblin e bugbear), orchi, gnoll, lucertoloidi e coboldi sono quasi altrettanto numerose, ma molto più feroci e brutali.
+
+  **Le mostruosità** sono mostri nel senso più stretto del termine: sono spaventose creature fuori dal comune, non del tutto naturali e quasi mai benevole. Alcune sono il risultato di un esperimento magico finito male (come gli orsigufo), mentre altri sono il frutto di una terribile maledizione (come i minotauri o gli yuan-ti). Sfidano ogni tentativo di essere categorizzati e in un certo senso vanno a costituire una categoria onnicomprensiva di tutte quelle creature che non rientrano in nessun altro tipo.
+
+  **Le melme** sono creature gelatinose che raramente mantengono una forma fissa. Vivono perlopiù sottoterra, nelle caverne e nei dungeon, dove si cibano di sporcizia, carogne o di quelle sventurate creature che capitano sul loro cammino. I protoplasmi neri e i cubi gelatinosi sono due delle melme più conosciute.
+
+  **I vegetali** in questo contesto si riferiscono alle creature vegetali, non alla flora comune. Molti sono in grado di deambulare e alcuni sono carnivori. I vegetali più noti sono il cumulo strisciante e il treant. Anche le creature fungoidi come la spora gassosa e il miconide rientrano in questa categoria.
+
+  **I non morti** sono creature che un tempo erano vive ma che ora sono precipitate in un orrendo stato di non morte attraverso la pratica di magie necromantiche o qualche maledizione sacrilega. Questa categoria include i cadaveri ambulanti, come i vampiri e gli zombi, e gli spiriti incorporei, come i fantasmi e gli spettri.

@@ -1,0 +1,8 @@
+name: Creazione
+components.m: Un minuscolo frammento di materia dello stesso tipo dell'oggetto che l'incantatore desidera creare.
+text: |-
+  L'incantatore attrae a sé dei filamenti di sostanza d'ombra dalla Coltre Oscura per creare un oggetto non vivente di materia vegetale entro gittata: tessuti, corda, legno o materiali simili. Può anche utilizzare questo incantesimo per creare oggetti minerali come pietra, cristallo o metallo. L'oggetto creato non dev'essere più grande di un cubo di 1,5 metri di lato e deve avere una forma ed essere un materiale che l'incantatore ha già visto. La durata dipende dal materiale dell'oggetto; se l'oggetto è composto da vari materiali, si usa la durata più breve.
+
+  **Materia vegetale** 1 giorno **Pietra o cristallo** 12 ore **Metalli preziosi** 1 ora **Gemme** 10 minuti **Adamantio o mithral** 1 minuto Usare un qualsiasi materiale creato da questo incantesimo come componente materiale di un altro incantesimo ne provoca il fallimento.
+higherLevel: |-
+  Quando l'incantatore lancia questo incantesimo usando uno slot incantesimo di 6° livello o superiore, il lato del cubo aumenta di 1,5 metri per ogni slot di livello superiore al 5°.

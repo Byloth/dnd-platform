@@ -1,0 +1,27 @@
+name: Proprietà delle armi
+text: |-
+  All'utilizzo di molte armi sono associate alcune proprietà speciali, come indicato nella tabella "Armi".
+
+  **_Munizioni._** Un personaggio può effettuare un attacco a distanza usando un'arma dotata della proprietà munizioni solo se possiede delle munizioni da lanciare. Ogni volta che attacca con l'arma, consuma una delle sue munizioni. Estrarre la munizione da una faretra, una custodia o un altro contenitore è considerato parte dell'attacco (il personaggio avrà bisogno di una mano libera per caricare un'arma a una mano). Alla fine della battaglia, il personaggio può recuperare metà delle munizioni consumate impiegando un minuto a setacciare il campo di battaglia.
+
+  Se il personaggio usa un'arma dotata della proprietà munizioni per effettuare un attacco in mischia, considera quell'arma come un'arma improvvisata (vedi "Armi improvvisate" più avanti). Una fionda deve essere caricata per infliggere danni quando viene usata in questo modo.
+
+  **_Accurata._** Quando un personaggio effettua un attacco con un'arma accurata, può scegliere se usare il modificatore di Forza o di Destrezza per il tiro per colpire e il tiro per i danni. Deve usare lo stesso modificatore per entrambi i tiri.
+
+  **_Pesante._** Le creature di taglia Piccola subiscono svantaggio ai tiri per colpire con le armi pesanti. La taglia e la stazza di un'arma pesante sono eccessive affinché una creatura Piccola possa usarla con efficacia.
+
+  **_Leggera._** Un'arma leggera è piccola e facile da maneggiare, cosa che la rende ideale per combattere con due armi.
+
+  **_Ricarica._** Dato che ricaricare quest'arma richiede del tempo, un personaggio può scagliare una sola munizione con essa quando usa un'azione, un'azione bonus o una reazione per fare fuoco, a prescindere dal numero di attacchi che può effettuare normalmente.
+
+  **_Gittata._** Un'arma che può essere usata per effettuare un attacco a distanza indica la propria gittata tra parentesi dopo i dati relativi a munizioni o proprietà da lancio. La gittata riporta due numeri: il primo è la gittata normale dell'arma in metri, il secondo è la gittata lunga dell'arma. Quando un personaggio attacca un bersaglio oltre la gittata normale, subisce svantaggio al tiro per colpire. Non è possibile attaccare un bersaglio oltre la gittata lunga dell'arma.
+
+  **_Portata._** Quest'arma aggiunge 1,5 metri alla portata del personaggio che la usa per attaccare o per determinare la portata dei suoi attacchi di opportunità.
+
+  **_Speciale._** Un'arma con la proprietà speciale prevede alcune regole insolite che ne governano l'utilizzo, spiegate nella descrizione dell'arma stessa (vedi "Armi speciali", più avanti in questa sezione).
+
+  **_Lancio._** Se un'arma possiede la proprietà da lancio, il personaggio può lanciarla per effettuare un attacco a distanza. Se l'arma è un'arma da mischia, il personaggio applica al tiro per colpire e al tiro per i danni lo stesso modificatore di caratteristica che userebbe per un attacco in mischia effettuato con quell'arma. Per esempio, se lancia un'ascia, usa la sua Forza, ma se lancia un pugnale può usare la sua Forza o la sua Destrezza, dal momento che il pugnale possiede la proprietà accurata.
+
+  **_Due mani._** Quest'arma richiede di essere impugnata a due mani quando il personaggio la usa per attaccare.
+
+  **_Versatile._** Quest'arma può essere usata a una o due mani. La proprietà è accompagnata da un valore in danni indicato tra parentesi (i danni che l'arma infligge quando viene impugnata a due mani per effettuare un attacco in mischia).

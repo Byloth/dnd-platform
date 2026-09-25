@@ -1,0 +1,47 @@
+name: "Corazza di scaglie di drago"
+text: |-
+  Armatura (corazza a scaglie), molto rara (richiede sintonia)
+
+  La corazza di scaglie di drago è ricavata dalle scaglie di un tipo di drago. A volte i draghi raccolgono le loro scaglie cadute e ne fanno dono a un umanoide. Altre volte i cacciatori scuoiano accuratamente i draghi uccisi e ne conservano le pelli. In entrambi i casi, la corazza di scaglie di drago è un oggetto estremamente pregiato.
+
+  Quando indossa quest'armatura, il personaggio ottiene un bonus di +1 alla CA, vantaggio ai tiri salvezza contro Presenza terrificante e il soffio dei draghi, e resistenza a un tipo di danno determinato dal tipo di scaglie da cui è composta l'armatura (vedi la tabella).
+
+  Con un'azione, il personaggio può inoltre concentrare i suoi sensi e percepire magicamente la distanza e la direzione del drago più vicino dello stesso tipo dell'armatura, entro un raggio di 45 km. Una volta usata, non può essere riutilizzata fino all'alba successiva.
+
+  | Drago | Resistenza |
+
+  |---|---|
+
+  | Nero | Acido |
+
+  | Blu | Fulmine |
+
+  | Ottone | Fuoco |
+
+  | Bronzo | Fulmine |
+
+  | Rame | Acido |
+
+  | Oro | Fuoco |
+
+  | Verde | Veleno |
+
+  | Rosso | Fuoco |
+
+  | Argento | Freddo |
+
+  | Bianco | Freddo |
+features.0.name: "Corazza di scaglie di drago"
+features.0.effects.2.note: "La resistenza è determinata dal tipo di drago che ha fornito le scaglie."
+features.0.effects.2.options.0.name: "Nero (acido)"
+features.0.effects.2.options.1.name: "Blu (fulmine)"
+features.0.effects.2.options.2.name: "Ottone (fuoco)"
+features.0.effects.2.options.3.name: "Bronzo (fulmine)"
+features.0.effects.2.options.4.name: "Rame (acido)"
+features.0.effects.2.options.5.name: "Oro (fuoco)"
+features.0.effects.2.options.6.name: "Verde (veleno)"
+features.0.effects.2.options.7.name: "Rosso (fuoco)"
+features.0.effects.2.options.8.name: "Argento (freddo)"
+features.0.effects.2.options.9.name: "Bianco (freddo)"
+features.0.effects.3.name: "Percepire il drago più vicino"
+features.0.effects.3.text: "Concentri i tuoi sensi per percepire magicamente la distanza e la direzione del drago più vicino dello stesso tipo dell'armatura, entro un raggio di 45 km. Questa azione speciale non può essere riutilizzata fino all'alba successiva."

@@ -1,0 +1,77 @@
+name: "Dragonide"
+text: |-
+  Il retaggio draconico si manifesta in una varietà di caratteristiche che il personaggio condivide con gli altri dragonidi.
+features.0.name: "Incremento dei punteggi di caratteristica"
+features.0.text: |-
+  Il punteggio di Forza di un dragonide aumenta di 2 e quello di Carisma aumenta di 1.
+features.1.name: "Velocità"
+features.1.text: |-
+  La velocità base sul terreno di un dragonide è di 9 metri.
+features.2.name: "Età"
+features.2.text: |-
+  I giovani dragonidi crescono velocemente. Camminano già poche ore dopo la schiusa dell'uovo, a 3 anni raggiungono le dimensioni e lo sviluppo di un bambino umano di 10 anni e a 15 anni raggiungono la maturità. Vivono all'incirca fino a 80 anni.
+features.3.name: "Allineamento"
+features.3.text: |-
+  I dragonidi tendono agli estremi e scelgono coscientemente da che parte stare nella guerra cosmica tra il bene e il male. La maggior parte dei dragonidi è buona, ma quelli che si schierano con il male possono rivelarsi tremendamente malvagi.
+features.4.name: "Taglia"
+features.4.text: |-
+  I dragonidi sono più alti e pesanti degli umani: hanno un'altezza superiore a 1,8 metri e un peso medio di 125 kg. Un dragonide è una creatura di taglia Media.
+features.5.name: "Linguaggi"
+features.5.text: |-
+  Un dragonide sa parlare, leggere e scrivere in Comune e in Draconico. Si ritiene che il Draconico sia uno dei linguaggi più antichi e viene spesso usato nello studio della magia. Ha un suono aspro per la maggior parte delle creature e include numerose consonanti dure e sibilanti.
+features.6.name: "Tabella della discendenza draconica"
+features.6.text: |-
+  | Drago   | Tipo di danni | Soffio                                  |
+  |---------|---------------|-----------------------------------------|
+  | Nero    | Acido         | Linea di 1,5 m × 9 m (TS Destrezza)     |
+  | Blu     | Fulmine       | Linea di 1,5 m × 9 m (TS Destrezza)     |
+  | Ottone  | Fuoco         | Linea di 1,5 m × 9 m (TS Destrezza)     |
+  | Bronzo  | Fulmine       | Linea di 1,5 m × 9 m (TS Destrezza)     |
+  | Rame    | Acido         | Linea di 1,5 m × 9 m (TS Destrezza)     |
+  | Oro     | Fuoco         | Cono di 4,5 m (TS Destrezza)            |
+  | Verde   | Veleno        | Cono di 4,5 m (TS Costituzione)         |
+  | Rosso   | Fuoco         | Cono di 4,5 m (TS Destrezza)            |
+  | Argento | Freddo        | Cono di 4,5 m (TS Costituzione)         |
+  | Bianco  | Freddo        | Cono di 4,5 m (TS Costituzione)         |
+features.7.name: "Discendenza draconica"
+features.7.text: |-
+  Un dragonide vanta una discendenza da un drago. Il giocatore sceglie un tipo di drago dalla tabella "Discendenza draconica". Il soffio del personaggio e la sua resistenza ai danni saranno determinati dalla tipologia di drago, come indicato dalla tabella.
+features.7.effects.0.options.0.name: "Nero"
+features.7.effects.0.options.0.text: "Danni da acido. Soffio: linea di 1,5 m × 9 m (TS Destrezza)."
+features.7.effects.0.options.1.name: "Blu"
+features.7.effects.0.options.1.text: "Danni da fulmine. Soffio: linea di 1,5 m × 9 m (TS Destrezza)."
+features.7.effects.0.options.2.name: "Ottone"
+features.7.effects.0.options.2.text: "Danni da fuoco. Soffio: linea di 1,5 m × 9 m (TS Destrezza)."
+features.7.effects.0.options.3.name: "Bronzo"
+features.7.effects.0.options.3.text: "Danni da fulmine. Soffio: linea di 1,5 m × 9 m (TS Destrezza)."
+features.7.effects.0.options.4.name: "Rame"
+features.7.effects.0.options.4.text: "Danni da acido. Soffio: linea di 1,5 m × 9 m (TS Destrezza)."
+features.7.effects.0.options.5.name: "Oro"
+features.7.effects.0.options.5.text: "Danni da fuoco. Soffio: cono di 4,5 m (TS Destrezza)."
+features.7.effects.0.options.6.name: "Verde"
+features.7.effects.0.options.6.text: "Danni da veleno. Soffio: cono di 4,5 m (TS Costituzione)."
+features.7.effects.0.options.7.name: "Rosso"
+features.7.effects.0.options.7.text: "Danni da fuoco. Soffio: cono di 4,5 m (TS Destrezza)."
+features.7.effects.0.options.8.name: "Argento"
+features.7.effects.0.options.8.text: "Danni da freddo. Soffio: cono di 4,5 m (TS Costituzione)."
+features.7.effects.0.options.9.name: "Bianco"
+features.7.effects.0.options.9.text: "Danni da freddo. Soffio: cono di 4,5 m (TS Costituzione)."
+features.7.effects.0.note: |-
+  La resistenza ai danni e il soffio del drago scelto sono applicati dai tratti Resistenza ai danni e Soffio.
+features.8.name: "Soffio"
+features.8.text: |-
+  Un dragonide può usare la sua azione per esalare un soffio di energia distruttiva. La discendenza draconica determina la dimensione, la forma e il tipo di danno dell'esalazione.
+  Quando il dragonide utilizza il suo soffio, ogni creatura entro l'area dell'esalazione deve effettuare un tiro salvezza determinato in base alla discendenza draconica. La CD di questo tiro salvezza è pari a 8 + il modificatore di Costituzione del dragonide + il bonus di competenza del dragonide. Una creatura subisce 2d6 danni se il tiro salvezza fallisce. Se invece ha successo, i danni sono dimezzati. I danni aumentano a 3d6 al 6° livello, 4d6 all'11° livello e 5d6 al 16° livello.
+features.8.effects.0.name: "Soffio"
+features.8.effects.0.note: |-
+  Una volta per riposo breve o lungo; il testo importato omette la frase sul riposo, il limite segue l'SRD.
+features.8.effects.1.name: "Soffio"
+features.8.effects.1.text: |-
+  Esali energia distruttiva nell'area determinata dalla tua discendenza draconica. Ogni creatura nell'area deve effettuare un tiro salvezza (CD 8 + il tuo modificatore di Costituzione + il tuo bonus di competenza) e subisce 2d6 danni se il tiro salvezza fallisce, o la metà dei danni se ha successo. I danni aumentano a 3d6 al 6° livello, 4d6 all'11° livello e 5d6 al 16° livello.
+features.8.effects.1.onUse.0.text: |-
+  Area, caratteristica del tiro salvezza e tipo di danni dipendono dalla tua discendenza draconica: nero/blu/ottone/bronzo/rame linea di 1,5 m × 9 m (TS Destrezza); oro/rosso cono di 4,5 m (TS Destrezza); verde/argento/bianco cono di 4,5 m (TS Costituzione). Danni: 2d6, 3d6 al 6° livello, 4d6 all'11°, 5d6 al 16°.
+features.8.effects.1.note: |-
+  I dadi dei danni aumentano con il livello del personaggio e la forma, il tiro salvezza e il tipo di danni variano con la discendenza scelta; nella v0 sono riportati nella nota.
+features.9.name: "Resistenza ai danni"
+features.9.text: |-
+  Un dragonide dispone di resistenza ai danni del tipo associato alla sua discendenza draconica.

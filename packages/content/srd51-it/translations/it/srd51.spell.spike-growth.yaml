@@ -1,0 +1,4 @@
+name: Crescita di spine
+components.m: Sette spine aguzze o sette rametti appuntiti.
+text: |-
+  Spine e spuntoni nascono dal terreno entro un raggio di 6 metri centrato su un punto entro gittata. Per tutta la durata dell'incantesimo, l'area diventa terreno difficile. Quando una creatura entra nell'area o si muove al suo interno, subisce 2d4 danni perforanti ogni 1,5 metri di movimento. La trasformazione del terreno è mimetizzata in modo da sembrare naturale. Qualsiasi creatura che non stesse osservando l'area al momento del lancio dell'incantesimo deve effettuare una prova di Saggezza (Percezione) contro la CD del tiro salvezza sull'incantesimo per riconoscere la pericolosità del terreno prima di entrarvi.

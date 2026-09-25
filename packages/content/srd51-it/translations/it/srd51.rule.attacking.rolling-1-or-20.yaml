@@ -1,0 +1,15 @@
+name: Ottenere un 1 o un 20
+text: |-
+  A volte la sorte benedice o maledice un combattente: un novizio può fare centro e un veterano può mancare il bersaglio.
+
+  > **Sage Advice**
+
+  > Gli attacchi con incantesimo possono infliggere colpi critici, proprio come qualsiasi altro attacco.
+
+  > 
+
+  > Fonte: [Sage Advice > Compendium](http://media.wizards.com/2015/downloads/dnd/SA_Compendium_1.01.pdf)
+
+  Se il risultato del tiro del d20 è un 20, l'attacco va a segno a prescindere da qualsiasi modificatore o dalla CA del bersaglio. Questo viene definito un colpo critico.
+
+  Se il risultato del tiro del d20 è un 1, l'attacco manca a prescindere da qualsiasi modificatore o dalla CA del bersaglio.

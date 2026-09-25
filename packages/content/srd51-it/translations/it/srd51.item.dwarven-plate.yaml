@@ -1,0 +1,9 @@
+name: "Armatura completa nanica"
+text: |-
+  Armatura (armatura a piastre), molto rara
+
+  Mentre il personaggio indossa quest'armatura, ottiene un bonus di +2 alla CA. Inoltre, se un effetto lo fa muovere sul terreno contro la sua volontà, il personaggio può usare la sua reazione per ridurre la distanza di cui viene mosso di un massimo di 3 metri.
+features.0.name: "Bonus di +2"
+features.0.effects.1.name: "Resistere allo spostamento forzato"
+features.0.effects.1.trigger: "quando un effetto ti fa muovere sul terreno contro la tua volontà"
+features.0.effects.1.text: "Riduci la distanza di cui vieni mosso di un massimo di 3 metri."

@@ -1,0 +1,11 @@
+name: Boccia del comando degli elementali dell'acqua
+text: |-
+  Oggetto meraviglioso, raro
+
+  Quando la boccia è piena d'acqua, il personaggio può usare un'azione per pronunciare la sua parola d'ordine ed evocare un elementale dell'acqua, come se avesse lanciato l'incantesimo evoca elementale. La boccia non può essere riutilizzata in questo modo fino all'alba successiva.
+
+  La boccia ha un diametro di circa 30 cm ed è profonda 15 cm. Pesa 1,5 kg e ha una capienza di 12 litri circa.
+features.0.name: Evocare un elementale dell'acqua
+features.0.effects.0.name: Evocare un elementale dell'acqua
+features.0.effects.0.text: Quando la boccia è piena d'acqua, pronuncia la sua parola d'ordine per evocare un elementale dell'acqua, come se avessi lanciato l'incantesimo evoca elementale. La boccia non può essere riutilizzata in questo modo fino all'alba successiva.
+features.0.effects.0.onUse.0.text: Compare un elementale dell'acqua come per evoca elementale (la boccia deve essere piena d'acqua); consulta l'incantesimo per il controllo e la durata.

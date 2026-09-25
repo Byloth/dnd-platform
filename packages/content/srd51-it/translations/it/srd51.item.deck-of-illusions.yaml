@@ -1,0 +1,87 @@
+name: Mazzo delle illusioni
+text: |-
+  Oggetto meraviglioso, non comune
+
+  Questa scatola contiene un mazzo di carte pergamenate. Un mazzo completo è composto da 34 carte. In un mazzo trovato come tesoro solitamente mancano 1d20 – 1 carte.
+
+  La magia del mazzo funziona solo se le carte vengono pescate casualmente (è possibile usare un normale mazzo di carte opportunamente modificato per simulare quest'oggetto magico). Il personaggio può usare un'azione per pescare una carta casuale dal mazzo e gettarla a terra in un punto entro 9 metri da sé.
+
+  Dalla carta gettata a terra si genera un'illusione raffigurante una o più creature che permangono finché non vengono dissolte. Le creature illusorie appaiono reali, hanno la taglia giusta e si comportano esattamente come le creature che simulano, ma non possono nuocere in alcun modo. Finché il personaggio resta entro 36 metri dalla creatura illusoria ed è in grado di vederla, può usare un'azione per spostarla magicamente fino a un qualsiasi punto entro 9 metri dalla sua carta. Ogni interazione fisica con la creatura illusoria rivela che si tratta di un'illusione, in quanto gli oggetti passano attraverso di essa. Chi usa un'azione per esaminare visivamente la creatura, la identifica come illusoria effettuando con successo una prova di Intelligenza (Indagare) con CD 15. In questo caso la creatura appare trasparente all'osservatore.
+
+  L'illusione dura finché la carta non viene spostata o l'illusione non viene dissolta. Quando l'illusione termina, l'immagine raffigurata sulla sua carta scompare e la carta non può più essere utilizzata.
+
+  | Carta da gioco | Illusione |
+
+  |---|---|
+
+  | Asso di cuori | Drago rosso |
+
+  | Re di cuori | Cavaliere e quattro guardie |
+
+  | Regina di cuori | Succube o incubo |
+
+  | Jack di cuori | Druido |
+
+  | Dieci di cuori | Gigante delle nuvole |
+
+  | Nove di cuori | Ettin |
+
+  | Otto di cuori | Bugbear |
+
+  | Due di cuori | Goblin |
+
+  | Asso di quadri | Beholder |
+
+  | Re di quadri | Arcimago e apprendista mago |
+
+  | Regina di quadri | Megera notturna |
+
+  | Jack di quadri | Assassino |
+
+  | Dieci di quadri | Gigante del fuoco |
+
+  | Nove di quadri | Ogre mago |
+
+  | Otto di quadri | Gnoll |
+
+  | Due di quadri | Coboldo |
+
+  | Asso di picche | Lich |
+
+  | Re di picche | Sacerdote e due accoliti |
+
+  | Regina di picche | Medusa |
+
+  | Jack di picche | Veterano |
+
+  | Dieci di picche | Gigante del gelo |
+
+  | Nove di picche | Troll |
+
+  | Otto di picche | Hobgoblin |
+
+  | Due di picche | Goblin |
+
+  | Asso di fiori | Golem di ferro |
+
+  | Re di fiori | Capitano bandito e tre banditi |
+
+  | Regina di fiori | Erinni |
+
+  | Jack di fiori | Berserker |
+
+  | Dieci di fiori | Gigante delle colline |
+
+  | Nove di fiori | Ogre |
+
+  | Otto di fiori | Orco |
+
+  | Due di fiori | Coboldo |
+
+  | Jolly (2) | Il personaggio (il proprietario del mazzo) |
+features.0.name: Carte delle illusioni
+features.0.effects.0.name: Pescare e gettare una carta
+features.0.effects.0.text: Pesca una carta casuale e gettala a terra in un punto entro 9 metri da te. Dalla carta si genera un'illusione raffigurante una o più creature che permangono finché non vengono dissolte; appaiono reali e si comportano come creature reali, ma non possono nuocere in alcun modo. Chi usa un'azione per esaminarle le identifica come illusorie effettuando con successo una prova di Intelligenza (Indagare) con CD 15. Quando l'illusione termina, la carta non può più essere utilizzata.
+features.0.effects.0.onUse.0.text: Pesca a caso e consulta la tabella delle carte del mazzo per la creatura; un mazzo completo ha 34 carte, in un mazzo trovato come tesoro solitamente ne mancano 1d20 - 1.
+features.0.effects.1.name: Spostare una creatura illusoria
+features.0.effects.1.text: Finché resti entro 36 metri dalla creatura illusoria e sei in grado di vederla, puoi spostarla magicamente fino a un qualsiasi punto entro 9 metri dalla sua carta.

@@ -1,0 +1,13 @@
+name: Amuleto dei piani
+text: |-
+  Oggetto meraviglioso, molto raro (richiede sintonia)
+
+  Il personaggio che indossa questo amuleto può usare un'azione per nominare un luogo che conosce su un altro piano di esistenza, poi effettua una prova di Intelligenza con CD 15. Se la prova viene superata, lancia l'incantesimo spostamento planare. Se fallisce, il personaggio e tutte le creature e gli oggetti entro un raggio di 4,5 metri vengono trasportati in una destinazione casuale. Il personaggio tira un d100: con un risultato di 1–60, la destinazione è un luogo casuale sul piano di esistenza scelto dal personaggio. Con un risultato di 61–100, la destinazione è un piano di esistenza determinato casualmente.
+features.0.name: Spostamento planare
+features.0.effects.0.name: Nominare un luogo su un altro piano
+features.0.effects.0.text: |-
+  Nomina un luogo che conosci su un altro piano di esistenza, poi effettua una prova di Intelligenza con CD 15. Se la superi, lanci l'incantesimo spostamento planare. Se fallisci, tu e tutte le creature e gli oggetti entro 4,5 metri da te venite trasportati in una destinazione casuale: tira un d100; con 1–60 un luogo casuale sul piano che hai nominato, con 61–100 un piano di esistenza determinato casualmente.
+features.0.effects.0.onUse.0.text: |-
+  Effettua una prova di Intelligenza con CD 15. Successo: lanci spostamento planare. Fallimento: tira un d100 per una destinazione casuale (1–60 luogo casuale sul piano nominato, 61–100 piano casuale).
+features.0.effects.1.note: |-
+  Si lancia solo tramite l'azione dell'amuleto, dopo aver superato una prova di Intelligenza con CD 15.

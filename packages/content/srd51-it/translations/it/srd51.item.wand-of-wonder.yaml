@@ -1,0 +1,62 @@
+name: Bacchetta delle meraviglie
+text: |-
+  Bacchetta, rara (richiede sintonia con un incantatore)
+
+  Questa bacchetta possiede 7 cariche. Mentre il personaggio la impugna, può usare un'azione per consumare 1 carica e scegliere un bersaglio entro 36 metri da lui. Il bersaglio può essere una creatura, un oggetto o un punto nello spazio. Tira un d100 e consulta la seguente tabella per scoprire cosa succede.
+
+  Se l'effetto fa lanciare al personaggio un incantesimo tramite la bacchetta, la CD del tiro salvezza è pari a 15. Se di norma l'incantesimo ha una gittata espressa in metri, essa diventa di 36 metri, se non lo è già.
+
+  Se l'effetto copre una determinata area, l'incantesimo sarà centrato sul bersaglio e lo includerà. Se un effetto può colpire più bersagli, il GM determina in modo casuale quali vengono colpiti.
+
+  All'alba di ogni giorno, la bacchetta recupera 1d6 + 1 cariche consumate. Se il personaggio consuma l'ultima carica, deve tirare un d20: se ottiene 1, la bacchetta si sbriciola ed è distrutta.
+
+  | d100 | Effetto |
+
+  |---|---|
+
+  | 01-05 | Il personaggio lancia lentezza. |
+
+  | 06-10 | Il personaggio lancia luminescenza. |
+
+  | 11-15 | Il personaggio è stordito fino all'inizio del suo turno successivo, convinto che sia successo qualcosa di meraviglioso. 16-20 Il personaggio lancia folata di vento. |
+
+  | 21-25 | Il personaggio lancia individuazione dei pensieri sul bersaglio scelto. Se non aveva scelto una creatura, il personaggio subisce 1d6 danni psichici. |
+
+  | 26-30 | Il personaggio lancia nube maleodorante. |
+
+  | 31-33 | Una fitta pioggia cade in un'area del raggio di 18 metri centrata sul bersaglio. L'area diventa leggermente oscurata. La pioggia continua a cadere fino all'inizio del turno successivo del personaggio. |
+
+  | 34-36 | Un animale compare nello spazio libero più vicino al bersaglio. L'animale non è sotto il controllo del personaggio e agisce come farebbe normalmente. Tira un d100 per determinare quale animale compare. Con un risultato di 01-25, compare un rinoceronte; con 26-50 compare un elefante; con 51-100 compare un topo. |
+
+  | 37-46 | Il personaggio lancia fulmine. |
+
+  | 47-49 | Una nube di 600 farfalle più grandi del normale riempie un'area del raggio di 9 metri centrata sul bersaglio. L'area diventa pesantemente oscurata. Le farfalle permangono per 10 minuti. |
+
+  | 50-53 | Il personaggio ingrandisce il bersaglio come se avesse lanciato ingrandire/ridurre. Se il bersaglio non può essere influenzato da quell'incantesimo o se il personaggio non ha indicato come bersaglio una creatura, diventa lui stesso il bersaglio dell'incantesimo. |
+
+  | 54-58 | Il personaggio lancia oscurità. |
+
+  | 59-62 | Dal terreno spunta dell'erba in un'area del raggio di 18 metri centrata sul bersaglio. Se l'area era già erbosa, l'erba cresce fino a 10 volte la sua taglia normale e permane in questo stato per 1 minuto. |
+
+  | 63-65 | Un oggetto a scelta del GM scompare e va nel Piano Etereo. L'oggetto non deve essere indossato né trasportato, deve trovarsi entro 36 metri dal bersaglio e non deve superare i 3 metri in nessuna delle sue dimensioni. |
+
+  | 66-69 | Il personaggio si restringe come se avesse lanciato ingrandire/ridurre su se stesso. |
+
+  | 70-79 | Il personaggio lancia palla di fuoco. |
+
+  | 80-84 | Il personaggio lancia invisibilità su se stesso. |
+
+  | 85-87 | Sul bersaglio cresce uno strato di foglie. Se il personaggio ha scelto come bersaglio un punto nello spazio, le foglie spuntano dalla creatura più vicina a quel punto. Se non vengono staccate, le foglie avvizziscono e cadono dopo 24 ore. |
+
+  | 88-90 | La punta della bacchetta genera un getto di 1d4 × 10 gemme, ognuna del valore di 1 mo, in una linea lunga 9 metri e larga 1,5 metri. Ogni gemma infligge 1 danno contundente e i danni totali delle gemme vengono divisi equamente tra tutte le creature sulla linea. |
+
+  | 91-95 | Un'esplosione di scintillante luce colorata si estende dal personaggio in un'area del raggio di 9 metri. Il personaggio e ogni creatura in grado di vedere che si trovi nell'area devono superare un tiro salvezza su Costituzione con CD 15, altrimenti diventano accecati per 1 minuto. La creatura può ripetere il tiro salvezza alla fine di ogni suo turno e, se lo supera, l'effetto su di essa svanisce. |
+
+  | 96-97 | La pelle del bersaglio diventa di colore azzurro per 1d10 giorni. Se il personaggio ha scelto un punto nello spazio come bersaglio, questo effetto influenza la creatura più vicina a quel punto. |
+
+  | 98-100 | Se il personaggio ha scelto una creatura come bersaglio, essa deve effettuare un tiro salvezza su Costituzione con CD 15. Se non ha scelto una creatura come bersaglio, il personaggio diventa il bersaglio e deve effettuare il tiro salvezza. Se il bersaglio fallisce il tiro salvezza di 5 o più, è pietrificato all'istante. Con ogni altro risultato fallito, il bersaglio è trattenuto e inizia a trasformarsi in pietra. Finché è trattenuto in questo modo, il bersaglio deve ripetere il tiro salvezza alla fine del suo turno successivo: se fallisce, diventa pietrificato, altrimenti l'effetto svanisce. La pietrificazione dura finché il bersaglio non viene liberato dall'incantesimo ristorare superiore o da altre magie analoghe. |
+attunement.by: un incantatore
+features.0.name: Meraviglie
+features.0.effects.0.name: Meraviglie
+features.0.effects.0.text: "Scegli un bersaglio entro 36 metri: una creatura, un oggetto o un punto nello spazio. Tira un d100 e consulta la tabella dell'oggetto per scoprire cosa succede. Un incantesimo lanciato tramite la bacchetta ha CD del tiro salvezza 15, e una gittata espressa in metri diventa di 36 metri, se non lo è già; un effetto ad area è centrato sul bersaglio e lo include; se un effetto può colpire più bersagli, il GM determina in modo casuale quali vengono colpiti. Se consumi l'ultima carica, tira un d20: con un 1 la bacchetta si sbriciola ed è distrutta."
+features.0.effects.0.onUse.0.text: "Tira un d100 sulla tabella della bacchetta delle meraviglie (vedi il testo dell'oggetto): incantesimi casuali come lentezza, luminescenza, folata di vento, individuazione dei pensieri, nube maleodorante, fulmine, oscurità, palla di fuoco, invisibilità o ingrandire/ridurre, oppure uno degli altri effetti."

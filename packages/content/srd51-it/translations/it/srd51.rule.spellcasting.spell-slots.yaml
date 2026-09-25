@@ -1,0 +1,9 @@
+name: Slot incantesimo
+text: |-
+  A prescindere da quanti incantesimi un incantatore conosce o prepara, egli può lanciarne soltanto un numero limitato prima di dover riposare. Manipolare la trama della magia e incanalarne l'energia anche nel più semplice degli incantesimi è fisicamente e mentalmente spossante e lo è ancora di più nel caso di incantesimi di alto livello. La descrizione di ogni classe da incantatore (fatta eccezione per quella del warlock) include quindi una tabella che indica quanti slot incantesimo di ogni livello di incantesimo un personaggio può usare a ciascun livello del personaggio. Per esempio, la maga di 3° livello Umara possiede quattro slot incantesimo di 1° livello e due slot incantesimo di 2° livello.
+
+  Quando un personaggio lancia un incantesimo, spende uno slot incantesimo di livello pari o superiore a quell'incantesimo, a tutti gli effetti "riempiendo" uno slot con l'incantesimo. Uno slot incantesimo è paragonabile a un solco di un dato spessore: piccolo nel caso di uno slot incantesimo di 1° livello, più grande nel caso di un incantesimo di livello superiore. Un incantesimo di 1° livello può entrare in uno slot di qualsiasi dimensione, ma un incantesimo di 9° livello entrerà solo in uno slot di 9° livello. Quindi, quando Umara lancia _dardo incantato_ (incantesimo di 1° livello), spende uno dei suoi quattro slot incantesimo di 1° livello e gliene rimangono tre.
+
+  Completare un riposo lungo ripristina tutti gli slot incantesimo spesi.
+
+  Alcuni personaggi e mostri sono dotati di capacità speciali che consentono loro di lanciare incantesimi senza usare slot incantesimo: per esempio, un monaco che segue la Via dei Quattro Elementi, un warlock che sceglie certe suppliche occulte e un diavolo della fossa dei Nove Inferi.

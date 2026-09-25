@@ -1,0 +1,6 @@
+name: Muro di spine
+components.m: Una manciata di spine.
+text: |-
+  L'incantatore crea un fitto muro di rovi, resistente, flessibile ed erto di spine affilate. Il muro appare entro gittata su una superficie solida e permane per tutta la durata dell'incantesimo. L'incantatore può scegliere se creare un muro lungo fino a 18 metri, alto 3 metri e spesso 1,5 metri, oppure un muro circolare del diametro massimo di 6 metri, alto fino a 6 metri e spesso 1,5 metri. Il muro blocca la visuale. Quando il muro appare, ogni creatura nella sua area deve effettuare un tiro salvezza su Destrezza. Se lo fallisce, subisce 7d8 danni perforanti, o la metà dei danni in caso di successo. Una creatura può muoversi attraverso il muro, seppur con fatica e dolore: per ogni 30 cm di muro che attraversa, deve spendere 1,2 metri di movimento. Inoltre, la prima volta che una creatura entra nel muro in un turno o vi termina il suo turno, deve superare un tiro salvezza su Destrezza, subendo 7d8 danni taglienti in caso di fallimento, o la metà dei danni in caso di successo.
+higherLevel: |-
+  Quando l'incantatore lancia questo incantesimo usando uno slot incantesimo di 7° livello o superiore, entrambi i tipi di danno aumentano di 1d8 per ogni slot di livello superiore al 6°.

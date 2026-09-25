@@ -1,0 +1,7 @@
+name: Volare
+components.m: La piuma dell'ala di un qualsiasi uccello.
+text: |-
+  L'incantatore tocca una creatura consenziente. Il bersaglio ottiene una velocità di volare di 18 metri per la durata dell'incantesimo. Quando l'incantesimo termina, il bersaglio ancora sospeso in aria cade, sempre che non abbia modo di impedire la caduta.
+higherLevel: |-
+  Quando l'incantatore lancia questo incantesimo usando uno slot incantesimo di 4° livello o superiore, può bersagliare una creatura aggiuntiva per ogni slot superiore al 3°.
+effects.0.note: Quando l'incantesimo termina, il bersaglio ancora sospeso in aria cade. Una creatura aggiuntiva per ogni slot di livello superiore al 3°.

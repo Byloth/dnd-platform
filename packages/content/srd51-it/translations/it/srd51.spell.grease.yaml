@@ -1,0 +1,6 @@
+name: Unto
+components.m: Un pezzo di cotenna di maiale o burro.
+text: |-
+  Una patina viscida di unto ricopre un'area di terreno di 3 metri per lato centrata su un punto entro gittata che diventa terreno difficile per la durata dell'incantesimo. Quando l'unto compare, ogni creatura nell'area deve superare un tiro salvezza su Destrezza, altrimenti cade a terra prona. Anche una creatura che entra nell'area o vi termina il proprio turno deve superare un tiro salvezza su Destrezza, altrimenti cade prona.
+onCast.0.note: |-
+  Ogni creatura che si trova nell'area quando l'unto compare, e qualsiasi creatura che entra nell'area o vi termina il proprio turno, cade prona se fallisce un tiro salvezza su Destrezza. L'area è terreno difficile per la durata dell'incantesimo.

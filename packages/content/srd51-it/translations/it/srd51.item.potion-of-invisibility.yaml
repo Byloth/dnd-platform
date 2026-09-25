@@ -1,0 +1,7 @@
+name: Pozione dell'invisibilità
+text: |-
+  Pozione, molto rara
+
+  Il contenitore di questa pozione sembra vuoto, ma pesa come se al suo interno ci fosse un liquido. Quando il personaggio beve la pozione, diventa invisibile per 1 ora. Tutto ciò che indossa o trasporta diventa invisibile assieme a lui. L'effetto termina anticipatamente se il personaggio effettua un attacco o lancia un incantesimo.
+onUse.0.text: |-
+  Quando bevi la pozione, diventi invisibile per 1 ora. Tutto ciò che indossi o trasporti diventa invisibile assieme a te. L'effetto termina anticipatamente se effettui un attacco o lanci un incantesimo.

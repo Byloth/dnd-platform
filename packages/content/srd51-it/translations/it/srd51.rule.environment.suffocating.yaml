@@ -1,0 +1,5 @@
+name: "Soffocamento"
+text: |-
+  Una creatura può trattenere il fiato per un numero di minuti pari a 1 + il suo modificatore di Costituzione (minimo di 30 secondi).
+  Quando una creatura è a corto di fiato o sta soffocando, può sopravvivere per un numero di round pari al suo modificatore di Costituzione (minimo di 1 round). All'inizio del suo turno successivo, la creatura scende a 0 punti ferita, è morente e non può recuperare punti ferita o essere stabilizzata finché non è in grado di respirare di nuovo.
+  Per esempio, una creatura con Costituzione 14 può trattenere il fiato per 3 minuti. Se inizia a soffocare, le restano 2 round per trovare aria prima di scendere a 0 punti ferita.

@@ -1,0 +1,26 @@
+name: Corno del Valhalla
+text: |-
+  Oggetto meraviglioso, raro (ottone o argento), molto raro (bronzo) o leggendario (ferro)
+
+  Il personaggio può usare un'azione per suonare questo corno. In risposta al suono, entro 18 metri da lui compare una schiera di spiriti guerrieri provenienti dal Valhalla, che utilizzano le statistiche del berserker. Tornano nel Valhalla dopo 1 ora o quando scendono a 0 punti ferita. Una volta usato, il corno non può essere riutilizzato finché non sono trascorsi 7 giorni.
+
+  Sono noti quattro tipi di corno del Valhalla, ognuno fatto di un metallo diverso. Il tipo di corno determina il numero di berserker che rispondono all'evocazione e i requisiti per il suo uso. Il GM sceglie il tipo di corno o lo determina casualmente.
+
+  | d100 | Tipo di corno | Berserker evocati | Requisiti |
+
+  |---|---|---|---|
+
+  | 01-40 | Argento | 2d4 + 2 | Nessuno |
+
+  | 41-75 | Ottone | 3d4 + 3 | Competenza in tutte le armi semplici |
+
+  | 76-90 | Bronzo | 4d4 + 4 | Competenza in tutte le armature medie |
+
+  | 91-00 | Ferro | 5d4 + 5 | Competenza in tutte le armi da guerra |
+
+  Se il personaggio suona il corno senza soddisfare i requisiti, i berserker evocati lo attaccano. In caso contrario, i berserker sono amichevoli nei suoi confronti e in quelli dei suoi compagni e obbediscono ai suoi ordini.
+features.0.name: Evocare berserker
+features.0.text: Il personaggio può usare un'azione per suonare questo corno. In risposta al suono, entro 18 metri da lui compare una schiera di spiriti guerrieri provenienti dal Valhalla, che utilizzano le statistiche del berserker. Tornano nel Valhalla dopo 1 ora o quando scendono a 0 punti ferita. Una volta usato, il corno non può essere riutilizzato finché non sono trascorsi 7 giorni. Il tipo di corno determina il numero di berserker che rispondono all'evocazione e i requisiti per il suo uso (argento 2d4 + 2, nessuno; ottone 3d4 + 3, competenza in tutte le armi semplici; bronzo 4d4 + 4, competenza in tutte le armature medie; ferro 5d4 + 5, competenza in tutte le armi da guerra). Se il personaggio suona il corno senza soddisfare i requisiti, i berserker evocati lo attaccano.
+features.0.effects.0.name: Suonare il corno
+features.0.effects.0.onUse.0.text: Entro 18 metri compaiono dei berserker (blocco di statistiche) per 1 ora o finché non scendono a 0 punti ferita. Argento 2d4 + 2 (nessun requisito), ottone 3d4 + 3 (competenza in tutte le armi semplici), bronzo 4d4 + 4 (competenza in tutte le armature medie), ferro 5d4 + 5 (competenza in tutte le armi da guerra). Se non soddisfi il requisito, ti attaccano. Il corno non può essere riutilizzato finché non sono trascorsi 7 giorni; ripristina a mano la sua carica.
+features.0.effects.0.text: Suoni il corno per evocare spiriti di berserker entro 18 metri per 1 ora. Utilizzabile una volta ogni 7 giorni.

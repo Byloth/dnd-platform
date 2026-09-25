@@ -1,0 +1,34 @@
+languages.0.name: Comune
+languages.1.name: Nanico
+languages.2.name: Elfico
+languages.3.name: Gigante
+languages.4.name: Gnomesco
+languages.5.name: Goblin
+languages.6.name: Halfling
+languages.7.name: Orchesco
+languages.8.name: Abissale
+languages.9.name: Celestiale
+languages.10.name: Draconico
+languages.11.name: Gergo delle profondità
+languages.12.name: Infernale
+languages.13.name: Primordiale
+languages.14.name: Silvano
+languages.15.name: Sottocomune
+alignments.0.name: Legale buono
+alignments.0.text: Le creature legali buone (LB) agiranno sicuramente nel modo considerato giusto dalla società. I draghi d'oro, i paladini e la maggior parte dei nani sono creature legali buone.
+alignments.1.name: Neutrale buono
+alignments.1.text: I personaggi neutrali buoni (NB) fanno del loro meglio per aiutare gli altri in base alle necessità. Molti celestiali, alcuni giganti delle nuvole e la maggior parte degli gnomi sono creature neutrali buone.
+alignments.2.name: Caotico buono
+alignments.2.text: Le creature caotiche buone (CB) agiscono in base ai dettami della loro coscienza, senza curarsi troppo delle aspettative del prossimo. I draghi di rame, gli unicorni e molti elfi sono creature caotiche buone.
+alignments.3.name: Legale neutrale
+alignments.3.text: I personaggi legali neutrali (LN) agiscono in base a quanto richiesto dalla legge, dalla tradizione o dai codici personali. Molti monaci e alcuni maghi sono legali neutrali.
+alignments.4.name: Neutrale
+alignments.4.text: I personaggi neutrali puri (N) preferiscono tenersi alla larga dalle questioni morali e non si schierano, facendo ciò che sembra loro la cosa migliore di volta in volta. I lucertoloidi, molti druidi e molti umani sono neutrali.
+alignments.5.name: Caotico neutrale
+alignments.5.text: Le creature caotiche neutrali (CN) si lasciano guidare dai loro capricci e antepongono la loro libertà personale a ogni altra cosa. Molti barbari e ladri, e alcuni bardi, sono caotici neutrali.
+alignments.6.name: Legale malvagio
+alignments.6.text: Le creature legali malvagie (LM) si impossessano metodicamente di ciò che vogliono, entro i limiti di un codice di tradizioni, di fedeltà o di ordine. I diavoli, i draghi blu e gli hobgoblin sono creature legali malvagie.
+alignments.7.name: Neutrale malvagio
+alignments.7.text: I personaggi neutrali malvagi (NM) fanno tutto ciò che pensano di poter fare senza subire ripercussioni, privi di qualsiasi remora o compassione. Molti drow, alcuni giganti delle nuvole e goblin sono neutrali malvagi.
+alignments.8.name: Caotico malvagio
+alignments.8.text: Le creature caotiche malvagie (CM) agiscono con violenza arbitraria, spronate dall'avidità, dall'odio o dalla sete di sangue. I demoni, i draghi rossi e gli orchi sono caotici malvagi.

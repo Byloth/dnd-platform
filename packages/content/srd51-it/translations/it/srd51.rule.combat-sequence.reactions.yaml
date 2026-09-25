@@ -1,0 +1,5 @@
+name: "Reazioni"
+text: |-
+  Certe abilità speciali, incantesimi e situazioni consentono a un personaggio di effettuare un'azione speciale chiamata reazione. Una reazione è una risposta istantanea a un innesco di qualche tipo, che può verificarsi nel turno del personaggio o nel turno di qualcun altro. L'attacco di opportunità è il tipo di reazione più comune.
+
+  Quando un personaggio effettua una reazione, non può effettuarne un'altra fino all'inizio del suo turno successivo. Se la reazione interrompe il turno di un'altra creatura, quella creatura può proseguire il proprio turno subito dopo la reazione.

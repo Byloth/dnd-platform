@@ -1,0 +1,7 @@
+name: "Sfida"
+text: |-
+  Il **grado di sfida** di un mostro indica quanto è grave la minaccia costituita dal mostro. Un gruppo di quattro avventurieri riposati e ben equipaggiati dovrebbe essere in grado di sconfiggere un mostro con un grado di sfida pari al suo livello senza subire morti. Per esempio, un gruppo di quattro personaggi di 3° livello dovrebbe trovare un mostro con un grado di sfida pari a 3 una sfida avvincente, ma non letale.
+
+  Alcuni mostri significativamente più deboli dei personaggi di 1° livello possono avere un grado di sfida inferiore a 1. I mostri con un grado di sfida pari a 0 sono insignificanti, a meno che non siano particolarmente numerosi; quelli privi di attacchi efficaci non valgono punti esperienza, mentre quelli dotati di attacco valgono 10 PE a testa.
+
+  Alcuni mostri costituiscono una sfida superiore a quella che anche un tipico gruppo di 20° livello può affrontare. Questi mostri hanno un grado di sfida pari o superiore a 21 e sono specificamente concepiti per mettere alla prova l'abilità dei giocatori.

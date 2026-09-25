@@ -1,0 +1,9 @@
+name: "Il turno di un personaggio"
+text: |-
+  Nel proprio turno, un personaggio può **muoversi** di una distanza massima pari alla sua velocità ed **effettuare un'azione**. Può decidere liberamente se per prima cosa vuole muoversi oppure effettuare la propria azione. La velocità di un personaggio, a volte chiamata velocità base sul terreno, è indicata sulla sua scheda del personaggio.
+
+  Le azioni più comuni che un personaggio può effettuare sono descritte in srd:actions-in-combat. Molti privilegi di classe e altre capacità forniscono ulteriori opzioni per l'azione del personaggio.
+
+  srd:movement-and-position descrive le regole relative al movimento.
+
+  Un personaggio può rinunciare a muoversi o a effettuare un'azione, o anche decidere di non fare nulla nel suo turno. Se non sa cosa fare nel proprio turno, può effettuare un'azione di Prepararsi o di Schivata, come descritto in srd:actions-in-combat.

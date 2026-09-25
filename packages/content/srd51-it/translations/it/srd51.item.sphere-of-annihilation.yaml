@@ -1,0 +1,23 @@
+name: Sfera annientatrice
+text: |-
+  Oggetto meraviglioso, leggendario
+
+  Questa sfera nera del diametro di 60 cm è un buco nel multiverso che fluttua a mezz'aria e che è stabilizzato da un campo magico che la circonda.
+
+  La sfera annienta tutta la materia che attraversa e che passa attraverso di essa, a eccezione dei manufatti. A meno che un manufatto non sia suscettibile ai danni di una *sfera annientatrice*, esso vi passa attraverso e ne esce illeso. Ogni altra cosa che tocca la sfera, ma che non ne viene interamente inghiottita e annientata, subisce 4d10 danni da forza.
+
+  La sfera rimane stazionaria finché qualcuno non ne prende il controllo. Se il personaggio si trova entro 18 metri da una sfera non controllata, può usare un'azione per effettuare una prova di Intelligenza (Arcano) con CD 25. In caso di successo, la sfera levita in una direzione scelta dal personaggio, fino a un numero di metri pari a 1,5 × il suo modificatore di Intelligenza (per un minimo di 1,5 metri). In caso di fallimento, la sfera si muove di 3 metri verso il personaggio. Se la sfera entra nello spazio occupato da una creatura, quest'ultima deve superare un tiro salvezza su Destrezza con CD 13 per non farsi toccare, altrimenti subisce 4d10 danni da forza.
+
+  Se il personaggio tenta di controllare una sfera che si trova sotto il controllo di un'altra creatura, deve effettuare una prova di Intelligenza (Arcano) contrapposta a quella dell'altra creatura. Chi vince ottiene il controllo della sfera e può farla levitare normalmente.
+
+  Se la sfera entra in contatto con un portale planare, come quello creato dall'incantesimo *portale*, o con uno spazio extradimensionale, come quello di un *buco portatile*, il GM determina casualmente ciò che succede, usando la tabella seguente.
+
+  | d100 | Risultato |
+
+  |---|---|
+
+  | 01-50 | La sfera è distrutta. |
+
+  | 51-85 | La sfera si muove attraverso il portale o nello spazio extradimensionale. |
+
+  | 86-00 | Uno squarcio nello spazio trascina ogni creatura e oggetto entro 54 metri dalla sfera (inclusa la sfera stessa) su un piano di esistenza casuale. |

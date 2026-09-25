@@ -1,0 +1,12 @@
+name: Armatura in Mithral
+text: |-
+  Armatura (media o pesante), non comune
+
+  Il mithral è un metallo flessibile e leggero. Un giaco di maglia o una corazza di piastre in mithral possono essere indossate sotto gli abiti normali. Se un'armatura normalmente impone svantaggio alle prove di Destrezza (Furtività) o prevede un requisito di Forza, la sua versione di mithral non fa né l'una né l'altra cosa.
+features.0.name: Mithral
+features.0.text: |-
+  Il mithral è un metallo flessibile e leggero. Un giaco di maglia o una corazza di piastre in mithral possono essere indossate sotto gli abiti normali. Se un'armatura normalmente impone svantaggio alle prove di Destrezza (Furtività) o prevede un requisito di Forza, la sua versione di mithral non fa né l'una né l'altra cosa.
+features.0.effects.0.text: |-
+  Se un'armatura normalmente impone svantaggio alle prove di Destrezza (Furtività) o prevede un requisito di Forza, la sua versione di mithral non fa né l'una né l'altra cosa.
+features.0.effects.0.note: |-
+  Questa voce copre qualsiasi armatura media o pesante, quindi non può dichiarare un unico insieme di campi dell'armatura. Una variante concreta (giaco di maglia in mithral, armatura a piastre in mithral) dovrebbe dichiarare la propria categoria, CA e peso senza stealthDisadvantage né strengthMin.

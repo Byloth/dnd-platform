@@ -1,0 +1,24 @@
+name: "Divinità norrene"
+text: |-
+  | Divinità                                         | Allineamento | Domini suggeriti   | Simbolo                                   |
+  |--------------------------------------------------|--------------|--------------------|-------------------------------------------|
+  | Odino, dio della conoscenza e della guerra       | NB           | Conoscenza, Guerra | Occhio azzurro spalancato                 |
+  | Aegir, dio del mare e delle tempeste             | NM           | Tempesta           | Onde oceaniche tempestose                 |
+  | Baldr, dio della bellezza e della poesia         | NB           | Luce, Vita         | Calice d'argento tempestato di gemme      |
+  | Forseti, dio della giustizia e della legge       | N            | Luce               | Volto maschile barbuto                    |
+  | Freyr, dio della fertilità e del sole            | NB           | Luce, Vita         | Spadone azzurro ghiaccio                  |
+  | Freya, dea della fertilità e dell'amore          | NB           | Vita               | Falco                                     |
+  | Frigga, dea delle nascite e della fertilità      | N            | Luce, Vita         | Gatto                                     |
+  | Heimdall, dio della sorveglianza e della lealtà  | LB           | Guerra, Luce       | Corno musicale arrotolato                 |
+  | Hel, dea dell'oltretomba                         | NM           | Morte              | Volto femminile con un lato putrefatto    |
+  | Hermod, dio della fortuna                        | CN           | Inganno            | Pergamena alata                           |
+  | Loki, dio dei ladri e dell'inganno               | CM           | Inganno            | Fiamma                                    |
+  | Njord, dio del mare e del vento                  | NB           | Natura, Tempesta   | Moneta d'oro                              |
+  | Odur, dio della luce e del sole                  | CB           | Luce               | Disco solare                              |
+  | Sif, dea della guerra                            | CB           | Guerra             | Spada innalzata                           |
+  | Skadi, dea della terra e delle montagne          | N            | Natura             | Picco montano                             |
+  | Surtur, dio dei giganti del fuoco e della guerra | LM           | Guerra             | Spada infuocata                           |
+  | Thor, dio delle tempeste e del tuono             | CB           | Guerra, Tempesta   | Martello                                  |
+  | Thrym, dio dei giganti del gelo e del freddo     | CM           | Guerra             | Ascia bipenne bianca                      |
+  | Tyr, dio del coraggio e della strategia          | LN           | Conoscenza, Guerra | Spada                                     |
+  | Ullr, dio della caccia e dell'inverno            | CN           | Natura             | Arco lungo                                |

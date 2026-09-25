@@ -1,0 +1,20 @@
+name: Bacchetta del legame
+text: |-
+  Bacchetta, rara (richiede sintonia con un incantatore)
+
+  Questa bacchetta possiede 7 cariche per le seguenti proprietà. All'alba di ogni giorno, recupera 1d6 + 1 cariche consumate. Se il personaggio consuma l'ultima carica, deve tirare un d20: se ottiene 1, la bacchetta diventa cenere e viene distrutta.
+
+  ***Incantesimi.*** Mentre il personaggio impugna la bacchetta, può usare un'azione e consumare alcune cariche per lanciare uno degli incantesimi seguenti (CD del tiro salvezza 17): blocca mostri (5 cariche) o blocca persone (2 cariche).
+
+  ***Fuga assistita.*** Mentre il personaggio impugna la bacchetta, può usare la sua reazione per consumare 1 carica e ottenere vantaggio a un tiro salvezza che effettua per evitare di diventare paralizzato o trattenuto; in alternativa, può consumare 1 carica e ottenere vantaggio a una qualsiasi prova effettuata per sfuggire a una lotta.
+attunement.by: un incantatore
+features.0.name: Incantesimi
+features.0.effects.0.note: |-
+  CD del tiro salvezza 17; si lancia con un'azione mentre impugni la bacchetta. Se consumi l'ultima carica, tira un d20: con un 1 la bacchetta diventa cenere e viene distrutta.
+features.0.effects.1.note: CD del tiro salvezza 17.
+features.1.name: Fuga assistita
+features.1.effects.0.name: Fuga assistita
+features.1.effects.0.trigger: quando effettui un tiro salvezza per evitare di diventare paralizzato o trattenuto, o una prova per sfuggire a una lotta
+features.1.effects.0.text: |-
+  Ottieni vantaggio a un tiro salvezza che effettui per evitare di diventare paralizzato o trattenuto, o a una qualsiasi prova che effettui per sfuggire a una lotta.
+features.1.effects.0.onUse.0.text: Vantaggio a quel tiro salvezza o a quella prova.

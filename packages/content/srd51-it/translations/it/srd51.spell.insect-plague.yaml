@@ -1,0 +1,6 @@
+name: Piaga degli insetti
+components.m: Qualche granello di zucchero, alcuni chicchi di grano e uno sbaffo di grasso.
+text: |-
+  Uno sciame di locuste fameliche riempie una sfera del raggio di 6 metri centrata su un punto a scelta dell'incantatore situato entro gittata che si estende oltre gli angoli, permane per tutta la durata dell'incantesimo e la cui area è leggermente oscurata. La sfera è inoltre terreno difficile. Quando appare l'area, ogni creatura al suo interno deve effettuare un tiro salvezza su Costituzione, subendo 4d10 danni perforanti in caso di fallimento, o la metà dei danni in caso di successo. Inoltre, una creatura deve superare tale tiro salvezza anche quando entra nell'area dell'incantesimo per la prima volta in un turno o termina il suo turno qui.
+higherLevel: |-
+  Quando l'incantatore lancia questo incantesimo usando uno slot incantesimo di 6° livello o superiore, i danni aumentano di 1d10 per ogni slot di livello superiore al 5°.

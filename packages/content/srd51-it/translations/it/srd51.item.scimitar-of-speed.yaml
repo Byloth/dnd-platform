@@ -1,0 +1,9 @@
+name: Scimitarra della velocità
+text: |-
+  Arma (scimitarra), molto rara (richiede sintonia)
+
+  Il personaggio ottiene un bonus di +2 ai tiri per colpire e ai tiri per i danni effettuati con quest'arma magica. Può inoltre effettuare un attacco con quest'arma come azione bonus a ogni suo turno.
+features.0.name: Scimitarra della velocità
+features.1.name: Velocità
+features.1.effects.0.name: Attacco con la scimitarra della velocità
+features.1.effects.0.text: Effettua un attacco con la *scimitarra della velocità* come azione bonus a ogni tuo turno.

@@ -1,0 +1,3 @@
+name: Interdizione alla morte
+text: |-
+  L'incantatore tocca una creatura e le concede una misura di protezione dalla morte. La prima volta che il bersaglio subisce una quantità di danni tale da farlo scendere a 0 punti ferita, scende invece a 1 punto ferita e l'incantesimo termina. Se l'incantesimo è ancora attivo quando il bersaglio è soggetto a un effetto che ne provocherebbe la morte istantanea senza infliggere danni, quell'effetto viene invece annullato e l'incantesimo termina.

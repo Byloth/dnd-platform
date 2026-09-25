@@ -1,0 +1,5 @@
+name: Combattere con Due Armi
+text: |-
+  Quando un personaggio effettua l'azione di Attacco e attacca con un'arma da mischia leggera impugnata a una mano, può usare un'azione bonus per attaccare con un'altra arma da mischia leggera impugnata nell'altra mano. Non aggiunge il suo modificatore di caratteristica ai danni dell'attacco bonus, a meno che quel modificatore non sia negativo.
+
+  Se una delle due armi possiede la proprietà da lancio, il personaggio può lanciarla invece di usarla per effettuare un attacco in mischia.

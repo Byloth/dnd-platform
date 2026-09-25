@@ -1,0 +1,8 @@
+name: Invisibilità
+components.m: Un ciglio ricoperto da uno strato di resina.
+text: |-
+  Una creatura toccata dall'incantatore diventa invisibile fino al termine dell'incantesimo. Ciò accade anche a tutto ciò che il bersaglio indossa o trasporta, sempre che non se ne separi. L'incantesimo termina quando il bersaglio attacca o lancia un incantesimo.
+higherLevel: |-
+  Quando l'incantatore lancia questo incantesimo usando uno slot incantesimo di 3° livello o superiore, può bersagliare una creatura aggiuntiva per ogni slot superiore al 2°.
+onCast.0.note: |-
+  Tutto ciò che il bersaglio indossa o trasporta è invisibile, sempre che non se ne separi. L'incantesimo termina per un bersaglio che attacca o lancia un incantesimo. Ogni slot di livello superiore al 2° bersaglia una creatura aggiuntiva.
