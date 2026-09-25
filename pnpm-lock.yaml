@@ -87,6 +87,8 @@ importers:
 
   packages/content/srd51: {}
 
+  packages/content/srd51-it: {}
+
   packages/engine:
     dependencies:
       '@byloth/dnd-platform-schema':
