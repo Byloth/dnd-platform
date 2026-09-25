@@ -32,6 +32,8 @@ When a decision is taken, its status becomes **Decided**, the chosen option and 
 | DEC-20 | Package compatibility and content selection | 0 | Decided (2026-09-21) |
 | DEC-21 | Content versions and updates (editions, automatic fixes, published releases) | 1 | Decided (2026-09-23) |
 | DEC-22 | Usage statistics on the public site (Umami, opt-in consent) | 1 | Decided (2026-09-25) |
+| DEC-23 | Official books as packages: one per book, or one "core" package | 1–2 | Open |
+| DEC-24 | Creatures as content (a creature entity type) | 6 (or earlier) | Open |
 
 ## Entries
 
@@ -67,6 +69,7 @@ When a decision is taken, its status becomes **Decided**, the chosen option and 
 ### DEC-05 — Dice RNG and roll verifiability
 - **What:** where dice are rolled (device or server), whether rolls are verifiable by the DM, and whether physical dice can be entered instead.
 - **Options known:** local rolls with a log; server rolls with a shared log; entering physical results. Manual entry must exist in any case, because many tables prefer real dice.
+- **Owner's wish (2026-09-25): a choice of rolling logic in the user's settings.** Plain uniform dice by default. As an option, "karmic" dice that avoid long streaks, such as several natural 1s or 20s in a row, the way Baldur's Gate 3 offers; the logic may be taken from what is known of theirs or written for the platform. Whatever logic is chosen is named on every roll it affects and in the session log. Its fairness to the rest of the table, and whether a campaign may forbid it (Phase 6), are part of this decision.
 - **Unblocks:** play mode roll flows ([09](09-play-mode.md)).
 - **Referenced by:** [09](09-play-mode.md).
 
@@ -131,6 +134,7 @@ When a decision is taken, its status becomes **Decided**, the chosen option and 
 - **What:** which method the newcomer wizard proposes by default (standard array, point buy, rolling) and which are allowed.
 - **Decided (2026-09-22):** **standard array by default**; point buy and rolling remain available in the same step; a campaign may restrict the methods (Phase 6, [14](14-accounts-sharing-and-campaigns.md)). Reason: six fixed numbers to assign need no arithmetic and no dice, one sentence explains them.
 - **Constraint fixed:** all three must be supported; the default must be the one that needs the least explanation ([07](07-character-creation.md)).
+- **Amended by the owner (2026-09-25):** rolling may also be done by the application: "Roll for me" fills the six totals with 4d6, dropping the lowest die. Typing one's own dice stays. See [phase-1/04-character-creation.md](phase-1/04-character-creation.md).
 - **Unblocks:** the wizard's ability score step.
 - **Referenced by:** [07](07-character-creation.md).
 
@@ -192,6 +196,36 @@ When a decision is taken, its status becomes **Decided**, the chosen option and 
 - **Options known:** no statistics (the Phase 1 principle as written); a cookie-based service with a consent manager; a self-hosted Umami; the chosen model.
 - **Amends:** the privacy principle of [phase-1/02-content-and-character-stores.md](phase-1/02-content-and-character-stores.md): no network request except for the application's own assets and, only with consent, anonymous usage events.
 - **Referenced by:** [phase-1/01-web-application.md](phase-1/01-web-application.md), [phase-1/12-analytics.md](phase-1/12-analytics.md).
+
+### DEC-23 — Official books as packages: one per book, or one "core" package
+- **What:** the owner asked (2026-09-25) whether the three core books, Player's Handbook, Dungeon Master's Guide and Monster Manual, should become a single private package of the classic D&D rules.
+- **Options known:**
+  - one package per book, as `phb14` is today (`dmg14`, `mm14`);
+  - one package holding all three;
+  - one package per book plus a meta-package (`core14`) that only depends on the three, so a single choice in step 0 selects them all.
+- **Recommendation:** one package per book, plus the optional meta-package.
+  - Provenance and credits stay per book, on the sheet and in print.
+  - Versions follow each book (DEC-21): an errata of the Monster Manual does not touch characters built from the Player's Handbook.
+  - A player may own only some of the books.
+  - The DMG and the MM hold few player options; they matter mostly for the catalogues of [19](19-catalogues.md).
+- **Unblocks:** the next private packages (dmg14, mm14), the catalogues.
+- **Referenced by:** [05](05-content-model-and-sources.md), [19](19-catalogues.md), [phase-1/08-workplan.md](phase-1/08-workplan.md).
+
+### DEC-24 — Creatures as content
+- **What:** the format has no entity for creatures; the creature catalogue of [19](19-catalogues.md) needs one.
+- **Options known:** a `creature` entity type in the format (additive at v0); creatures as rules text only; a separate data file outside the format.
+- **Leaning:** a `creature` entity type holding the stat block:
+  - size, type and alignment;
+  - armour class with its source;
+  - hit points with their dice;
+  - speeds, the six abilities, saving throws, skills, senses and languages;
+  - challenge rating and proficiency bonus;
+  - traits, actions, bonus actions, reactions and legendary actions, written in the effect and roll language so they can be explained and rolled;
+  - spellcasting;
+  - the environment and the source.
+  The SRD's monsters come first (public: the 5e-database of the import pipeline has them, excluded from the import so far), then the Monster Manual and other books and adventures in private packages. Familiars, companions and wild shapes can reuse it later.
+- **Unblocks:** the creature catalogue; later, companions and summons on the sheet.
+- **Referenced by:** [19](19-catalogues.md), [16](16-roadmap.md).
 
 ## How to add a decision
 

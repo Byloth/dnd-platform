@@ -117,7 +117,7 @@ Order: the integrity fixes first (they correct wrong behaviour), then the interf
 
 Done: the tasks of the three documents for this milestone. Release: none of its own; it ships with `v0.3.5` at the close of M1.5.
 
-Also in M1.4r, asked by the owner on 2026-09-25 and done that day: the usage statistics of DEC-22 ([12-analytics.md](12-analytics.md)).
+Also in M1.4r, asked by the owner on 2026-09-25 and done that day: the usage statistics of DEC-22 ([12-analytics.md](12-analytics.md)). To do in M1.4r: "Roll for me" in step 5 ([04-character-creation.md](04-character-creation.md), task 3).
 
 ### M1.5 — Character store, export and import (≈ 2 sessions)
 
@@ -187,6 +187,7 @@ Risks: the newcomer test fails the fifteen-minute target; that is a finding, not
 
 - Whether M1.6 (print) should come before M1.4 (creation) to give the owner a printable playbook of the fixture characters earlier; possible, since print depends on the sheet and the stored character only when printing a created one. Decide at the close of M1.3.
 - Whether the project name (and the site path) is settled during Phase 1; the base URL is one line, the package scope a search-and-replace.
+- DEC-23 (one package per official book, or one "core" package) is to be decided before the next private package (dmg14 or mm14); the catalogues it serves are in [../19-catalogues.md](../19-catalogues.md).
 - Famous characters from other works (Geralt of Rivia, Uther the Lightbringer…) as demo characters and as wizard concepts: proposed by the owner on 2026-09-25, set aside to evaluate later. A well-delineated fictional character is protected by copyright and its name is often a trademark; the public content is CC-BY, which cannot cover them. The options recorded: a private package (like phb14), a separate fan package with notices that follows each owner's fan-content policy, or original concepts "in the manner of" with names of our own.
 - Session estimates assume agent assistance for repetitive work (archetype authoring, translation, component boilerplate); revise after M1.3.
 

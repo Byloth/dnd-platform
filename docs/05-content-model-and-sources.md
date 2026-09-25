@@ -53,6 +53,34 @@ Rules:
 4. The repository documents the format and provides tooling to *author* such packages; it does not provide the packages.
 5. When official content overlaps the SRD (e.g. the PHB's version of a class), the official package extends the base entity rather than duplicating it, so characters built on the SRD do not change when the book package is added.
 
+Extended by the owner (2026-09-25): the scope also covers **game-master material** for the item and creature catalogues of [19](19-catalogues.md). This means the Dungeon Master's Guide (magic items), the Monster Manual and other bestiaries (creatures), and **adventure books** (the starter sets, Curse of Strahd, Journeys through the Radiant Citadel and others), which bring magic items, creatures and sometimes player options. Whether the three core books are one package or three is DEC-23; creatures need an entity type, DEC-24.
+
+#### Further sources
+
+Books the owner has, as `content-private/sources` (2026-09-25):
+- the Player's Handbook, the Dungeon Master's Guide and the Monster Manual (2014);
+- Xanathar's Guide to Everything, Tasha's Cauldron of Everything, Mordenkainen Presents: Monsters of the Multiverse and Volo's Guide to Monsters;
+- Historia, a third-party Italian book.
+
+Books that would add the most, for a later choice (point 2.2 of the owner's notes):
+
+| Book | Adds |
+|---|---|
+| Eberron: Rising from the Last War | the Artificer (a whole class), Eberron species, dragonmarks, magic items |
+| Sword Coast Adventurer's Guide | subclasses, backgrounds, a few cantrips |
+| Explorer's Guide to Wildemount | the Echo Knight, the dunamancy wizards, Wildemount backgrounds |
+| Fizban's Treasury of Dragons | dragonborn variants, feats, a subclass, dragons (creatures), hoard items |
+| Van Richten's Guide to Ravenloft | lineages, subclasses, dark gifts, creatures |
+| Mythic Odysseys of Theros | subclasses, supernatural gifts, creatures |
+| Strixhaven: A Curriculum of Chaos | a species, feats, backgrounds |
+| Spelljammer: Adventures in Space | species, creatures, items |
+| The Wild Beyond the Witchlight | two species, a background, creatures |
+| Bigby Presents: Glory of the Giants | a subclass, feats, giants (creatures), items |
+| The Book of Many Things | a subclass, feats, creatures, the Deck of Many Things |
+| The 2024 Player's Handbook, Dungeon Master's Guide and Monster Manual | the revised rules, with SRD 5.2 as the public base `srd52` (DEC-02, DEC-21) |
+
+Mordenkainen's Tome of Foes and most of Volo's are superseded by Monsters of the Multiverse; adventure books matter for the catalogues, not for character options.
+
 ### User homebrew packages
 
 Same format, three visibility levels: `private` (author only), `campaign` (members of a campaign), `public` (listed and installable by anyone). The full mechanism is specified in [06](06-homebrew-and-extensibility.md).

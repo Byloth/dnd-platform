@@ -100,6 +100,13 @@ Tap "Roll" in play mode to roll d20 + 5.
 
 Expert view of the same: the raw provenance list `{value, kind, feature, entity, package@version}` and the formula.
 
+**Hover, click and roll** (owner, 2026-09-25, with the dice of Phase 2, [09](09-play-mode.md)):
+- On a pointer device, resting on a value shows after a short delay (about half a second) a popover beside the pointer. It holds the short explanation ("AC 15: 10 base + DEX + armour + shield"), the wording of the help level.
+- A value that can be rolled (initiative, an attack's to-hit, its damage, a save, a check) shows the same popover on rest, and rolls on click: the right dice plus the value's bonus, with the result in the dice overlay.
+- A value that cannot be rolled opens the full explanation drawer on click, as today.
+- On touch, a tap opens the drawer, which carries a "Roll" button for rollable values. Long-press shows the popover.
+- With the keyboard, focus shows the popover, Enter rolls (or opens the drawer), and a separate key opens the drawer.
+
 ### Layout modes
 
 | | Build | Play | Print |

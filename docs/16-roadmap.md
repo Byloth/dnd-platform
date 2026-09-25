@@ -62,6 +62,9 @@ Goal: a whole session can be played from the phone.
 Scope:
 - Play engine with events, log and undo ([09](09-play-mode.md)).
 - Dice rolling with breakdown, attack and spell flows, resource and slot spending, concentration, conditions with expiry, short and long rests with automatic recovery.
+- The dice overlay (dice of the right kind thrown over the page, a tray of the latest results; customisable dice later) and rolling from the sheet itself: hover explains, click rolls (owner, 2026-09-25; [09](09-play-mode.md), [08](08-dynamic-sheet.md)).
+- The rolling logic as a user setting, plain or "karmic" dice that avoid streaks (owner's wish, DEC-05).
+- The item catalogue for players: adding any item to the inventory after creation ([19](19-catalogues.md)).
 - Turn tracker with the action economy made explicit.
 - Play layout of the dynamic sheet ([08](08-dynamic-sheet.md)).
 
@@ -131,7 +134,7 @@ Scope:
 - Campaign creation, invitations, membership ([14](14-accounts-sharing-and-campaigns.md)).
 - Allowed package set and versions per campaign; house rules as a campaign-level package.
 - DM read view of every member's sheet, including state during play.
-- Further DM tools are out of scope until this phase is done and evaluated.
+- Further DM tools are out of scope until this phase is done and evaluated. The first candidates, asked by the owner on 2026-09-25: the item catalogue for loot and the creature catalogue with rollable stat blocks ([19](19-catalogues.md), DEC-24).
 
 Done when:
 - A DM restricts a campaign to the base package plus one homebrew package, and a member's creation flow shows only that content.

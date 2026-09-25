@@ -44,7 +44,16 @@ A persistent "Assistant" tab opens the tactical layer ([11](11-play-assistant.md
 - Situational modifiers: a small +/- input for what the DM grants on the spot; recorded in the breakdown as "situational".
 - Natural 20 and 1 are highlighted; on an attack, a natural 20 marks a critical hit and doubles the damage dice automatically.
 - Manual mode: a player who prefers physical dice enters the d20 result and the app applies the rest. The breakdown is identical.
-- Fairness, seeding and verifiability of the digital dice are deferred (DEC-05).
+- Fairness, seeding and verifiability of the digital dice are deferred (DEC-05), and so is the owner's choice of a rolling logic (plain or "karmic" dice, a user setting).
+
+**The dice overlay** (owner, 2026-09-25, after D&D Beyond's):
+- Every roll throws dice of the right kind over the page (1d20, 2d4, 8d6…), animated.
+- The result, with its breakdown, lands in a tray in a corner of the page, which keeps the list of the latest rolls and their results.
+- Later: the dice's look can be customised (colours, materials, sets).
+- Under `prefers-reduced-motion` no dice are thrown; the result appears in the tray at once.
+- The overlay never covers the controls that act on the result (hit, miss, apply damage).
+
+**Rolling from the sheet** (owner, 2026-09-25): initiative, attacks (to-hit and damage), saves, checks and spells roll from the values of the sheet itself, with the hover, click and tap rules of [08](08-dynamic-sheet.md) ("Hover, click and roll"). Clicking initiative rolls d20 + the initiative bonus and shows it in the tray.
 
 ### Attack flow
 
