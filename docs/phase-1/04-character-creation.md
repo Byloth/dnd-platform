@@ -58,8 +58,8 @@ Steps can be revisited in any order from a stepper; a change in step 0 re-valida
 
 ### Acceptance
 
-- A level 1 character of every SRD class can be created through the wizard with the SRD alone, with zero warnings at the review, in a component test that drives the steps (the twelve characters become fixtures compared with `dnd derive --json`).
-- The reference Monk can be created with `phb14` loaded (private test): Way of Shadow selectable at step 3 when the level allows (it does not at level 1; the fixture is checked at level 3 through the edit flow).
+- A level 1 character of every SRD class can be created through the wizard with the SRD alone, with zero warnings at the review, in a component test that drives the steps (the twelve characters become fixtures compared with `dnd derive --json`). Met at M1.4e3.
+- The reference Monk can be created with `phb14` loaded (private test): Way of Shadow selectable at step 3 when the level allows (it does not at level 1; the fixture is checked at level 3 through the edit flow). Met at M1.4e1.
 - The 15-minute target is measured with real newcomers at M1.8 ([07-testing-accessibility-performance.md](07-testing-accessibility-performance.md)).
 
 ## Tasks
@@ -101,7 +101,9 @@ Steps can be revisited in any order from a stepper; a change in step 0 re-valida
    - Dense option cards (the name and the facts, no summary); typed scores always offered (the default stays the standard array, DEC-15).
    - Left as they are, without asking: the concept step (an expert chooses directly) and the starting equipment options (content), with the shop below, rather than "shop instead of packs".
    - Coins the player has not typed follow the suggested purse as it changes (on the single page the equipment is on screen before the class and background); typing a coin stops it, "Use the suggestion" resumes it.
-6. The twelve-classes component test and the private Monk test — M1.4.
+6. The twelve-classes component test and the private Monk test — M1.4 (done in M1.4e1 and M1.4e3):
+   - `packages/web/tests/flows/twelve-classes.test.ts` drives the page for each srd51 archetype with "Next", the first options of every open choice and a name; the review shows nothing open, and the stored character equals `fixtures/characters/created-<class>/character.yaml`, whose `snapshot.json` (the CLI's derivation) equals the browser's sheet, without a warning. `UPDATE_FLOW_FIXTURES=1` rewrites the fixtures, then `pnpm fixtures --update` their snapshots.
+   - `packages/web/tests/flows/private-monk.test.ts` reopens the level 3 reference Monk and finds Way of Shadow at step 3 (skipped without the book).
 
 ## Open points
 
