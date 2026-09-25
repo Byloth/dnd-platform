@@ -83,6 +83,31 @@ Spells (319), items (486), rules (227), tables (16), the remaining features and 
 - A glossary check on the translation: every glossary term used in a text appears in its Italian form.
 - An Italian derive-all probe over the fixtures, with no English fallback left in names.
 
+## As built (2026-09-25)
+
+The owner asked the same day to translate everything at once, srd51 and phb14, and changed two premises of this plan:
+- **Sources found.** The official Italian SRD 5.1 is published by Wizards of the Coast under CC BY 4.0 (`https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1_IT.pdf`). The owner provided the Italian Manuale del Giocatore, OCR'd with Tesseract `ita` (`content-private/sources`). So the texts follow the official Italian wording, verbatim for the SRD and OCR-corrected for the PHB. Memory of the book is used only where something does not add up, and each such case is noted. Literal translation with the terms is used only for strings neither book has (this project's reminders, archetypes, notes).
+- **One package per language and per book, never chosen** (owner):
+  - `packages/content/srd51-it` is public, CC BY 4.0, released as 0.1.0 and published by the site.
+  - `content-private/phb14-it` is private and loaded like phb14.
+  - The interface's language brings them. `useContentStore().sources` adds the translations of that language whose packages are all present, and the loader keeps a translation of the selected packages. They are never offered at step 0. The packages page shows a translation inside the card of the package it translates, and the credits page lists the Italian attribution when the interface speaks Italian.
+  - The interface language itself defaults to the browser's (`navigator.languages`) until the player chooses.
+
+The work, part A as planned:
+- The loader applies translations before indexing inline features, translates a patch before applying it, and translates the ruleset.
+- `translation-skeleton.ts` refreshes the skeleton of any package, and `translation-check.ts` is the gate.
+- The CLI adds the translations of `--language`.
+
+Parts B–D done together by a workflow:
+- One agent built the term list (`content-private/translation-work/TERMS.yaml`, private since it quotes the PHB): about 2 260 lines, 71 names unresolved and translated literally, 10 conflicts with docs/03-glossary.md for the owner.
+- 41 packets (29 srd, 12 phb) were each translated by one Opus agent and reviewed by another. The notes are in `tools/import/work/translations/it/notes/` (srd) and `content-private/translation-work/notes/` (phb).
+- Result:
+  - srd51-it: 1 126 files and 5 656 strings;
+  - phb14-it: 138 files and 2 304 strings;
+  - `dnd validate` is clean;
+  - the checker reports only choices of the official wording ("due dadi a venti facce" for "two d20s") and a typo of the English source.
+- Still English on the Italian sheet: some labels the engine and composer write themselves ("Dexterity modifier", "Level 1 (Cleric)"), and the "ft" of the units until the setting of 09-interface-revisions.
+
 ## Tasks
 
 A and B, in M1.4r. Each is a commit.
