@@ -267,7 +267,7 @@
         "value": 5
       },
       "critRange": 20,
-      "damage": "1d4 + 3",
+      "damage": "1d6 + 3",
       "damageBonus": {
         "provenance": [
           {
@@ -285,7 +285,7 @@
         ],
         "value": 3
       },
-      "damageDice": "1d4",
+      "damageDice": "1d6",
       "damageType": "piercing",
       "extraDamage": [],
       "id": "shortsword",

@@ -139,6 +139,8 @@ A package may declare: section identifier, localised title, default priority, ac
 - One computed sheet feeding three layouts guarantees that what is printed is what is played, and removes an entire class of "the PDF says something else" bugs.
 - Letting packages declare sections closes the last gap where homebrew would have needed code.
 
+**To review (owner, 2026-09-25): versatile weapons.** The sheet lists a versatile weapon twice, once as it is and once with "(two-handed)" and its larger die. The owner would rather see one weapon with its two ways to use it (one hand, two hands), each with its to-hit and damage. To settle how before changing it; the engine's two rows are what the sheet reads today.
+
 ## Deferred decisions
 
 - DEC-01 Technology stack — Decided. The composer's output is described as data so the rendering technology stays replaceable.

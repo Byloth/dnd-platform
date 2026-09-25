@@ -270,11 +270,11 @@ describe("modify-attacks", () =>
         const sheet = sheetWith([attacks({ unarmed: true }, set)], equipped);
         const unarmed = sheet.attacks.find((a) => a.id === "unarmed-strike")!;
 
-        // DEX 14 → +2, proficiency +2, attackBonus +1
-        expect(unarmed).toMatchObject({ ability: "dex", damageDice: "1d4", damageType: "slashing", magical: true });
+        // The offered DEX (14, +2) is worse than STR (16, +3), which stays: proficiency +2, attackBonus +1.
+        expect(unarmed).toMatchObject({ ability: "str", damageDice: "1d4", damageType: "slashing", magical: true });
         expect(unarmed.critRange).toBe(19);
-        expect(unarmed.attackBonus.value).toBe(2 + 2 + 1);
-        expect(unarmed.damage).toBe("1d4 + 4");
+        expect(unarmed.attackBonus.value).toBe(3 + 2 + 1);
+        expect(unarmed.damage).toBe("1d4 + 5");
     });
 
     it("keeps the lowest crit range of several modifiers", () =>

@@ -348,7 +348,13 @@ export interface ModifyAttacks {
         monkWeapon?: boolean;
     };
     set: {
+        /**
+         * An ability the attack may use instead: the engine keeps the one with the better modifier.
+         */
         ability?: "str" | "dex" | "con" | "int" | "wis" | "cha";
+        /**
+         * A die the attack may roll instead of its own: the engine keeps the larger one.
+         */
         damageDie?: string;
         damageType?:
             | "acid"

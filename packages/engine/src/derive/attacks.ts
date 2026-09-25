@@ -148,12 +148,36 @@ function abilityOf(row: Row, graph: ValueGraph, applied: readonly AttackModifier
     let ability = row.ranged ? "dex" : "str";
     const finesse = row.properties.includes("finesse");
     if (finesse && (graph.number("mod.dex") > graph.number("mod.str"))) { ability = "dex"; }
+    // An effect's ability is one the attack MAY use instead (Martial Arts' Dexterity, shillelagh's spellcasting
+    // ability): the better modifier wins, as a player would choose.
     for (const m of applied)
     {
-        if (m.effect.set.ability) { ability = m.effect.set.ability; }
+        const offered = m.effect.set.ability;
+        if (offered && (graph.number(`mod.${offered}`) >= graph.number(`mod.${ability}`))) { ability = offered; }
     }
 
     return ability;
+}
+
+/** The average of a dice string (`1d8`, `2d6`), `undefined` when it is not one. */
+function averageOf(dice: string): number | undefined
+{
+    const match = /^(\d*)d(\d+)$/.exec(dice.trim());
+    if (!match) { return undefined; }
+
+    return (Number(match[1] || 1) * (Number(match[2]) + 1)) / 2;
+}
+
+/**
+ * An effect's damage die is one the attack MAY roll instead (Martial Arts' die "in place of the normal damage",
+ * Tavern Brawler's d4, shillelagh's d8): the larger one is kept, as a player would choose.
+ */
+function betterDie(current: string, offered: string): string
+{
+    const a = averageOf(current);
+    const b = averageOf(offered);
+
+    return (a === undefined) || (b === undefined) || (b >= a) ? offered : current;
 }
 
 function resolvedDie(die: string, graph: ValueGraph, ownerClass: string | undefined): string
@@ -217,7 +241,7 @@ function assembleRow(
             damage.push(contribution("add", numeric(set.damageBonus), m.label, m.source, m.applied));
         }
         if (!m.applied) { continue; }
-        if (set.damageDie !== undefined) { dice = resolvedDie(set.damageDie, graph, m.ownerClass); }
+        if (set.damageDie !== undefined) { dice = betterDie(dice, resolvedDie(set.damageDie, graph, m.ownerClass)); }
         if (set.damageType !== undefined) { damageType = set.damageType; }
         if (set.magical) { magical = true; }
         if (set.critRange !== undefined) { critRange = Math.min(critRange, set.critRange); }

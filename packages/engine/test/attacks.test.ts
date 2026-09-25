@@ -84,6 +84,34 @@ describe("attack rows", () =>
         });
     });
 
+    it("keeps the better die and ability an effect offers instead (Martial Arts, Tavern Brawler)", () =>
+    {
+        const offer = feature(`${MINI}.feature.fighter.offer`, [{
+            kind: "modify-attacks",
+            filter: { melee: true },
+            set: { ability: "dex", damageDie: "1d6" }
+        }]);
+        const build = (scores: Scores): ComputedSheet =>
+        {
+            const proficiencies = { proficiencies: { weapons: ["martial", "simple"] } };
+            const fighter = cls(FIGHTER, { 1: { features: [offer] } }, proficiencies);
+            const set = loadPackages([miniPackage({ entities: [fighter, ...weapons] })]);
+
+            return derive(character({
+                classes: [{ class: FIGHTER, levels: 1 }],
+                scores: scores,
+                equipment: ["club", "longsword"].map((id) => ({ item: `${MINI}.item.${id}`, equipped: true }))
+            }), set);
+        };
+        const agile = build({ str: 8, dex: 16, con: 10, int: 10, wis: 10, cha: 10 });
+        const strong = build({ str: 16, dex: 8, con: 10, int: 10, wis: 10, cha: 10 });
+
+        expect(row(agile, "club")).toMatchObject({ ability: "dex", damageDice: "1d6" });
+        expect(row(agile, "longsword")).toMatchObject({ damageDice: "1d8" });
+        expect(row(agile, "longsword-two-handed")).toMatchObject({ damageDice: "1d10" });
+        expect(row(strong, "club")).toMatchObject({ ability: "str", damageDice: "1d6" });
+    });
+
     it("applies proficiency by weapon category or by item, not otherwise", () =>
     {
         const plain = { str: 10, dex: 10, con: 10, int: 10, wis: 10, cha: 10 };

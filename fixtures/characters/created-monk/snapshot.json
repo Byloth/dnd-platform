@@ -300,7 +300,7 @@
         "value": 4
       },
       "critRange": 20,
-      "damage": "1d4 + 2",
+      "damage": "1d6 + 2",
       "damageBonus": {
         "provenance": [
           {
@@ -318,7 +318,7 @@
         ],
         "value": 2
       },
-      "damageDice": "1d4",
+      "damageDice": "1d6",
       "damageType": "slashing",
       "extraDamage": [],
       "id": "shortsword",
