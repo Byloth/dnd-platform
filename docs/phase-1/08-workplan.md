@@ -24,7 +24,7 @@ M1.1 scaffold + composer ──► M1.2 content store ──► M1.3 build-mode 
                                                                     M1.7 Italian ──► M1.8 working directory, accessibility, newcomer test ──► Phase 1 done
 ```
 
-M1.4r (the owner's review of 2026-09-25) and then M1.C (the compendium, owner 2026-09-27) sit between M1.4 and M1.5. M1.6 needs the composer and the sheet (M1.3) and the stored character (M1.5). M1.7 can start its content work (OCR, skeleton, packets) as soon as M1.1 exists and lands after M1.6 so that the Italian goldens include print. M1.8 is the closing milestone.
+M1.4r (the owner's review of 2026-09-25) and M1.C (the compendium, owner 2026-09-27) sit between M1.4 and M1.5; M1.C is done first, then the rest of M1.4r (owner, 2026-09-27). M1.6 needs the composer and the sheet (M1.3) and the stored character (M1.5). M1.7 can start its content work (OCR, skeleton, packets) as soon as M1.1 exists and lands after M1.6 so that the Italian goldens include print. M1.8 is the closing milestone.
 
 ### M1.1 — Web application scaffold and deployment (≈ 3 sessions)
 
@@ -117,7 +117,19 @@ Order: the integrity fixes first (they correct wrong behaviour), then the interf
 
 Done: the tasks of the three documents for this milestone. Release: none of its own; it ships with `v0.3.5` at the close of M1.5.
 
-Also in M1.4r, asked by the owner on 2026-09-25 and done that day: the usage statistics of DEC-22 ([12-analytics.md](12-analytics.md)). Also done, on 2026-09-27, the last two: "Roll for me" in step 5 ([04-character-creation.md](04-character-creation.md), task 3), and dropping package files on the packages page ([09-interface-revisions.md](09-interface-revisions.md)). M1.4r is closed.
+Also in M1.4r, asked by the owner on 2026-09-25 and done that day: the usage statistics of DEC-22 ([12-analytics.md](12-analytics.md)). Also done, on 2026-09-27: "Roll for me" in step 5 ([04-character-creation.md](04-character-creation.md), task 3), and dropping package files on the packages page ([09-interface-revisions.md](09-interface-revisions.md), task 8).
+
+**Status (corrected 2026-09-27): M1.4r is still open.** On that date the milestone was wrongly recorded as closed: "Done:" above is its criterion, not its state. Done so far:
+- the Italian content of [11-italian-content.md](11-italian-content.md);
+- the usage statistics;
+- "Roll for me";
+- dropping package files.
+
+Still to do:
+- [09-interface-revisions.md](09-interface-revisions.md), tasks 1–7 and 9: the dropdown menus and flags, the navigation bar, the settings page with units, the units in the composer, the demo characters' disclosure, the wizard's sticky bar, its transitions and focus;
+- [10-wizard-integrity.md](10-wizard-integrity.md), all its tasks.
+
+Order decided by the owner on 2026-09-27: the compendium (M1.C) first, then the rest of M1.4r, then M1.5.
 
 ### M1.C — Compendium (≈ 4 sessions)
 
