@@ -44,8 +44,13 @@
         const rendered = markdown.parse(props.text) as string;
         const purify = typeof window === "undefined" ? undefined : DOMPurify(window);
 
+        // Wrapped, because happy-dom (the tests' document) loses the first element DOMPurify parses: a list or a
+        // paragraph that opens the text would come out without its <ul> or <p>. Browsers keep the wrapper.
         return purify?.isSupported ?
-            purify.sanitize(rendered, { USE_PROFILES: { html: true }, FORBID_TAGS: ["style", "img", "form"] }) :
+            purify.sanitize(`<div>${rendered}</div>`, {
+                USE_PROFILES: { html: true },
+                FORBID_TAGS: ["style", "img", "form"]
+            }) :
             rendered;
     });
 </script>

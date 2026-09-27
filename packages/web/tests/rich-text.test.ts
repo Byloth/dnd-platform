@@ -21,7 +21,8 @@ describe("RichText", () =>
 
         expect(wrapper.find("strong").text()).toBe("Bold");
         expect(wrapper.find("em").text()).toBe("italic");
-        expect(wrapper.findAll("li").length).toBe(2);
+        expect(wrapper.findAll("ul > li").length).toBe(2);
+        expect(wrapper.find("p strong").text()).toBe("Bold");
         expect(wrapper.find("table td").text()).toBe("1");
     });
 
