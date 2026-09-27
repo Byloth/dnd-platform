@@ -221,7 +221,7 @@ export interface CompendiumQuery
 }
 
 /** "1/4" → 0.25; a whole number as it is; undefined otherwise. */
-function challengeOf(value: string): number | undefined
+export function challengeOf(value: string): number | undefined
 {
     const fraction = /^1\/(2|4|8)$/.exec(value);
     if (fraction) { return 1 / Number(fraction[1]); }
@@ -333,6 +333,51 @@ export function filterOptions(entries: readonly CompendiumEntry[]): Readonly<Rec
         key,
         [...set].sort((a, b) => (numeric.has(key) ? Number(a) - Number(b) : a.localeCompare(b)))
     ]));
+}
+
+// ---- labels of the filters' values -------------------------------------------------------------
+
+/** A challenge rating as the manuals write it: 0.25 → "1/4". */
+export function challengeLabel(value: number | string): string
+{
+    const n = Number(value);
+    const fractions: Readonly<Record<number, string>> = { 0.125: "1/8", 0.25: "1/4", 0.5: "1/2" };
+
+    return fractions[n] ?? String(n);
+}
+
+const capitalize = (text: string): string => text.charAt(0).toLocaleUpperCase() + text.slice(1);
+
+/**
+ * The label of a filter's value, from the catalogue keys the composer already has (merged under `sheet`), the
+ * entity names and the package names; the value itself when nothing names it.
+ */
+export function facetLabel(
+    t: (key: string) => string, kind: CompendiumKind, key: string, value: string, set: PackageSet, language: string
+): string
+{
+    const known = (path: string): string | undefined =>
+    {
+        const text = t(path);
+
+        return text === path ? undefined : text;
+    };
+    switch (key)
+    {
+        case "level": return known(`sheet.spellLevels.${value}`) ?? value;
+        case "school": return capitalize(known(`sheet.entry.schools.${value}`) ?? value);
+        case "rarity": return capitalize(known(`sheet.entry.item.rarity.${value}`) ?? value);
+        case "size": return known(`sheet.creature.sizes.m.${value}`) ?? value;
+        case "type": return capitalize((kind === "creatures" ?
+            known(`sheet.creature.types.${value}`) :
+            known(`sheet.entry.item.types.${value}`)) ?? value);
+        case "challenge": return challengeLabel(value);
+        case "class": return localize(
+            (set.entities.get(value as never)?.data as { name?: LocalizedString } | undefined)?.name, language
+        ) || value;
+        case "source": return localize(set.order.find((m) => m.id === value)?.name, language) || value;
+        default: return value;
+    }
 }
 
 // ---- the package set --------------------------------------------------------------------------

@@ -21,13 +21,19 @@ export interface ComposeSheetOptions
     readonly units?: "imperial" | "metric";
 }
 
+/** The units of a language until the units setting (docs/phase-1/09): metric in Italian, imperial otherwise. */
+export function defaultUnits(language: string | undefined): "imperial" | "metric"
+{
+    return language === "it" ? "metric" : "imperial";
+}
+
 /** Derive a character and compose its section tree; pure, memoised by `useEngine`. */
 export function composeSheet(
     character: Character, packages: PackageSet, options: ComposeSheetOptions = {}
 ): ComposedSheet
 {
     const { language, helpLevel, translate } = options;
-    const units = options.units ?? (language === "it" ? "metric" : "imperial");
+    const units = options.units ?? defaultUnits(language);
     const sheet = derive(character, packages, language !== undefined ? { language } : {});
     const tree = compose(sheet, {
         character: character,

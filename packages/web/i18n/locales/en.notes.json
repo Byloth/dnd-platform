@@ -13,7 +13,8 @@
     "theme": "Header navigation and settings; short labels, they share a phone-width bar.",
     "contrast": "Header navigation and settings; short labels, they share a phone-width bar.",
     "newCharacter": "Header link to the creation wizard.",
-    "statistics": "Settings panel field: usage statistics on or off."
+    "statistics": "Settings panel field: usage statistics on or off.",
+    "compendium": "Link of the navigation bar to the compendium. Italian: Compendio (owner)."
   },
   "footer": {
     "attribution": "Legal attribution required by the SRD's licence (CC-BY-4.0); translate the sentence, keep the names and the licence name.",
@@ -690,6 +691,74 @@
     "licence": {
       "title": "The Credits page: the author first, then legally required credits; keep names, licence names and links as they are.",
       "text": "The Credits page: the author first, then legally required credits; keep names, licence names and links as they are."
+    }
+  },
+  "compendium": {
+    "title": "Name of the section in the navigation and heading of its page. Italian: Compendio (owner).",
+    "intro": "One line under the compendium's heading.",
+    "kinds": {
+      "spells": {
+        "name": "A section of the compendium: its name (a heading and a link) or its one-line description. Italian 'Bestiario' for the creatures (owner).",
+        "description": "A section of the compendium: its name (a heading and a link) or its one-line description. Italian 'Bestiario' for the creatures (owner)."
+      },
+      "items": {
+        "name": "A section of the compendium: its name (a heading and a link) or its one-line description. Italian 'Bestiario' for the creatures (owner).",
+        "description": "A section of the compendium: its name (a heading and a link) or its one-line description. Italian 'Bestiario' for the creatures (owner)."
+      },
+      "creatures": {
+        "name": "A section of the compendium: its name (a heading and a link) or its one-line description. Italian 'Bestiario' for the creatures (owner).",
+        "description": "A section of the compendium: its name (a heading and a link) or its one-line description. Italian 'Bestiario' for the creatures (owner)."
+      },
+      "conditions": {
+        "name": "A section of the compendium: its name (a heading and a link) or its one-line description. Italian 'Bestiario' for the creatures (owner).",
+        "description": "A section of the compendium: its name (a heading and a link) or its one-line description. Italian 'Bestiario' for the creatures (owner)."
+      }
+    },
+    "search": {
+      "label": "The search field of the compendium: its visible label and placeholder.",
+      "placeholder": "The search field of the compendium: its visible label and placeholder.",
+      "everywhere": "The search field of the compendium: its visible label and placeholder."
+    },
+    "count": {
+      "spells": "Number of entries in a list, announced to screen readers. Parameter: {count}. Plural forms: zero | one | other.",
+      "items": "Number of entries in a list, announced to screen readers. Parameter: {count}. Plural forms: zero | one | other.",
+      "creatures": "Number of entries in a list, announced to screen readers. Parameter: {count}. Plural forms: zero | one | other.",
+      "conditions": "Number of entries in a list, announced to screen readers. Parameter: {count}. Plural forms: zero | one | other."
+    },
+    "filters": {
+      "title": "Filters of a compendium list: a label of a select or a checkbox, 'any' is the first option of every select.",
+      "any": "Filters of a compendium list: a label of a select or a checkbox, 'any' is the first option of every select.",
+      "clear": "Filters of a compendium list: a label of a select or a checkbox, 'any' is the first option of every select.",
+      "level": "Filters of a compendium list: a label of a select or a checkbox, 'any' is the first option of every select.",
+      "school": "Filters of a compendium list: a label of a select or a checkbox, 'any' is the first option of every select.",
+      "class": "Filters of a compendium list: a label of a select or a checkbox, 'any' is the first option of every select.",
+      "ritual": "Filters of a compendium list: a label of a select or a checkbox, 'any' is the first option of every select.",
+      "concentration": "Filters of a compendium list: a label of a select or a checkbox, 'any' is the first option of every select.",
+      "type": "Filters of a compendium list: a label of a select or a checkbox, 'any' is the first option of every select.",
+      "rarity": "Filters of a compendium list: a label of a select or a checkbox, 'any' is the first option of every select.",
+      "attunement": "Filters of a compendium list: a label of a select or a checkbox, 'any' is the first option of every select.",
+      "magic": "Filters of a compendium list: a label of a select or a checkbox, 'any' is the first option of every select.",
+      "crMin": "Filters of a compendium list: a label of a select or a checkbox, 'any' is the first option of every select.",
+      "crMax": "Filters of a compendium list: a label of a select or a checkbox, 'any' is the first option of every select.",
+      "size": "Filters of a compendium list: a label of a select or a checkbox, 'any' is the first option of every select.",
+      "source": "Filters of a compendium list: a label of a select or a checkbox, 'any' is the first option of every select."
+    },
+    "showMore": "Compendium pages. Parameters: {count}.",
+    "loadingCreatures": "Compendium pages.",
+    "noResults": "Compendium pages.",
+    "seeAll": "Compendium pages. Parameters: {count}.",
+    "private": "Compendium pages.",
+    "source": "Compendium pages.",
+    "back": "Compendium pages. Parameters: {kind}.",
+    "skipped": "Compendium pages. Parameters: {packages}.",
+    "notFound": {
+      "heading": "Shown when an address of the compendium names a section or an entry that is not there.",
+      "text": "Shown when an address of the compendium names a section or an entry that is not there.",
+      "link": "Shown when an address of the compendium names a section or an entry that is not there."
+    },
+    "missing": {
+      "heading": "Shown when an address of the compendium names a section or an entry that is not there.",
+      "text": "Shown when an address of the compendium names a section or an entry that is not there."
     }
   }
 }

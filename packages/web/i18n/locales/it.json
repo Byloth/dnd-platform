@@ -13,7 +13,8 @@
     "theme": "Tema",
     "contrast": "Contrasto",
     "newCharacter": "Nuovo personaggio",
-    "statistics": "Statistiche d'uso"
+    "statistics": "Statistiche d'uso",
+    "compendium": "Compendio"
   },
   "footer": {
     "attribution": "Quest'opera include materiale tratto dai System Reference Document 5.1 e 5.2 di Wizards of the Coast LLC, con licenza Creative Commons Attribution 4.0 International.",
@@ -690,6 +691,74 @@
     "licence": {
       "title": "Licenza",
       "text": "La piattaforma è software libero con licenza GNU Affero General Public License 3.0. Il suo codice sorgente:"
+    }
+  },
+  "compendium": {
+    "title": "Compendio",
+    "intro": "Tutto quello che c'è nei tuoi pacchetti, da consultare quando vuoi: incantesimi, oggetti, creature e condizioni.",
+    "kinds": {
+      "spells": {
+        "name": "Incantesimi",
+        "description": "Ogni incantesimo con livello, gittata, durata e le classi che possono lanciarlo."
+      },
+      "items": {
+        "name": "Oggetti",
+        "description": "Armi, armature, equipaggiamento e oggetti magici, con il costo e quello che fanno."
+      },
+      "creatures": {
+        "name": "Bestiario",
+        "description": "Mostri e animali con il loro blocco statistiche: famigli, cavalcature e nemici."
+      },
+      "conditions": {
+        "name": "Condizioni",
+        "description": "Accecato, spaventato, prono e le altre: che effetto ha ognuna su di te."
+      }
+    },
+    "search": {
+      "label": "Cerca per nome",
+      "placeholder": "Palla di fuoco, spada lunga, goblin…",
+      "everywhere": "Cerca in tutto il compendio"
+    },
+    "count": {
+      "spells": "Nessun incantesimo | {count} incantesimo | {count} incantesimi",
+      "items": "Nessun oggetto | {count} oggetto | {count} oggetti",
+      "creatures": "Nessuna creatura | {count} creatura | {count} creature",
+      "conditions": "Nessuna condizione | {count} condizione | {count} condizioni"
+    },
+    "filters": {
+      "title": "Filtri",
+      "any": "Qualsiasi",
+      "clear": "Togli i filtri",
+      "level": "Livello",
+      "school": "Scuola",
+      "class": "Classe",
+      "ritual": "Solo rituali",
+      "concentration": "Solo con concentrazione",
+      "type": "Tipo",
+      "rarity": "Rarità",
+      "attunement": "Richiede sintonia",
+      "magic": "Solo oggetti magici",
+      "crMin": "Sfida da",
+      "crMax": "Sfida fino a",
+      "size": "Taglia",
+      "source": "Pacchetto"
+    },
+    "showMore": "Mostra altri ({count} rimasti)",
+    "loadingCreatures": "Caricamento del bestiario…",
+    "noResults": "Nessun risultato. Prova con meno parole o togli i filtri.",
+    "seeAll": "Vedi tutti ({count})",
+    "private": "Privato, su questo dispositivo",
+    "source": "Fonte",
+    "back": "Torna a {kind}",
+    "skipped": "Non mostrato: {packages}, che non si carica insieme agli altri pacchetti.",
+    "notFound": {
+      "heading": "Sezione non trovata",
+      "text": "Il compendio non ha una sezione con questo nome.",
+      "link": "Vai al compendio"
+    },
+    "missing": {
+      "heading": "Voce non trovata",
+      "text": "Questa voce non è su questo dispositivo. Il suo pacchetto potrebbe essere privato e caricato su un altro dispositivo, oppure è stato rimosso."
     }
   }
 }

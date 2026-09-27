@@ -13,7 +13,8 @@
     "theme": "Theme",
     "contrast": "Contrast",
     "newCharacter": "New character",
-    "statistics": "Usage statistics"
+    "statistics": "Usage statistics",
+    "compendium": "Compendium"
   },
   "footer": {
     "attribution": "This work includes material taken from the System Reference Documents 5.1 and 5.2 by Wizards of the Coast LLC, licensed under the Creative Commons Attribution 4.0 International License.",
@@ -690,6 +691,74 @@
     "licence": {
       "title": "Licence",
       "text": "The platform is free software under the GNU Affero General Public License 3.0. Its source code:"
+    }
+  },
+  "compendium": {
+    "title": "Compendium",
+    "intro": "Everything in your packages, to look up at any time: spells, items, creatures and conditions.",
+    "kinds": {
+      "spells": {
+        "name": "Spells",
+        "description": "Every spell with its level, range, duration and the classes that can cast it."
+      },
+      "items": {
+        "name": "Items",
+        "description": "Weapons, armor, gear and magic items, with their cost and what they do."
+      },
+      "creatures": {
+        "name": "Bestiary",
+        "description": "Monsters and animals with their stat block: familiars, mounts and foes."
+      },
+      "conditions": {
+        "name": "Conditions",
+        "description": "Blinded, frightened, prone and the others: what each one does to you."
+      }
+    },
+    "search": {
+      "label": "Search by name",
+      "placeholder": "Fireball, longsword, goblin…",
+      "everywhere": "Search the whole compendium"
+    },
+    "count": {
+      "spells": "No spells | {count} spell | {count} spells",
+      "items": "No items | {count} item | {count} items",
+      "creatures": "No creatures | {count} creature | {count} creatures",
+      "conditions": "No conditions | {count} condition | {count} conditions"
+    },
+    "filters": {
+      "title": "Filters",
+      "any": "Any",
+      "clear": "Clear filters",
+      "level": "Level",
+      "school": "School",
+      "class": "Class",
+      "ritual": "Ritual only",
+      "concentration": "Concentration only",
+      "type": "Type",
+      "rarity": "Rarity",
+      "attunement": "Needs attunement",
+      "magic": "Magic items only",
+      "crMin": "Challenge from",
+      "crMax": "Challenge up to",
+      "size": "Size",
+      "source": "Package"
+    },
+    "showMore": "Show more ({count} left)",
+    "loadingCreatures": "Loading the bestiary…",
+    "noResults": "Nothing matches. Try fewer words or clear the filters.",
+    "seeAll": "See all {count}",
+    "private": "Private, on this device",
+    "source": "Source",
+    "back": "Back to {kind}",
+    "skipped": "Not shown: {packages}, which does not load together with the other packages.",
+    "notFound": {
+      "heading": "Section not found",
+      "text": "The compendium has no section with this name.",
+      "link": "Go to the compendium"
+    },
+    "missing": {
+      "heading": "Entry not found",
+      "text": "This entry is not on this device. Its package may be private and loaded on another device, or it may have been removed."
     }
   }
 }
