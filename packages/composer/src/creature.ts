@@ -4,13 +4,8 @@
  * composer writes the labels, the numbers and the distances in the chosen units.
  */
 
-import type { PackageSet } from "@byloth/dnd-platform-loader";
-
-import { createTranslate } from "./messages/index.js";
-import type { Translate, TranslateParams } from "./messages/index.js";
-
-type Text = Readonly<Record<string, string | undefined>>;
-type Value = number | string;
+import { DisplayComposer } from "./display.js";
+import type { DisplayOptions, Text, Value } from "./display.js";
 
 interface CreatureAction
 {
@@ -99,14 +94,7 @@ export interface StatBlock
     readonly sections: readonly StatBlockSection[];
 }
 
-export interface CreatureOptions
-{
-    readonly packages: PackageSet;
-    readonly language?: string;
-    readonly translate?: Translate;
-    /** Default `imperial`; `metric` as in the sheet (5 ft = 1,5 m). */
-    readonly units?: "imperial" | "metric";
-}
+export type CreatureOptions = DisplayOptions;
 
 const ABILITY_ORDER = ["str", "dex", "con", "int", "wis", "cha"];
 const SENSES = ["blindsight", "darkvision", "tremorsense", "truesight"] as const;
@@ -117,56 +105,11 @@ function signed(value: Value): string
     return (typeof value === "number") && (value >= 0) ? `+${value}` : String(value);
 }
 
-class CreatureComposer
+class CreatureComposer extends DisplayComposer
 {
-    private readonly _language: string;
-    private readonly _translate: Translate;
-
-    public constructor(private readonly _data: CreatureData, private readonly _options: CreatureOptions)
+    public constructor(private readonly _data: CreatureData, options: CreatureOptions)
     {
-        this._language = _options.language ?? "en";
-        this._translate = _options.translate ?? createTranslate(this._language);
-    }
-
-    private t(key: string, params?: TranslateParams, fallback?: string): string
-    {
-        const text = this._translate(`sheet.${key}`, params);
-
-        return (text === `sheet.${key}` && fallback !== undefined) ? fallback : text;
-    }
-
-    private text(label: Text | undefined): string
-    {
-        if (label === undefined) { return ""; }
-
-        return label[this._language] ?? label["en"] ?? Object.values(label).find((v) => v !== undefined) ?? "";
-    }
-
-    private number(value: number): string
-    {
-        return new Intl.NumberFormat(this._language, { maximumFractionDigits: 1 }).format(value);
-    }
-
-    private feet(value: Value): string
-    {
-        if ((this._options.units !== "metric") || (typeof value !== "number"))
-        {
-            return this.t("units.feet", { value: value });
-        }
-
-        return this.t("units.metres", { value: this.number(value * 0.3) });
-    }
-
-    private entityName(id: string): string
-    {
-        const data = this._options.packages.entities.get(id)?.data as { name?: Text } | undefined;
-
-        return data?.name ? this.text(data.name) : id.split(".").pop() ?? id;
-    }
-
-    private list(items: readonly string[]): string
-    {
-        return new Intl.ListFormat(this._language, { type: "conjunction" }).format(items);
+        super(options);
     }
 
     /** "Huge dragon, lawful good"; in Italian the size follows the type and agrees with it. */
