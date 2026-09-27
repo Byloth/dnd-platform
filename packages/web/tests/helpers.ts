@@ -59,13 +59,24 @@ export const SRD_IT = existsSync(ITALIAN_PATH) ?
     JSON.parse(readFileSync(ITALIAN_PATH, "utf8")) as PackageSource :
     undefined;
 
-const _site = { published: true };
+const CREATURES_PATH = resolve(ROOT, "build", "content", "srd51-creatures.json");
+const CREATURES_IT_PATH = resolve(ROOT, "build", "content", "srd51-creatures-it.json");
+/** The SRD's creatures, a catalogue package (docs/phase-1/13-compendium.md), when built. */
+export const CREATURES = existsSync(CREATURES_PATH) ?
+    JSON.parse(readFileSync(CREATURES_PATH, "utf8")) as PackageSource :
+    undefined;
+export const CREATURES_IT = existsSync(CREATURES_IT_PATH) ?
+    JSON.parse(readFileSync(CREATURES_IT_PATH, "utf8")) as PackageSource :
+    undefined;
+
+const _site = { published: true, creatureFetches: 0 };
 
 /**
- * Serves the site's `content/index.json` and `content/srd51.json`; the returned switch unpublishes the SRD.
- * Call once per test file, at the top level.
+ * Serves the site's `content/index.json`, `content/srd51.json` and, when built, the Italian translation and the
+ * creatures (a catalogue, with its translation); the returned switch unpublishes the SRD, and `creatureFetches`
+ * counts the requests for the creatures' bundle. Call once per test file, at the top level.
  */
-export function serveSite(): { publish: (published: boolean) => void }
+export function serveSite(): { publish: (published: boolean) => void, creatureFetches: () => number }
 {
     registerEndpoint("/dnd-platform/content/index.json", () =>
     {
@@ -82,13 +93,46 @@ export function serveSite(): { publish: (published: boolean) => void }
 
             } :
             {};
+        const creatures = CREATURES ?
+            {
+                "srd51-creatures": {
+                    latest: CREATURES.manifest.version,
+                    versions: [CREATURES.manifest.version],
+                    catalogue: true
+                },
+                ...(CREATURES_IT ?
+                    {
+                        "srd51-creatures-it": {
+                            latest: CREATURES_IT.manifest.version,
+                            versions: [CREATURES_IT.manifest.version],
+                            translation: { language: "it", of: CREATURES_IT.manifest.dependencies.map((d) => d.id) }
+                        }
 
-        return { packages: { srd51: { latest: version, versions: [version] }, ...italian } };
+                    } :
+                    {})
+
+            } :
+            {};
+
+        return { packages: { srd51: { latest: version, versions: [version] }, ...italian, ...creatures } };
     });
     registerEndpoint("/dnd-platform/content/srd51.json", () => SRD);
     if (SRD_IT) { registerEndpoint("/dnd-platform/content/srd51-it.json", () => SRD_IT); }
+    if (CREATURES)
+    {
+        registerEndpoint("/dnd-platform/content/srd51-creatures.json", () =>
+        {
+            _site.creatureFetches += 1;
 
-    return { publish: (published: boolean): void => { _site.published = published; } };
+            return CREATURES;
+        });
+    }
+    if (CREATURES_IT) { registerEndpoint("/dnd-platform/content/srd51-creatures-it.json", () => CREATURES_IT); }
+
+    return {
+        publish: (published: boolean): void => { _site.published = published; },
+        creatureFetches: (): number => _site.creatureFetches
+    };
 }
 
 /**

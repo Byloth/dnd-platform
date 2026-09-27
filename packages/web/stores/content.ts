@@ -218,6 +218,28 @@ export const useContentStore = defineStore("content", () =>
         return [...chosen, ...translations];
     };
 
+    /**
+     * The sources of the compendium (docs/phase-1/13-compendium.md): every package the device has, the site's and
+     * the stored ones, with the interface's translations. The catalogue packages (creatures) only when asked:
+     * the bestiary fetches them, nothing else does.
+     */
+    const compendiumSources = async (options: { readonly creatures: boolean }): Promise<PackageSource[]> =>
+    {
+        const published = index.value ?? await useContent().fetchIndex();
+        const records = await useBrowserStorage().packages.list();
+
+        const ids = Object.entries(published.packages)
+            .filter(([, entry]) => !entry.translation && (options.creatures || !entry.catalogue))
+            .map(([id]) => id);
+        for (const record of records)
+        {
+            const { id, kind } = record.source.manifest;
+            if ((kind !== "translation") && !ids.includes(id)) { ids.push(id); }
+        }
+
+        return sources(ids.sort());
+    };
+
     /** Forgets everything read so far (a setup store has no `$reset`); the next `refresh` reads again. */
     const reset = (): void =>
     {
@@ -228,5 +250,18 @@ export const useContentStore = defineStore("content", () =>
         loads.value = [];
     };
 
-    return { index, site, stored, persistence, loads, refresh, loadFiles, dismissLoad, remove, sources, reset };
+    return {
+        index,
+        site,
+        stored,
+        persistence,
+        loads,
+        refresh,
+        loadFiles,
+        dismissLoad,
+        remove,
+        sources,
+        compendiumSources,
+        reset
+    };
 });
