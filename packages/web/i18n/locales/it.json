@@ -303,12 +303,15 @@
       "hints": {
         "standard-array": "Sei numeri fissi da dividere tra le caratteristiche: scegli dove va ciascuno.",
         "point-buy": "Ogni punteggio parte da 8 e alzarlo costa punti; spendili come vuoi.",
-        "roll": "Tira 4d6 sei volte, scarta ogni volta il dado più basso, e scrivi i sei totali.",
+        "roll": "Tira 4d6 sei volte, scarta ogni volta il dado più basso, e scrivi i sei totali; oppure lascia che li tiri l'app per te.",
         "manual": "I punteggi come sono stati inseriti, un campo per caratteristica; scrivi un punteggio da 1 a 30."
       },
       "rolls": "I tuoi tiri",
       "roll": "Tiro {n}",
       "typeRolls": "Scrivi tutti e sei i tiri per poterli assegnare.",
+      "rollForMe": "Tira per me",
+      "rollAgain": "Tira di nuovo",
+      "dice": "Dadi {dice}, scartato il {dropped}",
       "pointsLeft": "Punti rimasti: {left} su {budget}",
       "cost": "Costo {cost}",
       "headers": {

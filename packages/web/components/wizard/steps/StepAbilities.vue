@@ -3,7 +3,8 @@
 
     import AppButton from "@/components/ui/AppButton.vue";
     import FontAwesome from "@/components/ui/FontAwesome.vue";
-    import { pointBuyCost } from "@/composables/ability-scores";
+    import { pointBuyCost, rollAbilityScore } from "@/composables/ability-scores";
+    import type { RolledScore } from "@/composables/ability-scores";
 
     /**
      * Step 5: the six ability scores (docs/phase-1/04-character-creation.md; owner, 2026-09-24). Standard array
@@ -12,7 +13,8 @@
      * of species and traits and the total with its modifier, from the derived sheet. The player's own adjustment
      * of a score sits behind "Manual adjustments", open for an expert. A character whose scores were typed as they
      * are (the `manual` method, e.g. one reopened for editing) shows them as six fields, a fourth method an expert
-     * is always offered.
+     * is always offered. "Roll for me" (owner, 2026-09-25) fills the six rolls with 4d6, the lowest dropped, and
+     * shows the dice under each; until the dice overlay of Phase 2, a short reveal stands in for the throw.
      */
     const { wizard, entities, helpLevel } = useWizardContext();
     const { t, locale } = useI18n();
@@ -88,7 +90,24 @@
         const next = [...rollInputs.value];
         next[index] = input.value === "" ? null : Math.trunc(Number(input.value));
         wizard.setRolls(next);
+
+        // A typed roll is the player's own: the dice shown under it no longer tell where it came from.
+        if (dice.value[index]?.total !== next[index]) { dice.value = dice.value.with(index, undefined); }
     };
+
+    // The dice of "Roll for me" stay on this screen only: the draft keeps the totals, as for typed rolls.
+    const dice = ref<(RolledScore | undefined)[]>([]);
+    const throws = ref(0);
+    const rollForMe = (): void =>
+    {
+        dice.value = abilities.value.map(() => rollAbilityScore());
+        throws.value += 1;
+        wizard.setRolls(dice.value.map((r) => r!.total));
+    };
+    const diceText = (rolled: RolledScore): string => t("wizard.abilities.dice", {
+        dice: rolled.dice.join(", "),
+        dropped: rolled.dice[rolled.dropped]!
+    });
 
     const onAssign = (ability: string, event: Event): void =>
         wizard.assign(ability, Number((event.target as HTMLSelectElement).value));
@@ -139,6 +158,18 @@
                        max="18"
                        :value="roll ?? ''"
                        @change="onRoll(i, $event)" />
+                <span v-if="dice[i]"
+                      :key="`${throws}-${i}`"
+                      class="roll-dice"
+                      :style="{ '--roll-delay': `${i * 60}ms` }">
+                    <span class="roll-dice__faces" aria-hidden="true">
+                        <span v-for="(face, d) in dice[i]!.dice"
+                              :key="d"
+                              class="roll-dice__die"
+                              :class="{ 'roll-dice__die--dropped': d === dice[i]!.dropped }">{{ face }}</span>
+                    </span>
+                    <span class="step-abilities__sr">{{ diceText(dice[i]!) }}</span>
+                </span>
             </label>
         </fieldset>
 
@@ -152,6 +183,13 @@
                 <FontAwesome icon="star" aria-hidden="true" />
                 {{ t("wizard.abilities.primaryLegend") }}
             </p>
+            <AppButton v-if="method === 'roll'"
+                       small
+                       class="step-abilities__roll-for-me"
+                       @click="rollForMe">
+                <FontAwesome icon="dice" aria-hidden="true" />
+                {{ t(dice.length ? "wizard.abilities.rollAgain" : "wizard.abilities.rollForMe") }}
+            </AppButton>
             <AppButton v-if="method !== 'manual'"
                        theme="secondary"
                        outline
@@ -388,6 +426,11 @@
             gap: var(--space-1);
         }
 
+        &__roll
+        {
+            align-content: start;
+        }
+
         &__roll-label
         {
             color: var(--color-ink-muted);
@@ -414,6 +457,11 @@
         &__select
         {
             max-width: 6rem;
+        }
+
+        &__roll-for-me
+        {
+            order: -1;
         }
 
         &__bar
@@ -677,6 +725,55 @@
         {
             display: grid;
             gap: var(--space-1);
+        }
+    }
+
+    @keyframes roll-reveal
+    {
+        from
+        {
+            opacity: 0;
+            transform: translateY(-0.4rem) rotate(-20deg) scale(0.6);
+        }
+    }
+
+    .roll-dice
+    {
+        &__faces
+        {
+            display: flex;
+            gap: var(--space-1);
+        }
+
+        &__die
+        {
+            align-items: center;
+            animation: roll-reveal var(--duration-slow) var(--easing) both;
+            animation-delay: var(--roll-delay);
+            background-color: var(--color-surface-raised);
+            border: 1px solid var(--color-border-strong);
+            border-radius: var(--radius-sm);
+            display: inline-flex;
+            font-size: var(--text-sm);
+            font-variant-numeric: tabular-nums;
+            font-weight: 700;
+            height: 1.6rem;
+            justify-content: center;
+            width: 1.6rem;
+
+            &--dropped
+            {
+                background-color: var(--color-surface-sunken);
+                border-style: dashed;
+                color: var(--color-ink-muted);
+                font-weight: 400;
+                text-decoration: line-through;
+            }
+
+            @media (prefers-reduced-motion: reduce)
+            {
+                animation: none;
+            }
         }
     }
 </style>

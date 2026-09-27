@@ -250,6 +250,38 @@ describe("the creation wizard", () =>
             expect(row(wrapper, "Wisdom").find("select").element.value).toBe("15");
         });
 
+        it("rolls the six scores for the player, shows the dice, and places them", async () =>
+        {
+            const wrapper = await abilities();
+            await wrapper.find("input[value='roll']").setValue(true);
+            await settle();
+            byName(wrapper, "Roll for me")!.click();
+            await settle();
+
+            const inputs = wrapper.findAll<HTMLInputElement>(".step-abilities__roll-input");
+            const rolled = inputs.map((input) => Number(input.element.value));
+            expect(rolled.every((v) => (v >= 3) && (v <= 18))).toBe(true);
+
+            const dice = wrapper.findAll(".roll-dice");
+            expect(dice.length).toBe(6);
+            for (const [i, roll] of dice.entries())
+            {
+                const faces = roll.findAll(".roll-dice__die").map((d) => Number(d.text()));
+                expect(faces.length).toBe(4);
+                expect(roll.findAll(".roll-dice__die--dropped").length).toBe(1);
+                expect(faces.reduce((a, b) => a + b, 0) - Math.min(...faces)).toBe(rolled[i]);
+                expect(roll.text()).toMatch(/Dice \d, \d, \d, \d, the \d dropped/);
+            }
+            expect(row(wrapper, "Dexterity").find("select").element.value).toBe(String(Math.max(...rolled)));
+            expect(byName(wrapper, "Roll again")).toBeDefined();
+
+            // A typed roll is the player's own: its dice go, the others stay.
+            await inputs[0]!.setValue(rolled[0] === 18 ? "3" : String(rolled[0]! + 1));
+            await inputs[0]!.trigger("change");
+            await settle();
+            expect(wrapper.findAll(".roll-dice").length).toBe(5);
+        });
+
         it("keeps adjustments closed for a newcomer, open for an expert, and adds them to the total", async () =>
         {
             const wrapper = await abilities();

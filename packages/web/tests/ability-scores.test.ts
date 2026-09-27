@@ -1,8 +1,8 @@
-/** The arithmetic of the wizard's step 5: point-buy cost, permutation, dealing, swapping. */
+/** The arithmetic of the wizard's step 5: point-buy cost, permutation, dealing, swapping, rolling. */
 
 import { describe, expect, it } from "vitest";
 
-import { deal, isPermutation, pointBuyCost, swap } from "@/composables/ability-scores";
+import { cryptoDie, deal, isPermutation, pointBuyCost, rollAbilityScore, swap } from "@/composables/ability-scores";
 
 const COSTS = { 8: 0, 9: 1, 10: 2, 11: 3, 12: 4, 13: 5, 14: 7, 15: 9 };
 const ABILITIES = ["str", "dex", "con", "int", "wis", "cha"];
@@ -34,5 +34,27 @@ describe("ability-score arithmetic", () =>
     {
         expect(swap({ str: 12, dex: 15 }, "str", 15)).toEqual({ str: 15, dex: 12 });
         expect(swap({ str: 12, dex: 15 }, "str", 9)).toEqual({ str: 9, dex: 15 });
+    });
+
+    it("rolls 4d6 and drops the lowest die, the first of equal ones", () =>
+    {
+        const faces = [3, 6, 1, 5, 2, 2, 4, 2];
+        const die = (): number => faces.shift()!;
+
+        expect(rollAbilityScore(die)).toEqual({ dice: [3, 6, 1, 5], dropped: 2, total: 14 });
+        expect(rollAbilityScore(die)).toEqual({ dice: [2, 2, 4, 2], dropped: 0, total: 8 });
+    });
+
+    it("rolls every face of a die from the cryptographic source, and nothing else", () =>
+    {
+        const seen = new Set(Array.from({ length: 600 }, () => cryptoDie(6)));
+
+        expect([...seen].sort()).toEqual([1, 2, 3, 4, 5, 6]);
+        for (let i = 0; i < 200; i += 1)
+        {
+            const { total } = rollAbilityScore();
+            expect(total).toBeGreaterThanOrEqual(3);
+            expect(total).toBeLessThanOrEqual(18);
+        }
     });
 });

@@ -309,6 +309,9 @@
       "rolls": "Heading of the six roll inputs.",
       "roll": "Label of one roll input. Parameter: {n}.",
       "typeRolls": "Shown until six valid rolls are typed.",
+      "rollForMe": "Button of the roll method: rolls 4d6 six times, lowest dropped, and fills the six rolls.",
+      "rollAgain": "The same button once rolled: rolls all six again.",
+      "dice": "Screen-reader text under a roll filled by the button: the four dice and the one dropped. Parameters: {dice} (comma-separated numbers), {dropped} (a number).",
       "pointsLeft": "Point-buy budget, announced when it changes. Parameters: {left}, {budget}.",
       "cost": "Point cost of a score. Parameter: {cost}.",
       "headers": {

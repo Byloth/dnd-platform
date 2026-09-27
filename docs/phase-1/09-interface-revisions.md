@@ -138,6 +138,8 @@ The plan:
 
 ### The packages page: dropping files (owner, 2026-09-25)
 
+Done on 2026-09-27. A dropped file that is not a package gets the status line of an unreadable file, as one chosen through the picker does.
+
 The upload area of `pages/packages/index.vue` looks like a drop zone (the `file-picker` card with its icon and hint), but it is only a `<label>` around an `<input type="file">`: files dropped on it are ignored, and the browser may open them instead.
 
 The fix:
