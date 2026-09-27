@@ -13,7 +13,7 @@ import { resolve } from "node:path";
 import { flushPromises } from "@vue/test-utils";
 import type { VueWrapper } from "@vue/test-utils";
 import { parse } from "yaml";
-import { afterEach, describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { mountSuspended } from "@nuxt/test-utils/runtime";
 
 import type { Character } from "@byloth/dnd-platform-engine";
@@ -31,6 +31,9 @@ import RoadmapPage from "@/pages/roadmap.vue";
 import CreditsPage from "@/pages/credits.vue";
 import ConsentBanner from "@/components/globals/ConsentBanner.vue";
 import EditPage from "@/pages/characters/[id]/edit.vue";
+import CompendiumPage from "@/pages/compendium/index.vue";
+import CompendiumKindPage from "@/pages/compendium/[kind]/index.vue";
+import CompendiumEntryPage from "@/pages/compendium/[kind]/[id].vue";
 
 import { accessibleTree, expectKeyboardOperable, expectNoAxeViolations } from "./accessibility";
 import { clearBrowserStorage, ROOT, serveDemoCharacters, serveSite, SRD } from "./helpers";
@@ -122,6 +125,41 @@ describe.each(LANGUAGES)("accessibility, in %s", (language) =>
     {
         await speak(language);
         await expectAccessible(await render(PackagesPage));
+    });
+
+    it("the compendium's front page, with its sections and with a search", async () =>
+    {
+        await speak(language);
+        await expectAccessible(await render(CompendiumPage, { route: "/compendium" }));
+        _mounted?.unmount();
+        document.body.innerHTML = "";
+
+        const searching = await render(CompendiumPage, { route: "/compendium?q=fire" });
+        await vi.waitFor(async () =>
+        {
+            await flushPromises();
+            expect(searching.findAll(".compendium-home__group").length).toBeGreaterThan(1);
+        });
+        await expectAccessible(searching);
+    });
+
+    it.each(["/compendium/spells?level=3", "/compendium/creatures?type=dragon", "/compendium/items?magic=yes"])(
+        "the compendium's list %s, with its filters", async (route) =>
+        {
+            await speak(language);
+            await expectAccessible(await render(CompendiumKindPage, { route: route }));
+        }
+    );
+
+    it.each([
+        "/compendium/spells/srd51.spell.fireball",
+        "/compendium/items/srd51.item.explorers-pack",
+        "/compendium/creatures/srd51-creatures.creature.adult-red-dragon",
+        "/compendium/conditions/srd51.condition.exhaustion"
+    ])("the compendium's entry %s", async (route) =>
+    {
+        await speak(language);
+        await expectAccessible(await render(CompendiumEntryPage, { route: route }));
     });
 
     it("the creation wizard's steps 0-4, as a newcomer and as a regular player", async () =>
