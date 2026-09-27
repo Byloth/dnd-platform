@@ -68,6 +68,21 @@ The composer's new function `composeEntry(set, id, options)` returns, for a spel
   - `fromQuery` and `toQuery` for the address; `filterOptions` for the values present.
 - The spell's classes by id come from the composer's `spellClassIds`, which `composeEntry` also uses.
 
+### As built in M1.Cc (2026-09-27)
+
+- **Pages**:
+  - `pages/compendium/index.vue`: the sections as cards with their counts; the bestiary's count only once the creatures are loaded. A search (`?q=`) loads the creatures and shows up to five results per section, with "See all".
+  - `[kind]/index.vue`: search and filters in the address (`fromQuery`, `toQuery`, `router.replace`); a notice names the stored packages left out.
+  - `[kind]/[id].vue`: the entry in the interface's language, with the units by language (`defaultUnits`: metric in Italian until the units setting of doc 09). Back returns to the list with its query when that is where the player came from. An entry of another section, or not on this device, says so.
+- **Components** in `components/compendium/`:
+  - `CompendiumSearch`, debounced by 250 ms;
+  - `CompendiumFilters`: menus with only the values present, checkboxes, a disclosure closed on a phone;
+  - `CompendiumList`: 60 entries at a time, the count announced;
+  - `EntryCard`, `StatBlock`, `EntrySource`.
+- **Navigation**: "Compendium" between Characters and Packages. On a phone every link is its icon over a short label, so three links and the settings fit in 360 px (the direction of doc 09's bar).
+- **Found on the way**: in the tests' document (happy-dom), DOMPurify lost the first element of a text, a leading `<ul>` or `<p>`. `RichText` now sanitises a wrapped text, and its test checks the list and the paragraph.
+- **Checks**: page tests in both languages (`compendium-pages.test.ts`); axe and the keyboard over the front page with and without a search, three lists and four entries. The site generates, and the first load is 208 KB of 300.
+
 ### Links from the rest of the application
 
 - **From the sheet**: a spell, an item of the equipment and a condition link to their entry ("Read in the compendium" in the drawer or the card that shows them).
@@ -101,7 +116,7 @@ M1.C is split into four parts, each a series of commits with tests and lint thro
 2. **M1.Cb, the index and the bestiary's loading** (≈ 1 session; done 2026-09-27):
    - `compendiumSet`, with creatures fetched only on request;
    - `composables/compendium.ts` and its unit tests: accents, the English name in Italian, the order of the scores, every filter, the address round trip.
-3. **M1.Cc, the screens** (≈ 1–2 sessions):
+3. **M1.Cc, the screens** (≈ 1–2 sessions; done 2026-09-27):
    - the three routes, `StatBlock`, the entry components, the filters, "Show more";
    - the "Compendium" link in the navigation bar; the catalogue keys with translator notes; the glossary words for the section names (docs/03);
    - component tests in both languages, the private flag, the missing-package message.

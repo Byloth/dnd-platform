@@ -27,7 +27,7 @@ The template's layout, kept flat as `nuxtplate` ships it:
 packages/web/
   nuxt.config.ts          # ssr: false, app.baseURL, modules, i18n, typescript (DOM libs), test-utils
   app.vue                 # shell: header (language switch, working directory state), <NuxtPage>
-  layouts/default.vue     # navigation: Characters, Create, Packages; footer with credits
+  layouts/default.vue     # navigation: Characters, Create, Compendium, Packages; footer with credits
   pages/
     index.vue             # characters list (the guest's store), "new character", import
     create/[step].vue     # the wizard, one route per step (04)
@@ -36,6 +36,9 @@ packages/web/
       print.vue           # print mode (05)
       export.vue          # export document download (05)
     packages/index.vue    # content store: loaded packages, load from file, remove (02)
+    compendium/           # the compendium (13, DEC-25): index.vue (sections, search over everything),
+      [kind]/index.vue    # a section's list, search and filters in the address,
+      [kind]/[id].vue     # one entry or stat block with its source
   components/             # value tile, provenance drawer, choice picker, section blocks… (03, 04)
   composables/            # useEngine (derive with memoisation), useBrowserStorage, usePackageLoader, useContent, useCharacterStore, useWorkingDirectory
   stores/                 # Pinia: content (useContentStore, M1.2), preferences (usePreferencesStore, M1.3b), characters
