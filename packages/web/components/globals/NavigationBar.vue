@@ -41,14 +41,26 @@
             </RouterLink>
             <div class="navigation-bar__links">
                 <RouterLink :to="{ name: 'index' }" class="navigation-bar__link">
-                    {{ t("nav.characters") }}
+                    <FontAwesome class="navigation-bar__icon"
+                                 icon="users"
+                                 aria-hidden="true" />
+                    <span class="navigation-bar__text">{{ t("nav.characters") }}</span>
                 </RouterLink>
                 <!-- On a phone the characters page's button is the way in: the bar has no room for a fourth entry. -->
                 <RouterLink :to="{ name: 'characters-new' }" class="navigation-bar__link navigation-bar__link--wide">
                     {{ t("nav.newCharacter") }}
                 </RouterLink>
+                <RouterLink :to="{ name: 'compendium' }" class="navigation-bar__link">
+                    <FontAwesome class="navigation-bar__icon"
+                                 icon="book-open"
+                                 aria-hidden="true" />
+                    <span class="navigation-bar__text">{{ t("nav.compendium") }}</span>
+                </RouterLink>
                 <RouterLink :to="{ name: 'packages' }" class="navigation-bar__link">
-                    {{ t("nav.packages") }}
+                    <FontAwesome class="navigation-bar__icon"
+                                 icon="box-archive"
+                                 aria-hidden="true" />
+                    <span class="navigation-bar__text">{{ t("nav.packages") }}</span>
                 </RouterLink>
             </div>
             <details class="navigation-bar__settings">
@@ -206,6 +218,23 @@
             {
                 @media (max-width: variables.$phone-max) { display: none; }
             }
+
+            // On a phone a link is its icon over a short label: three of them and the settings fit in 360 px.
+            @media (max-width: variables.$phone-max)
+            {
+                flex-direction: column;
+                font-size: var(--text-xs);
+                gap: 2px;
+                justify-content: center;
+                padding: var(--space-1) var(--space-2);
+            }
+        }
+
+        &__icon
+        {
+            font-size: 1.1rem;
+
+            @include mixins.from(variables.$tablet-min) { display: none; }
         }
 
         &__toggle

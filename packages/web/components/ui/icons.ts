@@ -6,6 +6,7 @@
 import {
     faBeerMugEmpty,
     faBolt,
+    faBoxArchive,
     faBookOpen,
     faChevronDown,
     faChevronLeft,
@@ -37,6 +38,7 @@ import {
     faThumbtack,
     faTrash,
     faTriangleExclamation,
+    faUsers,
     faWandSparkles,
     faXmark
 } from "@fortawesome/free-solid-svg-icons";
@@ -45,6 +47,7 @@ import type { IconDefinition } from "@fortawesome/free-solid-svg-icons";
 const _icons: readonly IconDefinition[] = [
     faBeerMugEmpty,
     faBolt,
+    faBoxArchive,
     faBookOpen,
     faChevronDown,
     faChevronLeft,
@@ -76,6 +79,7 @@ const _icons: readonly IconDefinition[] = [
     faThumbtack,
     faTrash,
     faTriangleExclamation,
+    faUsers,
     faWandSparkles,
     faXmark
 ];
