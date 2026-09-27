@@ -132,6 +132,33 @@ function listClasses(set: PackageSet): Map<string, string[]>
     return map;
 }
 
+const _spellClasses = new WeakMap<PackageSet, Map<string, string[]>>();
+
+/**
+ * The classes that can cast each spell, by id: those whose spellcasting draws from a list holding it. A list no
+ * class uses stands for itself (its id), so a homebrew list is not lost.
+ */
+export function spellClassIds(set: PackageSet): ReadonlyMap<string, readonly string[]>
+{
+    let map = _spellClasses.get(set);
+    if (map) { return map; }
+
+    map = new Map();
+    for (const entity of set.entities.values())
+    {
+        if ((entity.type !== "spell-list") || !entity.active) { continue; }
+        const classes = listClasses(set).get(entity.id);
+        const holders = classes?.length ? classes : [entity.id];
+        for (const spell of (entity.data as { spells?: readonly string[] }).spells ?? [])
+        {
+            map.set(spell, [...new Set([...map.get(spell) ?? [], ...holders])]);
+        }
+    }
+    _spellClasses.set(set, map);
+
+    return map;
+}
+
 function capitalize(text: string): string
 {
     return text.charAt(0).toLocaleUpperCase() + text.slice(1);
@@ -222,16 +249,7 @@ class EntryComposer extends DisplayComposer
 
     private spellClasses(id: string): string[]
     {
-        const set = this._options.packages;
-        const names: string[] = [];
-        for (const entity of set.entities.values())
-        {
-            if ((entity.type !== "spell-list") || !entity.active) { continue; }
-            const spells = (entity.data as { spells?: readonly string[] }).spells ?? [];
-            if (!spells.includes(id)) { continue; }
-            const classes = listClasses(set).get(entity.id);
-            names.push(...(classes?.length ? classes.map((c) => this.entityName(c)) : [this.entityName(entity.id)]));
-        }
+        const names = (spellClassIds(this._options.packages).get(id) ?? []).map((c) => this.entityName(c));
 
         return [...new Set(names)].sort((a, b) => a.localeCompare(b, this._language));
     }

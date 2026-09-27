@@ -4,7 +4,7 @@ import { describe, expect, it } from "vitest";
 
 import { loadPackages } from "@byloth/dnd-platform-loader";
 
-import { composeEntry } from "../src/index.js";
+import { composeEntry, spellClassIds } from "../src/index.js";
 import type { EntryView } from "../src/index.js";
 import { ROOT, readPackage } from "./helpers.js";
 
@@ -33,6 +33,12 @@ describe("composeEntry: spells", () =>
         expect(fireball.classes).toEqual(["Sorcerer", "Wizard"]);
         expect(fireball.sections[0]!.title).toBe("At Higher Levels");
         expect(fireball.text.startsWith("A bright streak")).toBe(true);
+    });
+
+    it("knows the classes of a spell by id", () =>
+    {
+        expect(spellClassIds(english).get("srd51.spell.fireball"))
+            .toEqual(["srd51.class.sorcerer", "srd51.class.wizard"]);
     });
 
     it("writes a cantrip, a reaction with its trigger, a ritual and concentration", () =>
