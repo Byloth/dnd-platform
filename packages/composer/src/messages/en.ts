@@ -479,6 +479,126 @@ export const en = {
         legendaryIntro: "The {name} can take {count} legendary actions, choosing from the options below. " +
             "Only one legendary action option can be used at a time and only at the end of another creature's turn. " +
             "The {name} regains spent legendary actions at the start of its turn."
+    },
+    entry: {
+        labels: {
+            castingTime: "Casting Time",
+            range: "Range",
+            components: "Components",
+            duration: "Duration",
+            classes: "Classes",
+            cost: "Cost",
+            weight: "Weight",
+            damage: "Damage",
+            properties: "Properties",
+            ac: "Armor Class",
+            strength: "Strength",
+            stealth: "Stealth",
+            charges: "Charges",
+            higherLevels: "At Higher Levels",
+            contents: "Contents"
+        },
+        schools: {
+            abjuration: "abjuration",
+            conjuration: "conjuration",
+            divination: "divination",
+            enchantment: "enchantment",
+            evocation: "evocation",
+            illusion: "illusion",
+            necromancy: "necromancy",
+            transmutation: "transmutation"
+        },
+        spell: {
+            cantrip: "{school} cantrip",
+            levelled: "{level}-level {school}",
+            ritual: "{kind} (ritual)"
+        },
+        castingTime: {
+            "action": "1 action",
+            "bonus-action": "1 bonus action",
+            "reaction": "1 reaction",
+            "trigger": "{time}, {trigger}",
+            "minutes": "{count} minute | {count} minutes",
+            "hours": "{count} hour | {count} hours",
+            "special": "Special"
+        },
+        range: {
+            self: "Self",
+            touch: "Touch",
+            sight: "Sight",
+            unlimited: "Unlimited",
+            special: "Special",
+            withArea: "{range} ({area})"
+        },
+        distance: {
+            feet: "{value} feet",
+            metres: "{value} metres",
+            foot: "foot",
+            metre: "metre"
+        },
+        area: {
+            sphere: "{value}-{unit}-radius sphere",
+            cylinder: "{value}-{unit}-radius cylinder",
+            cone: "{value}-{unit} cone",
+            cube: "{value}-{unit} cube",
+            line: "{value}-{unit} line"
+        },
+        duration: {
+            "instantaneous": "Instantaneous",
+            "until-dispelled": "Until dispelled",
+            "special": "Special",
+            "concentration": "Concentration, up to {time}",
+            "rounds": "{count} round | {count} rounds",
+            "minutes": "{count} minute | {count} minutes",
+            "hours": "{count} hour | {count} hours",
+            "days": "{count} day | {count} days"
+        },
+        item: {
+            types: {
+                weapon: "Weapon",
+                armor: "Armor",
+                shield: "Shield",
+                tool: "Tool",
+                gear: "Adventuring gear",
+                consumable: "Consumable",
+                wondrous: "Wondrous item",
+                ammunition: "Ammunition"
+            },
+            weapon: { simple: "Simple weapon", martial: "Martial weapon" },
+            armor: { light: "Light armor", medium: "Medium armor", heavy: "Heavy armor" },
+            rarity: {
+                "common": "common",
+                "uncommon": "uncommon",
+                "rare": "rare",
+                "very-rare": "very rare",
+                "legendary": "legendary",
+                "artifact": "artifact"
+            },
+            magic: "{type}, {rarity}",
+            attunement: "{kind} (requires attunement)",
+            attunementBy: "{kind} (requires attunement by {by})",
+            coins: { cp: "{value} cp", sp: "{value} sp", ep: "{value} ep", gp: "{value} gp", pp: "{value} pp" },
+            properties: {
+                "ammunition": "ammunition",
+                "finesse": "finesse",
+                "heavy": "heavy",
+                "light": "light",
+                "loading": "loading",
+                "reach": "reach",
+                "special": "special",
+                "thrown": "thrown",
+                "two-handed": "two-handed",
+                "versatile": "versatile"
+            },
+            withRange: "{property} (range {range})",
+            withDie: "{property} ({dice})",
+            acDex: "{base} + Dex modifier",
+            acDexMax: "{base} + Dex modifier (max {max})",
+            strength: "Str {value}",
+            stealth: "Disadvantage",
+            quantity: "{count} × {name}"
+        },
+        condition: "Condition"
     }
 };
 

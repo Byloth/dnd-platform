@@ -480,5 +480,125 @@ export const it: SheetMessages = {
         legendaryIntro: "La creatura può eseguire {count} azioni leggendarie a scelta tra le opzioni seguenti. " +
             "È possibile utilizzare solo un'opzione di azione leggendaria alla volta e soltanto alla fine del turno " +
             "di un'altra creatura. All'inizio del turno, la creatura recupera le azioni leggendarie effettuate."
+    },
+    entry: {
+        labels: {
+            castingTime: "Tempo di lancio",
+            range: "Gittata",
+            components: "Componenti",
+            duration: "Durata",
+            classes: "Classi",
+            cost: "Costo",
+            weight: "Peso",
+            damage: "Danni",
+            properties: "Proprietà",
+            ac: "Classe Armatura",
+            strength: "Forza",
+            stealth: "Furtività",
+            charges: "Cariche",
+            higherLevels: "Ai livelli superiori",
+            contents: "Contenuto"
+        },
+        schools: {
+            abjuration: "abiurazione",
+            conjuration: "evocazione",
+            divination: "divinazione",
+            enchantment: "ammaliamento",
+            evocation: "invocazione",
+            illusion: "illusione",
+            necromancy: "necromanzia",
+            transmutation: "trasmutazione"
+        },
+        spell: {
+            cantrip: "trucchetto di {school}",
+            levelled: "{school} di {level} livello",
+            ritual: "{kind} (rituale)"
+        },
+        castingTime: {
+            "action": "1 azione",
+            "bonus-action": "1 azione bonus",
+            "reaction": "1 reazione",
+            "trigger": "{time}, {trigger}",
+            "minutes": "{count} minuto | {count} minuti",
+            "hours": "{count} ora | {count} ore",
+            "special": "Speciale"
+        },
+        range: {
+            self: "Incantatore",
+            touch: "Contatto",
+            sight: "Vista",
+            unlimited: "Illimitata",
+            special: "Speciale",
+            withArea: "{range} ({area})"
+        },
+        distance: {
+            feet: "{value} piedi",
+            metres: "{value} metri",
+            foot: "piedi",
+            metre: "metri"
+        },
+        area: {
+            sphere: "sfera del raggio di {value} {unit}",
+            cylinder: "cilindro del raggio di {value} {unit}",
+            cone: "cono di {value} {unit}",
+            cube: "cubo di {value} {unit}",
+            line: "linea di {value} {unit}"
+        },
+        duration: {
+            "instantaneous": "Istantanea",
+            "until-dispelled": "Fino a quando non viene dissolto",
+            "special": "Speciale",
+            "concentration": "Concentrazione, fino a {time}",
+            "rounds": "{count} round | {count} round",
+            "minutes": "{count} minuto | {count} minuti",
+            "hours": "{count} ora | {count} ore",
+            "days": "{count} giorno | {count} giorni"
+        },
+        item: {
+            types: {
+                weapon: "Arma",
+                armor: "Armatura",
+                shield: "Scudo",
+                tool: "Strumento",
+                gear: "Equipaggiamento da avventura",
+                consumable: "Consumabile",
+                wondrous: "Oggetto meraviglioso",
+                ammunition: "Munizioni"
+            },
+            weapon: { simple: "Arma semplice", martial: "Arma da guerra" },
+            armor: { light: "Armatura leggera", medium: "Armatura media", heavy: "Armatura pesante" },
+            rarity: {
+                "common": "comune",
+                "uncommon": "non comune",
+                "rare": "raro",
+                "very-rare": "molto raro",
+                "legendary": "leggendario",
+                "artifact": "artefatto"
+            },
+            magic: "{type}, {rarity}",
+            attunement: "{kind} (richiede sintonia)",
+            attunementBy: "{kind} (richiede sintonia con {by})",
+            coins: { cp: "{value} mr", sp: "{value} ma", ep: "{value} me", gp: "{value} mo", pp: "{value} mp" },
+            properties: {
+                "ammunition": "munizioni",
+                "finesse": "accurata",
+                "heavy": "pesante",
+                "light": "leggera",
+                "loading": "ricarica",
+                "reach": "portata",
+                "special": "speciale",
+                "thrown": "da lancio",
+                "two-handed": "a due mani",
+                "versatile": "versatile"
+            },
+            withRange: "{property} (gittata {range})",
+            withDie: "{property} ({dice})",
+            acDex: "{base} + modificatore di Des",
+            acDexMax: "{base} + modificatore di Des (max {max})",
+            strength: "For {value}",
+            stealth: "Svantaggio",
+            quantity: "{count} × {name}"
+        },
+        condition: "Condizione"
     }
 };
