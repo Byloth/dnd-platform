@@ -24,7 +24,7 @@ M1.1 scaffold + composer ──► M1.2 content store ──► M1.3 build-mode 
                                                                     M1.7 Italian ──► M1.8 working directory, accessibility, newcomer test ──► Phase 1 done
 ```
 
-M1.4r (the owner's review of 2026-09-25) sits between M1.4 and M1.5. M1.6 needs the composer and the sheet (M1.3) and the stored character (M1.5). M1.7 can start its content work (OCR, skeleton, packets) as soon as M1.1 exists and lands after M1.6 so that the Italian goldens include print. M1.8 is the closing milestone.
+M1.4r (the owner's review of 2026-09-25) and then M1.C (the compendium, owner 2026-09-27) sit between M1.4 and M1.5. M1.6 needs the composer and the sheet (M1.3) and the stored character (M1.5). M1.7 can start its content work (OCR, skeleton, packets) as soon as M1.1 exists and lands after M1.6 so that the Italian goldens include print. M1.8 is the closing milestone.
 
 ### M1.1 — Web application scaffold and deployment (≈ 3 sessions)
 
@@ -119,6 +119,17 @@ Done: the tasks of the three documents for this milestone. Release: none of its 
 
 Also in M1.4r, asked by the owner on 2026-09-25 and done that day: the usage statistics of DEC-22 ([12-analytics.md](12-analytics.md)). Also done, on 2026-09-27, the last two: "Roll for me" in step 5 ([04-character-creation.md](04-character-creation.md), task 3), and dropping package files on the packages page ([09-interface-revisions.md](09-interface-revisions.md)). M1.4r is closed.
 
+### M1.C — Compendium (≈ 4 sessions)
+
+Asked by the owner on 2026-09-27 (DEC-25); the plan is [13-compendium.md](13-compendium.md). Parts:
+1. M1.Ca: `composeEntry` for spells, items and conditions in the composer; `dnd show` for every kind; goldens in both languages.
+2. M1.Cb: the compendium's package set, creatures fetched on request; the index, search and filters as a pure composable.
+3. M1.Cc: `/compendium`, `/compendium/<kind>`, `/compendium/<kind>/<id>`; the stat block; the navigation link.
+4. M1.Cd: links from the sheet and the wizard; accessibility, budgets, Lighthouse, statistics; docs.
+
+Done: the criteria of M1.C. Release: none of its own; it ships with `v0.3.5` at the close of M1.5 (see the open point in 13).
+Risks: the creatures' bundle on a slow connection (fetched only by the bestiary, with a visible loading state); long lists on cheap phones (60 entries, then "Show more").
+
 ### M1.5 — Character store, export and import (≈ 2 sessions)
 
 Tasks (from [02-content-and-character-stores.md](02-content-and-character-stores.md), [05-print-and-export.md](05-print-and-export.md)):
@@ -172,7 +183,8 @@ Risks: the newcomer test fails the fifteen-minute target; that is a finding, not
 | M1.3 | 4 | M1.2 | v0.3.3 |
 | M1.4 | 5 + authoring | M1.3 | v0.3.4 |
 | M1.4r | 4 + the first Italian packet | M1.4 | — (ships with v0.3.5) |
-| M1.5 | 2 | M1.4r | v0.3.5 |
+| M1.C | 4 | M1.4r | — (ships with v0.3.5) |
+| M1.5 | 2 | M1.C | v0.3.5 |
 | M1.6 | 4 | M1.3, M1.5 | v0.3.6 |
 | M1.7 | 3 + drafting | M1.1 (content), M1.6 (goldens) | v0.3.7 |
 | M1.8 | 3 | M1.7 | v1.0.0 |

@@ -34,6 +34,7 @@ When a decision is taken, its status becomes **Decided**, the chosen option and 
 | DEC-22 | Usage statistics on the public site (Umami, opt-in consent) | 1 | Decided (2026-09-25) |
 | DEC-23 | Official books as packages: one per book, or one "core" package | 1–2 | Open |
 | DEC-24 | Creatures as content (a creature entity type) | 1 | Decided 2026-09-26 |
+| DEC-25 | A compendium of the loaded packages in Phase 1 | 1 | Decided (2026-09-27) |
 
 ## Entries
 
@@ -234,6 +235,17 @@ When a decision is taken, its status becomes **Decided**, the chosen option and 
 - **Unblocks:** the creature catalogue; later, companions and summons on the sheet.
 - **Update (2026-09-25):** the owner brought creatures into the first pass of the book packages; the schema comes first ([20](20-official-book-packages.md), step 1).
 - **Referenced by:** [19](19-catalogues.md), [16](16-roadmap.md), [20](20-official-book-packages.md).
+
+### DEC-25 — A compendium of the loaded packages in Phase 1
+- **What:** whether players can list, read and search the content of the packages (spells, items, creatures, conditions) apart from a character's sheet, and when. [19](19-catalogues.md) had the item catalogue in Phase 2 and the game master's catalogues in Phase 6.
+- **Decided (2026-09-27, owner):** **a "Compendium" section ("Compendio") in Phase 1, milestone M1.C, before M1.5.**
+  - One section in the navigation bar; the bestiary and, later, the glossary are parts of it.
+  - Read-only, over what the device has: the site's packages, the ones loaded from files, the interface's translation. Private entries are flagged and never leave the browser.
+  - First version: spells, items, creatures, conditions; then species, classes, backgrounds, feats and the rules.
+  - The catalogue packages of creatures are fetched only by the bestiary, never by the sheet.
+- **Options known:** the catalogues as planned in [19](19-catalogues.md) (Phase 2 and 6); a compendium now, with the parts that need play mode or campaigns left where they were.
+- **Amends:** [19](19-catalogues.md) and [16](16-roadmap.md): reading and searching move to Phase 1; adding to the inventory stays in Phase 2, the game master's tools in Phase 6.
+- **Referenced by:** [phase-1/13-compendium.md](phase-1/13-compendium.md), [phase-1/08-workplan.md](phase-1/08-workplan.md).
 
 ## How to add a decision
 

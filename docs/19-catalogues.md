@@ -38,6 +38,9 @@ The full item catalogue opens after creation. From the sheet (the inventory) a p
 
 ## Phases
 
+**Update (2026-09-27, DEC-25):** listing, reading and searching items and creatures moved to Phase 1 as the compendium ([phase-1/13-compendium.md](phase-1/13-compendium.md)). What follows stays for the parts that need play mode or campaigns: adding to the inventory, rolling, the game master's tools.
+
+
 - **Item catalogue for players: Phase 2** (play mode). Editing the inventory during play is play-mode state ([09](09-play-mode.md)); the catalogue is the "add item" of that inventory. The step 7 shop already has search, and its component can grow into the catalogue.
 - **Item and creature catalogues for game masters: Phase 6** (DM and campaigns). The roadmap keeps "further DM tools" out of scope until Phase 6 is evaluated ([16](16-roadmap.md)). These two are named as its first candidates, since the owner asked for them explicitly.
 - **Creature entity type: DEC-24**, decided 2026-09-26. The sheet can reuse it when it shows companions, familiars or wild shapes.

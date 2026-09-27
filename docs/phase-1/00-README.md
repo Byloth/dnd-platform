@@ -35,6 +35,7 @@ Requirements the owner fixed for the whole phase: the text sheet of `dnd derive`
 8. The work plan with milestones, confirmation points and the progress log — [08-workplan.md](08-workplan.md).
 9. Revisions from the owner's review of 2026-09-25 (milestone M1.4r): the interface — [09-interface-revisions.md](09-interface-revisions.md); the wizard's integrity — [10-wizard-integrity.md](10-wizard-integrity.md); the Italian content started early — [11-italian-content.md](11-italian-content.md).
 10. Usage statistics with opt-in consent (DEC-22) — [12-analytics.md](12-analytics.md).
+11. The compendium: list, read and search the content of the loaded packages (DEC-25) — [13-compendium.md](13-compendium.md).
 
 ## Milestones
 
@@ -45,12 +46,13 @@ Requirements the owner fixed for the whole phase: the text sheet of `dnd derive`
 | M1.3 | Dynamic sheet, build mode | Every section of [../08-dynamic-sheet.md](../08-dynamic-sheet.md) with the explain views at the three help levels, on desktop and on a portrait phone; the composer goldens pass. |
 | M1.4 | Guided character creation | Wizard steps 0–9 and the expert form; archetypes authored for every SRD class; a level 1 character of every SRD class can be built; warnings inline, nothing blocks. |
 | M1.4r | Revisions from the owner's review | The integrity fixes, the interface revisions and the first Italian packet of documents 09–11. |
+| M1.C | Compendium | Spells, items, creatures and conditions of every loaded package listed, filtered, searched and read in both languages; creatures fetched only by the bestiary; linked from the sheet and the wizard. |
 | M1.5 | Character store, export and import | Characters persist in the browser; export file; import with version-mismatch handling; the byte-identical round trip runs in CI. |
 | M1.6 | Print | The print route with Parts 2 and 3 and the credits page, A4 and Letter, black-and-white acceptance; the reference Monk's printed playbook passes the checklist. |
 | M1.7 | Italian | Interface in Italian and English; `srd51-it` translation package drafted, reviewed and loaded; the glossary check passes. |
 | M1.8 | Working directory, accessibility, newcomer test | The working-directory mirror where the browser supports it; the accessibility pass on every screen; the usability test with newcomers; the Phase 1 verification table; the MVP tag. |
 
-Phase 1 is done when M1.1–M1.8 are done and the done criteria of Phase 1 in [../16-roadmap.md](../16-roadmap.md) hold. The verification table is written at the close, as [../phase-0/00-README.md](../phase-0/00-README.md) did.
+Phase 1 is done when M1.1–M1.8 and M1.C are done and the done criteria of Phase 1 in [../16-roadmap.md](../16-roadmap.md) hold. The verification table is written at the close, as [../phase-0/00-README.md](../phase-0/00-README.md) did.
 
 ## Conventions for this directory
 

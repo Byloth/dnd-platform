@@ -46,6 +46,7 @@ Scope:
 - Campaign and package-visibility data structures present but without UI.
 - Italian and English interface; Italian translation package for the base package ([13](13-ux-and-accessibility.md), [05](05-content-model-and-sources.md)).
 - Private packages loaded by the user from the interface (never uploaded anywhere), selectable in creation and visible on the sheet, with attribution.
+- The compendium (DEC-25, owner 2026-09-27): spells, items, creatures and conditions of every loaded package, listed, filtered, searched and read, in both languages ([phase-1/13-compendium.md](phase-1/13-compendium.md)); adding to the inventory stays in Phase 2 ([19](19-catalogues.md)).
 
 Done when:
 - A tester who has never played builds a level 1 character in under 15 minutes and can say what each number on the sheet means.
@@ -64,7 +65,7 @@ Scope:
 - Dice rolling with breakdown, attack and spell flows, resource and slot spending, concentration, conditions with expiry, short and long rests with automatic recovery.
 - The dice overlay (dice of the right kind thrown over the page, a tray of the latest results; customisable dice later) and rolling from the sheet itself: hover explains, click rolls (owner, 2026-09-25; [09](09-play-mode.md), [08](08-dynamic-sheet.md)).
 - The rolling logic as a user setting, plain or "karmic" dice that avoid streaks (owner's wish, DEC-05).
-- The item catalogue for players: adding any item to the inventory after creation ([19](19-catalogues.md)).
+- The item catalogue for players: adding any item to the inventory after creation, from the compendium of Phase 1 ([19](19-catalogues.md)).
 - Turn tracker with the action economy made explicit.
 - Play layout of the dynamic sheet ([08](08-dynamic-sheet.md)).
 
