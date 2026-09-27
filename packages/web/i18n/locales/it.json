@@ -581,7 +581,7 @@
     "items": {
       "creation": {
         "name": "Creazione guidata del personaggio",
-        "text": "Passo per passo, ogni scelta spiegata con parole semplici, senza nulla che ti blocchi."
+        "text": "Passo per passo, ogni scelta spiegata con parole semplici, senza nulla che ti blocchi; il sito può anche tirare i punteggi per te."
       },
       "ideas": {
         "name": "Idee da cui partire",
@@ -599,9 +599,13 @@
         "name": "Un modulo rapido per esperti",
         "text": "Tutti i passi su una pagina, senza spiegazioni in mezzo."
       },
+      "compendium": {
+        "name": "Un compendio da consultare",
+        "text": "Cerca e leggi ogni incantesimo, oggetto, mostro e condizione dei tuoi manuali."
+      },
       "languages": {
         "name": "Italiano e inglese",
-        "text": "Tutta l'interfaccia in entrambe le lingue."
+        "text": "Tutto il sito in entrambe le lingue, regole e contenuti compresi."
       },
       "books": {
         "name": "I tuoi manuali, in privato",
@@ -610,14 +614,6 @@
       "settings": {
         "name": "Impostazioni più chiare",
         "text": "Una pagina di impostazioni, e metri e chili per chi li preferisce."
-      },
-      "italian": {
-        "name": "I contenuti in italiano",
-        "text": "Specie, classi, incantesimi e oggetti tradotti, non solo l'interfaccia."
-      },
-      "rolling": {
-        "name": "Tiri automatici",
-        "text": "Lascia che il sito tiri i punteggi di caratteristica, o continua a scrivere i tuoi dadi."
       },
       "files": {
         "name": "Personaggi come file",
@@ -629,7 +625,7 @@
       },
       "play": {
         "name": "Giocare dal telefono",
-        "text": "Attacchi, incantesimi, danni, riposi e condizioni durante la sessione, con annulla."
+        "text": "Attacchi, incantesimi, danni, riposi, condizioni e nuovo bottino durante la sessione, con annulla."
       },
       "dice": {
         "name": "Dadi sullo schermo",
@@ -643,17 +639,13 @@
         "name": "I tuoi contenuti",
         "text": "Crea specie, classi e oggetti tuoi, e condividili."
       },
-      "catalogues": {
-        "name": "Cataloghi di oggetti e mostri",
-        "text": "Cerca ogni oggetto e creatura, per il tuo inventario o per lo schermo del master."
-      },
       "assistant": {
         "name": "Un assistente per le regole",
         "text": "Risposte sulle regole, tratte dai contenuti che usi."
       },
       "campaigns": {
         "name": "Campagne",
-        "text": "Il master sceglie i contenuti ammessi e vede le schede dei giocatori."
+        "text": "Il master sceglie i contenuti ammessi, vede le schede dei giocatori e prepara mostri e tesori."
       }
     },
     "note": "Questa lista è un riassunto; il piano dettagliato è nella documentazione del progetto su GitHub."

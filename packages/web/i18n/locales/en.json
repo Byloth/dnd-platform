@@ -581,7 +581,7 @@
     "items": {
       "creation": {
         "name": "Guided character creation",
-        "text": "Step by step, each choice explained in plain words, with nothing that blocks you."
+        "text": "Step by step, each choice explained in plain words, with nothing that blocks you; the site can even roll your scores."
       },
       "ideas": {
         "name": "Ideas to start from",
@@ -599,9 +599,13 @@
         "name": "A quick form for experts",
         "text": "Every step on one page, with no explanations in the way."
       },
+      "compendium": {
+        "name": "A compendium to look things up",
+        "text": "Search and read every spell, item, monster and condition in your books."
+      },
       "languages": {
         "name": "English and Italian",
-        "text": "The whole interface in both languages."
+        "text": "The whole site in both languages, rules and content included."
       },
       "books": {
         "name": "Your own books, privately",
@@ -610,14 +614,6 @@
       "settings": {
         "name": "Clearer settings",
         "text": "A settings page, and metres and kilograms for whoever prefers them."
-      },
-      "italian": {
-        "name": "The content in Italian",
-        "text": "Species, classes, spells and items translated, not only the interface."
-      },
-      "rolling": {
-        "name": "Rolling for you",
-        "text": "Let the site roll your ability scores, or keep typing your own dice."
       },
       "files": {
         "name": "Characters as files",
@@ -629,7 +625,7 @@
       },
       "play": {
         "name": "Playing from the phone",
-        "text": "Attacks, spells, damage, rests and conditions during a session, with undo."
+        "text": "Attacks, spells, damage, rests, conditions and new loot during a session, with undo."
       },
       "dice": {
         "name": "Dice on screen",
@@ -643,17 +639,13 @@
         "name": "Your own content",
         "text": "Create species, classes and items of your own, and share them."
       },
-      "catalogues": {
-        "name": "Catalogues of items and monsters",
-        "text": "Search every item and creature, for your inventory or for the game master's screen."
-      },
       "assistant": {
         "name": "A rules assistant",
         "text": "Answers about the rules, drawn from the content you use."
       },
       "campaigns": {
         "name": "Campaigns",
-        "text": "A game master chooses the allowed content and sees the players' sheets."
+        "text": "A game master chooses the allowed content, sees the players' sheets and prepares monsters and treasure."
       }
     },
     "note": "This list is a summary; the detailed plan is in the project's documentation on GitHub."

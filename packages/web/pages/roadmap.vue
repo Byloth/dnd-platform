@@ -12,13 +12,13 @@
         {
             status: "now",
             icon: "circle-check",
-            items: ["creation", "ideas", "sheet", "editing", "expert", "languages", "books"]
+            items: ["creation", "ideas", "sheet", "editing", "expert", "compendium", "languages", "books"]
         },
-        { status: "next", icon: "feather", items: ["settings", "italian", "rolling", "files", "print"] },
+        { status: "next", icon: "feather", items: ["settings", "files", "print"] },
         {
             status: "later",
             icon: "star",
-            items: ["play", "dice", "levels", "homebrew", "catalogues", "assistant", "campaigns"]
+            items: ["play", "dice", "levels", "homebrew", "assistant", "campaigns"]
         }
     ];
 </script>
