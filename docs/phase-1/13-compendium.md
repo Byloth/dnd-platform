@@ -57,6 +57,17 @@ The composer's new function `composeEntry(set, id, options)` returns, for a spel
   - `filter(entries, filters)` and the parsing of filters from the address and back.
 - The index is rebuilt when the language or the packages change, never while the player types.
 
+### As built in M1.Cb (2026-09-27)
+
+- `useContentStore().compendiumSources({ creatures })`: the published packages that are neither translations nor catalogues, the catalogues only when `creatures` is true, every stored package; then `sources()` adds the translations of the interface's language.
+- `useCompendium().set({ creatures })` in `composables/compendium.ts` returns `{ packages, skipped }`. When everything does not load together (a second base package, which the loader reports without naming a package), the site's packages come first and each stored package is kept only if the set still loads cleanly with it. The others are `skipped`, for the page to explain.
+- The index is in the same file, as pure functions:
+  - `entriesOf(set, kind, language)`: the entries with the composer's subtitle and first sentence, the private flag and the facets; memoised per set, kind and language.
+  - `normalize` and `search`: whole name, start, word start, anywhere, every word; the English name half a point behind.
+  - `filter` over `FILTERS` per kind.
+  - `fromQuery` and `toQuery` for the address; `filterOptions` for the values present.
+- The spell's classes by id come from the composer's `spellClassIds`, which `composeEntry` also uses.
+
 ### Links from the rest of the application
 
 - **From the sheet**: a spell, an item of the equipment and a condition link to their entry ("Read in the compendium" in the drawer or the card that shows them).
@@ -87,7 +98,7 @@ M1.C is split into four parts, each a series of commits with tests and lint thro
 1. **M1.Ca, the entries in the composer** (≈ 1 session; done 2026-09-27):
    - `composeEntry` for spells, items and conditions, with the EN and IT catalogue keys it needs;
    - `dnd show` for every kind; goldens for a cantrip, a 3rd-level spell with a higher-level text, a weapon, an armour, a magic item with attunement, a pack, exhaustion, in both languages.
-2. **M1.Cb, the index and the bestiary's loading** (≈ 1 session):
+2. **M1.Cb, the index and the bestiary's loading** (≈ 1 session; done 2026-09-27):
    - `compendiumSet`, with creatures fetched only on request;
    - `composables/compendium.ts` and its unit tests: accents, the English name in Italian, the order of the scores, every filter, the address round trip.
 3. **M1.Cc, the screens** (≈ 1–2 sessions):
@@ -106,4 +117,5 @@ The second round (species, classes and subclasses, backgrounds, feats, the rules
 - **A tag of its own.** As planned, M1.C ships with `v0.3.5` at the close of M1.5, like M1.4r. If the owner wants to publish it sooner, it can be tagged `v0.3.5` itself and every later tag moves by one.
 - **The glossary in the second round**: the rule entities of srd51 (276, by category) as its content, the terms of [../03-glossary.md](../03-glossary.md) as its index, or both.
 - **Environment** for creatures: the format has `environments`, srd51-creatures fills it for none; filling it is content work.
+- **Package sets are remembered by id and version** (`useEngine`): a package loaded again with the same version but different contents keeps its old set until the page is reloaded. The tests clear the cache; the application could clear it after a load or a removal.
 - **Searching in the text** (e.g. "which spells deal fire damage"): not in the first version.
