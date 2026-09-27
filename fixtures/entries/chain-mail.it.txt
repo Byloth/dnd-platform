@@ -1,0 +1,10 @@
+Cotta di maglia
+Armatura pesante
+
+Costo: 75 mo
+Peso: 27,5 kg
+Classe Armatura: 16
+Forza: For 13
+Furtività: Svantaggio
+
+Una cotta di maglia, composta da anelli di metallo interconnessi, include uno strato di tessuto trapuntato da indossare sotto la cotta per evitare l'attrito e per attutire l'impatto dei colpi. Include anche due guanti d'arme.

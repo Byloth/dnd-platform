@@ -1,0 +1,7 @@
+Spada lunga
+Arma da guerra
+
+Costo: 15 mo
+Peso: 1,5 kg
+Danni: 1d8 taglienti
+Proprietà: versatile (1d10)

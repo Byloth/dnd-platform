@@ -1,0 +1,10 @@
+Chain mail
+Heavy armor
+
+Cost: 75 gp
+Weight: 55 lb
+Armor Class: 16
+Strength: Str 13
+Stealth: Disadvantage
+
+Made of interlocking metal rings, chain mail includes a layer of quilted fabric worn underneath the mail to prevent chafing and to cushion the impact of blows. The suit includes gauntlets.

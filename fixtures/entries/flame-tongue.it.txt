@@ -1,0 +1,4 @@
+Lingua di fiamme
+Arma (qualsiasi spada), rara (richiede sintonia)
+
+Il personaggio può usare un'azione bonus per pronunciare la parola d'ordine di questa spada magica sprigionando fiamme dalla sua lama. Le fiamme proiettano luce intensa in un raggio di 12 metri e luce fioca per altri 12 metri. Quando la lama è in fiamme, infligge 2d6 danni da fuoco extra a ogni bersaglio che colpisce. Le fiamme durano finché il personaggio non usa un'azione bonus per pronunciare di nuovo la parola d'ordine o finché non lascia cadere la spada o non la rinfodera.

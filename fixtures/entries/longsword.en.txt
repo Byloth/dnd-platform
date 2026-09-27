@@ -1,0 +1,7 @@
+Longsword
+Martial weapon
+
+Cost: 15 gp
+Weight: 3 lb
+Damage: 1d8 slashing
+Properties: versatile (1d10)

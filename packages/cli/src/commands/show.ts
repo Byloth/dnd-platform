@@ -1,8 +1,9 @@
 /**
  * `dnd show <entity-id> [--package <dir>]… [--language <code>] [--units imperial|metric]`
  *
- * Prints one entity for review. Today a creature's stat block (DEC-24), as the composer writes it: the Italian
- * block with `--language it`, distances in metres with `--units metric`. The entity's package and its
+ * Prints one entity for review, as the composer writes it: a creature's stat block (DEC-24), or a spell, an item or
+ * a condition as the compendium shows it (docs/phase-1/13-compendium.md). The Italian with `--language it`,
+ * distances and weights in metric units with `--units metric`. The entity's package and its
  * dependencies are found among packages/content and content-private, plus the translations of the language.
  */
 
@@ -11,8 +12,8 @@ import { resolve } from "node:path";
 import { loadPackages } from "@byloth/dnd-platform-loader";
 import { readPackageSource } from "@byloth/dnd-platform-loader/node";
 import type { PackageSource } from "@byloth/dnd-platform-loader";
-import { composeCreature } from "@byloth/dnd-platform-composer";
-import type { StatBlock } from "@byloth/dnd-platform-composer";
+import { composeCreature, composeEntry } from "@byloth/dnd-platform-composer";
+import type { EntryView, StatBlock } from "@byloth/dnd-platform-composer";
 
 import { discoverPackages, tryRepositoryRoot } from "../io/repository.js";
 import { withTranslations } from "../io/resolve-packages.js";
@@ -44,6 +45,17 @@ export function renderStatBlock(block: StatBlock): string
     }
 
     return `${lines.join("\n")}\n`;
+}
+
+export function renderEntry(view: EntryView): string
+{
+    const lines = [view.name, view.subtitle, ""];
+    for (const line of view.lines) { lines.push(`${line.label}: ${line.value}`); }
+    if (view.lines.length) { lines.push(""); }
+    if (view.text) { lines.push(view.text, ""); }
+    for (const section of view.sections) { lines.push(section.title, section.text, ""); }
+
+    return `${lines.join("\n").trimEnd()}\n`;
 }
 
 export function runShow(argv: readonly string[]): number
@@ -113,18 +125,26 @@ export function runShow(argv: readonly string[]): number
 
         return 1;
     }
-    const block = composeCreature(id, {
+    const options = {
         packages: set,
         ...(language ? { language: language } : {}),
-        ...(units ? { units: units } : {})
-    });
-    if (block === undefined)
+        ...(units ? { units: units as "imperial" | "metric" } : {})
+    };
+    const block = composeCreature(id, options);
+    if (block !== undefined)
     {
-        process.stderr.write(`dnd show: ${id} is not a loaded creature\n`);
+        process.stdout.write(renderStatBlock(block));
+
+        return 0;
+    }
+    const entry = composeEntry(id, options);
+    if (entry === undefined)
+    {
+        process.stderr.write(`dnd show: ${id} is not a loaded creature, spell, item or condition\n`);
 
         return 1;
     }
-    process.stdout.write(renderStatBlock(block));
+    process.stdout.write(renderEntry(entry));
 
     return 0;
 }
