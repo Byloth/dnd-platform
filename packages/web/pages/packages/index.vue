@@ -53,6 +53,42 @@
         await store.loadFiles(files);
     };
 
+    // The card is also a drop zone (docs/phase-1/09, owner 2026-09-25): dropped files go the same way as chosen
+    // ones. A counter, not a flag, since entering a child of the card fires dragleave on the card itself.
+    const dragDepth = ref(0);
+    const hasFiles = (event: DragEvent): boolean => event.dataTransfer?.types.includes("Files") ?? false;
+    const onDragEnter = (event: DragEvent): void =>
+    {
+        if (hasFiles(event)) { dragDepth.value += 1; }
+    };
+    const onDragLeave = (): void =>
+    {
+        dragDepth.value = Math.max(0, dragDepth.value - 1);
+    };
+    const onDrop = async (event: DragEvent): Promise<void> =>
+    {
+        dragDepth.value = 0;
+
+        const files = [...(event.dataTransfer?.files ?? [])];
+        if (files.length) { await store.loadFiles(files); }
+    };
+
+    // A file dropped beside the card must not make the browser leave the page to open it.
+    const holdFiles = (event: DragEvent): void =>
+    {
+        if (hasFiles(event)) { event.preventDefault(); }
+    };
+    onMounted(() =>
+    {
+        window.addEventListener("dragover", holdFiles);
+        window.addEventListener("drop", holdFiles);
+    });
+    onBeforeUnmount(() =>
+    {
+        window.removeEventListener("dragover", holdFiles);
+        window.removeEventListener("drop", holdFiles);
+    });
+
     // Removal asks first (docs/13-ux-and-accessibility.md), and is refused while a character uses the package.
     const confirming = ref<string>();
     const inUse = ref<Record<string, readonly string[]>>({});
@@ -105,7 +141,12 @@
             <h2 id="packages-load-heading" class="packages-page__subtitle">
                 {{ t("packages.load.heading") }}
             </h2>
-            <label class="file-picker">
+            <label class="file-picker"
+                   :class="{ 'file-picker--over': dragDepth > 0 }"
+                   @dragenter.prevent="onDragEnter"
+                   @dragover.prevent
+                   @dragleave="onDragLeave"
+                   @drop.prevent="onDrop">
                 <span class="file-picker__icon" aria-hidden="true">
                     <FontAwesome icon="file-arrow-up" />
                 </span>
@@ -432,7 +473,8 @@
             border-color var(--duration-fast) var(--easing),
             background-color var(--duration-fast) var(--easing);
 
-        &:hover
+        &:hover,
+        &--over
         {
             background-color: var(--color-accent-soft);
             border-color: var(--color-accent);

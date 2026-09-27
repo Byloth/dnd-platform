@@ -39,7 +39,7 @@
     "intro": "Un pacchetto è un insieme di contenuti di regole: classi, specie, incantesimi, oggetti. L'SRD 5.1 è incluso nel sito ed è sempre disponibile. Puoi aggiungere i tuoi pacchetti, homebrew o manuali che possiedi, da un file: vengono controllati, restano solo in questo browser e non vengono mai inviati da nessuna parte.",
     "load": {
       "heading": "Aggiungi un pacchetto",
-      "hint": "Scegli lo .zip della cartella di un pacchetto, oppure un bundle .json. Puoi sceglierne più di uno alla volta.",
+      "hint": "Scegli lo .zip della cartella di un pacchetto, oppure un bundle .json, o trascinali qui. Puoi aggiungerne più di uno alla volta.",
       "choose": "Scegli i file",
       "checking": "Controllo di {file}…",
       "done": "{name} {version} aggiunto.",

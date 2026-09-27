@@ -39,7 +39,7 @@
     "intro": "A package is a set of rules content: classes, species, spells, items. The SRD 5.1 comes with the site and is always here. You can add your own packages, homebrew or books you own, from a file: they are checked, kept in this browser only, and never sent anywhere.",
     "load": {
       "heading": "Add a package",
-      "hint": "Choose the .zip of a package folder, or a .json bundle. You can choose several files at once.",
+      "hint": "Choose the .zip of a package folder, or a .json bundle, or drop them here. You can add several files at once.",
       "choose": "Choose files",
       "checking": "Checking {file}…",
       "done": "{name} {version} added.",

@@ -109,6 +109,41 @@ describe("the packages page", () =>
         await vi.waitFor(() => expect(packageItem(wrapper, "Byloth's homebrew")).toBeUndefined());
     });
 
+    it("loads a package dropped on the card, as the picker does", async () =>
+    {
+        const wrapper = await mountPage();
+        const picker = wrapper.find(".file-picker");
+        const zip = zipOf(join(FIXTURES, "homebrew-feline"), "homebrew-feline");
+
+        await picker.trigger("drop", { dataTransfer: { types: ["Files"], files: [zip] } });
+        await vi.waitFor(() => expect(packageItem(wrapper, "Byloth's homebrew")).toBeDefined());
+        expect(wrapper.findAll("li.load-entry--done").length).toBe(1);
+    });
+
+    it("does not add a dropped file that is not a package", async () =>
+    {
+        const wrapper = await mountPage();
+        const text = { name: "notes.txt", arrayBuffer: async () => new TextEncoder().encode("hello").buffer };
+
+        await wrapper.find(".file-picker").trigger("drop", { dataTransfer: { types: ["Files"], files: [text] } });
+        await vi.waitFor(() => expect(wrapper.find("li.load-entry--failed").exists()).toBe(true));
+        expect(wrapper.find("li.load-entry--failed").text()).toContain("notes.txt could not be read");
+    });
+
+    it("highlights the card while files are over it", async () =>
+    {
+        const wrapper = await mountPage();
+        const picker = wrapper.find(".file-picker");
+        const files = { dataTransfer: { types: ["Files"], files: [] } };
+
+        await picker.trigger("dragenter", files);
+        await picker.trigger("dragover", files);
+        expect(picker.classes()).toContain("file-picker--over");
+
+        await picker.trigger("dragleave", files);
+        expect(picker.classes()).not.toContain("file-picker--over");
+    });
+
     it("renders in Italian without raw catalogue keys", async () =>
     {
         await useNuxtApp().$i18n.setLocale("it");
