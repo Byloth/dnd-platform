@@ -34,7 +34,7 @@ Proposed here, to confirm with the plan:
 Filters, as disclosures on a phone and as a side column on a desktop:
 - **Spells**: level (cantrip, 1–9), school, class (from the spell lists), ritual, concentration, source package.
 - **Items**: type (weapon, armour, gear, tool, pack, magic item), rarity, attunement, source package.
-- **Creatures**: challenge (from–to), type, size, source package. The data has no environment yet, so there is no environment filter.
+- **Creatures**: challenge (from–to), type, size, source package. The format has `environments` (DEC-24), but srd51-creatures fills it for none, so there is no environment filter yet.
 - **Conditions**: none, fifteen entries.
 
 Sorting: spells by level then name; creatures by challenge then name; everything else by name. A list shows the first 60 entries and a "Show more" button, so a cheap phone never renders 500 cards at once.
@@ -84,7 +84,7 @@ The usage statistics of [12-analytics.md](12-analytics.md) get two events: `comp
 
 M1.C is split into four parts, each a series of commits with tests and lint through the hooks.
 
-1. **M1.Ca, the entries in the composer** (≈ 1 session):
+1. **M1.Ca, the entries in the composer** (≈ 1 session; done 2026-09-27):
    - `composeEntry` for spells, items and conditions, with the EN and IT catalogue keys it needs;
    - `dnd show` for every kind; goldens for a cantrip, a 3rd-level spell with a higher-level text, a weapon, an armour, a magic item with attunement, a pack, exhaustion, in both languages.
 2. **M1.Cb, the index and the bestiary's loading** (≈ 1 session):
@@ -105,5 +105,5 @@ The second round (species, classes and subclasses, backgrounds, feats, the rules
 
 - **A tag of its own.** As planned, M1.C ships with `v0.3.5` at the close of M1.5, like M1.4r. If the owner wants to publish it sooner, it can be tagged `v0.3.5` itself and every later tag moves by one.
 - **The glossary in the second round**: the rule entities of srd51 (276, by category) as its content, the terms of [../03-glossary.md](../03-glossary.md) as its index, or both.
-- **Environment** for creatures: the data has none today; adding it is content work in srd51-creatures.
+- **Environment** for creatures: the format has `environments`, srd51-creatures fills it for none; filling it is content work.
 - **Searching in the text** (e.g. "which spells deal fire damage"): not in the first version.

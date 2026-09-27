@@ -61,6 +61,17 @@ Every `Item` carries `summary` (one line, help level *newcomer*), `detail` (the 
 
 A catalogue keyed by contribution kind and by common labels (`sheet.explain.*`, `sheet.when.*` of `SHEET_MESSAGES`): `base` → "Everyone starts from {value}." (a labelled starting value: "{label} sets the starting value at {value}."); `add` with an ability label → "Your {ability} ({score}) gives {value}."; `set-formula` with a feature → "{feature}: {text of the feature's first sentence} → {value}."; `mul`, `min`, `max` likewise; an inactive contribution → "{feature} would apply if {condition in words}." The condition-to-words function lives in the composer and covers every key of the condition language (a test enumerates them, as the vocabulary coverage test does for the engine).
 
+### Single entities: the stat block and the compendium's entries
+
+Beside the sheet, the composer writes one entity at a time for reading, with the same catalogue, language and units:
+- `composeCreature(id, options)`: a creature's stat block (DEC-24).
+- `composeEntry(id, options)` (M1.Ca, [13-compendium.md](13-compendium.md)): a spell, an item or a condition as `{ kind, name, subtitle, lines, text, sections, classes? }`.
+  - Spells: "3rd-level evocation" / "Invocazione di 3° livello"; casting time, range with its area, components, duration and classes as lines; "At Higher Levels" as a section. The classes are those whose spellcasting draws from a list that holds the spell.
+  - Items: the type line of a magic item is the first paragraph of its text, as the SRD writes it in both languages, removed from the text; a mundane item's is built from its type and category. Cost, weight, damage, properties, armour class, strength, stealth and charges as lines; a pack's contents as a section, in place of its text that only lists them.
+  - Conditions: the text, exhaustion's table included.
+- Both share `DisplayComposer` (`display.ts`): the translator, localized texts, numbers, feet and pounds in the chosen units.
+- `dnd show <id> [--language it] [--units metric]` prints either; `fixtures/entries/` holds the goldens of the entries.
+
 ### The build-mode screen (M1.3)
 
 - Portrait phone first: one column, sections as collapsible blocks in tree order, the vital block and the warnings pinned at the top; tapping a value opens the explanation as a bottom drawer; tapping an item opens its detail. Desktop: two columns (core and abilities on the left, the rest on the right), everything expanded, explanations on hover and on click.

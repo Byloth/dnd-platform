@@ -127,6 +127,8 @@ Asked by the owner on 2026-09-27 (DEC-25); the plan is [13-compendium.md](13-com
 3. M1.Cc: `/compendium`, `/compendium/<kind>`, `/compendium/<kind>/<id>`; the stat block; the navigation link.
 4. M1.Cd: links from the sheet and the wizard; accessibility, budgets, Lighthouse, statistics; docs.
 
+M1.Ca done on 2026-09-27: `composeEntry` for spells, items and conditions in EN/IT on a base shared with the stat block (`display.ts`), `dnd show` for every kind, goldens in `fixtures/entries`, a sweep of every SRD spell, item and condition in both languages.
+
 Done: the criteria of M1.C. Release: none of its own; it ships with `v0.3.5` at the close of M1.5 (see the open point in 13).
 Risks: the creatures' bundle on a slow connection (fetched only by the bestiary, with a visible loading state); long lists on cheap phones (60 entries, then "Show more").
 
