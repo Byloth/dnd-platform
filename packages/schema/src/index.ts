@@ -182,7 +182,8 @@ export const SCHEMA_NAMES = [
     "translation",
     "package",
     "ruleset",
-    "character"
+    "character",
+    "export"
 
 ] as const;
 export type SchemaName = (typeof SCHEMA_NAMES)[number];

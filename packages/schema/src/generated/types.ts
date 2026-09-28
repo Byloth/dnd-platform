@@ -198,6 +198,7 @@ export interface Root {
     ConditionEntity?: ConditionEntity;
     Creature?: Creature;
     Effect?: Effect;
+    Export?: Export;
     Feat?: Feat;
     Feature?: Feature;
     Item?: Item;
@@ -1901,6 +1902,39 @@ export interface Action {
             }[]
         ];
     };
+}
+/**
+ * A character as a file (docs/phase-1/05-print-and-export.md): the document unchanged, the packages it uses by id and version, and optionally the bundles of the player's own redistributable packages. A private package is never embedded.
+ */
+export interface Export {
+    format: "dnd-platform-export/1";
+    exportedAt: string;
+    application: {
+        version: string;
+    };
+    character: Character;
+    /**
+     * @minItems 1
+     */
+    packages: [
+        {
+            id: string;
+            version: string;
+            redistributable: boolean;
+        },
+        ...{
+            id: string;
+            version: string;
+            redistributable: boolean;
+        }[]
+    ];
+    /**
+     * Package bundles (the PackageSource of `dnd build`), checked on import like a package loaded from a file.
+     */
+    embedded?: {
+        manifest: {};
+        entities: unknown[];
+    }[];
 }
 export interface Feat {
     id: string;

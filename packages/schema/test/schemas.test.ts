@@ -159,3 +159,31 @@ describe("the creature entity (DEC-24, docs/20-official-book-packages.md)", () =
         expect(validate({ ...dragon, ...scaled })).toBe(true);
     });
 });
+
+describe("the export document (M1.5, docs/phase-1/05-print-and-export.md)", () =>
+{
+    const ajv = createAjv();
+    const validate = validatorFor(ajv, "export");
+    const character = parse(readFileSync(resolve(ROOT, "fixtures/characters/cleric-l5/character.yaml"), "utf8")) as
+        Record<string, unknown>;
+    const exported = {
+        format: "dnd-platform-export/1",
+        exportedAt: "2026-09-28T10:00:00.000Z",
+        application: { version: "v0.3.4" },
+        character: character,
+        packages: [{ id: "srd51", version: "0.7.1", redistributable: true }]
+    };
+
+    it("holds a character with its packages, bundles optional", () =>
+    {
+        expect(validate(exported)).toBe(true);
+        expect(validate({ ...exported, embedded: [{ manifest: {}, entities: [] }] })).toBe(true);
+    });
+
+    it("refuses another format, a missing character and a package without its flag", () =>
+    {
+        expect(validate({ ...exported, format: "dnd-platform-export/2" })).toBe(false);
+        expect(validate({ ...exported, character: undefined })).toBe(false);
+        expect(validate({ ...exported, packages: [{ id: "srd51", version: "0.7.1" }] })).toBe(false);
+    });
+});

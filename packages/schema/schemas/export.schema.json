@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dnd-platform.byloth.dev/schema/v0/export.schema.json",
+  "title": "Export",
+  "description": "A character as a file (docs/phase-1/05-print-and-export.md): the document unchanged, the packages it uses by id and version, and optionally the bundles of the player's own redistributable packages. A private package is never embedded.",
+  "type": "object",
+  "properties": {
+    "format": {
+      "const": "dnd-platform-export/1"
+    },
+    "exportedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "application": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "version"
+      ]
+    },
+    "character": {
+      "$ref": "character.schema.json"
+    },
+    "packages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/packageId"
+          },
+          "version": {
+            "$ref": "common.schema.json#/$defs/semver"
+          },
+          "redistributable": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "version",
+          "redistributable"
+        ]
+      },
+      "minItems": 1
+    },
+    "embedded": {
+      "description": "Package bundles (the PackageSource of `dnd build`), checked on import like a package loaded from a file.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "manifest": {
+            "type": "object"
+          },
+          "entities": {
+            "type": "array"
+          }
+        },
+        "required": [
+          "manifest",
+          "entities"
+        ]
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "exportedAt",
+    "application",
+    "character",
+    "packages"
+  ]
+}
