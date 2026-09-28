@@ -16,9 +16,11 @@
     const emit = defineEmits<{ confirm: [], cancel: [] }>();
 
     const dialog = ref<HTMLDialogElement>();
+    // Its own id: a page may hold several dialogs (delete and export on the sheet).
+    const titleId = useId();
     const safe = ref<InstanceType<typeof AppButton>>();
 
-    watch(() => props.open, async (isOpen) =>
+    const sync = async (isOpen: boolean): Promise<void> =>
     {
         await nextTick();
         if (isOpen && !dialog.value?.open)
@@ -27,7 +29,10 @@
             (safe.value?.$el as HTMLElement | undefined)?.focus();
         }
         else if (!isOpen && dialog.value?.open) { dialog.value.close(); }
-    });
+    };
+    watch(() => props.open, sync);
+    // A dialog mounted already open (the export and import ones) opens once its element exists.
+    onMounted(() => sync(props.open));
 
     // Esc, the backdrop and "cancel" all come through the dialog's own close.
     const onClose = (): void =>
@@ -39,11 +44,11 @@
 <template>
     <dialog ref="dialog"
             class="confirm-dialog"
-            aria-labelledby="confirm-dialog-title"
+            :aria-labelledby="titleId"
             @close="onClose"
             @click.self="dialog?.close()">
         <div class="confirm-dialog__panel">
-            <h2 id="confirm-dialog-title" class="confirm-dialog__title">
+            <h2 :id="titleId" class="confirm-dialog__title">
                 <FontAwesome v-if="danger"
                              class="confirm-dialog__icon"
                              icon="triangle-exclamation"

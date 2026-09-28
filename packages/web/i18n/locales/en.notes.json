@@ -113,7 +113,44 @@
     "stored": "Heading of the characters stored in this browser, made with the creation wizard.",
     "demo": "The characters page (the home page).",
     "loading": "The characters page (the home page).",
-    "failed": "The characters page (the home page)."
+    "failed": "The characters page (the home page).",
+    "export": {
+      "title": "Export dialog of a character (sheet, characters list). Parameters: {name} where present.",
+      "text": "Export dialog of a character (sheet, characters list). Parameters: {name} where present.",
+      "private": "Export dialog of a character (sheet, characters list). Parameters: {name} where present.",
+      "embed": "Export dialog of a character (sheet, characters list). Parameters: {name} where present.",
+      "embedHint": "Export dialog of a character (sheet, characters list). Parameters: {name} where present.",
+      "confirm": "Export dialog of a character (sheet, characters list). Parameters: {name} where present.",
+      "cancel": "Export dialog of a character (sheet, characters list). Parameters: {name} where present.",
+      "button": "Export dialog of a character (sheet, characters list). Parameters: {name} where present."
+    },
+    "import": {
+      "heading": "Import of a character file on the characters page: the picker, refusals, the dialog listing the content it uses. Parameters: {file}, {name}, {here} where present.",
+      "action": "Import of a character file on the characters page: the picker, refusals, the dialog listing the content it uses. Parameters: {file}, {name}, {here} where present.",
+      "hint": "Import of a character file on the characters page: the picker, refusals, the dialog listing the content it uses. Parameters: {file}, {name}, {here} where present.",
+      "refused": {
+        "unreadable": "Import of a character file on the characters page: the picker, refusals, the dialog listing the content it uses. Parameters: {file}, {name}, {here} where present.",
+        "not-a-character": "Import of a character file on the characters page: the picker, refusals, the dialog listing the content it uses. Parameters: {file}, {name}, {here} where present.",
+        "newer": "Import of a character file on the characters page: the picker, refusals, the dialog listing the content it uses. Parameters: {file}, {name}, {here} where present.",
+        "invalid": "Import of a character file on the characters page: the picker, refusals, the dialog listing the content it uses. Parameters: {file}, {name}, {here} where present."
+      },
+      "details": "Import of a character file on the characters page: the picker, refusals, the dialog listing the content it uses. Parameters: {file}, {name}, {here} where present.",
+      "failed": "Import of a character file on the characters page: the picker, refusals, the dialog listing the content it uses. Parameters: {file}, {name}, {here} where present.",
+      "title": "Import of a character file on the characters page: the picker, refusals, the dialog listing the content it uses. Parameters: {file}, {name}, {here} where present.",
+      "packages": "Import of a character file on the characters page: the picker, refusals, the dialog listing the content it uses. Parameters: {file}, {name}, {here} where present.",
+      "status": {
+        "site": "Import of a character file on the characters page: the picker, refusals, the dialog listing the content it uses. Parameters: {file}, {name}, {here} where present.",
+        "stored": "Import of a character file on the characters page: the picker, refusals, the dialog listing the content it uses. Parameters: {file}, {name}, {here} where present.",
+        "embedded": "Import of a character file on the characters page: the picker, refusals, the dialog listing the content it uses. Parameters: {file}, {name}, {here} where present.",
+        "missing": "Import of a character file on the characters page: the picker, refusals, the dialog listing the content it uses. Parameters: {file}, {name}, {here} where present."
+      },
+      "versions": "Import of a character file on the characters page: the picker, refusals, the dialog listing the content it uses. Parameters: {file}, {name}, {here} where present.",
+      "conflict": "Import of a character file on the characters page: the picker, refusals, the dialog listing the content it uses. Parameters: {file}, {name}, {here} where present.",
+      "replace": "Import of a character file on the characters page: the picker, refusals, the dialog listing the content it uses. Parameters: {file}, {name}, {here} where present.",
+      "keep": "Import of a character file on the characters page: the picker, refusals, the dialog listing the content it uses. Parameters: {file}, {name}, {here} where present.",
+      "confirm": "Import of a character file on the characters page: the picker, refusals, the dialog listing the content it uses. Parameters: {file}, {name}, {here} where present.",
+      "cancel": "Import of a character file on the characters page: the picker, refusals, the dialog listing the content it uses. Parameters: {file}, {name}, {here} where present."
+    }
   },
   "character": {
     "loading": "A character's sheet page: loading and error states.",
@@ -133,7 +170,8 @@
       "text": "What deleting does, and that it cannot be undone.",
       "local": "Why nothing can bring it back: the character lives in this browser only (until export, M1.5).",
       "confirm": "The destructive button. Parameter: {name}.",
-      "cancel": "The safe button, focused first."
+      "cancel": "The safe button, focused first.",
+      "exportFirst": "In the delete confirmation: downloads the character's file before it is deleted."
     }
   },
   "terms": {
@@ -223,7 +261,8 @@
     },
     "edit": "Button in the sheet's header of a stored character: reopens it in the creation wizard, at the review.",
     "change": "Link in a section's header, before the section's name for screen readers: reopens the character at the creation step that sets the section.",
-    "delete": "Button in the sheet's header of a stored character: asks to confirm, then deletes it."
+    "delete": "Button in the sheet's header of a stored character: asks to confirm, then deletes it.",
+    "export": "The sheet's action that opens the export dialog."
   },
   "wizard": {
     "title": "The creation wizard's page title and heading.",

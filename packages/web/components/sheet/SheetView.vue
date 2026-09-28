@@ -24,7 +24,8 @@
      * one column on a phone, two from a desktop width. Every number opens its explanation. Embedded in the
      * wizard's review, the name is not the page's heading and the review lists the warnings its own way. An
      * `editable` sheet (a stored character) offers "Edit" and, on the sections a creation step sets, "Change",
-     * and "Delete", which the page confirms.
+     * and "Delete", which the page confirms. Every sheet but the review's offers "Export" (M1.5a), which the page
+     * opens as a dialog.
      */
     const props = defineProps<{
         character: Character;
@@ -35,7 +36,7 @@
         embedded?: boolean;
         editable?: boolean;
     }>();
-    const emit = defineEmits<{ remove: [] }>();
+    const emit = defineEmits<{ remove: [], export: [] }>();
 
     const { t } = useI18n();
     const preferences = usePreferencesStore();
@@ -132,8 +133,9 @@
             <p v-if="helpLevel === 'newcomer'" class="sheet-view__hint">
                 {{ t("sheetView.explainHint") }}
             </p>
-            <div v-if="editable" class="sheet-view__actions">
-                <AppButton theme="secondary"
+            <div v-if="editable || !embedded" class="sheet-view__actions">
+                <AppButton v-if="editable"
+                           theme="secondary"
                            outline
                            small
                            :to="editAt('review')"
@@ -141,7 +143,16 @@
                     <FontAwesome icon="feather" aria-hidden="true" />
                     {{ t("sheetView.edit") }}
                 </AppButton>
-                <AppButton theme="danger"
+                <AppButton v-if="!embedded"
+                           theme="secondary"
+                           outline
+                           small
+                           @click="emit('export')">
+                    <FontAwesome icon="file-arrow-down" aria-hidden="true" />
+                    {{ t("sheetView.export") }}
+                </AppButton>
+                <AppButton v-if="editable"
+                           theme="danger"
                            outline
                            small
                            @click="emit('remove')">

@@ -1,6 +1,16 @@
 <script lang="ts" setup>
+    import type { Character } from "@byloth/dnd-platform-engine";
+
     import AppButton from "@/components/ui/AppButton.vue";
+    import FilePicker from "@/components/ui/FilePicker.vue";
     import FontAwesome from "@/components/ui/FontAwesome.vue";
+    import type { ExportRefusal, ImportPlan } from "@/composables/character-files";
+
+    // The file code and the dialogs load with their first use: the page's first load stays light (its Lighthouse
+    // guard).
+    const ExportDialog = defineAsyncComponent(() => import("@/components/characters/ExportDialog.vue"));
+    const ImportDialog = defineAsyncComponent(() => import("@/components/characters/ImportDialog.vue"));
+    const files = async () => (await import("@/composables/character-files")).useCharacterFiles();
 
     // The characters page: the player's own characters, stored in this browser, then the site's demo characters,
     // each linking its sheet.
@@ -12,6 +22,58 @@
     const groups = computed(() => (["stored", "demo"] as const)
         .map((origin) => ({ origin: origin, characters: (characters.value ?? []).filter((c) => c.origin === origin) }))
         .filter((g) => g.characters.length > 0));
+
+    // Export from the list (docs/phase-1/05-print-and-export.md): the stored document, in the dialog.
+    const exporting = shallowRef<Character>();
+    const exportCharacter = async (id: string): Promise<void> =>
+    {
+        exporting.value = await useBrowserStorage().characters.get(id);
+    };
+
+    // Import: read the file, show what happens to its packages, then store it and open its sheet.
+    const importing = shallowRef<ImportPlan>();
+    const refusal = shallowRef<{ file: string, reason: ExportRefusal | "failed", problems: readonly string[] }>();
+    const onFiles = async ([file]: File[]): Promise<void> =>
+    {
+        if (!file) { return; }
+        refusal.value = undefined;
+        const { ExportRefusedException } = await import("@/composables/character-files");
+        try
+        {
+            const characterFiles = await files();
+            importing.value = await characterFiles.plan(await characterFiles.read(file));
+        }
+        catch (error)
+        {
+            if (!(error instanceof ExportRefusedException)) { throw error; }
+            refusal.value = { file: file.name, reason: error.reason, problems: error.problems };
+        }
+    };
+    const onImport = async (replace: boolean): Promise<void> =>
+    {
+        const plan = importing.value!;
+        importing.value = undefined;
+        const { PackageRefusedException } = await import("@/composables/packages");
+        try
+        {
+            const character = await (await files()).importCharacter(plan, { replace: replace });
+            useAnalytics().track("character-import", {
+                embedded: plan.packages.filter((p) => p.status === "embedded").length,
+                missing: plan.packages.filter((p) => p.status === "missing").length
+            });
+            clearNuxtData(["characters", `character-${character.id}`]);
+            await navigateTo({ name: "characters-id", params: { id: character.id } });
+        }
+        catch (error)
+        {
+            if (!(error instanceof PackageRefusedException)) { throw error; }
+            refusal.value = {
+                file: `${plan.document.character.name}.dnd.json`,
+                reason: "failed",
+                problems: error.diagnostics.map((d) => `${d.code} ${d.message}`)
+            };
+        }
+    };
 </script>
 
 <template>
@@ -59,10 +121,57 @@
                                          icon="chevron-right"
                                          aria-hidden="true" />
                         </NuxtLink>
+                        <button v-if="group.origin === 'stored'"
+                                type="button"
+                                class="characters-page__export"
+                                :aria-label="t('characters.export.button', { name: character.name })"
+                                :title="t('characters.export.button', { name: character.name })"
+                                @click="exportCharacter(character.id)">
+                            <FontAwesome icon="file-arrow-down" aria-hidden="true" />
+                        </button>
                     </li>
                 </ul>
             </section>
         </template>
+
+        <section class="characters-page__section" aria-labelledby="characters-import-heading">
+            <h2 id="characters-import-heading" class="characters-page__subtitle">
+                {{ t("characters.import.heading") }}
+            </h2>
+            <FilePicker accept=".json"
+                        :action="t('characters.import.action')"
+                        :hint="t('characters.import.hint')"
+                        @files="onFiles" />
+            <div v-if="refusal"
+                 class="characters-page__refusal"
+                 role="alert">
+                <p>
+                    {{ refusal.reason === "failed" ?
+                        t("characters.import.failed", { file: refusal.file }) :
+                        t(`characters.import.refused.${refusal.reason}`, { file: refusal.file }) }}
+                </p>
+                <details v-if="refusal.problems.length">
+                    <summary class="characters-page__details">
+                        {{ t("characters.import.details") }}
+                    </summary>
+                    <ul>
+                        <li v-for="(problem, i) in refusal.problems" :key="i">
+                            <code>{{ problem }}</code>
+                        </li>
+                    </ul>
+                </details>
+            </div>
+        </section>
+
+        <ExportDialog v-if="exporting"
+                      :open="true"
+                      :character="exporting"
+                      @close="exporting = undefined" />
+        <ImportDialog v-if="importing"
+                      :open="true"
+                      :plan="importing"
+                      @confirm="onImport"
+                      @cancel="importing = undefined" />
     </div>
 </template>
 
@@ -105,12 +214,61 @@
             margin: 0;
             padding: 0;
         }
+
+        &__item
+        {
+            display: flex;
+            gap: var(--space-2);
+        }
+
+        &__export
+        {
+            @include mixins.tap-target;
+            @include mixins.card(1);
+
+            color: var(--color-ink-muted);
+            cursor: pointer;
+            font-size: var(--text-lg);
+
+            &:hover
+            {
+                border-color: var(--color-accent);
+                color: var(--color-accent);
+            }
+
+            &:focus-visible
+            {
+                @include mixins.focus-ring;
+            }
+        }
+
+        &__refusal
+        {
+            background-color: var(--color-warning-soft);
+            border-radius: var(--radius-md);
+            margin-top: var(--space-3);
+            padding: var(--space-3) var(--space-4);
+
+            p
+            {
+                margin: 0;
+            }
+        }
+
+        &__details
+        {
+            cursor: pointer;
+            font-weight: 700;
+            min-height: 44px;
+            padding: var(--space-2) 0;
+        }
     }
 
     .character-card
     {
         @include mixins.card(1);
 
+        flex: 1;
         align-items: center;
         color: var(--color-ink);
         display: flex;

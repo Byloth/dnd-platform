@@ -113,7 +113,44 @@
     "stored": "Your characters",
     "demo": "Demo characters",
     "loading": "Loading the characters…",
-    "failed": "The characters could not be loaded."
+    "failed": "The characters could not be loaded.",
+    "export": {
+      "title": "Export {name}",
+      "text": "A file with the character, to keep as a copy or to open on another device from the characters page.",
+      "private": "Private books are never put in the file: the other device needs them loaded too.",
+      "embed": "Include my own content in the file",
+      "embedHint": "The homebrew packages this character uses, so the other device does not need them first.",
+      "confirm": "Download",
+      "cancel": "Close",
+      "button": "Export {name}"
+    },
+    "import": {
+      "heading": "Import a character",
+      "action": "Choose a character file",
+      "hint": "A .dnd.json file exported from this site. You can also drop it here.",
+      "refused": {
+        "unreadable": "{file} cannot be read: it is not a character file.",
+        "not-a-character": "{file} is not a character file.",
+        "newer": "{file} was made by a newer version of this site: reload the page and try again.",
+        "invalid": "{file} is damaged or incomplete, so it was not imported."
+      },
+      "details": "Show the problems",
+      "failed": "{file} could not be imported: a package inside it was refused.",
+      "title": "Import {name}?",
+      "packages": "The content it uses",
+      "status": {
+        "site": "On the site",
+        "stored": "Already on this device",
+        "embedded": "In the file: it will be added",
+        "missing": "Not on this device: load it from the packages page"
+      },
+      "versions": "made with version {file}, here {here}",
+      "conflict": "You already have a character with this id.",
+      "replace": "Replace it",
+      "keep": "Keep both",
+      "confirm": "Import",
+      "cancel": "Cancel"
+    }
   },
   "character": {
     "loading": "Computing the sheet…",
@@ -133,7 +170,8 @@
       "text": "The character and everything you chose for it are deleted. This cannot be undone.",
       "local": "It exists only in this browser: no copy is kept anywhere else.",
       "confirm": "Delete {name}",
-      "cancel": "Keep the character"
+      "cancel": "Keep the character",
+      "exportFirst": "Download a copy first"
     }
   },
   "terms": {
@@ -223,7 +261,8 @@
     },
     "edit": "Edit",
     "change": "Change",
-    "delete": "Delete"
+    "delete": "Delete",
+    "export": "Export"
   },
   "wizard": {
     "title": "New character",

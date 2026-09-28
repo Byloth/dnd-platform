@@ -113,7 +113,44 @@
     "stored": "I tuoi personaggi",
     "demo": "Personaggi dimostrativi",
     "loading": "Caricamento dei personaggi…",
-    "failed": "Impossibile caricare i personaggi."
+    "failed": "Impossibile caricare i personaggi.",
+    "export": {
+      "title": "Esporta {name}",
+      "text": "Un file con il personaggio, da tenere come copia o da aprire su un altro dispositivo dalla pagina dei personaggi.",
+      "private": "I manuali privati non vengono mai messi nel file: anche l'altro dispositivo deve averli caricati.",
+      "embed": "Includi nel file i miei contenuti",
+      "embedHint": "I pacchetti homebrew che usa questo personaggio, così l'altro dispositivo non deve caricarli prima.",
+      "confirm": "Scarica",
+      "cancel": "Chiudi",
+      "button": "Esporta {name}"
+    },
+    "import": {
+      "heading": "Importa un personaggio",
+      "action": "Scegli un file di personaggio",
+      "hint": "Un file .dnd.json esportato da questo sito. Puoi anche trascinarlo qui.",
+      "refused": {
+        "unreadable": "Impossibile leggere {file}: non è un file di personaggio.",
+        "not-a-character": "{file} non è un file di personaggio.",
+        "newer": "{file} è stato creato da una versione più recente del sito: ricarica la pagina e riprova.",
+        "invalid": "{file} è danneggiato o incompleto, quindi non è stato importato."
+      },
+      "details": "Mostra i problemi",
+      "failed": "Impossibile importare {file}: un pacchetto al suo interno è stato rifiutato.",
+      "title": "Importare {name}?",
+      "packages": "I contenuti che usa",
+      "status": {
+        "site": "Sul sito",
+        "stored": "Già su questo dispositivo",
+        "embedded": "Nel file: verrà aggiunto",
+        "missing": "Non è su questo dispositivo: caricalo dalla pagina dei pacchetti"
+      },
+      "versions": "creato con la versione {file}, qui {here}",
+      "conflict": "Hai già un personaggio con questo identificativo.",
+      "replace": "Sostituiscilo",
+      "keep": "Tienili entrambi",
+      "confirm": "Importa",
+      "cancel": "Annulla"
+    }
   },
   "character": {
     "loading": "Calcolo della scheda…",
@@ -133,7 +170,8 @@
       "text": "Il personaggio e tutte le sue scelte vengono eliminati. Non si può annullare.",
       "local": "Esiste solo in questo browser: non ne resta una copia da nessun'altra parte.",
       "confirm": "Elimina {name}",
-      "cancel": "Tieni il personaggio"
+      "cancel": "Tieni il personaggio",
+      "exportFirst": "Scarica prima una copia"
     }
   },
   "terms": {
@@ -223,7 +261,8 @@
     },
     "edit": "Modifica",
     "change": "Cambia",
-    "delete": "Elimina"
+    "delete": "Elimina",
+    "export": "Esporta"
   },
   "wizard": {
     "title": "Nuovo personaggio",

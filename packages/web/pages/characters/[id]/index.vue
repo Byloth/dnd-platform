@@ -3,8 +3,13 @@
     import type { PackageSource } from "@byloth/dnd-platform-loader";
 
     import SheetView from "@/components/sheet/SheetView.vue";
+    import AppButton from "@/components/ui/AppButton.vue";
     import ConfirmDialog from "@/components/ui/ConfirmDialog.vue";
+    import FontAwesome from "@/components/ui/FontAwesome.vue";
     import { MissingPackageException } from "@/stores/content";
+
+    // The export dialog loads with its first use: the file code is not part of the sheet's load.
+    const ExportDialog = defineAsyncComponent(() => import("@/components/characters/ExportDialog.vue"));
 
     // A character's build-mode sheet (docs/phase-1/03-sheet-composer.md): derived in the interface language and at
     // the help level of the preferences; a stored character's can be reopened for editing or deleted, a demo's
@@ -74,6 +79,16 @@
     });
 
     const deleting = ref(false);
+    const exporting = ref(false);
+    /** The copy the delete confirmation offers first: the whole file, the player's own content included. */
+    const downloadCopy = async (): Promise<void> =>
+    {
+        if (data.value?.state !== "ready") { return; }
+        const { useCharacterFiles } = await import("@/composables/character-files");
+        const files = useCharacterFiles();
+        files.download(await files.exportDocument(data.value.character, { embed: true }));
+        useAnalytics().track("character-export", { embedded: true });
+    };
     /** Set once deleted: the sheet goes away first, so nothing of it (its layout) is written again. */
     const removed = ref(false);
     const remove = async (): Promise<void> =>
@@ -117,7 +132,12 @@
                    :help-level="preferences.helpLevel"
                    :language="locale"
                    :translate="translate"
-                   @remove="deleting = true" />
+                   @remove="deleting = true"
+                   @export="exporting = true" />
+        <ExportDialog v-if="data?.state === 'ready' && exporting"
+                      :open="exporting"
+                      :character="data.character"
+                      @close="exporting = false" />
         <ConfirmDialog v-if="data?.state === 'ready' && data.stored"
                        :open="deleting"
                        danger
@@ -128,6 +148,13 @@
                        @cancel="deleting = false">
             <p>{{ t("character.delete.text") }}</p>
             <p>{{ t("character.delete.local") }}</p>
+            <AppButton theme="secondary"
+                       outline
+                       small
+                       @click="downloadCopy">
+                <FontAwesome icon="file-arrow-down" aria-hidden="true" />
+                {{ t("character.delete.exportFirst") }}
+            </AppButton>
         </ConfirmDialog>
     </div>
 </template>
