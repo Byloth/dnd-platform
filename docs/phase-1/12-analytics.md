@@ -44,6 +44,10 @@ The owner wants to know how the published site is used (2026-09-25): which pages
 | `package-remove` | `private`: yes or no | the packages page |
 | `preference` | `name`, `value` (language, help level, theme, contrast) | any change of a setting |
 | `support-click` | `from`: credits or footer | a click on "Buy me a beer" |
+| `compendium-view` | `kind`; `entry`: a published id or `other` | an entry of the compendium shown |
+| `compendium-search` | `kind` (`all` on the front page); `results`: how many were found | a search that settles; the words are never sent |
+| `compendium-filter` | `kind`; `filter`: the filter's key, never its value | a filter changed |
+| `compendium-link` | `from`: sheet or wizard; `kind` | a link to the compendium followed |
 
 ## Tests
 

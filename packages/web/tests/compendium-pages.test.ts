@@ -10,7 +10,7 @@ import { join } from "node:path";
 
 import { flushPromises } from "@vue/test-utils";
 import type { VueWrapper } from "@vue/test-utils";
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { mountSuspended } from "@nuxt/test-utils/runtime";
 
 import { readPackageSource } from "@byloth/dnd-platform-loader/node";
@@ -196,6 +196,57 @@ describe("an entry", () =>
 
         const elsewhere = await open(EntryPage, "/compendium/items/srd51.spell.fireball");
         expect(elsewhere.find("h1").text()).toBe("Entry not found");
+    });
+});
+
+describe("the statistics", () =>
+{
+    const umamiTrack = vi.fn();
+
+    beforeEach(() =>
+    {
+        umamiTrack.mockClear();
+        (globalThis as { umami?: unknown }).umami = { track: umamiTrack };
+        useConsentStore().grant();
+    });
+    afterEach(() =>
+    {
+        delete (globalThis as { umami?: unknown }).umami;
+        useConsentStore().reset();
+    });
+
+    const events = (name: string): unknown[] =>
+        umamiTrack.mock.calls.filter(([event]) => event === name).map(([, data]) => data);
+
+    it("count an entry read, by its id when the site publishes it", async () =>
+    {
+        await open(EntryPage, "/compendium/spells/srd51.spell.fireball");
+
+        expect(events("compendium-view")).toEqual([{ kind: "spells", entry: "srd51.spell.fireball" }]);
+    });
+
+    it("never name an entry of a private package", async () =>
+    {
+        const feline = readPackageSource(join(FIXTURES, "homebrew-feline"));
+        const locked = { ...feline, manifest: { ...feline.manifest, visibility: "private", redistributable: false } };
+        await useContentStore().loadFiles([bundleOf(locked as typeof feline, "feline.json")]);
+        await open(EntryPage, "/compendium/conditions/homebrew.byloth.condition.bruised-lung");
+
+        expect(events("compendium-view")).toEqual([{ kind: "conditions", entry: "other" }]);
+    });
+
+    it("count a search's results and a filter's key, never the words nor the value", async () =>
+    {
+        const wrapper = await open(KindPage, "/compendium/spells");
+        await wrapper.find(".compendium-search__input").setValue("fireball");
+        await wrapper.find(".compendium-search__input").trigger("input");
+        await vi.waitFor(() => expect(events("compendium-search").length).toBe(1));
+
+        expect(events("compendium-search")).toEqual([{ kind: "spells", results: 2 }]);
+        await wrapper.findAll(".compendium-filters__select")[0]!.setValue("3");
+        await vi.waitFor(() => expect(events("compendium-filter").length).toBe(1));
+        expect(events("compendium-filter")).toEqual([{ kind: "spells", filter: "level" }]);
+        expect(JSON.stringify(umamiTrack.mock.calls)).not.toContain("fireball\"");
     });
 });
 

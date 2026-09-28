@@ -54,6 +54,14 @@
 
     useHead({ title: () => block.value?.name ?? entry.value?.name ?? t("compendium.missing.heading") });
 
+    // Statistics: which entry was read, by its id when the site publishes it, `other` when it is private.
+    const { track, publicId } = useAnalytics();
+    watch(() => ((block.value || entry.value) ? id.value : undefined), (shown) =>
+    {
+        if (shown) { track("compendium-view", { kind: kind.value, entry: publicId(shown) }); }
+
+    }, { immediate: true });
+
     // Back to the list it came from, with its search and filters, when that is where the player was.
     const back = computed(() =>
     {

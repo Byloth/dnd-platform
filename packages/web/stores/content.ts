@@ -225,7 +225,8 @@ export const useContentStore = defineStore("content", () =>
      */
     const compendiumSources = async (options: { readonly creatures: boolean }): Promise<PackageSource[]> =>
     {
-        const published = index.value ?? await useContent().fetchIndex();
+        index.value ??= await useContent().fetchIndex();
+        const published = index.value;
         const records = await useBrowserStorage().packages.list();
 
         const ids = Object.entries(published.packages)

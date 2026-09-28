@@ -34,12 +34,19 @@ export function useAnalytics()
         if (!id) { return "none"; }
         // Read from Pinia's state rather than through the content store: this composable is part of every page's
         // first load (the plugins, the footer), and the store would bring the package loader with it.
-        const content = (useNuxtApp().$pinia as Pinia).state.value["content"] as
-            { site?: readonly { manifest: { id: string } }[] } | undefined;
-        const site = (content?.site ?? []).map((p) => p.manifest.id);
+        // The site's packages as the packages page read them, or the whole index the compendium read (its
+        // catalogues, the creatures, included).
+        const content = (useNuxtApp().$pinia as Pinia).state.value["content"] as {
+            site?: readonly { manifest: { id: string } }[];
+            index?: { packages: Readonly<Record<string, unknown>> };
+        } | undefined;
+        const site = new Set([
+            ...(content?.site ?? []).map((p) => p.manifest.id),
+            ...Object.keys(content?.index?.packages ?? {})
+        ]);
         const packageId = id.split(".")[0] ?? "";
 
-        return site.includes(packageId) ? id : "other";
+        return site.has(packageId) ? id : "other";
     };
 
     return { track, publicId };

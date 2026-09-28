@@ -37,9 +37,20 @@
     const label = (key: string, value: string): string =>
         facetLabel(t, kind.value, key, value, data.value!.packages, locale.value);
 
-    const go = (q: string, filters: Filters): void =>
+    // Statistics (docs/phase-1/12-analytics.md): how many results a search found and which filter was touched,
+    // never the words typed nor a filter's value.
+    const { track } = useAnalytics();
+    const go = async (q: string, filters: Filters): Promise<void> =>
     {
-        router.replace({ query: toQuery({ q: q, filters: filters }) });
+        const before = state.value;
+        await router.replace({ query: toQuery({ q: q, filters: filters }) });
+
+        if (q && (q !== before.q)) { track("compendium-search", { kind: kind.value, results: results.value.length }); }
+        const keys = new Set([...Object.keys(before.filters), ...Object.keys(filters)]);
+        for (const key of keys)
+        {
+            if (before.filters[key] !== filters[key]) { track("compendium-filter", { kind: kind.value, filter: key }); }
+        }
     };
 
     // The packages left out are named as the packages page names them.

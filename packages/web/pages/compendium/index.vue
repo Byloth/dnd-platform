@@ -62,6 +62,17 @@
         }).filter((g) => g.total > 0);
     });
     const loadingCreatures = computed(() => withCreatures.value && !hasCreatures.value && (status.value === "pending"));
+
+    // Statistics: how many results a search over everything found, once the bestiary is in; never the words.
+    const { track } = useAnalytics();
+    let _counted = "";
+    watch([query, hasCreatures], ([q, ready]) =>
+    {
+        if (!q || !ready || (q === _counted)) { return; }
+        _counted = q;
+        track("compendium-search", { kind: "all", results: groups.value.reduce((sum, g) => sum + g.total, 0) });
+
+    }, { immediate: true });
 </script>
 
 <template>
