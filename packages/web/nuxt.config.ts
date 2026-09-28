@@ -1,8 +1,24 @@
+import { execSync } from "node:child_process";
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 //
 // A static, client-rendered application (docs/phase-1/01-web-application.md): no server rendering, no server
 // routes, published on GitHub Pages by `nuxt generate`. The site path comes from NUXT_APP_BASE_URL at generate time.
 const baseURL = process.env["NUXT_APP_BASE_URL"] ?? "/dnd-platform/";
+
+// The application's version as a character file records it (docs/phase-1/05-print-and-export.md): the latest tag
+// and how far past it, from git at build time; `dev` outside a repository.
+function appVersion(): string
+{
+  try
+  {
+    return execSync("git describe --tags --always", { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] }).trim();
+  }
+  catch
+  {
+    return "dev";
+  }
+}
 
 export default defineNuxtConfig({
   ssr: false,
@@ -23,6 +39,7 @@ export default defineNuxtConfig({
   compatibilityDate: "2026-09-22",
   runtimeConfig: {
     public: {
+      appVersion: appVersion(),
       // Usage statistics (DEC-22): loaded only after the visitor's consent, reported only from the published
       // domain. An empty website id turns them off.
       analytics: {
