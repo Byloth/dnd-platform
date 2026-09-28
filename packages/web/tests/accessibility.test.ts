@@ -98,6 +98,7 @@ describe.each(LANGUAGES)("accessibility, in %s", (language) =>
         await expectAccessible(await render(CharacterPage, { route: `/characters/${id}` }));
     });
 
+    // Three help levels of the heaviest sheet, twice through axe: slow when the hooks run everything at once.
     it("the level 20 caster's sheet with the explanation drawer open, at every help level", async () =>
     {
         await speak(language);
@@ -119,13 +120,16 @@ describe.each(LANGUAGES)("accessibility, in %s", (language) =>
             document.body.innerHTML = "";
         }
         _mounted = undefined;
-    });
 
+    }, 20_000);
+
+    // Slow when the hooks run everything at once: it timed out there twice.
     it("the packages page", async () =>
     {
         await speak(language);
         await expectAccessible(await render(PackagesPage));
-    });
+
+    }, 20_000);
 
     it("the compendium's front page, with its sections and with a search", async () =>
     {
