@@ -131,6 +131,37 @@ describe.each(LANGUAGES)("accessibility, in %s", (language) =>
 
     }, 20_000);
 
+    it("the export dialog on a sheet, and the import dialog on the characters page", async () =>
+    {
+        await speak(language);
+        const sheet = await render(CharacterPage, { route: "/characters/fixture-cleric-l5" });
+        (sheet.findAll(".sheet-view__actions button").at(-1)!.element as HTMLElement).click();
+        await vi.waitFor(async () =>
+        {
+            await flushPromises();
+            expect(document.querySelector("dialog[open]")).not.toBeNull();
+        });
+        await expectAccessible(sheet);
+        _mounted?.unmount();
+        document.body.innerHTML = "";
+
+        const { useCharacterFiles } = await import("@/composables/character-files");
+        const files = useCharacterFiles();
+        const cleric = (await useCharacters().get("fixture-cleric-l5"))!.character;
+        const text = JSON.stringify(await files.exportDocument(cleric));
+        const page = await render(CharactersPage);
+        await page.find(".file-picker").trigger("drop", {
+            dataTransfer: { types: ["Files"], files: [new File([text], "cleric.dnd.json")] }
+        });
+        await vi.waitFor(async () =>
+        {
+            await flushPromises();
+            expect(document.querySelector("dialog[open]")).not.toBeNull();
+        });
+        await expectAccessible(page);
+
+    }, 20_000);
+
     it("the compendium's front page, with its sections and with a search", async () =>
     {
         await speak(language);
