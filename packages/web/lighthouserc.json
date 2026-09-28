@@ -6,7 +6,8 @@
       "url": [
         "http://localhost:4173/dnd-platform/",
         "http://localhost:4173/dnd-platform/characters/fixture-perf-caster-l20",
-        "http://localhost:4173/dnd-platform/characters/new"
+        "http://localhost:4173/dnd-platform/characters/new",
+        "http://localhost:4173/dnd-platform/compendium/spells?level=3"
       ],
       "numberOfRuns": 3,
       "settings": {
@@ -80,6 +81,24 @@
               "error",
               {
                 "maxNumericValue": 5000
+              }
+            ],
+            "categories:accessibility": [
+              "error",
+              {
+                "minScore": 1
+              }
+            ]
+          }
+        },
+        {
+          "matchingUrlPattern": "/compendium/",
+          "aggregationMethod": "median-run",
+          "assertions": {
+            "interactive": [
+              "error",
+              {
+                "maxNumericValue": 7000
               }
             ],
             "categories:accessibility": [
