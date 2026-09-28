@@ -2476,7 +2476,7 @@ export const SCHEMAS = {
                 "additionalProperties": false
             },
             "forms": {
-                "description": "The other forms of a shapechanger, each with what differs from the stat block (the traits and actions say in their text which form they belong to).",
+                "description": "The forms of a shapechanger: the first is the stat block's own, each other one holds what differs from it (the traits and actions say in their names which forms they belong to).",
                 "type": "array",
                 "items": {
                     "type": "object",
@@ -2583,7 +2583,7 @@ export const SCHEMAS = {
                 ]
             },
             "defenses": {
-                "description": "Damage types, or a group of them with the words that qualify it (\"from nonmagical attacks\"); a group may name no type (\"damage from spells\").",
+                "description": "Damage types, or a group of them with the words that follow them (types bludgeoning, piercing, slashing; note \"from nonmagical weapons\"); a group with no types holds the whole phrase (\"damage from spells\").",
                 "type": "array",
                 "items": {
                     "anyOf": [

@@ -49,7 +49,7 @@ export type ArmorClass = [
     }[]
 ];
 /**
- * Damage types, or a group of them with the words that qualify it ("from nonmagical attacks"); a group may name no type ("damage from spells").
+ * Damage types, or a group of them with the words that follow them (types bludgeoning, piercing, slashing; note "from nonmagical weapons"); a group with no types holds the whole phrase ("damage from spells").
  *
  * @minItems 1
  */
@@ -1608,7 +1608,7 @@ export interface Creature {
         actions?: Actions;
     };
     /**
-     * The other forms of a shapechanger, each with what differs from the stat block (the traits and actions say in their text which form they belong to).
+     * The forms of a shapechanger: the first is the stat block's own, each other one holds what differs from it (the traits and actions say in their names which forms they belong to).
      *
      * @minItems 1
      */
