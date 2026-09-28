@@ -498,6 +498,16 @@ state:
 snapshots: []
 ```
 
+### Export document
+
+A character as a file (M1.5, additive v0, `export.schema.json`; [../phase-1/05-print-and-export.md](../phase-1/05-print-and-export.md)). It has:
+- `format`, the constant `dnd-platform-export/1`, then `exportedAt` and `application.version`;
+- `character`, the character document unchanged;
+- `packages`, every package it lists as `{ id, version, redistributable }`;
+- optionally `embedded`, the bundles of the player's own redistributable packages.
+
+A private package is never embedded. Each embedded bundle is checked on import like a package loaded from a file.
+
 ### JSON Schema and types
 
 The `schema` package ships one JSON Schema per entity type plus `package.schema.json`, `ruleset.schema.json`, `character.schema.json`, and the shared `effect.schema.json`, `play-effect.schema.json`, `condition.schema.json`, `choice.schema.json`. TypeScript types are generated from the schemas at build time; hand-written types are not allowed for content. Schemas are versioned with the format (`formatVersion: 0` in every manifest).

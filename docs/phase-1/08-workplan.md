@@ -158,6 +158,11 @@ Tasks (from [02-content-and-character-stores.md](02-content-and-character-stores
 3. Round trip test over every fixture character.
 4. The sheet interactive under two seconds on the repeat visit (owner's decision at M1.3d): the site's packages kept in the browser store, so that a second visit does not fetch the SRD, and the sheet route's JavaScript trimmed. Lighthouse measures the repeat visit, and the cold guards of M1.3d tighten with it.
 
+Split by the owner's order of 2026-09-28 (M1.5 before the rest of M1.4r):
+- **M1.5a, export and import**: tasks 1–3. Done 2026-09-28: the export schema, `character-files.ts`, the export from the sheet and the list, the copy before deleting, the import with its plan, and the round trip over every public fixture ([05-print-and-export.md](05-print-and-export.md), "As built").
+- **M1.5b, "what changed" (DEC-21)**: the alert when a newer version changes a stored character's numbers, the changelog page, the recorded versions moving on. It brings in doc 10's `recordVersions` (M1.4r).
+- **M1.5c, the repeat visit**: task 4. It first needs DEC-21's "the SRD is never stored in the browser" amended with the owner.
+
 Done: the criteria of M1.5. Release: `v0.3.5`.
 Risks: none technical; the risk is UX, losing a guest's character; every destructive action offers the export first.
 

@@ -53,6 +53,24 @@ From the manifests' `sources` of every package the character depends on: title, 
 - Import selects a file, validates it against an export schema (added to the schema package, additive), matches every package by id and version against the store, offers to load embedded bundles that are missing, and for a missing non-embedded package shows the missing-package state instead of substituting; a version present under another number is offered with the provenance differences shown after derivation, never applied silently.
 - Round trip test in CI: export → import → derive equals the original derivation byte for byte for every public fixture character (`stableStringify`), and the reference Monk privately.
 
+### As built (M1.5a, 2026-09-28)
+
+- **The schema** is `export.schema.json` (additive v0). The application's version is `git describe --tags --always` at build time (`runtimeConfig.public.appVersion`).
+- **`composables/character-files.ts`**:
+  - `exportDocument(character, { embed })`: `redistributable` is true for a published package or a stored non-private one, and false for anything unknown. `embed` adds the stored, redistributable, unpublished packages the character uses, never a private one;
+  - `download`: `<name>.dnd.json`, the name kept readable;
+  - `read`, with typed refusals: unreadable, not a character, made by a newer version, invalid with its problems;
+  - `plan`: each package is on the site, already here, in the file or missing, with both versions; the plan also says whether the id is taken;
+  - `importCharacter`: the embedded bundles go through `usePackageLoader().load` first, then the character; on a taken id, "keep both" gives a new id and " (2)".
+- **Pages**:
+  - "Export" on every sheet but the wizard's review, and an icon button beside each stored character on the characters page, both opening `components/characters/ExportDialog.vue` (the homebrew checkbox only when there is something to embed, off by default);
+  - the delete confirmation offers "Download a copy first", with the homebrew inside;
+  - the characters page imports through `components/ui/FilePicker.vue`, extracted from the packages page, by choosing or dropping a file; `ImportDialog.vue` lists the packages and asks "Keep both" or "Replace it" on a taken id.
+  - The file code and the dialogs load on first use; the characters page's first load is unchanged (208 KB of 300).
+- **Found on the way**, in `ConfirmDialog`: its title had a fixed id, which two dialogs on one page would share, and a dialog mounted already open never opened. Both are fixed.
+- **The round trip**: every public fixture character (the SRD, its excerpt, the homebrew) is exported with its homebrew, read, imported and derived. Each result equals the original byte for byte (`tests/character-files.test.ts`). The reference Monk's private round trip is still to add, with the private tests.
+- **Versions**: the import lists a version difference; saying what it changes in numbers is M1.5b.
+
 ## Tasks
 
 1. Print route with the page-size preference, the print stylesheet and the Part 2 components — M1.6.

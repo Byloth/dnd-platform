@@ -12,9 +12,9 @@
         {
             status: "now",
             icon: "circle-check",
-            items: ["creation", "ideas", "sheet", "editing", "expert", "compendium", "languages", "books"]
+            items: ["creation", "ideas", "sheet", "editing", "files", "expert", "compendium", "languages", "books"]
         },
-        { status: "next", icon: "feather", items: ["settings", "files", "print"] },
+        { status: "next", icon: "feather", items: ["settings", "print"] },
         {
             status: "later",
             icon: "star",
