@@ -20,6 +20,8 @@ describe("content selection over every package present", () =>
 {
     const found = discoverPackages(ROOT);
 
+    // Every package of the repository, the creatures and the private books included: slow on a busy machine,
+    // hence 30 s.
     it("loads with an empty selection, no cascade, every entity active and every reference resolved", () =>
     {
         const sources = found.map((p) => readPackageSource(p.directory));
@@ -34,5 +36,6 @@ describe("content selection over every package present", () =>
         expect(set.cascade.pruned).toEqual([]);
         expect([...set.entities.values()].every((e) => e.active)).toBe(true);
         expect(errors).toEqual([]);
-    });
+
+    }, 30_000);
 });

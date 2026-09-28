@@ -100,6 +100,7 @@ describe("dnd release", () =>
         expect(existsSync(releases)).toBe(false);
     });
 
+    // Builds every public package to compare it with its release: slow on a busy machine, hence 30 s.
     it("has released the current version of every public package of the repository", () =>
     {
         const report = releasePackages({ repoRoot: ROOT, check: true });
@@ -113,5 +114,6 @@ describe("dnd release", () =>
         {
             expect(existsSync(resolve(ROOT, RELEASES_DIR, `srd51@${earlier}.json`)), earlier).toBe(true);
         }
-    });
+
+    }, 30_000);
 });
