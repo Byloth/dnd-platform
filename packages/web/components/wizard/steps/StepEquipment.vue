@@ -2,6 +2,7 @@
     import { localize } from "@byloth/dnd-platform-composer";
     import type { EquipmentGrant, ItemFilter } from "@byloth/dnd-platform-schema";
 
+    import CompendiumLink from "@/components/compendium/CompendiumLink.vue";
     import AppButton from "@/components/ui/AppButton.vue";
     import FontAwesome from "@/components/ui/FontAwesome.vue";
     import { coins, costInCopper, useEquipment } from "@/composables/equipment";
@@ -245,7 +246,11 @@
                     :key="id"
                     class="step-equipment__row">
                     <span class="step-equipment__row-main">
-                        <span class="step-equipment__row-name">{{ name(id) }}</span>
+                        <CompendiumLink :id="id"
+                                        class="step-equipment__row-name"
+                                        kind="items">
+                            {{ name(id) }}
+                        </CompendiumLink>
                         <small class="step-equipment__row-source">{{ price(id) }}</small>
                     </span>
                     <AppButton theme="secondary"
@@ -286,9 +291,9 @@
                 <li v-for="entry in entries"
                     :key="entry.item"
                     class="step-equipment__carried-item">
-                    <span>
+                    <CompendiumLink :id="entry.item" kind="items">
                         {{ counted(entry.item, entry.quantity) }}
-                    </span>
+                    </CompendiumLink>
                     <label v-if="equippable(entry.item)" class="step-equipment__equip">
                         <input type="checkbox"
                                :checked="entry.equipped"

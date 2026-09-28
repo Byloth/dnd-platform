@@ -138,6 +138,7 @@
                         :checked="chosen.has(option.id)"
                         :disabled="!single && full && !chosen.has(option.id)"
                         :help-level="helpLevel"
+                        :compendium="(kind === 'spell') || (kind === 'cantrip') ? 'spells' : undefined"
                         @select="select">
                 <span v-if="option.facts.length" class="wizard-options__facts">
                     <span v-for="fact in option.facts"

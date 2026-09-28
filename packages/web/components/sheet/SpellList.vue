@@ -1,6 +1,8 @@
 <script lang="ts" setup>
     import type { SpellsBlock } from "@byloth/dnd-platform-composer";
 
+    import CompendiumLink from "@/components/compendium/CompendiumLink.vue";
+
     /** Spells by level; at the newcomer level each carries its one-line summary. */
     defineProps<{ block: SpellsBlock }>();
 
@@ -20,7 +22,11 @@
                     :key="spell.id"
                     class="spell-list__spell"
                     :class="{ 'spell-list__spell--described': spell.summary }">
-                    <span class="spell-list__name">{{ spell.label }}</span>
+                    <CompendiumLink :id="spell.id"
+                                    class="spell-list__name"
+                                    kind="spells">
+                        {{ spell.label }}
+                    </CompendiumLink>
                     <span v-if="spell.summary" class="spell-list__summary">{{ spell.summary }}</span>
                 </li>
             </ul>

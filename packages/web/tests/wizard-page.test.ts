@@ -363,6 +363,24 @@ describe("the creation wizard", () =>
             expect(styles.text()).toContain("While you are wearing armor");
         });
 
+        it("links each spell to the compendium in a new tab, beside its card, not for an expert", async () =>
+        {
+            const wrapper = await choices("evoker");
+            const card = group(wrapper, "Wizard", "Cantrips").findAll(".choice-card")
+                .find((c) => c.find(".choice-card__title").text() === "Fire Bolt")!;
+            const link = card.find(".choice-card__compendium");
+
+            expect(link.text()).toContain("Read in the compendium");
+            expect(link.attributes("href")).toMatch(/\/compendium\/spells\/srd51\.spell\.fire-bolt$/);
+            expect(link.attributes("target")).toBe("_blank");
+            expect(link.text()).toContain("(opens in a new tab)");
+            expect(card.find("label .choice-card__compendium").exists()).toBe(false);
+
+            usePreferencesStore().helpLevel = "expert";
+            await settle();
+            expect(wrapper.find(".choice-card__compendium").exists()).toBe(false);
+        });
+
         it("marks the step done once every choice is answered", async () =>
         {
             const wrapper = await choices("oathbound-champion");
@@ -427,6 +445,17 @@ describe("the creation wizard", () =>
             await settle();
             expect(useWizardStore().character?.state.currency).toEqual({ gold: 15, silver: 5 });
             expect(stepDone("equipment")).toBe(true);
+        });
+
+        it("links the shop's items to the compendium in a new tab", async () =>
+        {
+            const wrapper = await equipment("sword-and-shield");
+            await wrapper.find(".step-equipment__search input").setValue("dagg");
+            await settle();
+            const link = wrapper.find("a.step-equipment__row-name");
+
+            expect(link.attributes("href")).toMatch(/\/compendium\/items\/srd51\.item\.dagger$/);
+            expect(link.attributes("target")).toBe("_blank");
         });
 
         it("adds an item from the shop and lets it be unequipped", async () =>

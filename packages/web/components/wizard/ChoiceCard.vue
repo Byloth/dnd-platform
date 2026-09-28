@@ -1,7 +1,9 @@
 <script lang="ts" setup>
     import type { HelpLevel } from "@byloth/dnd-platform-composer";
 
+    import CompendiumLink from "@/components/compendium/CompendiumLink.vue";
     import FontAwesome from "@/components/ui/FontAwesome.vue";
+    import type { CompendiumKind } from "@/composables/compendium";
 
     /**
      * One option of a wizard step: a native radio (or checkbox) inside a card, so the keyboard and the arrow keys
@@ -19,7 +21,9 @@
         disabled?: boolean;
         recommended?: { why?: string | undefined };
         helpLevel: HelpLevel;
-    }>(), { summary: "", type: "radio", disabled: false, recommended: undefined });
+        /** The option's entry in the compendium, linked beside the card (never inside its label). */
+        compendium?: CompendiumKind;
+    }>(), { summary: "", type: "radio", disabled: false, recommended: undefined, compendium: undefined });
 
     const emit = defineEmits<{ select: [value: string, checked: boolean] }>();
 
@@ -60,6 +64,13 @@
                 <slot></slot>
             </span>
         </label>
+        <CompendiumLink v-if="compendium && helpLevel !== 'expert'"
+                        :id="value"
+                        class="choice-card__compendium"
+                        :kind="compendium">
+            {{ t("compendium.readMore") }}
+            <span class="choice-card__sr">: {{ title }}</span>
+        </CompendiumLink>
         <p v-if="why && helpLevel === 'newcomer'" class="choice-card__why">
             <FontAwesome icon="lightbulb" aria-hidden="true" />
             {{ why }}
@@ -248,6 +259,24 @@
             display: flex;
             align-items: center;
             padding: 0 var(--space-4);
+        }
+
+        &__compendium
+        {
+            align-self: start;
+            font-size: var(--text-sm);
+            font-weight: 700;
+            // Under the card's text, past the round mark (1.5rem) and its gap.
+            align-items: center;
+            display: inline-flex;
+            margin: calc(var(--space-2) * -1) var(--space-4) var(--space-3);
+            margin-left: calc(var(--space-4) + 1.5rem + var(--space-3));
+            min-height: 44px;
+        }
+
+        &__sr
+        {
+            @include mixins.sr-only;
         }
     }
 </style>

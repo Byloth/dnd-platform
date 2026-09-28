@@ -751,6 +751,8 @@
     "missing": {
       "heading": "Voce non trovata",
       "text": "Questa voce non è su questo dispositivo. Il suo pacchetto potrebbe essere privato e caricato su un altro dispositivo, oppure è stato rimosso."
-    }
+    },
+    "readMore": "Leggi nel compendio",
+    "newTab": "si apre in una nuova scheda"
   }
 }

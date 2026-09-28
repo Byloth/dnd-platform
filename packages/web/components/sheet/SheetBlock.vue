@@ -4,6 +4,7 @@
     import AbilityTable from "@/components/sheet/AbilityTable.vue";
     import ActionCard from "@/components/sheet/ActionCard.vue";
     import AttackTable from "@/components/sheet/AttackTable.vue";
+    import CompendiumLink from "@/components/compendium/CompendiumLink.vue";
     import CreditsList from "@/components/sheet/CreditsList.vue";
     import FeatureCard from "@/components/sheet/FeatureCard.vue";
     import ReminderList from "@/components/sheet/ReminderList.vue";
@@ -119,7 +120,11 @@
             <li v-for="item in block.items"
                 :key="item.id"
                 class="sheet-block__item">
-                <span class="sheet-block__item-name">{{ item.name }}</span>
+                <CompendiumLink :id="item.id"
+                                class="sheet-block__item-name"
+                                kind="items">
+                    {{ item.name }}
+                </CompendiumLink>
                 <span v-if="item.quantity > 1" class="sheet-block__quantity">
                     {{ t("sheetView.equipment.quantity", { count: item.quantity }) }}
                 </span>

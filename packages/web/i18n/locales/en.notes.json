@@ -751,6 +751,8 @@
     "missing": {
       "heading": "Shown when an address of the compendium names a section or an entry that is not there.",
       "text": "Shown when an address of the compendium names a section or an entry that is not there."
-    }
+    },
+    "readMore": "Link from a spell or an item in the creation wizard to its entry in the compendium.",
+    "newTab": "Read by screen readers after a link that opens a new browser tab, in brackets."
   }
 }

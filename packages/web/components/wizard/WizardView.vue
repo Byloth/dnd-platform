@@ -13,6 +13,7 @@
     import WizardStep from "@/components/wizard/WizardStep.vue";
     import WizardStepList from "@/components/wizard/WizardStepList.vue";
     import WizardStepper from "@/components/wizard/WizardStepper.vue";
+    import { COMPENDIUM_LINK_FROM } from "@/composables/compendium-link";
     import { STEPS } from "@/stores/wizard";
     import type { StepId } from "@/stores/wizard";
 
@@ -139,6 +140,9 @@
         else if (await wizard.stored(props.editing)) { phase.value = "resume"; }
         else { await open(false); }
     });
+
+    // Links to the compendium open a new tab here, the review's sheet included (docs/phase-1/13-compendium.md).
+    provide(COMPENDIUM_LINK_FROM, "wizard");
 </script>
 
 <template>

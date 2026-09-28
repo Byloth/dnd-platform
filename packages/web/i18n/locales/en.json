@@ -751,6 +751,8 @@
     "missing": {
       "heading": "Entry not found",
       "text": "This entry is not on this device. Its package may be private and loaded on another device, or it may have been removed."
-    }
+    },
+    "readMore": "Read in the compendium",
+    "newTab": "opens in a new tab"
   }
 }

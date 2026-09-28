@@ -101,6 +101,21 @@ describe("the sheet screen", () =>
         expect(wrapper.find("#section-skills .section-block__toggle").attributes("aria-expanded")).toBe("false");
     });
 
+    it("links spells and equipment to the compendium, in place", async () =>
+    {
+        const caster = await mountSheet("perf-caster-l20");
+        const fireball = caster.findAll(".spell-list__name").find((l) => l.text() === "Fireball")!;
+
+        expect(fireball.attributes("href")).toMatch(/\/compendium\/spells\/srd51\.spell\.fireball$/);
+        expect(fireball.attributes("target")).toBeUndefined();
+
+        const cleric = await mountSheet("cleric-l5");
+        const items = cleric.findAll(".sheet-block__item-name");
+
+        expect(items.length).toBeGreaterThan(0);
+        expect(items.every((i) => /\/compendium\/items\/srd51\.item\./.test(i.attributes("href") ?? ""))).toBe(true);
+    });
+
     it("speaks Italian, the empty conditions included", async () =>
     {
         await useNuxtApp().$i18n.setLocale("it");
