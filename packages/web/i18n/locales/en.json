@@ -589,7 +589,7 @@
       },
       "sheet": {
         "name": "A sheet that explains itself",
-        "text": "Tap any number to see where it comes from."
+        "text": "Tap any number to see where it comes from, or a spell to read what it does."
       },
       "editing": {
         "name": "Your characters, kept in your browser",

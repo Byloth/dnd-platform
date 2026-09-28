@@ -83,6 +83,16 @@ The composer's new function `composeEntry(set, id, options)` returns, for a spel
 - **Found on the way**: in the tests' document (happy-dom), DOMPurify lost the first element of a text, a leading `<ul>` or `<p>`. `RichText` now sanitises a wrapped text, and its test checks the list and the paragraph.
 - **Checks**: page tests in both languages (`compendium-pages.test.ts`); axe and the keyboard over the front page with and without a search, three lists and four entries. The site generates, and the first load is 208 KB of 300.
 
+### As built in M1.Cd (2026-09-28)
+
+- **Links**: `components/compendium/CompendiumLink.vue`, which opens in place on the sheet and in a new tab inside the wizard (`COMPENDIUM_LINK_FROM`, provided by `WizardView`, so the review's sheet opens new tabs too). The new tab is said aloud and marked with an icon.
+  - The sheet: spell names (`SpellList`) and equipment names (`SheetBlock`).
+  - The wizard: "Read in the compendium" beside every spell and cantrip card, outside its label, not for an expert; the shop's and the carried items' names in step 7.
+  - Conditions are not linked: the section tree gives them without ids (open points).
+- **Statistics** ([12-analytics.md](12-analytics.md)): `compendium-view`, `compendium-search`, `compendium-filter`, `compendium-link`. `publicId` now also reads the site's index, so the creatures count as published.
+- **Lighthouse** watches `/compendium/spells?level=3`, with the sheet's guards. It is not run locally (no Chrome here); CI runs it.
+- **Found on the way**: four heavy tests (two of the CLI over every package, two of accessibility) timed out under the hooks' load. They get 30 s and 20 s.
+
 ### Links from the rest of the application
 
 - **From the sheet**: a spell, an item of the equipment and a condition link to their entry ("Read in the compendium" in the drawer or the card that shows them).
@@ -120,7 +130,7 @@ M1.C is split into four parts, each a series of commits with tests and lint thro
    - the three routes, `StatBlock`, the entry components, the filters, "Show more";
    - the "Compendium" link in the navigation bar; the catalogue keys with translator notes; the glossary words for the section names (docs/03);
    - component tests in both languages, the private flag, the missing-package message.
-4. **M1.Cd, links, checks and the close** (≈ 1 session):
+4. **M1.Cd, links, checks and the close** (≈ 1 session; done 2026-09-28):
    - the links from the sheet and the wizard;
    - accessibility, budgets, Lighthouse; the statistics events;
    - docs: 01-web-application (routes and navigation), 03-sheet-composer (`composeEntry`), [../19-catalogues.md](../19-catalogues.md) and [../16-roadmap.md](../16-roadmap.md) (what moved to Phase 1), the roadmap page, the workplan's progress.
@@ -128,6 +138,8 @@ M1.C is split into four parts, each a series of commits with tests and lint thro
 The second round (species, classes and subclasses, backgrounds, feats, the rules as the glossary) is planned when the first is done. By then the owner will have used the first version.
 
 ## Open points
+
+- **Linking conditions from the sheet**: the composer's `ConditionsBlock` has names, not ids. Adding ids changes the section-tree goldens; worth it with play mode (Phase 2), when conditions appear during a session.
 
 - **A tag of its own.** As planned, M1.C ships with `v0.3.5` at the close of M1.5, like M1.4r. If the owner wants to publish it sooner, it can be tagged `v0.3.5` itself and every later tag moves by one.
 - **The glossary in the second round**: the rule entities of srd51 (276, by category) as its content, the terms of [../03-glossary.md](../03-glossary.md) as its index, or both.
