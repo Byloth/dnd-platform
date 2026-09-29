@@ -35,6 +35,8 @@ jobs:
       - run: pnpm web:generate
       # First load under 300 KB, the SRD under 500 KB, compressed (docs/phase-1/07-testing-accessibility-performance.md).
       - run: pnpm web:budgets
+      # The service worker precaches the shell and no content, the manifest is installable (M1.5c).
+      - run: pnpm web:pwa
       # Median of three runs on the phone preset: accessibility at 100, time to interactive as a regression guard
       # (docs/phase-1/07-testing-accessibility-performance.md). The runner's Chrome is used.
       - run: pnpm web:lighthouse

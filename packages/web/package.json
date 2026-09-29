@@ -9,6 +9,7 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "budgets": "node scripts/check-budgets.ts",
+    "pwa": "node scripts/check-pwa.ts",
     "lighthouse": "lhci autorun; status=$?; rm -rf -- *AppData*lighthouse.*; exit $status",
     "preview": "nuxt preview",
     "lint": "eslint .",
