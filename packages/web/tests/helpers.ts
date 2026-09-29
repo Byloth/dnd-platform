@@ -8,6 +8,7 @@ import { join, relative, resolve } from "node:path";
 
 import { zipSync } from "fflate";
 import { parse } from "yaml";
+import { vi } from "vitest";
 import { registerEndpoint } from "@nuxt/test-utils/runtime";
 
 import { IndexedDatabase } from "@byloth/core";
@@ -180,4 +181,13 @@ export async function clearBrowserStorage(): Promise<void>
 {
     await closeBrowserStorage();
     await IndexedDatabase.Delete(DATABASE_NAME);
+}
+
+/**
+ * `vi.waitFor` with 5 s instead of 1: the hooks run the whole suite at once, and a page's asynchronous work (a
+ * dialog loaded on first use, the bestiary fetched, a package update compared) can take longer then.
+ */
+export function waitFor<T>(check: () => T | Promise<T>): Promise<T>
+{
+    return vi.waitFor(check, { timeout: 5000, interval: 50 });
 }

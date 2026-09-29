@@ -590,6 +590,10 @@
       "title": "Your characters stay with you",
       "text": "Your characters, the packages you load and your settings are kept in this browser only. They are never sent anywhere: not to us, not to anyone."
     },
+    "offline": {
+      "title": "A copy of the site on your device",
+      "text": "To open fast and to work without a connection, your browser keeps a copy of this site's own files and of the public rules content, as it does for any installable app. It holds nothing about you, and you can remove it by clearing the site's data in your browser."
+    },
     "statistics": {
       "title": "Usage statistics",
       "text": "Only if you accept, the site counts how it is used with Umami Cloud (Umami Software, Inc.), a privacy-friendly analytics service: no cookies, no tracking across other sites, no profile of you. Your IP address is used to guess the country and is not stored.",

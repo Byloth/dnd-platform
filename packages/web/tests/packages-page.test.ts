@@ -10,14 +10,14 @@ import { join } from "node:path";
 
 import { flushPromises } from "@vue/test-utils";
 import type { DOMWrapper, VueWrapper } from "@vue/test-utils";
-import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import { mountSuspended } from "@nuxt/test-utils/runtime";
 
 import { readPackageSource } from "@byloth/dnd-platform-loader/node";
 
 import PackagesPage from "@/pages/packages/index.vue";
 
-import { bundleOf, clearBrowserStorage, FIXTURES, serveSite, zipOf } from "./helpers";
+import { bundleOf, clearBrowserStorage, FIXTURES, serveSite, waitFor, zipOf } from "./helpers";
 
 serveSite();
 
@@ -106,7 +106,7 @@ describe("the packages page", () =>
         expect(confirm.text()).toContain("Remove Byloth's homebrew from this browser?");
         await confirm.findAll("button")[0]!.trigger("click");
 
-        await vi.waitFor(() => expect(packageItem(wrapper, "Byloth's homebrew")).toBeUndefined());
+        await waitFor(() => expect(packageItem(wrapper, "Byloth's homebrew")).toBeUndefined());
     });
 
     it("loads a package dropped on the card, as the picker does", async () =>
@@ -116,7 +116,7 @@ describe("the packages page", () =>
         const zip = zipOf(join(FIXTURES, "homebrew-feline"), "homebrew-feline");
 
         await picker.trigger("drop", { dataTransfer: { types: ["Files"], files: [zip] } });
-        await vi.waitFor(() => expect(packageItem(wrapper, "Byloth's homebrew")).toBeDefined());
+        await waitFor(() => expect(packageItem(wrapper, "Byloth's homebrew")).toBeDefined());
         expect(wrapper.findAll("li.load-entry--done").length).toBe(1);
     });
 
@@ -126,7 +126,7 @@ describe("the packages page", () =>
         const text = { name: "notes.txt", arrayBuffer: async () => new TextEncoder().encode("hello").buffer };
 
         await wrapper.find(".file-picker").trigger("drop", { dataTransfer: { types: ["Files"], files: [text] } });
-        await vi.waitFor(() => expect(wrapper.find("li.load-entry--failed").exists()).toBe(true));
+        await waitFor(() => expect(wrapper.find("li.load-entry--failed").exists()).toBe(true));
         expect(wrapper.find("li.load-entry--failed").text()).toContain("notes.txt could not be read");
     });
 

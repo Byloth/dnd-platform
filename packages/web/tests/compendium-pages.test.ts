@@ -20,7 +20,7 @@ import CompendiumPage from "@/pages/compendium/index.vue";
 import KindPage from "@/pages/compendium/[kind]/index.vue";
 import EntryPage from "@/pages/compendium/[kind]/[id].vue";
 
-import { bundleOf, clearBrowserStorage, FIXTURES, serveSite } from "./helpers";
+import { bundleOf, clearBrowserStorage, FIXTURES, serveSite, waitFor } from "./helpers";
 
 const site = serveSite();
 
@@ -63,7 +63,7 @@ describe("the compendium's front page", () =>
         expect(site.creatureFetches()).toBe(0);
 
         await useRouter().replace({ query: { q: "fire" } });
-        await vi.waitFor(async () =>
+        await waitFor(async () =>
         {
             await flushPromises();
             expect(site.creatureFetches()).toBe(1);
@@ -105,7 +105,7 @@ describe("a section's list", () =>
             .find((f) => f.find(".compendium-filters__label").text() === "Level")!.find("select");
 
         await level.setValue("9");
-        await vi.waitFor(async () =>
+        await waitFor(async () =>
         {
             await flushPromises();
             expect(useRouter().currentRoute.value.query).toEqual({ level: "9" });
@@ -240,11 +240,11 @@ describe("the statistics", () =>
         const wrapper = await open(KindPage, "/compendium/spells");
         await wrapper.find(".compendium-search__input").setValue("fireball");
         await wrapper.find(".compendium-search__input").trigger("input");
-        await vi.waitFor(() => expect(events("compendium-search").length).toBe(1));
+        await waitFor(() => expect(events("compendium-search").length).toBe(1));
 
         expect(events("compendium-search")).toEqual([{ kind: "spells", results: 2 }]);
         await wrapper.findAll(".compendium-filters__select")[0]!.setValue("3");
-        await vi.waitFor(() => expect(events("compendium-filter").length).toBe(1));
+        await waitFor(() => expect(events("compendium-filter").length).toBe(1));
         expect(events("compendium-filter")).toEqual([{ kind: "spells", filter: "level" }]);
         expect(JSON.stringify(umamiTrack.mock.calls)).not.toContain("fireball\"");
     });

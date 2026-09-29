@@ -590,6 +590,10 @@
       "title": "The privacy page: plain words, legally accurate; keep the lists as sentence fragments ending with ';' or '.'.",
       "text": "The privacy page: plain words, legally accurate; keep the lists as sentence fragments ending with ';' or '.'."
     },
+    "offline": {
+      "title": "Privacy page: the service worker's cache of the site and of the public content (M1.5c).",
+      "text": "Privacy page: the service worker's cache of the site and of the public content (M1.5c)."
+    },
     "statistics": {
       "title": "The privacy page: plain words, legally accurate; keep the lists as sentence fragments ending with ';' or '.'.",
       "text": "The privacy page: plain words, legally accurate; keep the lists as sentence fragments ending with ';' or '.'.",

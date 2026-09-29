@@ -590,6 +590,10 @@
       "title": "I tuoi personaggi restano con te",
       "text": "I tuoi personaggi, i pacchetti che carichi e le tue impostazioni restano solo in questo browser. Non vengono mai inviati da nessuna parte: né a noi, né ad altri."
     },
+    "offline": {
+      "title": "Una copia del sito sul tuo dispositivo",
+      "text": "Per aprirsi in fretta e funzionare anche senza connessione, il browser tiene una copia dei file di questo sito e dei contenuti pubblici delle regole, come per qualsiasi app installabile. Non contiene nulla su di te, e puoi rimuoverla cancellando i dati del sito dal browser."
+    },
     "statistics": {
       "title": "Statistiche d'uso",
       "text": "Solo se accetti, il sito conta come viene usato con Umami Cloud (Umami Software, Inc.), un servizio di statistiche rispettoso della privacy: nessun cookie, nessun tracciamento su altri siti, nessun profilo su di te. L'indirizzo IP serve a stimare il paese e non viene conservato.",

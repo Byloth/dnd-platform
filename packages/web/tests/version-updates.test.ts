@@ -9,7 +9,7 @@ import "fake-indexeddb/auto";
 
 import { flushPromises } from "@vue/test-utils";
 import type { VueWrapper } from "@vue/test-utils";
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { afterEach, describe, expect, it } from "vitest";
 import { mountSuspended } from "@nuxt/test-utils/runtime";
 
 import type { Character } from "@byloth/dnd-platform-engine";
@@ -20,7 +20,7 @@ import ChangelogPage from "@/pages/changelog/[id].vue";
 import { recordVersions } from "@/composables/versions";
 
 import { byName } from "./accessibility";
-import { clearBrowserStorage, serveDemoCharacters, serveSite, SRD } from "./helpers";
+import { clearBrowserStorage, serveDemoCharacters, serveSite, SRD, waitFor } from "./helpers";
 
 /** An earlier SRD in which chain mail gave 17: the cleric's armour class was one higher then. */
 const HEAVIER: PackageSource = {
@@ -82,7 +82,7 @@ describe("an updated package on a stored character's sheet", () =>
     {
         await storeAt("0.0.1");
         const wrapper = await open("/characters/character-old");
-        await vi.waitFor(async () =>
+        await waitFor(async () =>
         {
             await flushPromises();
             expect(wrapper.find(".update-notice").exists()).toBe(true);
@@ -97,7 +97,7 @@ describe("an updated package on a stored character's sheet", () =>
         expect(wrapper.find(".sheet-view").exists()).toBe(true);
 
         byName(wrapper, "Got it")!.click();
-        await vi.waitFor(async () =>
+        await waitFor(async () =>
         {
             await flushPromises();
             expect(await stored()).toBe(SRD.manifest.version);
@@ -109,7 +109,7 @@ describe("an updated package on a stored character's sheet", () =>
     {
         await storeAt("0.0.2");
         const wrapper = await open("/characters/character-old");
-        await vi.waitFor(async () =>
+        await waitFor(async () =>
         {
             await flushPromises();
             expect(await stored()).toBe(SRD.manifest.version);
@@ -122,7 +122,7 @@ describe("an updated package on a stored character's sheet", () =>
     {
         await storeAt("0.0.9");
         const wrapper = await open("/characters/character-old");
-        await vi.waitFor(async () =>
+        await waitFor(async () =>
         {
             await flushPromises();
             expect(wrapper.find(".update-notice").exists()).toBe(true);

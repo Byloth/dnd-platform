@@ -15,7 +15,7 @@ import CharactersPage from "@/pages/index.vue";
 import CharacterPage from "@/pages/characters/[id]/index.vue";
 
 import { byName } from "./accessibility";
-import { clearBrowserStorage, serveDemoCharacters, serveSite } from "./helpers";
+import { clearBrowserStorage, serveDemoCharacters, serveSite, waitFor } from "./helpers";
 
 serveSite();
 serveDemoCharacters(["cleric-l5"]);
@@ -56,7 +56,7 @@ async function open(component: Parameters<typeof mountSuspended>[0], route: stri
 /** Waits for what an async component or a click sets going. */
 async function settle(check: () => void): Promise<void>
 {
-    await vi.waitFor(async () =>
+    await waitFor(async () =>
     {
         await flushPromises();
         check();

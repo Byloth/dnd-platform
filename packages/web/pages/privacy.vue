@@ -26,6 +26,13 @@
             <p>{{ t("privacy.local.text") }}</p>
         </section>
 
+        <section aria-labelledby="privacy-offline">
+            <h2 id="privacy-offline">
+                {{ t("privacy.offline.title") }}
+            </h2>
+            <p>{{ t("privacy.offline.text") }}</p>
+        </section>
+
         <section aria-labelledby="privacy-statistics">
             <h2 id="privacy-statistics">
                 {{ t("privacy.statistics.title") }}

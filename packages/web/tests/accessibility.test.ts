@@ -13,7 +13,7 @@ import { resolve } from "node:path";
 import { flushPromises } from "@vue/test-utils";
 import type { VueWrapper } from "@vue/test-utils";
 import { parse } from "yaml";
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { afterEach, describe, expect, it } from "vitest";
 import { mountSuspended } from "@nuxt/test-utils/runtime";
 
 import type { Character } from "@byloth/dnd-platform-engine";
@@ -38,7 +38,7 @@ import CompendiumKindPage from "@/pages/compendium/[kind]/index.vue";
 import CompendiumEntryPage from "@/pages/compendium/[kind]/[id].vue";
 
 import { accessibleTree, expectKeyboardOperable, expectNoAxeViolations } from "./accessibility";
-import { clearBrowserStorage, ROOT, serveDemoCharacters, serveSite, SRD } from "./helpers";
+import { clearBrowserStorage, ROOT, serveDemoCharacters, serveSite, SRD, waitFor } from "./helpers";
 
 serveSite();
 serveDemoCharacters(["cleric-l5", "monk-l20"]);
@@ -156,7 +156,7 @@ describe.each(LANGUAGES)("accessibility, in %s", (language) =>
         await speak(language);
         const sheet = await render(CharacterPage, { route: "/characters/fixture-cleric-l5" });
         (sheet.findAll(".sheet-view__actions button").at(-1)!.element as HTMLElement).click();
-        await vi.waitFor(async () =>
+        await waitFor(async () =>
         {
             await flushPromises();
             expect(document.querySelector("dialog[open]")).not.toBeNull();
@@ -173,7 +173,7 @@ describe.each(LANGUAGES)("accessibility, in %s", (language) =>
         await page.find(".file-picker").trigger("drop", {
             dataTransfer: { types: ["Files"], files: [new File([text], "cleric.dnd.json")] }
         });
-        await vi.waitFor(async () =>
+        await waitFor(async () =>
         {
             await flushPromises();
             expect(document.querySelector("dialog[open]")).not.toBeNull();
@@ -190,7 +190,7 @@ describe.each(LANGUAGES)("accessibility, in %s", (language) =>
         document.body.innerHTML = "";
 
         const searching = await render(CompendiumPage, { route: "/compendium?q=fire" });
-        await vi.waitFor(async () =>
+        await waitFor(async () =>
         {
             await flushPromises();
             expect(searching.findAll(".compendium-home__group").length).toBeGreaterThan(1);
