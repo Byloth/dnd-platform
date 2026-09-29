@@ -1,0 +1,11 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "lib": ["ESNext", "DOM"],
+    "tsBuildInfoFile": "../../node_modules/.tmp/sheets.tsbuildinfo"
+  },
+  "include": ["src/**/*"],
+  "references": [{ "path": "../schema" }, { "path": "../loader" }, { "path": "../engine" }, { "path": "../composer" }]
+}

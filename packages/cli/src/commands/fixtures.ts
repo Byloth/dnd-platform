@@ -19,6 +19,7 @@ import { compose } from "@byloth/dnd-platform-composer";
 import { stableStringify } from "@byloth/dnd-platform-schema";
 import { loadPackages } from "@byloth/dnd-platform-loader";
 import { derive } from "@byloth/dnd-platform-engine";
+import { sheetValues } from "@byloth/dnd-platform-sheets";
 import type { Selection } from "@byloth/dnd-platform-loader";
 import type { Character, ComputedSheet, SpellView } from "@byloth/dnd-platform-engine";
 
@@ -324,7 +325,9 @@ function runOne(root: string, directory: string, name: string, update: boolean):
         ["section-tree.json", () => stableStringify(tree)],
         ["section-tree.newcomer.json", () => level("newcomer")],
         ["section-tree.expert.json", () => level("expert")],
-        ["sheet.txt", () => renderTree(tree, { color: false })]
+        ["sheet.txt", () => renderTree(tree, { color: false })],
+        // What the classic PDF sheet writes in its fields (packages/sheets).
+        ["sheet-values.json", () => stableStringify(sheetValues({ language: "en", tree: tree, character: character }))]
     ];
     for (const [file, render] of goldens)
     {

@@ -1,0 +1,226 @@
+{
+  "abilities": [
+    {
+      "abbreviation": "STR",
+      "id": "str",
+      "modifier": "+0",
+      "name": "Strength",
+      "save": "+2",
+      "saveProficient": true,
+      "score": "11"
+    },
+    {
+      "abbreviation": "DEX",
+      "id": "dex",
+      "modifier": "+3",
+      "name": "Dexterity",
+      "save": "+5",
+      "saveProficient": true,
+      "score": "17"
+    },
+    {
+      "abbreviation": "CON",
+      "id": "con",
+      "modifier": "+2",
+      "name": "Constitution",
+      "save": "+2",
+      "saveProficient": false,
+      "score": "14"
+    },
+    {
+      "abbreviation": "INT",
+      "id": "int",
+      "modifier": "−1",
+      "name": "Intelligence",
+      "save": "−1",
+      "saveProficient": false,
+      "score": "8"
+    },
+    {
+      "abbreviation": "WIS",
+      "id": "wis",
+      "modifier": "+2",
+      "name": "Wisdom",
+      "save": "+2",
+      "saveProficient": false,
+      "score": "15"
+    },
+    {
+      "abbreviation": "CHA",
+      "id": "cha",
+      "modifier": "−1",
+      "name": "Charisma",
+      "save": "−1",
+      "saveProficient": false,
+      "score": "8"
+    }
+  ],
+  "attacks": [
+    {
+      "bonus": "+5",
+      "damage": "1d6 + 3 piercing",
+      "name": "Shortbow"
+    },
+    {
+      "bonus": "+2",
+      "damage": "1 bludgeoning",
+      "name": "Unarmed strike"
+    }
+  ],
+  "checks": {
+    "death-failure-1": false,
+    "death-failure-2": false,
+    "death-failure-3": false,
+    "death-success-1": false,
+    "death-success-2": false,
+    "death-success-3": false,
+    "inspiration": false
+  },
+  "language": "en",
+  "skills": [
+    {
+      "abbreviation": "DEX",
+      "bonus": "+5",
+      "id": "acrobatics",
+      "mark": "proficient",
+      "name": "Acrobatics"
+    },
+    {
+      "abbreviation": "WIS",
+      "bonus": "+2",
+      "id": "animal-handling",
+      "mark": "untrained",
+      "name": "Animal handling"
+    },
+    {
+      "abbreviation": "INT",
+      "bonus": "−1",
+      "id": "arcana",
+      "mark": "untrained",
+      "name": "Arcana"
+    },
+    {
+      "abbreviation": "STR",
+      "bonus": "+0",
+      "id": "athletics",
+      "mark": "untrained",
+      "name": "Athletics"
+    },
+    {
+      "abbreviation": "CHA",
+      "bonus": "−1",
+      "id": "deception",
+      "mark": "untrained",
+      "name": "Deception"
+    },
+    {
+      "abbreviation": "INT",
+      "bonus": "−1",
+      "id": "history",
+      "mark": "untrained",
+      "name": "History"
+    },
+    {
+      "abbreviation": "WIS",
+      "bonus": "+2",
+      "id": "insight",
+      "mark": "untrained",
+      "name": "Insight"
+    },
+    {
+      "abbreviation": "CHA",
+      "bonus": "−1",
+      "id": "intimidation",
+      "mark": "untrained",
+      "name": "Intimidation"
+    },
+    {
+      "abbreviation": "INT",
+      "bonus": "−1",
+      "id": "investigation",
+      "mark": "untrained",
+      "name": "Investigation"
+    },
+    {
+      "abbreviation": "WIS",
+      "bonus": "+2",
+      "id": "medicine",
+      "mark": "untrained",
+      "name": "Medicine"
+    },
+    {
+      "abbreviation": "INT",
+      "bonus": "−1",
+      "id": "nature",
+      "mark": "untrained",
+      "name": "Nature"
+    },
+    {
+      "abbreviation": "WIS",
+      "bonus": "+2",
+      "id": "perception",
+      "mark": "untrained",
+      "name": "Perception"
+    },
+    {
+      "abbreviation": "CHA",
+      "bonus": "−1",
+      "id": "performance",
+      "mark": "untrained",
+      "name": "Performance"
+    },
+    {
+      "abbreviation": "CHA",
+      "bonus": "−1",
+      "id": "persuasion",
+      "mark": "untrained",
+      "name": "Persuasion"
+    },
+    {
+      "abbreviation": "INT",
+      "bonus": "−1",
+      "id": "religion",
+      "mark": "untrained",
+      "name": "Religion"
+    },
+    {
+      "abbreviation": "DEX",
+      "bonus": "+3",
+      "id": "sleight-of-hand",
+      "mark": "untrained",
+      "name": "Sleight of hand"
+    },
+    {
+      "abbreviation": "DEX",
+      "bonus": "+5",
+      "id": "stealth",
+      "mark": "proficient",
+      "name": "Stealth"
+    },
+    {
+      "abbreviation": "WIS",
+      "bonus": "+2",
+      "id": "survival",
+      "mark": "untrained",
+      "name": "Survival"
+    }
+  ],
+  "text": {
+    "ac": "15",
+    "class-level": "Monk 3",
+    "equipment": "Dart ×10, Shortbow (equipped), Arrow ×20",
+    "features": "Species — Feline\n• Claws\n• Darkvision\n• Cat's Grace\n\nSubspecies — Puma\n• Pounce\n\nClass — Monk\n• Martial Arts\n• Unarmored Defense\n• Ki\n• Unarmored Movement\n• Deflect Missiles\n• Monastic Tradition",
+    "hit-dice": "3",
+    "hit-dice-total": "3d8",
+    "hp-current": "24",
+    "hp-max": "24",
+    "initiative": "+3",
+    "name": "Quiet Paw",
+    "passive-perception": "12",
+    "proficiencies": "Weapons: Shortsword, Simple weapons\nTools: Musical instrument\nLanguages: Common",
+    "proficiency-bonus": "+2",
+    "species": "Feline (Puma)",
+    "speed": "40 ft",
+    "speed-other": "climb 20 ft"
+  }
+}

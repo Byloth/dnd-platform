@@ -1,0 +1,232 @@
+{
+  "abilities": [
+    {
+      "abbreviation": "STR",
+      "id": "str",
+      "modifier": "+2",
+      "name": "Strength",
+      "save": "+2",
+      "saveProficient": false,
+      "score": "14"
+    },
+    {
+      "abbreviation": "DEX",
+      "id": "dex",
+      "modifier": "+0",
+      "name": "Dexterity",
+      "save": "+0",
+      "saveProficient": false,
+      "score": "10"
+    },
+    {
+      "abbreviation": "CON",
+      "id": "con",
+      "modifier": "+2",
+      "name": "Constitution",
+      "save": "+2",
+      "saveProficient": false,
+      "score": "15"
+    },
+    {
+      "abbreviation": "INT",
+      "id": "int",
+      "modifier": "+0",
+      "name": "Intelligence",
+      "save": "+0",
+      "saveProficient": false,
+      "score": "10"
+    },
+    {
+      "abbreviation": "WIS",
+      "id": "wis",
+      "modifier": "+4",
+      "name": "Wisdom",
+      "save": "+7",
+      "saveProficient": true,
+      "score": "18"
+    },
+    {
+      "abbreviation": "CHA",
+      "id": "cha",
+      "modifier": "+1",
+      "name": "Charisma",
+      "save": "+4",
+      "saveProficient": true,
+      "score": "12"
+    }
+  ],
+  "attacks": [
+    {
+      "bonus": "+5",
+      "damage": "1d8 + 2 bludgeoning",
+      "name": "Warhammer"
+    },
+    {
+      "bonus": "+5",
+      "damage": "1d10 + 2 bludgeoning",
+      "name": "Warhammer (two-handed)"
+    },
+    {
+      "bonus": "+5",
+      "damage": "3 bludgeoning",
+      "name": "Unarmed strike"
+    }
+  ],
+  "checks": {
+    "death-failure-1": false,
+    "death-failure-2": false,
+    "death-failure-3": false,
+    "death-success-1": false,
+    "death-success-2": false,
+    "death-success-3": false,
+    "inspiration": false
+  },
+  "language": "en",
+  "skills": [
+    {
+      "abbreviation": "DEX",
+      "bonus": "+0",
+      "id": "acrobatics",
+      "mark": "untrained",
+      "name": "Acrobatics"
+    },
+    {
+      "abbreviation": "WIS",
+      "bonus": "+4",
+      "id": "animal-handling",
+      "mark": "untrained",
+      "name": "Animal handling"
+    },
+    {
+      "abbreviation": "INT",
+      "bonus": "+0",
+      "id": "arcana",
+      "mark": "untrained",
+      "name": "Arcana"
+    },
+    {
+      "abbreviation": "STR",
+      "bonus": "+2",
+      "id": "athletics",
+      "mark": "untrained",
+      "name": "Athletics"
+    },
+    {
+      "abbreviation": "CHA",
+      "bonus": "+1",
+      "id": "deception",
+      "mark": "untrained",
+      "name": "Deception"
+    },
+    {
+      "abbreviation": "INT",
+      "bonus": "+3",
+      "id": "history",
+      "mark": "proficient",
+      "name": "History"
+    },
+    {
+      "abbreviation": "WIS",
+      "bonus": "+7",
+      "id": "insight",
+      "mark": "proficient",
+      "name": "Insight"
+    },
+    {
+      "abbreviation": "CHA",
+      "bonus": "+1",
+      "id": "intimidation",
+      "mark": "untrained",
+      "name": "Intimidation"
+    },
+    {
+      "abbreviation": "INT",
+      "bonus": "+0",
+      "id": "investigation",
+      "mark": "untrained",
+      "name": "Investigation"
+    },
+    {
+      "abbreviation": "WIS",
+      "bonus": "+7",
+      "id": "medicine",
+      "mark": "proficient",
+      "name": "Medicine"
+    },
+    {
+      "abbreviation": "INT",
+      "bonus": "+0",
+      "id": "nature",
+      "mark": "untrained",
+      "name": "Nature"
+    },
+    {
+      "abbreviation": "WIS",
+      "bonus": "+4",
+      "id": "perception",
+      "mark": "untrained",
+      "name": "Perception"
+    },
+    {
+      "abbreviation": "CHA",
+      "bonus": "+1",
+      "id": "performance",
+      "mark": "untrained",
+      "name": "Performance"
+    },
+    {
+      "abbreviation": "CHA",
+      "bonus": "+1",
+      "id": "persuasion",
+      "mark": "untrained",
+      "name": "Persuasion"
+    },
+    {
+      "abbreviation": "INT",
+      "bonus": "+3",
+      "id": "religion",
+      "mark": "proficient",
+      "name": "Religion"
+    },
+    {
+      "abbreviation": "DEX",
+      "bonus": "+0",
+      "id": "sleight-of-hand",
+      "mark": "untrained",
+      "name": "Sleight of hand"
+    },
+    {
+      "abbreviation": "DEX",
+      "bonus": "+0",
+      "id": "stealth",
+      "mark": "untrained",
+      "name": "Stealth"
+    },
+    {
+      "abbreviation": "WIS",
+      "bonus": "+4",
+      "id": "survival",
+      "mark": "untrained",
+      "name": "Survival"
+    }
+  ],
+  "text": {
+    "ac": "18",
+    "attacks-notes": "Spellcasting (Cleric): save DC 15 · spell attack +7 · prepared spells · ritual casting",
+    "background": "Acolyte",
+    "class-level": "Cleric 5 (Life Domain)",
+    "equipment": "Warhammer (equipped), Chain mail (equipped), Shield (equipped), Priest's Pack",
+    "features": "Species — Dwarf\n• Ability Score Increase\n• Speed\n• Darkvision\n• Age\n• Alignment\n• Size\n• Languages\n• Dwarven Resilience\n• Dwarven Combat Training\n• Tool Proficiency\n• Stonecunning\n\nSubspecies — Hill Dwarf\n• Ability Score Increase\n• Dwarven Toughness\n\nClass — Cleric\n• Divine Domain\n• Spellcasting\n• Channel Divinity\n• Ability Score Improvement\n• Destroy Undead\n\nSubclass — Life Domain\n• Bonus Proficiency\n• Disciple of Life\n• Life Domain Spells (table)\n• Channel Divinity: Preserve Life\n\nBackground — Acolyte\n• Shelter of the Faithful",
+    "hit-dice": "5",
+    "hit-dice-total": "5d8",
+    "hp-current": "43",
+    "hp-max": "43",
+    "initiative": "+0",
+    "name": "Stone Lantern",
+    "passive-perception": "14",
+    "proficiencies": "Armor: Heavy armor, Light armor, Medium armor, Shields\nWeapons: Battleaxe, Handaxe, Light hammer, Simple weapons, Warhammer\nTools: Smith's tools\nLanguages: Celestial, Common, Dwarvish, Elvish",
+    "proficiency-bonus": "+3",
+    "species": "Dwarf (Hill Dwarf)",
+    "speed": "25 ft"
+  }
+}

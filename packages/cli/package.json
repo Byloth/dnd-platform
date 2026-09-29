@@ -19,6 +19,7 @@
     "@byloth/dnd-platform-engine": "workspace:*",
     "@byloth/dnd-platform-loader": "workspace:*",
     "@byloth/dnd-platform-schema": "workspace:*",
+    "@byloth/dnd-platform-sheets": "workspace:*",
     "picocolors": "^1.1.1",
     "string-width": "^8.2.2",
     "yaml": "^2.9.1"

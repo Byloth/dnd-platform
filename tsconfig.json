@@ -14,6 +14,9 @@
       "path": "./packages/composer"
     },
     {
+      "path": "./packages/sheets"
+    },
+    {
       "path": "./packages/cli"
     }
   ]

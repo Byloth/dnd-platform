@@ -1,0 +1,226 @@
+{
+  "abilities": [
+    {
+      "abbreviation": "STR",
+      "id": "str",
+      "modifier": "+0",
+      "name": "Strength",
+      "save": "+0",
+      "saveProficient": false,
+      "score": "10"
+    },
+    {
+      "abbreviation": "DEX",
+      "id": "dex",
+      "modifier": "+1",
+      "name": "Dexterity",
+      "save": "+1",
+      "saveProficient": false,
+      "score": "12"
+    },
+    {
+      "abbreviation": "CON",
+      "id": "con",
+      "modifier": "+2",
+      "name": "Constitution",
+      "save": "+2",
+      "saveProficient": false,
+      "score": "14"
+    },
+    {
+      "abbreviation": "INT",
+      "id": "int",
+      "modifier": "+3",
+      "name": "Intelligence",
+      "save": "+3",
+      "saveProficient": false,
+      "score": "16"
+    },
+    {
+      "abbreviation": "WIS",
+      "id": "wis",
+      "modifier": "+3",
+      "name": "Wisdom",
+      "save": "+7",
+      "saveProficient": true,
+      "score": "16"
+    },
+    {
+      "abbreviation": "CHA",
+      "id": "cha",
+      "modifier": "+0",
+      "name": "Charisma",
+      "save": "+4",
+      "saveProficient": true,
+      "score": "10"
+    }
+  ],
+  "attacks": [
+    {
+      "bonus": "+4",
+      "damage": "1d6 bludgeoning",
+      "name": "Mace"
+    },
+    {
+      "bonus": "+4",
+      "damage": "1 bludgeoning",
+      "name": "Unarmed strike"
+    }
+  ],
+  "checks": {
+    "death-failure-1": false,
+    "death-failure-2": false,
+    "death-failure-3": false,
+    "death-success-1": false,
+    "death-success-2": false,
+    "death-success-3": false,
+    "inspiration": false
+  },
+  "language": "en",
+  "skills": [
+    {
+      "abbreviation": "DEX",
+      "bonus": "+1",
+      "id": "acrobatics",
+      "mark": "untrained",
+      "name": "Acrobatics"
+    },
+    {
+      "abbreviation": "WIS",
+      "bonus": "+3",
+      "id": "animal-handling",
+      "mark": "untrained",
+      "name": "Animal handling"
+    },
+    {
+      "abbreviation": "INT",
+      "bonus": "+3",
+      "id": "arcana",
+      "mark": "untrained",
+      "name": "Arcana"
+    },
+    {
+      "abbreviation": "STR",
+      "bonus": "+0",
+      "id": "athletics",
+      "mark": "untrained",
+      "name": "Athletics"
+    },
+    {
+      "abbreviation": "CHA",
+      "bonus": "+0",
+      "id": "deception",
+      "mark": "untrained",
+      "name": "Deception"
+    },
+    {
+      "abbreviation": "INT",
+      "bonus": "+3",
+      "id": "history",
+      "mark": "untrained",
+      "name": "History"
+    },
+    {
+      "abbreviation": "WIS",
+      "bonus": "+7",
+      "id": "insight",
+      "mark": "proficient",
+      "name": "Insight"
+    },
+    {
+      "abbreviation": "CHA",
+      "bonus": "+0",
+      "id": "intimidation",
+      "mark": "untrained",
+      "name": "Intimidation"
+    },
+    {
+      "abbreviation": "INT",
+      "bonus": "+3",
+      "id": "investigation",
+      "mark": "untrained",
+      "name": "Investigation"
+    },
+    {
+      "abbreviation": "WIS",
+      "bonus": "+3",
+      "id": "medicine",
+      "mark": "untrained",
+      "name": "Medicine"
+    },
+    {
+      "abbreviation": "INT",
+      "bonus": "+3",
+      "id": "nature",
+      "mark": "untrained",
+      "name": "Nature"
+    },
+    {
+      "abbreviation": "WIS",
+      "bonus": "+3",
+      "id": "perception",
+      "mark": "untrained",
+      "name": "Perception"
+    },
+    {
+      "abbreviation": "CHA",
+      "bonus": "+0",
+      "id": "performance",
+      "mark": "untrained",
+      "name": "Performance"
+    },
+    {
+      "abbreviation": "CHA",
+      "bonus": "+0",
+      "id": "persuasion",
+      "mark": "untrained",
+      "name": "Persuasion"
+    },
+    {
+      "abbreviation": "INT",
+      "bonus": "+7",
+      "id": "religion",
+      "mark": "proficient",
+      "name": "Religion"
+    },
+    {
+      "abbreviation": "DEX",
+      "bonus": "+1",
+      "id": "sleight-of-hand",
+      "mark": "untrained",
+      "name": "Sleight of hand"
+    },
+    {
+      "abbreviation": "DEX",
+      "bonus": "+1",
+      "id": "stealth",
+      "mark": "untrained",
+      "name": "Stealth"
+    },
+    {
+      "abbreviation": "WIS",
+      "bonus": "+3",
+      "id": "survival",
+      "mark": "untrained",
+      "name": "Survival"
+    }
+  ],
+  "text": {
+    "ac": "11",
+    "attacks-notes": "Spellcasting (Cleric): save DC 15 · spell attack +7 · prepared spells · ritual casting\nSpellcasting (Wizard): save DC 15 · spell attack +7 · spellbook spells · ritual casting",
+    "class-level": "Cleric 5 / Wizard 5",
+    "equipment": "Mace (equipped)",
+    "features": "Species — Human\n• Ability Score Increase\n• Speed\n• Age\n• Alignment\n• Size\n• Languages\n\nClass — Cleric, Wizard\n• Divine Domain\n• Spellcasting\n• Channel Divinity\n• Ability Score Improvement\n• Destroy Undead\n• Arcane Recovery\n• Spellcasting\n• Arcane Tradition\n• Ability Score Improvement\n\nSubclass — Life Domain, School of Evocation\n• Bonus Proficiency\n• Disciple of Life\n• Life Domain Spells (table)\n• Channel Divinity: Preserve Life\n• Evocation Savant\n• Sculpt Spells",
+    "hit-dice": "10",
+    "hit-dice-total": "5d8 + 5d6",
+    "hp-current": "68",
+    "hp-max": "68",
+    "initiative": "+1",
+    "name": "Twin Candle",
+    "passive-perception": "13",
+    "proficiencies": "Armor: Heavy armor, Light armor, Medium armor, Shields\nWeapons: Simple weapons\nLanguages: Common, Elvish",
+    "proficiency-bonus": "+4",
+    "species": "Human",
+    "speed": "30 ft"
+  }
+}
