@@ -663,6 +663,10 @@
         "name": "English and Italian",
         "text": "The whole site in both languages, rules and content included."
       },
+      "app": {
+        "name": "An app on your phone",
+        "text": "Install the site like an app: it opens fast and shows your characters even without a connection."
+      },
       "books": {
         "name": "Your own books, privately",
         "text": "Load content from the books you own; it never leaves your device."

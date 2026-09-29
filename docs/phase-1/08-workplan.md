@@ -10,7 +10,7 @@ This document orders the work of Phase 1 into the eight milestones of [00-README
 - **Every milestone ends in a tag** `v0.3.<n>`; Phase 1 closes with `v1.0.0`, the MVP. The owner pushes to `master` (the default branch of the public repository; the workflows trigger on it); the Pages deployment follows the push.
 - **Three explicit confirmation points**: before the first public deployment on GitHub Pages (M1.1: the owner enables Pages and pushes; until then the site exists only locally), before launching the agent drafting of the Italian translation (M1.7), before recruiting people for the newcomer test (M1.8). Nothing else needs confirmation.
 - **The content format stays at v0.** Additions Phase 1 needs (an `abilityScores` block in the ruleset for point buy, an export document schema) are additive and recorded in [../phase-0/inventory/authoring-review.md](../phase-0/inventory/authoring-review.md); a breaking change waits for v1 and its migration.
-- **No back end, no accounts, no service worker in Phase 1** (DEC-04, DEC-12, DEC-06): a task that needs one is out of scope and goes to the open points.
+- **No back end and no accounts in Phase 1** (DEC-04, DEC-12): a task that needs one is out of scope and goes to the open points. A service worker is in, since M1.5c (DEC-06, owner 2026-09-29).
 
 ## Design
 
@@ -167,7 +167,9 @@ Split by the owner's order of 2026-09-28 (M1.5 before the rest of M1.4r):
   - `pages/changelog/[id].vue`: the versions after the character's shown open, the earlier ones behind a disclosure, the file's preamble for maintainers left out.
   - Doc 10's point 9: `edit`, `resume`, `choosePackages` and `finish` record the loaded versions, and the review no longer lists a version mismatch. Doc 10's other tasks (a missing chosen entity, deactivating a package under a choice) stay in M1.4r.
   - Found on the way: the web tests get 15 s each by default, since they timed out under the hooks' load.
-- **M1.5c, the repeat visit**: task 4. It first needs DEC-21's "the SRD is never stored in the browser" amended with the owner.
+- **M1.5c, the repeat visit**: task 4. Done 2026-09-29 as a PWA (owner): the site's packages fetched by their versioned file; the service worker, the manifest and the icons; new versions at the next page change without a pop-up; `pnpm web:pwa` in CI and before deploying; the privacy page. DEC-06 is decided in part and DEC-21 amended. The two-second repeat visit is not yet measured by CI: Lighthouse CI opens every run in a fresh browser profile, so a warm run needs a Puppeteer script sharing the browser (open point). Measured by hand meanwhile: Chrome's Lighthouse with "Clear storage" off, after a first visit.
+
+**M1.5 done on 2026-09-29.** It ships with `v0.3.5`, to be tagged by the owner.
 
 Done: the criteria of M1.5. Release: `v0.3.5`.
 Risks: none technical; the risk is UX, losing a guest's character; every destructive action offers the export first.

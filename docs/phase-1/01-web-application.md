@@ -72,7 +72,12 @@ The engine has no runtime dependency and no platform import; it bundles as is. T
 - `pnpm web:prepare-content` (`dnd build --out packages/web/public/content` for the SRD plus the sample character as JSON) then `pnpm web:generate`. Output `.output/public/` with `index.html`, `404.html`, `.nojekyll`, hashed assets, `content/srd51.json`.
 - `.github/workflows/pages.yml`: on push to the default branch, install, build the library packages, `pnpm web:generate`, upload the artifact, deploy with the Pages actions. Enabling Pages on the repository and the first push are the owner's (confirmation point of [08-workplan.md](08-workplan.md)).
 - The CI workflow gains `pnpm web:lint`, `pnpm web:typecheck`, `pnpm web:test` and `pnpm web:generate` as a build check on pull requests; no deployment from pull requests.
-- Site headers cannot be set on Pages: no service worker in Phase 1, cache control by hashed file names only.
+- Site headers cannot be set on Pages, so the cache is the service worker's (M1.5c, DEC-06):
+  - `@vite-pwa/nuxt` precaches the shell, and navigations fall back to the base page, since every page is the same client-rendered shell.
+  - Content is cached at run time: `content/*@*.json` cache-first, `content/index.json` network-first (3 s), changelogs and demo characters stale-while-revalidate. `content/` is never precached.
+  - The manifest makes the site installable; the icons come from `pwa-assets.config.ts`.
+  - `plugins/pwa.client.ts` registers the worker outside development. `composables/app-update.ts` lets a new version take over at the next page change with a real navigation (at most 3 s wait for the new worker), and asks for updates hourly and when the page is shown again. No pop-up.
+  - `scripts/check-pwa.ts` (`pnpm web:pwa`, in CI and before deploying) checks the generated worker and manifest.
 - The template's alert handler and errors composable (`@byloth/vuert` and `@byloth/exceptions` imported directly) were left out in M1.1 because of a pnpm bug: an incremental `pnpm add` of a package already present as a peer-resolved transitive dependency wrote the importer entry without its peer suffix, linking to a store directory that did not exist. pnpm 12.5.1 fixes it; they are back since 2026-09-23, with their messages in the interface catalogues. The repository no longer pins pnpm (`packageManager` removed): locally the developer's own pnpm, in CI the latest 12.x.
 
 ### What the shell guarantees

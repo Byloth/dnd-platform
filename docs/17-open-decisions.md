@@ -77,6 +77,11 @@ When a decision is taken, its status becomes **Decided**, the chosen option and 
 ### DEC-06 — Offline support
 - **What:** whether the sheet and play mode work without connectivity, and how state is reconciled.
 - **Options known:** none (online only); read-only offline; full offline with later sync. The architecture keeps the engine pure and the character portable so that any option remains possible ([15](15-logical-architecture.md)).
+- **Decided in part (2026-09-29, owner, M1.5c):** **the site is a PWA from Phase 1.**
+  - A service worker (`@vite-pwa/nuxt`, Workbox) precaches the application shell and caches the public content as it is fetched: releases cache-first, since they never change (DEC-21); the index network-first; the changelogs and the demo characters stale-while-revalidate.
+  - The site is installable. Once visited, it opens and shows stored characters without a connection.
+  - A new version of the application waits and takes over at the next page change, with a real navigation, never with a pop-up. The content needs no reload: its index comes from the network first, and M1.5b's alert explains what an update changed.
+  - Still open: offline play mode and the reconciliation of state edited on several devices (Phase 2).
 - **Unblocks:** play mode storage design.
 - **Referenced by:** [09](09-play-mode.md), [13](13-ux-and-accessibility.md), [15](15-logical-architecture.md).
 
@@ -178,7 +183,7 @@ When a decision is taken, its status becomes **Decided**, the chosen option and 
 - **Decided (2026-09-23):** **an edition is a package, an implementation is a version, and versions propagate by themselves.**
   - A new rules edition is a different base package with its own id: SRD 5.1 (2014) is `srd51`; SRD 5.2 (the 2024 rules, "5.5", planned by DEC-02) will be `srd52`. Switching edition is the user's choice, with the level-up diff of [10](10-progression.md).
   - A new version of a package (a fix, a better-modelled effect, text) applies to every character automatically. The character records the version it was last seen with. When a newer version derives different values for it, the next time the user opens it an alert names what changed ("because of a rules update, your hit points went from 38 to 41"), with a link to the changelog; nothing is shown when nothing changed.
-  - Every released version of a public package is published by the site as a static file (`content/<id>@<version>.json`, with `content/index.json` and the changelog), kept in the repository under `releases/content/`, written once and never rewritten. The old version is what lets the application derive the character before and after. The SRD is never stored in the browser.
+  - Every released version of a public package is published by the site as a static file (`content/<id>@<version>.json`, with `content/index.json` and the changelog), kept in the repository under `releases/content/`, written once and never rewritten. The old version is what lets the application derive the character before and after. The SRD is never stored by the application in the player's storage (IndexedDB); since M1.5c (owner, 2026-09-29) the site's service worker keeps the releases it has fetched, which never change, as a cache (see DEC-06).
   - A version always means the same bytes: any change to a public package's content is a new version with a `CHANGELOG.md` section, released with `dnd release`; CI refuses changed content under a released version (`dnd release --check`).
   - Packages the user loads follow the same rule: a newer version of the same id replaces the stored one, and the characters that use it get the same alert.
 - **As built (M1.5b, 2026-09-29):** the alert on a stored character's sheet (`UpdateNotice`), which derives the sheet with the recorded version from its published release and compares it with today's (`diffTrees`); "Got it" records the versions, and nothing changed means they are recorded without an alert. The changelog page is `/changelog/<id>`. A package the device holds in one version only is named without numbers.

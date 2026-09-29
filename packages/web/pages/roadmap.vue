@@ -14,7 +14,7 @@
             icon: "circle-check",
             items: [
                 "creation", "ideas", "sheet", "editing", "files", "updates",
-                "expert", "compendium", "languages", "books"
+                "expert", "compendium", "languages", "app", "books"
             ]
         },
         { status: "next", icon: "feather", items: ["settings", "print"] },

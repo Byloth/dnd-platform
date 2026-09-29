@@ -663,6 +663,10 @@
         "name": "Italiano e inglese",
         "text": "Tutto il sito in entrambe le lingue, regole e contenuti compresi."
       },
+      "app": {
+        "name": "Un'app sul tuo telefono",
+        "text": "Installa il sito come un'app: si apre in fretta e mostra i tuoi personaggi anche senza connessione."
+      },
       "books": {
         "name": "I tuoi manuali, in privato",
         "text": "Carica i contenuti dei manuali che possiedi; non lasciano mai il tuo dispositivo."
