@@ -671,6 +671,10 @@
         "name": "Personaggi come file",
         "text": "Scarica un personaggio e aprilo su un altro dispositivo, con i tuoi contenuti dentro se vuoi."
       },
+      "updates": {
+        "name": "Aggiornamenti delle regole, spiegati",
+        "text": "Quando i contenuti delle regole vengono corretti, i tuoi personaggi li seguono e vedi che cosa è cambiato sulla loro scheda."
+      },
       "print": {
         "name": "Una scheda da stampare",
         "text": "La scheda del personaggio e le carte dei suoi privilegi e incantesimi, pronte da stampare."

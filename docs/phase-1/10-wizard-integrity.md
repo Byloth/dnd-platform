@@ -45,6 +45,10 @@ This agrees with DEC-21 ([../17-open-decisions.md](../17-open-decisions.md), [..
 4. **The sheet page** of a stored character keeps deriving with the recorded pins. A mismatch there is legitimate: the character was last saved with another version. It is the place where M1.5's alert will say what changed, and it is not listed as a fault.
 5. **Note for M1.5**, recorded in [02-content-and-character-stores.md](02-content-and-character-stores.md): DEC-21's alert compares the derivation at the recorded version with the one at the latest. It must run before (2) moves the draft's versions, that is, when the character is opened. Until then, moving the version on open skips the comparison, which is acceptable because no alert exists yet.
 
+### As built (M1.5b, 2026-09-29)
+
+Design points 1, 2 and the first part of 3 are done: `recordVersions` in `composables/versions.ts`, called by the wizard in `edit`, `resume`, `choosePackages` and `finish`; the review drops `W_VERSION_MISMATCH`. Naming a package that cannot be loaded (the rest of 3) is still to do, with point 10. The sheet page's alert of point 4 is M1.5b's `UpdateNotice`.
+
 ### Tests
 
 - Store tests:

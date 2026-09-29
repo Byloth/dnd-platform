@@ -160,7 +160,13 @@ Tasks (from [02-content-and-character-stores.md](02-content-and-character-stores
 
 Split by the owner's order of 2026-09-28 (M1.5 before the rest of M1.4r):
 - **M1.5a, export and import**: tasks 1–3. Done 2026-09-28: the export schema, `character-files.ts`, the export from the sheet and the list, the copy before deleting, the import with its plan, and the round trip over every public fixture ([05-print-and-export.md](05-print-and-export.md), "As built").
-- **M1.5b, "what changed" (DEC-21)**: the alert when a newer version changes a stored character's numbers, the changelog page, the recorded versions moving on. It brings in doc 10's `recordVersions` (M1.4r).
+- **M1.5b, "what changed" (DEC-21)**: the alert when a newer version changes a stored character's numbers, the changelog page, the recorded versions moving on. It brings in doc 10's `recordVersions` (M1.4r). Done 2026-09-29:
+  - `diffTrees` in the composer: two section trees compared by the ids of what they show, so the labels are the sheet's own.
+  - `composables/versions.ts`: `outdated`, `recordVersions`, and `useVersionCheck().check`, which derives the sheet with the recorded version of each site package (its release, `content/<id>@<version>.json`) and compares.
+  - The sheet of a stored character shows `components/sheet/UpdateNotice.vue` ("Armor Class: 19 → 18", a link to the changelog); "Got it" records the versions. Nothing changed means the versions are recorded silently. A version the site no longer has, or a stored package, gives the update without numbers. Demo characters are left alone.
+  - `pages/changelog/[id].vue`: the versions after the character's shown open, the earlier ones behind a disclosure, the file's preamble for maintainers left out.
+  - Doc 10's point 9: `edit`, `resume`, `choosePackages` and `finish` record the loaded versions, and the review no longer lists a version mismatch. Doc 10's other tasks (a missing chosen entity, deactivating a package under a choice) stay in M1.4r.
+  - Found on the way: the web tests get 15 s each by default, since they timed out under the hooks' load.
 - **M1.5c, the repeat visit**: task 4. It first needs DEC-21's "the SRD is never stored in the browser" amended with the owner.
 
 Done: the criteria of M1.5. Release: `v0.3.5`.
