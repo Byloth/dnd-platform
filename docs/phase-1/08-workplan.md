@@ -176,13 +176,14 @@ Risks: none technical; the risk is UX, losing a guest's character; every destruc
 
 ### M1.6 — Print (≈ 4 sessions)
 
-Tasks (from [05-print-and-export.md](05-print-and-export.md)):
-1. Print route, page-size preference, print stylesheet, Part 2 components.
-2. Part 3 cards and the credits page.
-3. The reference Monk's checklist from the original playbook; black-and-white and page-size acceptance; the three browser engines checked.
+Replanned by the owner on 2026-09-29 (DEC-13 amended, DEC-26): the page draws the PDF from the platform's "classic" sheet template; no print route.
+
+- **M1.6a**, the engine and page 1. Done 2026-09-29: `packages/sheets` (values, drawing, the classic sheet's page 1, A4 and Letter, blank without a character), `sheet-values.json` goldens, "PDF" on the sheet with download or share, fonts precached. As built in [05-print-and-export.md](05-print-and-export.md).
+- **M1.6b**, pages 2 and 3 (background and appearance, spellcasting), the blank sheet downloadable without a character, the hand as a preference (handwriting or print), the Italian sheet checked by the owner.
+- **M1.6c**, the pages the text does not fit in (Part 3: feature and spell cards) and the credits page; the reference Monk's checklist from the original playbook; black-and-white and page-size acceptance; the PDF opened in the common viewers (browser, Acrobat, phone).
 
 Done: the criteria of M1.6. Release: `v0.3.6`.
-Risks: `@page` support differs across browsers; the layout must degrade to a readable print everywhere and be perfect in one (Chromium).
+Risks: PDF viewers differ in how they redraw an edited field (some fall back to a print font); the library's size (outside the first load, precached for offline).
 
 ### M1.7 — Italian (≈ 3 sessions, plus the drafting)
 

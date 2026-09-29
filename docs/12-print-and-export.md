@@ -118,7 +118,8 @@ Generated from the sources of every package the character depends on ([05](05-co
 
 ## Deferred decisions
 
-- DEC-13 PDF generation approach — Decided (2026-09-22): the print mode paginated by the browser; digital form fields in Phase 3.
+- DEC-13 PDF generation approach — Decided (2026-09-22), amended (2026-09-29): the page draws the PDF from a sheet template, fields editable; no print dialog.
+- DEC-26 Sheet templates — Decided (2026-09-29): the platform's classic sheet first; the official PDF by its owner and a game master's sheet later.
 - DEC-11 Import from other platforms' formats — Phase 4.
 - DEC-03 Serialisation format (also governs the export document) — Phase 0.
 - DEC-09 Supported print languages — Decided: Italian and English.

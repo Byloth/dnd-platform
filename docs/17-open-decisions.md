@@ -22,7 +22,7 @@ When a decision is taken, its status becomes **Decided**, the chosen option and 
 | DEC-10 | Monetisation and hosting costs | 4 | Open |
 | DEC-11 | Import from other platforms | 4 | Open |
 | DEC-12 | Authentication and account model | 1 | Decided for Phase 1–3 (2026-09-22); accounts reopen with the back end |
-| DEC-13 | PDF generation approach | 1 | Decided (2026-09-22) |
+| DEC-13 | PDF generation approach | 1 | Decided (2026-09-22), amended (2026-09-29) |
 | DEC-14 | Homebrew moderation policy for public packages | 4 | Open |
 | DEC-15 | Default ability score generation method | 1 | Decided (2026-09-22) |
 | DEC-16 | Hit point gain method policy at level up | 3 | Open |
@@ -35,6 +35,7 @@ When a decision is taken, its status becomes **Decided**, the chosen option and 
 | DEC-23 | Official books as packages: one per book, or one "core" package | 1–2 | Open |
 | DEC-24 | Creatures as content (a creature entity type) | 1 | Decided 2026-09-26 |
 | DEC-25 | A compendium of the loaded packages in Phase 1 | 1 | Decided (2026-09-27) |
+| DEC-26 | Sheet templates: which sheet the PDF is | 1 | Decided (2026-09-29) |
 
 ## Entries
 
@@ -126,6 +127,7 @@ When a decision is taken, its status becomes **Decided**, the chosen option and 
 ### DEC-13 — PDF generation approach
 - **What:** whether the printed playbook is produced from the same layout as the screen (print stylesheet) or from a dedicated print layout engine; how fillable fields are produced.
 - **Decided (2026-09-22):** **the print mode of the sheet is a paginated print stylesheet; the PDF is the browser's own "print to PDF".** A4 and Letter as page sizes, black-and-white legibility tested, pips, boxes and lines printed to be filled with a pen. Digital form fields inside the PDF cannot come from a stylesheet: they arrive in Phase 3 with the print variants, from a PDF library fed by the same section tree, and can then be saved to the working directory (DEC-12). Reasons: zero infrastructure, immediate preview, one layout to maintain.
+- **Amended (2026-09-29, owner):** **the page itself draws the PDF, in the browser, with a PDF library; no print dialog.** Not every device can save a page as a PDF, and a file made by the site can be downloaded or shared from a phone. The PDF is drawn from a *sheet template* (DEC-26), from the same section tree as the screen; its form fields stay editable, so digital form fields arrive now instead of in Phase 3, and the same template with no character prints blank. The print route and its stylesheet are dropped from the plan. The library (pdf-lib with its font kit, MIT) loads with the first PDF asked for, never with the sheet.
 - **Requirements fixed:** the structure and content in [12](12-print-and-export.md); fillable fields (pen-fillable in Phase 1, digital in Phase 3); A4 and Letter; black-and-white legibility.
 - **Unblocks:** Phase 1 print deliverable.
 - **Referenced by:** [12](12-print-and-export.md), [15](15-logical-architecture.md).
@@ -252,6 +254,16 @@ When a decision is taken, its status becomes **Decided**, the chosen option and 
 - **Options known:** the catalogues as planned in [19](19-catalogues.md) (Phase 2 and 6); a compendium now, with the parts that need play mode or campaigns left where they were.
 - **Amends:** [19](19-catalogues.md) and [16](16-roadmap.md): reading and searching move to Phase 1; adding to the inventory stays in Phase 2, the game master's tools in Phase 6.
 - **Referenced by:** [phase-1/13-compendium.md](phase-1/13-compendium.md), [phase-1/08-workplan.md](phase-1/08-workplan.md).
+
+### DEC-26 — Sheet templates: which sheet the PDF is
+- **What:** what the PDF of a character looks like, and whether a player (later a game master) can choose it.
+- **Decided (2026-09-29, owner):** **a PDF is drawn from a sheet template; the first is the platform's own "classic" sheet, with the layout players know from the fifth edition's official sheet, drawn from scratch.**
+  - A template is drawing code plus a map "form field → value of the sheet" (`packages/sheets`); every template fills the same values.
+  - The official sheet itself is not bundled: it is Wizards of the Coast's and not open content. The classic template takes its layout (the places of the boxes), never its logo, art, fonts or wording; it carries the platform's own emblem, a line saying it is compatible with the fifth edition rules (SRD 5.1), the SRD's attribution and, once the site has a domain, its address.
+  - Values are written in a handwriting font by default (the fields stay editable); a print hand (Atkinson Hyperlegible) is the alternative for legibility, a preference in M1.6b.
+  - Later templates on the same engine: the platform's own designed sheet, the official PDF loaded by its owner (a field map to it), a game master's sheet for a campaign (Phase 6).
+- **Options known:** filling the official PDF (not redistributable); a template drawn from scratch (chosen); HTML rendered to PDF (raster or heavy).
+- **Referenced by:** [phase-1/05-print-and-export.md](phase-1/05-print-and-export.md), [phase-1/08-workplan.md](phase-1/08-workplan.md), [12](12-print-and-export.md).
 
 ## How to add a decision
 

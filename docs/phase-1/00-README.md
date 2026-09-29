@@ -14,7 +14,8 @@ This directory is the execution plan: concrete enough to start work, still free 
 | DEC-04 | Taken 2026-09-22: **static front end on GitHub Pages, deployed by a GitHub Actions workflow, no back end.** The application ships the SRD; every other package is loaded by the user into the browser from a zip or a bundle file and never leaves the device. |
 | DEC-09 | Italian and English interface; Italian translation package of the SRD in Phase 1; no further language before Phase 4. |
 | DEC-12 | Taken 2026-09-22: **no accounts in Phase 1–3.** Every user is a guest; characters live in the browser's storage and in export files, optionally mirrored to a working directory on disk. |
-| DEC-13 | Taken 2026-09-22: **the print mode of the sheet is a paginated print stylesheet; the PDF is the browser's "print to PDF".** Pen-fillable fields in Phase 1, digital form fields in Phase 3. |
+| DEC-13 | Taken 2026-09-22, amended 2026-09-29: **the page draws the PDF itself, in the browser, from a sheet template (DEC-26); its fields stay editable.** No print dialog, no print stylesheet. |
+| DEC-26 | Taken 2026-09-29: **the first template is the platform's "classic" sheet, drawn from scratch with the layout of the official one**; other templates later on the same engine. |
 | DEC-15 | Taken 2026-09-22: **standard array** by default; point buy and rolling available. |
 | DEC-20 | Content selection (from Phase 0): a character or campaign carries the packages it uses, their order and exclusions; the engine prunes and reports. |
 | DEC-21 | Taken 2026-09-23: **an edition is a package, an implementation is a version, and versions propagate by themselves.** Fixes reach every character; the user is told only when their sheet changed, with the changelog. Every release of a public package is published by the site as a static file; the SRD is never stored in the browser. |
@@ -48,7 +49,7 @@ Requirements the owner fixed for the whole phase: the text sheet of `dnd derive`
 | M1.4r | Revisions from the owner's review | The integrity fixes, the interface revisions and the first Italian packet of documents 09–11. |
 | M1.C | Compendium | Spells, items, creatures and conditions of every loaded package listed, filtered, searched and read in both languages; creatures fetched only by the bestiary; linked from the sheet and the wizard. |
 | M1.5 | Character store, export and import | Characters persist in the browser; export file; import with version-mismatch handling; the byte-identical round trip runs in CI. |
-| M1.6 | Print | The print route with Parts 2 and 3 and the credits page, A4 and Letter, black-and-white acceptance; the reference Monk's printed playbook passes the checklist. |
+| M1.6 | Print | The classic sheet as a PDF made in the browser: page 1, then background and spells, a blank sheet, the feature and spell cards and the credits; A4 and Letter, black-and-white acceptance; the reference Monk's PDF passes the checklist. |
 | M1.7 | Italian | Interface in Italian and English; `srd51-it` translation package drafted, reviewed and loaded; the glossary check passes. |
 | M1.8 | Working directory, accessibility, newcomer test | The working-directory mirror where the browser supports it; the accessibility pass on every screen; the usability test with newcomers; the Phase 1 verification table; the MVP tag. |
 
