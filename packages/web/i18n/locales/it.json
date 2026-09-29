@@ -275,7 +275,9 @@
     "edit": "Modifica",
     "change": "Cambia",
     "delete": "Elimina",
-    "export": "Esporta"
+    "export": "Esporta",
+    "pdf": "PDF",
+    "pdfBusy": "Preparo il PDF…"
   },
   "wizard": {
     "title": "Nuovo personaggio",
@@ -675,17 +677,21 @@
         "name": "Impostazioni più chiare",
         "text": "Una pagina di impostazioni, e metri e chili per chi li preferisce."
       },
+      "print": {
+        "name": "Tutta la scheda nel PDF",
+        "text": "Le pagine per background e incantesimi, una scheda vuota da stampare e una carta per ogni privilegio e incantesimo."
+      },
       "files": {
         "name": "Personaggi come file",
         "text": "Scarica un personaggio e aprilo su un altro dispositivo, con i tuoi contenuti dentro se vuoi."
       },
+      "pdf": {
+        "name": "La scheda in PDF",
+        "text": "Con un tocco la scheda diventa un PDF da stampare o da tenere sul telefono, con le caselle ancora da compilare."
+      },
       "updates": {
         "name": "Aggiornamenti delle regole, spiegati",
         "text": "Quando i contenuti delle regole vengono corretti, i tuoi personaggi li seguono e vedi che cosa è cambiato sulla loro scheda."
-      },
-      "print": {
-        "name": "Una scheda da stampare",
-        "text": "La scheda del personaggio e le carte dei suoi privilegi e incantesimi, pronte da stampare."
       },
       "play": {
         "name": "Giocare dal telefono",

@@ -127,6 +127,24 @@
         files.download(await files.exportDocument(data.value.character, { embed: true }));
         useAnalytics().track("character-export", { embedded: true });
     };
+    // The PDF (M1.6): drawn from the tree on the page, in the page size of the preferences. A failure reaches the
+    // application's error handler, like any other.
+    const makingPdf = ref(false);
+    const savePdf = async (): Promise<void> =>
+    {
+        const loaded = data.value;
+        const sheet = composed.value;
+        if ((loaded?.state !== "ready") || !sheet || makingPdf.value) { return; }
+        makingPdf.value = true;
+        try
+        {
+            const { saveSheetPdf } = await import("@/composables/sheet-pdf");
+            const options = { language: locale.value, pageSize: preferences.pageSize };
+            await saveSheetPdf(loaded.character, sheet.tree, options);
+            useAnalytics().track("character-pdf", { pageSize: preferences.pageSize });
+        }
+        finally { makingPdf.value = false; }
+    };
     /** Set once deleted: the sheet goes away first, so nothing of it (its layout) is written again. */
     const removed = ref(false);
     const remove = async (): Promise<void> =>
@@ -174,8 +192,10 @@
                    :help-level="preferences.helpLevel"
                    :language="locale"
                    :translate="translate"
+                   :making-pdf="makingPdf"
                    @remove="deleting = true"
-                   @export="exporting = true" />
+                   @export="exporting = true"
+                   @pdf="savePdf" />
         <ExportDialog v-if="data?.state === 'ready' && exporting"
                       :open="exporting"
                       :character="data.character"

@@ -123,7 +123,8 @@ export default defineNuxtConfig({
     workbox: {
       // The shell only: the content is cached as it is fetched, below. The module adds the manifest and the
       // generated pages itself, under their route (`roadmap`, not `roadmap/index.html`).
-      globPatterns: ["**/*.{js,css,html,svg,ico,png,woff2}"],
+      // The WOFF files are the PDF sheet's fonts (the page uses WOFF2), so that it can be made offline too.
+      globPatterns: ["**/*.{js,css,html,svg,ico,png,woff2}", "**/*-latin-{400,700}-normal.*.woff"],
       globIgnores: ["content/**"],
       // Client-rendered: every page is the same shell, precached under the base itself.
       navigateFallback: baseURL,

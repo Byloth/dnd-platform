@@ -275,7 +275,9 @@
     "edit": "Edit",
     "change": "Change",
     "delete": "Delete",
-    "export": "Export"
+    "export": "Export",
+    "pdf": "PDF",
+    "pdfBusy": "Preparing the PDF…"
   },
   "wizard": {
     "title": "New character",
@@ -675,17 +677,21 @@
         "name": "Clearer settings",
         "text": "A settings page, and metres and kilograms for whoever prefers them."
       },
+      "print": {
+        "name": "The whole sheet in the PDF",
+        "text": "The pages for background and spells, a blank sheet to print, and a card for every feature and spell."
+      },
       "files": {
         "name": "Characters as files",
         "text": "Download a character and open it on another device, with your own content inside if you like."
       },
+      "pdf": {
+        "name": "Your sheet as a PDF",
+        "text": "One tap turns the sheet into a PDF to print or keep on your phone, its boxes still ready to fill in."
+      },
       "updates": {
         "name": "Rules updates, explained",
         "text": "When the rules content is corrected, your characters follow it and you see what changed on their sheet."
-      },
-      "print": {
-        "name": "A printable sheet",
-        "text": "The character sheet and the cards of its features and spells, ready to print."
       },
       "play": {
         "name": "Playing from the phone",

@@ -5,6 +5,7 @@ import type { Character } from "@byloth/dnd-platform-engine";
 import { stableStringify } from "@byloth/dnd-platform-schema";
 
 import type { PackageFile } from "./packages";
+import { safeFileName, saveFile } from "./save-file";
 
 /**
  * A character as a file (docs/phase-1/05-print-and-export.md, M1.5): the document unchanged, the packages it uses
@@ -87,11 +88,7 @@ function _validator(): Promise<(value: unknown) => readonly string[]>
 /** A file name from a character's name: readable, without the characters a file system refuses. */
 export function exportFileName(name: string): string
 {
-    // eslint-disable-next-line no-control-regex
-    const safe = name.replace(/[\u0000-\u001f\\/:*?"<>|]+/g, "-").replace(/\s+/g, " ")
-        .trim();
-
-    return `${safe || "character"}.dnd.json`;
+    return safeFileName(name, "dnd.json");
 }
 
 export function useCharacterFiles()
@@ -142,12 +139,7 @@ export function useCharacterFiles()
     const download = (document: ExportDocument): void =>
     {
         const blob = new Blob([stableStringify(document)], { type: "application/json" });
-        const url = URL.createObjectURL(blob);
-        const link = window.document.createElement("a");
-        link.href = url;
-        link.download = exportFileName(document.character.name);
-        link.click();
-        setTimeout(() => URL.revokeObjectURL(url), 0);
+        void saveFile(blob, exportFileName(document.character.name));
     };
 
     /** Reads a file as an export document, or refuses it with the reason. */

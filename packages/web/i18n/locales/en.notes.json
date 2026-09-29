@@ -275,7 +275,9 @@
     "edit": "Button in the sheet's header of a stored character: reopens it in the creation wizard, at the review.",
     "change": "Link in a section's header, before the section's name for screen readers: reopens the character at the creation step that sets the section.",
     "delete": "Button in the sheet's header of a stored character: asks to confirm, then deletes it.",
-    "export": "The sheet's action that opens the export dialog."
+    "export": "The sheet's action that opens the export dialog.",
+    "pdf": "Button beside Export: draws the character's sheet as a PDF and downloads it (on a phone, offers the share sheet). Keep it short.",
+    "pdfBusy": "The same button's label while the PDF is being drawn (a second or two)."
   },
   "wizard": {
     "title": "The creation wizard's page title and heading.",
@@ -676,6 +678,10 @@
         "text": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature."
       },
       "files": {
+        "name": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature.",
+        "text": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature."
+      },
+      "pdf": {
         "name": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature.",
         "text": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature."
       },

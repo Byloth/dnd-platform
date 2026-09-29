@@ -155,7 +155,8 @@ describe.each(LANGUAGES)("accessibility, in %s", (language) =>
     {
         await speak(language);
         const sheet = await render(CharacterPage, { route: "/characters/fixture-cleric-l5" });
-        (sheet.findAll(".sheet-view__actions button").at(-1)!.element as HTMLElement).click();
+        const exportButton = sheet.findAll(".sheet-view__actions button").find((b) => /Export|Esporta/.test(b.text()));
+        (exportButton!.element as HTMLElement).click();
         await waitFor(async () =>
         {
             await flushPromises();

@@ -35,8 +35,10 @@
         translate?: Translate;
         embedded?: boolean;
         editable?: boolean;
+        /** True while the page draws the PDF the player asked for. */
+        makingPdf?: boolean;
     }>();
-    const emit = defineEmits<{ remove: [], export: [] }>();
+    const emit = defineEmits<{ remove: [], export: [], pdf: [] }>();
 
     const { t } = useI18n();
     const preferences = usePreferencesStore();
@@ -151,6 +153,17 @@
                     <FontAwesome icon="file-arrow-down" aria-hidden="true" />
                     {{ t("sheetView.export") }}
                 </AppButton>
+                <AppButton v-if="!embedded"
+                           theme="secondary"
+                           outline
+                           small
+                           :disabled="makingPdf"
+                           @click="emit('pdf')">
+                    <FontAwesome :icon="makingPdf ? 'spinner' : 'file-pdf'"
+                                 :class="{ 'sheet-view__spinner': makingPdf }"
+                                 aria-hidden="true" />
+                    {{ makingPdf ? t("sheetView.pdfBusy") : t("sheetView.pdf") }}
+                </AppButton>
                 <AppButton v-if="editable"
                            theme="danger"
                            outline
@@ -234,6 +247,11 @@
     @use "@/assets/scss/mixins";
     @use "@/assets/scss/variables";
 
+    @keyframes sheet-view-spin
+    {
+        to { transform: rotate(360deg); }
+    }
+
     .sheet-view
     {
         display: grid;
@@ -290,6 +308,16 @@
             flex-wrap: wrap;
             gap: var(--space-2);
             margin-top: var(--space-4);
+        }
+
+        &__spinner
+        {
+            animation: sheet-view-spin 1s linear infinite;
+
+            @media (prefers-reduced-motion: reduce)
+            {
+                animation: none;
+            }
         }
 
         &__vital

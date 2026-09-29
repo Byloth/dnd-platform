@@ -1,7 +1,7 @@
 /**
  * Serve the generated site (`.output/public`) under its base path, as GitHub Pages does: a file when it exists,
  * a directory's `index.html`, and `200.html` for any other route of the application; gzip-compressed for a client
- * that accepts it, fonts excepted (woff2 is compressed already). For Lighthouse
+ * that accepts it, fonts excepted (WOFF and WOFF2 are compressed already). For Lighthouse
  * (lighthouserc.json), not for development.
  *
  *   node scripts/serve-site.ts [port]
@@ -27,6 +27,7 @@ const TYPES: Readonly<Record<string, string>> = {
     ".svg": "image/svg+xml",
     ".txt": "text/plain; charset=utf-8",
     ".webmanifest": "application/manifest+json",
+    ".woff": "font/woff",
     ".woff2": "font/woff2"
 };
 
@@ -52,7 +53,7 @@ createServer((request, response) =>
 
     const path = file(pathname);
     const type = TYPES[extname(path)] ?? "application/octet-stream";
-    const gzip = type !== "font/woff2" && /\bgzip\b/.test(request.headers["accept-encoding"] ?? "");
+    const gzip = !type.startsWith("font/") && /\bgzip\b/.test(request.headers["accept-encoding"] ?? "");
     const body = gzip ? gzipSync(readFileSync(path)) : readFileSync(path);
 
     response.writeHead(200, { "content-type": type, ...(gzip ? { "content-encoding": "gzip" } : {}) });
