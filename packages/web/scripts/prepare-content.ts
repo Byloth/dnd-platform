@@ -19,7 +19,8 @@ import { resolve } from "node:path";
 
 import { parse } from "yaml";
 
-import { compareVersions } from "@byloth/dnd-platform-loader";
+import { compareVersions, loadPackages } from "@byloth/dnd-platform-loader";
+import type { PackageSource } from "@byloth/dnd-platform-loader";
 
 const WEB = resolve(import.meta.dirname, "..");
 const ROOT = resolve(WEB, "..", "..");
@@ -29,6 +30,18 @@ const OUT = resolve(WEB, "public", "content");
  * multiclass caster, the level 20 caster.
  */
 const DEMOS = ["cleric-l5", "wizard-l5", "rogue-l5", "barbarian-l5", "multiclass-caster", "perf-caster-l20"];
+/**
+ * The demo characters' names in Italian (owner, 2026-09-29): nicknames like the English ones, so the characters
+ * page and their sheets speak the interface's language. A demo without one keeps its English name.
+ */
+const DEMO_NAMES_IT: Readonly<Record<string, string>> = {
+    "Stone Lantern": "Lanterna di Pietra",
+    "Cog Whisper": "Sussurro d'Ingranaggio",
+    "Small Cog": "Piccolo Ingranaggio",
+    "Grey Tusk": "Zanna Grigia",
+    "Twin Candle": "Candela Gemella",
+    "Long Ledger": "Lungo Registro"
+};
 
 mkdirSync(OUT, { recursive: true });
 const cli = resolve(ROOT, "packages", "cli", "dist", "index.js");
@@ -91,10 +104,17 @@ interface DemoCharacter
     readonly name: string;
     readonly choices: { readonly classes?: readonly { readonly class: string, readonly levels: number }[] };
 }
-const srd = JSON.parse(readFileSync(resolve(OUT, "srd51.json"), "utf8")) as {
-    entities: { id: string, data: { name?: { en?: string } } }[];
+// The class names in every language the site publishes a translation of the SRD in.
+const srdSources = ["srd51.json", "srd51-it.json"].filter((file) => existsSync(resolve(OUT, file)))
+    .map((file) => JSON.parse(readFileSync(resolve(OUT, file), "utf8")) as PackageSource);
+const srdSet = loadPackages(srdSources);
+const LANGUAGES = ["en", ...(srdSources.length > 1 ? ["it"] : [])];
+const className = (id: string, language: string): string =>
+{
+    const names = (srdSet.entities.get(id as never)?.data as { name?: Record<string, string> } | undefined)?.name;
+
+    return names?.[language] ?? names?.["en"] ?? id;
 };
-const className = (id: string): string => srd.entities.find((e) => e.id === id)?.data.name?.en ?? id;
 const CHARACTERS = resolve(OUT, "characters");
 mkdirSync(CHARACTERS, { recursive: true });
 const demos = DEMOS.map((name) =>
@@ -108,9 +128,13 @@ const demos = DEMOS.map((name) =>
 
     const character = parse(readFileSync(resolve(dir, "character.yaml"), "utf8")) as DemoCharacter;
     writeFileSync(resolve(CHARACTERS, `${character.id}.json`), `${JSON.stringify(character, null, 2)}\n`);
-    const summary = (character.choices.classes ?? []).map((c) => `${className(c.class)} ${c.levels}`).join(" / ");
+    const summary = (language: string): string => (character.choices.classes ?? [])
+        .map((c) => `${className(c.class, language)} ${c.levels}`)
+        .join(" / ");
+    const names = Object.fromEntries(LANGUAGES.map((l) =>
+        [l, (l === "it" ? DEMO_NAMES_IT[character.name] : undefined) ?? character.name]));
 
-    return { id: character.id, name: character.name, summary: summary };
+    return { id: character.id, name: names, summary: Object.fromEntries(LANGUAGES.map((l) => [l, summary(l)])) };
 });
 writeFileSync(resolve(CHARACTERS, "index.json"), `${JSON.stringify(demos, null, 2)}\n`);
 process.stdout.write(`demo characters → ${demos.map((d) => d.id).join(", ")}\n`);

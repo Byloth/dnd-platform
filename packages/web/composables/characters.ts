@@ -46,8 +46,19 @@ export function useCharacters()
         }
     };
 
+    // The site's index gives each demo's name and summary per language (owner, 2026-09-29); a plain string is
+    // the same in every language.
+    type Localized = string | Readonly<Record<string, string | undefined>>;
+    interface DemoEntry { readonly id: string, readonly name: Localized, readonly summary: Localized }
+    const pick = (value: Localized, language: string): string =>
+        (typeof value === "string" ? value : value[language] ?? value["en"] ?? "");
     const _demos = async (): Promise<Omit<CharacterEntry, "origin">[]> =>
-        $fetch<Omit<CharacterEntry, "origin">[]>(`${base}content/characters/index.json`, { responseType: "json" });
+    {
+        const language = useNuxtApp().$i18n.locale.value;
+        const entries = await $fetch<DemoEntry[]>(`${base}content/characters/index.json`, { responseType: "json" });
+
+        return entries.map((d) => ({ id: d.id, name: pick(d.name, language), summary: pick(d.summary, language) }));
+    };
 
     const list = async (): Promise<CharacterEntry[]> =>
     {
@@ -69,11 +80,14 @@ export function useCharacters()
     {
         const stored = await useBrowserStorage().characters.get(id);
         if (stored) { return { character: stored, origin: "stored" }; }
-        if (!(await _demos()).some((c) => c.id === id)) { return undefined; }
+        const entry = (await _demos()).find((c) => c.id === id);
+        if (!entry) { return undefined; }
 
         const url = `${base}content/characters/${encodeURIComponent(id)}.json`;
+        const demo = await $fetch<Character>(url, { responseType: "json" });
 
-        return { character: await $fetch<Character>(url, { responseType: "json" }), origin: "demo" };
+        // Its name in the interface's language, as the characters page shows it.
+        return { character: entry.name ? { ...demo, name: entry.name } : demo, origin: "demo" };
     };
 
     /**

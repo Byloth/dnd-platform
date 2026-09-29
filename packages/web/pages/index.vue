@@ -15,10 +15,11 @@
     // The characters page: the player's own characters, stored in this browser, then the site's demo characters,
     // each linking its sheet.
 
-    const { t } = useI18n();
+    const { t, locale } = useI18n();
     const { list } = useCharacters();
 
-    const { data: characters, status } = await useAsyncData("characters", () => list());
+    // The names and summaries follow the interface's language.
+    const { data: characters, status } = await useAsyncData("characters", () => list(), { watch: [locale] });
     const groups = computed(() => (["stored", "demo"] as const)
         .map((origin) => ({ origin: origin, characters: (characters.value ?? []).filter((c) => c.origin === origin) }))
         .filter((g) => g.characters.length > 0));
