@@ -5,11 +5,13 @@ import type { Character } from "@byloth/dnd-platform-engine";
 import type { PackageSet, PackageSource } from "@byloth/dnd-platform-loader";
 import type { JSONValue } from "@byloth/core";
 import { localize } from "@byloth/dnd-platform-composer";
+import { stableStringify } from "@byloth/dnd-platform-schema";
 
 import { deal, isPermutation, pointBuyCost, swap } from "@/composables/ability-scores";
 import { EMPTY_SELECTION, coins, useEquipment } from "@/composables/equipment";
 import type { EquipmentSelection, Source } from "@/composables/equipment";
 import type { Scores } from "@/composables/ability-scores";
+import { recordVersions } from "@/composables/versions";
 
 /**
  * The creation wizard (docs/phase-1/04-character-creation.md): a draft character document, the step on screen
@@ -122,6 +124,19 @@ export const useWizardStore = defineStore("wizard", () =>
 
         return useEngine().packageSet(sources.value, pins);
     });
+
+    /**
+     * Every correct save records the versions in use (docs/phase-1/10-wizard-integrity.md, owner 2026-09-25): the
+     * draft takes the loaded versions, the base's included, once its sources are loaded. The "what changed" alert
+     * of the sheet (M1.5b) has already run by then, since the wizard is opened from the sheet.
+     */
+    const _recordVersions = (): void =>
+    {
+        const current = character.value;
+        if (!current || !sources.value.length) { return; }
+        const recorded = recordVersions(current, sources.value);
+        if (stableStringify(recorded) !== stableStringify(current)) { character.value = recorded; }
+    };
 
     const _loadSources = async (): Promise<void> =>
     {
@@ -245,6 +260,7 @@ export const useWizardStore = defineStore("wizard", () =>
         keptEquipment.value = true;
         coinsTyped.value = true;
         await _loadSources();
+        _recordVersions();
         await save();
 
         return true;
@@ -275,6 +291,7 @@ export const useWizardStore = defineStore("wizard", () =>
         keptEquipment.value = draft.keptEquipment ?? false;
         coinsTyped.value = draft.coinsTyped ?? false;
         await _loadSources();
+        _recordVersions();
 
         return true;
     };
@@ -311,6 +328,7 @@ export const useWizardStore = defineStore("wizard", () =>
 
         _write({ ...current, packages: [current.ruleset, ...packages.filter((p) => p.id !== current.ruleset.id)] });
         await _loadSources();
+        _recordVersions();
     };
 
     const _equipment = () =>
@@ -763,6 +781,7 @@ export const useWizardStore = defineStore("wizard", () =>
      */
     const finish = async (): Promise<string | undefined> =>
     {
+        _recordVersions();
         const current = character.value;
         const name = current?.name.trim();
         if (!current || !name) { return undefined; }

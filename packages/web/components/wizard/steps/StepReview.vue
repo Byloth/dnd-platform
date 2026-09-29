@@ -62,7 +62,10 @@
 
                 return { step: choice.of === "subclass" ? "class" : "choices", text: text };
             });
-        const others = sheet.warnings.filter((w) => w.code !== "W_UNANSWERED_CHOICE")
+        // A draft records the versions it loads (docs/phase-1/10-wizard-integrity.md): a version mismatch cannot be
+        // true of it, and saving fixes it anyway.
+        const others = sheet.warnings
+            .filter((w) => (w.code !== "W_UNANSWERED_CHOICE") && (w.code !== "W_VERSION_MISMATCH"))
             .map((w): Issue => ((w.code === "W_MISSING_ENTITY") || (w.package !== undefined) ?
                 { step: "content", text: t("wizard.review.issues.content"), detail: w.message } :
                 { text: t("wizard.review.issues.other"), detail: w.message }));

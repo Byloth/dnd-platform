@@ -275,6 +275,47 @@ describe("the creation wizard's store", () =>
         expect(stepDone("personality")).toBe(false);
     });
 
+    describe("the versions a save records (docs/phase-1/10-wizard-integrity.md)", () =>
+    {
+        const current = (): string => useContentStore().site.find((p) => p.manifest.id === SRD)?.manifest.version ??
+            "";
+
+        it("an old character opened for editing carries the loaded versions from the start, and saves them", async () =>
+        {
+            const wizard = useWizardStore();
+            wizard.chooseArchetype("srd51.archetype.steadfast-healer");
+            wizard.setName("Brother Alric");
+            const id = (await wizard.finish())!;
+            const stored = (await useBrowserStorage().characters.get(id))!;
+            await useBrowserStorage().characters.put({
+                ...stored,
+                ruleset: { ...stored.ruleset, version: "0.1.0" },
+                packages: stored.packages.map((p) => ({ ...p, version: "0.1.0" })) as typeof stored.packages
+            });
+            await useContentStore().refresh();
+
+            await wizard.edit(id);
+            expect(wizard.character?.ruleset.version).toBe(current());
+            expect(wizard.character?.packages[0]?.version).toBe(current());
+
+            await wizard.finish();
+            const saved = (await useBrowserStorage().characters.get(id))!;
+            expect(saved.packages[0]?.version).toBe(current());
+            expect(saved.ruleset.version).toBe(current());
+        });
+
+        it("choosing the packages records the base's loaded version", async () =>
+        {
+            const wizard = useWizardStore();
+            wizard.character!.ruleset.version = "0.1.0";
+            await wizard.choosePackages([]);
+            await useContentStore().refresh();
+
+            expect(wizard.character?.ruleset.version).toBe(current());
+            expect(wizard.character?.packages[0]?.version).toBe(current());
+        });
+    });
+
     it("stores a named character at full hit points with its choices as created, and forgets the draft", async () =>
     {
         const wizard = useWizardStore();

@@ -51,7 +51,7 @@ describe("the reference Monk in the browser", () =>
 
     }, 60_000);
 
-    it.skipIf(!available)("offers Way of Shadow with the class when reopened at level 3, saved unchanged", async () =>
+    it.skipIf(!available)("offers Way of Shadow at level 3, saved unchanged but for the versions", async () =>
     {
         const { load } = usePackageLoader();
         await load(zipOf(BOOK, "phb14"));
@@ -73,9 +73,14 @@ describe("the reference Monk in the browser", () =>
         expect(subclass.find("input[value='srd51.subclass.monk.way-of-the-open-hand']").exists()).toBe(true);
 
         expect(await useWizardStore().finish()).toBe(character.id);
-        const saved = await useBrowserStorage().characters.get(character.id);
-        const sources = await useContentStore().sources(saved!.packages.map((p) => p.id));
-        const { sheet } = useEngine().sheet(saved!, sources, { language: "en" });
+        const saved = (await useBrowserStorage().characters.get(character.id))!;
+        const sources = await useContentStore().sources(saved.packages.map((p) => p.id));
+        // Saving records the versions in use (docs/phase-1/10-wizard-integrity.md), and nothing else changes: with
+        // the fixture's own pins back, the sheet is the fixture's snapshot.
+        expect(saved.packages.map((p) => p.version))
+            .toEqual(saved.packages.map((p) => sources.find((s) => s.manifest.id === p.id)!.manifest.version));
+        const unpinned = { ...saved, ruleset: character.ruleset, packages: character.packages };
+        const { sheet } = useEngine().sheet(unpinned, sources, { language: "en" });
         expect(`${stableStringify(sheet)}\n`).toBe(readFileSync(join(FIXTURE, "snapshot.json"), "utf8"));
         wrapper.unmount();
 
