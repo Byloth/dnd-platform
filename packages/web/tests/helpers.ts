@@ -130,18 +130,25 @@ export function serveSite(options: { olderSrd?: readonly PackageSource[] } = {})
 
         return { packages: { srd51: { latest: version, versions: versions }, ...italian, ...creatures } };
     });
-    registerEndpoint("/dnd-platform/content/srd51.json", () => SRD);
-    if (SRD_IT) { registerEndpoint("/dnd-platform/content/srd51-it.json", () => SRD_IT); }
+    // Each bundle under its alias and its versioned name, which the application fetches (M1.5c).
+    const serve = (source: PackageSource, answer: () => PackageSource = () => source): void =>
+    {
+        const { id, version } = source.manifest;
+        registerEndpoint(`/dnd-platform/content/${id}.json`, answer);
+        registerEndpoint(`/dnd-platform/content/${id}@${version}.json`, answer);
+    };
+    serve(SRD);
+    if (SRD_IT) { serve(SRD_IT); }
     if (CREATURES)
     {
-        registerEndpoint("/dnd-platform/content/srd51-creatures.json", () =>
+        serve(CREATURES, () =>
         {
             _site.creatureFetches += 1;
 
             return CREATURES;
         });
     }
-    if (CREATURES_IT) { registerEndpoint("/dnd-platform/content/srd51-creatures-it.json", () => CREATURES_IT); }
+    if (CREATURES_IT) { serve(CREATURES_IT); }
 
     return {
         publish: (published: boolean): void => { _site.published = published; },

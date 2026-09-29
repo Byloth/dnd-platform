@@ -66,14 +66,17 @@ export const useContentStore = defineStore("content", () =>
     const loads = ref<LoadEntry[]>([]);
     let _nextLoad = 1;
 
-    const _siteBundle = (id: string): Promise<PackageSource> =>
+    /** A site package's latest release; with the index at hand, its version is known without asking again. */
+    const _siteBundle = (id: string, published?: ContentIndex): Promise<PackageSource> =>
     {
-        let bundle = _siteBundles.get(id);
+        const latest = (published ?? index.value)?.packages[id]?.latest;
+        const key = latest ? `${id}@${latest}` : id;
+        let bundle = _siteBundles.get(key);
         if (!bundle)
         {
-            bundle = useContent().fetchBundle(id);
-            bundle.catch(() => _siteBundles.delete(id));
-            _siteBundles.set(id, bundle);
+            bundle = useContent().fetchBundle(id, latest);
+            bundle.catch(() => _siteBundles.delete(key));
+            _siteBundles.set(key, bundle);
         }
 
         return bundle;
@@ -100,7 +103,7 @@ export const useContentStore = defineStore("content", () =>
         // Catalogue packages (creatures) are not either, and the sheet never downloads them.
         const bundles = await Promise.all(Object.keys(published.packages).sort()
             .filter((id) => !published.packages[id]!.translation && !published.packages[id]!.catalogue)
-            .map(_siteBundle));
+            .map((id) => _siteBundle(id, published)));
         index.value = published;
         site.value = bundles.map((b) => ({ manifest: b.manifest, entities: b.entities.length, origin: "site" }));
         stored.value = records.map(_entry).sort((a, b) => (a.manifest.id < b.manifest.id ? -1 : 1));
@@ -186,7 +189,7 @@ export const useContentStore = defineStore("content", () =>
 
         const chosen = await Promise.all(ids.map(async (id) =>
         {
-            if (id in published.packages) { return _siteBundle(id); }
+            if (id in published.packages) { return _siteBundle(id, published); }
 
             const record = records.find((r) => r.source.manifest.id === id);
             if (!record) { throw new MissingPackageException(id); }
@@ -198,7 +201,7 @@ export const useContentStore = defineStore("content", () =>
         const translations: PackageSource[] = [];
         const publishedTranslations = Object.entries(published.packages)
             .filter(([, entry]) => entry.translation?.language === language)
-            .map(([id, entry]) => ({ id: id, of: entry.translation!.of, load: () => _siteBundle(id) }));
+            .map(([id, entry]) => ({ id: id, of: entry.translation!.of, load: () => _siteBundle(id, published) }));
         const local = records.map((r) => r.source)
             .filter((s) => (s.manifest.kind === "translation") && s.manifest.languages.includes(language))
             .map((s) => ({ id: s.manifest.id, of: s.manifest.dependencies.map((d) => d.id), load: async () => s }));

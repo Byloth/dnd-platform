@@ -99,7 +99,9 @@ async function _dependencies(source: PackageSource, stored: readonly StoredPacka
         {
             if (needed.has(dependency.id)) { continue; }
 
-            const found = (dependency.id in published) ? await fetchBundle(dependency.id) : byId.get(dependency.id);
+            const found = (dependency.id in published) ?
+                await fetchBundle(dependency.id, published[dependency.id]!.latest) :
+                byId.get(dependency.id);
             if (!found) { continue; }
 
             needed.set(dependency.id, found);

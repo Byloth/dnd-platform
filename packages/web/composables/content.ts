@@ -26,10 +26,15 @@ export function useContent()
     const fetchIndex = async (): Promise<ContentIndex> =>
         $fetch<ContentIndex>(`${base}content/index.json`, { responseType: "json" });
 
-    /** The latest version of a public package, or the given released version. */
+    /**
+     * A released version of a public package, the latest by default. Always by its versioned file, which never
+     * changes (DEC-21), so the service worker can keep it for good; the alias `<id>.json` is only a fallback for
+     * a package the index does not list.
+     */
     const fetchBundle = async (id: string, version?: string): Promise<PackageSource> =>
     {
-        const file = version === undefined ? `${id}.json` : `${id}@${version}.json`;
+        const wanted = version ?? (await fetchIndex()).packages[id]?.latest;
+        const file = wanted === undefined ? `${id}.json` : `${id}@${wanted}.json`;
 
         return $fetch<PackageSource>(`${base}content/${file}`, { responseType: "json" });
     };
