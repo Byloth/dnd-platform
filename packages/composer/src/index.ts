@@ -28,6 +28,8 @@ export type {
     CreatureData, CreatureOptions, StatBlock, StatBlockAbility, StatBlockEntry, StatBlockLine, StatBlockSection
 } from "./creature.js";
 export { composeEntry, spellClassIds } from "./entry.js";
+export { diffTrees } from "./diff.js";
+export type { DiffOptions, SheetChange } from "./diff.js";
 export type { EntryOptions, EntrySection, EntryView } from "./entry.js";
 export { CONDITION_KEYS, conditionWords, firstSentence } from "./explain.js";
 export type { WordingContext } from "./explain.js";

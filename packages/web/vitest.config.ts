@@ -9,6 +9,8 @@ export default defineVitestConfig({
     name: "web",
     environment: "nuxt",
     include: ["tests/**/*.test.ts"],
+    // Every test mounts Nuxt components; under the hooks, with the whole suite running, 5 s was not always enough.
+    testTimeout: 15_000,
     environmentOptions: {
       nuxt: {
         rootDir: fileURLToPath(new URL("./", import.meta.url)),
