@@ -32,6 +32,8 @@ import CreditsPage from "@/pages/credits.vue";
 import ConsentBanner from "@/components/globals/ConsentBanner.vue";
 import EditPage from "@/pages/characters/[id]/edit.vue";
 import CompendiumPage from "@/pages/compendium/index.vue";
+import ChangelogPage from "@/pages/changelog/[id].vue";
+import UpdateNotice from "@/components/sheet/UpdateNotice.vue";
 import CompendiumKindPage from "@/pages/compendium/[kind]/index.vue";
 import CompendiumEntryPage from "@/pages/compendium/[kind]/[id].vue";
 
@@ -130,6 +132,24 @@ describe.each(LANGUAGES)("accessibility, in %s", (language) =>
         await expectAccessible(await render(PackagesPage));
 
     }, 20_000);
+
+    it("the update alert and the changelog page", async () =>
+    {
+        await speak(language);
+        const check = {
+            updates: [
+                { id: "srd51", from: "0.6.0", to: "0.7.1", compared: true, changelog: true },
+                { id: "homebrew.byloth", from: "0.1.0", to: "0.2.0", compared: false, changelog: false }
+            ],
+            changes: Array.from({ length: 10 }, (_, i) =>
+                ({ section: "Combat", label: `Value ${i}`, before: "1", after: "2" }))
+        };
+        await expectAccessible(await render(UpdateNotice, { props: { check: check, name: (id: string) => id } }));
+        _mounted?.unmount();
+        document.body.innerHTML = "";
+
+        await expectAccessible(await render(ChangelogPage, { route: "/changelog/srd51?from=0.6.0" }));
+    });
 
     it("the export dialog on a sheet, and the import dialog on the characters page", async () =>
     {

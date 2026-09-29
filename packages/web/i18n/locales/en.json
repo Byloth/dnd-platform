@@ -172,6 +172,19 @@
       "confirm": "Delete {name}",
       "cancel": "Keep the character",
       "exportFirst": "Download a copy first"
+    },
+    "updates": {
+      "title": "The rules were updated",
+      "text": "Some content this character uses has a new version, and your sheet follows it.",
+      "changed": "What changed on your sheet",
+      "none": "Nothing on your sheet changed.",
+      "unknown": "What it changed cannot be shown: the earlier version is not on this device.",
+      "package": "{name}: {from} → {to}",
+      "changelog": "What's new in {name}",
+      "new": "new",
+      "gone": "gone",
+      "more": "Show all {count} changes",
+      "ok": "Got it"
     }
   },
   "terms": {
@@ -793,5 +806,13 @@
     },
     "readMore": "Read in the compendium",
     "newTab": "opens in a new tab"
+  },
+  "changelog": {
+    "title": "What's new",
+    "intro": "The changes of each version of this package, newest first.",
+    "since": "Since the version your character had",
+    "earlier": "Earlier versions",
+    "missing": "This package publishes no list of changes.",
+    "back": "Back"
   }
 }

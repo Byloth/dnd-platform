@@ -172,6 +172,19 @@
       "confirm": "Elimina {name}",
       "cancel": "Tieni il personaggio",
       "exportFirst": "Scarica prima una copia"
+    },
+    "updates": {
+      "title": "Le regole sono state aggiornate",
+      "text": "Alcuni contenuti usati da questo personaggio hanno una nuova versione, e la scheda la segue.",
+      "changed": "Che cosa è cambiato sulla scheda",
+      "none": "Sulla scheda non è cambiato nulla.",
+      "unknown": "Non si può mostrare che cosa è cambiato: la versione precedente non è su questo dispositivo.",
+      "package": "{name}: {from} → {to}",
+      "changelog": "Novità di {name}",
+      "new": "nuovo",
+      "gone": "rimosso",
+      "more": "Mostra tutte le {count} modifiche",
+      "ok": "Ho capito"
     }
   },
   "terms": {
@@ -793,5 +806,13 @@
     },
     "readMore": "Leggi nel compendio",
     "newTab": "si apre in una nuova scheda"
+  },
+  "changelog": {
+    "title": "Novità",
+    "intro": "Le modifiche di ogni versione di questo pacchetto, dalla più recente.",
+    "since": "Dalla versione che aveva il tuo personaggio",
+    "earlier": "Versioni precedenti",
+    "missing": "Questo pacchetto non pubblica un elenco di modifiche.",
+    "back": "Indietro"
   }
 }

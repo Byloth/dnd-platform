@@ -3,9 +3,12 @@
     import type { PackageSource } from "@byloth/dnd-platform-loader";
 
     import SheetView from "@/components/sheet/SheetView.vue";
+    import UpdateNotice from "@/components/sheet/UpdateNotice.vue";
     import AppButton from "@/components/ui/AppButton.vue";
     import ConfirmDialog from "@/components/ui/ConfirmDialog.vue";
     import FontAwesome from "@/components/ui/FontAwesome.vue";
+    import { recordVersions, useVersionCheck } from "@/composables/versions";
+    import type { VersionCheck } from "@/composables/versions";
     import { MissingPackageException } from "@/stores/content";
 
     // The export dialog loads with its first use: the file code is not part of the sheet's load.
@@ -34,7 +37,7 @@
 
     const id = computed(() => String(route.params["id"]));
 
-    const { data, status } = await useAsyncData(() => `character-${id.value}`, async (): Promise<Loaded> =>
+    const { data, status, refresh } = await useAsyncData(() => `character-${id.value}`, async (): Promise<Loaded> =>
     {
         const found = await useCharacters().get(id.value);
         if (!found) { return { state: "not-found" }; }
@@ -65,6 +68,41 @@
             return undefined;
         }
     });
+
+    // DEC-21 (M1.5b): a stored character last seen with an older version of a package it uses is told what the
+    // update changed on its sheet; "Got it" records the versions. When nothing changed, they are recorded at once.
+    const updates = shallowRef<VersionCheck>();
+    const acknowledge = async (): Promise<void> =>
+    {
+        const loaded = data.value;
+        updates.value = undefined;
+        if (loaded?.state !== "ready") { return; }
+        await useBrowserStorage().characters.put(recordVersions(loaded.character, loaded.sources));
+        await refresh();
+    };
+    watch(() => [data.value, locale.value] as const, async ([loaded]) =>
+    {
+        updates.value = undefined;
+        if ((loaded?.state !== "ready") || !loaded.stored) { return; }
+        const found = await useVersionCheck().check(loaded.character, loaded.sources, {
+            language: locale.value,
+            translate: translate
+        });
+        if (!found.updates.length) { return; }
+        if (!found.changes.length && found.updates.every((u) => u.compared)) { await acknowledge(); }
+        else { updates.value = found; }
+
+    }, { immediate: true });
+    const packageName = (packageId: string): string =>
+    {
+        const loaded = data.value;
+        const manifest = loaded?.state === "ready" ?
+            loaded.sources.find((s) => s.manifest.id === packageId)?.manifest :
+            undefined;
+        const names = manifest?.name as Record<string, string | undefined> | undefined;
+
+        return names?.[locale.value] ?? names?.["en"] ?? packageId;
+    };
 
     const composed = computed(() =>
     {
@@ -105,6 +143,10 @@
 
 <template>
     <div class="character-page">
+        <UpdateNotice v-if="updates && composed && data?.state === 'ready' && !removed"
+                      :check="updates"
+                      :name="packageName"
+                      @ok="acknowledge" />
         <p v-if="status === 'pending'" role="status">
             {{ t("character.loading") }}
         </p>

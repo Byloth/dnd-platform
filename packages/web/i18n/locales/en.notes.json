@@ -172,6 +172,19 @@
       "confirm": "The destructive button. Parameter: {name}.",
       "cancel": "The safe button, focused first.",
       "exportFirst": "In the delete confirmation: downloads the character's file before it is deleted."
+    },
+    "updates": {
+      "title": "The alert on a stored character's sheet when a package it uses has a newer version (DEC-21): what changed, with a link to the changelog. Parameters: {name}, {from}, {to}, {count} where present.",
+      "text": "The alert on a stored character's sheet when a package it uses has a newer version (DEC-21): what changed, with a link to the changelog. Parameters: {name}, {from}, {to}, {count} where present.",
+      "changed": "The alert on a stored character's sheet when a package it uses has a newer version (DEC-21): what changed, with a link to the changelog. Parameters: {name}, {from}, {to}, {count} where present.",
+      "none": "The alert on a stored character's sheet when a package it uses has a newer version (DEC-21): what changed, with a link to the changelog. Parameters: {name}, {from}, {to}, {count} where present.",
+      "unknown": "The alert on a stored character's sheet when a package it uses has a newer version (DEC-21): what changed, with a link to the changelog. Parameters: {name}, {from}, {to}, {count} where present.",
+      "package": "The alert on a stored character's sheet when a package it uses has a newer version (DEC-21): what changed, with a link to the changelog. Parameters: {name}, {from}, {to}, {count} where present.",
+      "changelog": "The alert on a stored character's sheet when a package it uses has a newer version (DEC-21): what changed, with a link to the changelog. Parameters: {name}, {from}, {to}, {count} where present.",
+      "new": "The alert on a stored character's sheet when a package it uses has a newer version (DEC-21): what changed, with a link to the changelog. Parameters: {name}, {from}, {to}, {count} where present.",
+      "gone": "The alert on a stored character's sheet when a package it uses has a newer version (DEC-21): what changed, with a link to the changelog. Parameters: {name}, {from}, {to}, {count} where present.",
+      "more": "The alert on a stored character's sheet when a package it uses has a newer version (DEC-21): what changed, with a link to the changelog. Parameters: {name}, {from}, {to}, {count} where present.",
+      "ok": "The alert on a stored character's sheet when a package it uses has a newer version (DEC-21): what changed, with a link to the changelog. Parameters: {name}, {from}, {to}, {count} where present."
     }
   },
   "terms": {
@@ -793,5 +806,13 @@
     },
     "readMore": "Link from a spell or an item in the creation wizard to its entry in the compendium.",
     "newTab": "Read by screen readers after a link that opens a new browser tab, in brackets."
+  },
+  "changelog": {
+    "title": "The changelog page of a published package (content/<id>.changelog.md), linked from the update alert.",
+    "intro": "The changelog page of a published package (content/<id>.changelog.md), linked from the update alert.",
+    "since": "The changelog page of a published package (content/<id>.changelog.md), linked from the update alert.",
+    "earlier": "The changelog page of a published package (content/<id>.changelog.md), linked from the update alert.",
+    "missing": "The changelog page of a published package (content/<id>.changelog.md), linked from the update alert.",
+    "back": "The changelog page of a published package (content/<id>.changelog.md), linked from the update alert."
   }
 }

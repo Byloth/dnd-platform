@@ -76,8 +76,20 @@ const _site = { published: true, creatureFetches: 0 };
  * creatures (a catalogue, with its translation); the returned switch unpublishes the SRD, and `creatureFetches`
  * counts the requests for the creatures' bundle. Call once per test file, at the top level.
  */
-export function serveSite(): { publish: (published: boolean) => void, creatureFetches: () => number }
+export function serveSite(options: { olderSrd?: readonly PackageSource[] } = {}): {
+    publish: (published: boolean) => void;
+    creatureFetches: () => number;
+}
 {
+    // Earlier releases of the SRD, for the update alert (DEC-21): listed in the index and served by version.
+    const older = options.olderSrd ?? [];
+    for (const release of older)
+    {
+        registerEndpoint(`/dnd-platform/content/srd51@${release.manifest.version}.json`, () => release);
+    }
+    registerEndpoint("/dnd-platform/content/srd51.changelog.md", () =>
+        readFileSync(resolve(ROOT, "packages", "content", "srd51", "CHANGELOG.md"), "utf8"));
+
     registerEndpoint("/dnd-platform/content/index.json", () =>
     {
         const { version } = SRD.manifest;
@@ -114,7 +126,9 @@ export function serveSite(): { publish: (published: boolean) => void, creatureFe
             } :
             {};
 
-        return { packages: { srd51: { latest: version, versions: [version] }, ...italian, ...creatures } };
+        const versions = [...older.map((r) => r.manifest.version), version];
+
+        return { packages: { srd51: { latest: version, versions: versions }, ...italian, ...creatures } };
     });
     registerEndpoint("/dnd-platform/content/srd51.json", () => SRD);
     if (SRD_IT) { registerEndpoint("/dnd-platform/content/srd51-it.json", () => SRD_IT); }
