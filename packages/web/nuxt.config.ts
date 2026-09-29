@@ -31,7 +31,14 @@ export default defineNuxtConfig({
       link: [
         { rel: "icon", type: "image/svg+xml", href: `${baseURL}favicon.svg` },
         { rel: "icon", sizes: "48x48", href: `${baseURL}favicon.ico` },
-        { rel: "apple-touch-icon", href: `${baseURL}apple-touch-icon.png` }
+        { rel: "apple-touch-icon", href: `${baseURL}apple-touch-icon.png` },
+        // The installed application (M1.5c): the manifest the PWA module writes.
+        { rel: "manifest", href: `${baseURL}manifest.webmanifest` }
+      ],
+      // The browser's bar in each look's own colour: the accent on parchment, the slate of the dark look.
+      meta: [
+        { name: "theme-color", content: "#8E2A1C", media: "(prefers-color-scheme: light)" },
+        { name: "theme-color", content: "#13161C", media: "(prefers-color-scheme: dark)" }
       ]
     },
     pageTransition: { name: "page", mode: "out-in" }
@@ -81,8 +88,69 @@ export default defineNuxtConfig({
     "@byloth/nuxt-vuert-module",
     "@nuxtjs/i18n",
     "@pinia/nuxt",
-    "@vueuse/nuxt"
+    "@vueuse/nuxt",
+    "@vite-pwa/nuxt"
   ],
+  // The site as a PWA (M1.5c, DEC-06 in part): the application shell precached, the public content cached as it
+  // is fetched, installable. A new version waits and takes over at the next page change (plugins/pwa.client.ts),
+  // never with a pop-up; development runs no worker.
+  pwa: {
+    strategies: "generateSW",
+    registerType: "prompt",
+    injectRegister: false,
+    client: { registerPlugin: false },
+    scope: baseURL,
+    base: baseURL,
+    // The Web App Manifest's own names are snake_case.
+    /* eslint-disable camelcase */
+    manifest: {
+      name: "D&D Platform",
+      short_name: "D&D Platform",
+      description: "Create a D&D 5e character step by step, with a sheet that explains every number.",
+      start_url: baseURL,
+      scope: baseURL,
+      display: "standalone",
+      theme_color: "#8E2A1C",
+      background_color: "#F7F1E4",
+      // From pwa-assets.config.ts (npx pwa-assets-generator).
+      icons: [
+        { src: "pwa-192x192.png", sizes: "192x192", type: "image/png" },
+        { src: "pwa-512x512.png", sizes: "512x512", type: "image/png" },
+        { src: "maskable-icon-512x512.png", sizes: "512x512", type: "image/png", purpose: "maskable" }
+      ]
+    },
+    /* eslint-enable camelcase */
+    workbox: {
+      // The shell only: the content is cached as it is fetched, below. The module adds the manifest and the
+      // generated pages itself, under their route (`roadmap`, not `roadmap/index.html`).
+      globPatterns: ["**/*.{js,css,html,svg,ico,png,woff2}"],
+      globIgnores: ["content/**"],
+      // Client-rendered: every page is the same shell, precached under the base itself.
+      navigateFallback: baseURL,
+      navigateFallbackDenylist: [/\/content\//],
+      cleanupOutdatedCaches: true,
+      runtimeCaching: [
+        {
+          // A release never changes (DEC-21): once fetched, it is kept.
+          urlPattern: /\/content\/[^/]+@[^/]+\.json$/,
+          handler: "CacheFirst",
+          options: { cacheName: "content-releases", expiration: { maxEntries: 40 } }
+        },
+        {
+          // The newest versions when online, the last known ones offline.
+          urlPattern: /\/content\/index\.json$/,
+          handler: "NetworkFirst",
+          options: { cacheName: "content-index", networkTimeoutSeconds: 3 }
+        },
+        {
+          urlPattern: /\/content\/(?:characters\/[^/]+\.json|[^/]+\.changelog\.md)$/,
+          handler: "StaleWhileRevalidate",
+          options: { cacheName: "content-pages" }
+        }
+      ]
+    },
+    devOptions: { enabled: false }
+  },
   nitro: { preset: "github-pages" },
   vite: {
     // Font Awesome's stylesheets still use Sass features that Dart Sass deprecates; not our warnings to fix.
