@@ -32,8 +32,11 @@ export default defineNuxtConfig({
         { rel: "icon", type: "image/svg+xml", href: `${baseURL}favicon.svg` },
         { rel: "icon", sizes: "48x48", href: `${baseURL}favicon.ico` },
         { rel: "apple-touch-icon", href: `${baseURL}apple-touch-icon.png` },
-        // The installed application (M1.5c): the manifest the PWA module writes.
-        { rel: "manifest", href: `${baseURL}manifest.webmanifest` }
+        // The installed application (M1.5c): the manifest the PWA module writes. Not in development, where the
+        // module is off and the address would answer with the application's page.
+        ...(process.env["NODE_ENV"] === "production" ?
+          [{ rel: "manifest" as const, href: `${baseURL}manifest.webmanifest` }] :
+          [])
       ],
       // The browser's bar in each look's own colour: the accent on parchment, the slate of the dark look.
       meta: [

@@ -184,10 +184,11 @@ export async function clearBrowserStorage(): Promise<void>
 }
 
 /**
- * `vi.waitFor` with 5 s instead of 1: the hooks run the whole suite at once, and a page's asynchronous work (a
- * dialog loaded on first use, the bestiary fetched, a package update compared) can take longer then.
+ * `vi.waitFor` with 10 s instead of 1: the hooks run the whole suite at once, and a page's asynchronous work (a
+ * dialog loaded on first use, the bestiary fetched, a package update compared) can take longer then; more so
+ * since the PDF sheet's tests draw PDFs alongside (M1.6). A check that passes returns at once.
  */
 export function waitFor<T>(check: () => T | Promise<T>): Promise<T>
 {
-    return vi.waitFor(check, { timeout: 5000, interval: 50 });
+    return vi.waitFor(check, { timeout: 10_000, interval: 50 });
 }
