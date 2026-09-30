@@ -692,17 +692,13 @@
         "name": "Clearer settings",
         "text": "A settings page, and metres and kilograms for whoever prefers them."
       },
-      "print": {
-        "name": "Feature and spell cards",
-        "text": "A card for every feature and spell, with its whole text, at the end of the PDF."
-      },
       "files": {
         "name": "Characters as files",
         "text": "Download a character and open it on another device, with your own content inside if you like."
       },
       "pdf": {
         "name": "Your sheet as a PDF",
-        "text": "One tap turns the sheet into a PDF to print or keep on your phone, its boxes still ready to fill in and its numbers updating themselves in most readers; a blank one too."
+        "text": "One tap turns the sheet into a PDF to print or keep on your phone: its boxes ready to fill in, its numbers updating themselves in most readers, a card for every feature and spell; a blank one too."
       },
       "updates": {
         "name": "Rules updates, explained",
@@ -759,7 +755,7 @@
       "title": "Data, fonts and tools",
       "items": {
         "data": "SRD data prepared with the help of the 5e-database by 5e-bits (its data under the OGL 1.0a, as stated upstream) and of Open5e (CC-BY-4.0).",
-        "fonts": "Cinzel by Natanael Gama and Atkinson Hyperlegible by the Braille Institute, both under the SIL Open Font License.",
+        "fonts": "Cinzel by Natanael Gama, Atkinson Hyperlegible by the Braille Institute and Patrick Hand by Patrick Wagesreiter, all under the SIL Open Font License.",
         "icons": "Icons from Font Awesome Free (CC BY 4.0).",
         "framework": "Built with Vue and Nuxt, published on GitHub Pages.",
         "statistics": "Usage statistics, only with your consent, by Umami."

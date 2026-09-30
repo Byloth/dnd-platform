@@ -17,7 +17,7 @@
                 "expert", "compendium", "languages", "app", "books"
             ]
         },
-        { status: "next", icon: "feather", items: ["settings", "print"] },
+        { status: "next", icon: "feather", items: ["settings"] },
         {
             status: "later",
             icon: "star",

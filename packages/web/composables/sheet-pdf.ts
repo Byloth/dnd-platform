@@ -8,9 +8,11 @@ import { renderSheet } from "@byloth/dnd-platform-sheets";
 import type { Hand, PageSize, SheetFonts } from "@byloth/dnd-platform-sheets";
 import type { SectionTree } from "@byloth/dnd-platform-composer";
 import type { Character } from "@byloth/dnd-platform-engine";
+import type { PackageSet } from "@byloth/dnd-platform-loader";
 
 import atkinsonBold from "@fontsource/atkinson-hyperlegible/files/atkinson-hyperlegible-latin-700-normal.woff?url";
 import atkinson from "@fontsource/atkinson-hyperlegible/files/atkinson-hyperlegible-latin-400-normal.woff?url";
+import atkinsonItalic from "@fontsource/atkinson-hyperlegible/files/atkinson-hyperlegible-latin-400-italic.woff?url";
 import cinzel from "@fontsource/cinzel/files/cinzel-latin-700-normal.woff?url";
 import patrickHand from "@fontsource/patrick-hand/files/patrick-hand-latin-400-normal.woff?url";
 
@@ -29,11 +31,11 @@ async function bytes(url: string): Promise<ArrayBuffer>
 
 async function fonts(hand: Hand): Promise<SheetFonts>
 {
-    const [display, text, textBold, written] = await Promise.all([
-        bytes(cinzel), bytes(atkinson), bytes(atkinsonBold), bytes(HAND_FONTS[hand])
+    const [display, text, textBold, textItalic, written] = await Promise.all([
+        bytes(cinzel), bytes(atkinson), bytes(atkinsonBold), bytes(atkinsonItalic), bytes(HAND_FONTS[hand])
     ]);
 
-    return { display: display, text: text, textBold: textBold, hand: written };
+    return { display: display, text: text, textBold: textBold, textItalic: textItalic, hand: written };
 }
 
 export interface SheetPdfOptions
@@ -41,6 +43,8 @@ export interface SheetPdfOptions
     readonly language: string;
     readonly pageSize?: PageSize;
     readonly hand?: Hand;
+    /** The character's package set: the spells' cards take their full entries from it. */
+    readonly packages?: PackageSet;
 }
 
 /** The PDF of a character's sheet, from the section tree the sheet page already composed; blank without them. */
@@ -50,7 +54,13 @@ export async function sheetPdf(
 {
     const hand = options.hand ?? "handwriting";
     const input = character && tree ?
-        { language: options.language, tree: tree, character: character } :
+        {
+            language: options.language,
+            tree: tree,
+            character: character,
+            ...(options.packages ? { packages: options.packages } : {})
+
+        } :
         { language: options.language };
     const pageSize = options.pageSize ?? "a4";
     const sheet = await renderSheet(input, { fonts: await fonts(hand), hand: hand, pageSize: pageSize });

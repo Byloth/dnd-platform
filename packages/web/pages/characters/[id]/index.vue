@@ -139,7 +139,9 @@
         try
         {
             const { saveSheetPdf } = await import("@/composables/sheet-pdf");
-            const options = { language: locale.value, pageSize: preferences.pageSize, hand: preferences.hand };
+            const options = {
+                language: locale.value, pageSize: preferences.pageSize, hand: preferences.hand, packages: sheet.packages
+            };
             await saveSheetPdf(loaded.character, sheet.tree, options);
             useAnalytics().track("character-pdf", { pageSize: preferences.pageSize, hand: preferences.hand });
         }

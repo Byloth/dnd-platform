@@ -8,7 +8,7 @@ import "fake-indexeddb/auto";
 
 import { readFileSync } from "node:fs";
 import { createRequire } from "node:module";
-import { basename } from "node:path";
+import { basename, resolve } from "node:path";
 
 import { flushPromises } from "@vue/test-utils";
 import type { VueWrapper } from "@vue/test-utils";
@@ -20,7 +20,7 @@ import CharactersPage from "@/pages/index.vue";
 import CharacterPage from "@/pages/characters/[id]/index.vue";
 
 import { byName } from "./accessibility";
-import { clearBrowserStorage, serveDemoCharacters, serveSite } from "./helpers";
+import { clearBrowserStorage, ROOT, serveDemoCharacters, serveSite } from "./helpers";
 
 serveSite();
 serveDemoCharacters(["cleric-l5"]);
@@ -96,7 +96,10 @@ describe("the sheet as a PDF", { timeout: 60_000 }, () =>
         expect(blob.type).toBe("application/pdf");
         const pdf = await PDFDocument.load(await blob.arrayBuffer());
         const form = pdf.getForm();
-        expect(pdf.getPageCount()).toBe(3);
+        // The cards and the credits after the three pages, as the print fixture counts them (fixtures/print).
+        const counts = JSON.parse(readFileSync(resolve(ROOT, "fixtures", "print", "page-counts.json"), "utf8")) as
+            Record<string, { a4: number }>;
+        expect(pdf.getPageCount()).toBe(counts["cleric-l5"]!.a4);
         expect(form.getTextField("class-level").getText()).toContain("Cleric 5");
         expect(form.getTextField("caster-1-class").getText()).toBe("Cleric");
         expect(form.getTextField("ac").getText()).toMatch(/^\d+$/);

@@ -692,17 +692,13 @@
         "name": "Impostazioni più chiare",
         "text": "Una pagina di impostazioni, e metri e chili per chi li preferisce."
       },
-      "print": {
-        "name": "Le carte di privilegi e incantesimi",
-        "text": "Una carta per ogni privilegio e incantesimo, con tutto il suo testo, in fondo al PDF."
-      },
       "files": {
         "name": "Personaggi come file",
         "text": "Scarica un personaggio e aprilo su un altro dispositivo, con i tuoi contenuti dentro se vuoi."
       },
       "pdf": {
         "name": "La scheda in PDF",
-        "text": "Con un tocco la scheda diventa un PDF da stampare o da tenere sul telefono, con le caselle da compilare e i numeri che si aggiornano da soli nella maggior parte dei lettori; anche vuota."
+        "text": "Con un tocco la scheda diventa un PDF da stampare o da tenere sul telefono: caselle da compilare, numeri che si aggiornano da soli nella maggior parte dei lettori, una carta per ogni privilegio e incantesimo; anche vuota."
       },
       "updates": {
         "name": "Aggiornamenti delle regole, spiegati",
@@ -759,7 +755,7 @@
       "title": "Dati, caratteri e strumenti",
       "items": {
         "data": "Dati dell'SRD preparati con l'aiuto di 5e-database di 5e-bits (dati con licenza OGL 1.0a, come dichiarato dagli autori) e di Open5e (CC-BY-4.0).",
-        "fonts": "Cinzel di Natanael Gama e Atkinson Hyperlegible del Braille Institute, entrambi con licenza SIL Open Font License.",
+        "fonts": "Cinzel di Natanael Gama, Atkinson Hyperlegible del Braille Institute e Patrick Hand di Patrick Wagesreiter, tutti con licenza SIL Open Font License.",
         "icons": "Icone di Font Awesome Free (CC BY 4.0).",
         "framework": "Realizzato con Vue e Nuxt, pubblicato su GitHub Pages.",
         "statistics": "Statistiche d'uso, solo con il tuo consenso, con Umami."
