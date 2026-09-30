@@ -6,8 +6,8 @@
 
 import { createTranslate } from "@byloth/dnd-platform-composer";
 import type {
-    AbilitiesBlock, AttacksBlock, Block, EquipmentBlock, FeaturesBlock, IdentityBlock, PersonalityBlock,
-    SectionTree, SkillsBlock, SpellcastingBlock, ValuesBlock
+    AbilitiesBlock, AttacksBlock, Block, ConditionsBlock, EquipmentBlock, FeaturesBlock, IdentityBlock, NotesBlock,
+    PersonalityBlock, ResourcesBlock, SectionTree, SkillsBlock, SpellcastingBlock, SpellsBlock, ValuesBlock
 } from "@byloth/dnd-platform-composer";
 import type { Character } from "@byloth/dnd-platform-engine";
 
@@ -32,6 +32,27 @@ export interface SkillValues
     readonly mark: "untrained" | "proficient" | "expertise";
 }
 export interface AttackValues { readonly name: string, readonly bonus: string, readonly damage: string }
+/** A resource of page 2: pips to tick when it is small, "left / max" otherwise. */
+export interface ResourceValues
+{
+    readonly name: string;
+    /** Pips to draw; 0 when the resource is written as "left / max". */
+    readonly pips: number;
+    /** How many are spent now (the pips ticked). */
+    readonly spent: number;
+    readonly left: string;
+    readonly max: string;
+    readonly recharge: string;
+}
+/** A spellcasting class of page 3. */
+export interface CasterValues
+{
+    readonly name: string;
+    readonly ability: string;
+    readonly dc: string;
+    readonly attackBonus: string;
+}
+export interface SpellLine { readonly label: string, readonly prepared: boolean }
 
 export interface SheetValues
 {
@@ -39,6 +60,12 @@ export interface SheetValues
     readonly abilities: readonly AbilityValues[];
     readonly skills: readonly SkillValues[];
     readonly attacks: readonly AttackValues[];
+    readonly resources: readonly ResourceValues[];
+    readonly casters: readonly CasterValues[];
+    /** The spells by level: index 0 the cantrips, 1–9 the levels. */
+    readonly spells: readonly (readonly SpellLine[])[];
+    /** True for the blank sheet: every page is printed, every row empty. */
+    readonly blank: boolean;
     /** Every other field, by name; an absent name is an empty field. */
     readonly text: Readonly<Record<string, string>>;
     /** Check boxes by name; an absent name is unchecked. */
@@ -101,7 +128,18 @@ export function sheetValues(input: SheetInput): SheetValues
             }))
             .sort((a, b) => a.name.localeCompare(b.name, input.language));
 
-        return { language: input.language, abilities: abilities, skills: skills, attacks: [], text: {}, checks: {} };
+        return {
+            language: input.language,
+            abilities: abilities,
+            skills: skills,
+            attacks: [],
+            resources: [],
+            casters: [],
+            spells: Array.from({ length: 10 }, () => []),
+            blank: true,
+            text: {},
+            checks: {}
+        };
     }
 
     const text: Record<string, string> = {};
@@ -214,7 +252,70 @@ export function sheetValues(input: SheetInput): SheetValues
     const features = groups.map((g) => `${g.label}\n${g.items.map((i) => `• ${i.name}`).join("\n")}`);
     if (features.length > 0) { text["features"] = features.join("\n\n"); }
 
+    // Page 2: appearance, backstory, resources, conditions
+    const appearance = personality.find((f) => f.label === t("sheet.personality.appearance"));
+    if (appearance) { text["appearance"] = appearance.text; }
+    const notesText = (block(tree, "notes", "notes") as NotesBlock | undefined)?.text;
+    if (notesText) { text["backstory"] = notesText; }
+    const resourceItems = (block(tree, "resources", "resources") as ResourcesBlock | undefined)?.items ?? [];
+    const resources = resourceItems.map((item) =>
+    {
+        const max = typeof item.max === "number" ? item.max : Number.NaN;
+        const current = item.current ?? max;
+        const pips = (item.pips && (max <= 10)) ? max : 0;
+
+        return {
+            name: item.name,
+            pips: pips,
+            spent: pips > 0 ? Math.max(0, max - current) : 0,
+            left: Number.isFinite(current) ? String(current) : "",
+            max: item.shownMax,
+            recharge: item.recharge
+        };
+    });
+    const conditions = (block(tree, "conditions", "conditions") as ConditionsBlock | undefined)?.items ?? [];
+    if (conditions.length > 0) { text["conditions"] = conditions.join("\n"); }
+
+    // Page 3: the casters, their slots by level (Pact Magic's apart), the spells by level
+    casters.forEach((c, i) =>
+    {
+        text[`caster-${i + 1}-class`] = c.name;
+        text[`caster-${i + 1}-ability`] = c.ability;
+        text[`caster-${i + 1}-dc`] = c.dc;
+        text[`caster-${i + 1}-attack`] = c.attackBonus;
+    });
+    const casterValues = casters.map((c) => ({
+        name: c.name, ability: c.ability, dc: c.dc, attackBonus: c.attackBonus
+    }));
+    for (let level = 1; level <= 9; level += 1)
+    {
+        const slots = casters.flatMap((c) => c.slots).filter((slot) => slot.level === level);
+        const shared = Math.max(0, ...slots.filter((slot) => !slot.pact).map((slot) => slot.max));
+        const pact = slots.filter((slot) => slot.pact).reduce((sum, slot) => sum + slot.max, 0);
+        const parts = [shared > 0 ? String(shared) : "", pact > 0 ? `${pact} ${labels.pact}` : ""]
+            .filter((p) => p !== "");
+        if (parts.length > 0) { text[`slots-${level}-total`] = parts.join(" + "); }
+    }
+    const levels = (block(tree, "spells", "spells") as SpellsBlock | undefined)?.levels ?? [];
+    const spells: SpellLine[][] = Array.from({ length: 10 }, () => []);
+    for (const level of levels)
+    {
+        spells[Math.min(9, Math.max(0, level.level))]!.push(...level.items.map((item) => ({
+            label: item.label,
+            prepared: (item.spell.as === "prepared") || (item.spell.as === "always-prepared")
+        })));
+    }
+
     return {
-        language: input.language, abilities: abilities, skills: skills, attacks: attacks, text: text, checks: checks
+        language: input.language,
+        abilities: abilities,
+        skills: skills,
+        attacks: attacks,
+        resources: resources,
+        casters: casterValues,
+        spells: spells,
+        blank: false,
+        text: text,
+        checks: checks
     };
 }

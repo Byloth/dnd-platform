@@ -67,6 +67,8 @@
       "name": "Unarmed strike"
     }
   ],
+  "blank": false,
+  "casters": [],
   "checks": {
     "death-failure-1": false,
     "death-failure-2": false,
@@ -77,6 +79,16 @@
     "inspiration": false
   },
   "language": "en",
+  "resources": [
+    {
+      "left": "3",
+      "max": "3",
+      "name": "Ki points",
+      "pips": 3,
+      "recharge": "regains all on a short rest, all on a long rest",
+      "spent": 0
+    }
+  ],
   "skills": [
     {
       "abbreviation": "DEX",
@@ -204,6 +216,18 @@
       "mark": "untrained",
       "name": "Survival"
     }
+  ],
+  "spells": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
   ],
   "text": {
     "ac": "15",

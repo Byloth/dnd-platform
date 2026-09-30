@@ -165,13 +165,7 @@ importers:
       '@fontsource/atkinson-hyperlegible':
         specifier: ^5.3.0
         version: 5.3.0
-      '@fontsource/caveat':
-        specifier: ^5.3.0
-        version: 5.3.0
       '@fontsource/cinzel':
-        specifier: ^5.3.0
-        version: 5.3.0
-      '@fontsource/kalam':
         specifier: ^5.3.0
         version: 5.3.0
       '@fontsource/patrick-hand':
@@ -1292,14 +1286,8 @@ packages:
   '@fontsource/atkinson-hyperlegible@5.3.0':
     resolution: {integrity: sha512-Sp8Ve8+rQmENY2Lv02VH7sLpntzTTvnncnJMTbRE7DX6TLxGraN4ykZfzaUWIoCFmaomwkvNiqmlPkrKBuDoSA==}
 
-  '@fontsource/caveat@5.3.0':
-    resolution: {integrity: sha512-eHTfzQxFSW9ABERRLNruHoNJmKed2J7pqTUc5lp4a4POMgXGKpxmWj3d9Hz10kmAg6iuTTLe6UagbA4bnsmfQw==}
-
   '@fontsource/cinzel@5.3.0':
     resolution: {integrity: sha512-KEOYTsrRppW0uRIPWBDPrQgunCS6f8u4nzZxYRBfo9SCknKojLYjK7B0ZoVmJhyVLefz271ZQRF9EOpHZlfhRw==}
-
-  '@fontsource/kalam@5.3.0':
-    resolution: {integrity: sha512-FDkVoDfPDCSN/eO81FOYtUI67eMgpVBJmjBtAqSL0PmEhJyeFY2biC+CR+yEttksgXR9+swpFdYmQTyjwBq80Q==}
 
   '@fontsource/patrick-hand@5.3.0':
     resolution: {integrity: sha512-V8C38IlIFfdWg0Xtri3F7sLCVpm069rUwn6w4n+oyn38gt7H4arOJmuReg3tAw1Q6jHqZp89wTnAAJagq4Atxw==}
@@ -8189,11 +8177,7 @@ snapshots:
 
   '@fontsource/atkinson-hyperlegible@5.3.0': {}
 
-  '@fontsource/caveat@5.3.0': {}
-
   '@fontsource/cinzel@5.3.0': {}
-
-  '@fontsource/kalam@5.3.0': {}
 
   '@fontsource/patrick-hand@5.3.0': {}
 

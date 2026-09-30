@@ -67,6 +67,21 @@
       "name": "Unarmed strike"
     }
   ],
+  "blank": false,
+  "casters": [
+    {
+      "ability": "Wisdom",
+      "attackBonus": "+7",
+      "dc": "15",
+      "name": "Cleric"
+    },
+    {
+      "ability": "Intelligence",
+      "attackBonus": "+7",
+      "dc": "15",
+      "name": "Wizard"
+    }
+  ],
   "checks": {
     "death-failure-1": false,
     "death-failure-2": false,
@@ -77,6 +92,24 @@
     "inspiration": false
   },
   "language": "en",
+  "resources": [
+    {
+      "left": "1",
+      "max": "1",
+      "name": "Channel Divinity",
+      "pips": 1,
+      "recharge": "regains all on a short rest, all on a long rest",
+      "spent": 0
+    },
+    {
+      "left": "1",
+      "max": "1",
+      "name": "Arcane Recovery",
+      "pips": 1,
+      "recharge": "regains all on a dawn",
+      "spent": 0
+    }
+  ],
   "skills": [
     {
       "abbreviation": "DEX",
@@ -205,9 +238,153 @@
       "name": "Survival"
     }
   ],
+  "spells": [
+    [
+      {
+        "label": "Fire Bolt",
+        "prepared": false
+      },
+      {
+        "label": "Guidance ©",
+        "prepared": false
+      },
+      {
+        "label": "Light",
+        "prepared": false
+      },
+      {
+        "label": "Mage Hand",
+        "prepared": false
+      },
+      {
+        "label": "Prestidigitation",
+        "prepared": false
+      },
+      {
+        "label": "Ray of Frost",
+        "prepared": false
+      },
+      {
+        "label": "Sacred Flame",
+        "prepared": false
+      },
+      {
+        "label": "Thaumaturgy",
+        "prepared": false
+      }
+    ],
+    [
+      {
+        "label": "Bless* ©",
+        "prepared": true
+      },
+      {
+        "label": "Cure Wounds*",
+        "prepared": true
+      },
+      {
+        "label": "Detect Magic ©",
+        "prepared": true
+      },
+      {
+        "label": "Guiding Bolt",
+        "prepared": true
+      },
+      {
+        "label": "Healing Word",
+        "prepared": true
+      },
+      {
+        "label": "Mage Armor",
+        "prepared": true
+      },
+      {
+        "label": "Magic Missile",
+        "prepared": true
+      },
+      {
+        "label": "Shield",
+        "prepared": true
+      }
+    ],
+    [
+      {
+        "label": "Aid",
+        "prepared": true
+      },
+      {
+        "label": "Hold Person ©",
+        "prepared": true
+      },
+      {
+        "label": "Lesser Restoration*",
+        "prepared": true
+      },
+      {
+        "label": "Misty Step",
+        "prepared": true
+      },
+      {
+        "label": "Prayer of Healing",
+        "prepared": true
+      },
+      {
+        "label": "Silence ©",
+        "prepared": true
+      },
+      {
+        "label": "Spiritual Weapon*",
+        "prepared": true
+      }
+    ],
+    [
+      {
+        "label": "Beacon of Hope* ©",
+        "prepared": true
+      },
+      {
+        "label": "Counterspell",
+        "prepared": true
+      },
+      {
+        "label": "Dispel Magic",
+        "prepared": true
+      },
+      {
+        "label": "Fireball",
+        "prepared": true
+      },
+      {
+        "label": "Fly ©",
+        "prepared": true
+      },
+      {
+        "label": "Revivify*",
+        "prepared": true
+      },
+      {
+        "label": "Spirit Guardians ©",
+        "prepared": true
+      }
+    ],
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+  ],
   "text": {
     "ac": "11",
     "attacks-notes": "Spellcasting (Cleric): save DC 15 · spell attack +7 · prepared spells · ritual casting\nSpellcasting (Wizard): save DC 15 · spell attack +7 · spellbook spells · ritual casting",
+    "caster-1-ability": "Wisdom",
+    "caster-1-attack": "+7",
+    "caster-1-class": "Cleric",
+    "caster-1-dc": "15",
+    "caster-2-ability": "Intelligence",
+    "caster-2-attack": "+7",
+    "caster-2-class": "Wizard",
+    "caster-2-dc": "15",
     "class-level": "Cleric 5 / Wizard 5",
     "equipment": "Mace (equipped)",
     "features": "Species — Human\n• Ability Score Increase\n• Speed\n• Age\n• Alignment\n• Size\n• Languages\n\nClass — Cleric, Wizard\n• Divine Domain\n• Spellcasting\n• Channel Divinity\n• Ability Score Improvement\n• Destroy Undead\n• Arcane Recovery\n• Spellcasting\n• Arcane Tradition\n• Ability Score Improvement\n\nSubclass — Life Domain, School of Evocation\n• Bonus Proficiency\n• Disciple of Life\n• Life Domain Spells (table)\n• Channel Divinity: Preserve Life\n• Evocation Savant\n• Sculpt Spells",
@@ -220,6 +397,11 @@
     "passive-perception": "13",
     "proficiencies": "Armor: Heavy armor, Light armor, Medium armor, Shields\nWeapons: Simple weapons\nLanguages: Common, Elvish",
     "proficiency-bonus": "+4",
+    "slots-1-total": "4",
+    "slots-2-total": "3",
+    "slots-3-total": "3",
+    "slots-4-total": "3",
+    "slots-5-total": "2",
     "species": "Human",
     "speed": "30 ft"
   }

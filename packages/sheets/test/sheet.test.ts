@@ -53,6 +53,11 @@ function fixture(name: string, language = "en"): SheetInput
     };
 }
 
+async function pages(bytes: Uint8Array): Promise<number>
+{
+    return (await PDFDocument.load(bytes)).getPageCount();
+}
+
 async function fields(bytes: Uint8Array): Promise<{ text: Record<string, string>, checks: Record<string, boolean> }>
 {
     const form = (await PDFDocument.load(bytes)).getForm();
@@ -67,7 +72,7 @@ async function fields(bytes: Uint8Array): Promise<{ text: Record<string, string>
     return { text: text, checks: checks };
 }
 
-describe("the classic sheet, page 1", { timeout: 60_000 }, () =>
+describe("the classic sheet", { timeout: 60_000 }, () =>
 {
     it("writes the fixture's values in its fields", async () =>
     {
@@ -87,8 +92,29 @@ describe("the classic sheet, page 1", { timeout: 60_000 }, () =>
         expect(checks["skill-stealth-proficient"]).toBe(true);
         expect(text["skill-stealth-bonus"]).toBe("+5");
         expect(text["player"]).toBe("");
+        // Pages 1 and 2 only (no spells): every field is one the blank sheet has too.
         const blank = await fields((await renderSheet({ language: "en" }, { fonts: fonts(PATRICK) })).bytes);
-        expect(Object.keys(text).sort()).toEqual(Object.keys(blank.text).sort());
+        expect(Object.keys(text).every((name) => name in blank.text)).toBe(true);
+        expect(await pages(sheet.bytes)).toBe(2);
+        expect(text["resource-1-name"]).toBe("Ki points");
+        expect(checks["resource-1-pip-1"]).toBe(false);
+        expect(text["name-2"]).toBe("Quiet Paw");
+    });
+
+    it("writes the spells on page 3: casters, slots, prepared spells", async () =>
+    {
+        const input = fixture("multiclass-caster");
+        const sheet = await renderSheet(input, { fonts: fonts(PATRICK) });
+        const { text, checks } = await fields(sheet.bytes);
+        expect(await pages(sheet.bytes)).toBe(3);
+        expect([text["caster-1-class"], text["caster-1-dc"], text["caster-1-attack"]]).toEqual(["Cleric", "15", "+7"]);
+        expect(text["caster-2-class"]).toBe("Wizard");
+        expect([1, 2, 3, 4, 5].map((level) => text[`slots-${level}-total`])).toEqual(["4", "3", "3", "3", "2"]);
+        expect(text["slots-6-total"]).toBe("");
+        expect(text["spell-0-1"]).toBe("Fire Bolt");
+        expect(text["spell-1-1"]).toBe("Bless* ©");
+        expect(checks["spell-1-1-prepared"]).toBe(true);
+        expect(text["spell-3-8"]).toBe("");
     });
 
     it("prints blank without a character: the same fields, all empty", async () =>
@@ -98,6 +124,7 @@ describe("the classic sheet, page 1", { timeout: 60_000 }, () =>
         expect(Object.values(text).every((v) => v === "")).toBe(true);
         expect(Object.values(checks).every((v) => !v)).toBe(true);
         expect(Object.keys(text).filter((n) => n.startsWith("skill-") && n.endsWith("-bonus"))).toHaveLength(18);
+        expect(await pages(sheet.bytes)).toBe(3);
         const page = (await PDFDocument.load(sheet.bytes)).getPage(0);
         expect([page.getWidth(), page.getHeight()]).toEqual([...PAGE_SIZES.letter]);
     });
@@ -116,8 +143,8 @@ describe("the classic sheet, page 1", { timeout: 60_000 }, () =>
     it.each(["a4", "letter"] as const)("keeps every field on the %s page, every value legible", async (size) =>
     {
         const hands: [Hand, string][] = [
-            ["patrick-hand", PATRICK],
-            ["caveat", "@fontsource/caveat/files/caveat-latin-500-normal.woff"]
+            ["handwriting", PATRICK],
+            ["print", "@fontsource/atkinson-hyperlegible/files/atkinson-hyperlegible-latin-400-normal.woff"]
         ];
         for (const [hand, file] of hands)
         {

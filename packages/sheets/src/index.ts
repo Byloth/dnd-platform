@@ -9,7 +9,10 @@
 import fontkit from "@pdf-lib/fontkit";
 import { PDFDocument } from "pdf-lib";
 
+import type { PageContext } from "./classic/common.js";
 import { pageOne } from "./classic/page-one.js";
+import { hasPageThree, pageThree } from "./classic/page-three.js";
+import { pageTwo } from "./classic/page-two.js";
 import { sheetLabels } from "./labels.js";
 import { Pen } from "./pen.js";
 import type { FieldBox, Fonts } from "./pen.js";
@@ -20,7 +23,9 @@ export { sheetLabels } from "./labels.js";
 export type { SheetLabels } from "./labels.js";
 export type { FieldBox } from "./pen.js";
 export { sheetValues } from "./values.js";
-export type { AbilityValues, AttackValues, SheetInput, SheetValues, SkillValues } from "./values.js";
+export type {
+    AbilityValues, AttackValues, CasterValues, ResourceValues, SheetInput, SheetValues, SkillValues, SpellLine
+} from "./values.js";
 
 export type PageSize = "a4" | "letter";
 export const PAGE_SIZES: Readonly<Record<PageSize, readonly [number, number]>> = {
@@ -31,14 +36,15 @@ export const PAGE_SIZES: Readonly<Record<PageSize, readonly [number, number]>> =
 const LATIN_1 = Array.from({ length: 0x7F - 0x20 }, (_, i) => String.fromCharCode(0x20 + i)).join("") +
     Array.from({ length: 0x100 - 0xA1 }, (_, i) => String.fromCharCode(0xA1 + i)).join("") + "€’“”–—…•×";
 
-/** The hands a sheet can be written in: three handwriting fonts and a print one (Atkinson Hyperlegible). */
-export type Hand = "patrick-hand" | "kalam" | "caveat" | "print";
+/**
+ * The hand the values are written in: `handwriting` is Patrick Hand (the owner's choice, 2026-09-30), `print` is
+ * Atkinson Hyperlegible, for whoever reads it more easily. The caller brings the matching font file.
+ */
+export type Hand = "handwriting" | "print";
 /** How much larger each hand is set than print, so that they look the same size on the page. */
 export const HAND_SCALE: Readonly<Record<Hand, number>> = {
-    "patrick-hand": 1.12,
-    "kalam": 0.98,
-    "caveat": 1.3,
-    "print": 1
+    handwriting: 1.12,
+    print: 1
 };
 
 /** The font files, as bytes (WOFF, TTF or OTF). */
@@ -50,7 +56,7 @@ export interface SheetFonts
     readonly text: Uint8Array | ArrayBuffer;
     /** Atkinson Hyperlegible 700. */
     readonly textBold: Uint8Array | ArrayBuffer;
-    /** The hand's font; for `print`, Atkinson Hyperlegible 400 again. */
+    /** The hand's font: Patrick Hand 400, or for `print` Atkinson Hyperlegible 400 again. */
     readonly hand: Uint8Array | ArrayBuffer;
 }
 
@@ -72,12 +78,15 @@ export interface RenderedSheet
     readonly fields: readonly FieldBox[];
 }
 
-/** The classic sheet's first page, filled from `input` (blank without a character). */
+/**
+ * The classic sheet, filled from `input` (blank without a character): page 1 (the numbers), page 2 (who the
+ * character is, resources, conditions) and, for a character with spells and on the blank sheet, page 3.
+ */
 export async function renderSheet(input: SheetInput, options: SheetOptions): Promise<RenderedSheet>
 {
     const doc = await PDFDocument.create();
     doc.registerFontkit(fontkit);
-    const hand = options.hand ?? "patrick-hand";
+    const hand = options.hand ?? "handwriting";
     // No ligatures: a viewer that redraws a field would not find the ligature's glyph ("fl", "fi", "ll").
     const features = { liga: false, clig: false, dlig: false, rlig: false, calt: false };
     const fonts: Fonts = {
@@ -93,11 +102,23 @@ export async function renderSheet(input: SheetInput, options: SheetOptions): Pro
     fonts.hand.encodeText(LATIN_1);
 
     const [width, height] = PAGE_SIZES[options.pageSize ?? "a4"];
-    const page = doc.addPage([width, height]);
-    const pen = new Pen(doc, page, fonts);
     const values = sheetValues(input);
     const labels = sheetLabels(input.language);
-    pageOne({ pen: pen, values: values, labels: labels, ...(options.link ? { link: options.link } : {}) });
+    const fields: FieldBox[] = [];
+    const draw = (page: (context: PageContext) => void): PageContext =>
+    {
+        const pen = new Pen(doc, doc.addPage([width, height]), fonts);
+        const context: PageContext = {
+            pen: pen, values: values, labels: labels, ...(options.link ? { link: options.link } : {})
+        };
+        page(context);
+        fields.push(...pen.fields);
+
+        return context;
+    };
+    const first = draw(pageOne);
+    draw(pageTwo);
+    if (hasPageThree(first)) { draw(pageThree); }
 
     const name = values.text["name"];
     doc.setTitle(options.title ?? name ?? sheetLabels(input.language).characterName);
@@ -107,5 +128,5 @@ export async function renderSheet(input: SheetInput, options: SheetOptions): Pro
 
     const bytes = await doc.save({ updateFieldAppearances: false });
 
-    return { bytes: bytes, fields: pen.fields };
+    return { bytes: bytes, fields: fields };
 }

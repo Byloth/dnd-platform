@@ -2105,6 +2105,8 @@
           "casters": [
             {
               "ability": "Wisdom",
+              "attackBonus": "+7",
+              "dc": "15",
               "id": "srd51.class.cleric",
               "known": [
                 "4 cantrips"
@@ -2120,16 +2122,19 @@
                 {
                   "current": 4,
                   "label": "1st",
+                  "level": 1,
                   "max": 4
                 },
                 {
                   "current": 3,
                   "label": "2nd",
+                  "level": 2,
                   "max": 3
                 },
                 {
                   "current": 2,
                   "label": "3rd",
+                  "level": 3,
                   "max": 2
                 }
               ]

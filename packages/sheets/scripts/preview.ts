@@ -26,10 +26,8 @@ const require = createRequire(import.meta.url);
 const ROOT = resolve(import.meta.dirname, "..", "..", "..");
 const font = (file: string): Uint8Array => readFileSync(require.resolve(file));
 const HAND_FILES: Record<Hand, string> = {
-    "patrick-hand": "@fontsource/patrick-hand/files/patrick-hand-latin-400-normal.woff",
-    "kalam": "@fontsource/kalam/files/kalam-latin-400-normal.woff",
-    "caveat": "@fontsource/caveat/files/caveat-latin-500-normal.woff",
-    "print": "@fontsource/atkinson-hyperlegible/files/atkinson-hyperlegible-latin-400-normal.woff"
+    handwriting: "@fontsource/patrick-hand/files/patrick-hand-latin-400-normal.woff",
+    print: "@fontsource/atkinson-hyperlegible/files/atkinson-hyperlegible-latin-400-normal.woff"
 };
 function fonts(hand: Hand): SheetFonts
 {
@@ -74,7 +72,7 @@ function composed(dir: string, language: string): { tree: ReturnType<typeof comp
 }
 
 const out = resolve(process.argv[2] ?? "preview");
-const hands = (process.argv.slice(3).length > 0 ? process.argv.slice(3) : ["patrick-hand"]) as Hand[];
+const hands = (process.argv.slice(3).length > 0 ? process.argv.slice(3) : ["handwriting"]) as Hand[];
 mkdirSync(out, { recursive: true });
 
 const jobs: { name: string, dir?: string, language: string, pageSize: PageSize }[] = [

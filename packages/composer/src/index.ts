@@ -225,12 +225,23 @@ export interface ResourceItem
     readonly explain?: Explanation;
 }
 export interface ResourcesBlock { readonly kind: "resources", readonly items: readonly ResourceItem[] }
-export interface SlotItem { readonly label: string, readonly current: number, readonly max: number }
+export interface SlotItem
+{
+    readonly label: string;
+    /** The slots' spell level; for Pact Magic, the level all its slots share. */
+    readonly level: number;
+    readonly pact?: true;
+    readonly current: number;
+    readonly max: number;
+}
 export interface CasterItem
 {
     readonly id: string;
     readonly name: string;
     readonly ability: string;
+    /** The spell save DC and the spell attack bonus as shown (`15`, `+7`); `parts` has them in words. */
+    readonly dc: string;
+    readonly attackBonus: string;
     readonly parts: readonly string[];
     readonly known: readonly string[];
     readonly slots: readonly SlotItem[];
@@ -1117,6 +1128,7 @@ class Composer
             ].filter((p) => p !== undefined);
             const slots: SlotItem[] = casting.slots.map((slot) => ({
                 label: this.t(`slotLevels.${slot.level}`, undefined, String(slot.level)),
+                level: slot.level,
                 current: state.spellSlots?.[String(slot.level)] ?? slot.max,
                 max: slot.max
             }));
@@ -1124,6 +1136,8 @@ class Composer
             {
                 slots.push({
                     label: this.t("spellcasting.pact", { level: casting.pact.level }),
+                    level: casting.pact.level,
+                    pact: true,
                     current: state.spellSlots?.["pact"] ?? casting.pact.slots,
                     max: casting.pact.slots
                 });
@@ -1133,6 +1147,8 @@ class Composer
                 id: casting.class,
                 name: this.entityName(casting.class),
                 ability: ABILITIES.includes(casting.ability) ? this.abilityName(casting.ability) : casting.ability,
+                dc: plain(casting.dc.value),
+                attackBonus: signed(casting.attackBonus.value),
                 parts: parts,
                 known: known,
                 slots: slots

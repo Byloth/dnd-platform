@@ -47,6 +47,34 @@ export interface SheetLabels
     readonly legal: string;
     readonly equipped: string;
     readonly spellcasting: string;
+    // Page 2
+    readonly age: string;
+    readonly height: string;
+    readonly weight: string;
+    readonly eyes: string;
+    readonly skin: string;
+    readonly hair: string;
+    readonly appearance: string;
+    readonly backstory: string;
+    readonly allies: string;
+    readonly symbol: string;
+    readonly resources: string;
+    readonly resourceName: string;
+    readonly resourceLeft: string;
+    readonly conditions: string;
+    readonly additionalFeatures: string;
+    readonly treasure: string;
+    // Page 3
+    readonly spellcastingClass: string;
+    readonly spellcastingAbility: string;
+    readonly spellSaveDc: string;
+    readonly spellAttackBonus: string;
+    readonly cantrips: string;
+    readonly slotsTotal: string;
+    readonly slotsExpended: string;
+    readonly pact: string;
+    /** `{count}` spells more than the lines: on the last line of their level. */
+    readonly moreSpells: string;
 }
 
 const EN: SheetLabels = {
@@ -91,7 +119,32 @@ const EN: SheetLabels = {
     legal: "Not affiliated with Wizards of the Coast. Includes material from the System Reference Document 5.1 " +
         "by Wizards of the Coast LLC, licensed under CC-BY-4.0.",
     equipped: "equipped",
-    spellcasting: "Spellcasting"
+    spellcasting: "Spellcasting",
+    age: "Age",
+    height: "Height",
+    weight: "Weight",
+    eyes: "Eyes",
+    skin: "Skin",
+    hair: "Hair",
+    appearance: "Character appearance",
+    backstory: "Character backstory",
+    allies: "Allies & organizations",
+    symbol: "Symbol",
+    resources: "Resources",
+    resourceName: "Name",
+    resourceLeft: "Left",
+    conditions: "Conditions",
+    additionalFeatures: "Additional features & traits",
+    treasure: "Treasure",
+    spellcastingClass: "Spellcasting class",
+    spellcastingAbility: "Spellcasting ability",
+    spellSaveDc: "Spell save DC",
+    spellAttackBonus: "Spell attack bonus",
+    cantrips: "Cantrips",
+    slotsTotal: "Slots total",
+    slotsExpended: "Slots expended",
+    pact: "pact",
+    moreSpells: "+{count} more"
 };
 
 const IT: SheetLabels = {
@@ -136,7 +189,32 @@ const IT: SheetLabels = {
     legal: "Non affiliato a Wizards of the Coast. Include materiale dal System Reference Document 5.1 " +
         "di Wizards of the Coast LLC, con licenza CC-BY-4.0.",
     equipped: "equipaggiato",
-    spellcasting: "Incantesimi"
+    spellcasting: "Incantesimi",
+    age: "Età",
+    height: "Altezza",
+    weight: "Peso",
+    eyes: "Occhi",
+    skin: "Carnagione",
+    hair: "Capelli",
+    appearance: "Aspetto del personaggio",
+    backstory: "Storia del personaggio",
+    allies: "Alleati e organizzazioni",
+    symbol: "Simbolo",
+    resources: "Risorse",
+    resourceName: "Nome",
+    resourceLeft: "Restanti",
+    conditions: "Condizioni",
+    additionalFeatures: "Altri privilegi e tratti",
+    treasure: "Tesoro",
+    spellcastingClass: "Classe da incantatore",
+    spellcastingAbility: "Caratteristica",
+    spellSaveDc: "CD tiro salvezza",
+    spellAttackBonus: "Bonus di attacco",
+    cantrips: "Trucchetti",
+    slotsTotal: "Slot totali",
+    slotsExpended: "Slot spesi",
+    pact: "patto",
+    moreSpells: "+{count} altri"
 };
 
 export function sheetLabels(language: string): SheetLabels

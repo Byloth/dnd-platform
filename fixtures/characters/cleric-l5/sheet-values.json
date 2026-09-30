@@ -72,6 +72,15 @@
       "name": "Unarmed strike"
     }
   ],
+  "blank": false,
+  "casters": [
+    {
+      "ability": "Wisdom",
+      "attackBonus": "+7",
+      "dc": "15",
+      "name": "Cleric"
+    }
+  ],
   "checks": {
     "death-failure-1": false,
     "death-failure-2": false,
@@ -82,6 +91,16 @@
     "inspiration": false
   },
   "language": "en",
+  "resources": [
+    {
+      "left": "1",
+      "max": "1",
+      "name": "Channel Divinity",
+      "pips": 1,
+      "recharge": "regains all on a short rest, all on a long rest",
+      "spent": 0
+    }
+  ],
   "skills": [
     {
       "abbreviation": "DEX",
@@ -210,10 +229,106 @@
       "name": "Survival"
     }
   ],
+  "spells": [
+    [
+      {
+        "label": "Guidance ©",
+        "prepared": false
+      },
+      {
+        "label": "Light",
+        "prepared": false
+      },
+      {
+        "label": "Sacred Flame",
+        "prepared": false
+      },
+      {
+        "label": "Thaumaturgy",
+        "prepared": false
+      }
+    ],
+    [
+      {
+        "label": "Bless* ©",
+        "prepared": true
+      },
+      {
+        "label": "Cure Wounds*",
+        "prepared": true
+      },
+      {
+        "label": "Guiding Bolt",
+        "prepared": true
+      },
+      {
+        "label": "Healing Word",
+        "prepared": true
+      },
+      {
+        "label": "Sanctuary",
+        "prepared": true
+      },
+      {
+        "label": "Shield of Faith ©",
+        "prepared": true
+      }
+    ],
+    [
+      {
+        "label": "Aid",
+        "prepared": true
+      },
+      {
+        "label": "Hold Person ©",
+        "prepared": true
+      },
+      {
+        "label": "Lesser Restoration*",
+        "prepared": true
+      },
+      {
+        "label": "Silence ©",
+        "prepared": true
+      },
+      {
+        "label": "Spiritual Weapon*",
+        "prepared": true
+      }
+    ],
+    [
+      {
+        "label": "Beacon of Hope* ©",
+        "prepared": true
+      },
+      {
+        "label": "Dispel Magic",
+        "prepared": true
+      },
+      {
+        "label": "Revivify*",
+        "prepared": true
+      },
+      {
+        "label": "Spirit Guardians ©",
+        "prepared": true
+      }
+    ],
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+  ],
   "text": {
     "ac": "18",
     "attacks-notes": "Spellcasting (Cleric): save DC 15 · spell attack +7 · prepared spells · ritual casting",
     "background": "Acolyte",
+    "caster-1-ability": "Wisdom",
+    "caster-1-attack": "+7",
+    "caster-1-class": "Cleric",
+    "caster-1-dc": "15",
     "class-level": "Cleric 5 (Life Domain)",
     "equipment": "Warhammer (equipped), Chain mail (equipped), Shield (equipped), Priest's Pack",
     "features": "Species — Dwarf\n• Ability Score Increase\n• Speed\n• Darkvision\n• Age\n• Alignment\n• Size\n• Languages\n• Dwarven Resilience\n• Dwarven Combat Training\n• Tool Proficiency\n• Stonecunning\n\nSubspecies — Hill Dwarf\n• Ability Score Increase\n• Dwarven Toughness\n\nClass — Cleric\n• Divine Domain\n• Spellcasting\n• Channel Divinity\n• Ability Score Improvement\n• Destroy Undead\n\nSubclass — Life Domain\n• Bonus Proficiency\n• Disciple of Life\n• Life Domain Spells (table)\n• Channel Divinity: Preserve Life\n\nBackground — Acolyte\n• Shelter of the Faithful",
@@ -226,6 +341,9 @@
     "passive-perception": "14",
     "proficiencies": "Armor: Heavy armor, Light armor, Medium armor, Shields\nWeapons: Battleaxe, Handaxe, Light hammer, Simple weapons, Warhammer\nTools: Smith's tools\nLanguages: Celestial, Common, Dwarvish, Elvish",
     "proficiency-bonus": "+3",
+    "slots-1-total": "4",
+    "slots-2-total": "3",
+    "slots-3-total": "2",
     "species": "Dwarf (Hill Dwarf)",
     "speed": "25 ft"
   }

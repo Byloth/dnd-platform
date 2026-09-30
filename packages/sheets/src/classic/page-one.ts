@@ -4,80 +4,31 @@
  * page's width and height, so A4 and Letter share it; the boxes at the bottom of each column take what is left.
  */
 
-import { diamond, divider, emblem, frame, smallLabel } from "../art.js";
-import type { SheetLabels } from "../labels.js";
+import { divider, frame, smallLabel } from "../art.js";
 import type { Pen } from "../pen.js";
 import { ACCENT, BRASS, HAIRLINE, INK, INK_MUTED, notchedRect, PAPER, roundedRect, RULE, TINT, TINT_STRONG }
     from "../pen.js";
-import type { SheetValues } from "../values.js";
 
-export interface PageContext
-{
-    readonly pen: Pen;
-    readonly values: SheetValues;
-    readonly labels: SheetLabels;
-    /** The address printed at the foot of the page, when the site has one. */
-    readonly link?: string;
-}
-
-const MARGIN = 24;
-const GAP = 9;
+import { footer, GAP, header, MARGIN, ruled } from "./common.js";
+import type { PageContext } from "./common.js";
 
 export function pageOne(context: PageContext): void
 {
-    const { pen } = context;
+    const { pen, labels } = context;
     const width = pen.width - (MARGIN * 2);
     const height = pen.height - (MARGIN * 2);
     const top = MARGIN + 76;
     const bottom = MARGIN + height - 26;
     const column = (width - (GAP * 2)) / 3;
 
-    header(context, MARGIN, MARGIN, width);
+    header(context, MARGIN, MARGIN, width, "name", [
+        [["class-level", labels.classLevel], ["background", labels.background], ["player", labels.player]],
+        [["species", labels.species], ["alignment", labels.alignment], ["experience", labels.experience]]
+    ]);
     columnOne(context, MARGIN, top, column, bottom);
     columnTwo(context, MARGIN + column + GAP, top, column, bottom);
     columnThree(context, MARGIN + ((column + GAP) * 2), top, column, bottom);
     footer(context, MARGIN, bottom + 8, width);
-}
-
-// ---- header ------------------------------------------------------------------------
-
-function header(context: PageContext, x: number, y: number, width: number): void
-{
-    const { pen, labels, values } = context;
-
-    emblem(pen, x + 30, y + 32, 30);
-
-    // The name plate: a banner with cut corners, the name written across it.
-    const plateX = x + 68;
-    const plateW = (width * 0.4) - 68;
-    const plateY = y + 14;
-    const plateH = 36;
-    pen.path(notchedRect(plateX, plateY, plateW, plateH, 7), { fill: TINT, stroke: RULE, width: 0.8 });
-    pen.path(notchedRect(plateX + 2.5, plateY + 2.5, plateW - 5, plateH - 5, 5.5), { stroke: HAIRLINE, width: 0.4 });
-    pen.line(plateX + 12, plateY + plateH - 9, plateX + plateW - 12, plateY + plateH - 9, HAIRLINE, 0.5);
-    pen.field("name", plateX + 12, plateY + 5, plateW - 24, plateH - 14, { value: values.text["name"], size: 17 });
-    smallLabel(pen, labels.characterName, plateX + 12, plateY + plateH + 9);
-
-    // The details: two rows of three lines.
-    const boxX = x + (width * 0.4) + 10;
-    const boxW = width - (width * 0.4) - 10;
-    frame(pen, boxX, y + 4, boxW, 60, { fill: PAPER });
-    const cell = (boxW - 20) / 3;
-    const rows: [string, string][][] = [
-        [["class-level", labels.classLevel], ["background", labels.background], ["player", labels.player]],
-        [["species", labels.species], ["alignment", labels.alignment], ["experience", labels.experience]]
-    ];
-    rows.forEach((cells, r) =>
-    {
-        const lineY = y + 26 + (r * 25);
-        cells.forEach(([name, label], c) =>
-        {
-            const cx = boxX + 10 + (c * cell);
-            pen.line(cx, lineY, cx + cell - 8, lineY, RULE, 0.6);
-            pen.field(name, cx, lineY - 15, cell - 8, 14.5, { value: values.text[name], size: 10.5, wrap: true });
-            smallLabel(pen, label, cx, lineY + 6.5, { maxWidth: cell - 8, size: 5 });
-        });
-    });
 }
 
 // ---- column 1: abilities, saves, skills ------------------------------------------------
@@ -199,12 +150,6 @@ function row(pen: Pen, x: number, y: number, w: number, id: string, bonus: strin
             font: pen.fonts.text, size: size * 0.78, color: INK_MUTED
         });
     }
-}
-
-/** Faint writing lines inside a box, for the blank sheet and for the space a value leaves. */
-function ruled(pen: Pen, x: number, y: number, w: number, h: number, step = 11.5): void
-{
-    for (let ly = y + step; ly < y + h; ly += step) { pen.line(x, ly, x + w, ly, TINT_STRONG, 0.5); }
 }
 
 // ---- column 2: combat, attacks, equipment ------------------------------------------------
@@ -421,22 +366,4 @@ function columnThree(context: PageContext, x: number, y: number, width: number, 
     pen.field("features", x + 7, cursor + 5, width - 14, bottom - cursor - 14, {
         value: values.text["features"], size: 8.5, multiline: true, minSize: 5.5
     });
-}
-
-// ---- footer ------------------------------------------------------------------------
-
-function footer(context: PageContext, x: number, y: number, width: number): void
-{
-    const { pen, labels } = context;
-    pen.line(x, y, x + width, y, HAIRLINE, 0.5);
-    diamond(pen, x + (width / 2), y, 2, BRASS);
-    emblem(pen, x + 7, y + 10, 6.5, { ring: false });
-    pen.text(labels.compatible, x + 18, y + 10.5, { font: pen.fonts.display, size: 6, color: ACCENT, tracking: 0.2 });
-    pen.text(labels.legal, x + 18, y + 17.5, { font: pen.fonts.text, size: 4.6, color: INK_MUTED });
-    if (context.link)
-    {
-        pen.text(context.link, x + width, y + 10.5, {
-            font: pen.fonts.textBold, size: 6.5, color: ACCENT, align: "right"
-        });
-    }
 }
