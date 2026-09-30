@@ -106,3 +106,12 @@ From the manifests' `sources` of every package the character depends on: title, 
 - **Hands**: `handwriting` (Patrick Hand) and `print` (Atkinson Hyperlegible); Kalam and Caveat dropped.
 - **In the site**: the preferences gained `hand`; the settings menu shows "PDF paper" (A4, Letter) and "PDF writing" (by hand, in print); "Blank sheet (PDF)" on the characters page draws the three pages empty in the interface's language (event `blank-sheet-pdf`); the sheet's PDF uses the paper and the hand of the preferences.
 
+### As built (M1.6b-bis, 2026-09-30): lines that follow the text, allies, formulas
+
+- **Writing lines** belong to their field (`lines: true` in `Pen.field`): drawn under each baseline pdf-lib uses at the size the value is set at (the first one line height under the top, less a point of padding; line height 1.2 × the font's height). A shrunk value brings its lines closer. A viewer that redraws an edited field uses its own spacing.
+- **Initiative** has one field; **speed** has its value, a hairline and a small field for the other movements.
+- **Allies and organisations**: the symbol on the left, four lines of "title: description" beside it for the pen (rank, headquarters, task…), the free text under them.
+- **Formulas** (`src/calculations.ts`): JavaScript calculate actions on the modifiers (from the scores), saves, skills (twice the proficiency bonus with expertise), passive Perception, initiative, and each spellcasting class's DC and attack bonus; the document's calculation order (`/CO`) is the drawing order, which puts every formula after the fields it reads. Each formula adds a constant: the engine's value less the plain formula's, measured when the PDF is drawn, so that bonuses from features and items survive a change; the blank sheet's constants are 0 and an empty input leaves the result empty. They run in Acrobat and Reader, Firefox, Chrome and Edge on a computer; elsewhere the site's values stay as written. The hand font always carries "−" (U+2212), which the formulas write.
+- **Tests**: `test/calculations.test.ts` runs the formulas from the PDF, in its order, in `node:vm` against a stand-in viewer: the three fixtures give back their own numbers; a score, the proficiency bonus and a box change what follows; the blank sheet fills as it is filled.
+- **Development**: the manifest link is written in production only (the PWA module is off in `nuxt dev`, where the address answered with the application's page).
+
