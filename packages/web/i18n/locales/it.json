@@ -13,6 +13,8 @@
     "theme": "Tema",
     "contrast": "Contrasto",
     "newCharacter": "Nuovo personaggio",
+    "pageSize": "Carta del PDF",
+    "hand": "Scrittura del PDF",
     "statistics": "Statistiche d'uso",
     "compendium": "Compendio"
   },
@@ -105,6 +107,14 @@
     "contrast": {
       "system": "Come il dispositivo",
       "more": "Contrasto elevato"
+    },
+    "pageSize": {
+      "a4": "A4",
+      "letter": "Letter (USA)"
+    },
+    "hand": {
+      "handwriting": "A mano",
+      "print": "Stampatello"
     }
   },
   "characters": {
@@ -150,6 +160,11 @@
       "keep": "Tienili entrambi",
       "confirm": "Importa",
       "cancel": "Annulla"
+    },
+    "blankSheet": {
+      "button": "Scheda vuota (PDF)",
+      "busy": "Preparo il PDF…",
+      "file": "scheda-vuota"
     }
   },
   "character": {
@@ -678,8 +693,8 @@
         "text": "Una pagina di impostazioni, e metri e chili per chi li preferisce."
       },
       "print": {
-        "name": "Tutta la scheda nel PDF",
-        "text": "Le pagine per background e incantesimi, una scheda vuota da stampare e una carta per ogni privilegio e incantesimo."
+        "name": "Le carte di privilegi e incantesimi",
+        "text": "Una carta per ogni privilegio e incantesimo, con tutto il suo testo, in fondo al PDF."
       },
       "files": {
         "name": "Personaggi come file",
@@ -687,7 +702,7 @@
       },
       "pdf": {
         "name": "La scheda in PDF",
-        "text": "Con un tocco la scheda diventa un PDF da stampare o da tenere sul telefono, con le caselle ancora da compilare."
+        "text": "Con un tocco la scheda diventa un PDF da stampare o da tenere sul telefono, con le caselle ancora da compilare; anche vuota."
       },
       "updates": {
         "name": "Aggiornamenti delle regole, spiegati",

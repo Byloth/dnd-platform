@@ -13,6 +13,8 @@
     "theme": "Theme",
     "contrast": "Contrast",
     "newCharacter": "New character",
+    "pageSize": "PDF paper",
+    "hand": "PDF writing",
     "statistics": "Usage statistics",
     "compendium": "Compendium"
   },
@@ -105,6 +107,14 @@
     "contrast": {
       "system": "Like the device",
       "more": "High contrast"
+    },
+    "pageSize": {
+      "a4": "A4",
+      "letter": "Letter (US)"
+    },
+    "hand": {
+      "handwriting": "By hand",
+      "print": "In print"
     }
   },
   "characters": {
@@ -150,6 +160,11 @@
       "keep": "Keep both",
       "confirm": "Import",
       "cancel": "Cancel"
+    },
+    "blankSheet": {
+      "button": "Blank sheet (PDF)",
+      "busy": "Preparing the PDF…",
+      "file": "blank-sheet"
     }
   },
   "character": {
@@ -678,8 +693,8 @@
         "text": "A settings page, and metres and kilograms for whoever prefers them."
       },
       "print": {
-        "name": "The whole sheet in the PDF",
-        "text": "The pages for background and spells, a blank sheet to print, and a card for every feature and spell."
+        "name": "Feature and spell cards",
+        "text": "A card for every feature and spell, with its whole text, at the end of the PDF."
       },
       "files": {
         "name": "Characters as files",
@@ -687,7 +702,7 @@
       },
       "pdf": {
         "name": "Your sheet as a PDF",
-        "text": "One tap turns the sheet into a PDF to print or keep on your phone, its boxes still ready to fill in."
+        "text": "One tap turns the sheet into a PDF to print or keep on your phone, its boxes still ready to fill in; a blank one too."
       },
       "updates": {
         "name": "Rules updates, explained",

@@ -14,7 +14,9 @@
     "contrast": "Header navigation and settings; short labels, they share a phone-width bar.",
     "newCharacter": "Header link to the creation wizard.",
     "statistics": "Settings panel field: usage statistics on or off.",
-    "compendium": "Link of the navigation bar to the compendium. Italian: Compendio (owner)."
+    "compendium": "Link of the navigation bar to the compendium. Italian: Compendio (owner).",
+    "pageSize": "Settings menu: the paper size of the PDF sheet.",
+    "hand": "Settings menu: how the PDF sheet writes the character's values, in a handwriting font or in print."
   },
   "footer": {
     "attribution": "Legal attribution required by the SRD's licence (CC-BY-4.0); translate the sentence, keep the names and the licence name.",
@@ -105,6 +107,14 @@
     "contrast": {
       "system": "A contrast setting in the settings menu.",
       "more": "A contrast setting in the settings menu."
+    },
+    "pageSize": {
+      "a4": "Paper size name.",
+      "letter": "The US paper size; keep 'Letter'."
+    },
+    "hand": {
+      "handwriting": "Values written in a handwriting font.",
+      "print": "Values written in a plain, very legible print font."
     }
   },
   "characters": {
@@ -150,6 +160,11 @@
       "keep": "Import of a character file on the characters page: the picker, refusals, the dialog listing the content it uses. Parameters: {file}, {name}, {here} where present.",
       "confirm": "Import of a character file on the characters page: the picker, refusals, the dialog listing the content it uses. Parameters: {file}, {name}, {here} where present.",
       "cancel": "Import of a character file on the characters page: the picker, refusals, the dialog listing the content it uses. Parameters: {file}, {name}, {here} where present."
+    },
+    "blankSheet": {
+      "button": "Button on the characters page: downloads the PDF sheet with every field empty, to fill in by hand.",
+      "busy": "The same button while the PDF is drawn.",
+      "file": "The downloaded file's name, without the .pdf extension: lower case, words joined by dashes."
     }
   },
   "character": {

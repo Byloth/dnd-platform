@@ -2,7 +2,7 @@
     import type { HelpLevel } from "@byloth/dnd-platform-composer";
 
     import FontAwesome from "@/components/ui/FontAwesome.vue";
-    import type { Contrast, Language, Theme } from "@/stores/preferences";
+    import type { Contrast, Hand, Language, PageSize, Theme } from "@/stores/preferences";
 
     const { t, locales } = useI18n();
     const preferences = usePreferencesStore();
@@ -10,8 +10,10 @@
     const HELP_LEVELS: HelpLevel[] = ["newcomer", "regular", "expert"];
     const THEMES: Theme[] = ["system", "light", "dark"];
     const CONTRASTS: Contrast[] = ["system", "more"];
+    const PAGE_SIZES: PageSize[] = ["a4", "letter"];
+    const HANDS: Hand[] = ["handwriting", "print"];
 
-    const bind = <K extends "language" | "helpLevel" | "theme" | "contrast">(key: K) => computed({
+    const bind = <K extends "language" | "helpLevel" | "theme" | "contrast" | "pageSize" | "hand">(key: K) => computed({
         get: () => preferences[key],
         set: (value) => { preferences[key] = value; }
     });
@@ -19,6 +21,8 @@
     const helpLevel = bind("helpLevel");
     const theme = bind("theme");
     const contrast = bind("contrast");
+    const pageSize = bind("pageSize");
+    const hand = bind("hand");
 
     // Usage statistics (DEC-22): on only with consent; switching off withdraws it.
     const consent = useConsentStore();
@@ -106,6 +110,26 @@
                                     :key="value"
                                     :value="value">
                                 {{ t(`preferences.contrast.${value}`) }}
+                            </option>
+                        </select>
+                    </label>
+                    <label class="navigation-bar__field">
+                        <span class="navigation-bar__label">{{ t("nav.pageSize") }}</span>
+                        <select v-model="pageSize">
+                            <option v-for="value in PAGE_SIZES"
+                                    :key="value"
+                                    :value="value">
+                                {{ t(`preferences.pageSize.${value}`) }}
+                            </option>
+                        </select>
+                    </label>
+                    <label class="navigation-bar__field">
+                        <span class="navigation-bar__label">{{ t("nav.hand") }}</span>
+                        <select v-model="hand">
+                            <option v-for="value in HANDS"
+                                    :key="value"
+                                    :value="value">
+                                {{ t(`preferences.hand.${value}`) }}
                             </option>
                         </select>
                     </label>

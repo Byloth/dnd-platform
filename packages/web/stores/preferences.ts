@@ -4,8 +4,9 @@ import { defineStore } from "pinia";
 import type { HelpLevel } from "@byloth/dnd-platform-composer";
 
 /**
- * The user's preferences (docs/phase-1/01-web-application.md): language, help level, theme and page size, kept
- * in the browser's storage and applied at render time only. Never part of a character, never exported.
+ * The user's preferences (docs/phase-1/01-web-application.md): language, help level, theme, and the page size and
+ * hand of the PDF sheet, kept in the browser's storage and applied at render time only. Never part of a character,
+ * never exported.
  */
 
 export type Language = "en" | "it";
@@ -13,6 +14,8 @@ export type Theme = "system" | "light" | "dark";
 /** `system` follows the device's `prefers-contrast`; `more` always uses the high-contrast variant. */
 export type Contrast = "system" | "more";
 export type PageSize = "a4" | "letter";
+/** How the PDF sheet writes the character's values: by hand (Patrick Hand) or in print (Atkinson Hyperlegible). */
+export type Hand = "handwriting" | "print";
 
 /** How one character's sheet is arranged: sections pinned to the top, sections collapsed. Never exported. */
 export interface SheetLayout
@@ -28,6 +31,7 @@ export interface Preferences
     theme: Theme;
     contrast: Contrast;
     pageSize: PageSize;
+    hand: Hand;
 }
 
 export const PREFERENCES_KEY = "preferences";
@@ -39,7 +43,8 @@ export const DEFAULT_PREFERENCES: Readonly<Preferences> = {
     helpLevel: "newcomer",
     theme: "system",
     contrast: "system",
-    pageSize: "a4"
+    pageSize: "a4",
+    hand: "handwriting"
 };
 
 const ALLOWED: { readonly [K in keyof Preferences]: readonly Preferences[K][] } = {
@@ -47,7 +52,8 @@ const ALLOWED: { readonly [K in keyof Preferences]: readonly Preferences[K][] } 
     helpLevel: ["newcomer", "regular", "expert"],
     theme: ["system", "light", "dark"],
     contrast: ["system", "more"],
-    pageSize: ["a4", "letter"]
+    pageSize: ["a4", "letter"],
+    hand: ["handwriting", "print"]
 };
 
 /**
@@ -80,7 +86,8 @@ function _read(storage: JSONStorage): Preferences
         helpLevel: pick("helpLevel"),
         theme: pick("theme"),
         contrast: pick("contrast"),
-        pageSize: pick("pageSize")
+        pageSize: pick("pageSize"),
+        hand: pick("hand")
     };
 }
 
@@ -109,16 +116,18 @@ export const usePreferencesStore = defineStore("preferences", () =>
     const theme = ref<Theme>(initial.theme);
     const contrast = ref<Contrast>(initial.contrast);
     const pageSize = ref<PageSize>(initial.pageSize);
+    const hand = ref<Hand>(initial.hand);
     const sheets = ref<Record<string, SheetLayout>>(_readSheets(storage));
 
-    watch([language, helpLevel, theme, contrast, pageSize], () =>
+    watch([language, helpLevel, theme, contrast, pageSize, hand], () =>
     {
         storage.set(PREFERENCES_KEY, {
             language: language.value,
             helpLevel: helpLevel.value,
             theme: theme.value,
             contrast: contrast.value,
-            pageSize: pageSize.value
+            pageSize: pageSize.value,
+            hand: hand.value
         });
     });
     watch(sheets, () => storage.set(SHEETS_KEY, sheets.value), { deep: true });
@@ -149,6 +158,16 @@ export const usePreferencesStore = defineStore("preferences", () =>
     };
 
     return {
-        language, helpLevel, theme, contrast, pageSize, sheets, sheetLayout, togglePinned, toggleCollapsed, forgetSheet
+        language,
+        helpLevel,
+        theme,
+        contrast,
+        pageSize,
+        hand,
+        sheets,
+        sheetLayout,
+        togglePinned,
+        toggleCollapsed,
+        forgetSheet
     };
 });

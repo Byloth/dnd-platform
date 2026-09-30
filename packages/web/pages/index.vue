@@ -24,6 +24,25 @@
         .map((origin) => ({ origin: origin, characters: (characters.value ?? []).filter((c) => c.origin === origin) }))
         .filter((g) => g.characters.length > 0));
 
+    // The blank sheet (M1.6b): the classic PDF with every field empty, in the interface's language and the paper and
+    // hand of the preferences. The PDF code loads with the click.
+    const preferences = usePreferencesStore();
+    const makingBlank = ref(false);
+    const saveBlank = async (): Promise<void> =>
+    {
+        if (makingBlank.value) { return; }
+        makingBlank.value = true;
+        try
+        {
+            const { saveBlankSheetPdf } = await import("@/composables/sheet-pdf");
+            await saveBlankSheetPdf(t("characters.blankSheet.file"), {
+                language: locale.value, pageSize: preferences.pageSize, hand: preferences.hand
+            });
+            useAnalytics().track("blank-sheet-pdf", { pageSize: preferences.pageSize, hand: preferences.hand });
+        }
+        finally { makingBlank.value = false; }
+    };
+
     // Export from the list (docs/phase-1/05-print-and-export.md): the stored document, in the dialog.
     const exporting = shallowRef<Character>();
     const exportCharacter = async (id: string): Promise<void> =>
@@ -86,10 +105,21 @@
             <p class="characters-page__intro">
                 {{ t("characters.intro") }}
             </p>
-            <AppButton :to="{ name: 'characters-new' }">
-                <FontAwesome icon="dice-d20" aria-hidden="true" />
-                {{ t("wizard.create") }}
-            </AppButton>
+            <div class="characters-page__actions">
+                <AppButton :to="{ name: 'characters-new' }">
+                    <FontAwesome icon="dice-d20" aria-hidden="true" />
+                    {{ t("wizard.create") }}
+                </AppButton>
+                <AppButton theme="secondary"
+                           outline
+                           :disabled="makingBlank"
+                           @click="saveBlank">
+                    <FontAwesome :icon="makingBlank ? 'spinner' : 'file-pdf'"
+                                 :class="{ 'characters-page__spinner': makingBlank }"
+                                 aria-hidden="true" />
+                    {{ makingBlank ? t("characters.blankSheet.busy") : t("characters.blankSheet.button") }}
+                </AppButton>
+            </div>
         </header>
         <p v-if="status === 'pending'" role="status">
             {{ t("characters.loading") }}
@@ -179,6 +209,11 @@
 <style lang="scss" scoped>
     @use "@/assets/scss/mixins";
 
+    @keyframes characters-page-spin
+    {
+        to { transform: rotate(360deg); }
+    }
+
     .characters-page
     {
         &__header
@@ -191,6 +226,23 @@
         {
             color: var(--color-ink-muted);
             font-size: var(--text-lg);
+        }
+
+        &__actions
+        {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-3);
+        }
+
+        &__spinner
+        {
+            animation: characters-page-spin 1s linear infinite;
+
+            @media (prefers-reduced-motion: reduce)
+            {
+                animation: none;
+            }
         }
 
         &__section + &__section

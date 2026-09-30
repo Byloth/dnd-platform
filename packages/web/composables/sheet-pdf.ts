@@ -17,7 +17,7 @@ import patrickHand from "@fontsource/patrick-hand/files/patrick-hand-latin-400-n
 import { safeFileName, saveFile } from "./save-file";
 
 // WOFF, not WOFF2: the PDF library's font subsetter reads the first and fails on some of the second.
-const HAND_FONTS: Readonly<Partial<Record<Hand, string>>> = { "patrick-hand": patrickHand, "print": atkinson };
+const HAND_FONTS: Readonly<Record<Hand, string>> = { handwriting: patrickHand, print: atkinson };
 
 async function bytes(url: string): Promise<ArrayBuffer>
 {
@@ -30,7 +30,7 @@ async function bytes(url: string): Promise<ArrayBuffer>
 async function fonts(hand: Hand): Promise<SheetFonts>
 {
     const [display, text, textBold, written] = await Promise.all([
-        bytes(cinzel), bytes(atkinson), bytes(atkinsonBold), bytes(HAND_FONTS[hand] ?? patrickHand)
+        bytes(cinzel), bytes(atkinson), bytes(atkinsonBold), bytes(HAND_FONTS[hand])
     ]);
 
     return { display: display, text: text, textBold: textBold, hand: written };
@@ -43,14 +43,17 @@ export interface SheetPdfOptions
     readonly hand?: Hand;
 }
 
-/** The PDF of a character's sheet, from the section tree the sheet page already composed. */
-export async function sheetPdf(character: Character, tree: SectionTree, options: SheetPdfOptions): Promise<Blob>
+/** The PDF of a character's sheet, from the section tree the sheet page already composed; blank without them. */
+export async function sheetPdf(
+    character: Character | undefined, tree: SectionTree | undefined, options: SheetPdfOptions
+): Promise<Blob>
 {
-    const hand = options.hand ?? "patrick-hand";
-    const sheet = await renderSheet(
-        { language: options.language, tree: tree, character: character },
-        { fonts: await fonts(hand), hand: hand, pageSize: options.pageSize ?? "a4" }
-    );
+    const hand = options.hand ?? "handwriting";
+    const input = character && tree ?
+        { language: options.language, tree: tree, character: character } :
+        { language: options.language };
+    const pageSize = options.pageSize ?? "a4";
+    const sheet = await renderSheet(input, { fonts: await fonts(hand), hand: hand, pageSize: pageSize });
 
     return new Blob([sheet.bytes as Uint8Array<ArrayBuffer>], { type: "application/pdf" });
 }
@@ -60,4 +63,11 @@ export async function saveSheetPdf(character: Character, tree: SectionTree, opti
 {
     const blob = await sheetPdf(character, tree, options);
     await saveFile(blob, safeFileName(character.name, "pdf"), { share: true, title: character.name });
+}
+
+/** The blank sheet (all three pages, every field empty), saved as `name` (without its extension). */
+export async function saveBlankSheetPdf(name: string, options: SheetPdfOptions): Promise<void>
+{
+    const blob = await sheetPdf(undefined, undefined, options);
+    await saveFile(blob, safeFileName(name, "pdf"), { share: true, title: name });
 }
