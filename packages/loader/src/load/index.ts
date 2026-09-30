@@ -351,9 +351,12 @@ function applyPatch(index: Indexed, patch: SourceEntity, pkg: string, out: Diagn
 /**
  * Sets a translated string at a path of existing data. Unlike `setPath`, a key that itself holds dots (a patch's
  * `append: { "levels.1.features": … }`) is recognised as one step: at each level the longest existing key that
- * starts the rest of the path is taken.
+ * starts the rest of the path is taken. A path the data does not have (a translation made for a fuller version of
+ * the package, such as the whole SRD over an excerpt of it with the same id) is left alone: nothing is created but
+ * the text itself, under an object that exists.
+ * Returns whether the string was set.
  */
-function setTranslated(target: Record<string, unknown>, path: string, value: unknown): void
+function setTranslated(target: Record<string, unknown>, path: string, language: string, value: unknown): boolean
 {
     let node: Record<string, unknown> = target;
     let rest = path;
@@ -362,23 +365,45 @@ function setTranslated(target: Record<string, unknown>, path: string, value: unk
         const key = Object.keys(node)
             .filter((k) => (rest === k) || rest.startsWith(`${k}.`))
             .sort((a, b) => b.length - a.length)[0];
-        if (key === undefined) { break; }
+        if (key === undefined)
+        {
+            // Only the text is missing (a ruleset's skill with no name of its own): it is added in the language.
+            if (!rest.includes(".") && !Array.isArray(node))
+            {
+                node[rest] = { [language]: value };
+
+                return true;
+            }
+
+            return false;
+        }
         const next = node[key];
-        if ((next === null) || (typeof next !== "object") || (rest === key)) { break; }
+        if (rest === key)
+        {
+            // The text itself: a localised string, with its languages (a plain string is data, not text).
+            if ((next !== null) && (typeof next === "object") && !Array.isArray(next))
+            {
+                (next as Record<string, unknown>)[language] = value;
+
+                return true;
+            }
+
+            return false;
+        }
+        if ((next === null) || (typeof next !== "object")) { return false; }
         node = next as Record<string, unknown>;
         rest = rest.slice(key.length + 1);
     }
-    setPath(node, rest, value);
 }
 
-/** A copy of `target` with the translation's strings set under their language. */
+/** A copy of `target` with the translation's strings set under their language, where `target` has them. */
 function translate<T>(target: T, translation: SourceEntity): T
 {
     const data = translation.data as TranslationData;
     const translated = clone(target) as Record<string, unknown>;
     for (const [path, text] of Object.entries(data.strings))
     {
-        setTranslated(translated, `${path}.${data.language}`, text);
+        setTranslated(translated, path, data.language, text);
     }
 
     return translated as T;
