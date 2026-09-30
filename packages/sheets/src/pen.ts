@@ -4,8 +4,8 @@
  * with the character's value when there is one and left empty otherwise.
  */
 
-import { drawEllipse, drawSvgPath, rgb, TextAlignment } from "pdf-lib";
-import type { Color, PDFForm, PDFCheckBox, PDFDocument, PDFFont, PDFPage } from "pdf-lib";
+import { drawEllipse, drawSvgPath, PDFHexString, PDFName, rgb, TextAlignment } from "pdf-lib";
+import type { Color, PDFCheckBox, PDFDocument, PDFFont, PDFForm, PDFPage, PDFRef } from "pdf-lib";
 
 // ---- palette ------------------------------------------------------------------------
 
@@ -60,6 +60,13 @@ export interface FieldOptions
     readonly minSize?: number;
     /** A one-line field whose value does not fit even at its smallest size may wrap onto two lines. */
     readonly wrap?: boolean;
+    /**
+     * A multiline field drawn with writing lines under it, one under each line of text at the size the value is
+     * set at (the pdf-lib layout), so that written text and lines agree.
+     */
+    readonly lines?: boolean;
+    /** A JavaScript calculate action (`calculations.ts`): the field's value follows the fields it reads. */
+    readonly calculate?: string | undefined;
 }
 
 export type Mark = "dot" | "diamond";
@@ -89,8 +96,12 @@ export class Pen
     /** Every field drawn, with its rectangle, for the tests (values fit their boxes). */
     public readonly fields: FieldBox[] = [];
 
-    public constructor(doc: PDFDocument, page: PDFPage, fonts: Fonts)
+    /** The calculated fields in the order they are drawn, which is the order they compute in (`/CO`). */
+    public readonly calculated: PDFRef[];
+
+    public constructor(doc: PDFDocument, page: PDFPage, fonts: Fonts, calculated: PDFRef[] = [])
     {
+        this.calculated = calculated;
         this.doc = doc;
         this.page = page;
         this.form = doc.getForm();
@@ -210,6 +221,18 @@ export class Pen
             }
         }
 
+        size = Math.round(size * 4) / 4;
+        if (multiline && options.lines)
+        {
+            // pdf-lib sets the first baseline one line height under the top, less its padding of 1 point.
+            const step = font.heightAtSize(size) * 1.2;
+            for (let k = 1; 1 + (k * step) + 1 <= height; k += 1)
+            {
+                const ly = y + 1 + (k * step) + 1.2;
+                this.line(x + 1, ly, x + width - 1, ly, TINT_STRONG, 0.5);
+            }
+        }
+
         const field = this.form.createTextField(name);
         if (multiline) { field.enableMultiline(); }
         field.setAlignment(options.align === "center" ?
@@ -228,8 +251,16 @@ export class Pen
             borderWidth: 0
 
         } as unknown as Parameters<typeof field.addToPage>[1]);
-        field.setFontSize(Math.round(size * 4) / 4);
+        field.setFontSize(size);
         field.updateAppearances(font);
+        if (options.calculate)
+        {
+            const context = this.doc.context;
+            field.acroField.dict.set(PDFName.of("AA"), context.obj({
+                C: context.obj({ Type: "Action", S: "JavaScript", JS: PDFHexString.fromText(options.calculate) })
+            }));
+            this.calculated.push(field.ref);
+        }
         this.fields.push({ name: name, x: x, y: y, width: width, height: height, size: size, fits: fits });
     }
 

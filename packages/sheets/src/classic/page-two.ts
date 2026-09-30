@@ -9,12 +9,14 @@ import type { Pen } from "../pen.js";
 import { HAIRLINE, INK_MUTED, PAPER, roundedRect, RULE, TINT } from "../pen.js";
 import type { ResourceValues } from "../values.js";
 
-import { BODY_TOP, FOOT, footer, GAP, header, MARGIN, ruled } from "./common.js";
+import { BODY_TOP, FOOT, footer, GAP, header, MARGIN } from "./common.js";
 import type { PageContext } from "./common.js";
 
 /** Rows of the resources box: enough for a multiclass character; the blank sheet shows them all empty. */
 const RESOURCE_ROWS = 6;
 const PIPS = 10;
+/** Lines of "title: description" beside the allies' symbol. */
+const ALLY_ROWS = 4;
 
 export function pageTwo(context: PageContext): void
 {
@@ -35,14 +37,32 @@ export function pageTwo(context: PageContext): void
     const alliesY = BODY_TOP + appearanceH + GAP;
     const alliesH = bottom - alliesY;
     frame(pen, x, alliesY, column, alliesH, { caption: labels.allies });
-    const symbol = 58;
-    const symbolX = x + column - symbol - 8;
-    pen.path(roundedRect(symbolX, alliesY + 8, symbol, symbol, 4), { fill: TINT, stroke: HAIRLINE, width: 0.5 });
-    smallLabel(pen, labels.symbol, symbolX + (symbol / 2), alliesY + symbol + 4, {
+    // The symbol on the left; beside it, lines of "title: description" (rank, headquarters, task…) for the pen.
+    const symbol = 56;
+    const symbolX = x + 8;
+    const symbolY = alliesY + 8;
+    pen.path(roundedRect(symbolX, symbolY, symbol, symbol, 4), { fill: TINT, stroke: HAIRLINE, width: 0.5 });
+    smallLabel(pen, labels.symbol, symbolX + (symbol / 2), symbolY + symbol - 4, {
         align: "center", size: 4.6, color: INK_MUTED
     });
-    ruled(pen, x + 8, alliesY + symbol + 8, column - 16, alliesH - symbol - 18);
-    pen.field("allies", x + 7, alliesY + 6, column - 14, alliesH - 16, { size: 8.5, multiline: true, minSize: 5.5 });
+    const rowsX = symbolX + symbol + 7;
+    const rowsW = x + column - 8 - rowsX;
+    const titleW = rowsW * 0.4;
+    const allyH = (symbol + 6) / ALLY_ROWS;
+    for (let i = 1; i <= ALLY_ROWS; i += 1)
+    {
+        const base = symbolY + (i * allyH) - 2;
+        pen.line(rowsX, base, rowsX + titleW - 3, base, RULE, 0.5);
+        pen.text(":", rowsX + titleW - 1, base - 1.5, { font: pen.fonts.textBold, size: 7, color: INK_MUTED });
+        pen.line(rowsX + titleW + 3, base, rowsX + rowsW, base, RULE, 0.5);
+        pen.field(`ally-${i}-title`, rowsX - 1, base - 11, titleW - 2, 11, { size: 7.5, minSize: 4.5 });
+        pen.field(`ally-${i}-text`, rowsX + titleW + 2, base - 11, rowsW - titleW - 1, 11, { size: 7.5, minSize: 4.5 });
+    }
+    // Under them, the free text.
+    const freeY = symbolY + symbol + 12;
+    pen.field("allies", x + 7, freeY, column - 14, bottom - 10 - freeY, {
+        size: 8.5, multiline: true, lines: true, minSize: 5.5
+    });
 
     // Right: the backstory across two columns.
     const rightX = MARGIN + column + GAP;
@@ -91,8 +111,9 @@ function textBox(pen: Pen, x: number, y: number, w: number, h: number, title: st
     value: string | undefined): void
 {
     frame(pen, x, y, w, h, { caption: title });
-    ruled(pen, x + 8, y + 6, w - 16, h - 16);
-    pen.field(field, x + 7, y + 5, w - 14, h - 14, { value: value, size: 8.5, multiline: true, minSize: 5.5 });
+    pen.field(field, x + 7, y + 5, w - 14, h - 14, {
+        value: value, size: 8.5, multiline: true, lines: true, minSize: 5.5
+    });
 }
 
 /**

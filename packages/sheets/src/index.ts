@@ -7,7 +7,8 @@
  */
 
 import fontkit from "@pdf-lib/fontkit";
-import { PDFDocument } from "pdf-lib";
+import { PDFDocument, PDFName } from "pdf-lib";
+import type { PDFRef } from "pdf-lib";
 
 import type { PageContext } from "./classic/common.js";
 import { pageOne } from "./classic/page-one.js";
@@ -34,7 +35,7 @@ export const PAGE_SIZES: Readonly<Record<PageSize, readonly [number, number]>> =
 };
 
 const LATIN_1 = Array.from({ length: 0x7F - 0x20 }, (_, i) => String.fromCharCode(0x20 + i)).join("") +
-    Array.from({ length: 0x100 - 0xA1 }, (_, i) => String.fromCharCode(0xA1 + i)).join("") + "€’“”–—…•×";
+    Array.from({ length: 0x100 - 0xA1 }, (_, i) => String.fromCharCode(0xA1 + i)).join("") + "€’“”–—…•×−";
 
 /**
  * The hand the values are written in: `handwriting` is Patrick Hand (the owner's choice, 2026-09-30), `print` is
@@ -105,9 +106,10 @@ export async function renderSheet(input: SheetInput, options: SheetOptions): Pro
     const values = sheetValues(input);
     const labels = sheetLabels(input.language);
     const fields: FieldBox[] = [];
+    const calculated: PDFRef[] = [];
     const draw = (page: (context: PageContext) => void): PageContext =>
     {
-        const pen = new Pen(doc, doc.addPage([width, height]), fonts);
+        const pen = new Pen(doc, doc.addPage([width, height]), fonts, calculated);
         const context: PageContext = {
             pen: pen, values: values, labels: labels, ...(options.link ? { link: options.link } : {})
         };
@@ -119,6 +121,9 @@ export async function renderSheet(input: SheetInput, options: SheetOptions): Pro
     const first = draw(pageOne);
     draw(pageTwo);
     if (hasPageThree(first)) { draw(pageThree); }
+
+    // The order the formulas compute in: each after the fields it reads (the order they were drawn in).
+    if (calculated.length > 0) { doc.getForm().acroForm.dict.set(PDFName.of("CO"), doc.context.obj(calculated)); }
 
     const name = values.text["name"];
     doc.setTitle(options.title ?? name ?? sheetLabels(input.language).characterName);

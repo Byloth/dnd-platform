@@ -27,6 +27,8 @@ export interface SkillValues
 {
     readonly id: string;
     readonly name: string;
+    /** The ability's id (`dex`), for the sheet's formulas; empty when the tree's abbreviation matches none. */
+    readonly ability: string;
     readonly abbreviation: string;
     readonly bonus: string;
     readonly mark: "untrained" | "proficient" | "expertise";
@@ -49,6 +51,8 @@ export interface CasterValues
 {
     readonly name: string;
     readonly ability: string;
+    /** The ability's id, for the sheet's formulas; empty when its name matches no ability row. */
+    readonly abilityId: string;
     readonly dc: string;
     readonly attackBonus: string;
 }
@@ -122,6 +126,7 @@ export function sheetValues(input: SheetInput): SheetValues
             .map(([id, ability]) => ({
                 id: id,
                 name: t(`sheet.skills.${id}`),
+                ability: ability,
                 abbreviation: t(`sheet.abbreviations.${ability}`),
                 bonus: "",
                 mark: "untrained" as const
@@ -178,9 +183,11 @@ export function sheetValues(input: SheetInput): SheetValues
 
     // Skills and the other proficiencies
     const skillsBlock = block(tree, "skills", "skills") as SkillsBlock | undefined;
+    const abilityOf = new Map(ABILITIES.map((id) => [t(`sheet.abbreviations.${id}`), id as string]));
     const skills = (skillsBlock?.rows ?? []).map((row) => ({
         id: row.id,
         name: row.name,
+        ability: abilityOf.get(row.ability) ?? "",
         abbreviation: row.ability,
         bonus: row.bonus,
         mark: row.mark
@@ -285,7 +292,11 @@ export function sheetValues(input: SheetInput): SheetValues
         text[`caster-${i + 1}-attack`] = c.attackBonus;
     });
     const casterValues = casters.map((c) => ({
-        name: c.name, ability: c.ability, dc: c.dc, attackBonus: c.attackBonus
+        name: c.name,
+        ability: c.ability,
+        abilityId: abilities.find((a) => a.name === c.ability)?.id ?? "",
+        dc: c.dc,
+        attackBonus: c.attackBonus
     }));
     for (let level = 1; level <= 9; level += 1)
     {

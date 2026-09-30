@@ -129,6 +129,17 @@ describe("the classic sheet", { timeout: 60_000 }, () =>
         expect([page.getWidth(), page.getHeight()]).toEqual([...PAGE_SIZES.letter]);
     });
 
+    it("keeps the initiative in one field and the other speeds apart from the speed", async () =>
+    {
+        const sheet = await renderSheet(fixture("monk-l3-base"), { fonts: fonts(PATRICK) });
+        const box = (name: string) => sheet.fields.find((f) => f.name === name)!;
+        expect(sheet.fields.some((f) => f.name === "initiative-other")).toBe(false);
+        const speed = box("speed");
+        const other = box("speed-other");
+        expect(speed.y + speed.height).toBeLessThanOrEqual(other.y);
+        expect((await fields(sheet.bytes)).text["speed-other"]).toBe("climb 20 ft");
+    });
+
     it("speaks Italian: the sheet's words and the character's", async () =>
     {
         const input = fixture("monk-l3-base", "it");

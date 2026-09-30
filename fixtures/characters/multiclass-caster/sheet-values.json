@@ -71,12 +71,14 @@
   "casters": [
     {
       "ability": "Wisdom",
+      "abilityId": "wis",
       "attackBonus": "+7",
       "dc": "15",
       "name": "Cleric"
     },
     {
       "ability": "Intelligence",
+      "abilityId": "int",
       "attackBonus": "+7",
       "dc": "15",
       "name": "Wizard"
@@ -113,6 +115,7 @@
   "skills": [
     {
       "abbreviation": "DEX",
+      "ability": "dex",
       "bonus": "+1",
       "id": "acrobatics",
       "mark": "untrained",
@@ -120,6 +123,7 @@
     },
     {
       "abbreviation": "WIS",
+      "ability": "wis",
       "bonus": "+3",
       "id": "animal-handling",
       "mark": "untrained",
@@ -127,6 +131,7 @@
     },
     {
       "abbreviation": "INT",
+      "ability": "int",
       "bonus": "+3",
       "id": "arcana",
       "mark": "untrained",
@@ -134,6 +139,7 @@
     },
     {
       "abbreviation": "STR",
+      "ability": "str",
       "bonus": "+0",
       "id": "athletics",
       "mark": "untrained",
@@ -141,6 +147,7 @@
     },
     {
       "abbreviation": "CHA",
+      "ability": "cha",
       "bonus": "+0",
       "id": "deception",
       "mark": "untrained",
@@ -148,6 +155,7 @@
     },
     {
       "abbreviation": "INT",
+      "ability": "int",
       "bonus": "+3",
       "id": "history",
       "mark": "untrained",
@@ -155,6 +163,7 @@
     },
     {
       "abbreviation": "WIS",
+      "ability": "wis",
       "bonus": "+7",
       "id": "insight",
       "mark": "proficient",
@@ -162,6 +171,7 @@
     },
     {
       "abbreviation": "CHA",
+      "ability": "cha",
       "bonus": "+0",
       "id": "intimidation",
       "mark": "untrained",
@@ -169,6 +179,7 @@
     },
     {
       "abbreviation": "INT",
+      "ability": "int",
       "bonus": "+3",
       "id": "investigation",
       "mark": "untrained",
@@ -176,6 +187,7 @@
     },
     {
       "abbreviation": "WIS",
+      "ability": "wis",
       "bonus": "+3",
       "id": "medicine",
       "mark": "untrained",
@@ -183,6 +195,7 @@
     },
     {
       "abbreviation": "INT",
+      "ability": "int",
       "bonus": "+3",
       "id": "nature",
       "mark": "untrained",
@@ -190,6 +203,7 @@
     },
     {
       "abbreviation": "WIS",
+      "ability": "wis",
       "bonus": "+3",
       "id": "perception",
       "mark": "untrained",
@@ -197,6 +211,7 @@
     },
     {
       "abbreviation": "CHA",
+      "ability": "cha",
       "bonus": "+0",
       "id": "performance",
       "mark": "untrained",
@@ -204,6 +219,7 @@
     },
     {
       "abbreviation": "CHA",
+      "ability": "cha",
       "bonus": "+0",
       "id": "persuasion",
       "mark": "untrained",
@@ -211,6 +227,7 @@
     },
     {
       "abbreviation": "INT",
+      "ability": "int",
       "bonus": "+7",
       "id": "religion",
       "mark": "proficient",
@@ -218,6 +235,7 @@
     },
     {
       "abbreviation": "DEX",
+      "ability": "dex",
       "bonus": "+1",
       "id": "sleight-of-hand",
       "mark": "untrained",
@@ -225,6 +243,7 @@
     },
     {
       "abbreviation": "DEX",
+      "ability": "dex",
       "bonus": "+1",
       "id": "stealth",
       "mark": "untrained",
@@ -232,6 +251,7 @@
     },
     {
       "abbreviation": "WIS",
+      "ability": "wis",
       "bonus": "+3",
       "id": "survival",
       "mark": "untrained",

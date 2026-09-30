@@ -10,8 +10,10 @@ import type { Pen } from "../pen.js";
 import { ACCENT, HAIRLINE, INK_MUTED, PAPER, roundedRect, RULE, TINT, TINT_STRONG } from "../pen.js";
 import type { SpellLine } from "../values.js";
 
+import { casterScript, extra, parseShown } from "../calculations.js";
+
 import { BODY_TOP, FOOT, footer, GAP, header, MARGIN } from "./common.js";
-import type { PageContext } from "./common.js";
+import type { HeaderCell, PageContext } from "./common.js";
 
 /** The levels of each column and the lines of each level, as on the official sheet. */
 const COLUMNS: readonly (readonly (readonly [number, number])[])[] = [
@@ -39,13 +41,27 @@ export function pageThree(context: PageContext): void
     const column = (width - (GAP * 2)) / 3;
 
     const casters = Math.min(3, Math.max(values.blank ? 2 : 1, values.casters.length));
-    header(context, MARGIN, MARGIN, width, "name-3", Array.from({ length: casters }, (_, i) => [
-        [`caster-${i + 1}-class`, labels.spellcastingClass],
-        [`caster-${i + 1}-ability`, labels.spellcastingAbility],
-        [`caster-${i + 1}-dc`, labels.spellSaveDc],
-        [`caster-${i + 1}-attack`, labels.spellAttackBonus]
+    // The DC and the attack bonus follow the class's ability and the proficiency bonus (calculations.ts).
+    const proficiency = parseShown(values.text["proficiency-bonus"]);
+    const rows = Array.from({ length: casters }, (_, i): HeaderCell[] =>
+    {
+        const caster = values.casters[i];
+        const ability = caster?.abilityId ?? "";
+        const modifier = parseShown(values.abilities.find((a) => a.id === ability)?.modifier);
+        const known = (modifier !== undefined) && (proficiency !== undefined);
+        const formula = (kind: "dc" | "attack", base: number, shown: string | undefined): string | undefined =>
+            (ability === "" ?
+                undefined :
+                casterScript(ability, kind, extra(shown, known ? base + modifier + proficiency : undefined)));
 
-    ] as const));
+        return [
+            [`caster-${i + 1}-class`, labels.spellcastingClass],
+            [`caster-${i + 1}-ability`, labels.spellcastingAbility],
+            [`caster-${i + 1}-dc`, labels.spellSaveDc, formula("dc", 8, caster?.dc)],
+            [`caster-${i + 1}-attack`, labels.spellAttackBonus, formula("attack", 0, caster?.attackBonus)]
+        ];
+    });
+    header(context, MARGIN, MARGIN, width, "name-3", rows);
 
     // One line height for the whole page: the fullest column decides it.
     const height = bottom - BODY_TOP;

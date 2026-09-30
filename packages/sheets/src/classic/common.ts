@@ -18,6 +18,9 @@ export interface PageContext
     readonly link?: string;
 }
 
+/** A detail of the header: its field, its label, and the formula it follows when it has one. */
+export type HeaderCell = readonly [field: string, label: string, calculate?: string | undefined];
+
 export const MARGIN = 24;
 export const GAP = 9;
 /** Where the columns start under the header, and how much the foot keeps at the bottom. */
@@ -36,7 +39,7 @@ export function header(
     y: number,
     width: number,
     nameField: string,
-    rows: readonly (readonly (readonly [string, string])[])[]
+    rows: readonly (readonly HeaderCell[])[]
 ): void
 {
     const { pen, labels, values } = context;
@@ -63,11 +66,13 @@ export function header(
         // Two rows on 25 points; a third (a third spellcasting class) packs them closer.
         const lineY = rows.length > 2 ? y + 21 + (r * 17) : y + 26 + (r * 25);
         const cell = (boxW - 20) / cells.length;
-        cells.forEach(([name, label], c) =>
+        cells.forEach(([name, label, calculate], c) =>
         {
             const cx = boxX + 10 + (c * cell);
             pen.line(cx, lineY, cx + cell - 8, lineY, RULE, 0.6);
-            pen.field(name, cx, lineY - 15, cell - 8, 14.5, { value: values.text[name], size: 10.5, wrap: true });
+            pen.field(name, cx, lineY - 15, cell - 8, 14.5, {
+                value: values.text[name], size: 10.5, wrap: true, calculate: calculate
+            });
             smallLabel(pen, label, cx, lineY + 6.5, { maxWidth: cell - 8, size: 5 });
         });
     });

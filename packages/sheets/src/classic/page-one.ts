@@ -9,7 +9,11 @@ import type { Pen } from "../pen.js";
 import { ACCENT, BRASS, HAIRLINE, INK, INK_MUTED, notchedRect, PAPER, roundedRect, RULE, TINT, TINT_STRONG }
     from "../pen.js";
 
-import { footer, GAP, header, MARGIN, ruled } from "./common.js";
+import {
+    extra, initiativeScript, modifierOf, modifierScript, parseShown, passiveScript, saveScript, skillScript
+} from "../calculations.js";
+
+import { footer, GAP, header, MARGIN } from "./common.js";
 import type { PageContext } from "./common.js";
 
 export function pageOne(context: PageContext): void
@@ -45,8 +49,11 @@ function columnOne(context: PageContext, x: number, y: number, width: number, bo
     pen.path(roundedRect(x, y, stripW, stripH, 5), { fill: TINT_STRONG, stroke: RULE, width: 0.6 });
     values.abilities.forEach((ability, i) =>
     {
+        const score = parseShown(ability.score);
+        const formula = modifierScript(ability.id,
+            extra(ability.modifier, score === undefined ? score : modifierOf(score)));
         abilityBox(pen, x + 4, y + 4 + (i * (abilityH + abilityGap)), stripW - 8, abilityH - (i === 5 ? 8 : 0) - 1.5,
-            ability.name, ability.modifier, ability.score, `ability-${ability.id}`);
+            ability.name, ability.modifier, ability.score, `ability-${ability.id}`, formula);
     });
 
     const subX = x + stripW + 7;
@@ -63,14 +70,26 @@ function columnOne(context: PageContext, x: number, y: number, width: number, bo
         }));
     cursor += 32;
 
+    // The formulas' inputs as the site wrote them: each ability's modifier and the proficiency bonus.
+    const proficiency = parseShown(values.text["proficiency-bonus"]);
+    const modifier = (ability: string): number | undefined =>
+        parseShown(values.abilities.find((a) => a.id === ability)?.modifier);
+    const plain = (ability: string, proficient: boolean, times: number): number | undefined =>
+    {
+        const m = modifier(ability);
+
+        return m === undefined ? undefined : m + (proficient ? (proficiency ?? 0) * times : 0);
+    };
+
     // Saving throws.
     const rowH = 10.4;
     const savesH = (values.abilities.length * rowH) + 16;
     frame(pen, subX, cursor, subW, savesH, { caption: labels.savingThrows });
     values.abilities.forEach((ability, i) =>
     {
+        const formula = saveScript(ability.id, extra(ability.save, plain(ability.id, ability.saveProficient, 1)));
         row(pen, subX, cursor + 7 + (i * rowH), subW, `save-${ability.id}`, ability.save, ability.saveProficient,
-            false, ability.name, "");
+            false, ability.name, "", rowH, formula);
     });
     cursor += savesH + 9;
 
@@ -80,35 +99,47 @@ function columnOne(context: PageContext, x: number, y: number, width: number, bo
     const skillH = Math.min(12, (skillsH - 14) / Math.max(1, values.skills.length));
     values.skills.forEach((skill, i) =>
     {
+        const times = skill.mark === "expertise" ? 2 : 1;
+        const formula = skill.ability === "" ?
+            undefined :
+            skillScript(skill.id, skill.ability, times,
+                extra(skill.bonus, plain(skill.ability, skill.mark !== "untrained", times)));
         row(pen, subX, cursor + 6 + (i * skillH), subW, `skill-${skill.id}`, skill.bonus, skill.mark !== "untrained",
-            skill.mark === "expertise", skill.name, skill.abbreviation, skillH);
+            skill.mark === "expertise", skill.name, skill.abbreviation, skillH, formula);
     });
 
     // Passive Perception.
+    const perception = parseShown(values.skills.find((sk) => sk.id === "perception")?.bonus);
     cursor = y + stripH + 9;
     pill(pen, x, cursor, width, labels.passivePerception, () =>
         pen.field("passive-perception", x + 2, cursor + 3, 18, 16, {
-            value: values.text["passive-perception"], size: 11, align: "center"
+            value: values.text["passive-perception"],
+            size: 11,
+            align: "center",
+            calculate: passiveScript(extra(values.text["passive-perception"], perception === undefined ?
+                perception :
+                10 + perception))
         }));
     cursor += 32;
 
     // Other proficiencies and languages.
     frame(pen, x, cursor, width, bottom - cursor, { caption: labels.proficienciesLanguages });
-    ruled(pen, x + 8, cursor + 8, width - 16, bottom - cursor - 18);
     pen.field("proficiencies", x + 7, cursor + 6, width - 14, bottom - cursor - 16, {
-        value: values.text["proficiencies"], size: 9, multiline: true, minSize: 6
+        value: values.text["proficiencies"], size: 9, multiline: true, lines: true, minSize: 6
     });
 }
 
 function abilityBox(pen: Pen, x: number, y: number, w: number, h: number, name: string, modifier: string, score: string,
-    id: string): void
+    id: string, calculate: string): void
 {
     pen.path(notchedRect(x, y, w, h - 7, 6), { fill: PAPER, stroke: RULE, width: 0.8 });
     pen.path(notchedRect(x + 2, y + 2, w - 4, h - 11, 4.5), { stroke: HAIRLINE, width: 0.4 });
     pen.text(name.toUpperCase(), x + (w / 2), y + 10.5, {
         font: pen.fonts.display, size: 5.6, color: ACCENT, align: "center", tracking: 0.25, maxWidth: w - 8
     });
-    pen.field(`${id}-modifier`, x + 4, y + 13, w - 8, 26, { value: modifier, size: 21, align: "center" });
+    pen.field(`${id}-modifier`, x + 4, y + 13, w - 8, 26, {
+        value: modifier, size: 21, align: "center", calculate: calculate
+    });
     // The score in an oval set on the bottom edge.
     const cx = x + (w / 2);
     const cy = y + h - 8;
@@ -135,13 +166,15 @@ function pill(pen: Pen, x: number, y: number, w: number, label: string, inside: 
 
 /** A save or skill: its mark, its bonus on a short line, its name and ability. */
 function row(pen: Pen, x: number, y: number, w: number, id: string, bonus: string, proficient: boolean,
-    expertise: boolean, name: string, ability: string, h = 10.4): void
+    expertise: boolean, name: string, ability: string, h = 10.4, calculate?: string): void
 {
     const mid = y + (h / 2);
     if (expertise) { pen.circle(x + 9, mid, 3.9, { stroke: INK, width: 0.5 }); }
     pen.check(`${id}-proficient`, x + 9, mid, 2.5, proficient);
     pen.line(x + 15, mid + 3.2, x + 30, mid + 3.2, RULE, 0.5);
-    pen.field(`${id}-bonus`, x + 14, mid - 5, 17, 8.6, { value: bonus, size: 8, align: "center" });
+    pen.field(`${id}-bonus`, x + 14, mid - 5, 17, 8.6, {
+        value: bonus, size: 8, align: "center", calculate: calculate
+    });
     const size = Math.min(6.8, h * 0.62);
     const nameW = pen.text(name, x + 33, mid + 2.3, { font: pen.fonts.text, size: size, color: INK, maxWidth: w - 52 });
     if (ability !== "")
@@ -168,9 +201,11 @@ function columnTwo(context: PageContext, x: number, y: number, width: number, bo
     // AC shield, initiative, speed.
     const third = (inner - 12) / 3;
     shield(pen, x + pad, cursor, third, 58, labels.armorClass, values.text["ac"]);
-    statBox(pen, x + pad + third + 6, cursor, third, 58, labels.initiative, "initiative", values.text["initiative"]);
+    const dex = parseShown(values.abilities.find((a) => a.id === "dex")?.modifier);
+    statBox(pen, x + pad + third + 6, cursor, third, 58, labels.initiative, "initiative", values.text["initiative"],
+        undefined, initiativeScript(extra(values.text["initiative"], dex)));
     statBox(pen, x + pad + ((third + 6) * 2), cursor, third, 58, labels.speed, "speed", values.text["speed"],
-        values.text["speed-other"]);
+        { value: values.text["speed-other"] });
     cursor += 58 + 8;
 
     // Current hit points, with the maximum on the line above and the temporary ones in a box beside them.
@@ -262,9 +297,8 @@ function columnTwo(context: PageContext, x: number, y: number, width: number, bo
     const more = values.attacks.slice(rows).map((a) => `${a.name} ${a.bonus} · ${a.damage}`);
     const notes = [...more, values.text["attacks-notes"] ?? ""].filter((n) => n !== "").join("\n");
     const notesY = cursor + 16 + (rows * 17) + 2;
-    ruled(pen, x + pad, notesY, inner, cursor + attacksH - notesY - 8);
     pen.field("attacks-notes", x + pad - 1, notesY, inner + 2, cursor + attacksH - notesY - 8, {
-        value: notes, size: 8, multiline: true, minSize: 5.5
+        value: notes, size: 8, multiline: true, lines: true, minSize: 5.5
     });
 
     // Equipment, with the coins in a column on its left.
@@ -284,9 +318,8 @@ function columnTwo(context: PageContext, x: number, y: number, width: number, bo
         });
     });
     const eqX = x + coinW + 12;
-    ruled(pen, eqX, cursor + 6, x + width - 8 - eqX, equipmentH - 16);
     pen.field("equipment", eqX - 1, cursor + 5, x + width - 7 - eqX, equipmentH - 14, {
-        value: values.text["equipment"], size: 8.5, multiline: true, minSize: 5.5
+        value: values.text["equipment"], size: 8.5, multiline: true, lines: true, minSize: 5.5
     });
 }
 
@@ -320,14 +353,27 @@ function shield(pen: Pen, x: number, y: number, w: number, h: number, label: str
     pen.field("ac", x + 8, top + 19, w - 16, 26, { value: value, size: 20, align: "center" });
 }
 
-/** A square value box with its label on the bottom edge (initiative, speed). */
+/**
+ * A square value box with its label on the bottom edge (initiative, speed). With `other` (the speed), a hairline
+ * under the value and a small field under it for the other movements ("climb 20 ft").
+ */
 function statBox(pen: Pen, x: number, y: number, w: number, h: number, label: string, id: string,
-    value: string | undefined, small?: string): void
+    value: string | undefined, other?: { readonly value: string | undefined }, calculate?: string): void
 {
     pen.path(notchedRect(x, y + 2, w, h - 6, 6), { fill: PAPER, stroke: RULE, width: 0.9 });
     pen.path(notchedRect(x + 2.5, y + 4.5, w - 5, h - 11, 4.5), { stroke: HAIRLINE, width: 0.4 });
-    pen.field(id, x + 4, y + 8, w - 8, small ? 24 : 30, { value: value, size: 16, align: "center" });
-    pen.field(`${id}-other`, x + 4, y + 31, w - 8, 10, { value: small, size: 6.5, align: "center", minSize: 4.5 });
+    if (other)
+    {
+        pen.field(id, x + 4, y + 6, w - 8, 22, { value: value, size: 15, align: "center" });
+        pen.line(x + 9, y + 30, x + w - 9, y + 30, HAIRLINE, 0.5);
+        pen.field(`${id}-other`, x + 5, y + 31, w - 10, 11, {
+            value: other.value, size: 6.5, align: "center", minSize: 4.5
+        });
+    }
+    else
+    {
+        pen.field(id, x + 4, y + 7, w - 8, 33, { value: value, size: 16, align: "center", calculate: calculate });
+    }
     const labelY = y + h - 4;
     const tw = pen.fonts.display.widthOfTextAtSize(label.toUpperCase(), 5) + 10;
     pen.path(roundedRect(x + ((w - tw) / 2), labelY - 5.5, tw, 9, 4.5), { fill: TINT, stroke: RULE, width: 0.5 });
@@ -353,17 +399,15 @@ function columnThree(context: PageContext, x: number, y: number, width: number, 
     for (const [id, label, h] of boxes)
     {
         frame(pen, x + pad, cursor, inner, h, { caption: label });
-        ruled(pen, x + pad + 6, cursor + 3, inner - 12, h - 9, 10.5);
         pen.field(id, x + pad + 5, cursor + 3, inner - 10, h - 9, {
-            value: values.text[id], size: 8.5, multiline: true, minSize: 5.5
+            value: values.text[id], size: 8.5, multiline: true, lines: true, minSize: 5.5
         });
         cursor += h + 12;
     }
 
     cursor = y + plateH + GAP;
     frame(pen, x, cursor, width, bottom - cursor, { caption: labels.features });
-    ruled(pen, x + 8, cursor + 6, width - 16, bottom - cursor - 16);
     pen.field("features", x + 7, cursor + 5, width - 14, bottom - cursor - 14, {
-        value: values.text["features"], size: 8.5, multiline: true, minSize: 5.5
+        value: values.text["features"], size: 8.5, multiline: true, lines: true, minSize: 5.5
     });
 }
