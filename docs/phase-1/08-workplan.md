@@ -179,7 +179,7 @@ Risks: none technical; the risk is UX, losing a guest's character; every destruc
 Replanned by the owner on 2026-09-29 (DEC-13 amended, DEC-26): the page draws the PDF from the platform's "classic" sheet template; no print route.
 
 - **M1.6a**, the engine and page 1. Done 2026-09-29: `packages/sheets` (values, drawing, the classic sheet's page 1, A4 and Letter, blank without a character), `sheet-values.json` goldens, "PDF" on the sheet with download or share, fonts precached. As built in [05-print-and-export.md](05-print-and-export.md).
-- **M1.6b**, pages 2 and 3 (background and appearance, spellcasting), the blank sheet downloadable without a character, the hand as a preference (handwriting or print), the Italian sheet checked by the owner.
+- **M1.6b**, pages 2 and 3, the blank sheet, the paper and the hand as preferences. Done 2026-09-30: page 2 (details, appearance, backstory, allies with a symbol, resources as pips, conditions, additional features, treasure), page 3 (spellcasting classes, cantrips and the nine levels with slots and prepared boxes; printed for a character with spells and on the blank sheet), `CasterItem.dc`/`attackBonus` and `SlotItem.level`/`pact` in the composer (additive), "Blank sheet (PDF)" on the characters page, "PDF paper" and "PDF writing" in the settings menu. The Italian sheet is still for the owner to check.
 - **M1.6c**, the pages the text does not fit in (Part 3: feature and spell cards) and the credits page; the reference Monk's checklist from the original playbook; black-and-white and page-size acceptance; the PDF opened in the common viewers (browser, Acrobat, phone).
 
 Done: the criteria of M1.6. Release: `v0.3.6`.

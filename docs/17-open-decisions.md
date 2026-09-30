@@ -260,7 +260,7 @@ When a decision is taken, its status becomes **Decided**, the chosen option and 
 - **Decided (2026-09-29, owner):** **a PDF is drawn from a sheet template; the first is the platform's own "classic" sheet, with the layout players know from the fifth edition's official sheet, drawn from scratch.**
   - A template is drawing code plus a map "form field → value of the sheet" (`packages/sheets`); every template fills the same values.
   - The official sheet itself is not bundled: it is Wizards of the Coast's and not open content. The classic template takes its layout (the places of the boxes), never its logo, art, fonts or wording; it carries the platform's own emblem, a line saying it is compatible with the fifth edition rules (SRD 5.1), the SRD's attribution and, once the site has a domain, its address.
-  - Values are written in a handwriting font by default (the fields stay editable); a print hand (Atkinson Hyperlegible) is the alternative for legibility, a preference in M1.6b.
+  - Values are written in a handwriting font by default (the fields stay editable); a print hand (Atkinson Hyperlegible) is the alternative for legibility, a preference. The handwriting font is Patrick Hand (owner, 2026-09-30, over Kalam and Caveat: the clearest numbers).
   - Later templates on the same engine: the platform's own designed sheet, the official PDF loaded by its owner (a field map to it), a game master's sheet for a campaign (Phase 6).
 - **Options known:** filling the official PDF (not redistributable); a template drawn from scratch (chosen); HTML rendered to PDF (raster or heavy).
 - **Referenced by:** [phase-1/05-print-and-export.md](phase-1/05-print-and-export.md), [phase-1/08-workplan.md](phase-1/08-workplan.md), [12](12-print-and-export.md).
