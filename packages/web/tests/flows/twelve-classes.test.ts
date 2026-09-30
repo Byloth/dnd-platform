@@ -67,17 +67,24 @@ async function next(wrapper: VueWrapper): Promise<void>
     await settle();
 }
 
-/** Every group of step 6 not yet full takes its first options that can still be chosen. */
+/**
+ * Every group of step 6 not yet full takes its first options that can still be chosen. After a choice the page
+ * may take a while to mark the group done or free the next option when the hooks load the machine: it is waited
+ * for rather than taken for missing.
+ */
 async function answerEverything(wrapper: VueWrapper): Promise<void>
 {
+    const open = () => wrapper.findAll(".choice-group")
+        .find((g) => !g.find(".choice-group__progress--done").exists());
+    const available = () => open()?.findAll<HTMLInputElement>("input.choice-card__input")
+        .find((o) => !o.element.checked && !o.element.disabled);
     for (let i = 0; i < 60; i += 1)
     {
-        const open = wrapper.findAll(".choice-group")
-            .find((g) => !g.find(".choice-group__progress--done").exists());
-        if (!open) { return; }
-        const option = open.findAll<HTMLInputElement>("input.choice-card__input")
-            .find((o) => !o.element.checked && !o.element.disabled);
-        if (!option) { throw new Error(`nothing left to choose in ${open.find(".choice-group__title").text()}`); }
+        if (!open()) { return; }
+        await until(() => !open() || (available() !== undefined));
+        if (!open()) { return; }
+        const option = available();
+        if (!option) { throw new Error(`nothing left to choose in ${open()!.find(".choice-group__title").text()}`); }
         await option.setValue(true);
         await settle();
     }
@@ -137,6 +144,8 @@ describe("the twelve SRD classes through the wizard", () =>
                 await next(wrapper);
             }
             await wrapper.find(".step-personality__input").setValue(name);
+            // The name reaches the draft before "Next", however loaded the machine.
+            await until(() => useWizardStore().character?.name === name);
             await next(wrapper);
             await until(() => wrapper.find(".step-review__status").exists());
 
