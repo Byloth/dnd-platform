@@ -1,0 +1,158 @@
+STONE LANTERN
+Nano (Nano delle colline) · Chierico 5, Dominio della Vita · Accolito  —  livello 5
+Regolamento srd51 · pacchetti srd51 0.8.0
+
+VALORI PRINCIPALI
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Classe Armatura                               18
+                   16  Cotta di maglia              ← srd51.item.chain-mail
+                   +2  Scudo                        ← srd51.item.shield
+  Iniziativa                                    +0
+  Velocità                                   7,5 m
+  Punti ferita                             43 / 43
+                   10  1° livello (Chierico)        ← srd51
+                  +28  4 livelli in più (Chierico)  ← srd51
+                   +5  Robustezza nanica            ← srd51 · hill-dwarf.dwarven-toughness
+  Dadi vita                                    5d8
+  Bonus di competenza                           +3
+  Percezione passiva                            14
+
+CARATTERISTICHE
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                Punt.  Mod  TS
+  Forza            14   +2  +2
+  Destrezza        10   +0  +0
+  Costituzione     15   +2  +2
+  Intelligenza     10   +0  +0
+  Saggezza         18   +4  +7  ● competente
+  Carisma          12   +1  +4  ● competente
+
+ABILITÀ
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  ○  Acrobazia (DES)           +0       ●  Medicina (SAG)          +7
+  ○  Addestrare animali (SAG)  +4       ○  Natura (INT)            +0
+  ○  Arcano (INT)              +0       ○  Percezione (SAG)        +4
+  ○  Atletica (FOR)            +2       ○  Intrattenere (CAR)      +1
+  ○  Inganno (CAR)             +1       ○  Persuasione (CAR)       +1
+  ●  Storia (INT)              +3       ●  Religione (INT)         +3
+  ●  Intuizione (SAG)          +7       ○  Rapidità di mano (DES)  +0
+  ○  Intimidire (CAR)          +1       ○  Furtività (DES)         +0
+  ○  Indagare (INT)            +0       ○  Sopravvivenza (SAG)     +4
+  ○ non competente  ● competente  ◉ maestria
+
+  Armature   Armature pesanti, Armature leggere, Armature medie, Scudi
+  Armi       Ascia da battaglia, Ascia, Martello leggero, Armi semplici, Martello da guerra
+  Strumenti  Strumenti da fabbro
+  Lingue     Celestiale, Comune, Nanico, Elfico
+
+SENSI
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Scurovisione 18 m · Percezione passiva 14 · Indagare passiva 10 · Intuizione passiva 17
+
+COMBATTIMENTO
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Resistenza          Veleno
+  Vantaggio           su tiri salvezza contro veleno
+  Capacità di carico  105 kg
+
+ATTACCHI
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Attacco                          Colpire  Danni
+  Martello da guerra                    +5  1d8 + 2 contundenti   in mischia, FOR
+  Martello da guerra (a due mani)       +5  1d10 + 2 contundenti  in mischia, FOR
+  Colpo senz'armi                       +5  3 contundenti         in mischia, FOR
+
+AZIONI
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Azioni
+    Incanalare Divinità: Scacciare Non Morti  Incanalare Divinità ×1  CD 15 · CD tiro salvezza 15
+    Incanalare Divinità: Preservare Vita      Incanalare Divinità ×1
+
+  Azioni base   Attacco, Scatto, Disimpegno, Schivata, Aiuto, Nascondersi, Prepararsi, Cercare,
+                Usare un oggetto, Lanciare un incantesimo
+
+RISORSE
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Incanalare Divinità  1 / 1  ●  recupera tutti con un riposo breve, tutti con un riposo lungo
+
+INCANTESIMI: CAPACITÀ
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Chierico — Saggezza · CD tiro salvezza 15 · attacco con incantesimo +7 · incantesimi: prepared · incantesimi rituali
+    4 trucchetti
+    Slot 1° ●●●● 2° ●●● 3° ●●
+
+INCANTESIMI
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Trucchetti Fiamma sacra, Guida ©, Luce, Taumaturgia
+  1° livello Benedizione* ©, Cura ferite*, Dardo tracciante, Parola guaritrice, Santuario, Scudo
+             della fede ©
+  2° livello Aiuto, Arma spirituale*, Blocca persone ©, Ristorare inferiore*, Silenzio ©
+  3° livello Dissolvi magie, Faro di speranza* ©, Guardiani spirituali ©, Rinascita*
+  © concentrazione  * sempre preparato
+
+PRIVILEGI E TRATTI
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Specie — Nano
+    Incremento dei punteggi di caratteristica    Il punteggio di Costituzione di un nano aumenta…
+    Velocità                                     La velocità base sul terreno di un nano è di 7,5…
+    Scurovisione                                 Un nano è abituato a vivere sottoterra e…
+    Età                                          I nani maturano allo stesso ritmo degli umani,…
+    Allineamento                                 La maggior parte dei nani è legale e crede…
+    Taglia                                       Un nano è alto da 1,2 a 1,5 metri e pesa circa…
+    Linguaggi                                    Un nano è in grado di parlare, leggere e…
+    Resilienza nanica                            Un nano dispone di vantaggio ai tiri salvezza…
+    Addestramento da combattimento nanico        Un nano ha competenza nelle asce, nelle asce da…
+    Competenza negli strumenti                   Un nano ha competenza in un gruppo di strumenti…
+    Esperto minatore                             Ogni volta che un nano effettua una prova di…
+  Sottospecie — Nano delle colline
+    Incremento dei punteggi di caratteristica    Il punteggio di Saggezza di un nano aumenta di 1.
+    Robustezza nanica                            Il massimo dei punti ferita di un nano aumenta…
+  Classe — Chierico
+    Dominio Divino                          L1  Il chierico sceglie un dominio correlato alla sua…
+    Incantesimi                             L1  Un chierico è un tramite del potere divino e come…
+    Incanalare Divinità                     L2  Al 2° livello, un chierico ottiene la capacità di…
+    Aumento dei Punteggi di Caratteristica  L4  Quando arriva al 4° livello e poi di nuovo all'8°,…
+    Distruggere Non Morti                   L5  A partire dal 5° livello, quando un non morto…
+  Sottoclasse — Dominio della Vita
+    Competenza Bonus                              L1  Quando il chierico sceglie questo dominio al…
+    Discepolo della Vita                          L1  A partire dal 1° livello, gli incantesimi di…
+    Incantesimi del Dominio della Vita (tabella)  L1  Livello da chierico | Incantesimi | |---|---|…
+    Incanalare Divinità: Preservare Vita          L2  A partire dal 2° livello, il chierico può…
+  Background — Accolito
+    Rifugio dei Fedeli    Un accolito gode del rispetto di coloro che condividono la sua fede ed…
+  • Doppio del bonus di competenza alle prove di Intelligenza (Storia) relative all'origine di una
+    struttura in pietra. (Esperto minatore)
+  • Quando un non morto fallisce il suo tiro salvezza contro il tuo privilegio Scacciare Non Morti,
+    quella creatura è distrutta istantaneamente se il suo grado di sfida è pari o inferiore a una
+    soglia: 1/2 al 5° livello, 1 all'8°, 2 all'11°, 3 al 14°, 4 al 17°. (Distruggere Non Morti)
+  • Ogni volta che usi un incantesimo di 1° livello o di livello superiore per ripristinare i punti
+    ferita di una creatura, quella creatura recupera un ammontare di punti ferita aggiuntivi pari a
+    2 + il livello dell'incantesimo. (Discepolo della Vita)
+  • Tu e i tuoi compagni potete aspettarvi cure e guarigioni gratuite presso i templi della tua
+    fede. (Rifugio dei Fedeli)
+
+EQUIPAGGIAMENTO
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Martello da guerra        equipaggiato
+  Cotta di maglia           equipaggiato
+  Scudo                     equipaggiato
+  Dotazione da sacerdote
+
+CREDITI
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  System Reference Document 5.1 (srd51 0.8.0)
+    System Reference Document 5.1, Wizards of the Coast — CC-BY-4.0. This work includes material
+    taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and
+    available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is
+    licensed under the Creative Commons Attribution 4.0 International License available at
+    https://creativecommons.org/licenses/by/4.0/legalcode.
+    System Reference Document 5.2, Wizards of the Coast — CC-BY-4.0. This work includes material
+    from the System Reference Document 5.2 (“SRD 5.2”) by Wizards of the Coast LLC, available at
+    https://www.dndbeyond.com/srd. The SRD 5.2 is licensed under the Creative Commons Attribution
+    4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.
+  System Reference Document 5.1 — italiano (srd51-it 0.3.0)
+    System Reference Document 5.1 (italiano), Wizards of the Coast — CC-BY-4.0. Questo lavoro
+    include materiale del System Reference Document 5.1 (“SRD 5.1”) di Wizards of the Coast LLC
+    disponibile al sito https://dnd.wizards.com/it/resources/systems-reference-document. L’SRD 5.1 è
+    concesso in licenza sotto l’Attribuzione 4.0 Internazionale di Creative Commons disponibile al
+    sito https://creativecommons.org/licenses/by/4.0/legalcode.it.

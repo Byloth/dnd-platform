@@ -7,6 +7,13 @@ improvement of the content is a new version: bump `version` in
 release file. Characters follow new versions automatically; the application
 tells the player what changed on their sheet.
 
+## 0.8.0 — 2026-09-30
+
+- A cost in ki is written "1 ki": resources can give the unit their costs are
+  written in (`unit`, a new optional field). The other resources are written
+  with their name, "Channel Divinity ×1".
+- The spellcasting rule on reactions is called Reactions, not Bonus Action.
+
 ## 0.7.1 — 2026-09-26
 
 - The darkvision rule is called Darkvision, not Blindsight.

@@ -1,0 +1,141 @@
+QUIET PAW
+Felino (Puma) · Monaco 3  —  livello 3
+Regolamento srd51 · pacchetti srd51 0.8.0, homebrew.byloth 0.1.0
+
+VALORI PRINCIPALI
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Classe Armatura                             15
+                   10  Base                       ← srd51
+                   +3  Modificatore di Destrezza  ← srd51
+                  =15  Difesa Senza Armatura      ← srd51 · monk.unarmored-defense
+  Iniziativa                                  +3
+  Velocità                     12 m, scalare 6 m
+                   30  Velocità della specie      ← homebrew.byloth.species.feline
+                  +10  Movimento Senza Armatura   ← srd51 · monk.unarmored-movement
+  Punti ferita                           24 / 24
+                   10  1° livello (Monaco)        ← srd51
+                  +14  2 livelli in più (Monaco)  ← srd51
+  Dadi vita                                  3d8
+  Bonus di competenza                         +2
+  Percezione passiva                          12
+
+CARATTERISTICHE
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                Punt.  Mod  TS
+  Forza            11   +0  +2  ● competente
+  Destrezza        17   +3  +5  ● competente
+  Costituzione     14   +2  +2
+  Intelligenza      8   −1  −1
+  Saggezza         15   +2  +2
+  Carisma           8   −1  −1
+
+ABILITÀ
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  ●  Acrobazia (DES)           +5       ○  Medicina (SAG)          +2
+  ○  Addestrare animali (SAG)  +2       ○  Natura (INT)            −1
+  ○  Arcano (INT)              −1       ○  Percezione (SAG)        +2
+  ○  Atletica (FOR)            +0       ○  Intrattenere (CAR)      −1
+  ○  Inganno (CAR)             −1       ○  Persuasione (CAR)       −1
+  ○  Storia (INT)              −1       ○  Religione (INT)         −1
+  ○  Intuizione (SAG)          +2       ○  Rapidità di mano (DES)  +3
+  ○  Intimidire (CAR)          −1       ●  Furtività (DES)         +5
+  ○  Indagare (INT)            −1       ○  Sopravvivenza (SAG)     +2
+  ○ non competente  ● competente  ◉ maestria
+
+  Armi       Spada corta, Armi semplici
+  Strumenti  Strumento musicale
+  Lingue     Comune
+
+SENSI
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Scurovisione 18 m · Percezione passiva 12 · Indagare passiva 9 · Intuizione passiva 12
+
+COMBATTIMENTO
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Vantaggio           su prove Furtività (per muoverti in silenzio)
+  Capacità di carico  82,5 kg
+
+ATTACCHI
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Attacco          Colpire  Danni
+  Arco corto            +5  1d6 + 3 perforanti  a distanza, DES
+  Colpo senz'armi       +2  1 contundenti       in mischia, FOR
+
+AZIONI
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Azioni
+    Artigli    attacco +2 · 1d4 taglienti
+  Azioni bonus
+    Colpo senz'armi di Arti Marziali        dopo Attacco · attacco +5 · dado arti marziali +3
+                                            contundenti (non disponibile ora)
+    Raffica di Colpi                  1 ki  dopo Attacco · attacco +5 · dado arti marziali +3
+                                            contundenti
+    Difesa Paziente                   1 ki  attiva Difesa Paziente
+    Passo del Vento                   1 ki  attiva Passo del Vento
+  Reazioni
+    Deviare Proiettili
+
+  Azioni base   Attacco, Scatto, Disimpegno, Schivata, Aiuto, Nascondersi, Prepararsi, Cercare,
+                Usare un oggetto, Lanciare un incantesimo
+
+RISORSE
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Punti ki  3 / 3  ●●●  recupera tutti con un riposo breve, tutti con un riposo lungo
+
+PRIVILEGI E TRATTI
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Specie — Felino
+    Artigli          I tuoi artigli sono armi naturali, che puoi usare per effettuare colpi…
+    Scurovisione     Puoi vedere in condizioni di luce fioca entro 18 metri da te come se fosse…
+    Grazia felina    Hai vantaggio alle prove di Destrezza (Furtività) per muoverti in silenzio.
+  Sottospecie — Puma
+    Balzo    Il tuo salto in lungo arriva fino al doppio del tuo punteggio di Forza in piedi (0,6…
+  Classe — Monaco
+    Arti Marziali             L1  Al 1° livello, grazie alla sua perizia nelle arti marziali, un…
+    Difesa Senza Armatura     L1  A partire dal 1° livello, mentre un monaco non indossa alcuna…
+    Ki                        L2  A partire dal 2° livello, il monaco è in grado di imbrigliare…
+    Movimento Senza Armatura  L2  A partire dal 2° livello, la velocità di un monaco aumenta di 3…
+    Deviare Proiettili        L3  A partire dal 3° livello, un monaco può usare la sua reazione per…
+    Tradizione Monastica      L3  Quando arriva al 3° livello, il monaco si vota a una tradizione…
+
+EQUIPAGGIAMENTO
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Dardo       ×10
+  Arco corto       equipaggiato
+  Freccia     ×20
+
+NOTE
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Scelte ancora aperte
+    Felino: Linguaggi    0 di 1
+    Monaco: Sottoclasse  0 di 1
+
+CREDITI
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  System Reference Document 5.1 (srd51 0.8.0)
+    System Reference Document 5.1, Wizards of the Coast — CC-BY-4.0. This work includes material
+    taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and
+    available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is
+    licensed under the Creative Commons Attribution 4.0 International License available at
+    https://creativecommons.org/licenses/by/4.0/legalcode.
+    System Reference Document 5.2, Wizards of the Coast — CC-BY-4.0. This work includes material
+    from the System Reference Document 5.2 (“SRD 5.2”) by Wizards of the Coast LLC, available at
+    https://www.dndbeyond.com/srd. The SRD 5.2 is licensed under the Creative Commons Attribution
+    4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.
+  Byloth's homebrew (homebrew.byloth 0.1.0)
+    Byloth's homebrew, Matteo Bilotta — CC-BY-4.0. Homebrew content by Matteo Bilotta, licensed
+    under CC-BY-4.0.
+  System Reference Document 5.1 — italiano (srd51-it 0.3.0)
+    System Reference Document 5.1 (italiano), Wizards of the Coast — CC-BY-4.0. Questo lavoro
+    include materiale del System Reference Document 5.1 (“SRD 5.1”) di Wizards of the Coast LLC
+    disponibile al sito https://dnd.wizards.com/it/resources/systems-reference-document. L’SRD 5.1 è
+    concesso in licenza sotto l’Attribuzione 4.0 Internazionale di Creative Commons disponibile al
+    sito https://creativecommons.org/licenses/by/4.0/legalcode.it.
+  Homebrew di Byloth — italiano (homebrew.byloth-it 0.1.0)
+    Homebrew di Byloth (italiano), Matteo Bilotta — CC-BY-4.0. Contenuto homebrew di Matteo Bilotta,
+    con licenza CC-BY-4.0.
+
+AVVISI
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  W_UNANSWERED_CHOICE: Felino: Linguaggi, 0 di 1 scelti
+  W_UNANSWERED_CHOICE: Monaco: Sottoclasse, 0 di 1 scelti

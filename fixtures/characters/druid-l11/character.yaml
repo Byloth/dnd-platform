@@ -1,9 +1,9 @@
 formatVersion: 0
 id: fixture-druid-l11
 name: Green Hollow
-ruleset: { id: srd51, version: 0.7.1 }
+ruleset: { id: srd51, version: 0.8.0 }
 packages:
-  - { id: srd51, version: 0.7.1 }
+  - { id: srd51, version: 0.8.0 }
 choices:
   species: srd51.species.elf
   subspecies: srd51.species.elf.high-elf

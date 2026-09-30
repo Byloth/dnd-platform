@@ -634,6 +634,7 @@ export function derive(character: Character, set: PackageSet, options: DeriveOpt
                 resources.push({
                     id: e.resource,
                     name: e.name ?? ctx.feature.data.name,
+                    ...(e.unit ? { unit: e.unit } : {}),
                     max: graph.get(`resource.${e.resource}.max`),
                     current: character.state.resources[e.resource] ?? null,
                     recharge: rechargeOf(e.resource, e.recharge.map((r) => ({ on: r.on, amount: r.amount }))),

@@ -16,7 +16,7 @@ describe("explain", () =>
         const stealth = explain(sheet, "skill.stealth", { character: character, packages: packages })!;
 
         expect(stealth.newcomer).toEqual(["Your Dexterity (20) gives +5.", "Your proficiency bonus gives +4."]);
-        expect(stealth.notes).toEqual(["Hide in Plain Sight would apply if hide in plain sight is on."]);
+        expect(stealth.notes).toEqual(["Hide in Plain Sight would apply if Hide in Plain Sight is on."]);
         expect(stealth.regular.map((l) => l.label)).toEqual(["Dexterity modifier", "Proficiency bonus"]);
         expect(stealth.expert).toHaveLength(3);
     });

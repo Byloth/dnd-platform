@@ -16,7 +16,7 @@
           "packages": [
             {
               "id": "srd51",
-              "version": "0.7.1"
+              "version": "0.8.0"
             },
             {
               "id": "homebrew.byloth",
@@ -58,7 +58,7 @@
                     "applied": true,
                     "formula": "10 + mod(dex) + mod(wis)",
                     "label": "Unarmored Defense",
-                    "shown": "set-formula 15",
+                    "shown": "by formula, 15",
                     "source": "srd51 · monk.unarmored-defense"
                   }
                 ],
@@ -1897,7 +1897,7 @@
                   "available": true,
                   "cost": "1 ki",
                   "details": [
-                    "toggles Patient defense"
+                    "toggles Patient Defense"
                   ],
                   "id": "patient-defense",
                   "name": "Patient Defense",
@@ -1939,7 +1939,7 @@
                   "available": true,
                   "cost": "1 ki",
                   "details": [
-                    "toggles Step of the wind"
+                    "toggles Step of the Wind"
                   ],
                   "id": "step-of-the-wind",
                   "name": "Step of the Wind",
@@ -2153,7 +2153,7 @@
             },
             {
               "key": "srd51.class.monk#monastic-tradition",
-              "label": "Monk: Monastic tradition",
+              "label": "Monk: Subclass",
               "progress": "0 of 1 subclass(s)"
             }
           ]
@@ -2180,7 +2180,7 @@
                   "title": "System Reference Document 5.2"
                 }
               ],
-              "version": "0.7.1"
+              "version": "0.8.0"
             },
             {
               "id": "homebrew.byloth",
@@ -2203,11 +2203,11 @@
   "warnings": [
     {
       "code": "W_UNANSWERED_CHOICE",
-      "message": "choice \"homebrew.byloth.species.feline#languages\" (language) has 0 of 1 answers"
+      "message": "Feline: Languages, 0 of 1 chosen"
     },
     {
       "code": "W_UNANSWERED_CHOICE",
-      "message": "choice \"srd51.class.monk#monastic-tradition\" (subclass) has 0 of 1 answers"
+      "message": "Monk: Subclass, 0 of 1 chosen"
     }
   ]
 }

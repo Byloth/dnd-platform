@@ -167,7 +167,8 @@ describe("the changelog page", () =>
         const wrapper = await open("/changelog/srd51?from=0.6.0", ChangelogPage);
         const open_ = wrapper.findAll(".changelog-page > .changelog-page__release h2").map((h) => h.text());
 
-        expect(open_[0]).toMatch(/^0\.7\.1/);
+        // The newest version first, whatever it is today.
+        expect(open_[0]?.startsWith(`${SRD.manifest.version} `)).toBe(true);
         expect(open_.some((h) => h.startsWith("0.6.0"))).toBe(false);
         expect(wrapper.find(".changelog-page__earlier").text()).toContain("0.6.0");
         expect(wrapper.text()).not.toContain("pnpm release:content");

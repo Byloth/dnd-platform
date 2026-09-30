@@ -1,9 +1,9 @@
 formatVersion: 0
 id: fixture-fighter-l1
 name: Steady Oak
-ruleset: { id: srd51, version: 0.7.1 }
+ruleset: { id: srd51, version: 0.8.0 }
 packages:
-  - { id: srd51, version: 0.7.1 }
+  - { id: srd51, version: 0.8.0 }
 choices:
   species: srd51.species.human
   classes:

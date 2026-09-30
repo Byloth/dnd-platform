@@ -23,7 +23,7 @@
           "packages": [
             {
               "id": "srd51",
-              "version": "0.7.1"
+              "version": "0.8.0"
             }
           ],
           "parts": [
@@ -1679,7 +1679,7 @@
                     }
                   },
                   "available": true,
-                  "cost": "1 channel-divinity",
+                  "cost": "Channel Divinity ×1",
                   "details": [
                     "DC 15",
                     "save DC 15"
@@ -1723,7 +1723,7 @@
                     }
                   },
                   "available": true,
-                  "cost": "1 channel-divinity",
+                  "cost": "Channel Divinity ×1",
                   "details": [],
                   "id": "preserve-life",
                   "name": "Channel Divinity: Preserve Life",
@@ -1771,7 +1771,7 @@
                     }
                   },
                   "available": true,
-                  "cost": "1 arcane-recovery",
+                  "cost": "Arcane Recovery ×1",
                   "details": [],
                   "id": "arcane-recovery",
                   "name": "Arcane Recovery",
@@ -3083,12 +3083,12 @@
           "open": [
             {
               "key": "srd51.class.cleric#asi-4",
-              "label": "Cleric: Asi 4",
+              "label": "Cleric: Ability Score Improvement",
               "progress": "0 of 1 asi-or-feat(s)"
             },
             {
               "key": "srd51.class.wizard#asi-4",
-              "label": "Wizard: Asi 4",
+              "label": "Wizard: Ability Score Improvement",
               "progress": "0 of 1 asi-or-feat(s)"
             }
           ]
@@ -3115,7 +3115,7 @@
                   "title": "System Reference Document 5.2"
                 }
               ],
-              "version": "0.7.1"
+              "version": "0.8.0"
             }
           ]
         }
@@ -3127,11 +3127,11 @@
   "warnings": [
     {
       "code": "W_UNANSWERED_CHOICE",
-      "message": "choice \"srd51.class.cleric#asi-4\" (asi-or-feat) has 0 of 1 answers"
+      "message": "Cleric: Ability Score Improvement, 0 of 1 chosen"
     },
     {
       "code": "W_UNANSWERED_CHOICE",
-      "message": "choice \"srd51.class.wizard#asi-4\" (asi-or-feat) has 0 of 1 answers"
+      "message": "Wizard: Ability Score Improvement, 0 of 1 chosen"
     }
   ]
 }

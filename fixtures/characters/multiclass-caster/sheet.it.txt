@@ -1,0 +1,166 @@
+TWIN CANDLE
+Umano · Chierico 5, Dominio della Vita · Mago 5, Scuola di Invocazione  —  livello 10
+Regolamento srd51 · pacchetti srd51 0.8.0
+
+VALORI PRINCIPALI
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Classe Armatura                               11
+                   10  Base                         ← srd51
+                   +1  Modificatore di Destrezza    ← srd51
+  Iniziativa                                    +1
+  Velocità                                     9 m
+  Punti ferita                             68 / 68
+                   10  1° livello (Chierico)        ← srd51
+                  +28  4 livelli in più (Chierico)  ← srd51
+                  +30  5 livelli in più (Mago)      ← srd51
+  Dadi vita                              5d8 + 5d6
+  Bonus di competenza                           +4
+  Percezione passiva                            13
+
+CARATTERISTICHE
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                Punt.  Mod  TS
+  Forza            10   +0  +0
+  Destrezza        12   +1  +1
+  Costituzione     14   +2  +2
+  Intelligenza     16   +3  +3
+  Saggezza         16   +3  +7  ● competente
+  Carisma          10   +0  +4  ● competente
+
+ABILITÀ
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  ○  Acrobazia (DES)           +1       ○  Medicina (SAG)          +3
+  ○  Addestrare animali (SAG)  +3       ○  Natura (INT)            +3
+  ○  Arcano (INT)              +3       ○  Percezione (SAG)        +3
+  ○  Atletica (FOR)            +0       ○  Intrattenere (CAR)      +0
+  ○  Inganno (CAR)             +0       ○  Persuasione (CAR)       +0
+  ○  Storia (INT)              +3       ●  Religione (INT)         +7
+  ●  Intuizione (SAG)          +7       ○  Rapidità di mano (DES)  +1
+  ○  Intimidire (CAR)          +0       ○  Furtività (DES)         +1
+  ○  Indagare (INT)            +3       ○  Sopravvivenza (SAG)     +3
+  ○ non competente  ● competente  ◉ maestria
+
+  Armature  Armature pesanti, Armature leggere, Armature medie, Scudi
+  Armi      Armi semplici
+  Lingue    Comune, Elfico
+
+COMBATTIMENTO
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Capacità di carico  75 kg
+
+ATTACCHI
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Attacco          Colpire  Danni
+  Mazza                 +4  1d6 contundenti  in mischia, FOR
+  Colpo senz'armi       +4  1 contundenti    in mischia, FOR
+
+AZIONI
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Azioni
+    Incanalare Divinità: Scacciare Non Morti  Incanalare Divinità ×1  CD 15 · CD tiro salvezza 15
+    Incanalare Divinità: Preservare Vita      Incanalare Divinità ×1
+  Speciali
+    Recupero Arcano  Recupero Arcano ×1
+
+  Azioni base   Attacco, Scatto, Disimpegno, Schivata, Aiuto, Nascondersi, Prepararsi, Cercare,
+                Usare un oggetto, Lanciare un incantesimo
+
+RISORSE
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Incanalare Divinità  1 / 1  ●  recupera tutti con un riposo breve, tutti con un riposo lungo
+  Recupero Arcano      1 / 1  ●  recupera tutti con un dawn
+
+INCANTESIMI: CAPACITÀ
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Chierico — Saggezza · CD tiro salvezza 15 · attacco con incantesimo +7 · incantesimi: prepared · incantesimi rituali
+    4 trucchetti
+    Slot 1° ●●●● 2° ●●● 3° ●●● 4° ●●● 5° ●●
+  Mago — Intelligenza · CD tiro salvezza 15 · attacco con incantesimo +7 · incantesimi: spellbook · incantesimi rituali
+    4 trucchetti
+    Slot 1° ●●●● 2° ●●● 3° ●●● 4° ●●● 5° ●●
+
+INCANTESIMI
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Trucchetti Dardo di fuoco, Fiamma sacra, Guida ©, Luce, Mano magica, Prestidigitazione, Raggio di
+             gelo, Taumaturgia
+  1° livello Armatura magica, Benedizione* ©, Cura ferite*, Dardo incantato, Dardo tracciante,
+             Individuazione del magico ©, Parola guaritrice, Scudo
+  2° livello Aiuto, Arma spirituale*, Blocca persone ©, Passo velato, Preghiera di guarigione,
+             Ristorare inferiore*, Silenzio ©
+  3° livello Controincantesimo, Dissolvi magie, Faro di speranza* ©, Guardiani spirituali ©, Palla
+             di fuoco, Rinascita*, Volare ©
+  © concentrazione  * sempre preparato
+
+PRIVILEGI E TRATTI
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Specie — Umano
+    Incremento dei punteggi di caratteristica    Ogni punteggio di caratteristica di un umano…
+    Velocità                                     La velocità base sul terreno di un umano è di 9…
+    Età                                          Un umano raggiunge la maturità tra i 18 e i 20…
+    Allineamento                                 Gli umani non tendono ad alcun allineamento in…
+    Taglia                                       L'altezza e la corporatura possono variare…
+    Linguaggi                                    Gli umani parlano, leggono e scrivono in Comune…
+  Classe — Chierico, Mago
+    Dominio Divino                          L1  Il chierico sceglie un dominio correlato alla sua…
+    Incantesimi                             L1  Un chierico è un tramite del potere divino e come…
+    Incanalare Divinità                     L2  Al 2° livello, un chierico ottiene la capacità di…
+    Aumento dei Punteggi di Caratteristica  L4  Quando arriva al 4° livello e poi di nuovo all'8°,…
+    Distruggere Non Morti                   L5  A partire dal 5° livello, quando un non morto…
+    Recupero Arcano                         L1  Un mago impara a recuperare parte della sua energia…
+    Incantesimi                             L1  Un mago è uno studioso di magia arcana: possiede un…
+    Tradizione Arcana                       L2  Quando un mago arriva al 2° livello, sceglie una…
+    Aumento dei Punteggi di Caratteristica  L4  Quando arriva al 4° livello, e poi di nuovo all'8°,…
+  Sottoclasse — Dominio della Vita, Scuola di Invocazione
+    Competenza Bonus                              L1  Quando il chierico sceglie questo dominio al…
+    Discepolo della Vita                          L1  A partire dal 1° livello, gli incantesimi di…
+    Incantesimi del Dominio della Vita (tabella)  L1  Livello da chierico | Incantesimi | |---|---|…
+    Incanalare Divinità: Preservare Vita          L2  A partire dal 2° livello, il chierico può…
+    Invocatore Sapiente                           L2  A partire da quando il mago sceglie questa…
+    Plasmare Incantesimi                          L2  A partire dal 2° livello, il mago è in grado…
+  • Quando un non morto fallisce il suo tiro salvezza contro il tuo privilegio Scacciare Non Morti,
+    quella creatura è distrutta istantaneamente se il suo grado di sfida è pari o inferiore a una
+    soglia: 1/2 al 5° livello, 1 all'8°, 2 all'11°, 3 al 14°, 4 al 17°. (Distruggere Non Morti)
+  • Ogni volta che usi un incantesimo di 1° livello o di livello superiore per ripristinare i punti
+    ferita di una creatura, quella creatura recupera un ammontare di punti ferita aggiuntivi pari a
+    2 + il livello dell'incantesimo. (Discepolo della Vita)
+  • Il tempo e il denaro che devi spendere per copiare un incantesimo di invocazione nel tuo libro
+    degli incantesimi sono dimezzati. (Invocatore Sapiente)
+  • Quando lanci un incantesimo di invocazione che influenza le altre creature che sei in grado di
+    vedere, puoi scegliere un numero di quelle creature pari a 1 + il livello dell'incantesimo. Le
+    creature scelte superano automaticamente i loro tiri salvezza contro l'incantesimo e non
+    subiscono alcun danno se normalmente subirebbero la metà dei danni in caso di tiro salvezza
+    superato. (Plasmare Incantesimi)
+
+EQUIPAGGIAMENTO
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Mazza    equipaggiato
+
+NOTE
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Scelte ancora aperte
+    Chierico: Aumento dei Punteggi di Caratteristica  0 di 1
+    Mago: Aumento dei Punteggi di Caratteristica      0 di 1
+
+CREDITI
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  System Reference Document 5.1 (srd51 0.8.0)
+    System Reference Document 5.1, Wizards of the Coast — CC-BY-4.0. This work includes material
+    taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and
+    available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is
+    licensed under the Creative Commons Attribution 4.0 International License available at
+    https://creativecommons.org/licenses/by/4.0/legalcode.
+    System Reference Document 5.2, Wizards of the Coast — CC-BY-4.0. This work includes material
+    from the System Reference Document 5.2 (“SRD 5.2”) by Wizards of the Coast LLC, available at
+    https://www.dndbeyond.com/srd. The SRD 5.2 is licensed under the Creative Commons Attribution
+    4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.
+  System Reference Document 5.1 — italiano (srd51-it 0.3.0)
+    System Reference Document 5.1 (italiano), Wizards of the Coast — CC-BY-4.0. Questo lavoro
+    include materiale del System Reference Document 5.1 (“SRD 5.1”) di Wizards of the Coast LLC
+    disponibile al sito https://dnd.wizards.com/it/resources/systems-reference-document. L’SRD 5.1 è
+    concesso in licenza sotto l’Attribuzione 4.0 Internazionale di Creative Commons disponibile al
+    sito https://creativecommons.org/licenses/by/4.0/legalcode.it.
+
+AVVISI
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  W_UNANSWERED_CHOICE: Chierico: Aumento dei Punteggi di Caratteristica, 0 di 1 scelti
+  W_UNANSWERED_CHOICE: Mago: Aumento dei Punteggi di Caratteristica, 0 di 1 scelti

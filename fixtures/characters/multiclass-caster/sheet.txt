@@ -1,6 +1,6 @@
 TWIN CANDLE
 Human · Cleric 5, Life Domain · Wizard 5, School of Evocation  —  level 10
-Ruleset srd51 · packages srd51 0.7.1
+Ruleset srd51 · packages srd51 0.8.0
 
 CORE
 ────────────────────────────────────────────────────────────────────────────────────────────────────
@@ -57,10 +57,10 @@ ATTACKS
 ACTIONS
 ────────────────────────────────────────────────────────────────────────────────────────────────────
   Actions
-    Channel Divinity: Turn Undead    1 channel-divinity  DC 15 · save DC 15
-    Channel Divinity: Preserve Life  1 channel-divinity
+    Channel Divinity: Turn Undead    Channel Divinity ×1  DC 15 · save DC 15
+    Channel Divinity: Preserve Life  Channel Divinity ×1
   Special
-    Arcane Recovery  1 arcane-recovery
+    Arcane Recovery  Arcane Recovery ×1
 
   Base actions  Attack, Dash, Disengage, Dodge, Help, Hide, Ready, Search, Use an Object, Cast a
                 Spell
@@ -136,12 +136,12 @@ EQUIPMENT
 NOTES
 ────────────────────────────────────────────────────────────────────────────────────────────────────
   Choices still open
-    Cleric: Asi 4  0 of 1 asi-or-feat(s)
-    Wizard: Asi 4  0 of 1 asi-or-feat(s)
+    Cleric: Ability Score Improvement  0 of 1 asi-or-feat(s)
+    Wizard: Ability Score Improvement  0 of 1 asi-or-feat(s)
 
 CREDITS
 ────────────────────────────────────────────────────────────────────────────────────────────────────
-  System Reference Document 5.1 (srd51 0.7.1)
+  System Reference Document 5.1 (srd51 0.8.0)
     System Reference Document 5.1, Wizards of the Coast — CC-BY-4.0. This work includes material
     taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and
     available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is
@@ -154,5 +154,5 @@ CREDITS
 
 WARNINGS
 ────────────────────────────────────────────────────────────────────────────────────────────────────
-  W_UNANSWERED_CHOICE: choice "srd51.class.cleric#asi-4" (asi-or-feat) has 0 of 1 answers
-  W_UNANSWERED_CHOICE: choice "srd51.class.wizard#asi-4" (asi-or-feat) has 0 of 1 answers
+  W_UNANSWERED_CHOICE: Cleric: Ability Score Improvement, 0 of 1 chosen
+  W_UNANSWERED_CHOICE: Wizard: Ability Score Improvement, 0 of 1 chosen

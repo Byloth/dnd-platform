@@ -1,6 +1,6 @@
 QUIET PAW
 Feline (Puma) · Monk 3  —  level 3
-Ruleset srd51 · packages srd51 0.7.1, homebrew.byloth 0.1.0
+Ruleset srd51 · packages srd51 0.8.0, homebrew.byloth 0.1.0
 
 CORE
 ────────────────────────────────────────────────────────────────────────────────────────────────────
@@ -69,8 +69,8 @@ ACTIONS
     Martial Arts unarmed strike        after Attack · attack +5 · martial arts die +3 bludgeoning
                                        (not available now)
     Flurry of Blows              1 ki  after Attack · attack +5 · martial arts die +3 bludgeoning
-    Patient Defense              1 ki  toggles Patient defense
-    Step of the Wind             1 ki  toggles Step of the wind
+    Patient Defense              1 ki  toggles Patient Defense
+    Step of the Wind             1 ki  toggles Step of the Wind
   Reactions
     Deflect Missiles
 
@@ -106,12 +106,12 @@ EQUIPMENT
 NOTES
 ────────────────────────────────────────────────────────────────────────────────────────────────────
   Choices still open
-    Feline: Languages         0 of 1 language(s)
-    Monk: Monastic tradition  0 of 1 subclass(s)
+    Feline: Languages  0 of 1 language(s)
+    Monk: Subclass     0 of 1 subclass(s)
 
 CREDITS
 ────────────────────────────────────────────────────────────────────────────────────────────────────
-  System Reference Document 5.1 (srd51 0.7.1)
+  System Reference Document 5.1 (srd51 0.8.0)
     System Reference Document 5.1, Wizards of the Coast — CC-BY-4.0. This work includes material
     taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and
     available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is
@@ -127,6 +127,5 @@ CREDITS
 
 WARNINGS
 ────────────────────────────────────────────────────────────────────────────────────────────────────
-  W_UNANSWERED_CHOICE: choice "homebrew.byloth.species.feline#languages" (language) has 0 of 1
-  answers
-  W_UNANSWERED_CHOICE: choice "srd51.class.monk#monastic-tradition" (subclass) has 0 of 1 answers
+  W_UNANSWERED_CHOICE: Feline: Languages, 0 of 1 chosen
+  W_UNANSWERED_CHOICE: Monk: Subclass, 0 of 1 chosen

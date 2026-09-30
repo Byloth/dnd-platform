@@ -105,22 +105,31 @@ export const it: SheetMessages = {
         cha: "CAR"
     },
     damage: {
-        acid: "acido",
-        bludgeoning: "contundenti",
-        cold: "freddo",
-        fire: "fuoco",
-        force: "forza",
-        lightning: "fulmine",
-        necrotic: "necrotici",
-        piercing: "perforanti",
-        poison: "veleno",
-        psychic: "psichici",
-        radiant: "radiosi",
-        slashing: "taglienti",
-        thunder: "tuono"
+        "acid": "acido",
+        "bludgeoning": "contundenti",
+        "cold": "freddo",
+        "fire": "fuoco",
+        "force": "forza",
+        "lightning": "fulmine",
+        "necrotic": "necrotici",
+        "piercing": "perforanti",
+        "poison": "veleno",
+        "psychic": "psichici",
+        "radiant": "radiosi",
+        "slashing": "taglienti",
+        "thunder": "tuono",
+        "magical-sleep": "sonno magico",
+        "disease": "malattie"
     },
     proficiencyNames: {
-        tool: { "vehicles-land": "Veicoli (terrestri)", "vehicles-water": "Veicoli (acquatici)" },
+        tool: {
+            "vehicles-land": "Veicoli (terrestri)",
+            "vehicles-water": "Veicoli (acquatici)",
+            "musical-instrument": "Strumento musicale",
+            "artisans-tools": "Strumenti da artigiano",
+            "gaming-set": "Set da gioco"
+        },
+        language: { "druidic": "Druidico", "thieves-cant": "Gergo ladresco" },
         weapon: { simple: "Armi semplici", martial: "Armi da guerra" },
         armor: { light: "Armature leggere", medium: "Armature medie", heavy: "Armature pesanti", shield: "Scudi" }
     },
@@ -213,6 +222,7 @@ export const it: SheetMessages = {
     },
     actions: {
         resourceCost: "{amount} {resource}",
+        resourceUses: "{resource} ×{amount}",
         slotCost: "slot di {level}° livello",
         after: "dopo {action}",
         dc: "CD {value}",
@@ -265,6 +275,55 @@ export const it: SheetMessages = {
     notes: {
         progress: "{answered} di {count}"
     },
+    text: {
+        level: "livello {level}",
+        ruleset: "Regolamento {ruleset} · pacchetti {packages}",
+        score: "Punt.",
+        mod: "Mod",
+        save: "TS",
+        untrained: "non competente",
+        proficient: "competente",
+        expertise: "maestria",
+        attack: "Attacco",
+        toHit: "Colpire",
+        damage: "Danni",
+        notAvailable: "non disponibile ora",
+        baseActions: "Azioni base",
+        slots: "Slot",
+        concentration: "concentrazione",
+        alwaysPrepared: "sempre preparato",
+        choicesOpen: "Scelte ancora aperte",
+        warnings: "Avvisi"
+    },
+    choices: {
+        names: {
+            skills: "Abilità",
+            spells: "Incantesimi",
+            cantrips: "Trucchetti",
+            languages: "Linguaggi",
+            tools: "Strumenti",
+            expertise: "Maestria",
+            asi: "Aumento dei Punteggi di Caratteristica"
+        },
+        kinds: {
+            "skill": "Abilità",
+            "spell": "Incantesimi",
+            "language": "Linguaggio",
+            "tool": "Strumento",
+            "option": "Opzione",
+            "subclass": "Sottoclasse",
+            "fighting-style": "Stile di combattimento",
+            "asi-or-feat": "Aumento dei punteggi di caratteristica o talento",
+            "feat": "Talento"
+        }
+    },
+    warnings: {
+        unanswered: "{owner}: {choice}, {answered} di {count} scelti",
+        excluded: "{name} è fuori dai pacchetti scelti per questo personaggio; la scheda lo tiene",
+        missing: "{name} non è nei pacchetti caricati",
+        duplicateAction: "{name} è dichiarata due volte; vale la prima",
+        version: "{name} è alla versione {loaded}; il personaggio è stato creato con la {pinned}"
+    },
     explain: {
         base: "Tutti partono da {value}.",
         baseFrom: "{label} fissa il valore di partenza a {value}.",
@@ -274,6 +333,7 @@ export const it: SheetMessages = {
         proficiency: "Il tuo bonus di competenza dà {value}.",
         add: "{label} aggiunge {value}.",
         set: "{label} lo porta a {value}.",
+        kinds: { "set": "impostato a {value}", "set-formula": "da formula, {value}", "patch": "modificato in {value}" },
         setFormula: "{label}: {rule} → {value}.",
         mul: "{label} lo moltiplica per {value}.",
         min: "{label} lo porta almeno a {value}.",

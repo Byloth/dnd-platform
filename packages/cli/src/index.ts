@@ -19,6 +19,7 @@ import { runBuild } from "./commands/build.js";
 import { runDerive } from "./commands/derive.js";
 import { runFixturesCommand } from "./commands/fixtures.js";
 import { runRelease } from "./commands/release.js";
+import { runProbe } from "./commands/probe.js";
 import { runShow } from "./commands/show.js";
 import { runValidate } from "./commands/validate.js";
 
@@ -39,6 +40,9 @@ Commands:
   derive     compute a character sheet                    (M0.8)
   show <entity-id> [--package <dir>]… [--language <code>] [--units imperial|metric]
              print a creature's stat block, in a language and in units
+  probe-language <language> [dirs…] [--json]
+             compose every fixture character in English and in the language; report
+             the texts of the translated sheets still in English
   fixtures [dirs…] [--update] [--filter <name>] [--json]
              run the golden character fixtures (fixtures/characters) and the
              play session fixtures (fixtures/sessions), plus the private ones when present
@@ -60,6 +64,7 @@ export function main(argv: readonly string[]): number
     if (command === "derive") { return runDerive(rest); }
     if (command === "show") { return runShow(rest); }
     if (command === "fixtures") { return runFixturesCommand(rest); }
+    if (command === "probe-language") { return runProbe(rest); }
 
     process.stderr.write(`dnd: unknown or not yet implemented command "${command}"\n\n${HELP}`);
 

@@ -40,6 +40,7 @@ levels.2.features.0.text: |-
 
   Un monaco può spendere 1 punto ki per effettuare l'azione Disimpegno o Scatto come azione bonus nel suo turno; inoltre, la sua distanza di salto raddoppia per quel turno.
 levels.2.features.0.effects.0.name: Punti ki
+levels.2.features.0.effects.0.unit: ki
 levels.2.features.0.effects.0.note: CD del tiro salvezza del Ki = 8 + il tuo bonus di competenza + il tuo modificatore di Saggezza; indicata sulle azioni che richiedono un tiro salvezza.
 levels.2.features.0.effects.1.name: Raffica di Colpi
 levels.2.features.0.effects.1.text: Subito dopo avere effettuato l'azione Attacco nel tuo turno, puoi spendere 1 punto ki per sferrare due colpi senz'armi come azione bonus.

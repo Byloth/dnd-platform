@@ -1,0 +1,18 @@
+formatVersion: 0
+id: homebrew.byloth-it
+name: { en: "Byloth's homebrew — Italian", it: "Homebrew di Byloth — italiano" }
+version: 0.1.0
+kind: translation
+defaultLanguage: it
+languages: [it]
+visibility: public
+redistributable: true
+dependencies:
+  - { id: homebrew.byloth, version: ">=0.1.0" }
+sources:
+  - id: homebrew.byloth-it
+    title: "Homebrew di Byloth (italiano)"
+    publisher: "Matteo Bilotta"
+    edition: "2026"
+    license: CC-BY-4.0
+    attribution: "Contenuto homebrew di Matteo Bilotta, con licenza CC-BY-4.0."

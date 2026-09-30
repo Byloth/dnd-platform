@@ -10,7 +10,7 @@
  * (docs/phase-1/11): a character never lists a translation.
  */
 
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 
 import { parse } from "yaml";
@@ -49,8 +49,17 @@ export interface ResolveOptions
 export function withTranslations(resolved: ResolvedPackages, options: ResolveOptions): ResolvedPackages
 {
     if (options.language === undefined) { return resolved; }
-    const candidates = [...discoverPackages(options.repoRoot).map((p) => p.directory), ...options.extra ?? []]
-        .map((directory) => ({ directory: resolve(directory), source: readPackageSource(resolve(directory)) }))
+    // Translations sit among the discovered packages, among the explicit ones, and next to the packages the
+    // character uses (a fixture's homebrew and its translation, side by side under fixtures/packages).
+    const siblings = [...new Set(resolved.directories.map((d) => dirname(resolve(d))))]
+        .flatMap((parent) => readdirSync(parent).map((name) => join(parent, name)))
+        .filter((d) => existsSync(join(d, "package.yaml")));
+    const candidates = [...new Set([
+        ...discoverPackages(options.repoRoot).map((p) => resolve(p.directory)),
+        ...(options.extra ?? []).map((d) => resolve(d)),
+        ...siblings
+    ])]
+        .map((directory) => ({ directory: directory, source: read(directory) }))
         .filter(({ source }) => (source.manifest.kind === "translation") &&
             source.manifest.languages.includes(options.language!));
     const sources = [...resolved.sources];
@@ -75,6 +84,24 @@ export function withTranslations(resolved: ResolvedPackages, options: ResolveOpt
 
 export class ResolveError extends Error { }
 
+/**
+ * A package directory read once per process: resolving many characters (`dnd fixtures`, `dnd probe-language`)
+ * would otherwise read and parse the same packages, and every candidate translation, again for each one.
+ */
+const _read = new Map<string, PackageSource>();
+function read(directory: string): PackageSource
+{
+    const key = resolve(directory);
+    let source = _read.get(key);
+    if (!source)
+    {
+        source = readPackageSource(key);
+        _read.set(key, source);
+    }
+
+    return source;
+}
+
 export function resolvePackages(characterPath: string, character: Character, options: ResolveOptions): ResolvedPackages
 {
     return withTranslations(resolveListed(characterPath, character, options), options);
@@ -89,7 +116,7 @@ function resolveListed(characterPath: string, character: Character, options: Res
         const directories = file.packages.map((p) => resolve(options.repoRoot, p));
         const missing = directories.filter((d) => !existsSync(d));
         if (missing.length > 0) { throw new ResolveError(`${sibling}: missing package directories: ${missing.join(", ")}`); }
-        const sources = directories.map(readPackageSource);
+        const sources = directories.map(read);
         const ids = new Set(sources.map((s) => s.manifest.id));
         const absent = (file.requires ?? []).filter((id) => !ids.has(id));
         if (absent.length > 0) { throw new ResolveError(`${sibling}: required packages not loaded: ${absent.join(", ")}`); }
@@ -106,7 +133,7 @@ function resolveListed(characterPath: string, character: Character, options: Res
     for (const dir of options.extra ?? [])
     {
         const directory = resolve(dir);
-        explicit.set(readPackageSource(directory).manifest.id, directory);
+        explicit.set(read(directory).manifest.id, directory);
     }
     const wanted = character.packages.map((p) => p.id);
     const directories: string[] = [];
@@ -124,5 +151,5 @@ function resolveListed(characterPath: string, character: Character, options: Res
             "pass --package <dir> or put a packages.yaml next to the character)");
     }
 
-    return { sources: directories.map(readPackageSource), directories: directories };
+    return { sources: directories.map(read), directories: directories };
 }

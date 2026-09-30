@@ -4,10 +4,10 @@ id: fixture-created-ranger
 name: Far strider
 ruleset:
   id: srd51
-  version: 0.7.1
+  version: 0.8.0
 packages:
   - id: srd51
-    version: 0.7.1
+    version: 0.8.0
 choices:
   species: srd51.species.elf
   subspecies: srd51.species.elf.high-elf

@@ -1,6 +1,6 @@
 STONE LANTERN
 Dwarf (Hill Dwarf) · Cleric 5, Life Domain · Acolyte  —  level 5
-Ruleset srd51 · packages srd51 0.7.1
+Ruleset srd51 · packages srd51 0.8.0
 
 CORE
 ────────────────────────────────────────────────────────────────────────────────────────────────────
@@ -65,8 +65,8 @@ ATTACKS
 ACTIONS
 ────────────────────────────────────────────────────────────────────────────────────────────────────
   Actions
-    Channel Divinity: Turn Undead    1 channel-divinity  DC 15 · save DC 15
-    Channel Divinity: Preserve Life  1 channel-divinity
+    Channel Divinity: Turn Undead    Channel Divinity ×1  DC 15 · save DC 15
+    Channel Divinity: Preserve Life  Channel Divinity ×1
 
   Base actions  Attack, Dash, Disengage, Dodge, Help, Hide, Ready, Search, Use an Object, Cast a
                 Spell
@@ -138,7 +138,7 @@ EQUIPMENT
 
 CREDITS
 ────────────────────────────────────────────────────────────────────────────────────────────────────
-  System Reference Document 5.1 (srd51 0.7.1)
+  System Reference Document 5.1 (srd51 0.8.0)
     System Reference Document 5.1, Wizards of the Coast — CC-BY-4.0. This work includes material
     taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and
     available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is

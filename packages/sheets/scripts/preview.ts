@@ -42,7 +42,8 @@ function fonts(hand: Hand): SheetFonts
 
 const TRANSLATIONS: Record<string, string> = {
     "packages/content/srd51": "packages/content/srd51-it",
-    "content-private/phb14": "content-private/phb14-it"
+    "content-private/phb14": "content-private/phb14-it",
+    "fixtures/packages/homebrew-feline": "fixtures/packages/homebrew-feline-it"
 };
 
 interface Composed { tree: ReturnType<typeof compose>, character: Character, packages: ReturnType<typeof loadPackages> }

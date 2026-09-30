@@ -23,6 +23,9 @@ function context(language: string): WordingContext
             return (text === `sheet.${key}` && fallback !== undefined) ? fallback : text;
         },
         name: (id) => id.split(".").pop() ?? id,
+        resource: (id) => id,
+        toggle: (state) => state,
+        choice: (id) => id,
         label: () => "",
         abilityOf: () => undefined,
         score: () => 10,

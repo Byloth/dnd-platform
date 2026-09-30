@@ -16,6 +16,12 @@ export interface WordingContext
     t(key: string, params?: TranslateParams, fallback?: string): string;
     /** The name of an entity in the sheet's language; the last id segment when unknown. */
     name(id: string): string;
+    /** A resource by its name (`ki` → "Ki points"). */
+    resource(id: string): string;
+    /** A player-controlled state by the name of what declares it (`patient-defense` → "Patient Defense"). */
+    toggle(state: string): string;
+    /** An open choice by its usual name (`skills` → "Skills"). */
+    choice(id: string): string;
     /** The label of a contribution in the sheet's language. */
     label(contribution: Contribution): string;
     /** The ability behind a ruleset-generated modifier label ("Dexterity modifier" → `dex`), if any. */
@@ -133,18 +139,18 @@ function clause(key: string, value: unknown, ctx: WordingContext): string
         case "wieldingOnly": return ctx.t("when.wieldingOnly", { weapon: weapon(value as WeaponFilter, ctx) });
         case "armorStrengthUnmet": return ctx.t(value === true ? "when.armorStrengthUnmet" : "when.armorStrengthMet");
         case "conditionActive": return ctx.t("when.conditionActive", { condition: ctx.name(value as string) });
-        case "toggled": return ctx.t("when.toggled", { state: words(value as string) });
+        case "toggled": return ctx.t("when.toggled", { state: ctx.toggle(value as string) });
         case "resourceAtLeast":
         {
             const v = value as { resource: string, amount: number };
 
-            return ctx.t("when.resourceAtLeast", { amount: v.amount, resource: words(v.resource) });
+            return ctx.t("when.resourceAtLeast", { amount: v.amount, resource: ctx.resource(v.resource) });
         }
         case "answer":
         {
             const v = value as { choice: string, is: string };
 
-            return ctx.t("when.answer", { choice: words(v.choice), option: ctx.name(v.is) });
+            return ctx.t("when.answer", { choice: ctx.choice(v.choice), option: ctx.name(v.is) });
         }
         case "knowsSpell": return ctx.t("when.knowsSpell", { spell: ctx.name(value as string) });
         case "ability":

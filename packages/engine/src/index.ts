@@ -96,6 +96,8 @@ export interface ResourceView
 {
     readonly id: string;
     readonly name: LocalizedString;
+    /** How a cost in the resource is written after its amount ("ki"), when the content gives it. */
+    readonly unit?: LocalizedString;
     readonly max: DerivedValue;
     /** Current value from the character state; null when the state has no entry yet. */
     readonly current: number | null;

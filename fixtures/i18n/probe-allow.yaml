@@ -1,0 +1,23 @@
+# What `dnd probe-language it` does not report (packages/cli/src/commands/probe.ts): texts and words that are the
+# same in English and Italian by right. Add to it only what the official Italian texts write the English way.
+
+# Words the two languages share: a text made only of these (and numbers) is not English.
+words:
+  - Base
+  - Ranger
+  - Warlock
+  - Halfling
+  - Tiefling
+  - Goblin
+  - Trance
+  - Dulcimer
+  - Ki
+  - Puma
+  - Druid
+  - System
+  - Reference
+  - Document
+  - srd51
+
+# Whole texts that are right as they are.
+texts: []

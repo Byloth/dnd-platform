@@ -6,6 +6,10 @@ itself when the interface is in Italian; characters never list it. Like every
 public package, each released version is published by the site and never
 changes (DEC-21).
 
+## 0.3.0 — 2026-09-30
+
+- **Follows srd51 0.8.0**: the unit of ki ("1 ki").
+
 ## 0.2.0 — 2026-09-26
 
 - **Follows srd51 0.7.0**: the rules, mounts and items it added (resting,

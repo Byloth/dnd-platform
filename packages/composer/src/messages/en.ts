@@ -105,22 +105,31 @@ export const en = {
         cha: "CHA"
     },
     damage: {
-        acid: "acid",
-        bludgeoning: "bludgeoning",
-        cold: "cold",
-        fire: "fire",
-        force: "force",
-        lightning: "lightning",
-        necrotic: "necrotic",
-        piercing: "piercing",
-        poison: "poison",
-        psychic: "psychic",
-        radiant: "radiant",
-        slashing: "slashing",
-        thunder: "thunder"
+        "acid": "acid",
+        "bludgeoning": "bludgeoning",
+        "cold": "cold",
+        "fire": "fire",
+        "force": "force",
+        "lightning": "lightning",
+        "necrotic": "necrotic",
+        "piercing": "piercing",
+        "poison": "poison",
+        "psychic": "psychic",
+        "radiant": "radiant",
+        "slashing": "slashing",
+        "thunder": "thunder",
+        "magical-sleep": "magical sleep",
+        "disease": "disease"
     },
     proficiencyNames: {
-        tool: { "vehicles-land": "Vehicles (land)", "vehicles-water": "Vehicles (water)" },
+        tool: {
+            "vehicles-land": "Vehicles (land)",
+            "vehicles-water": "Vehicles (water)",
+            "musical-instrument": "Musical instrument",
+            "artisans-tools": "Artisan's tools",
+            "gaming-set": "Gaming set"
+        },
+        language: { "druidic": "Druidic", "thieves-cant": "Thieves' cant" },
         weapon: { simple: "Simple weapons", martial: "Martial weapons" },
         armor: { light: "Light armor", medium: "Medium armor", heavy: "Heavy armor", shield: "Shields" }
     },
@@ -210,6 +219,7 @@ export const en = {
     },
     actions: {
         resourceCost: "{amount} {resource}",
+        resourceUses: "{resource} ×{amount}",
         slotCost: "level {level} slot",
         after: "after {action}",
         dc: "DC {value}",
@@ -262,6 +272,55 @@ export const en = {
     notes: {
         progress: "{answered} of {count} {of}(s)"
     },
+    text: {
+        level: "level {level}",
+        ruleset: "Ruleset {ruleset} · packages {packages}",
+        score: "Score",
+        mod: "Mod",
+        save: "Save",
+        untrained: "untrained",
+        proficient: "proficient",
+        expertise: "expertise",
+        attack: "Attack",
+        toHit: "To hit",
+        damage: "Damage",
+        notAvailable: "not available now",
+        baseActions: "Base actions",
+        slots: "Slots",
+        concentration: "concentration",
+        alwaysPrepared: "always prepared",
+        choicesOpen: "Choices still open",
+        warnings: "Warnings"
+    },
+    choices: {
+        names: {
+            skills: "Skills",
+            spells: "Spells",
+            cantrips: "Cantrips",
+            languages: "Languages",
+            tools: "Tools",
+            expertise: "Expertise",
+            asi: "Ability Score Improvement"
+        },
+        kinds: {
+            "skill": "Skill",
+            "spell": "Spells",
+            "language": "Language",
+            "tool": "Tool",
+            "option": "Option",
+            "subclass": "Subclass",
+            "fighting-style": "Fighting style",
+            "asi-or-feat": "Ability score improvement or feat",
+            "feat": "Feat"
+        }
+    },
+    warnings: {
+        unanswered: "{owner}: {choice}, {answered} of {count} chosen",
+        excluded: "{name} is outside the packages chosen for this character; the sheet keeps it",
+        missing: "{name} is not in the loaded packages",
+        duplicateAction: "{name} is declared twice; the first one counts",
+        version: "{name} is at version {loaded}; the character was made with {pinned}"
+    },
     explain: {
         base: "Everyone starts from {value}.",
         baseFrom: "{label} sets the starting value at {value}.",
@@ -271,6 +330,7 @@ export const en = {
         proficiency: "Your proficiency bonus gives {value}.",
         add: "{label} adds {value}.",
         set: "{label} sets it to {value}.",
+        kinds: { "set": "set to {value}", "set-formula": "by formula, {value}", "patch": "changed to {value}" },
         setFormula: "{label}: {rule} → {value}.",
         mul: "{label} multiplies it by {value}.",
         min: "{label} makes it at least {value}.",

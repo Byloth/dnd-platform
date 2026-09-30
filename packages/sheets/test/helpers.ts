@@ -30,7 +30,8 @@ export const FONTS: SheetFonts = {
 
 const TRANSLATIONS: Readonly<Record<string, string>> = {
     "packages/content/srd51": "packages/content/srd51-it",
-    "content-private/phb14": "content-private/phb14-it"
+    "content-private/phb14": "content-private/phb14-it",
+    "fixtures/packages/homebrew-feline": "fixtures/packages/homebrew-feline-it"
 };
 
 /** A fixture character (by name, or a directory) composed as the site composes it, with its package set. */

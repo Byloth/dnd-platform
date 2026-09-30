@@ -25,6 +25,7 @@ import type { Character, ComputedSheet, SpellView } from "@byloth/dnd-platform-e
 
 import { PRIVATE_ROOT, findRepositoryRoot } from "../io/repository.js";
 import { readPackageSource } from "@byloth/dnd-platform-loader/node";
+import { withTranslations } from "../io/resolve-packages.js";
 import { computeCoverage, writeCoverageReport } from "./coverage.js";
 import { runSession } from "./sessions.js";
 import { renderTree } from "../render/text.js";
@@ -318,6 +319,24 @@ function runOne(root: string, directory: string, name: string, update: boolean):
     // The composer's section tree and the readable sheet are golden too, where a fixture keeps them
     // (the reference for the web sheet): checked when present, refreshed by --update.
     const tree = compose(sheet, { character: character, packages: set });
+    // The tree in Italian, composed on first use: the translations of the fixture's packages, metric units.
+    let italianTree: ReturnType<typeof compose> | undefined;
+    const italian = (): ReturnType<typeof compose> =>
+    {
+        if (italianTree) { return italianTree; }
+        const translated = withTranslations(
+            { sources: sources, directories: packagesFile.packages.map((path) => resolve(root, path)) },
+            { repoRoot: root, language: "it" }
+        );
+        const italianSet = loadPackages(translated.sources, {
+            pins: pins, language: "it", ...(selection !== undefined ? { selection: selection } : {})
+        });
+        italianTree = compose(derive(character, italianSet, { language: "it" }), {
+            character: character, packages: italianSet, language: "it", units: "metric"
+        });
+
+        return italianTree;
+    };
     // The newcomer and expert trees (help levels) where a fixture keeps them; the regular tree is the default.
     const level = (helpLevel: "newcomer" | "expert"): string =>
         stableStringify(compose(sheet, { character: character, packages: set, helpLevel: helpLevel }));
@@ -326,6 +345,9 @@ function runOne(root: string, directory: string, name: string, update: boolean):
         ["section-tree.newcomer.json", () => level("newcomer")],
         ["section-tree.expert.json", () => level("expert")],
         ["sheet.txt", () => renderTree(tree, { color: false })],
+        // The Italian sheet, with the translations next to the packages (docs/phase-1/06-localisation.md).
+        ["section-tree.it.json", () => stableStringify(italian())],
+        ["sheet.it.txt", () => renderTree(italian(), { color: false, language: "it" })],
         // What the classic PDF sheet writes in its fields (packages/sheets).
         ["sheet-values.json", () => stableStringify(sheetValues({ language: "en", tree: tree, character: character }))]
     ];

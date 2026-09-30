@@ -1,0 +1,13 @@
+name: Felino
+text: I felini sono cacciatori agili dai sensi acuti, a loro agio nell'ombra e sulle alture.
+features.0.name: Artigli
+features.0.text: I tuoi artigli sono armi naturali, che puoi usare per effettuare colpi senz'armi. Se colpisci, infliggono danni taglienti pari a 1d4 + il tuo modificatore di Forza.
+features.1.name: Scurovisione
+features.1.text: Puoi vedere in condizioni di luce fioca entro 18 metri da te come se fosse luce intensa, e nell'oscurità come se fosse luce fioca. Nell'oscurità non distingui i colori, solo le sfumature di grigio.
+features.2.name: Grazia felina
+features.2.text: Hai vantaggio alle prove di Destrezza (Furtività) per muoverti in silenzio.
+features.2.effects.0.note: per muoverti in silenzio
+subspecies.0.name: Puma
+subspecies.0.text: I puma sono i più grandi tra i felini, fatti per il balzo e l'agguato.
+subspecies.0.features.0.name: Balzo
+subspecies.0.features.0.text: Il tuo salto in lungo arriva fino al doppio del tuo punteggio di Forza in piedi (0,6 metri per punto).

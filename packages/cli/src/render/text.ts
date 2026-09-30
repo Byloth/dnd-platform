@@ -13,7 +13,7 @@
 import pc from "picocolors";
 import stringWidth from "string-width";
 
-import { compose, explain, plain } from "@byloth/dnd-platform-composer";
+import { compose, createTranslate, explain, plain } from "@byloth/dnd-platform-composer";
 import type {
     Block, ComposeOptions, Explanation, ExplanationLine, Section, SectionTree
 } from "@byloth/dnd-platform-composer";
@@ -227,17 +227,21 @@ class TextRenderer
 {
     private readonly _canvas: Canvas;
 
-    public constructor(private readonly _tree: SectionTree, width: number, color: boolean)
+    private readonly _t: (key: string, params?: Readonly<Record<string, string | number>>) => string;
+
+    public constructor(private readonly _tree: SectionTree, width: number, color: boolean, language = "en")
     {
         this._canvas = new Canvas(width, color);
+        const translate = createTranslate(language);
+        this._t = (key, params) => translate(`sheet.text.${key}`, params);
     }
 
     private identity(block: Extract<Block, { kind: "identity" }>): void
     {
         const packages = block.packages.map((p) => `${p.id} ${p.version}`).join(", ");
         this._canvas.line(block.name.toUpperCase(), "bold");
-        this._canvas.line(`${block.parts.join(" · ")}  —  level ${block.level}`);
-        this._canvas.line(`Ruleset ${block.ruleset} · packages ${packages}`, "dim");
+        this._canvas.line(`${block.parts.join(" · ")}  —  ${this._t("level", { level: block.level })}`);
+        this._canvas.line(this._t("ruleset", { ruleset: block.ruleset, packages: packages }), "dim");
     }
 
     private values(block: Extract<Block, { kind: "values" }>): void
@@ -255,9 +259,9 @@ class TextRenderer
     {
         const header: Cell[] = [
             { text: "", style: "dim" },
-            { text: "Score", align: "right", style: "dim" },
-            { text: "Mod", align: "right", style: "dim" },
-            { text: "Save", align: "right", style: "dim" },
+            { text: this._t("score"), align: "right", style: "dim" },
+            { text: this._t("mod"), align: "right", style: "dim" },
+            { text: this._t("save"), align: "right", style: "dim" },
             { text: "", style: "dim" }
         ];
         this._canvas.table([header, ...block.rows.map((row): Cell[] => [
@@ -265,7 +269,7 @@ class TextRenderer
             { text: row.score, align: "right" },
             { text: row.modifier, align: "right" },
             { text: row.save, align: "right" },
-            { text: row.proficient ? "● proficient" : "", style: "dim" }
+            { text: row.proficient ? `● ${this._t("proficient")}` : "", style: "dim" }
         ])]);
     }
 
@@ -289,7 +293,7 @@ class TextRenderer
             rows.push([...cell(block.rows[i]), { text: "   " }, ...cell(block.rows[i + half])]);
         }
         this._canvas.table(rows);
-        this._canvas.line("  ○ untrained  ● proficient  ◉ expertise", "dim");
+        this._canvas.line(`  ○ ${this._t("untrained")}  ● ${this._t("proficient")}  ◉ ${this._t("expertise")}`, "dim");
         if (block.proficiencies.length > 0)
         {
             this._canvas.blank();
@@ -300,9 +304,9 @@ class TextRenderer
     private attacks(block: Extract<Block, { kind: "attacks" }>): void
     {
         const header: Cell[] = [
-            { text: "Attack", style: "dim" },
-            { text: "To hit", align: "right", style: "dim" },
-            { text: "Damage", style: "dim" },
+            { text: this._t("attack"), style: "dim" },
+            { text: this._t("toHit"), align: "right", style: "dim" },
+            { text: this._t("damage"), style: "dim" },
             { text: "", style: "dim" }
         ];
         this._canvas.table([header, ...block.rows.map((row): Cell[] => [
@@ -321,13 +325,13 @@ class TextRenderer
             this._canvas.table(group.items.map((a): Cell[] => [
                 { text: a.name, style: a.available ? "bold" : "dim" },
                 { text: a.cost, style: "dim" },
-                { text: `${a.details.join(" · ")}${a.available ? "" : " (not available now)"}`, style: "dim" }
+                { text: `${a.details.join(" · ")}${a.available ? "" : ` (${this._t("notAvailable")})`}`, style: "dim" }
             ]), 4);
         }
         if (block.base.length > 0)
         {
             this._canvas.blank();
-            this._canvas.labelled("Base actions", block.base.map((a) => a.name).join(", "), 14, 2, "dim", "dim");
+            this._canvas.labelled(this._t("baseActions"), block.base.map((a) => a.name).join(", "), 14, 2, "dim", "dim");
         }
     }
 
@@ -359,7 +363,7 @@ class TextRenderer
             if (caster.slots.length > 0)
             {
                 const slots = caster.slots.map((s) => `${s.label} ${pips(s.current, s.max)}`);
-                this._canvas.paragraph(`Slots  ${slots.join("   ")}`, 4);
+                this._canvas.paragraph(`${this._t("slots")}  ${slots.join("   ")}`, 4);
             }
         }
     }
@@ -400,7 +404,7 @@ class TextRenderer
                 {
                     this._canvas.labelled(level.label, level.items.map((s) => s.label).join(", "), 11, 2, undefined, "dim");
                 }
-                this._canvas.line("  © concentration  * always prepared", "dim");
+                this._canvas.line(`  © ${this._t("concentration")}  * ${this._t("alwaysPrepared")}`, "dim");
                 break;
             case "features": this.features(block); break;
             case "equipment":
@@ -424,7 +428,7 @@ class TextRenderer
                 if (block.text) { this._canvas.paragraph(block.text); }
                 if (block.open.length > 0)
                 {
-                    this._canvas.line("  Choices still open", "dim");
+                    this._canvas.line(`  ${this._t("choicesOpen")}`, "dim");
                     this._canvas.table(block.open.map((c): Cell[] => [{ text: c.label }, { text: c.progress, style: "dim" }]), 4);
                 }
                 break;
@@ -458,7 +462,7 @@ class TextRenderer
         for (const section of this._tree.sections) { this.section(section); }
         if (this._tree.warnings.length > 0)
         {
-            this._canvas.title("Warnings");
+            this._canvas.title(this._t("warnings"));
             for (const w of this._tree.warnings) { this._canvas.paragraph(`${w.code}: ${w.message}`, 2, "warn"); }
         }
 
@@ -477,9 +481,9 @@ function composeOptions(options: RenderOptions): ComposeOptions
 }
 
 /** Render an already composed tree (the fixtures compare both the tree and this text). */
-export function renderTree(tree: SectionTree, options: Pick<RenderOptions, "color" | "width">): string
+export function renderTree(tree: SectionTree, options: Pick<RenderOptions, "color" | "width" | "language">): string
 {
-    return new TextRenderer(tree, options.width ?? 100, options.color === true).render();
+    return new TextRenderer(tree, options.width ?? 100, options.color === true, options.language ?? "en").render();
 }
 
 /** Render a computed sheet as text; `options.color` off gives the golden, plain form. */

@@ -18,7 +18,7 @@
           "packages": [
             {
               "id": "srd51",
-              "version": "0.7.1"
+              "version": "0.8.0"
             }
           ],
           "parts": [
@@ -1953,7 +1953,7 @@
                     }
                   },
                   "available": true,
-                  "cost": "1 channel-divinity",
+                  "cost": "Channel Divinity ×1",
                   "details": [
                     "DC 15",
                     "save DC 15"
@@ -1997,7 +1997,7 @@
                     }
                   },
                   "available": true,
-                  "cost": "1 channel-divinity",
+                  "cost": "Channel Divinity ×1",
                   "details": [],
                   "id": "preserve-life",
                   "name": "Channel Divinity: Preserve Life",
@@ -2031,7 +2031,7 @@
                     "applied": true,
                     "formula": "table(cleric.channel-divinity-charges)",
                     "label": "Channel Divinity",
-                    "shown": "set 1",
+                    "shown": "set to 1",
                     "source": "srd51 · cleric.channel-divinity"
                   }
                 ],
@@ -3032,7 +3032,7 @@
                   "title": "System Reference Document 5.2"
                 }
               ],
-              "version": "0.7.1"
+              "version": "0.8.0"
             }
           ]
         }

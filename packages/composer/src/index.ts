@@ -487,6 +487,19 @@ class Composer
         return {
             t: (key, params, fallback) => this.t(key, params, fallback),
             name: (id) => this.entityName(id),
+            resource: (id) =>
+            {
+                const view = this._sheet.resources.find((r) => r.id === id);
+
+                return view ? this.text(view.name) : words(id);
+            },
+            toggle: (state) => this.toggleName(state),
+            choice: (id) =>
+            {
+                const found = this._sheet.choices.find((c) => c.choice === id);
+
+                return found ? this.choiceLabel(found.choice, found.of) : this.choiceLabel(id, "");
+            },
             label: (c) => this.contributionLabel(c.label),
             abilityOf: (c) => (this.fromRuleset(c) ? modifierOf.get((c.label as Text)["en"] ?? "") : undefined),
             score: (ability) => this.number(`ability.${ability}`),
@@ -555,23 +568,99 @@ class Composer
         const key = `damage.${target}`;
         const damage = this.t(key, undefined, key);
 
-        return damage !== key ? damage : (this.nameBySuffix(`.condition.${target}`) ?? words(target));
+        if (damage !== key) { return damage; }
+        // A condition, by its id (`srd51.condition.poisoned`) or its last segment (`poisoned`).
+        if (target.includes(".") && this._options.packages.entities.has(target)) { return this.entityName(target); }
+
+        return this.nameBySuffix(`.condition.${target}`) ?? words(target);
     }
 
     /** A proficiency's name: a language from the ruleset, a category from the catalogue, else the item's name. */
+    /** A cost in a resource: "1 ki" with the resource's unit, "Channel Divinity ×1" with its name. */
+    private resourceCost(resource: string, amount: number): string
+    {
+        const view = this._sheet.resources.find((r) => r.id === resource);
+        if (view?.unit) { return this.t("actions.resourceCost", { amount: amount, resource: this.text(view.unit) }); }
+        if (view) { return this.t("actions.resourceUses", { amount: amount, resource: this.text(view.name) }); }
+
+        return this.t("actions.resourceCost", { amount: amount, resource: words(resource) });
+    }
+
+    /** A player-controlled state (Patient Defense, Rage) by the name of what declares it. */
+    private toggleName(state: string): string
+    {
+        const toggle = this._sheet.toggles.find((t) => t.state === state);
+
+        return toggle ? this.text(toggle.name) : words(state);
+    }
+
+    /** An open choice: by its usual name (skills, spells, languages…), else by what it chooses. */
+    private choiceLabel(choice: string, of: string): string
+    {
+        const base = choice.replace(/-\d+$/, "");
+        const named = this.t(`choices.names.${base}`, undefined, "");
+        if (named !== "") { return named; }
+
+        return this.t(`choices.kinds.${of}`, undefined, words(choice));
+    }
+
+    /** An engine or loader warning in the sheet's language; its own English words when it is of another kind. */
+    private warningMessage(w: { readonly code: string;
+        readonly message: string;
+        readonly entity?: string;
+        readonly path?: string;
+        readonly package?: string; }): string
+    {
+        const name = (id: string | undefined): string =>
+            (id && this._options.packages.entities.has(id) ? this.entityName(id) : id ?? "");
+        switch (w.code)
+        {
+            case "W_UNANSWERED_CHOICE":
+            {
+                const choice = this._sheet.choices.find((c) => c.key === w.path);
+                if (!choice) { break; }
+
+                return this.t("warnings.unanswered", {
+                    owner: this.entityName(choice.owner),
+                    choice: this.choiceLabel(choice.choice, choice.of),
+                    answered: choice.answers.length,
+                    count: choice.count
+                });
+            }
+            case "W_EXCLUDED_CONTENT": return this.t("warnings.excluded", { name: name(w.entity) });
+            case "W_MISSING_ENTITY": return this.t("warnings.missing", { name: w.entity ?? "" });
+            case "W_DUPLICATE_ACTION": return this.t("warnings.duplicateAction", { name: name(w.entity) });
+            case "W_VERSION_MISMATCH":
+            {
+                const versions = /at (\S+), loaded (\S+)$/.exec(w.message);
+                if (!versions) { break; }
+
+                return this.t("warnings.version", {
+                    name: w.package ?? "", pinned: versions[1]!, loaded: versions[2]!
+                });
+            }
+            default: break;
+        }
+
+        return w.message;
+    }
+
     private proficiencyName(type: string, item: string): string
     {
+        const key = `proficiencyNames.${type}.${item}`;
+        const category = this.t(key, undefined, key);
         if (type === "language")
         {
             const language = this._options.packages.ruleset.languages?.find((l) => l.id === item);
 
-            return language ? this.text(language.name) : words(item);
+            return language ? this.text(language.name) : (category !== key ? category : words(item));
         }
-        const key = `proficiencyNames.${type}.${item}`;
-        const category = this.t(key, undefined, key);
         if (category !== key) { return category; }
+        // An item named the other way round in the packages: "light-crossbow" is `crossbow-light`.
+        const reversed = item.split("-").reverse()
+            .join("-");
 
-        return this.nameBySuffix(`.item.${item}`) ?? words(item);
+        return this.nameBySuffix(`.item.${item}`) ?? this.nameBySuffix(`.item.${reversed}`) ?? words(item);
     }
 
     /** The engine's own attack rows (the unarmed strike, the two-handed grip) in the sheet's language. */
@@ -724,7 +813,7 @@ class Composer
         {
             const line = this.line(c);
             const shown = (c.kind === "set" || c.kind === "set-formula" || c.kind === "patch") ?
-                `${c.kind} ${plain(c.value)}` :
+                this.t(`explain.kinds.${c.kind}`, { value: plain(c.value) }) :
                 line.shown;
 
             return { ...line, shown: shown };
@@ -1003,7 +1092,7 @@ class Composer
     {
         const cost = action.cost
             .map((c) => "amount" in c ?
-                this.t("actions.resourceCost", { amount: c.amount, resource: c.resource }) :
+                this.resourceCost(c.resource, c.amount) :
                 this.t("actions.slotCost", { level: c.level }))
             .join(" + ");
         const details: string[] = [];
@@ -1034,7 +1123,7 @@ class Composer
                 details.push(this.t("actions.saveDc", { value: plain(roll.dc.value) }));
             }
         }
-        if (action.toggle) { details.push(this.t("actions.toggles", { state: words(action.toggle) })); }
+        if (action.toggle) { details.push(this.t("actions.toggles", { state: this.toggleName(action.toggle) })); }
 
         return {
             id: action.id,
@@ -1165,7 +1254,7 @@ class Composer
         const payment = "free" in paid ?
             (spell.level > 0 ? ` (${this.t("spells.atWill")})` : "") :
             "resource" in paid ?
-                ` (${this.t("actions.resourceCost", { amount: paid.amount, resource: paid.resource })})` :
+                ` (${this.resourceCost(paid.resource, paid.amount)})` :
                 "uses" in paid ?
                     ` (${this.t("spells.uses", { uses: paid.uses, recharge: recharge(paid.recharge) })})` :
                     "";
@@ -1300,7 +1389,7 @@ class Composer
         }
         for (const t of state.toggles ?? [])
         {
-            items.push(`${words(t.state)} (${this.t("conditions.on")})${expiry(t)}`);
+            items.push(`${this.toggleName(t.state)} (${this.t("conditions.on")})${expiry(t)}`);
         }
         for (const s of state.activeSpells ?? [])
         {
@@ -1325,7 +1414,7 @@ class Composer
             ...(notes ? { text: this.text(notes) } : {}),
             open: open.map((c) => ({
                 key: c.key,
-                label: `${this.entityName(c.owner)}: ${words(c.choice)}`,
+                label: `${this.entityName(c.owner)}: ${this.choiceLabel(c.choice, c.of)}`,
                 progress: this.t("notes.progress", { answered: c.answers.length, count: c.count, of: c.of })
             }))
         }];
@@ -1401,7 +1490,7 @@ class Composer
 
         return {
             sections: sections,
-            warnings: this._sheet.warnings.map((w) => ({ code: w.code, message: w.message }))
+            warnings: this._sheet.warnings.map((w) => ({ code: w.code, message: this.warningMessage(w) }))
         };
     }
 }

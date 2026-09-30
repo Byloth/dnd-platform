@@ -41,11 +41,11 @@ export type PlayEffect = Heal | TempHp | ExtraDamage | RestoreResource | ApplyCo
 export type ArmorClass = [
     {
         value: number | string;
-        note?: LocalizedString1;
+        note?: LocalizedString2;
     },
     ...{
         value: number | string;
-        note?: LocalizedString1;
+        note?: LocalizedString2;
     }[]
 ];
 /**
@@ -562,6 +562,7 @@ export interface DeclareResource {
     note?: LocalizedString;
     resource: string;
     name?: LocalizedString;
+    unit?: LocalizedString1;
     max: number | string | "unlimited";
     recharge: Recharge;
     display?: "pips" | "counter";
@@ -584,6 +585,12 @@ export interface DeclareResource {
         | "conditions"
         | "notes"
         | "credits";
+}
+/**
+ * How a cost in this resource is written after its amount ("ki" in "1 ki"); without it, the resource's name and the amount.
+ */
+export interface LocalizedString1 {
+    [k: string]: string | undefined;
 }
 export interface AddAction {
     kind: "add-action";
@@ -1557,7 +1564,7 @@ export interface Creature {
         truesight?: number | string;
         passivePerception: number | string;
     };
-    languages?: LocalizedString2;
+    languages?: LocalizedString3;
     challenge:
         | 0
         | 0.125
@@ -1635,7 +1642,7 @@ export interface Creature {
 /**
  * Where the value comes from, as the stat block prints it: "natural armor", "plate, shield", "15 with mage armor".
  */
-export interface LocalizedString1 {
+export interface LocalizedString2 {
     [k: string]: string | undefined;
 }
 export interface Speed {
@@ -1665,7 +1672,7 @@ export interface Speed {
 /**
  * As the stat block prints them; absent when it prints "—".
  */
-export interface LocalizedString2 {
+export interface LocalizedString3 {
     [k: string]: string | undefined;
 }
 export interface Action {

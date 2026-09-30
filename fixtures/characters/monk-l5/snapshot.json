@@ -1144,7 +1144,7 @@
     "packages": [
       {
         "id": "srd51",
-        "version": "0.7.1"
+        "version": "0.8.0"
       },
       {
         "id": "homebrew.byloth",
@@ -1428,6 +1428,9 @@
         "entity": "srd51.class.monk",
         "feature": "srd51.feature.monk.ki",
         "package": "srd51"
+      },
+      "unit": {
+        "en": "ki"
       }
     }
   ],

@@ -3146,6 +3146,10 @@ export const SCHEMAS = {
                     "name": {
                         "$ref": "common.schema.json#/$defs/localizedString"
                     },
+                    "unit": {
+                        "description": "How a cost in this resource is written after its amount (\"ki\" in \"1 ki\"); without it, the resource's name and the amount.",
+                        "$ref": "common.schema.json#/$defs/localizedString"
+                    },
                     "max": {
                         "anyOf": [
                             {

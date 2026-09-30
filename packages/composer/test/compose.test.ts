@@ -172,7 +172,7 @@ describe("compose", () =>
         const sheet = derive(character, set);
         const ac = explain(sheet, "ac", { character: character, packages: set });
 
-        expect(ac?.expert.map((l) => l.shown)).toEqual(["10", "+3", "set-formula 15"]);
+        expect(ac?.expert.map((l) => l.shown)).toEqual(["10", "+3", "by formula, 15"]);
         expect(ac?.expert[2]?.formula).toBe("10 + mod(dex) + mod(wis)");
         expect(explain(sheet, "nope", { character: character, packages: set })).toBeUndefined();
     });
