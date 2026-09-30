@@ -35,6 +35,7 @@ function fonts(hand: Hand): SheetFonts
         display: font("@fontsource/cinzel/files/cinzel-latin-700-normal.woff"),
         text: font("@fontsource/atkinson-hyperlegible/files/atkinson-hyperlegible-latin-400-normal.woff"),
         textBold: font("@fontsource/atkinson-hyperlegible/files/atkinson-hyperlegible-latin-700-normal.woff"),
+        textItalic: font("@fontsource/atkinson-hyperlegible/files/atkinson-hyperlegible-latin-400-italic.woff"),
         hand: font(HAND_FILES[hand])
     };
 }
@@ -44,7 +45,9 @@ const TRANSLATIONS: Record<string, string> = {
     "content-private/phb14": "content-private/phb14-it"
 };
 
-function composed(dir: string, language: string): { tree: ReturnType<typeof compose>, character: Character }
+interface Composed { tree: ReturnType<typeof compose>, character: Character, packages: ReturnType<typeof loadPackages> }
+
+function composed(dir: string, language: string): Composed
 {
     const file = parse(readFileSync(join(dir, "packages.yaml"), "utf8")) as { packages: readonly string[] };
     const character = parse(readFileSync(join(dir, "character.yaml"), "utf8")) as Character;
@@ -67,7 +70,8 @@ function composed(dir: string, language: string): { tree: ReturnType<typeof comp
             language: language,
             mode: "print",
             units: language === "it" ? "metric" : "imperial" }),
-        character: character
+        character: character,
+        packages: packages
     };
 }
 

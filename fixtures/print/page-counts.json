@@ -1,0 +1,14 @@
+{
+  "monk-l3-base": {
+    "a4": 5,
+    "letter": 5
+  },
+  "cleric-l5": {
+    "a4": 10,
+    "letter": 10
+  },
+  "multiclass-caster": {
+    "a4": 11,
+    "letter": 12
+  }
+}

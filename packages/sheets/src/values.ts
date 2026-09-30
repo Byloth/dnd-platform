@@ -10,6 +10,7 @@ import type {
     PersonalityBlock, ResourcesBlock, SectionTree, SkillsBlock, SpellcastingBlock, SpellsBlock, ValuesBlock
 } from "@byloth/dnd-platform-composer";
 import type { Character } from "@byloth/dnd-platform-engine";
+import type { PackageSet } from "@byloth/dnd-platform-loader";
 
 import { sheetLabels } from "./labels.js";
 
@@ -82,6 +83,8 @@ export interface SheetInput
     /** The composed tree of the character; absent for the blank sheet. */
     readonly tree?: SectionTree;
     readonly character?: Character;
+    /** The character's package set: the cards take the spells' full entries from it. */
+    readonly packages?: PackageSet;
 }
 
 const ABILITIES = ["str", "dex", "con", "int", "wis", "cha"] as const;
@@ -254,10 +257,9 @@ export function sheetValues(input: SheetInput): SheetValues
         if (field) { text[key] = field.text; }
     }
 
-    // Features: names by origin, their text on the cards of page 3
-    const groups = (block(tree, "features", "features") as FeaturesBlock | undefined)?.groups ?? [];
-    const features = groups.map((g) => `${g.label}\n${g.items.map((i) => `• ${i.name}`).join("\n")}`);
-    if (features.length > 0) { text["features"] = features.join("\n\n"); }
+    // Features: names by origin, their text on the cards
+    const features = featuresText(tree);
+    if (features !== "") { text["features"] = features; }
 
     // Page 2: appearance, backstory, resources, conditions
     const appearance = personality.find((f) => f.label === t("sheet.personality.appearance"));
@@ -329,4 +331,22 @@ export function sheetValues(input: SheetInput): SheetValues
         text: text,
         checks: checks
     };
+}
+
+/**
+ * The features box of page 1: the names by origin; with `references`, each name followed by where its card is
+ * ("→ p. 4", `reference(page)`).
+ */
+export function featuresText(tree: SectionTree, references?: ReadonlyMap<string, string>): string
+{
+    const groups = (block(tree, "features", "features") as FeaturesBlock | undefined)?.groups ?? [];
+
+    return groups
+        .map((g) => `${g.label}\n${g.items.map((i) =>
+        {
+            const reference = references?.get(i.id);
+
+            return reference ? `• ${i.name} ${reference}` : `• ${i.name}`;
+        }).join("\n")}`)
+        .join("\n\n");
 }

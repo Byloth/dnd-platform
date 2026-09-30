@@ -30,6 +30,7 @@ function fonts(hand: string): SheetFonts
         display: font("@fontsource/cinzel/files/cinzel-latin-700-normal.woff"),
         text: font("@fontsource/atkinson-hyperlegible/files/atkinson-hyperlegible-latin-400-normal.woff"),
         textBold: font("@fontsource/atkinson-hyperlegible/files/atkinson-hyperlegible-latin-700-normal.woff"),
+        textItalic: font("@fontsource/atkinson-hyperlegible/files/atkinson-hyperlegible-latin-400-italic.woff"),
         hand: font(hand)
     };
 }
@@ -81,7 +82,12 @@ describe("the classic sheet", { timeout: 60_000 }, () =>
         const sheet = await renderSheet(input, { fonts: fonts(PATRICK) });
         const { text, checks } = await fields(sheet.bytes);
 
-        for (const [name, value] of Object.entries(values.text)) { expect(text[name], name).toBe(value); }
+        for (const [name, value] of Object.entries(values.text))
+        {
+            // The features box also says where each card is ("(p. 3)"): the names are the golden's.
+            if (name === "features") { expect(text[name]!.replace(/ \(p\. \d+\)/g, "")).toBe(value); }
+            else { expect(text[name], name).toBe(value); }
+        }
         expect(text["attack-1-name"]).toBe("Shortbow");
         expect(text["attack-1-bonus"]).toBe("+5");
         expect(text["attack-1-damage"]).toBe("1d6 + 3 piercing");
@@ -95,7 +101,8 @@ describe("the classic sheet", { timeout: 60_000 }, () =>
         // Pages 1 and 2 only (no spells): every field is one the blank sheet has too.
         const blank = await fields((await renderSheet({ language: "en" }, { fonts: fonts(PATRICK) })).bytes);
         expect(Object.keys(text).every((name) => name in blank.text)).toBe(true);
-        expect(await pages(sheet.bytes)).toBe(2);
+        // No spells: no page 3 (its fields do not exist).
+        expect(text["spell-0-1"]).toBeUndefined();
         expect(text["resource-1-name"]).toBe("Ki points");
         expect(checks["resource-1-pip-1"]).toBe(false);
         expect(text["name-2"]).toBe("Quiet Paw");
@@ -106,7 +113,7 @@ describe("the classic sheet", { timeout: 60_000 }, () =>
         const input = fixture("multiclass-caster");
         const sheet = await renderSheet(input, { fonts: fonts(PATRICK) });
         const { text, checks } = await fields(sheet.bytes);
-        expect(await pages(sheet.bytes)).toBe(3);
+        expect(text["name-3"]).toBe("Twin Candle");
         expect([text["caster-1-class"], text["caster-1-dc"], text["caster-1-attack"]]).toEqual(["Cleric", "15", "+7"]);
         expect(text["caster-2-class"]).toBe("Wizard");
         expect([1, 2, 3, 4, 5].map((level) => text[`slots-${level}-total`])).toEqual(["4", "3", "3", "3", "2"]);

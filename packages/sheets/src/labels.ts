@@ -3,6 +3,8 @@
  * composer's catalogue (`SHEET_MESSAGES`), so the sheet and the site say the same thing.
  */
 
+import type { Activation } from "./cards.js";
+
 export interface SheetLabels
 {
     readonly characterName: string;
@@ -75,6 +77,18 @@ export interface SheetLabels
     readonly pact: string;
     /** `{count}` spells more than the lines: on the last line of their level. */
     readonly moreSpells: string;
+    // Cards and credits
+    readonly activations: Readonly<Record<Activation, string>>;
+    readonly spells: string;
+    readonly forYou: string;
+    readonly continued: string;
+    readonly concentration: string;
+    /** "(p. {page})": where a feature's card is. */
+    readonly pageRef: string;
+    readonly credits: string;
+    readonly creditsIntro: string;
+    readonly privatePackage: string;
+    readonly fontsCredit: string;
 }
 
 const EN: SheetLabels = {
@@ -144,7 +158,25 @@ const EN: SheetLabels = {
     slotsTotal: "Slots total",
     slotsExpended: "Slots expended",
     pact: "pact",
-    moreSpells: "+{count} more"
+    moreSpells: "+{count} more",
+    activations: {
+        "action": "Action",
+        "bonus-action": "Bonus action",
+        "reaction": "Reaction",
+        "free": "Free",
+        "special": "Special",
+        "passive": "Passive"
+    },
+    spells: "Spells",
+    forYou: "For you",
+    continued: "continued",
+    concentration: "Concentration",
+    pageRef: "(p. {page})",
+    credits: "Credits",
+    creditsIntro: "The content on this sheet comes from these packages, under these licences.",
+    privatePackage: "Loaded locally by the owner of the book; not distributed with the platform.",
+    fontsCredit: "Fonts: Cinzel (Natanael Gama), Atkinson Hyperlegible (Braille Institute of America), Patrick Hand " +
+        "(Patrick Wagesreiter), under the SIL Open Font License 1.1."
 };
 
 const IT: SheetLabels = {
@@ -214,7 +246,25 @@ const IT: SheetLabels = {
     slotsTotal: "Slot totali",
     slotsExpended: "Slot spesi",
     pact: "patto",
-    moreSpells: "+{count} altri"
+    moreSpells: "+{count} altri",
+    activations: {
+        "action": "Azione",
+        "bonus-action": "Azione bonus",
+        "reaction": "Reazione",
+        "free": "Gratuita",
+        "special": "Speciale",
+        "passive": "Passivo"
+    },
+    spells: "Incantesimi",
+    forYou: "Per te",
+    continued: "continua",
+    concentration: "Concentrazione",
+    pageRef: "(p. {page})",
+    credits: "Crediti",
+    creditsIntro: "I contenuti di questa scheda vengono da questi pacchetti, con queste licenze.",
+    privatePackage: "Caricato localmente da chi possiede il libro; non distribuito con la piattaforma.",
+    fontsCredit: "Caratteri: Cinzel (Natanael Gama), Atkinson Hyperlegible (Braille Institute of America), " +
+        "Patrick Hand (Patrick Wagesreiter), con licenza SIL Open Font License 1.1."
 };
 
 export function sheetLabels(language: string): SheetLabels

@@ -30,6 +30,7 @@ const FONTS: SheetFonts = {
     display: font("cinzel/files/cinzel-latin-700-normal.woff"),
     text: font("atkinson-hyperlegible/files/atkinson-hyperlegible-latin-400-normal.woff"),
     textBold: font("atkinson-hyperlegible/files/atkinson-hyperlegible-latin-700-normal.woff"),
+    textItalic: font("atkinson-hyperlegible/files/atkinson-hyperlegible-latin-400-italic.woff"),
     hand: font("patrick-hand/files/patrick-hand-latin-400-normal.woff")
 };
 

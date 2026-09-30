@@ -17,13 +17,18 @@ import { pageTwo } from "./classic/page-two.js";
 import { sheetLabels } from "./labels.js";
 import { Pen } from "./pen.js";
 import type { FieldBox, Fonts } from "./pen.js";
-import { sheetValues } from "./values.js";
-import type { SheetInput } from "./values.js";
+import { sheetCards } from "./cards.js";
+import { drawCardsPage, layoutCards } from "./classic/cards-pages.js";
+import { creditsPage } from "./classic/credits-page.js";
+import { featuresText, sheetValues } from "./values.js";
+import type { SheetInput, SheetValues } from "./values.js";
 
 export { sheetLabels } from "./labels.js";
 export type { SheetLabels } from "./labels.js";
 export type { FieldBox } from "./pen.js";
-export { sheetValues } from "./values.js";
+export { sheetCards } from "./cards.js";
+export type { Activation, Card } from "./cards.js";
+export { featuresText, sheetValues } from "./values.js";
 export type {
     AbilityValues, AttackValues, CasterValues, ResourceValues, SheetInput, SheetValues, SkillValues, SpellLine
 } from "./values.js";
@@ -57,6 +62,8 @@ export interface SheetFonts
     readonly text: Uint8Array | ArrayBuffer;
     /** Atkinson Hyperlegible 700. */
     readonly textBold: Uint8Array | ArrayBuffer;
+    /** Atkinson Hyperlegible 400 italic. */
+    readonly textItalic: Uint8Array | ArrayBuffer;
     /** The hand's font: Patrick Hand 400, or for `print` Atkinson Hyperlegible 400 again. */
     readonly hand: Uint8Array | ArrayBuffer;
 }
@@ -94,6 +101,7 @@ export async function renderSheet(input: SheetInput, options: SheetOptions): Pro
         display: await doc.embedFont(options.fonts.display, { subset: true, features: features }),
         text: await doc.embedFont(options.fonts.text, { subset: true, features: features }),
         textBold: await doc.embedFont(options.fonts.textBold, { subset: true, features: features }),
+        textItalic: await doc.embedFont(options.fonts.textItalic, { subset: true, features: features }),
         hand: await doc.embedFont(options.fonts.hand, { subset: true, features: features }),
         handScale: HAND_SCALE[hand]
     };
@@ -103,8 +111,28 @@ export async function renderSheet(input: SheetInput, options: SheetOptions): Pro
     fonts.hand.encodeText(LATIN_1);
 
     const [width, height] = PAGE_SIZES[options.pageSize ?? "a4"];
-    const values = sheetValues(input);
     const labels = sheetLabels(input.language);
+    const plain = sheetValues(input);
+
+    // The cards are laid out first, so that page 1 can say where each feature's card is.
+    const cards = sheetCards(input);
+    const textFonts = { regular: fonts.text, bold: fonts.textBold, italic: fonts.textItalic };
+    const cardPages = layoutCards(cards, labels, textFonts, width, height);
+    const firstCardPage = 3 + (hasPageThree(plain) ? 1 : 0);
+    const references = new Map<string, string>();
+    cardPages.forEach((page, i) =>
+    {
+        for (const placed of page.placed)
+        {
+            if (!placed.continued && !references.has(placed.card.id))
+            {
+                references.set(placed.card.id, labels.pageRef.replace("{page}", String(firstCardPage + i)));
+            }
+        }
+    });
+    const values: SheetValues = input.tree && (references.size > 0) ?
+        { ...plain, text: { ...plain.text, features: featuresText(input.tree, references) } } :
+        plain;
     const fields: FieldBox[] = [];
     const calculated: PDFRef[] = [];
     const draw = (page: (context: PageContext) => void): PageContext =>
@@ -118,9 +146,17 @@ export async function renderSheet(input: SheetInput, options: SheetOptions): Pro
 
         return context;
     };
-    const first = draw(pageOne);
+    draw(pageOne);
     draw(pageTwo);
-    if (hasPageThree(first)) { draw(pageThree); }
+    if (hasPageThree(values)) { draw(pageThree); }
+    for (const page of cardPages) { draw((context) => drawCardsPage(context, page)); }
+    const credits = input.tree?.sections.find((s) => s.id === "credits")?.blocks.find((b) => b.kind === "credits");
+    if (credits?.kind === "credits")
+    {
+        const privateIds = new Set((input.packages?.order ?? []).filter((m) => m.redistributable === false)
+            .map((m) => m.id));
+        draw((context) => creditsPage(context, credits.packages, privateIds));
+    }
 
     // The order the formulas compute in: each after the fields it reads (the order they were drawn in).
     if (calculated.length > 0) { doc.getForm().acroForm.dict.set(PDFName.of("CO"), doc.context.obj(calculated)); }

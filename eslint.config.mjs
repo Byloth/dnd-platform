@@ -30,8 +30,10 @@ export default [
     rules: {
       "no-restricted-imports": ["error", {
         patterns: [{
-          regex: "^(?!\\.|pdf-lib$|@pdf-lib/fontkit$|@byloth/dnd-platform-(schema|engine|composer)($|/)).*",
-          message: "The sheet templates may import only relative modules, pdf-lib and the schema, engine and composer."
+          regex: "^(?!\\.|pdf-lib$|@pdf-lib/fontkit$|marked$|" +
+            "@byloth/dnd-platform-(schema|loader|engine|composer)($|/)).*",
+          message: "The sheet templates may import only relative modules, pdf-lib, marked and the schema, loader " +
+            "(types), engine and composer."
         }]
       }]
     }

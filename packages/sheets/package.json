@@ -32,6 +32,7 @@
   },
   "dependencies": {
     "@pdf-lib/fontkit": "^1.1.1",
+    "marked": "^18.0.14",
     "pdf-lib": "^1.17.1"
   }
 }

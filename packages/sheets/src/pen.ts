@@ -32,6 +32,8 @@ export interface Fonts
     readonly text: PDFFont;
     /** Atkinson Hyperlegible 700. */
     readonly textBold: PDFFont;
+    /** Atkinson Hyperlegible 400 italic: the cards' italics. */
+    readonly textItalic: PDFFont;
     /** The font the values are written in: a handwriting one, or Atkinson for print hand. */
     readonly hand: PDFFont;
     /** How much larger the hand font is set than a print one, for the same apparent size. */

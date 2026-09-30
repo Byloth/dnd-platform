@@ -146,6 +146,9 @@ importers:
       '@pdf-lib/fontkit':
         specifier: ^1.1.1
         version: 1.1.1
+      marked:
+        specifier: ^18.0.14
+        version: 18.0.14
       pdf-lib:
         specifier: ^1.17.1
         version: 1.17.1

@@ -8,7 +8,7 @@
 import { frame } from "../art.js";
 import type { Pen } from "../pen.js";
 import { ACCENT, HAIRLINE, INK_MUTED, PAPER, roundedRect, RULE, TINT, TINT_STRONG } from "../pen.js";
-import type { SpellLine } from "../values.js";
+import type { SheetValues, SpellLine } from "../values.js";
 
 import { casterScript, extra, parseShown } from "../calculations.js";
 
@@ -26,10 +26,8 @@ const PANEL_PAD = 8;
 const SECTION_GAP = 8;
 
 /** True when the character has anything for page 3: a spellcasting class or a spell (paid with ki, say). */
-export function hasPageThree(context: PageContext): boolean
+export function hasPageThree(values: SheetValues): boolean
 {
-    const { values } = context;
-
     return values.blank || (values.casters.length > 0) || values.spells.some((level) => level.length > 0);
 }
 
