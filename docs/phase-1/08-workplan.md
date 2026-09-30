@@ -197,6 +197,8 @@ Tasks (from [06-localisation.md](06-localisation.md)):
 4. `sheet.it.txt` goldens; the Italian derive-all probe; metres beside feet.
 5. Wizard copy, archetype `why` sentences and the newcomer wording in Italian.
 
+As it went (2026-09-30): the translation was done in M1.4r (the owner waived the confirmation point on 2026-09-25, "translate everything"); M1.7 added the Italian probe and closed the leaks it found, the Italian goldens, the translation and glossary checks in CI, the owner's homebrew in Italian and the owner's review page ([11-italian-content.md](11-italian-content.md), "As built (M1.7)"). It closes once the owner's choices are applied.
+
 Done: the criteria of M1.7. Release: `v0.3.7`.
 Risks: OCR quality of the Italian PDF and terminology drift between agents; the glossary is the fixed vocabulary, the review log records every deviation, exactly as for the Player's Handbook.
 
