@@ -3,6 +3,8 @@ effects:
     resource: ki
     name:
       en: Ki points
+    unit:
+      en: ki
     max: table(monk.ki-points)
     display: pips
     recharge:

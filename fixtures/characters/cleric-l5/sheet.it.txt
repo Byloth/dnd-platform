@@ -1,6 +1,6 @@
 STONE LANTERN
 Nano (Nano delle colline) · Chierico 5, Dominio della Vita · Accolito  —  livello 5
-Regolamento srd51 · pacchetti srd51 0.8.0
+Regolamento srd51 · pacchetti srd51 0.9.0
 
 VALORI PRINCIPALI
 ────────────────────────────────────────────────────────────────────────────────────────────────────
@@ -13,7 +13,7 @@ VALORI PRINCIPALI
                    10  1° livello (Chierico)        ← srd51
                   +28  4 livelli in più (Chierico)  ← srd51
                    +5  Robustezza nanica            ← srd51 · hill-dwarf.dwarven-toughness
-  Dadi vita                                    5d8
+  Dadi Vita                                    5d8
   Bonus di competenza                           +3
   Percezione passiva                            14
 
@@ -140,7 +140,7 @@ EQUIPAGGIAMENTO
 
 CREDITI
 ────────────────────────────────────────────────────────────────────────────────────────────────────
-  System Reference Document 5.1 (srd51 0.8.0)
+  System Reference Document 5.1 (srd51 0.9.0)
     System Reference Document 5.1, Wizards of the Coast — CC-BY-4.0. This work includes material
     taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and
     available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is
@@ -150,7 +150,7 @@ CREDITI
     from the System Reference Document 5.2 (“SRD 5.2”) by Wizards of the Coast LLC, available at
     https://www.dndbeyond.com/srd. The SRD 5.2 is licensed under the Creative Commons Attribution
     4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.
-  System Reference Document 5.1 — italiano (srd51-it 0.3.0)
+  System Reference Document 5.1 — italiano (srd51-it 0.4.0)
     System Reference Document 5.1 (italiano), Wizards of the Coast — CC-BY-4.0. Questo lavoro
     include materiale del System Reference Document 5.1 (“SRD 5.1”) di Wizards of the Coast LLC
     disponibile al sito https://dnd.wizards.com/it/resources/systems-reference-document. L’SRD 5.1 è

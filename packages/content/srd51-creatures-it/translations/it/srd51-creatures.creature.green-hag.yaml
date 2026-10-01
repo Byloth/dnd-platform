@@ -8,7 +8,7 @@ traits.1.name: Incantesimi innati
 traits.1.text: |-
   La caratteristica innata da incantatore della megera è Carisma (CD del tiro salvezza sull'incantesimo 12). Per sua natura, è in grado di lanciare gli incantesimi indicati di seguito senza aver bisogno di componenti materiali:
 
-  A volontà: beffa crudele, illusione minore, luci danzanti
+  A volontà: *beffa crudele*, *illusione minore*, *luci danzanti*
 traits.2.name: Imitare
 traits.2.text: La megera può imitare i versi degli animali e le voci degli umanoidi. Una creatura che oda tali suoni riesce a capire che si tratta di imitazioni superando una prova di Saggezza (Intuizione) con CD 14.
 actions.0.name: Artigli

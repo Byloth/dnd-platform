@@ -12,8 +12,8 @@ traits.2.text: Gli attacchi con arma del diavolo della fossa sono magici.
 traits.3.name: Incantesimi innati
 traits.3.text: |-
   La caratteristica da incantatore del diavolo della fossa è Carisma (CD del tiro salvezza sull'incantesimo 21). Per sua natura, il diavolo della fossa è in grado di lanciare gli incantesimi indicati di seguito senza aver bisogno di componenti materiali:
-  A volontà: individuazione del magico, palla di fuoco
-  3/giorno ciascuno: blocca mostri, muro di fuoco
+  A volontà: *individuazione del magico*, *palla di fuoco*
+  3/giorno ciascuno: *blocca mostri*, *muro di fuoco*
 actions.0.name: Multiattacco
 actions.0.text: "Il diavolo della fossa effettua quattro attacchi: uno con il morso, uno con gli artigli, uno con la mazza e uno con la coda."
 actions.0.multiattack.0.action: Morso

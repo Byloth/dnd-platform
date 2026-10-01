@@ -5,20 +5,13 @@ text: |-
   Questo minuscolo oggetto ha l'aspetto di una piuma. Esistono vari tipi di piume, ognuna con un effetto monouso diverso. Il GM può scegliere il tipo di piuma o determinarlo casualmente.
 
   | d100 | Piuma |
-
   |---|---|
-
-  | 01–20 | Ancora |
-
-  | 21–35 | Uccello |
-
-  | 36–50 | Ventaglio |
-
-  | 51–65 | Barca cigno |
-
-  | 66–90 | Albero |
-
-  | 91–100 | Frusta |
+  | 01–25 | Albero |
+  | 26–45 | Ancora |
+  | 46–60 | Barca cigno |
+  | 61–70 | Frusta |
+  | 71–85 | Uccello |
+  | 86–100 | Ventaglio |
 
   ***Ancora.*** Il personaggio può usare un'azione per toccare con la piuma una barca o una nave. Per le 24 ore successive, il vascello non può essere spostato in alcun modo. Toccando nuovamente il vascello con la piuma, l'effetto termina. Quando l'effetto termina, la piuma scompare.
 

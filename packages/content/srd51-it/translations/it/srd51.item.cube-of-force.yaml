@@ -11,9 +11,7 @@ text: |-
   Facce del cubo di forza
 
   | Faccia | Cariche | Effetto |
-
   |---|---|---|
-
   | 1 | 1 | Gas, vento e nebbia non possono attraversare la barriera.
 
   | 2 | 2 | Il materiale inorganico non può attraversare la barriera. Pareti, pavimenti e soffitti possono attraversarla a discrezione del personaggio.
@@ -29,20 +27,14 @@ text: |-
   Il cubo perde cariche quando la barriera viene bersagliata da certi incantesimi o entra in contatto con gli effetti di certi incantesimi o oggetti magici, come indicato dalla tabella seguente.
 
   | Incantesimo o oggetto | Cariche perse |
-
   |---|---|
-
   | Corno della distruzione | 1d10 |
-
   | Disintegrazione | 1d12 |
-
-  | Muro di fuoco | 1d4 |
-
-  | Passapareti | 1d6 |
-
-  | Spruzzo prismatico | 1d20 |
+  | *Muro di fuoco* | 1d4 |
+  | *Passapareti* | 1d6 |
+  | *Spruzzo prismatico* | 1d20 |
 features.0.name: Facce del cubo di forza
-features.0.effects.0.text: "Premere una faccia crea una barriera di forza invisibile che forma un cubo con spigolo di 4,5 metri, centrata su di te e che si sposta insieme a te; dura 1 minuto, finché non premi la sesta faccia o finché il cubo non termina le cariche. Premere una faccia diversa cambia l'effetto della barriera e fa ripartire da zero la durata. Se al cubo non rimangono abbastanza cariche, non accade nulla. Il cubo perde cariche quando la barriera viene bersagliata da certi incantesimi od oggetti: disintegrazione 1d12, corno della distruzione 1d10, passapareti 1d6, spruzzo prismatico 1d20, muro di fuoco 1d4."
+features.0.effects.0.text: "Premere una faccia crea una barriera di forza invisibile che forma un cubo con spigolo di 4,5 metri, centrata su di te e che si sposta insieme a te; dura 1 minuto, finché non premi la sesta faccia o finché il cubo non termina le cariche. Premere una faccia diversa cambia l'effetto della barriera e fa ripartire da zero la durata. Se al cubo non rimangono abbastanza cariche, non accade nulla. Il cubo perde cariche quando la barriera viene bersagliata da certi incantesimi od oggetti: disintegrazione 1d12, corno della distruzione 1d10, *passapareti* 1d6, *spruzzo prismatico* 1d20, *muro di fuoco* 1d4."
 features.0.effects.1.name: "Faccia 1: gas, vento e nebbia non passano"
 features.0.effects.1.text: Gas, vento e nebbia non possono attraversare la barriera.
 features.0.effects.2.name: "Faccia 2: il materiale inorganico non passa"

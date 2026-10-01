@@ -11,73 +11,39 @@ text: |-
   L'illusione dura finché la carta non viene spostata o l'illusione non viene dissolta. Quando l'illusione termina, l'immagine raffigurata sulla sua carta scompare e la carta non può più essere utilizzata.
 
   | Carta da gioco | Illusione |
-
   |---|---|
-
   | Asso di cuori | Drago rosso |
-
   | Re di cuori | Cavaliere e quattro guardie |
-
   | Regina di cuori | Succube o incubo |
-
   | Jack di cuori | Druido |
-
   | Dieci di cuori | Gigante delle nuvole |
-
   | Nove di cuori | Ettin |
-
   | Otto di cuori | Bugbear |
-
   | Due di cuori | Goblin |
-
   | Asso di quadri | Beholder |
-
   | Re di quadri | Arcimago e apprendista mago |
-
   | Regina di quadri | Megera notturna |
-
   | Jack di quadri | Assassino |
-
   | Dieci di quadri | Gigante del fuoco |
-
   | Nove di quadri | Ogre mago |
-
   | Otto di quadri | Gnoll |
-
   | Due di quadri | Coboldo |
-
   | Asso di picche | Lich |
-
   | Re di picche | Sacerdote e due accoliti |
-
   | Regina di picche | Medusa |
-
   | Jack di picche | Veterano |
-
   | Dieci di picche | Gigante del gelo |
-
   | Nove di picche | Troll |
-
   | Otto di picche | Hobgoblin |
-
   | Due di picche | Goblin |
-
   | Asso di fiori | Golem di ferro |
-
   | Re di fiori | Capitano bandito e tre banditi |
-
   | Regina di fiori | Erinni |
-
   | Jack di fiori | Berserker |
-
   | Dieci di fiori | Gigante delle colline |
-
   | Nove di fiori | Ogre |
-
   | Otto di fiori | Orco |
-
   | Due di fiori | Coboldo |
-
   | Jolly (2) | Il personaggio (il proprietario del mazzo) |
 features.0.name: Carte delle illusioni
 features.0.effects.0.name: Pescare e gettare una carta

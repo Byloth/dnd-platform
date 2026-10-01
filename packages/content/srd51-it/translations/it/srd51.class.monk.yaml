@@ -12,7 +12,7 @@ levels.1.features.0.text: |-
   Alcuni monasteri utilizzano armi da monaco dalla forma particolare. Per esempio, un monaco potrebbe usare un randello composto da due sbarre di legno collegate da una breve catena (chiamato nunchaku) o un falcetto con una lama più corta e meno ricurva (chiamato kama). A prescindere dal nome usato per un'arma da monaco, il monaco può usare le statistiche di gioco fornite dall'arma.
 levels.1.features.0.effects.0.note: Puoi usare Destrezza anziché Forza; il dado sostituisce i normali danni dell'attacco.
 levels.1.features.0.effects.1.note: Puoi usare Destrezza anziché Forza; il dado sostituisce i normali danni dell'attacco.
-levels.1.features.0.effects.2.name: Colpo senz'armi di Arti Marziali
+levels.1.features.0.effects.2.name: Colpo senz'armi delle Arti Marziali
 levels.1.features.0.effects.2.text: Quando usi l'azione Attacco con un colpo senz'armi o un'arma da monaco nel tuo turno, puoi effettuare un colpo senz'armi come azione bonus.
 levels.1.features.1.name: Difesa Senza Armatura
 levels.1.features.1.text: A partire dal 1° livello, mentre un monaco non indossa alcuna armatura e non impugna uno scudo, la sua CA è pari a 10 + il suo modificatore di Destrezza + il suo modificatore di Saggezza.
@@ -95,7 +95,7 @@ levels.6.features.0.effects.0.note: I tuoi colpi senz'armi sono considerati magi
 levels.7.features.0.name: Elusione
 levels.7.features.0.text: Al 7° livello, grazie alla sua agilità istintiva, il monaco può schivare certi effetti ad area come il soffio di fulmine di un drago blu o un incantesimo *palla di fuoco*. Quando il monaco è soggetto a un effetto che gli consente di effettuare un tiro salvezza su Destrezza per dimezzare i danni, non subisce alcun danno se supera il tiro salvezza, e soltanto la metà dei danni se lo fallisce.
 levels.7.features.0.effects.0.text: "Elusione: quando sei soggetto a un effetto che ti consente di effettuare un tiro salvezza su Destrezza per dimezzare i danni, non subisci alcun danno se superi il tiro salvezza, e soltanto la metà dei danni se lo fallisci."
-levels.7.features.0.effects.0.note: "Lacuna: una regola sull'esito del tiro salvezza (nessun danno in caso di successo, metà in caso di fallimento per i tiri salvezza su Destrezza che dimezzano i danni) che la modalità di gioco deve agganciare; nulla da calcolare sulla scheda."
+levels.7.features.0.effects.0.note: "Non ancora calcolato: una regola sull'esito del tiro salvezza (nessun danno in caso di successo, metà in caso di fallimento per i tiri salvezza su Destrezza che dimezzano i danni) che la modalità di gioco deve agganciare; nulla da calcolare sulla scheda."
 levels.7.features.1.name: Mente Lucida
 levels.7.features.1.text: A partire dal 7° livello, un monaco può usare la sua azione per porre termine a un effetto su se stesso che lo rende affascinato o spaventato.
 levels.7.features.1.effects.0.name: Mente Lucida
@@ -106,7 +106,7 @@ levels.10.features.0.text: Al 10° livello, il monaco ha una tale padronanza del
 levels.13.features.0.name: Lingua del Sole e della Luna
 levels.13.features.0.text: A partire dal 13° livello, un monaco impara a sfiorare il ki delle altre menti ed è in grado di comprendere tutte le lingue parlate. Inoltre, qualsiasi creatura che sia in grado di capire una lingua può anche capire ciò che il monaco dice.
 levels.13.features.0.effects.0.text: Sei in grado di comprendere tutte le lingue parlate. Inoltre, qualsiasi creatura che sia in grado di capire una lingua può anche capire ciò che dici.
-levels.13.features.0.effects.0.note: 'Lacuna: grant-proficiency non ha una voce "tutte le lingue"; mostrato come testo.'
+levels.13.features.0.effects.0.note: 'Non ancora calcolato: grant-proficiency non ha una voce "tutte le lingue"; mostrato come testo.'
 levels.14.features.0.name: Anima Adamantina
 levels.14.features.0.text: |-
   A partire dal 14° livello, il monaco ha una tale padronanza del ki da ottenere competenza in tutti i tiri salvezza.
@@ -129,4 +129,4 @@ levels.18.features.0.effects.2.note: Lanci *proiezione astrale* spendendo 8 punt
 levels.20.features.0.name: Perfezione Interiore
 levels.20.features.0.text: Al 20° livello, quando un monaco tira per l'iniziativa e non gli rimane alcun punto ki, recupera 4 punti ki.
 levels.20.features.0.effects.0.text: "Perfezione Interiore: quando tiri per l'iniziativa e non ti rimane alcun punto ki, recuperi 4 punti ki."
-levels.20.features.0.effects.0.note: "Lacuna: un evento di risorsa attivato dall'iniziativa; il motore non ha un aggancio all'iniziativa, quindi i 4 punti ki vanno ripristinati a mano."
+levels.20.features.0.effects.0.note: "Non ancora calcolato: un evento di risorsa attivato dall'iniziativa; il motore non ha un aggancio all'iniziativa, quindi i 4 punti ki vanno ripristinati a mano."

@@ -6,6 +6,27 @@ itself when the interface is in Italian; characters never list it. Like every
 public package, each released version is published by the site and never
 changes (DEC-21).
 
+## 0.4.0 — 2026-10-01
+
+- **Closer to the official Italian books**, as the owner chose after
+  reviewing the translation: "Dadi Vita" with capitals, spell names in
+  italics in the texts, the roll tables (damage types, feather token, iron
+  flask, prayer beads, reincarnate) in the order and with the ranges of the
+  Italian books, subclass features and table columns with the books'
+  capitals, "abilità" where the books say it.
+- The barbarian's uses are "Utilizzi dell'Ira", no longer a second "Ira";
+  the spell lists are "Incantesimi da Bardo", "da Chierico"…; the robe of
+  useful items has the "Specchio di metallo" sold as gear; Remarkable
+  Athlete adds 0,3 metri per point of Strength, as the rule means.
+- The notes on what the sheet does not compute yet all begin "Non ancora
+  calcolato:".
+- **Follows srd51 0.9.0**: the magic items' tables are tables again (the
+  wand of wonder with its own 16–20 row and 98–00, the robe of useful items
+  with the ladder and the horse on two rows, reincarnate's races); the
+  lists of the ability rules are lists again; darkvision lets a creature
+  see in dim light as if it were bright light, word for word as the
+  official Italian SRD has it.
+
 ## 0.3.0 — 2026-09-30
 
 - **Follows srd51 0.8.0**: the unit of ki ("1 ki").

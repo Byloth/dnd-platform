@@ -6,7 +6,7 @@ text: |-
 
   Finché il personaggio lo indossa, ottiene i benefici seguenti:
 
-  Può usare un'azione per lanciare uno degli incantesimi seguenti (CD del tiro salvezza 18), usando una gemma del tipo specificato come componente: luce diurna (opale), muro di fuoco (rubino), palla di fuoco (opale di fuoco) o spruzzo prismatico (diamante). Non appena lanciato l'incantesimo, la gemma viene distrutta e scompare dall'elmo.
+  Può usare un'azione per lanciare uno degli incantesimi seguenti (CD del tiro salvezza 18), usando una gemma del tipo specificato come componente: *luce diurna* (opale), *muro di fuoco* (rubino), *palla di fuoco* (opale di fuoco) o *spruzzo prismatico* (diamante). Non appena lanciato l'incantesimo, la gemma viene distrutta e scompare dall'elmo.
 
   Finché rimane incastonato almeno un diamante, l'elmo emana luce fioca in un raggio di 9 metri quando almeno un non morto si trova in quell'area. Ogni non morto che inizia il suo turno in quell'area subisce 1d6 danni radiosi.
 
@@ -26,7 +26,7 @@ features.0.effects.2.note: Le gemme non si riformano mai; una gemma usata per un
 features.0.effects.3.name: Opali
 features.0.effects.3.note: Le gemme non si riformano mai; una gemma usata per un incantesimo viene distrutta.
 features.1.name: Incantesimi
-features.1.text: "Il personaggio può usare un'azione per lanciare uno degli incantesimi seguenti (CD del tiro salvezza 18), usando una gemma del tipo specificato come componente: luce diurna (opale), muro di fuoco (rubino), palla di fuoco (opale di fuoco) o spruzzo prismatico (diamante). Non appena lanciato l'incantesimo, la gemma viene distrutta e scompare dall'elmo."
+features.1.text: "Il personaggio può usare un'azione per lanciare uno degli incantesimi seguenti (CD del tiro salvezza 18), usando una gemma del tipo specificato come componente: *luce diurna* (opale), *muro di fuoco* (rubino), *palla di fuoco* (opale di fuoco) o *spruzzo prismatico* (diamante). Non appena lanciato l'incantesimo, la gemma viene distrutta e scompare dall'elmo."
 features.1.effects.0.note: CD del tiro salvezza 18.
 features.1.effects.1.note: CD del tiro salvezza 18.
 features.1.effects.2.note: CD del tiro salvezza 18.

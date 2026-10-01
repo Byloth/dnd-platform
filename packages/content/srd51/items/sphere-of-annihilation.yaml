@@ -19,13 +19,9 @@ text:
     If the sphere comes into contact with a planar portal, such as that created by the gate spell, or an extradimensional space, such as that within a portable hole, the GM determines randomly what happens, using the following table.
 
     | d100 | Result |
-
     |---|---|
-
     | 01-50 | The sphere is destroyed. |
-
     | 51-85 | The sphere moves through the portal or into the extradimensional space. |
-
     | 86-00 | A spatial rift sends each creature and object within 180 feet of the sphere, including the sphere, to a random plane of existence. |
 type: wondrous
 magical: true

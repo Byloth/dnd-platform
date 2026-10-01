@@ -7,6 +7,21 @@ improvement of the content is a new version: bump `version` in
 release file. Characters follow new versions automatically; the application
 tells the player what changed on their sheet.
 
+## 0.9.0 — 2026-10-01
+
+- **Tables that showed as loose lines are tables again**: the wand of
+  wonder, the robe of useful items, the deck of illusions, the feather
+  token, the candle of invocation and the other magic items with a table.
+  The wand of wonder has its own 16–20 row (gust of wind) and ends at
+  98–00; the robe of useful items has the wooden ladder and the riding
+  horse on two rows; reincarnate has its table of races.
+- **The ability rules read as the SRD prints them**: the lists of tasks
+  for Strength, Constitution, Intelligence and Wisdom are lists again,
+  with their headings on their own line; passive checks and skills are
+  split where they ran together; the contests rule is called Contests.
+- Symbol's Death glyph deals 10d10 necrotic damage, written as such;
+  reincarnate rolls a d100.
+
 ## 0.8.0 — 2026-09-30
 
 - A cost in ki is written "1 ki": resources can give the unit their costs are

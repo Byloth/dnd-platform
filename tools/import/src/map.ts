@@ -998,7 +998,10 @@ for (const magic of dbMagic)
 {
     const category = magic.equipment_category.index;
     const type = MAGIC_TYPES[category] ?? "wondrous";
-    const desc = magic.desc.join("\n\n");
+    // One line of the dataset is one paragraph, but the rows of a table stay together, or Markdown sees no table.
+    const row = (line: string): boolean => line.trim().startsWith("|");
+    const desc = magic.desc.reduce((out, line, i) =>
+        (i === 0 ? line : `${out}${row(magic.desc[i - 1]) && row(line) ? "\n" : "\n\n"}${line}`), "");
     const rarity = slug(magic.rarity.name);
     write("items", magic.index, compact({
         id: id("item", magic.index),

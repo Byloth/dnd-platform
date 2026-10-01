@@ -7,7 +7,7 @@ traits.0.text: |-
   La caratteristica innata da incantatore dell'oni è Carisma (CD del tiro salvezza sull'incantesimo 13). Per sua natura, è in grado di lanciare gli incantesimi indicati di seguito senza aver bisogno di componenti materiali:
 
   A volontà: invisibilità, oscurità
-  1/giorno ciascuno: charme su persone, cono di freddo, forma gassosa, sonno
+  1/giorno ciascuno: *charme su persone*, *cono di freddo*, *forma gassosa*, *sonno*
 traits.1.name: Armi magiche
 traits.1.text: Gli attacchi con arma dell'oni sono magici.
 traits.2.name: Rigenerazione

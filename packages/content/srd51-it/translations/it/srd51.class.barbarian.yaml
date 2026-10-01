@@ -6,7 +6,7 @@ levels.1.features.0.text: |-
   Finché è preda dell'ira, ottiene i benefici seguenti se non indossa un'armatura pesante:
 
   * Dispone di vantaggio alle prove di Forza e ai tiri salvezza su Forza.
-  * Quando effettua un attacco con arma da mischia usando Forza, ottiene un bonus al tiro per i danni che aumenta man mano che ottiene nuovi livelli da barbaro, come indicato nella colonna "Danni dell'ira" nella tabella "Barbaro".
+  * Quando effettua un attacco con arma da mischia usando Forza, ottiene un bonus al tiro per i danni che aumenta man mano che ottiene nuovi livelli da barbaro, come indicato nella colonna "Danni dell'Ira" nella tabella "Barbaro".
   * Un barbaro dispone di resistenza ai danni contundenti, perforanti e taglienti.
 
   Se è in grado di lanciare incantesimi, non può lanciarli o concentrarsi su di essi quando è in preda all'ira.
@@ -14,7 +14,7 @@ levels.1.features.0.text: |-
   L'ira del barbaro dura 1 minuto. Termina anticipatamente se il barbaro cade privo di sensi o se il suo turno termina e non ha attaccato una creatura ostile dal suo ultimo turno o non ha subito danni da allora. Un barbaro può anche porre fine all'ira nel proprio turno come azione bonus.
 
   Una volta preda dell'ira per il numero di volte indicato dal suo livello di barbaro nella colonna "Ira" della tabella "Barbaro", un barbaro deve completare un riposo lungo prima di poterla scatenare di nuovo.
-levels.1.features.0.effects.0.name: "Ira"
+levels.1.features.0.effects.0.name: "Utilizzi dell'Ira"
 levels.1.features.0.effects.1.name: "Ira"
 levels.1.features.0.effects.1.text: "Nel tuo turno puoi scatenare la tua ira come azione bonus. La tua ira dura 1 minuto. Termina anticipatamente se cadi privo di sensi o se il tuo turno termina e non hai attaccato una creatura ostile dal tuo ultimo turno o non hai subito danni da allora. Puoi anche porre fine all'ira nel tuo turno come azione bonus."
 levels.1.features.0.effects.1.onUse.0.text: "Quando sei in preda all'ira non puoi lanciare incantesimi o concentrarti su di essi. I benefici si applicano solo se non indossi un'armatura pesante. Per porre fine all'ira in anticipo nel tuo turno come azione bonus, disattivala."
@@ -55,7 +55,7 @@ levels.9.features.0.text: |-
 
   Questo effetto aumenta a due dadi aggiuntivi al 13° livello e a tre dadi aggiuntivi al 17° livello.
 levels.9.features.0.effects.0.text: "Puoi tirare un dado dell'arma aggiuntivo quando determini i danni extra di un colpo critico con attacco in mischia. Questo effetto aumenta a due dadi aggiuntivi al 13° livello e a tre dadi aggiuntivi al 17° livello."
-levels.9.features.0.effects.0.note: "Lacuna: nessun effetto di gioco per i danni aggiuntivi dei colpi critici; il numero di dadi extra è table(barbarian.brutal-critical-dice)."
+levels.9.features.0.effects.0.note: "Non ancora calcolato: nessun effetto di gioco per i danni aggiuntivi dei colpi critici; il numero di dadi extra è table(barbarian.brutal-critical-dice)."
 levels.11.features.0.name: "Ira Implacabile"
 levels.11.features.0.text: |-
   A partire dall'11° livello, grazie alla sua ira il barbaro può continuare a combattere nonostante le ferite più gravi. Se scende a 0 punti ferita mentre è in preda all'ira e non è ucciso sul colpo, può effettuare un tiro salvezza su Costituzione con CD 10. Se lo supera, rimane invece a 1 punto ferita.
@@ -64,14 +64,14 @@ levels.11.features.0.text: |-
 levels.11.features.0.effects.0.name: "Utilizzi di Ira Implacabile dall'ultimo riposo"
 levels.11.features.0.effects.0.note: "Conta gli usi dall'ultimo riposo; la CD del tiro salvezza è 10 + 5 per ogni uso già effettuato."
 levels.11.features.0.effects.1.text: "Se scendi a 0 punti ferita mentre sei in preda all'ira e non sei ucciso sul colpo, puoi effettuare un tiro salvezza su Costituzione con CD 10. Se lo superi, rimani invece a 1 punto ferita. Ogni volta che utilizzi questo privilegio dopo la prima, la CD aumenta di 5. Quando completi un riposo breve o lungo, la CD è ripristinata a 10."
-levels.11.features.0.effects.1.note: "Lacuna: nessun aggancio di gioco per la discesa a 0 punti ferita; la CD crescente è tracciata con il contatore di Ira Implacabile."
+levels.11.features.0.effects.1.note: "Non ancora calcolato: nessun aggancio di gioco per la discesa a 0 punti ferita; la CD crescente è tracciata con il contatore di Ira Implacabile."
 levels.15.features.0.name: "Ira Persistente"
 levels.15.features.0.text: "A partire dal 15° livello, l'ira del barbaro è talmente feroce che termina prematuramente solo se il barbaro cade privo di sensi o se decide di porvi termine."
 levels.15.features.0.effects.0.text: "La tua ira è talmente feroce che termina prematuramente solo se cadi privo di sensi o se decidi di porvi termine."
-levels.15.features.0.effects.0.note: "Lacuna: cambia solo le condizioni di termine dell'interruttore dell'ira, che la modalità di gioco traccia."
+levels.15.features.0.effects.0.note: "Non ancora calcolato: cambia solo le condizioni di termine dell'interruttore dell'ira, che la modalità di gioco traccia."
 levels.18.features.0.name: "Potenza Indomabile"
 levels.18.features.0.text: "A partire dal 18° livello, se il totale di una prova di Forza del barbaro è inferiore al suo punteggio di Forza, il barbaro può usare quel punteggio al posto del totale."
 levels.18.features.0.effects.0.text: "Se il totale di una tua prova di Forza è inferiore al tuo punteggio di Forza, puoi usare quel punteggio al posto del totale."
-levels.18.features.0.effects.0.note: "Lacuna: un minimo sul totale delle prove di Forza si applica dopo il tiro, non è un valore della scheda."
+levels.18.features.0.effects.0.note: "Non ancora calcolato: un minimo sul totale delle prove di Forza si applica dopo il tiro, non è un valore della scheda."
 levels.20.features.0.name: "Campione Primordiale"
 levels.20.features.0.text: "Al 20° livello, il barbaro diventa un'incarnazione del potere delle terre selvagge. I suoi punteggi di Forza e Costituzione aumentano di 4. Il suo massimo per quei punteggi è ora di 24."

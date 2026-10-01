@@ -11,13 +11,13 @@ traits.2.name: Incantesimi
 traits.2.text: |-
   La sfinge è un'incantatrice di 12° livello: la sua caratteristica da incantatore è Saggezza (CD del tiro salvezza sull'incantesimo 18, +10 al tiro per colpire con attacco con incantesimo). Non ha bisogno di componenti materiali per lanciare i suoi incantesimi. La sfinge ha a disposizione i seguenti incantesimi da chierico:
 
-  - Trucchetti (a volontà): fiamma sacra, salvare i morenti, taumaturgia
-  - 1° livello (4 slot): comando, individuazione del bene e del male, individuazione del magico
-  - 2° livello (3 slot): ristorare inferiore, zona di verità
-  - 3° livello (3 slot): dissolvi magie, linguaggi
-  - 4° livello (3 slot): esilio, libertà di movimento
-  - 5° livello (2 slot): colpo infuocato, ristorare superiore
-  - 6° livello (1 slot): banchetto degli eroi
+  - Trucchetti (a volontà): *fiamma sacra*, *salvare i morenti*, *taumaturgia*
+  - 1° livello (4 slot): *comando*, *individuazione del bene e del male*, *individuazione del magico*
+  - 2° livello (3 slot): *ristorare inferiore*, *zona di verità*
+  - 3° livello (3 slot): *dissolvi magie*, *linguaggi*
+  - 4° livello (3 slot): *esilio*, *libertà di movimento*
+  - 5° livello (2 slot): *colpo infuocato*, *ristorare superiore*
+  - 6° livello (1 slot): *banchetto degli eroi*
 actions.0.name: Multiattacco
 actions.0.text: La sfinge effettua due attacchi con gli artigli.
 actions.0.multiattack.0.action: Artiglio

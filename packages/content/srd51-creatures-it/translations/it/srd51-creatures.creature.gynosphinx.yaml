@@ -11,12 +11,12 @@ traits.2.name: Incantesimi
 traits.2.text: |-
   La sfinge è un'incantatrice di 9° livello: la sua caratteristica da incantatore è Intelligenza (CD del tiro salvezza sull'incantesimo 16, +8 al tiro per colpire con attacco con incantesimo). Non ha bisogno di componenti materiali per lanciare i suoi incantesimi. La sfinge ha a disposizione i seguenti incantesimi da mago:
 
-  - Trucchetti (a volontà): illusione minore, mano magica, prestidigitazione
-  - 1° livello (4 slot): identificare, individuazione del magico, scudo
+  - Trucchetti (a volontà): *illusione minore*, *mano magica*, *prestidigitazione*
+  - 1° livello (4 slot): *identificare*, *individuazione del magico*, *scudo*
   - 2° livello (3 slot): oscurità, localizza oggetto, suggestione
-  - 3° livello (3 slot): dissolvi magie, linguaggi, rimuovi maledizione
-  - 4° livello (3 slot): esilio, invisibilità superiore
-  - 5° livello (1 slot): conoscenza delle leggende
+  - 3° livello (3 slot): *dissolvi magie*, *linguaggi*, *rimuovi maledizione*
+  - 4° livello (3 slot): *esilio*, *invisibilità superiore*
+  - 5° livello (1 slot): *conoscenza delle leggende*
 actions.0.name: Multiattacco
 actions.0.text: La sfinge effettua due attacchi con gli artigli.
 actions.0.multiattack.0.action: Artiglio

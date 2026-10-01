@@ -18,20 +18,20 @@ levels.3.features.0.effects.2.name: "Incanalare Divinità: Scacciare i Sacrilegh
 levels.3.features.0.effects.2.text: Brandisci il tuo simbolo sacro e pronunci una preghiera di condanna nei confronti degli immondi e dei non morti. Ogni immondo o non morto che sia in grado di vederti o sentirti e che si trovi entro 9 metri da te deve effettuare un tiro salvezza su Saggezza. Se lo fallisce, la creatura è scacciata per 1 minuto o finché non subisce danni. Una creatura scacciata deve spendere i suoi turni tentando di allontanarsi il più possibile da te e non può volontariamente muoversi in uno spazio entro 9 metri da te. Inoltre, non può effettuare reazioni. Come sua azione può usare solo l'azione di Scatto o tentare di fuggire da un effetto che le impedisce di muoversi. Se non può muoversi in alcuno spazio, la creatura può usare l'azione Schivata.
 levels.3.features.0.effects.2.onUse.0.text: Ogni immondo o non morto entro 9 metri che sia in grado di vederti o sentirti effettua un tiro salvezza su Saggezza contro la CD del tiro salvezza sui tuoi incantesimi da paladino; se lo fallisce, è scacciato per 1 minuto o finché non subisce danni.
 levels.3.features.0.effects.2.note: La risorsa Incanalare Divinità (1 utilizzo, recuperato con un riposo breve o lungo) è dichiarata dal privilegio Giuramento Sacro; la CD è la CD del tiro salvezza sugli incantesimi da paladino.
-levels.3.features.1.name: Incantesimi di giuramento
+levels.3.features.1.name: Incantesimi di Giuramento
 levels.3.features.1.text: |-
   Il paladino ottiene gli incantesimi seguenti ai livelli da paladino elencati.
 
   ### Incantesimi del Giuramento di Devozione
   | Livello da paladino | Incantesimi |
   | --- | --- |
-  | 3° | protezione dal bene e dal male, santuario |
-  | 5° | ristorare inferiore, zona di verità |
-  | 9° | dissolvi magie, faro di speranza |
-  | 13° | guardiano della fede, libertà di movimento |
-  | 17° | colpo infuocato, comunione |
+  | 3° | *protezione dal bene e dal male*, *santuario* |
+  | 5° | *ristorare inferiore*, *zona di verità* |
+  | 9° | *dissolvi magie*, *faro di speranza* |
+  | 13° | *guardiano della fede*, *libertà di movimento* |
+  | 17° | *colpo infuocato*, *comunione* |
 levels.3.features.1.effects.0.note: Gli incantesimi di giuramento sono sempre preparati, non contano al fine di determinare il numero di incantesimi che puoi preparare e contano come incantesimi da paladino per te.
-levels.3.features.2.name: Dettami di devozione
+levels.3.features.2.name: Dettami di Devozione
 levels.3.features.2.text: |-
   Sebbene le parole e gli obblighi esatti del Giuramento di Devozione possano variare, i paladini di questo giuramento condividono i seguenti precetti.
 
@@ -44,7 +44,7 @@ levels.3.features.2.text: |-
   *Onore.* Tratta gli altri con gentilezza e lascia che i tuoi atti onorevoli siano di esempio per loro. Fa' tutto il bene possibile, provocando il minimo danno possibile.
 
   *Dovere.* Sii responsabile delle tue azioni e delle loro conseguenze, proteggi coloro che sono stati affidati alle tue cure e obbedisci a chi esercita la sua legittima autorità su di te.
-levels.7.features.0.name: Aura di devozione
+levels.7.features.0.name: Aura di Devozione
 levels.7.features.0.text: |-
   A partire dal 7° livello, il paladino e le creature amiche entro 3 metri da lui non possono essere affascinate finché il paladino è cosciente.
 
@@ -54,8 +54,8 @@ levels.7.features.0.effects.1.text: Le creature amiche entro 3 metri da te (9 me
 levels.7.features.0.effects.1.note: L'immunità per gli alleati e la condizione di essere cosciente sono gestite in gioco; la gittata è table(paladin.aura-range).
 levels.15.features.0.name: Purezza di Spirito
 levels.15.features.0.text: A partire dal 15° livello, il paladino è sempre sotto l'effetto di un incantesimo *protezione dal bene e dal male*.
-levels.15.features.0.effects.0.text: Sei sempre sotto l'effetto di un incantesimo protezione dal bene e dal male.
-levels.15.features.0.effects.0.note: "Capacità mancante: applicare permanentemente al personaggio gli effetti continui di un incantesimo (apply-spell-effect); vedi srd51.spell.protection-from-evil-and-good."
+levels.15.features.0.effects.0.text: "Sei sempre sotto l'effetto di un incantesimo *protezione dal bene e dal male*."
+levels.15.features.0.effects.0.note: "Non ancora calcolato: applicare permanentemente al personaggio gli effetti continui di un incantesimo (apply-spell-effect); vedi srd51.spell.protection-from-evil-and-good."
 levels.20.features.0.name: Nube Sacra
 levels.20.features.0.text: |-
   Al 20° livello, con un'azione, il paladino può emanare un'aura di luce solare. Per 1 minuto, il paladino emette luce intensa attorno a sé entro un raggio di 9 metri e luce fioca per ulteriori 9 metri.

@@ -6,6 +6,11 @@ loads it by itself with the creatures when the interface is in Italian.
 Like every public package, each released version is published by the site
 and never changes (DEC-21).
 
+## 0.2.0 — 2026-10-01
+
+- Spell names in the creatures' spellcasting are in italics, as the Italian
+  books print them.
+
 ## 0.1.0 — 2026-09-26
 
 - **The 322 creatures of the SRD in Italian**: names, traits, actions,

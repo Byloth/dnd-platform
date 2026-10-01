@@ -1,7 +1,7 @@
 formatVersion: 0
 id: srd51-creatures-it
 name: { en: "System Reference Document 5.1 — Creatures, Italian", it: "System Reference Document 5.1 — Creature, italiano" }
-version: 0.1.0
+version: 0.2.0
 kind: translation
 defaultLanguage: it
 languages: [it]

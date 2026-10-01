@@ -6,8 +6,8 @@ languages: Abissale, telepatia 36 m
 traits.0.name: Incantesimi innati
 traits.0.text: |-
   La caratteristica da incantatore del glabrezu è Intelligenza (CD del tiro salvezza sull'incantesimo 16). Per sua natura, il glabrezu è in grado di lanciare gli incantesimi indicati di seguito senza aver bisogno di componenti materiali:
-  A volontà: dissolvi magie, individuazione del magico, oscurità
-  1/giorno ciascuno: confusione, parola del potere stordire, volare
+  A volontà: *dissolvi magie*, *individuazione del magico*, *oscurità*
+  1/giorno ciascuno: *confusione*, *parola del potere stordire*, *volare*
 traits.1.name: Resistenza alla magia
 traits.1.text: Il glabrezu dispone di vantaggio ai tiri salvezza contro incantesimi e altri effetti magici.
 actions.0.name: Multiattacco

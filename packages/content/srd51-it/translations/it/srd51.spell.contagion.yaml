@@ -8,13 +8,13 @@ text: |-
 
   **Carne putrefatta.** La carne della creatura si decompone. La creatura subisce svantaggio alle prove di Carisma e ha vulnerabilità a tutti i danni.
 
-  **Fuoco mentale.** La mente della creatura è febbricitante. La creatura subisce svantaggio alle prove di Intelligenza e ai tiri salvezza su Intelligenza; inoltre, durante il combattimento si comporta come se fosse sotto l'effetto dell'incantesimo confusione.
+  **Fuoco mentale.** La mente della creatura è febbricitante. La creatura subisce svantaggio alle prove di Intelligenza e ai tiri salvezza su Intelligenza; inoltre, durante il combattimento si comporta come se fosse sotto l'effetto dell'incantesimo *confusione*.
 
   **Tremori.** Il corpo della creatura è scosso da tremori. La creatura subisce svantaggio alle prove di Destrezza, ai tiri salvezza su Destrezza e ai tiri per colpire che utilizzano la Destrezza.
 
   **Devastazione vischiosa.** La creatura inizia a sanguinare in modo incontrollabile. La creatura subisce svantaggio alle prove di Costituzione e ai tiri salvezza su Costituzione. Inoltre, ogni volta che subisce danni, è stordita fino al termine del proprio turno successivo.
 effects.0.text: |-
-  Malattia (una sola, scelta quando il colpo va a segno): Infermità accecante (svantaggio alle prove di Saggezza e ai tiri salvezza su Saggezza, accecata); Febbre lurida (svantaggio alle prove di Forza, ai tiri salvezza su Forza e ai tiri per colpire che utilizzano la Forza); Carne putrefatta (svantaggio alle prove di Carisma, vulnerabilità a tutti i danni); Fuoco mentale (svantaggio alle prove di Intelligenza e ai tiri salvezza su Intelligenza, durante il combattimento si comporta come se fosse sotto l'effetto dell'incantesimo confusione); Tremori (svantaggio alle prove di Destrezza, ai tiri salvezza su Destrezza e ai tiri per colpire che utilizzano la Destrezza); Devastazione vischiosa (svantaggio alle prove di Costituzione e ai tiri salvezza su Costituzione, stordita fino al termine del proprio turno successivo ogni volta che subisce danni).
+  Malattia (una sola, scelta quando il colpo va a segno): Infermità accecante (svantaggio alle prove di Saggezza e ai tiri salvezza su Saggezza, accecata); Febbre lurida (svantaggio alle prove di Forza, ai tiri salvezza su Forza e ai tiri per colpire che utilizzano la Forza); Carne putrefatta (svantaggio alle prove di Carisma, vulnerabilità a tutti i danni); Fuoco mentale (svantaggio alle prove di Intelligenza e ai tiri salvezza su Intelligenza, durante il combattimento si comporta come se fosse sotto l'effetto dell'incantesimo *confusione*); Tremori (svantaggio alle prove di Destrezza, ai tiri salvezza su Destrezza e ai tiri per colpire che utilizzano la Destrezza); Devastazione vischiosa (svantaggio alle prove di Costituzione e ai tiri salvezza su Costituzione, stordita fino al termine del proprio turno successivo ogni volta che subisce danni).
 effects.0.note: Dipende dall'opzione scelta, quindi non è espresso come svantaggio ai tiri né come difesa.
 onCast.0.note: Solo Infermità accecante.
 onCast.1.text: |-

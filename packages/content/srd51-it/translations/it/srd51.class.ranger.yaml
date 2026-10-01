@@ -189,7 +189,7 @@ levels.2.features.0.effects.0.options.2.text: Quando il ranger impugna un'arma d
 levels.2.features.0.effects.0.options.3.name: Combattere con Due Armi
 levels.2.features.0.effects.0.options.3.text: Quando il ranger combatte con due armi, può aggiungere il suo modificatore di caratteristica ai danni del secondo attacco.
 levels.2.features.0.effects.0.options.3.effects.0.text: "Combattere con Due Armi: quando combatti con due armi, aggiungi il tuo modificatore di caratteristica ai danni del secondo attacco."
-levels.2.features.0.effects.0.options.3.effects.0.note: L'attacco con la mano secondaria come azione bonus non è ancora una riga di attacco distinta, quindi il modificatore sul secondo attacco si applica durante il gioco.
+levels.2.features.0.effects.0.options.3.effects.0.note: L'attacco con la mano secondaria come azione bonus non è ancora una riga di attacco distinta, quindi il modificatore sul secondo attacco si applica in fase di gioco.
 levels.2.features.1.name: Incantesimi
 levels.2.features.1.text: |-
   Quando arriva al 2° livello, un ranger impara a usare l'essenza magica della natura per lanciare incantesimi in modo molto simile a un druido.
@@ -198,13 +198,13 @@ levels.2.features.1.text: |-
 
   La tabella "Ranger" indica quanti slot incantesimo possiede un ranger per lanciare i suoi incantesimi di 1° livello e di livello superiore. Per lanciare uno di questi incantesimi, deve spendere uno slot incantesimo di livello pari o superiore a quello dell'incantesimo. Recupera tutti gli slot incantesimo spesi quando completa un riposo lungo.
 
-  Per esempio, se un ranger conosce l'incantesimo di 1° livello amicizia con gli animali e possiede uno slot incantesimo di 1° livello e uno slot incantesimo di 2° livello, può lanciare amicizia con gli animali usando uno qualsiasi dei due slot.
+  Per esempio, se un ranger conosce l'incantesimo di 1° livello *amicizia con gli animali* e possiede uno slot incantesimo di 1° livello e uno slot incantesimo di 2° livello, può lanciare *amicizia con gli animali* usando uno qualsiasi dei due slot.
 
   ### Incantesimi conosciuti di 1° livello e di livello superiore
 
   Un ranger conosce due incantesimi di 1° livello a sua scelta dalla lista degli incantesimi da ranger.
 
-  La colonna "Incantesimi conosciuti" nella tabella "Ranger" indica quando un ranger impara altri incantesimi da ranger a sua scelta. Ognuno di questi incantesimi deve appartenere a un livello di cui possiede degli slot incantesimo. Per esempio, quando un ranger arriva al 5° livello, può imparare un nuovo incantesimo di 1° o di 2° livello.
+  La colonna "Incantesimi Conosciuti" nella tabella "Ranger" indica quando un ranger impara altri incantesimi da ranger a sua scelta. Ognuno di questi incantesimi deve appartenere a un livello di cui possiede degli slot incantesimo. Per esempio, quando un ranger arriva al 5° livello, può imparare un nuovo incantesimo di 1° o di 2° livello.
 
   Inoltre, quando un ranger acquisisce un livello, può scegliere un incantesimo da ranger che conosce e sostituirlo con un altro incantesimo dalla lista degli incantesimi da ranger; anche il nuovo incantesimo deve essere di un livello di cui il ranger possiede degli slot incantesimo.
 
@@ -236,9 +236,9 @@ levels.8.features.0.name: Andatura sul Territorio
 levels.8.features.0.text: |-
   A partire dall'8° livello, muoversi attraverso il terreno difficile non magico non richiede più un costo in movimento extra al ranger. Inoltre, può passare attraverso i vegetali non magici senza esserne rallentato e senza subire danni se tali vegetali presentano spine, aculei o altri pericoli simili.
 
-  Inoltre, il ranger dispone di vantaggio ai tiri salvezza contro i vegetali creati magicamente o manipolati per ostacolare il movimento, come quelli creati dall'incantesimo intralciare.
+  Inoltre, il ranger dispone di vantaggio ai tiri salvezza contro i vegetali creati magicamente o manipolati per ostacolare il movimento, come quelli creati dall'incantesimo *intralciare*.
 levels.8.features.0.effects.1.text: Muoverti attraverso il terreno difficile non magico non ti richiede un costo in movimento extra. Inoltre, puoi passare attraverso i vegetali non magici senza esserne rallentato e senza subire danni se tali vegetali presentano spine, aculei o altri pericoli simili.
-levels.8.features.0.effects.1.note: Le regole sul costo del movimento non hanno un tipo di effetto nel catalogo; si applicano durante il gioco.
+levels.8.features.0.effects.1.note: Le regole sul costo del movimento non hanno un tipo di effetto nel catalogo; si applicano in fase di gioco.
 levels.10.features.0.name: Nascondersi in Piena Vista
 levels.10.features.0.text: |-
   A partire dal 10° livello, un ranger può impiegare 1 minuto per mimetizzarsi con l'ambiente. Deve essere in grado di accedere a fango fresco, terriccio, vegetali, fuliggine e altro materiale naturale adatto con cui mimetizzarsi.
@@ -260,7 +260,7 @@ levels.18.features.0.text: |-
 
   Il ranger è inoltre consapevole della posizione di qualsiasi creatura invisibile entro 9 metri da lui, purché quella creatura non sia nascosta a lui e il ranger non sia accecato o assordato.
 levels.18.features.0.effects.0.text: Quando attacchi una creatura che non sei in grado di vedere, la tua incapacità nel localizzarla non impone svantaggio ai tuoi tiri per colpire contro di essa.
-levels.18.features.0.effects.0.note: Annullare lo svantaggio contro un bersaglio che non vedi è una regola dei tiri che si applica durante il gioco; nessun tipo di effetto nel catalogo.
+levels.18.features.0.effects.0.note: Annullare lo svantaggio contro un bersaglio che non vedi è una regola dei tiri che si applica in fase di gioco; nessun tipo di effetto nel catalogo.
 levels.18.features.0.effects.1.text: Sei consapevole della posizione di qualsiasi creatura invisibile entro 9 metri da te, purché quella creatura non sia nascosta a te e tu non sia accecato o assordato.
 levels.20.features.0.name: Sterminatore di Nemici
 levels.20.features.0.text: Al 20° livello, un ranger diventa un cacciatore implacabile dei suoi nemici. Una volta per ogni suo turno, può aggiungere il suo modificatore di Saggezza al tiro per colpire o al tiro per i danni di un attacco da lui effettuato contro uno dei suoi nemici prescelti. Può scegliere di utilizzare questo privilegio prima o dopo il tiro, ma prima che qualsiasi effetto del tiro sia applicato.

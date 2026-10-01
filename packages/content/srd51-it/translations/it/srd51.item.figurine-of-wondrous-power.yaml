@@ -23,9 +23,7 @@ text: |-
   Velocità 9 m, volare 18 m
 
   | FOR | DES | COS | INT | SAG | CAR |
-
   |---|---|---|---|---|---|
-
   | 14 (+2) | 13 (+1) | 13 (+1) | 2 (-4) | 10 (+0) | 3 (-4) |
 
   Sensi Percezione passiva 10, scurovisione 18 m
@@ -52,7 +50,7 @@ text: |-
 
   ***Gufo di serpentino (rara).*** Questa statuina di serpentino raffigurante un gufo può trasformarsi in un gufo gigante per una durata massima di 8 ore. Una volta usata, non può essere riutilizzata finché non sono trascorsi 2 giorni. Il gufo può comunicare telepaticamente con il personaggio a qualsiasi distanza, purché entrambi si trovino sullo stesso piano di esistenza.
 
-  ***Corvo d'argento (non comune).*** Questa statuina d'argento raffigurante un corvo può trasformarsi in un corvo per una durata massima di 12 ore. Una volta usata, non può essere riutilizzata finché non sono trascorsi 2 giorni. Finché è in forma di corvo, la statuina consente al personaggio di lanciare su di essa l'incantesimo animale messaggero a volontà.
+  ***Corvo d'argento (non comune).*** Questa statuina d'argento raffigurante un corvo può trasformarsi in un corvo per una durata massima di 12 ore. Una volta usata, non può essere riutilizzata finché non sono trascorsi 2 giorni. Finché è in forma di corvo, la statuina consente al personaggio di lanciare su di essa l'incantesimo *animale messaggero* a volontà.
 features.0.name: "Animare la statuina"
 features.0.effects.0.name: "Pronunciare la parola d'ordine e gettare la statuina"
 features.0.effects.0.text: "Getta la statuina al suolo in un punto entro 18 metri da te: si trasforma in una creatura vivente, amichevole nei confronti tuoi e dei tuoi compagni, che comprende i tuoi linguaggi e obbedisce ai tuoi comandi verbali (se lo spazio è occupato o insufficiente, non si trasforma). Riassume la forma di statuina al termine della sua durata, se scende a 0 punti ferita o se usi un'azione per pronunciare di nuovo la parola d'ordine mentre la tocchi. Una volta ritrasformata, la statuina non può essere riutilizzata finché non è trascorso il periodo specificato per essa."
@@ -75,4 +73,4 @@ features.0.effects.1.options.7.name: "Gufo di serpentino (rara)"
 features.0.effects.1.options.7.text: "Si trasforma per una durata massima di 8 ore in un gufo gigante che può comunicare telepaticamente con te a qualsiasi distanza sullo stesso piano. Una volta usata, non può essere riutilizzata finché non sono trascorsi 2 giorni."
 features.0.effects.1.options.8.name: "Corvo d'argento (non comune)"
 features.0.effects.1.options.8.text: "Si trasforma in un corvo per una durata massima di 12 ore. Una volta usata, non può essere riutilizzata finché non sono trascorsi 2 giorni."
-features.0.effects.1.options.8.effects.0.note: "Finché la statuina è in forma di corvo, puoi lanciare su di essa animale messaggero a volontà."
+features.0.effects.1.options.8.effects.0.note: "Finché la statuina è in forma di corvo, puoi lanciare su di essa *animale messaggero* a volontà."

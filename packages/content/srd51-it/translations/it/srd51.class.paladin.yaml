@@ -1,12 +1,12 @@
 name: Paladino
 levels.1.features.0.name: Percezione del Divino
 levels.1.features.0.text: |-
-  Un paladino percepisce una presenza del male particolarmente forte, come se un fetore assalisse le sue narici, mentre una forte presenza del bene equivale per lui a una musica celestiale che risuona nelle sue orecchie. Con un'azione, un paladino può proiettare le sue percezioni attorno a sé per avvertire la presenza di queste forze. Fino alla fine del suo turno successivo, il paladino conosce l'ubicazione di ogni celestiale, immondo o non morto entro 18 metri da lui e che non si trova sotto copertura totale. Il paladino riconosce il tipo (celestiale, immondo o non morto) di qualsiasi creatura di cui riesca a percepire la presenza, ma non la sua identità (il conte vampiro Strahd von Zarovich, per esempio). Entro lo stesso raggio, il paladino individua anche la presenza di qualsiasi luogo o oggetto sacro o sacrilego, con gli stessi effetti dell'incantesimo santificare.
+  Un paladino percepisce una presenza del male particolarmente forte, come se un fetore assalisse le sue narici, mentre una forte presenza del bene equivale per lui a una musica celestiale che risuona nelle sue orecchie. Con un'azione, un paladino può proiettare le sue percezioni attorno a sé per avvertire la presenza di queste forze. Fino alla fine del suo turno successivo, il paladino conosce l'ubicazione di ogni celestiale, immondo o non morto entro 18 metri da lui e che non si trova sotto copertura totale. Il paladino riconosce il tipo (celestiale, immondo o non morto) di qualsiasi creatura di cui riesca a percepire la presenza, ma non la sua identità (il conte vampiro Strahd von Zarovich, per esempio). Entro lo stesso raggio, il paladino individua anche la presenza di qualsiasi luogo o oggetto sacro o sacrilego, con gli stessi effetti dell'incantesimo *santificare*.
 
   Il paladino può utilizzare questo privilegio un numero di volte pari a 1 + il suo modificatore di Carisma. Quando completa un riposo lungo, recupera tutti gli utilizzi spesi.
 levels.1.features.0.effects.0.name: Percezione del Divino
 levels.1.features.0.effects.1.name: Percezione del Divino
-levels.1.features.0.effects.1.text: Con un'azione, proietti le tue percezioni attorno a te. Fino alla fine del tuo turno successivo, conosci l'ubicazione di ogni celestiale, immondo o non morto entro 18 metri da te che non si trova sotto copertura totale, e ne riconosci il tipo (celestiale, immondo o non morto) ma non l'identità. Entro lo stesso raggio, individui anche qualsiasi luogo o oggetto sacro o sacrilego, con gli stessi effetti dell'incantesimo santificare.
+levels.1.features.0.effects.1.text: "Con un'azione, proietti le tue percezioni attorno a te. Fino alla fine del tuo turno successivo, conosci l'ubicazione di ogni celestiale, immondo o non morto entro 18 metri da te che non si trova sotto copertura totale, e ne riconosci il tipo (celestiale, immondo o non morto) ma non l'identità. Entro lo stesso raggio, individui anche qualsiasi luogo o oggetto sacro o sacrilego, con gli stessi effetti dell'incantesimo *santificare*."
 levels.1.features.0.effects.1.onUse.0.text: Fino alla fine del tuo turno successivo, percepisci celestiali, immondi e non morti entro 18 metri (non sotto copertura totale) e luoghi o oggetti sacri o sacrileghi.
 levels.1.features.1.name: Imposizione delle Mani
 levels.1.features.1.text: |-
@@ -59,7 +59,7 @@ levels.2.features.1.effects.0.options.1.text: Quando il paladino impugna un'arma
 levels.2.features.1.effects.0.options.2.name: Combattere con Armi Possenti
 levels.2.features.1.effects.0.options.2.text: Quando il paladino ottiene un 1 o un 2 a un tiro per i danni di un attacco che ha effettuato con un'arma da mischia impugnata a due mani, può ripetere il tiro e deve usare il nuovo risultato. L'arma deve possedere la proprietà a due mani o versatile affinché il paladino ottenga questo beneficio.
 levels.2.features.1.effects.0.options.2.effects.0.text: "Combattere con Armi Possenti: quando ottieni un 1 o un 2 a un dado dei danni di un attacco con un'arma da mischia impugnata a due mani (proprietà a due mani o versatile), ripeti il tiro di quel dado e usa il nuovo risultato."
-levels.2.features.1.effects.0.options.2.effects.0.note: Ripetere i singoli dadi dei danni che mostrano 1 o 2 non ha un tipo di effetto nel catalogo; si risolve durante il gioco.
+levels.2.features.1.effects.0.options.2.effects.0.note: Ripetere i singoli dadi dei danni che mostrano 1 o 2 non ha un tipo di effetto nel catalogo; si risolve in fase di gioco.
 levels.2.features.1.effects.0.options.3.name: Protezione
 levels.2.features.1.effects.0.options.3.text: Quando una creatura che il paladino sia in grado di vedere attacca un bersaglio diverso dal paladino e situato entro 1,5 metri da lui, il paladino può usare la sua reazione per infliggere svantaggio al tiro per colpire della creatura. Il paladino deve impugnare uno scudo.
 levels.2.features.1.effects.0.options.3.effects.0.name: Protezione
@@ -76,7 +76,7 @@ levels.2.features.2.text: |-
 
   Il paladino prepara la lista degli incantesimi da paladino disponibili da lanciare scegliendoli dalla lista degli incantesimi da paladino. Quando lo fa, deve scegliere un numero di incantesimi da paladino pari al suo modificatore di Carisma + metà del suo livello da paladino arrotondato per difetto (minimo un incantesimo). Gli incantesimi devono essere di un livello di cui il paladino possiede degli slot incantesimo.
 
-  Per esempio, un paladino di 5° livello possiede quattro slot incantesimo di 1° livello e due slot incantesimo di 2° livello. Con Carisma pari a 14, la lista dei suoi incantesimi preparati può includere quattro incantesimi di 1° o 2° livello, in qualsiasi combinazione. Se prepara l'incantesimo di 1° livello cura ferite, potrà lanciarlo usando uno slot incantesimo di 1° livello o di 2° livello. Il lancio di quell'incantesimo non lo rimuove dalla lista di incantesimi preparati.
+  Per esempio, un paladino di 5° livello possiede quattro slot incantesimo di 1° livello e due slot incantesimo di 2° livello. Con Carisma pari a 14, la lista dei suoi incantesimi preparati può includere quattro incantesimi di 1° o 2° livello, in qualsiasi combinazione. Se prepara l'incantesimo di 1° livello *cura ferite*, potrà lanciarlo usando uno slot incantesimo di 1° livello o di 2° livello. Il lancio di quell'incantesimo non lo rimuove dalla lista di incantesimi preparati.
 
   Il paladino può cambiare la lista dei suoi incantesimi preparati quando completa un riposo lungo. Per preparare una nuova lista di incantesimi da paladino, il personaggio deve passare un certo ammontare di tempo in preghiera e meditazione: almeno 1 minuto per livello di incantesimo per ogni incantesimo nella sua lista.
 
@@ -137,7 +137,7 @@ levels.6.features.0.text: |-
   Al 18° livello, la gittata di quest'aura aumenta a 9 metri.
 levels.6.features.0.effects.0.note: Si applica finché sei cosciente.
 levels.6.features.0.effects.1.text: Le creature amiche entro 3 metri da te (9 metri al 18° livello) ottengono lo stesso bonus ai loro tiri salvezza finché sei cosciente.
-levels.6.features.0.effects.1.note: Il bonus agli alleati e la condizione di essere cosciente si gestiscono durante il gioco; la gittata è table(paladin.aura-range).
+levels.6.features.0.effects.1.note: Il bonus agli alleati e la condizione di essere cosciente si gestiscono in fase di gioco; la gittata è table(paladin.aura-range).
 levels.10.features.0.name: Aura di Coraggio
 levels.10.features.0.text: |-
   A partire dal 10° livello, il paladino e le creature amiche entro 3 metri da lui non possono essere spaventati finché il paladino è cosciente.
@@ -145,7 +145,7 @@ levels.10.features.0.text: |-
   Al 18° livello, la gittata di quest'aura aumenta a 9 metri.
 levels.10.features.0.effects.0.note: Si applica finché sei cosciente.
 levels.10.features.0.effects.1.text: Le creature amiche entro 3 metri da te (9 metri al 18° livello) non possono essere spaventate finché sei cosciente.
-levels.10.features.0.effects.1.note: L'immunità per gli alleati e la condizione di essere cosciente si gestiscono durante il gioco; la gittata è table(paladin.aura-range).
+levels.10.features.0.effects.1.note: L'immunità per gli alleati e la condizione di essere cosciente si gestiscono in fase di gioco; la gittata è table(paladin.aura-range).
 levels.11.features.0.name: Punizione Divina Migliorata
 levels.11.features.0.text: All'11° livello, il paladino è talmente pervaso dalla potenza della giustizia che tutti i suoi colpi con le armi si caricano di potere divino. Ogni volta che colpisce una creatura con un'arma da mischia, quella creatura subisce 1d8 danni radiosi extra. Se il paladino usa anche Punizione Divina insieme a un attacco, aggiunge questi danni ai danni extra di Punizione Divina.
 levels.11.features.0.effects.0.note: Ogni volta che colpisci una creatura con un'arma da mischia, quella creatura subisce 1d8 danni radiosi extra; se usi anche Punizione Divina, aggiungi questi danni ai danni extra di Punizione Divina.

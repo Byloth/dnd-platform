@@ -40,13 +40,13 @@ levels.5.features.0.effects.0.trigger: quando un attaccante che sei in grado di 
 levels.5.features.0.effects.0.text: Dimezzi i danni che subiresti dall'attacco.
 levels.5.features.0.effects.0.onUse.0.text: I danni dell'attacco che ha attivato la reazione sono dimezzati.
 levels.7.features.0.name: Elusione
-levels.7.features.0.text: A partire dal 7° livello, un ladro può schivare agilmente certi effetti ad area come il soffio di fuoco di un drago rosso o un incantesimo tempesta di ghiaccio. Quando il ladro è soggetto a un effetto che gli consente di effettuare un tiro salvezza su Destrezza per dimezzare i danni, non subisce alcun danno se lo supera, e soltanto la metà dei danni se lo fallisce.
+levels.7.features.0.text: "A partire dal 7° livello, un ladro può schivare agilmente certi effetti ad area come il soffio di fuoco di un drago rosso o un incantesimo *tempesta di ghiaccio*. Quando il ladro è soggetto a un effetto che gli consente di effettuare un tiro salvezza su Destrezza per dimezzare i danni, non subisce alcun danno se lo supera, e soltanto la metà dei danni se lo fallisce."
 levels.7.features.0.effects.0.text: Quando sei soggetto a un effetto che ti consente di effettuare un tiro salvezza su Destrezza per dimezzare i danni, non subisci alcun danno se lo superi, e soltanto la metà dei danni se lo fallisci.
-levels.7.features.0.effects.0.note: Regola sull'esito del tiro salvezza risolta durante il gioco; nessun tipo di effetto nel catalogo.
+levels.7.features.0.effects.0.note: Regola sull'esito del tiro salvezza risolta in fase di gioco; nessun tipo di effetto nel catalogo.
 levels.11.features.0.name: Dote Affidabile
 levels.11.features.0.text: All'11° livello, un ladro ha affinato le abilità da lui scelte fino a portarle quasi alla perfezione. Ogni volta che il ladro effettua una prova di caratteristica che gli permette di aggiungere il suo bonus di competenza, può considerare un tiro del d20 pari o inferiore a 9 come se fosse un 10.
 levels.11.features.0.effects.0.text: Ogni volta che effettui una prova di caratteristica che ti permette di aggiungere il tuo bonus di competenza, puoi considerare un tiro del d20 pari o inferiore a 9 come se fosse un 10.
-levels.11.features.0.effects.0.note: Un risultato minimo del d20 nelle prove con competenza non ha un tipo di effetto nel catalogo; si applica durante il gioco.
+levels.11.features.0.effects.0.note: Un risultato minimo del d20 nelle prove con competenza non ha un tipo di effetto nel catalogo; si applica in fase di gioco.
 levels.14.features.0.name: Percezione Cieca
 levels.14.features.0.text: A partire dal 14° livello, se il ladro è in grado di sentire, è consapevole della posizione di ogni creatura nascosta o invisibile entro 3 metri da lui.
 levels.14.features.0.effects.0.text: Se sei in grado di sentire, sei consapevole della posizione di ogni creatura nascosta o invisibile entro 3 metri da te.
@@ -55,7 +55,7 @@ levels.15.features.0.text: Al 15° livello, il ladro sviluppa una maggiore resis
 levels.18.features.0.name: Inafferrabile
 levels.18.features.0.text: A partire dal 18° livello, il ladro è talmente sfuggente che gli attaccanti riescono raramente ad avere il sopravvento su di lui. Nessun tiro per colpire effettuato contro il ladro dispone di vantaggio, a meno che il ladro non sia incapacitato.
 levels.18.features.0.effects.0.text: Nessun tiro per colpire effettuato contro di te dispone di vantaggio, a meno che tu non sia incapacitato.
-levels.18.features.0.effects.0.note: Annullare il vantaggio sui tiri per colpire effettuati contro di te non ha un tipo di effetto nel catalogo; si applica durante il gioco.
+levels.18.features.0.effects.0.note: Annullare il vantaggio sui tiri per colpire effettuati contro di te non ha un tipo di effetto nel catalogo; si applica in fase di gioco.
 levels.20.features.0.name: Colpo di Fortuna
 levels.20.features.0.text: |-
   Al 20° livello, il ladro sviluppa la prodigiosa tendenza ad avere successo proprio nel momento più opportuno. Se il suo attacco manca un bersaglio entro gittata, il ladro può trasformare l'attacco fallito in un attacco con successo. In alternativa, se fallisce una prova di caratteristica, può considerare il risultato del tiro del d20 come un 20.

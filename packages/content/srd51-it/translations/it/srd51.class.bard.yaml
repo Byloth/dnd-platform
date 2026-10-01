@@ -33,7 +33,7 @@ levels.1.features.1.text: |-
 
   Un bardo conosce quattro incantesimi di 1° livello a sua scelta dalla lista degli incantesimi da bardo.
 
-  La colonna "Incantesimi conosciuti" nella tabella "Bardo" indica quando un bardo impara altri incantesimi da bardo a sua scelta. Ognuno di questi incantesimi deve appartenere a un livello di cui il bardo possiede degli slot incantesimo, come indicato nella tabella. Per esempio, quando un bardo arriva al 3° livello, può imparare un nuovo incantesimo di 1° o di 2° livello.
+  La colonna "Incantesimi Conosciuti" nella tabella "Bardo" indica quando un bardo impara altri incantesimi da bardo a sua scelta. Ognuno di questi incantesimi deve appartenere a un livello di cui il bardo possiede degli slot incantesimo, come indicato nella tabella. Per esempio, quando un bardo arriva al 3° livello, può imparare un nuovo incantesimo di 1° o di 2° livello.
 
   Inoltre, quando un bardo acquisisce un livello, può scegliere un incantesimo da bardo che conosce e sostituirlo con un altro incantesimo dalla lista degli incantesimi da bardo; anche il nuovo incantesimo deve essere di un livello di cui il bardo possiede degli slot incantesimo.
 
@@ -84,7 +84,7 @@ levels.10.features.0.name: Segreti Magici
 levels.10.features.0.text: |-
   Giunto al 10° livello, un bardo ha attinto alle conoscenze magiche provenienti da una vasta gamma di discipline. Il bardo sceglie due incantesimi di qualsiasi classe, inclusa questa stessa classe. Ogni incantesimo scelto deve essere di un livello che il bardo sia in grado di lanciare, come indicato dalla tabella "Bardo", oppure deve essere un trucchetto.
 
-  Gli incantesimi scelti contano come incantesimi da bardo e vanno inclusi nel numero specificato dalla colonna "Incantesimi conosciuti" nella tabella "Bardo".
+  Gli incantesimi scelti contano come incantesimi da bardo e vanno inclusi nel numero specificato dalla colonna "Incantesimi Conosciuti" nella tabella "Bardo".
 
   Un bardo apprende due incantesimi aggiuntivi di qualsiasi classe al 14° livello e poi di nuovo al 18° livello.
 levels.10.features.0.effects.0.note: Due incantesimi di qualsiasi classe, di un livello che sei in grado di lanciare o trucchetti; contano come incantesimi da bardo e vanno inclusi nei tuoi Incantesimi conosciuti.
@@ -93,4 +93,4 @@ levels.10.features.0.effects.2.note: Altri due incantesimi di qualsiasi classe a
 levels.20.features.0.name: Ispirazione Superiore
 levels.20.features.0.text: Al 20° livello, quando il bardo tira per l'iniziativa e non gli rimane alcun utilizzo di Ispirazione Bardica, ne recupera un utilizzo.
 levels.20.features.0.effects.0.text: Quando tiri per l'iniziativa e non ti rimane alcun utilizzo di Ispirazione Bardica, ne recuperi un utilizzo.
-levels.20.features.0.effects.0.note: "Lacuna: non esiste un aggancio all'evento dell'iniziativa; ripristina 1 utilizzo di bardic-inspiration quando la riserva è vuota al momento dell'iniziativa."
+levels.20.features.0.effects.0.note: "Non ancora calcolato: non esiste un aggancio all'evento dell'iniziativa; ripristina 1 utilizzo di bardic-inspiration quando la riserva è vuota al momento dell'iniziativa."

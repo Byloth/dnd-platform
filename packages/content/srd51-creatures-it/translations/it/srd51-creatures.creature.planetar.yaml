@@ -10,9 +10,9 @@ traits.1.text: Il planetar sa riconoscere le menzogne.
 traits.2.name: Incantesimi innati
 traits.2.text: |-
   La caratteristica da incantatore del planetar è Carisma (CD del tiro salvezza sull'incantesimo 20). Per sua natura, il planetar è in grado di lanciare gli incantesimi indicati di seguito senza aver bisogno di componenti materiali:
-  A volontà: individuazione del bene e del male, invisibilità (solo se stesso)
-  3/giorno ciascuno: barriera di lame, colpo infuocato, dissolvi il bene e il male, rianimare morti
-  1/giorno ciascuno: comunione, controllare tempo atmosferico, piaga degli insetti
+  A volontà: *individuazione del bene e del male*, *invisibilità* (solo se stesso)
+  3/giorno ciascuno: *barriera di lame*, *colpo infuocato*, *dissolvi il bene e il male*, *rianimare morti*
+  1/giorno ciascuno: *comunione*, *controllare tempo atmosferico*, *piaga degli insetti*
 traits.3.name: Resistenza alla magia
 traits.3.text: Il planetar dispone di vantaggio ai tiri salvezza contro incantesimi e altri effetti magici.
 actions.0.name: Multiattacco

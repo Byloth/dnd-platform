@@ -4,16 +4,16 @@ levels.1.features.0.text: Quando il chierico sceglie questo dominio al 1° livel
 levels.1.features.1.name: Discepolo della Vita
 levels.1.features.1.text: A partire dal 1° livello, gli incantesimi di guarigione del chierico diventano più efficaci. Ogni volta che il chierico usa un incantesimo di 1° livello o di livello superiore per ripristinare i punti ferita di una creatura, quella creatura recupera un ammontare di punti ferita aggiuntivi pari a 2 + il livello dell'incantesimo.
 levels.1.features.1.effects.0.text: Ogni volta che usi un incantesimo di 1° livello o di livello superiore per ripristinare i punti ferita di una creatura, quella creatura recupera un ammontare di punti ferita aggiuntivi pari a 2 + il livello dell'incantesimo.
-levels.1.features.1.effects.0.note: "Lacuna: nessun aggancio all'evento di lancio per gli incantesimi di guarigione; aggiungi 2 + il livello dello slot alla guarigione durante il gioco."
+levels.1.features.1.effects.0.note: "Non ancora calcolato: nessun aggancio all'evento di lancio per gli incantesimi di guarigione; aggiungi 2 + il livello dello slot alla guarigione in fase di gioco."
 levels.1.features.2.name: Incantesimi del Dominio della Vita (tabella)
 levels.1.features.2.text: |-
   Livello da chierico | Incantesimi |
   |---|---|
-  | 1° | benedizione, cura ferite |
-  | 3° | arma spirituale, ristorare inferiore |
-  | 5° | faro di speranza, rinascita |
-  | 7° | guardiano della fede, interdizione alla morte |
-  | 9° | cura ferite di massa, rianimare morti |
+  | 1° | *benedizione*, *cura ferite* |
+  | 3° | *arma spirituale*, *ristorare inferiore* |
+  | 5° | *faro di speranza*, *rinascita* |
+  | 7° | *guardiano della fede*, *interdizione alla morte* |
+  | 9° | *cura ferite di massa*, *rianimare morti* |
 levels.2.features.0.name: "Incanalare Divinità: Preservare Vita"
 levels.2.features.0.text: |-
   A partire dal 2° livello, il chierico può utilizzare Incanalare Divinità per curare chi è stato gravemente ferito.
@@ -25,7 +25,7 @@ levels.2.features.0.effects.0.onUse.0.note: Suddividi i punti ferita tra le crea
 levels.6.features.0.name: Guaritore Benedetto
 levels.6.features.0.text: A partire dal 6° livello, gli incantesimi curativi che il chierico lancia sugli altri guariscono anche lui. Quando il chierico lancia un incantesimo di 1° livello o di livello superiore che ripristina punti ferita in una creatura diversa da lui, recupera un ammontare di punti ferita pari a 2 + il livello dell'incantesimo.
 levels.6.features.0.effects.0.text: Quando lanci un incantesimo di 1° livello o di livello superiore che ripristina punti ferita in una creatura diversa da te, recuperi un ammontare di punti ferita pari a 2 + il livello dell'incantesimo.
-levels.6.features.0.effects.0.note: "Lacuna: nessun aggancio all'evento di lancio per gli incantesimi di guarigione; recupera tu stesso punti ferita pari a 2 + il livello dello slot durante il gioco."
+levels.6.features.0.effects.0.note: "Non ancora calcolato: nessun aggancio all'evento di lancio per gli incantesimi di guarigione; recupera tu stesso punti ferita pari a 2 + il livello dello slot in fase di gioco."
 levels.8.features.0.name: Colpo Divino
 levels.8.features.0.text: All'8° livello il chierico ottiene la capacità di infondere energia divina ai colpi della sua arma. Una volta per ogni suo turno, quando colpisce una creatura con un attacco con arma, il chierico può fare in modo che l'attacco infligga 1d8 danni radiosi extra al bersaglio. Una volta raggiunto il 14° livello, il danno aggiuntivo aumenta a 2d8.
 levels.8.features.0.effects.0.name: Colpo Divino
@@ -35,6 +35,6 @@ levels.8.features.0.effects.1.text: Una volta per ogni tuo turno, quando colpisc
 levels.17.features.0.name: Guarigione Suprema
 levels.17.features.0.text: A partire dal 17° livello, quando il chierico normalmente dovrebbe tirare uno o più dadi per ripristinare i punti ferita con un incantesimo, usa invece il numero più alto possibile per ogni dado. Ad esempio, invece di ripristinare 2d6 punti ferita a una creatura, un chierico ne ripristina 12.
 levels.17.features.0.effects.0.text: Quando normalmente dovresti tirare uno o più dadi per ripristinare i punti ferita con un incantesimo, usi invece il numero più alto possibile per ogni dado.
-levels.17.features.0.effects.0.note: "Lacuna: la massimizzazione dei dadi di guarigione si applica al momento del tiro, durante il gioco."
+levels.17.features.0.effects.0.note: "Non ancora calcolato: la massimizzazione dei dadi di guarigione si applica al momento del tiro, in fase di gioco."
 text: |-
   Il Dominio della Vita si concentra sulla vibrante energia positiva che anima ogni essere vivente e costituisce una delle forze fondamentali dell'universo. Le divinità della vita promuovono la vitalità e la salute curando i feriti e i malati, badando ai bisognosi e scacciando le forze della morte e della non morte. Pressoché qualsiasi divinità che non sia malvagia può reclamare influenza su questo dominio, specialmente le divinità agricole (come Chauntea, Arawai e Demetra), le divinità del sole (come Lathander, Pelor e Ra-Horakhty), le divinità della guarigione o della temperanza (come Ilmater, Mishakal, Apollo e Dian Cecht) e le divinità della casa e della comunità (come Estia, Hathor e Boldrei).

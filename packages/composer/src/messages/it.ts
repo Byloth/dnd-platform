@@ -172,7 +172,7 @@ export const it: SheetMessages = {
         speedTypes: { climb: "scalare", fly: "volare", swim: "nuotare", burrow: "scavare" },
         hp: "Punti ferita",
         temporary: "+{value} temporanei",
-        hitDice: "Dadi vita",
+        hitDice: "Dadi Vita",
         spent: "{count} spesi",
         proficiency: "Bonus di competenza",
         passivePerception: "Percezione passiva",

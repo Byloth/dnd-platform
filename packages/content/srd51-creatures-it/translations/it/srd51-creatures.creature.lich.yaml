@@ -11,16 +11,16 @@ traits.2.name: Incantesimi
 traits.2.text: |-
   Il lich è un incantatore di 18° livello. La sua caratteristica da incantatore è l'Intelligenza (CD del tiro salvezza sull'incantesimo 20, +12 al tiro per colpire con attacco con incantesimo). Ha a disposizione i seguenti incantesimi da mago:
 
-  - Trucchetti (a volontà): mano magica, prestidigitazione, raggio di gelo
-  - 1° livello (4 slot): dardo incantato, individuazione del magico, onda tonante, scudo
-  - 2° livello (3 slot): freccia acida, immagine speculare, individuazione dei pensieri, invisibilità
-  - 3° livello (3 slot): animare morti, controincantesimo, dissolvi magie, palla di fuoco
-  - 4° livello (3 slot): inaridire, porta dimensionale
-  - 5° livello (3 slot): nube mortale, scrutare
-  - 6° livello (1 slot): disintegrazione, globo di invulnerabilità
-  - 7° livello (1 slot): dito della morte, spostamento planare
-  - 8° livello (1 slot): dominare mostri, parola del potere stordire
-  - 9° livello (1 slot): parola del potere uccidere
+  - Trucchetti (a volontà): *mano magica*, *prestidigitazione*, *raggio di gelo*
+  - 1° livello (4 slot): *dardo incantato*, *individuazione del magico*, *onda tonante*, *scudo*
+  - 2° livello (3 slot): *freccia acida*, *immagine speculare*, *individuazione dei pensieri*, *invisibilità*
+  - 3° livello (3 slot): *animare morti*, *controincantesimo*, *dissolvi magie*, *palla di fuoco*
+  - 4° livello (3 slot): *inaridire*, *porta dimensionale*
+  - 5° livello (3 slot): *nube mortale*, *scrutare*
+  - 6° livello (1 slot): *disintegrazione*, *globo di invulnerabilità*
+  - 7° livello (1 slot): *dito della morte*, *spostamento planare*
+  - 8° livello (1 slot): *dominare mostri*, *parola del potere stordire*
+  - 9° livello (1 slot): *parola del potere uccidere*
 traits.3.name: Resistenza allo scacciare
 traits.3.text: Il lich dispone di vantaggio ai tiri salvezza contro qualsiasi effetto che scacci i non morti.
 actions.0.name: Tocco paralizzante

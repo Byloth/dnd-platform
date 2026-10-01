@@ -10,19 +10,19 @@ levels.1.features.1.text: |-
 
   ### Trucchetti
 
-  Al 1° livello, uno stregone conosce quattro trucchetti a sua scelta tratti dalla lista degli incantesimi da stregone. Apprende ulteriori trucchetti da stregone a sua scelta ai livelli successivi, come indicato dalla colonna "Trucchetti conosciuti" nella tabella "Stregone".
+  Al 1° livello, uno stregone conosce quattro trucchetti a sua scelta tratti dalla lista degli incantesimi da stregone. Apprende ulteriori trucchetti da stregone a sua scelta ai livelli successivi, come indicato dalla colonna "Trucchetti Conosciuti" nella tabella "Stregone".
 
   ### Slot incantesimo
 
   La tabella "Stregone" indica quanti slot incantesimo possiede uno stregone per lanciare i suoi incantesimi di 1° livello e di livello superiore. Per lanciare uno di questi incantesimi, deve spendere uno slot incantesimo di livello pari o superiore a quello dell'incantesimo. Recupera tutti gli slot incantesimo spesi quando completa un riposo lungo.
 
-  Per esempio, se uno stregone conosce l'incantesimo di 1° livello mani brucianti e possiede uno slot incantesimo di 1° livello e uno slot incantesimo di 2° livello, può lanciare mani brucianti usando uno qualsiasi dei due slot.
+  Per esempio, se uno stregone conosce l'incantesimo di 1° livello *mani brucianti* e possiede uno slot incantesimo di 1° livello e uno slot incantesimo di 2° livello, può lanciare *mani brucianti* usando uno qualsiasi dei due slot.
 
   ### Incantesimi conosciuti di 1° livello e di livello superiore
 
   Uno stregone conosce due incantesimi di 1° livello a sua scelta dalla lista degli incantesimi da stregone.
 
-  La colonna "Incantesimi conosciuti" nella tabella "Stregone" indica quando uno stregone impara altri incantesimi da stregone a sua scelta. Ognuno di questi incantesimi deve appartenere a un livello di cui lo stregone possiede degli slot incantesimo. Per esempio, quando uno stregone arriva al 3° livello, può imparare un nuovo incantesimo di 1° o di 2° livello.
+  La colonna "Incantesimi Conosciuti" nella tabella "Stregone" indica quando uno stregone impara altri incantesimi da stregone a sua scelta. Ognuno di questi incantesimi deve appartenere a un livello di cui lo stregone possiede degli slot incantesimo. Per esempio, quando uno stregone arriva al 3° livello, può imparare un nuovo incantesimo di 1° o di 2° livello.
 
   Inoltre, quando uno stregone acquisisce un livello, può scegliere un incantesimo da stregone che conosce e sostituirlo con un altro incantesimo dalla lista degli incantesimi da stregone; anche il nuovo incantesimo deve essere di un livello di cui possiede degli slot incantesimo.
 
@@ -42,7 +42,7 @@ levels.2.features.0.text: |-
 
   ### Punti stregoneria
 
-  Uno stregone parte con 2 punti stregoneria e ne ottiene altri ai livelli superiori, come indicato nella colonna "Punti stregoneria" nella tabella "Stregone". Uno stregone non può mai avere un numero di punti stregoneria superiore al numero indicato sulla tabella per il suo livello. Lo stregone recupera tutti i punti stregoneria spesi quando completa un riposo lungo.
+  Uno stregone parte con 2 punti stregoneria e ne ottiene altri ai livelli superiori, come indicato nella colonna "Punti Stregoneria" nella tabella "Stregone". Uno stregone non può mai avere un numero di punti stregoneria superiore al numero indicato sulla tabella per il suo livello. Lo stregone recupera tutti i punti stregoneria spesi quando completa un riposo lungo.
 
   ### Incantesimi Flessibili
 
@@ -113,7 +113,7 @@ levels.3.features.0.text: |-
 
   Quando lo stregone lancia un incantesimo che bersaglia una sola creatura e non ha una gittata di "incantatore", può spendere un numero di punti stregoneria pari al livello dell'incantesimo per bersagliare con lo stesso incantesimo una seconda creatura entro gittata (1 punto stregoneria se l'incantesimo è un trucchetto).
 
-  Affinché sia selezionabile, un incantesimo non deve essere in grado di bersagliare più di una creatura al suo livello di incantesimo attuale. Per esempio, dardo incantato e raggio rovente non sono selezionabili, mentre raggio di gelo sì.
+  Affinché sia selezionabile, un incantesimo non deve essere in grado di bersagliare più di una creatura al suo livello di incantesimo attuale. Per esempio, *dardo incantato* e *raggio rovente* non sono selezionabili, mentre *raggio di gelo* sì.
 levels.3.features.0.effects.0.note: Lo stregone ottiene un'altra opzione di Metamagia al 10° e al 17° livello (colonna "Metamagia conosciuta", table(sorcerer.metamagic-known)); il numero di opzioni di una scelta non può ancora seguire una tabella. Lo stregone può usare soltanto un'opzione di Metamagia su un incantesimo quando lo lancia, a meno che non sia specificato diversamente.
 levels.3.features.0.effects.0.options.0.name: Incantesimo preciso
 levels.3.features.0.effects.0.options.0.text: Quando lo stregone lancia un incantesimo che obbliga altre creature a effettuare un tiro salvezza, può proteggere alcune di esse dalla piena forza dell'incantesimo. Per farlo spende 1 punto stregoneria e sceglie un numero massimo di creature pari al suo modificatore di Carisma (minimo una creatura). Ogni creatura scelta supera automaticamente il suo tiro salvezza contro l'incantesimo.

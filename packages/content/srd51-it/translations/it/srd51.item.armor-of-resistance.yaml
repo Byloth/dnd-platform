@@ -7,15 +7,15 @@ text: |-
   | d10 | Tipo di danno |
   |---|---|
   | 1 | Acido |
-  | 2 | Freddo |
-  | 3 | Fuoco |
-  | 4 | Forza |
-  | 5 | Fulmine |
+  | 2 | Forza |
+  | 3 | Freddo |
+  | 4 | Fulmine |
+  | 5 | Fuoco |
   | 6 | Necrotico |
-  | 7 | Veleno |
-  | 8 | Psichico |
-  | 9 | Radioso |
-  | 10 | Tuono |
+  | 7 | Psichico |
+  | 8 | Radioso |
+  | 9 | Tuono |
+  | 10 | Veleno |
 features.0.name: Resistenza
 features.0.effects.0.note: Il GM sceglie il tipo di danno o lo determina casualmente (d10).
 features.0.effects.0.options.0.name: Acido

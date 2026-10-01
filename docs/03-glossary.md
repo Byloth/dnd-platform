@@ -2,14 +2,14 @@
 
 ## Purpose
 
-Two vocabularies are used across these documents: the game's own terms (5e) and the platform's terms. Both are fixed here so every document means the same thing by the same word. Game terms use the official English name first and the official Italian name second, because the first users are Italian and printed material will be localised.
+Two vocabularies are used across these documents: the game's own terms (5e) and the platform's terms. Both are fixed here so every document means the same thing by the same word. Game terms use the official English name first and the official Italian name second, because the first users are Italian and printed material will be localised. The official books win over this table: where an Italian book (SRD 5.1, Manuale del Giocatore, Guida del DM, Manuale dei Mostri, errata) words a term differently, the book is right and this table follows it (owner, 2026-10-01).
 
 ## Game terms (5e)
 
 | English (official) | Italian (official) | Meaning in one line |
 |---|---|---|
 | Ability score | Punteggio di caratteristica | One of six numbers (STR, DEX, CON, INT, WIS, CHA) describing raw capability. |
-| Ability modifier | Modificatore | Derived from the score: (score − 10) ÷ 2, rounded down. Added to most rolls. |
+| Ability modifier | Modificatore di caratteristica (modificatore) | Derived from the score: (score − 10) ÷ 2, rounded down. Added to most rolls. |
 | Proficiency bonus | Bonus di competenza | A level-based bonus added to rolls the character is proficient in. |
 | Proficiency | Competenza | Being trained in a skill, save, weapon, armour or tool. |
 | Expertise | Maestria | Double proficiency bonus on a skill or tool. |
@@ -19,20 +19,19 @@ Two vocabularies are used across these documents: the game's own terms (5e) and 
 | Passive Perception | Percezione passiva | 10 + Perception modifier; used without rolling. |
 | Armor Class (AC) | Classe Armatura (CA) | The number an attack roll must meet or beat to hit. |
 | Hit points (HP) | Punti ferita (PF) | Health. Temporary hit points are a separate buffer. |
-| Hit Dice (Hit Die) | Dadi vita (Dado vita) | A pool of dice, one per level, spent on a short rest to regain hit points. |
-| Hit dice | Dadi vita | Dice spent on a short rest to heal; one per level. |
+| Hit Dice (Hit Die) | Dadi Vita (Dado Vita) | A pool of dice, one per level, spent on a short rest to regain hit points. |
 | Death saving throw | Tiro salvezza contro morte | Rolls made at 0 HP; three successes stabilise, three failures kill. |
 | Initiative | Iniziativa | A roll that orders turns in combat. |
 | Speed | Velocità | Distance the character can move on a turn. |
 | Action / Bonus action / Reaction | Azione / Azione bonus / Reazione | The three kinds of activity in a turn; one of each per round, a bonus action only if something grants one. |
-| Free interaction | Interazione gratuita | One small object interaction per turn (draw a weapon, open a door). |
+| Free interaction | Interagire con gli oggetti circostanti | One small object interaction per turn (draw a weapon, open a door); the SRD rule's own title. |
 | Attack roll | Tiro per colpire | d20 + modifiers vs AC. |
 | Damage roll | Tiro per i danni | Dice + modifiers on a hit. |
 | Critical hit | Colpo critico | A natural 20 on an attack; damage dice are doubled. |
 | Advantage / Disadvantage | Vantaggio / Svantaggio | Roll two d20 and keep the higher / the lower. |
 | Spell slot | Slot incantesimo | A resource spent to cast a spell of a given level. |
 | Cantrip | Trucchetto | A spell cast without slots. |
-| Spell save DC | CD del tiro salvezza | 8 + proficiency + spellcasting ability modifier. |
+| Spell save DC | CD del tiro salvezza | 8 + proficiency + spellcasting ability modifier. The site's short form; the texts keep their book's: «CD del tiro salvezza sull'incantesimo» (SRD), «… dell'incantesimo» (Manuale). |
 | Concentration | Concentrazione | Some spells last only while the caster concentrates; one at a time. |
 | Ritual | Rituale | A spell cast slowly without a slot. |
 | Short rest / Long rest | Riposo breve / Riposo lungo | One hour / eight hours of rest; each restores specific resources. |
@@ -41,13 +40,15 @@ Two vocabularies are used across these documents: the game's own terms (5e) and 
 | Class / Subclass | Classe / Sottoclasse | The character's profession and its specialisation, source of most features. |
 | Background | Background | Origin story; grants proficiencies and a feature. |
 | Feat | Talento | An optional special ability, usually taken instead of an ability score increase. |
-| Ability Score Improvement (ASI) | Aumento dei punteggi di caratteristica | A level milestone that raises scores or grants a feat. |
+| Ability Score Improvement (ASI) | Aumento dei Punteggi di Caratteristica | The class feature that raises scores or grants a feat. |
+| Ability Score Increase | Incremento dei punteggi di caratteristica | The species trait that raises scores. |
 | Multiclassing | Multiclasse | Taking levels in more than one class. |
 | Inspiration | Ispirazione | A DM-granted token giving advantage on one roll. |
-| Experience points (XP) / Milestone | Punti esperienza / Traguardo | Two ways of gaining levels. |
+| Dungeon Master (DM) / Game Master (GM) | Dungeon Master (DM) / Game Master (GM) | The player who runs the game: the Manuale says DM, the Italian SRD GM; each package keeps its book's. |
+| Experience points (XP) / Milestone | Punti esperienza / Pietre miliari | Two ways of gaining levels. |
 | Alignment | Allineamento | A two-word moral descriptor (Lawful Neutral…). |
 | SRD | SRD | System Reference Document: the subset of 5e rules published under a free licence. |
-| PHB / DMG / MM | Manuale del Giocatore / Guida del DM / Manuale dei Mostri | The three core rulebooks. |
+| PHB / DMG / MM | Manuale del Giocatore / Guida del Dungeon Master / Manuale dei Mostri | The three core rulebooks. |
 
 ## Platform terms
 

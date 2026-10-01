@@ -9,27 +9,16 @@ text: |-
   Con un'azione, il personaggio può inoltre concentrare i suoi sensi e percepire magicamente la distanza e la direzione del drago più vicino dello stesso tipo dell'armatura, entro un raggio di 45 km. Una volta usata, non può essere riutilizzata fino all'alba successiva.
 
   | Drago | Resistenza |
-
   |---|---|
-
   | Nero | Acido |
-
   | Blu | Fulmine |
-
   | Ottone | Fuoco |
-
   | Bronzo | Fulmine |
-
   | Rame | Acido |
-
   | Oro | Fuoco |
-
   | Verde | Veleno |
-
   | Rosso | Fuoco |
-
   | Argento | Freddo |
-
   | Bianco | Freddo |
 features.0.name: "Corazza di scaglie di drago"
 features.0.effects.2.note: "La resistenza è determinata dal tipo di drago che ha fornito le scaglie."

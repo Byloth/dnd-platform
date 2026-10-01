@@ -1,5 +1,5 @@
-name: "Punti ferita e Dadi vita"
+name: "Punti Ferita e Dadi Vita"
 text: |-
   Il personaggio ottiene i punti ferita della sua nuova classe come descritto per i livelli successivi al 1°. Ottiene i punti ferita di 1° livello relativi a una classe solo quando è un personaggio di 1° livello.
 
-  Il personaggio somma i Dadi vita conferitigli da tutte le sue classi per formare la sua riserva di Dadi vita. Se i Dadi vita appartengono allo stesso tipo di dado, può semplicemente raggrupparli in un unico insieme. Per esempio, sia il guerriero che il paladino hanno un d10, quindi un personaggio multiclasse paladino 5/guerriero 5 avrà dieci Dadi vita d10. Se le sue classi gli forniscono Dadi vita di tipi diversi, dovrà annotarli separatamente. Per esempio, un personaggio multiclasse paladino 5/chierico 5 avrà cinque Dadi vita d10 e cinque Dadi vita d8.
+  Il personaggio somma i Dadi Vita conferitigli da tutte le sue classi per formare la sua riserva di Dadi Vita. Se i Dadi Vita appartengono allo stesso tipo di dado, può semplicemente raggrupparli in un unico insieme. Per esempio, sia il guerriero che il paladino hanno un d10, quindi un personaggio multiclasse paladino 5/guerriero 5 avrà dieci Dadi Vita d10. Se le sue classi gli forniscono Dadi Vita di tipi diversi, dovrà annotarli separatamente. Per esempio, un personaggio multiclasse paladino 5/chierico 5 avrà cinque Dadi Vita d10 e cinque Dadi Vita d8.

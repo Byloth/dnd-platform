@@ -7,19 +7,19 @@ levels.1.features.1.text: |-
 
   ### Trucchetti
 
-  Un warlock conosce due trucchetti a sua scelta tratti dalla lista degli incantesimi da warlock. Apprende ulteriori trucchetti da warlock a sua scelta ai livelli successivi, come indicato dalla colonna "Trucchetti conosciuti" nella tabella "Warlock".
+  Un warlock conosce due trucchetti a sua scelta tratti dalla lista degli incantesimi da warlock. Apprende ulteriori trucchetti da warlock a sua scelta ai livelli successivi, come indicato dalla colonna "Trucchetti Conosciuti" nella tabella "Warlock".
 
   ### Slot incantesimo
 
   La tabella "Warlock" indica quanti slot incantesimo possiede un warlock. La tabella indica anche il livello di quegli slot; tutti gli slot incantesimo da warlock sono dello stesso livello. Per lanciare un incantesimo di livello pari o superiore al 1°, il warlock deve spendere uno slot incantesimo. Il warlock recupera tutti gli slot incantesimo spesi quando completa un riposo breve o lungo.
 
-  Per esempio, un warlock di 5° livello possiede due slot incantesimo di 3° livello. Per lanciare l'incantesimo di 1° livello onda tonante deve spendere uno di quegli slot e lanciarlo come incantesimo di 3° livello.
+  Per esempio, un warlock di 5° livello possiede due slot incantesimo di 3° livello. Per lanciare l'incantesimo di 1° livello *onda tonante* deve spendere uno di quegli slot e lanciarlo come incantesimo di 3° livello.
 
   ### Incantesimi conosciuti di 1° livello e di livello superiore
 
   Al 1° livello, un warlock conosce due incantesimi di 1° livello a sua scelta dalla lista degli incantesimi da warlock.
 
-  La colonna "Incantesimi conosciuti" nella tabella "Warlock" indica quando un warlock impara altri incantesimi da warlock a sua scelta di 1° livello o superiore. Ognuno di questi incantesimi deve appartenere a un livello pari o inferiore al "Livello dello slot" relativo al livello attuale del warlock e indicato nella sua tabella. Per esempio, quando un warlock arriva al 6° livello apprende un nuovo incantesimo da warlock di 1°, 2° o 3° livello.
+  La colonna "Incantesimi Conosciuti" nella tabella "Warlock" indica quando un warlock impara altri incantesimi da warlock a sua scelta di 1° livello o superiore. Ognuno di questi incantesimi deve appartenere a un livello pari o inferiore al "Livello dello slot" relativo al livello attuale del warlock e indicato nella sua tabella. Per esempio, quando un warlock arriva al 6° livello apprende un nuovo incantesimo da warlock di 1°, 2° o 3° livello.
 
   Inoltre, quando un warlock acquisisce un livello, può scegliere un incantesimo da warlock che conosce e sostituirlo con un altro incantesimo della lista degli incantesimi da warlock; anche il nuovo incantesimo deve essere di un livello di cui possiede degli slot incantesimo.
 
@@ -38,55 +38,55 @@ levels.2.features.0.name: Suppliche Occulte
 levels.2.features.0.text: |-
   Dedicandosi allo studio delle scienze occulte, un warlock ha scoperto come usare alcune suppliche occulte, frammenti di conoscenze proibite che gli conferiscono persistenti doti magiche.
 
-  Al 2° livello, il warlock ottiene due suppliche occulte a sua scelta. Le sue opzioni di supplica sono illustrate alla fine della descrizione di questa classe. Quando il warlock raggiunge livelli superiori, ottiene ulteriori suppliche a sua scelta, come indicato nella colonna "Suppliche conosciute" nella tabella "Warlock".
+  Al 2° livello, il warlock ottiene due suppliche occulte a sua scelta. Le sue opzioni di supplica sono illustrate alla fine della descrizione di questa classe. Quando il warlock raggiunge livelli superiori, ottiene ulteriori suppliche a sua scelta, come indicato nella colonna "Suppliche Conosciute" nella tabella "Warlock".
 
   Inoltre, quando acquisisce un nuovo livello, il warlock può scegliere una delle suppliche che conosce e sostituirla con un'altra che potrebbe imparare a quel livello.
 
   Se una supplica occulta prevede dei prerequisiti, il warlock deve soddisfarli per poterla apprendere. Può apprendere quella supplica nel momento in cui ne soddisfa i prerequisiti. Un prerequisito di livello indica il livello nella classe del warlock.
-levels.2.features.0.effects.0.note: Due suppliche al 2° livello; il warlock ne ottiene altre come indicato nella colonna "Suppliche conosciute" (table(warlock.invocations-known)) e il numero di opzioni di una scelta non può ancora seguire una tabella. Quando acquisisce un livello in questa classe, il warlock può sostituire una supplica che conosce con un'altra che potrebbe imparare a quel livello. Un prerequisito di livello indica il livello da warlock.
+levels.2.features.0.effects.0.note: Due suppliche al 2° livello; il warlock ne ottiene altre come indicato nella colonna "Suppliche Conosciute" (table(warlock.invocations-known)) e il numero di opzioni di una scelta non può ancora seguire una tabella. Quando acquisisce un livello in questa classe, il warlock può sostituire una supplica che conosce con un'altra che potrebbe imparare a quel livello. Un prerequisito di livello indica il livello da warlock.
 levels.2.features.0.effects.0.options.0.name: Deflagrazione agonizzante
-levels.2.features.0.effects.0.options.0.text: "Prerequisito: trucchetto deflagrazione occulta. Quando il warlock lancia deflagrazione occulta, aggiunge il suo modificatore di Carisma ai danni che infligge quando colpisce il bersaglio."
-levels.2.features.0.effects.0.options.0.effects.0.text: Quando il warlock lancia deflagrazione occulta, aggiunge il suo modificatore di Carisma ai danni che infligge quando colpisce il bersaglio.
-levels.2.features.0.effects.0.options.0.effects.0.note: Un bonus ai danni limitato a un solo incantesimo non ha un bersaglio di modify; aggiungere mod(cha) a ogni raggio di deflagrazione occulta che colpisce.
+levels.2.features.0.effects.0.options.0.text: "Prerequisito: trucchetto *deflagrazione occulta*. Quando il warlock lancia *deflagrazione occulta*, aggiunge il suo modificatore di Carisma ai danni che infligge quando colpisce il bersaglio."
+levels.2.features.0.effects.0.options.0.effects.0.text: "Quando il warlock lancia *deflagrazione occulta*, aggiunge il suo modificatore di Carisma ai danni che infligge quando colpisce il bersaglio."
+levels.2.features.0.effects.0.options.0.effects.0.note: "Un bonus ai danni limitato a un solo incantesimo non ha un bersaglio di modify; aggiungere mod(cha) a ogni raggio di *deflagrazione occulta* che colpisce."
 levels.2.features.0.effects.0.options.1.name: Armatura delle ombre
-levels.2.features.0.effects.0.options.1.text: Il warlock può lanciare armatura magica su se stesso a volontà senza spendere uno slot incantesimo o componenti materiali.
+levels.2.features.0.effects.0.options.1.text: "Il warlock può lanciare *armatura magica* su se stesso a volontà senza spendere uno slot incantesimo o componenti materiali."
 levels.2.features.0.effects.0.options.1.effects.0.note: Si lancia a volontà, senza spendere uno slot incantesimo o componenti materiali, soltanto su se stesso.
 levels.2.features.0.effects.0.options.2.name: Passo ascendente
-levels.2.features.0.effects.0.options.2.text: "Prerequisito: 9° livello. Il warlock può lanciare levitazione su se stesso a volontà senza spendere uno slot incantesimo o componenti materiali."
+levels.2.features.0.effects.0.options.2.text: "Prerequisito: 9° livello. Il warlock può lanciare *levitazione* su se stesso a volontà senza spendere uno slot incantesimo o componenti materiali."
 levels.2.features.0.effects.0.options.2.effects.0.note: Si lancia a volontà, senza spendere uno slot incantesimo o componenti materiali, soltanto su se stesso.
 levels.2.features.0.effects.0.options.3.name: Lingue delle bestie
-levels.2.features.0.effects.0.options.3.text: Il warlock può lanciare parlare con gli animali a volontà senza spendere uno slot incantesimo.
+levels.2.features.0.effects.0.options.3.text: "Il warlock può lanciare *parlare con gli animali* a volontà senza spendere uno slot incantesimo."
 levels.2.features.0.effects.0.options.3.effects.0.note: Si lancia a volontà, senza spendere uno slot incantesimo.
 levels.2.features.0.effects.0.options.4.name: Influenza seducente
 levels.2.features.0.effects.0.options.4.text: Il warlock ottiene competenza nelle abilità Inganno e Persuasione.
 levels.2.features.0.effects.0.options.5.name: Sussurri stregati
-levels.2.features.0.effects.0.options.5.text: "Prerequisito: 7° livello. Il warlock può lanciare compulsione una volta usando uno slot incantesimo da warlock. Non può farlo di nuovo finché non completa un riposo lungo."
+levels.2.features.0.effects.0.options.5.text: "Prerequisito: 7° livello. Il warlock può lanciare *compulsione* una volta usando uno slot incantesimo da warlock. Non può farlo di nuovo finché non completa un riposo lungo."
 levels.2.features.0.effects.0.options.5.effects.0.note: Si lancia una volta usando uno slot incantesimo da warlock (lo slot viene comunque speso); non è possibile farlo di nuovo finché non si completa un riposo lungo.
 levels.2.features.0.effects.0.options.6.name: Libro degli antichi segreti
 levels.2.features.0.effects.0.options.6.text: "Prerequisito: privilegio Patto del Tomo. Il warlock può ora trascrivere i rituali magici nel suo Libro delle Ombre. Sceglie due incantesimi di 1° livello con il descrittore rituale dalle liste di incantesimi di qualsiasi classe (non è necessario che i due incantesimi appartengano alla stessa lista). Gli incantesimi compaiono nel libro e non contano ai fini di determinare il numero di incantesimi che il warlock conosce. Quando il warlock impugna il suo Libro delle Ombre, può lanciare gli incantesimi scelti come rituali. Può lanciare quegli incantesimi soltanto come rituali, a meno che non li abbia appresi anche in altri modi. Può inoltre lanciare un incantesimo da warlock che conosce come rituale, se tale incantesimo possiede il descrittore rituale. Nel corso delle sue avventure, il warlock può aggiungere altri incantesimi rituali al suo Libro delle Ombre. Quando trova un incantesimo del genere, può aggiungerlo al libro se il livello dell'incantesimo è pari o inferiore alla metà del suo livello da warlock (arrotondato per eccesso) e se dispone di abbastanza tempo per trascrivere l'incantesimo. Per ogni livello dell'incantesimo, il processo di trascrizione richiede 2 ore e costa 50 mo per gli inchiostri rari richiesti."
 levels.2.features.0.effects.0.options.6.effects.0.note: Due incantesimi rituali di 1° livello dalla lista degli incantesimi di qualsiasi classe. Non contano ai fini del numero di incantesimi conosciuti e si possono lanciare soltanto come rituali, impugnando il Libro delle Ombre. Gli incantesimi scelti non possono ancora essere concessi dalla risposta; vanno aggiunti a mano al proprio libro dei rituali.
 levels.2.features.0.effects.0.options.6.effects.1.text: Il warlock può inoltre lanciare un incantesimo da warlock che conosce come rituale, se tale incantesimo possiede il descrittore rituale. Nel corso delle sue avventure, può aggiungere altri incantesimi rituali al suo Libro delle Ombre se il livello dell'incantesimo è pari o inferiore alla metà del suo livello da warlock (arrotondato per eccesso); per ogni livello dell'incantesimo, la trascrizione richiede 2 ore e costa 50 mo per gli inchiostri rari.
 levels.2.features.0.effects.0.options.7.name: Catene di Carceri
-levels.2.features.0.effects.0.options.7.text: "Prerequisito: 15° livello, privilegio Patto della Catena. Il warlock può lanciare blocca mostri a volontà (bersagliando un celestiale, un immondo o un elementale) senza spendere uno slot incantesimo o componenti materiali. Deve completare un riposo lungo prima che possa usare di nuovo questa supplica sulla stessa creatura."
+levels.2.features.0.effects.0.options.7.text: "Prerequisito: 15° livello, privilegio Patto della Catena. Il warlock può lanciare *blocca mostri* a volontà (bersagliando un celestiale, un immondo o un elementale) senza spendere uno slot incantesimo o componenti materiali. Deve completare un riposo lungo prima che possa usare di nuovo questa supplica sulla stessa creatura."
 levels.2.features.0.effects.0.options.7.effects.0.note: Si lancia a volontà, senza spendere uno slot incantesimo o componenti materiali, bersagliando soltanto un celestiale, un immondo o un elementale. Occorre completare un riposo lungo prima di poter usare di nuovo questa supplica sulla stessa creatura.
 levels.2.features.0.effects.0.options.8.name: Vista del diavolo
 levels.2.features.0.effects.0.options.8.text: Il warlock è in grado di vedere normalmente nell'oscurità, sia magica che non, fino a una distanza di 36 metri.
 levels.2.features.0.effects.0.options.8.effects.0.note: Il warlock vede normalmente (non come in luce fioca) nell'oscurità, sia magica che non, fino a 36 metri.
 levels.2.features.0.effects.0.options.9.name: Parola temibile
-levels.2.features.0.effects.0.options.9.text: "Prerequisito: 7° livello. Il warlock può lanciare confusione una volta usando uno slot incantesimo da warlock. Non può farlo di nuovo finché non completa un riposo lungo."
+levels.2.features.0.effects.0.options.9.text: "Prerequisito: 7° livello. Il warlock può lanciare *confusione* una volta usando uno slot incantesimo da warlock. Non può farlo di nuovo finché non completa un riposo lungo."
 levels.2.features.0.effects.0.options.9.effects.0.note: Si lancia una volta usando uno slot incantesimo da warlock (lo slot viene comunque speso); non è possibile farlo di nuovo finché non si completa un riposo lungo.
 levels.2.features.0.effects.0.options.10.name: Vista dell'occulto
-levels.2.features.0.effects.0.options.10.text: Il warlock può lanciare individuazione del magico a volontà, senza spendere uno slot incantesimo.
+levels.2.features.0.effects.0.options.10.text: "Il warlock può lanciare *individuazione del magico* a volontà, senza spendere uno slot incantesimo."
 levels.2.features.0.effects.0.options.10.effects.0.note: Si lancia a volontà, senza spendere uno slot incantesimo.
 levels.2.features.0.effects.0.options.11.name: Lancia occulta
-levels.2.features.0.effects.0.options.11.text: "Prerequisito: trucchetto deflagrazione occulta. Quando il warlock lancia deflagrazione occulta, la sua gittata è di 90 metri."
-levels.2.features.0.effects.0.options.11.effects.0.text: Quando il warlock lancia deflagrazione occulta, la sua gittata è di 90 metri.
-levels.2.features.0.effects.0.options.11.effects.0.note: La gittata di un incantesimo non può essere sostituita per un singolo incantesimo; usare 90 metri per deflagrazione occulta.
+levels.2.features.0.effects.0.options.11.text: "Prerequisito: trucchetto *deflagrazione occulta*. Quando il warlock lancia *deflagrazione occulta*, la sua gittata è di 90 metri."
+levels.2.features.0.effects.0.options.11.effects.0.text: "Quando il warlock lancia *deflagrazione occulta*, la sua gittata è di 90 metri."
+levels.2.features.0.effects.0.options.11.effects.0.note: "La gittata di un incantesimo non può essere sostituita per un singolo incantesimo; usare 90 metri per *deflagrazione occulta*."
 levels.2.features.0.effects.0.options.12.name: Occhi del custode delle rune
 levels.2.features.0.effects.0.options.12.text: Il warlock è in grado di leggere ogni forma di scrittura.
 levels.2.features.0.effects.0.options.12.effects.0.text: Il warlock è in grado di leggere ogni forma di scrittura.
 levels.2.features.0.effects.0.options.13.name: Vigore immondo
-levels.2.features.0.effects.0.options.13.text: Il warlock può lanciare vita falsata su se stesso a volontà come incantesimo di 1° livello, senza spendere uno slot incantesimo o componenti materiali.
+levels.2.features.0.effects.0.options.13.text: "Il warlock può lanciare *vita falsata* su se stesso a volontà come incantesimo di 1° livello, senza spendere uno slot incantesimo o componenti materiali."
 levels.2.features.0.effects.0.options.13.effects.0.note: Si lancia a volontà come incantesimo di 1° livello, senza spendere uno slot incantesimo o componenti materiali, soltanto su se stesso.
 levels.2.features.0.effects.0.options.14.name: Sguardo delle due menti
 levels.2.features.0.effects.0.options.14.text: Il warlock può usare la sua azione per toccare un umanoide consenziente e percepire il mondo attraverso i suoi sensi fino alla fine del proprio turno successivo. Fintantoché la creatura si trova sullo stesso piano di esistenza del warlock, quest'ultimo può usare la sua azione nei turni successivi per mantenere questo legame, estendendo la durata fino alla fine del suo turno successivo. Finché percepisce il mondo attraverso i sensi dell'altra creatura, il warlock beneficia degli eventuali sensi speciali posseduti da essa, ma è cieco e sordo riguardo a ciò che accade attorno a lui.
@@ -97,19 +97,19 @@ levels.2.features.0.effects.0.options.15.text: "Prerequisiti: 12° livello, priv
 levels.2.features.0.effects.0.options.15.effects.0.text: Quando il warlock colpisce una creatura con la sua arma del patto, quella creatura subisce danni necrotici extra pari al modificatore di Carisma del warlock (minimo 1).
 levels.2.features.0.effects.0.options.15.effects.0.note: Gli attacchi non possono essere filtrati per arma del patto; aggiungere a mano max(1, mod(cha)) danni necrotici ai colpi messi a segno con l'arma del patto.
 levels.2.features.0.effects.0.options.16.name: Maschera dei molti volti
-levels.2.features.0.effects.0.options.16.text: Il warlock può lanciare camuffare se stesso a volontà senza spendere uno slot incantesimo.
+levels.2.features.0.effects.0.options.16.text: "Il warlock può lanciare *camuffare se stesso* a volontà senza spendere uno slot incantesimo."
 levels.2.features.0.effects.0.options.16.effects.0.note: Si lancia a volontà, senza spendere uno slot incantesimo.
 levels.2.features.0.effects.0.options.17.name: Maestro di mille forme
-levels.2.features.0.effects.0.options.17.text: "Prerequisito: 15° livello. Il warlock può lanciare alterare se stesso a volontà, senza spendere uno slot incantesimo."
+levels.2.features.0.effects.0.options.17.text: "Prerequisito: 15° livello. Il warlock può lanciare *alterare se stesso* a volontà, senza spendere uno slot incantesimo."
 levels.2.features.0.effects.0.options.17.effects.0.note: Si lancia a volontà, senza spendere uno slot incantesimo.
 levels.2.features.0.effects.0.options.18.name: Servitori del caos
-levels.2.features.0.effects.0.options.18.text: "Prerequisito: 9° livello. Il warlock può lanciare evoca elementale una volta usando uno slot incantesimo da warlock. Non può farlo di nuovo finché non completa un riposo lungo."
+levels.2.features.0.effects.0.options.18.text: "Prerequisito: 9° livello. Il warlock può lanciare *evoca elementale* una volta usando uno slot incantesimo da warlock. Non può farlo di nuovo finché non completa un riposo lungo."
 levels.2.features.0.effects.0.options.18.effects.0.note: Si lancia una volta usando uno slot incantesimo da warlock (lo slot viene comunque speso); non è possibile farlo di nuovo finché non si completa un riposo lungo.
 levels.2.features.0.effects.0.options.19.name: Fardello mentale
-levels.2.features.0.effects.0.options.19.text: "Prerequisito: 5° livello. Il warlock può lanciare lentezza una volta usando uno slot incantesimo da warlock. Non può farlo di nuovo finché non completa un riposo lungo."
+levels.2.features.0.effects.0.options.19.text: "Prerequisito: 5° livello. Il warlock può lanciare *lentezza* una volta usando uno slot incantesimo da warlock. Non può farlo di nuovo finché non completa un riposo lungo."
 levels.2.features.0.effects.0.options.19.effects.0.note: Si lancia una volta usando uno slot incantesimo da warlock (lo slot viene comunque speso); non è possibile farlo di nuovo finché non si completa un riposo lungo.
 levels.2.features.0.effects.0.options.20.name: Visioni velate
-levels.2.features.0.effects.0.options.20.text: Il warlock può lanciare immagine silenziosa a volontà senza spendere uno slot incantesimo o componenti materiali.
+levels.2.features.0.effects.0.options.20.text: "Il warlock può lanciare *immagine silenziosa* a volontà senza spendere uno slot incantesimo o componenti materiali."
 levels.2.features.0.effects.0.options.20.effects.0.note: Si lancia a volontà, senza spendere uno slot incantesimo o componenti materiali.
 levels.2.features.0.effects.0.options.21.name: Tutt'uno con le ombre
 levels.2.features.0.effects.0.options.21.text: "Prerequisito: 5° livello. Quando il warlock si trova in un'area di luce fioca o di oscurità, può usare la sua azione per diventare invisibile finché non si muove, effettua un'azione o una reazione."
@@ -117,32 +117,32 @@ levels.2.features.0.effects.0.options.21.effects.0.name: Tutt'uno con le ombre
 levels.2.features.0.effects.0.options.21.effects.0.text: Quando il warlock si trova in un'area di luce fioca o di oscurità, può usare la sua azione per diventare invisibile finché non si muove, effettua un'azione o una reazione.
 levels.2.features.0.effects.0.options.21.effects.0.onUse.0.note: Soltanto in luce fioca o nell'oscurità; termina non appena il warlock si muove, effettua un'azione o una reazione.
 levels.2.features.0.effects.0.options.22.name: Balzo ultraterreno
-levels.2.features.0.effects.0.options.22.text: "Prerequisito: 9° livello. Il warlock può lanciare saltare su se stesso a volontà senza spendere uno slot incantesimo o componenti materiali."
+levels.2.features.0.effects.0.options.22.text: "Prerequisito: 9° livello. Il warlock può lanciare *saltare* su se stesso a volontà senza spendere uno slot incantesimo o componenti materiali."
 levels.2.features.0.effects.0.options.22.effects.0.note: Si lancia a volontà, senza spendere uno slot incantesimo o componenti materiali, soltanto su se stesso.
 levels.2.features.0.effects.0.options.23.name: Deflagrazione respingente
-levels.2.features.0.effects.0.options.23.text: "Prerequisito: trucchetto deflagrazione occulta. Quando il warlock colpisce una creatura con deflagrazione occulta, può spingere la creatura fino a un massimo di 3 metri per allontanarla da sé in linea retta."
-levels.2.features.0.effects.0.options.23.effects.0.text: Quando il warlock colpisce una creatura con deflagrazione occulta, può spingere la creatura fino a un massimo di 3 metri per allontanarla da sé in linea retta.
+levels.2.features.0.effects.0.options.23.text: "Prerequisito: trucchetto *deflagrazione occulta*. Quando il warlock colpisce una creatura con *deflagrazione occulta*, può spingere la creatura fino a un massimo di 3 metri per allontanarla da sé in linea retta."
+levels.2.features.0.effects.0.options.23.effects.0.text: "Quando il warlock colpisce una creatura con *deflagrazione occulta*, può spingere la creatura fino a un massimo di 3 metri per allontanarla da sé in linea retta."
 levels.2.features.0.effects.0.options.23.effects.0.note: Una spinta quando si colpisce con un solo incantesimo non è modellata; applicarla a mano.
 levels.2.features.0.effects.0.options.24.name: Scultore della carne
-levels.2.features.0.effects.0.options.24.text: "Prerequisito: 7° livello. Il warlock può lanciare metamorfosi una volta usando uno slot incantesimo da warlock. Non può farlo di nuovo finché non completa un riposo lungo."
+levels.2.features.0.effects.0.options.24.text: "Prerequisito: 7° livello. Il warlock può lanciare *metamorfosi* una volta usando uno slot incantesimo da warlock. Non può farlo di nuovo finché non completa un riposo lungo."
 levels.2.features.0.effects.0.options.24.effects.0.note: Si lancia una volta usando uno slot incantesimo da warlock (lo slot viene comunque speso); non è possibile farlo di nuovo finché non si completa un riposo lungo.
 levels.2.features.0.effects.0.options.25.name: Presagio di sventura
-levels.2.features.0.effects.0.options.25.text: "Prerequisito: 5° livello. Il warlock può lanciare scagliare maledizione una volta usando uno slot incantesimo da warlock. Non può farlo di nuovo finché non completa un riposo lungo."
+levels.2.features.0.effects.0.options.25.text: "Prerequisito: 5° livello. Il warlock può lanciare *scagliare maledizione* una volta usando uno slot incantesimo da warlock. Non può farlo di nuovo finché non completa un riposo lungo."
 levels.2.features.0.effects.0.options.25.effects.0.note: Si lancia una volta usando uno slot incantesimo da warlock (lo slot viene comunque speso); non è possibile farlo di nuovo finché non si completa un riposo lungo.
 levels.2.features.0.effects.0.options.26.name: Ladro dei cinque fati
-levels.2.features.0.effects.0.options.26.text: Il warlock può lanciare anatema una volta usando uno slot incantesimo da warlock. Non può farlo di nuovo finché non completa un riposo lungo.
+levels.2.features.0.effects.0.options.26.text: "Il warlock può lanciare *anatema* una volta usando uno slot incantesimo da warlock. Non può farlo di nuovo finché non completa un riposo lungo."
 levels.2.features.0.effects.0.options.26.effects.0.note: Si lancia una volta usando uno slot incantesimo da warlock (lo slot viene comunque speso); non è possibile farlo di nuovo finché non si completa un riposo lungo.
 levels.2.features.0.effects.0.options.27.name: Lama assetata
 levels.2.features.0.effects.0.options.27.text: "Prerequisiti: 5° livello, privilegio Patto della Lama. Ogni volta che effettua l'azione Attacco nel suo turno, il warlock può attaccare con la sua arma del patto due volte anziché una."
 levels.2.features.0.effects.0.options.27.effects.0.note: Soltanto quando il warlock attacca con la sua arma del patto; con qualsiasi altra arma effettua comunque un solo attacco.
 levels.2.features.0.effects.0.options.28.name: Visione dei reami lontani
-levels.2.features.0.effects.0.options.28.text: "Prerequisito: 15° livello. Il warlock può lanciare occhio arcano a volontà senza spendere uno slot incantesimo."
+levels.2.features.0.effects.0.options.28.text: "Prerequisito: 15° livello. Il warlock può lanciare *occhio arcano* a volontà senza spendere uno slot incantesimo."
 levels.2.features.0.effects.0.options.28.effects.0.note: Si lancia a volontà, senza spendere uno slot incantesimo.
 levels.2.features.0.effects.0.options.29.name: Voce del Signore delle Catene
 levels.2.features.0.effects.0.options.29.text: "Prerequisito: privilegio Patto della Catena. Il warlock può comunicare telepaticamente con il suo famiglio e percepire il mondo attraverso i sensi di quest'ultimo, purché entrambi si trovino sullo stesso piano di esistenza. Inoltre, finché percepisce il mondo attraverso i sensi del suo famiglio, può anche parlare attraverso di esso con la propria voce, anche se il suo famiglio normalmente non è in grado di parlare."
 levels.2.features.0.effects.0.options.29.effects.0.text: Il warlock può comunicare telepaticamente con il suo famiglio e percepire il mondo attraverso i sensi di quest'ultimo, purché entrambi si trovino sullo stesso piano di esistenza. Finché percepisce il mondo attraverso i sensi del suo famiglio, può anche parlare attraverso di esso con la propria voce, anche se il suo famiglio normalmente non è in grado di parlare.
 levels.2.features.0.effects.0.options.30.name: Sussurri dalla tomba
-levels.2.features.0.effects.0.options.30.text: "Prerequisito: 9° livello. Il warlock può lanciare parlare con i morti a volontà, senza spendere uno slot incantesimo."
+levels.2.features.0.effects.0.options.30.text: "Prerequisito: 9° livello. Il warlock può lanciare *parlare con i morti* a volontà, senza spendere uno slot incantesimo."
 levels.2.features.0.effects.0.options.30.effects.0.note: Si lancia a volontà, senza spendere uno slot incantesimo.
 levels.2.features.0.effects.0.options.31.name: Vista stregata
 levels.2.features.0.effects.0.options.31.text: "Prerequisito: 15° livello. Il warlock è in grado di vedere la vera forma di qualsiasi mutaforma o creatura celata da una magia di illusione o trasmutazione, finché quella creatura si trova entro 9 metri da lui ed entro il suo campo visivo."
@@ -153,7 +153,7 @@ levels.3.features.0.text: |-
 
   ### Patto della Catena
 
-  Il warlock impara l'incantesimo trova famiglio e può lanciarlo come rituale. Questo incantesimo non va conteggiato al fine di determinare il numero di incantesimi conosciuti dal warlock.
+  Il warlock impara l'incantesimo *trova famiglio* e può lanciarlo come rituale. Questo incantesimo non va conteggiato al fine di determinare il numero di incantesimi conosciuti dal warlock.
 
   Quando il warlock lancia l'incantesimo, può scegliere per il suo famiglio una delle forme normali o una delle forme speciali seguenti: imp, pseudodrago, quasit o spiritello.
 
@@ -173,13 +173,13 @@ levels.3.features.0.text: |-
 
   Se il Libro delle Ombre va perduto, il warlock può effettuare un cerimoniale da 1 ora per riceverne un altro dal proprio patrono. Tale cerimoniale può essere effettuato durante un periodo di riposo breve o lungo, e provoca la distruzione del vecchio libro. Il libro si riduce in polvere alla morte del warlock.
 levels.3.features.0.effects.0.options.0.name: Patto della Catena
-levels.3.features.0.effects.0.options.0.text: "Il warlock impara l'incantesimo trova famiglio e può lanciarlo come rituale. Questo incantesimo non va conteggiato al fine di determinare il numero di incantesimi conosciuti dal warlock. Quando il warlock lancia l'incantesimo, può scegliere per il suo famiglio una delle forme normali o una delle forme speciali seguenti: imp, pseudodrago, quasit o spiritello. Inoltre, quando effettua l'azione Attacco, il warlock può rinunciare a uno dei suoi attacchi per consentire al suo famiglio di effettuare un suo attacco individuale con la sua reazione."
+levels.3.features.0.effects.0.options.0.text: "Il warlock impara l'incantesimo *trova famiglio* e può lanciarlo come rituale. Questo incantesimo non va conteggiato al fine di determinare il numero di incantesimi conosciuti dal warlock. Quando il warlock lancia l'incantesimo, può scegliere per il suo famiglio una delle forme normali o una delle forme speciali seguenti: imp, pseudodrago, quasit o spiritello. Inoltre, quando effettua l'azione Attacco, il warlock può rinunciare a uno dei suoi attacchi per consentire al suo famiglio di effettuare un suo attacco individuale con la sua reazione."
 levels.3.features.0.effects.0.options.0.effects.0.note: "Il warlock può lanciarlo come rituale; non va conteggiato al fine del numero di incantesimi conosciuti. Forme speciali del famiglio disponibili: imp, pseudodrago, quasit, spiritello."
 levels.3.features.0.effects.0.options.0.effects.1.text: Quando effettua l'azione Attacco, il warlock può rinunciare a uno dei suoi attacchi per consentire al suo famiglio di effettuare un suo attacco individuale con la sua reazione.
 levels.3.features.0.effects.0.options.0.effects.1.note: Il famiglio e il suo attacco non sono modellati; risolverlo a mano.
 levels.3.features.0.effects.0.options.1.name: Patto della Lama
 levels.3.features.0.effects.0.options.1.text: Il warlock può usare la sua azione per fare apparire un'arma del patto nella sua mano vuota. Può scegliere la forma che questa arma da mischia assume ogni volta che la crea. Il warlock è considerato competente nell'arma fintantoché la impugna. Quest'arma è considerata magica al fine di superare la resistenza e l'immunità agli attacchi e ai danni non magici. L'arma del patto scompare se rimane per 1 minuto o più a più di 1,5 metri di distanza dal warlock, se il warlock utilizza di nuovo il privilegio, se la congeda (non è richiesta alcuna azione per farlo), o se muore. Il warlock può trasformare un'arma magica nella sua arma del patto celebrando un rituale speciale della durata di 1 ora, che può essere completato durante un periodo di riposo breve.
-levels.3.features.0.effects.0.options.1.effects.0.name: Creare l'arma del patto
+levels.3.features.0.effects.0.options.1.effects.0.name: Creare l'Arma del Patto
 levels.3.features.0.effects.0.options.1.effects.0.text: Il warlock fa apparire un'arma del patto nella sua mano vuota, scegliendo ogni volta la forma che questa arma da mischia assume. È considerato competente nell'arma fintantoché la impugna, e l'arma è considerata magica al fine di superare la resistenza e l'immunità agli attacchi e ai danni non magici. L'arma scompare se rimane per 1 minuto o più a più di 1,5 metri di distanza dal warlock, se il warlock utilizza di nuovo il privilegio, se la congeda (non è richiesta alcuna azione per farlo), o se muore.
 levels.3.features.0.effects.0.options.1.effects.0.note: Non esiste un oggetto "arma del patto", quindi la competenza e la proprietà magica non possono essere associate all'arma creata; considerare competente e magica l'arma che si aggiunge al proprio equipaggiamento.
 levels.3.features.0.effects.0.options.1.effects.1.text: Il warlock può trasformare un'arma magica nella sua arma del patto celebrando un rituale speciale mentre la impugna, della durata di 1 ora (può essere completato durante un periodo di riposo breve). Una volta completato il rituale, può congedare l'arma relegandola in uno spazio extradimensionale; da allora in poi compare ogni volta che il warlock crea la sua arma del patto. Non è possibile influenzare un manufatto o un'arma senziente in questo modo. L'arma cessa di essere l'arma del patto se il warlock muore, se celebra un rituale di 1 ora su un'altra arma o se celebra un altro rituale di 1 ora per spezzare il suo vincolo con l'arma.

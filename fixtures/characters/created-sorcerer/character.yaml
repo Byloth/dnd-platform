@@ -4,10 +4,10 @@ id: fixture-created-sorcerer
 name: Dragon-blooded
 ruleset:
   id: srd51
-  version: 0.8.0
+  version: 0.9.0
 packages:
   - id: srd51
-    version: 0.8.0
+    version: 0.9.0
 choices:
   species: srd51.species.dragonborn
   classes:

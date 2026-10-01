@@ -5,7 +5,7 @@ languages: capisce il Gergo delle profondità ma non lo parla
 traits.0.name: Anfibio
 traits.0.text: Il chuul può respirare in aria e in acqua.
 traits.1.name: Percezione della magia
-traits.1.text: Il chuul percepisce la magia entro 36 metri da sé a volontà. Sotto ogni altro aspetto questo tratto funziona come l'incantesimo individuazione del magico, ma di per sé non è magico.
+traits.1.text: "Il chuul percepisce la magia entro 36 metri da sé a volontà. Sotto ogni altro aspetto questo tratto funziona come l'incantesimo *individuazione del magico*, ma di per sé non è magico."
 actions.0.name: Multiattacco
 actions.0.text: Il chuul effettua due attacchi con le tenaglie. Se il chuul afferra una creatura, può usare anche i tentacoli una volta.
 actions.1.name: Tenaglia

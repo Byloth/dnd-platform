@@ -13,8 +13,8 @@ traits.1.text: |-
   Il sacerdote è un incantatore di 5° livello: la sua caratteristica da incantatore è Saggezza (CD del tiro salvezza sull'incantesimo 13, +5 al tiro per colpire con attacco con incantesimo). Ha a disposizione i seguenti incantesimi da chierico:
 
   - Trucchetti (a volontà): fiamma sacra, luce, taumaturgia
-  - 1° livello (4 slot): cura ferite, dardo tracciante, santuario
-  - 2° livello (3 slot): arma spirituale, ristorare inferiore
-  - 3° livello (2 slot): dissolvi magie, guardiani spirituali
+  - 1° livello (4 slot): *cura ferite*, *dardo tracciante*, *santuario*
+  - 2° livello (3 slot): *arma spirituale*, *ristorare inferiore*
+  - 3° livello (2 slot): *dissolvi magie*, *guardiani spirituali*
 actions.0.name: Mazza
 actions.0.text: "Attacco con arma da mischia: +2 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 3 (1d6) danni contundenti."

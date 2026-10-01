@@ -200,7 +200,7 @@ const IT: SheetLabels = {
     hpCurrent: "Punti ferita attuali",
     hpTemporary: "Punti ferita temporanei",
     hpTemporaryShort: "Temporanei",
-    hitDice: "Dadi vita",
+    hitDice: "Dadi Vita",
     hitDiceTotal: "Totale",
     deathSaves: "Tiri salvezza contro morte",
     successes: "Successi",

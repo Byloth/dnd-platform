@@ -17,6 +17,6 @@ actions.0.name: Multiattacco
 actions.0.text: Il golem effettua due attacchi con schianto.
 actions.0.multiattack.0.action: Schianto
 actions.1.name: Schianto
-actions.1.text: "Attacco con arma da mischia: +8 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 16 (2d10 + 5) danni contundenti. Se il bersaglio è una creatura, deve superare un tiro salvezza su Costituzione con CD 15, altrimenti i suoi punti ferita massimi vengono ridotti di un importo pari ai danni inflitti. Il bersaglio muore se questo attacco riduce a 0 i suoi punti ferita massimi. La riduzione permane finché non viene rimossa da un incantesimo ristorare superiore o altre magie analoghe."
+actions.1.text: "Attacco con arma da mischia: +8 al tiro per colpire, portata 1,5 m, un bersaglio. Colpito: 16 (2d10 + 5) danni contundenti. Se il bersaglio è una creatura, deve superare un tiro salvezza su Costituzione con CD 15, altrimenti i suoi punti ferita massimi vengono ridotti di un importo pari ai danni inflitti. Il bersaglio muore se questo attacco riduce a 0 i suoi punti ferita massimi. La riduzione permane finché non viene rimossa da un incantesimo *ristorare superiore* o altre magie analoghe."
 actions.2.name: Velocità
 actions.2.text: Fino alla fine del suo turno successivo, il golem ottiene magicamente un bonus di +2 alla CA, dispone di vantaggio ai tiri salvezza su Destrezza e può usare il suo attacco con schianto come azione bonus.

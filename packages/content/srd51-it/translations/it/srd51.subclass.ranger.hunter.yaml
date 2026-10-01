@@ -25,7 +25,7 @@ levels.3.features.0.effects.0.options.2.text: Una volta per ogni suo turno, quan
 levels.3.features.0.effects.0.options.2.effects.0.name: Devastatore dell'orda
 levels.3.features.0.effects.0.options.2.effects.0.text: Una volta per ogni tuo turno, quando sferri un attacco con arma, effettui un altro attacco con la stessa arma contro una creatura diversa situata entro 1,5 metri dal bersaglio originale ed entro la gittata della tua arma.
 levels.3.features.0.effects.0.options.2.effects.0.onUse.0.text: Un attacco aggiuntivo con la stessa arma contro una creatura diversa entro 1,5 metri dal bersaglio originale; una volta per turno.
-levels.7.features.0.name: Tattiche difensive
+levels.7.features.0.name: Tattiche Difensive
 levels.7.features.0.text: |-
   Al 7° livello, il ranger ottiene uno dei seguenti privilegi a sua scelta.
 
@@ -37,11 +37,11 @@ levels.7.features.0.text: |-
 levels.7.features.0.effects.0.options.0.name: Sfuggire all'orda
 levels.7.features.0.effects.0.options.0.text: Gli attacchi di opportunità contro il ranger subiscono svantaggio.
 levels.7.features.0.effects.0.options.0.effects.0.text: Gli attacchi di opportunità contro di te subiscono svantaggio.
-levels.7.features.0.effects.0.options.0.effects.0.note: Lo svantaggio ai tiri altrui (quelli dell'attaccante) non ha un tipo nel catalogo; si applica durante il gioco.
+levels.7.features.0.effects.0.options.0.effects.0.note: Lo svantaggio ai tiri altrui (quelli dell'attaccante) non ha un tipo nel catalogo; si applica in fase di gioco.
 levels.7.features.0.effects.0.options.1.name: Difesa dal multiattacco
 levels.7.features.0.effects.0.options.1.text: Quando una creatura colpisce il ranger con un attacco, il ranger ottiene un bonus di +4 alla CA contro tutti gli attacchi successivi effettuati da quella creatura per il resto del turno.
 levels.7.features.0.effects.0.options.1.effects.0.text: Quando una creatura ti colpisce con un attacco, ottieni un bonus di +4 alla CA contro tutti gli attacchi successivi effettuati da quella creatura per il resto del turno.
-levels.7.features.0.effects.0.options.1.effects.0.note: Un bonus alla CA contro un solo attaccante per il resto di un turno non ha un tipo nel catalogo; si applica durante il gioco.
+levels.7.features.0.effects.0.options.1.effects.0.note: Un bonus alla CA contro un solo attaccante per il resto di un turno non ha un tipo nel catalogo; si applica in fase di gioco.
 levels.7.features.0.effects.0.options.2.name: Volontà d'acciaio
 levels.7.features.0.effects.0.options.2.text: Il ranger dispone di vantaggio ai tiri salvezza contro l'essere spaventato.
 levels.11.features.0.name: Multiattacco
@@ -61,7 +61,7 @@ levels.11.features.0.effects.0.options.1.text: Il ranger può usare la sua azion
 levels.11.features.0.effects.0.options.1.effects.0.name: Attacco turbinante
 levels.11.features.0.effects.0.options.1.effects.0.text: Sferri un attacco in mischia contro un qualsiasi numero di creature entro 1,5 metri da te, effettuando un tiro per colpire separato per ogni bersaglio.
 levels.11.features.0.effects.0.options.1.effects.0.onUse.0.text: Un tiro per colpire in mischia separato per ogni creatura entro 1,5 metri da te.
-levels.15.features.0.name: Difesa del cacciatore superiore
+levels.15.features.0.name: Difesa del Cacciatore Superiore
 levels.15.features.0.text: |-
   Al 15° livello, il ranger ottiene uno dei seguenti privilegi a sua scelta.
 
@@ -73,7 +73,7 @@ levels.15.features.0.text: |-
 levels.15.features.0.effects.0.options.0.name: Elusione
 levels.15.features.0.effects.0.options.0.text: Quando il ranger è soggetto a un effetto che gli consente di effettuare un tiro salvezza su Destrezza per dimezzare i danni, come il soffio di fuoco di un drago rosso o un incantesimo *fulmine*, non subisce alcun danno se supera il tiro salvezza, e soltanto la metà dei danni se lo fallisce.
 levels.15.features.0.effects.0.options.0.effects.0.text: Quando sei soggetto a un effetto che ti consente di effettuare un tiro salvezza su Destrezza per dimezzare i danni, non subisci alcun danno se superi il tiro salvezza, e soltanto la metà dei danni se lo fallisci.
-levels.15.features.0.effects.0.options.0.effects.0.note: Regola sull'esito del tiro salvezza, risolta durante il gioco; nessun tipo nel catalogo.
+levels.15.features.0.effects.0.options.0.effects.0.note: Regola sull'esito del tiro salvezza, risolta in fase di gioco; nessun tipo nel catalogo.
 levels.15.features.0.effects.0.options.1.name: Opporsi alla marea
 levels.15.features.0.effects.0.options.1.text: Quando una creatura ostile manca il ranger con un attacco in mischia, il ranger può usare la sua reazione per obbligare quella creatura a ripetere lo stesso attacco contro un'altra creatura (che non sia essa stessa) a scelta del ranger.
 levels.15.features.0.effects.0.options.1.effects.0.name: Opporsi alla marea

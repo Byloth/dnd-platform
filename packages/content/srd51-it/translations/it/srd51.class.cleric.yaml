@@ -82,7 +82,7 @@ levels.5.features.0.text: |-
   | 14° | 3 o inferiore |
   | 17° | 4 o inferiore |
 levels.5.features.0.effects.0.text: "Quando un non morto fallisce il suo tiro salvezza contro il tuo privilegio Scacciare Non Morti, quella creatura è distrutta istantaneamente se il suo grado di sfida è pari o inferiore a una soglia: 1/2 al 5° livello, 1 all'8°, 2 all'11°, 3 al 14°, 4 al 17°."
-levels.5.features.0.effects.0.note: "Lacuna: effetto aggiuntivo dell'azione Scacciare Non Morti risolto al tavolo; la soglia di GS è table(cleric.destroy-undead-cr)."
+levels.5.features.0.effects.0.note: "Non ancora calcolato: effetto aggiuntivo dell'azione Scacciare Non Morti risolto al tavolo; la soglia di GS è table(cleric.destroy-undead-cr)."
 levels.10.features.0.name: Intervento Divino
 levels.10.features.0.text: |-
   A partire dal 10° livello, un chierico può appellarsi alla propria divinità affinché intervenga a suo beneficio nel momento del bisogno.
@@ -93,7 +93,7 @@ levels.10.features.0.text: |-
 
   Al 20° livello, la richiesta di intervento del chierico ha successo automaticamente, senza che sia richiesto alcun tiro.
 levels.10.features.0.effects.0.name: Intervento Divino
-levels.10.features.0.effects.0.note: "Lacuna: se la divinità interviene, non puoi più utilizzare questo privilegio per 7 giorni; un blocco di 7 giorni non è un tipo di recupero previsto dal catalogo, quindi in quel caso il recupero con il riposo lungo va sospeso a mano."
+levels.10.features.0.effects.0.note: "Non ancora calcolato: se la divinità interviene, non puoi più utilizzare questo privilegio per 7 giorni; un blocco di 7 giorni non è un tipo di recupero previsto dal catalogo, quindi in quel caso il recupero con il riposo lungo va sospeso a mano."
 levels.10.features.0.effects.1.name: Intervento Divino
 levels.10.features.0.effects.1.text: Descrivi l'assistenza che desideri ottenere e tira un dado percentuale. Se ottieni con il tiro un numero pari o inferiore al tuo livello da chierico, la divinità interviene. È il GM a scegliere la natura dell'intervento; l'effetto di qualsiasi incantesimo da chierico o incantesimo di dominio è appropriato. Se la divinità interviene, non puoi più utilizzare questo privilegio per 7 giorni. Altrimenti puoi utilizzarlo di nuovo dopo che hai completato un riposo lungo. Al 20° livello, la tua richiesta di intervento ha successo automaticamente, senza che sia richiesto alcun tiro.
 levels.10.features.0.effects.1.onUse.0.text: "Tira un d100: successo con un risultato pari o inferiore a classLevel(cleric); automatico al 20° livello. In caso di successo, nessun ulteriore utilizzo per 7 giorni."

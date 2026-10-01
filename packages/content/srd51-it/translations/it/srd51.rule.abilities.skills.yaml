@@ -1,6 +1,8 @@
 name: Abilità
 text: |-
-  Ogni caratteristica abbraccia una vasta gamma di capacità, tra cui anche le abilità in cui un personaggio o un mostro può essere competente. Un'abilità rappresenta un aspetto specifico di un punteggio di caratteristica e la competenza di un soggetto in un'abilità rappresenta una certa specializzazione in quell'aspetto. (Le competenze nelle abilità iniziali di un personaggio sono determinate nel corso della sua creazione, mentre le competenze nelle abilità di un mostro sono indicate nella sua scheda delle statistiche.)  Per esempio, una prova di Destrezza potrebbe rappresentare il tentativo di un personaggio di compiere una manovra acrobatica, di nascondersi o di intascare con discrezione un oggetto. A ognuno di questi aspetti di Destrezza è associata un'abilità diversa: rispettivamente Acrobazia, Furtività e Rapidità di Mano. Quindi un personaggio dotato di competenza nell'abilità Furtività è particolarmente incisivo nelle prove di Destrezza che prevedono attività come muoversi silenziosamente e nascondersi.
+  Ogni caratteristica abbraccia una vasta gamma di capacità, tra cui anche le abilità in cui un personaggio o un mostro può essere competente. Un'abilità rappresenta un aspetto specifico di un punteggio di caratteristica e la competenza di un soggetto in un'abilità rappresenta una certa specializzazione in quell'aspetto. (Le competenze nelle abilità iniziali di un personaggio sono determinate nel corso della sua creazione, mentre le competenze nelle abilità di un mostro sono indicate nella sua scheda delle statistiche.)
+
+  Per esempio, una prova di Destrezza potrebbe rappresentare il tentativo di un personaggio di compiere una manovra acrobatica, di nascondersi o di intascare con discrezione un oggetto. A ognuno di questi aspetti di Destrezza è associata un'abilità diversa: rispettivamente Acrobazia, Furtività e Rapidità di Mano. Quindi un personaggio dotato di competenza nell'abilità Furtività è particolarmente incisivo nelle prove di Destrezza che prevedono attività come muoversi silenziosamente e nascondersi.
 
   Le abilità relative a ciascun punteggio di caratteristica sono indicate nella lista seguente. (Nessuna abilità è correlata a Costituzione.) Vedi la descrizione delle caratteristiche nelle sezioni successive per alcuni esempi su come usare un'abilità associata a una caratteristica.
 
@@ -9,6 +11,7 @@ text: |-
   - Atletica
 
   **Destrezza**
+
   - Acrobazia
   - Furtività
   - Rapidità di Mano
@@ -35,7 +38,6 @@ text: |-
   - Intimidire
   - Intrattenere
   - Persuasione
-
 
   A volte il GM potrebbe richiedere una prova di caratteristica che preveda un'abilità specifica, come ad esempio "Effettua una prova di Saggezza (Percezione)". In altre occasioni, un giocatore potrebbe chiedere al GM se la competenza in una particolare abilità può essere applicata a una prova. In entrambi i casi, la competenza in un'abilità significa che un individuo può aggiungere il proprio bonus di competenza alle prove di caratteristica relative a quell'abilità. Senza competenza in quell'abilità, l'individuo effettua una normale prova di caratteristica.
 

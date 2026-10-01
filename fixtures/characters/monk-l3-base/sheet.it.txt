@@ -1,6 +1,6 @@
 QUIET PAW
 Felino (Puma) · Monaco 3  —  livello 3
-Regolamento srd51 · pacchetti srd51 0.8.0, homebrew.byloth 0.1.0
+Regolamento srd51 · pacchetti srd51 0.9.0, homebrew.byloth 0.1.0
 
 VALORI PRINCIPALI
 ────────────────────────────────────────────────────────────────────────────────────────────────────
@@ -15,7 +15,7 @@ VALORI PRINCIPALI
   Punti ferita                           24 / 24
                    10  1° livello (Monaco)        ← srd51
                   +14  2 livelli in più (Monaco)  ← srd51
-  Dadi vita                                  3d8
+  Dadi Vita                                  3d8
   Bonus di competenza                         +2
   Percezione passiva                          12
 
@@ -66,12 +66,12 @@ AZIONI
   Azioni
     Artigli    attacco +2 · 1d4 taglienti
   Azioni bonus
-    Colpo senz'armi di Arti Marziali        dopo Attacco · attacco +5 · dado arti marziali +3
-                                            contundenti (non disponibile ora)
-    Raffica di Colpi                  1 ki  dopo Attacco · attacco +5 · dado arti marziali +3
-                                            contundenti
-    Difesa Paziente                   1 ki  attiva Difesa Paziente
-    Passo del Vento                   1 ki  attiva Passo del Vento
+    Colpo senz'armi delle Arti Marziali        dopo Attacco · attacco +5 · dado arti marziali +3
+                                               contundenti (non disponibile ora)
+    Raffica di Colpi                     1 ki  dopo Attacco · attacco +5 · dado arti marziali +3
+                                               contundenti
+    Difesa Paziente                      1 ki  attiva Difesa Paziente
+    Passo del Vento                      1 ki  attiva Passo del Vento
   Reazioni
     Deviare Proiettili
 
@@ -112,7 +112,7 @@ NOTE
 
 CREDITI
 ────────────────────────────────────────────────────────────────────────────────────────────────────
-  System Reference Document 5.1 (srd51 0.8.0)
+  System Reference Document 5.1 (srd51 0.9.0)
     System Reference Document 5.1, Wizards of the Coast — CC-BY-4.0. This work includes material
     taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and
     available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is
@@ -125,7 +125,7 @@ CREDITI
   Byloth's homebrew (homebrew.byloth 0.1.0)
     Byloth's homebrew, Matteo Bilotta — CC-BY-4.0. Homebrew content by Matteo Bilotta, licensed
     under CC-BY-4.0.
-  System Reference Document 5.1 — italiano (srd51-it 0.3.0)
+  System Reference Document 5.1 — italiano (srd51-it 0.4.0)
     System Reference Document 5.1 (italiano), Wizards of the Coast — CC-BY-4.0. Questo lavoro
     include materiale del System Reference Document 5.1 (“SRD 5.1”) di Wizards of the Coast LLC
     disponibile al sito https://dnd.wizards.com/it/resources/systems-reference-document. L’SRD 5.1 è

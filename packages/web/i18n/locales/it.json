@@ -209,7 +209,7 @@
     "savingThrow": "Tiro salvezza",
     "armorClass": "Classe Armatura",
     "hitPoints": "Punti ferita",
-    "hitDice": "Dadi vita",
+    "hitDice": "Dadi Vita",
     "initiative": "Iniziativa",
     "speed": "Velocità",
     "action": "Azione",
@@ -678,7 +678,7 @@
       },
       "languages": {
         "name": "Italiano e inglese",
-        "text": "Tutto il sito in entrambe le lingue, regole e contenuti compresi."
+        "text": "Tutto il sito in entrambe le lingue, regole e contenuti compresi, con le parole dei manuali ufficiali italiani."
       },
       "app": {
         "name": "Un'app sul tuo telefono",

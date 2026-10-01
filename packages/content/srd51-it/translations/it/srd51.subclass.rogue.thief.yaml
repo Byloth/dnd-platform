@@ -10,13 +10,13 @@ levels.3.features.1.text: |-
 
   Inoltre, quando il ladro effettua un salto in lungo con rincorsa, la distanza che copre aumenta di 30 cm per ogni punto del suo modificatore di Destrezza.
 levels.3.features.1.effects.0.text: Scalare non richiede più un movimento extra.
-levels.3.features.1.effects.0.note: Il testo non conferisce una velocità di scalare; la regola sul costo del movimento si applica durante il gioco.
+levels.3.features.1.effects.0.note: Il testo non conferisce una velocità di scalare; la regola sul costo del movimento si applica in fase di gioco.
 levels.3.features.1.effects.1.note: Solo salti con rincorsa.
 levels.3.features.1.effects.2.note: Solo salti con rincorsa.
 levels.9.features.0.name: Furtività Suprema
 levels.9.features.0.text: A partire dal 9° livello, un ladro dispone di vantaggio a una prova di Destrezza (Furtività) se si muove di non più della metà della sua velocità in quello stesso turno.
 levels.9.features.0.effects.0.text: Disponi di vantaggio a una prova di Destrezza (Furtività) se ti muovi di non più della metà della tua velocità in quello stesso turno.
-levels.9.features.0.effects.0.note: "Funzione mancante: il linguaggio delle condizioni non ha una chiave per il movimento speso in questo turno, quindi il vantaggio non può essere vincolato e resta testo."
+levels.9.features.0.effects.0.note: "Non ancora calcolato: il linguaggio delle condizioni non ha una chiave per il movimento speso in questo turno, quindi il vantaggio non può essere vincolato e resta testo."
 levels.13.features.0.name: Usare Oggetto Magico
 levels.13.features.0.text: Giunto al 13° livello, un ladro ha imparato come funziona la magia quanto basta per improvvisare un utilizzo di quegli oggetti che non sono destinati a lui. Il ladro ignora tutti i requisiti di classe, razza e livello quando usa gli oggetti magici.
 levels.13.features.0.effects.0.text: |-
@@ -26,7 +26,7 @@ levels.13.features.0.effects.0.note: |-
 levels.17.features.0.name: Riflessi da Furfante
 levels.17.features.0.text: Una volta giunto al 17° livello, un ladro diventa particolarmente abile nel tendere imboscate e nello sfuggire rapidamente ai pericoli. Il ladro può effettuare due turni durante il primo round di ogni combattimento. Effettua il suo primo turno alla sua normale iniziativa e il secondo turno alla sua iniziativa meno 10. Non può utilizzare questo privilegio se è sorpreso.
 levels.17.features.0.effects.0.text: Puoi effettuare due turni durante il primo round di ogni combattimento. Effettui il tuo primo turno alla tua normale iniziativa e il secondo turno alla tua iniziativa meno 10. Non puoi utilizzare questo privilegio se sei sorpreso.
-levels.17.features.0.effects.0.note: Una regola del tracciamento dell'iniziativa senza un tipo nel catalogo; si applica durante il gioco.
+levels.17.features.0.effects.0.note: Una regola del tracciamento dell'iniziativa senza un tipo nel catalogo; si applica in fase di gioco.
 text: |-
   I ladri hanno molti tratti in comune, tra cui la tendenza a perfezionare le loro abilità, l'approccio preciso e letale al combattimento e i riflessi sempre più rapidi. Ma i vari tipi di ladri orientano le loro doti verso obiettivi diversi, incarnati dagli archetipi ladreschi. La scelta di un archetipo è indicativa delle priorità del ladro: non tanto relativamente alla professione scelta, bensì alla descrizione delle sue tecniche preferite.
 

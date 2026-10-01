@@ -7,9 +7,9 @@ traits.0.name: Incantesimi innati
 traits.0.text: |-
   La caratteristica da incantatore del couatl è Carisma (CD del tiro salvezza sull'incantesimo 14). Il couatl può lanciare i seguenti incantesimi innati, che richiedono solo componenti verbali:
 
-  A volontà: individuazione dei pensieri, individuazione del bene e del male, individuazione del magico
-  3/giorno ciascuno: benedizione, creare cibo e acqua, cura ferite, protezione dai veleni, ristorare inferiore, santuario, scudo
-  1/giorno ciascuno: ristorare superiore, scrutare, sogno
+  A volontà: *individuazione dei pensieri*, *individuazione del bene e del male*, *individuazione del magico*
+  3/giorno ciascuno: *benedizione*, *creare cibo e acqua*, *cura ferite*, *protezione dai veleni*, *ristorare inferiore*, *santuario*, *scudo*
+  1/giorno ciascuno: *ristorare superiore*, *scrutare*, *sogno*
 traits.1.name: Armi magiche
 traits.1.text: Gli attacchi con arma del couatl sono magici.
 traits.2.name: Mente schermata

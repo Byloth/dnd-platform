@@ -10,8 +10,8 @@ traits.1.text: |-
   Il fanatico è un incantatore di 4° livello: la sua caratteristica da incantatore è Saggezza (CD del tiro salvezza sull'incantesimo 11, +3 al tiro per colpire con attacco con incantesimo). Il fanatico ha a disposizione i seguenti incantesimi da chierico:
 
   Trucchetti (a volontà): fiamma sacra, luce, taumaturgia
-  - 1° livello (4 slot): comando, infliggi ferite, scudo della fede
-  - 2° livello (3 slot): arma spirituale, blocca persone
+  - 1° livello (4 slot): *comando*, *infliggi ferite*, *scudo della fede*
+  - 2° livello (3 slot): *arma spirituale*, *blocca persone*
 actions.0.name: Multiattacco
 actions.0.text: Il fanatico effettua due attacchi in mischia.
 actions.0.multiattack.0.action: Pugnale

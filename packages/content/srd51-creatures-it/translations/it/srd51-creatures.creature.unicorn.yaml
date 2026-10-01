@@ -7,8 +7,8 @@ traits.1.name: Incantesimi innati
 traits.1.text: |-
   La caratteristica innata da incantatore dell'unicorno è Carisma (CD del tiro salvezza sull'incantesimo 14). Per sua natura, l'unicorno è in grado di lanciare gli incantesimi indicati di seguito senza aver bisogno di componenti materiali:
 
-  A volontà: artificio druidico, individuazione del bene e del male, passare senza tracce
-  1/giorno ciascuno: calmare emozioni, dissolvi il bene e il male, intralciare
+  A volontà: *artificio druidico*, *individuazione del bene e del male*, *passare senza tracce*
+  1/giorno ciascuno: *calmare emozioni*, *dissolvi il bene e il male*, *intralciare*
 traits.2.name: Resistenza alla magia
 traits.2.text: L'unicorno dispone di vantaggio ai tiri salvezza contro incantesimi e altri effetti magici.
 traits.3.name: Armi magiche

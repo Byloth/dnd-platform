@@ -10,9 +10,9 @@ traits.1.text: Il solar sa riconoscere le menzogne.
 traits.2.name: Incantesimi innati
 traits.2.text: |-
   La caratteristica da incantatore del solar è Carisma (CD del tiro salvezza sull'incantesimo 25). Per sua natura, è in grado di lanciare gli incantesimi indicati di seguito senza aver bisogno di componenti materiali:
-  A volontà: individuazione del bene e del male, invisibilità (solo se stesso)
-  3/giorno ciascuno: barriera di lame, dissolvi il bene e il male, resurrezione
-  1/giorno ciascuno: comunione, controllare tempo atmosferico
+  A volontà: *individuazione del bene e del male*, *invisibilità* (solo se stesso)
+  3/giorno ciascuno: *barriera di lame*, *dissolvi il bene e il male*, *resurrezione*
+  1/giorno ciascuno: *comunione*, *controllare tempo atmosferico*
 traits.3.name: Resistenza alla magia
 traits.3.text: Il solar dispone di vantaggio ai tiri salvezza contro incantesimi e altri effetti magici.
 actions.0.name: Multiattacco
@@ -31,5 +31,5 @@ legendary.actions.0.text: Il solar si teletrasporta magicamente, insieme a ogni 
 legendary.actions.1.name: Esplosione incandescente (costa 2 azioni)
 legendary.actions.1.text: Il solar emette un'onda di energia magica divina. Ogni creatura a sua scelta entro un raggio di 3 metri deve effettuare un tiro salvezza su Destrezza con CD 23, subendo 14 (4d6) danni da fuoco più 14 (4d6) danni radiosi in caso di fallimento, o la metà dei danni in caso di successo.
 legendary.actions.2.name: Sguardo accecante (costa 3 azioni)
-legendary.actions.2.text: Il solar prende di mira una creatura nel suo campo visivo in un raggio di 9 metri. Se il bersaglio è in grado di vedere il solar, deve superare un tiro salvezza su Costituzione con CD 15, altrimenti è accecato finché una magia come ristorare inferiore non rimuove la cecità.
+legendary.actions.2.text: "Il solar prende di mira una creatura nel suo campo visivo in un raggio di 9 metri. Se il bersaglio è in grado di vedere il solar, deve superare un tiro salvezza su Costituzione con CD 15, altrimenti è accecato finché una magia come *ristorare inferiore* non rimuove la cecità."
 legendary.text: Il solar può eseguire 3 azioni leggendarie a scelta tra le opzioni seguenti. È possibile utilizzare solo un'opzione di azione leggendaria alla volta e soltanto alla fine del turno di un'altra creatura. All'inizio del turno, il solar recupera le azioni leggendarie effettuate.

@@ -8,7 +8,7 @@ levels.1.features.1.text: |-
 
   ###Trucchetti
 
-  Al 1° livello, un druido conosce due trucchetti a sua scelta tratti dalla lista degli incantesimi da druido. Apprende ulteriori trucchetti da druido a sua scelta ai livelli successivi, come indicato dalla colonna "Trucchetti conosciuti" nella tabella "Druido".
+  Al 1° livello, un druido conosce due trucchetti a sua scelta tratti dalla lista degli incantesimi da druido. Apprende ulteriori trucchetti da druido a sua scelta ai livelli successivi, come indicato dalla colonna "Trucchetti Conosciuti" nella tabella "Druido".
 
   ###Preparare e lanciare incantesimi
 
@@ -68,13 +68,13 @@ levels.2.features.1.effects.1.onUse.0.text: "GS massimo: table(druid.wild-shape-
 levels.2.features.1.effects.2.name: Tornare dalla Forma Selvatica
 levels.2.features.1.effects.2.text: Torni alla tua forma normale. Torni automaticamente alla tua forma normale se cadi privo di sensi, scendi a 0 punti ferita o muori.
 levels.2.features.1.effects.3.text: Finché sei trasformato da Forma Selvatica, le tue statistiche di gioco vengono sostituite dalle statistiche della bestia; conservi il tuo allineamento, la tua personalità, i punteggi di Intelligenza, Saggezza e Carisma, le tue competenze nelle abilità e nei tiri salvezza e i benefici dei privilegi della tua classe, della tua razza e di altre fonti, se la nuova forma è fisicamente in grado di usarli. Non puoi usare i tuoi sensi speciali a meno che la forma non li possieda, e non puoi lanciare incantesimi. Il tuo equipaggiamento cade a terra, si fonde nella forma o viene indossato da essa.
-levels.2.features.1.effects.3.note: "Lacuna: sostituire la scheda con le statistiche di una bestia conservando i punteggi mentali e le competenze richiede una capacità di forma alternativa che il motore non possiede; la durata (metà del tuo livello da druido in ore), il trasferimento dei punti ferita e il divieto di lanciare incantesimi si gestiscono al tavolo. La tabella del GS massimo è la tabella di classe druid.wild-shape-max-cr."
+levels.2.features.1.effects.3.note: "Non ancora calcolato: sostituire la scheda con le statistiche di una bestia conservando i punteggi mentali e le competenze richiede una capacità di forma alternativa che il motore non possiede; la durata (metà del tuo livello da druido in ore), il trasferimento dei punti ferita e il divieto di lanciare incantesimi si gestiscono al tavolo. La tabella del GS massimo è la tabella di classe druid.wild-shape-max-cr."
 levels.4.features.0.name: Aumento dei Punteggi di Caratteristica
 levels.4.features.0.text: Quando arriva al 4° livello e poi di nuovo all'8°, al 12°, al 16° e al 19° livello, un druido può aumentare di 2 un punteggio di caratteristica a sua scelta, oppure può aumentare di 1 due punteggi di caratteristica a sua scelta. Come di consueto, non è consentito aumentare un punteggio di caratteristica a più di 20 utilizzando questo privilegio.
 levels.18.features.0.name: Incantesimi Bestiali
 levels.18.features.0.text: A partire dal 18° livello, un druido può lanciare molti dei suoi incantesimi da druido in qualsiasi forma assunta utilizzando Forma Selvatica. Può fornire le componenti somatiche e verbali di un incantesimo da druido anche quando è in forma bestiale, ma non è in grado di fornire componenti materiali.
 levels.18.features.0.effects.0.text: Puoi lanciare molti dei tuoi incantesimi da druido in qualsiasi forma assunta utilizzando Forma Selvatica. Puoi fornire le componenti somatiche e verbali di un incantesimo da druido anche quando sei in forma bestiale, ma non sei in grado di fornire componenti materiali.
-levels.18.features.0.effects.0.note: "Lacuna: rimuove il divieto di lanciare incantesimi dello stato Forma Selvatica per gli incantesimi da druido senza componenti materiali; il motore non applica quel divieto."
+levels.18.features.0.effects.0.note: "Non ancora calcolato: rimuove il divieto di lanciare incantesimi dello stato Forma Selvatica per gli incantesimi da druido senza componenti materiali; il motore non applica quel divieto."
 levels.18.features.1.name: Corpo Senza Tempo
 levels.18.features.1.text: A partire dal 18° livello, la magia primordiale che fluisce nel druido rallenta il suo invecchiamento. Per ogni 10 anni trascorsi, il corpo del druido invecchia soltanto di 1 anno.
 levels.20.features.0.name: Arcidruido
@@ -84,7 +84,7 @@ levels.20.features.0.text: |-
   Può inoltre ignorare le componenti verbali e somatiche dei suoi incantesimi da druido, nonché le eventuali componenti materiali prive di un costo e quelle che non sono consumate da un incantesimo. Un druido ottiene questo beneficio sia nella sua forma normale che nella forma bestiale assunta grazie a Forma Selvatica.
 levels.20.features.0.effects.0.note: Puoi utilizzare Forma Selvatica un numero illimitato di volte.
 levels.20.features.0.effects.1.text: Puoi ignorare le componenti verbali e somatiche dei tuoi incantesimi da druido, nonché le eventuali componenti materiali prive di un costo e quelle che non sono consumate da un incantesimo. Ottieni questo beneficio sia nella tua forma normale che nella forma bestiale assunta grazie a Forma Selvatica.
-levels.20.features.0.effects.1.note: "Lacuna: le componenti degli incantesimi non sono modellate dal motore."
+levels.20.features.0.effects.1.note: "Non ancora calcolato: le componenti degli incantesimi non sono modellate dal motore."
 text: |-
   **Armature:** Armature leggere, armature medie, scudi (i druidi non usano armature e scudi fatti di metallo)
 

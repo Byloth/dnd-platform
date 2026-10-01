@@ -8,9 +8,9 @@ traits.1.name: Incantesimi innati
 traits.1.text: |-
   La caratteristica innata da incantatore del djinni è Carisma (CD del tiro salvezza sull'incantesimo 17, +9 al tiro per colpire con attacco con incantesimo). Per sua natura, è in grado di lanciare gli incantesimi indicati di seguito senza aver bisogno di componenti materiali:
 
-  A volontà: individuazione del bene e del male, individuazione del magico, onda tonante
-  3/giorno ciascuno: camminare nel vento, creare cibo e bevande (può creare vino anziché acqua), linguaggi
-  1/giorno ciascuno: creazione, evoca elementale (solo elementale dell'aria), forma gassosa, immagine maggiore, invisibilità, spostamento planare
+  A volontà: *individuazione del bene e del male*, *individuazione del magico*, *onda tonante*
+  3/giorno ciascuno: *camminare nel vento*, creare cibo e bevande (può creare vino anziché acqua), linguaggi
+  1/giorno ciascuno: *creazione*, *evoca elementale* (solo elementale dell'aria), *forma gassosa*, *immagine maggiore*, *invisibilità*, *spostamento planare*
 actions.0.name: Multiattacco
 actions.0.text: Il djinni effettua tre attacchi con la scimitarra.
 actions.0.multiattack.0.action: Scimitarra

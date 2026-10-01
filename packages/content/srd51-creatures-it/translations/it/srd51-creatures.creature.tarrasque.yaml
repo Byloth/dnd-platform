@@ -7,7 +7,7 @@ traits.0.text: Se il tarrasque fallisce un tiro salvezza, può scegliere di supe
 traits.1.name: Resistenza alla magia
 traits.1.text: Il tarrasque dispone di vantaggio ai tiri salvezza contro incantesimi e altri effetti magici.
 traits.2.name: Carapace riflettente
-traits.2.text: Ogni volta che il tarrasque è bersagliato da un incantesimo dardo incantato, un incantesimo che ha una linea come area di effetto o un incantesimo che richiede un tiro per colpire a distanza, si tira un d6. Con un risultato da 1 a 5, il tarrasque non ne è influenzato. Con un risultato di 6, il tarrasque non ne è influenzato e l'effetto viene riflesso contro l'incantatore come se avesse origine dal tarrasque, rendendo l'incantatore il bersaglio.
+traits.2.text: "Ogni volta che il tarrasque è bersagliato da un incantesimo *dardo incantato*, un incantesimo che ha una linea come area di effetto o un incantesimo che richiede un tiro per colpire a distanza, si tira un d6. Con un risultato da 1 a 5, il tarrasque non ne è influenzato. Con un risultato di 6, il tarrasque non ne è influenzato e l'effetto viene riflesso contro l'incantatore come se avesse origine dal tarrasque, rendendo l'incantatore il bersaglio."
 traits.3.name: Mostro da assedio
 traits.3.text: Il tarrasque infligge danni doppi a oggetti e strutture.
 actions.0.name: Multiattacco
