@@ -72,6 +72,8 @@
                 flex: 1;
                 height: 2px;
                 margin: 0 2px;
+
+                @media (max-width: 359px) { margin: 0 1px; }
             }
 
             &:first-child
@@ -118,6 +120,14 @@
             {
                 height: 34px;
                 width: 34px;
+            }
+
+            // Ten dots and their connectors fit in 320 px (WCAG 1.4.10; M1.8b), still above the 24 px target.
+            @media (max-width: 359px)
+            {
+                font-size: var(--text-xs);
+                height: 24px;
+                width: 24px;
             }
         }
 

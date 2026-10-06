@@ -34,7 +34,8 @@ This document extends the testing strategy of [../phase-0/04-testing-strategy.md
 | Flow tests | the wizard for the twelve SRD classes; export → import round trip; package load from zip and bundle; the private Monk end to end | `packages/web/tests/flows/` | CI (private one skipped without the book) |
 | Print acceptance | the reference Monk's checklist, A4 and Letter page counts, black-and-white contrast | `fixtures/print/` | CI where automatable, manual for the greyscale inspection |
 | Performance and budgets | Lighthouse on the generated site (accessibility 100, time to interactive); the derive mark; the size budgets | `pnpm web:lighthouse`, `pnpm web:budgets`; `tests/engine.test.ts` | CI |
-| Manual passes | keyboard, screen reader, the phone in hand | progress log | milestone close |
+| Accessibility in a real browser (M1.8b) | every screen in Chromium: axe with layout (contrast as rendered, target size) in both languages and the light, dark and more-contrast themes, on a phone and a computer; reflow at 320 px; Tab through each screen (every control reached, visible, with a focus indicator, nothing else focusable; the order reported for review); Escape closes the drawer and dialogs with focus back | `pnpm web:a11y` (`scripts/check-accessibility.ts`); [accessibility/m1.8b-report.md](accessibility/m1.8b-report.md) | CI |
+| Manual passes | screen reader, the phone in hand (the keyboard part is automated since M1.8b) | [accessibility/screen-reader-pass.md](accessibility/screen-reader-pass.md), progress log | milestone close |
 | Usability | the newcomer test | `docs/phase-1/usability/` | phase close |
 
 ### Accessibility assertions in components

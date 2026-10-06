@@ -254,6 +254,13 @@
             }
         }
 
+        // Under 360 px (a small phone, or 400 % zoom) the labels go to the screen reader and the icons stay: the bar
+        // fits in 320 px with no horizontal scroll (WCAG 1.4.10; M1.8b).
+        &__text
+        {
+            @media (max-width: 359px) { @include mixins.sr-only; }
+        }
+
         &__icon
         {
             font-size: 1.1rem;

@@ -39,6 +39,9 @@ jobs:
       - run: pnpm web:budgets
       # The service worker precaches the shell and no content, the manifest is installable (M1.5c).
       - run: pnpm web:pwa
+      # Every screen in a real browser (M1.8b): axe with layout in both languages and three themes, reflow at 320 px,
+      # the keyboard and Escape (docs/phase-1/07-testing-accessibility-performance.md). The runner's Chrome is used.
+      - run: pnpm web:a11y
       # Median of three runs on the phone preset: accessibility at 100, time to interactive as a regression guard
       # (docs/phase-1/07-testing-accessibility-performance.md). The runner's Chrome is used.
       - run: pnpm web:lighthouse

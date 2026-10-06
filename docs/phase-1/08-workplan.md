@@ -210,7 +210,7 @@ Risks: OCR quality of the Italian PDF and terminology drift between agents; the 
 
 Tasks (from [02-content-and-character-stores.md](02-content-and-character-stores.md), [07-testing-accessibility-performance.md](07-testing-accessibility-performance.md)):
 1. The working-directory backend where the API exists: connect, README files, mirror, package loading from `packages/`, reconciliation. **Done (M1.8a, 2026-10-06)**: [02-content-and-character-stores.md](02-content-and-character-stores.md), "As built (M1.8a)".
-2. The accessibility pass on every screen (keyboard, screen reader, the phone in hand), recorded.
+2. The accessibility pass on every screen (keyboard, screen reader, the phone in hand), recorded. **Automated part done (M1.8b, 2026-10-06)**: `pnpm web:a11y` in CI, 364 page loads clean after four reflow fixes ([accessibility/m1.8b-report.md](accessibility/m1.8b-report.md)); the screen reader and the phone in hand wait for a person ([accessibility/screen-reader-pass.md](accessibility/screen-reader-pass.md)).
 3. **Confirmation point.** The usability protocol presented; recruiting after confirmation; sessions; report. The draft is [usability/protocol.md](usability/protocol.md) (2026-10-06), waiting for the owner's confirmation.
 4. Phase 1 verification table in [00-README.md](00-README.md); the risk register reviewed; the open points of the Phase 1 documents closed or promoted.
 
