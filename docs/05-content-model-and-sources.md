@@ -57,7 +57,7 @@ Extended by the owner (2026-09-25): the scope also covers **game-master material
 
 #### Further sources
 
-Books the owner has, as `content-private/sources` (2026-09-25):
+Books the owner has, as `private/sources` (2026-09-25):
 - the Player's Handbook, the Dungeon Master's Guide and the Monster Manual (2014);
 - Xanathar's Guide to Everything, Tasha's Cauldron of Everything, Mordenkainen Presents: Monsters of the Multiverse and Volo's Guide to Monsters;
 - Historia, a third-party Italian book.

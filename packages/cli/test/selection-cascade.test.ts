@@ -2,7 +2,7 @@
  * DEC-20 guard (docs/phase-0/06-private-packages.md, task 10): every official package
  * present on this machine loads next to the base with an empty selection and an empty
  * cascade, and every reference resolves. Without private packages this degenerates to
- * the base package alone; it strengthens automatically when content-private/ has one.
+ * the base package alone; it strengthens automatically when private/ has one.
  */
 
 import { resolve } from "node:path";

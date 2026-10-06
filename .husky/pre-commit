@@ -1,6 +1,7 @@
 #!/bin/sh
-# Nothing under content-private/ may be committed, except its README (docs/phase-0/06-private-packages.md).
-private=$(git diff --cached --name-only --diff-filter=ACMR -- content-private | grep -v '^content-private/README\.md$' || true)
+# Nothing under private/ may be committed: it is the private submodule, of which only the pointer is tracked
+# (docs/phase-0/06-private-packages.md).
+private=$(git diff --cached --name-only --diff-filter=ACMR -- private | grep -v '^private$' || true)
 if [ -n "$private" ]; then
     echo "pre-commit: refusing to commit private content:" >&2
     echo "$private" | sed 's/^/  /' >&2

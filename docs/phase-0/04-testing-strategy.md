@@ -10,7 +10,7 @@ This document defines how the engine, the content format and every package are t
 - **Determinism is asserted, not assumed.** Property tests check that `derive` is idempotent and order-independent on every run of the suite, not once at design time.
 - **Golden files are reviewed like code.** `snapshot.json` files change only through `pnpm fixtures --update`, and the resulting diff is read line by line in the pull request; a snapshot change without a matching `expected.yaml` or content change is a review blocker.
 - **Expected values are hand-computed.** `expected.yaml` holds numbers a human worked out from the rules, with the provenance labels they expect to see. Snapshots catch regressions; expectations catch wrong implementations.
-- **Private content never breaks CI.** Fixtures that depend on `content-private/` are skipped and reported as skipped when the directory is absent ([06-private-packages.md](06-private-packages.md)); they never fail for that reason.
+- **Private content never breaks CI.** Fixtures that depend on `private/` are skipped and reported as skipped when the directory is absent ([06-private-packages.md](06-private-packages.md)); they never fail for that reason.
 - **Vitest** is the single runner for every level below, in every package; fixtures are discovered from the filesystem by a shared helper in `engine`'s test utilities.
 
 ## Design
@@ -19,7 +19,7 @@ This document defines how the engine, the content format and every package are t
 
 | Level | What | Where | Gate |
 |---|---|---|---|
-| 1 Content validation | `validate` passes on every package present locally; broken packages yield the expected diagnostic code | `packages/content/**`, `content-private/**`, `fixtures/packages/**` | CI (public), local (private) |
+| 1 Content validation | `validate` passes on every package present locally; broken packages yield the expected diagnostic code | `packages/content/**`, `private/**`, `fixtures/packages/**` | CI (public), local (private) |
 | 2 Golden fixtures | `derive` of a known character matches `expected.yaml` and `snapshot.json` | `fixtures/characters/<name>/` | CI |
 | 3 Catalogue unit tests | every effect kind, `modify` op, condition key, formula case, table lookup | `packages/engine/test/catalogue/` | CI |
 | 4 Property tests | idempotence, order independence, round trips, `undo(apply())` identity | `packages/engine/test/properties/` | CI |
@@ -28,7 +28,7 @@ This document defines how the engine, the content format and every package are t
 
 ### Level 1 — content validation
 
-- A test enumerates every package directory under the public content root and, when present, under `content-private/`, runs `loadPackages` then `validate`, and asserts `diagnostics.ok === true`. Warnings are printed, errors fail.
+- A test enumerates every package directory under the public content root and, when present, under `private/`, runs `loadPackages` then `validate`, and asserts `diagnostics.ok === true`. Warnings are printed, errors fail.
 - A negative suite lives under `fixtures/packages/invalid/<case>/`: each is a minimal package built to trigger exactly one rule of [03-engine-contract.md](03-engine-contract.md) (unknown effect kind, unknown `modify` target, dangling reference, resource without `recharge`, `redistributable: false` with public visibility, extension with two bases, patch to a missing path, missing default-language string). The case directory holds `expected-diagnostics.yaml` with the diagnostic `code` list; the test asserts the codes match exactly, so a validator that silently accepts bad content fails.
 - Every example in [02-content-format.md](02-content-format.md) is copied into `fixtures/packages/srd51-excerpt`, `fixtures/packages/homebrew-feline` and `fixtures/packages/phb14-stub` and validated here; a schema change that invalidates a documented example fails the suite, which keeps the document honest.
 
@@ -106,7 +106,7 @@ sections:
 warnings: []
 ```
 
-Ability scores are set directly (`method: manual`: 11, 17, 14, 8, 15, 8), because the homebrew feline species grants no ability bonus; the derived numbers are the ones above. The bruised-lung condition is applied in `state.conditions` of the fixture so the condition path is covered at level 2 as well as level 5. Implemented in M0.6 as `content-private/fixtures/reference-monk/` (private, skipped when absent); its `expected.yaml` uses the flat format of `fixtures/characters/README.md`.
+Ability scores are set directly (`method: manual`: 11, 17, 14, 8, 15, 8), because the homebrew feline species grants no ability bonus; the derived numbers are the ones above. The bruised-lung condition is applied in `state.conditions` of the fixture so the condition path is covered at level 2 as well as level 5. Implemented in M0.6 as `private/fixtures/reference-monk/` (private, skipped when absent); its `expected.yaml` uses the flat format of `fixtures/characters/README.md`.
 
 Reference fixture set (all public unless stated):
 
@@ -115,7 +115,7 @@ Reference fixture set (all public unless stated):
 | One per SRD 5.1 class × levels 1, 5, 11, 20 | 48, named `<class>-l<level>` (`monk-l5`, `wizard-l20`) | every class table, every subclass of the base package, slot progressions, ASI points |
 | `multiclass-caster` | Wizard 5 / Cleric 3 | multiclass slot table, caster weights, spellcasting from two lists |
 | `plain-fighter-l1` | Fighter 1, no subclass, no resources beyond Second Wind, no spells | the simplest sheet: proves sections stay off |
-| `reference-monk` | Monk 3, Way of Shadow (`phb14`), feline species, bruised lung | base + private + homebrew in one sheet; skipped without `content-private/` |
+| `reference-monk` | Monk 3, Way of Shadow (`phb14`), feline species, bruised lung | base + private + homebrew in one sheet; skipped without `private/` |
 | `mini-ruleset-b` | a level 5 character on the `mini-ruleset-b` base package | ruleset switching: same class content, different proficiency table and rest rules ([07-ruleset-switching.md](07-ruleset-switching.md)) |
 | `excerpt-monk-l3` | Monk 3 on `srd51-excerpt` only | the M0.3 milestone fixture, runnable before the base package exists |
 
@@ -170,7 +170,7 @@ steps:
     expect: { values: { ac: 17 } }
 ```
 
-Sessions at M0.7 (`fixtures/sessions/`): `monk-combat-round` (action, bonus action, reaction, prerequisites, the turn tracker and a toggle expiring at the start of the next turn), `cleric-concentration` (slots, concentration check DC, resistance, replacement, cantrips, a reported play effect, long rest), `condition-expiry` (turn counters relative to whose turn it is, exhaustion levels, a custom effect re-derived), `temp-hp-absorption`, `dying-and-stabilising`, `rests`, `rejected-events` (one rejection per validation, plus `force`), `minib-scout-long-rest` (the same engine on the other ruleset); `content-private/fixtures/sessions/reference-monk` casts Darkness with 2 ki. The free and special activations are covered by the unit tests on a mini package (`packages/engine/test/play.test.ts`).
+Sessions at M0.7 (`fixtures/sessions/`): `monk-combat-round` (action, bonus action, reaction, prerequisites, the turn tracker and a toggle expiring at the start of the next turn), `cleric-concentration` (slots, concentration check DC, resistance, replacement, cantrips, a reported play effect, long rest), `condition-expiry` (turn counters relative to whose turn it is, exhaustion levels, a custom effect re-derived), `temp-hp-absorption`, `dying-and-stabilising`, `rests`, `rejected-events` (one rejection per validation, plus `force`), `minib-scout-long-rest` (the same engine on the other ruleset); `private/fixtures/sessions/reference-monk` casts Darkness with 2 ki. The free and special activations are covered by the unit tests on a mini package (`packages/engine/test/play.test.ts`).
 
 ### Level 6 — performance
 
@@ -184,8 +184,8 @@ Sessions at M0.7 (`fixtures/sessions/`): `monk-combat-round` (action, bonus acti
 ### Workflow and CI
 
 - `pnpm test` runs levels 1–5; `pnpm fixtures` runs level 2 and 5 only, with `--update` to regenerate snapshots and `--coverage` for the entity report; `pnpm test:perf` runs level 6.
-- CI runs `lint`, `typecheck`, `test`, `test:perf` and `validate:content` on every pull request with no `content-private/`; private-dependent fixtures show as skipped in the report.
-- Locally, with `content-private/` present, the same commands also validate private packages and run the private-dependent fixtures; a pre-push hook runs `pnpm test`.
+- CI runs `lint`, `typecheck`, `test`, `test:perf` and `validate:content` on every pull request with no `private/`; private-dependent fixtures show as skipped in the report.
+- Locally, with `private/` present, the same commands also validate private packages and run the private-dependent fixtures; a pre-push hook runs `pnpm test`.
 - A new bug: reproduce it as a fixture (or unit test), commit it failing on a branch, fix, commit the fix; both commits reference the issue. Snapshot updates in that pull request must be explained by the fix.
 
 ## Tasks

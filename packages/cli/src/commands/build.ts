@@ -8,9 +8,9 @@
  * loader, never merged here (docs/phase-0/02-content-format.md).
  *
  * Without directories every package under `packages/content/` and
- * `content-private/` is built. Redistributable packages land in
+ * `private/` is built. Redistributable packages land in
  * `build/content/<id>.json`; a non-redistributable one in
- * `content-private/build/<id>.json`, and never outside `content-private/`.
+ * `private/build/<id>.json`, and never outside `private/`.
  */
 
 import { existsSync, mkdirSync, writeFileSync } from "node:fs";

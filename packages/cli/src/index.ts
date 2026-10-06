@@ -30,7 +30,7 @@ Usage: dnd <command> [options]
 Commands:
   validate [dirs…] [--all] [--references] [--allow-missing] [--json]
              validate content package directories against the schemas;
-             no directory or --all: discover packages/content/* and content-private/*;
+             no directory or --all: discover packages/content/* and private/*;
              --references: also load them into the engine and resolve every reference
   build      convert YAML packages to canonical JSON      (M0.8)
   release [dirs…] [--check] [--json]

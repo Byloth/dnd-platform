@@ -86,10 +86,10 @@ Spells (319), items (486), rules (227), tables (16), the remaining features and 
 ## As built (2026-09-25)
 
 The owner asked the same day to translate everything at once, srd51 and phb14, and changed two premises of this plan:
-- **Sources found.** The official Italian SRD 5.1 is published by Wizards of the Coast under CC BY 4.0 (`https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1_IT.pdf`). The owner provided the Italian Manuale del Giocatore, OCR'd with Tesseract `ita` (`content-private/sources`). So the texts follow the official Italian wording, verbatim for the SRD and OCR-corrected for the PHB. Memory of the book is used only where something does not add up, and each such case is noted. Literal translation with the terms is used only for strings neither book has (this project's reminders, archetypes, notes).
+- **Sources found.** The official Italian SRD 5.1 is published by Wizards of the Coast under CC BY 4.0 (`https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1_IT.pdf`). The owner provided the Italian Manuale del Giocatore, OCR'd with Tesseract `ita` (`private/sources`). So the texts follow the official Italian wording, verbatim for the SRD and OCR-corrected for the PHB. Memory of the book is used only where something does not add up, and each such case is noted. Literal translation with the terms is used only for strings neither book has (this project's reminders, archetypes, notes).
 - **One package per language and per book, never chosen** (owner):
   - `packages/content/srd51-it` is public, CC BY 4.0, released as 0.1.0 and published by the site.
-  - `content-private/phb14-it` is private and loaded like phb14.
+  - `private/phb14-it` is private and loaded like phb14.
   - The interface's language brings them. `useContentStore().sources` adds the translations of that language whose packages are all present, and the loader keeps a translation of the selected packages. They are never offered at step 0. The packages page shows a translation inside the card of the package it translates, and the credits page lists the Italian attribution when the interface speaks Italian.
   - The interface language itself defaults to the browser's (`navigator.languages`) until the player chooses.
 
@@ -99,8 +99,8 @@ The work, part A as planned:
 - The CLI adds the translations of `--language`.
 
 Parts B–D done together by a workflow:
-- One agent built the term list (`content-private/translation-work/TERMS.yaml`, private since it quotes the PHB): about 2 260 lines, 71 names unresolved and translated literally, 10 conflicts with docs/03-glossary.md for the owner.
-- 41 packets (29 srd, 12 phb) were each translated by one Opus agent and reviewed by another. The notes are in `tools/import/work/translations/it/notes/` (srd) and `content-private/translation-work/notes/` (phb).
+- One agent built the term list (`private/translation-work/TERMS.yaml`, private since it quotes the PHB): about 2 260 lines, 71 names unresolved and translated literally, 10 conflicts with docs/03-glossary.md for the owner.
+- 41 packets (29 srd, 12 phb) were each translated by one Opus agent and reviewed by another. The notes are in `tools/import/work/translations/it/notes/` (srd) and `private/translation-work/notes/` (phb).
 - Result:
   - srd51-it: 1 126 files and 5 656 strings;
   - phb14-it: 138 files and 2 304 strings;
@@ -116,11 +116,11 @@ Parts B–D done together by a workflow:
 - **The owner's homebrew in Italian**: `fixtures/packages/homebrew-feline-it` (Felino, Puma, Artigli, Grazia felina, Balzo, Polmone contuso). The CLI finds a translation next to the packages a character uses.
 - **Goldens**: `sheet.it.txt` for monk-l3-base, cleric-l5, multiclass-caster and the reference Monk (private), written by `dnd fixtures` with the translations and metric units.
 - **Checks**: `pnpm check:translations` (srd51-it, srd51-creatures-it, homebrew-feline-it) and `pnpm probe:it` in CI; `packages/cli/test/glossary-content.test.ts`: a name of srd51 that is a glossary term in English is the glossary's Italian term (case aside). It found one mistake, in the English: the spellcasting rule on reactions was called Bonus Action (srd51 0.8.0).
-- **The owner's review**: `content-private/translation-work/review.html`, a private page opened from the disk: the 9 conflicts with the glossary, 25 questions of style and single cases from the reviewers' doubts, the English package's own mistakes, the confirmation of phb14-it, and the 71 names without an official source, each with a proposal already chosen; its "Export" writes `decisions.json` into the same folder, which is then applied.
+- **The owner's review**: `private/translation-work/review.html`, a private page opened from the disk: the 9 conflicts with the glossary, 25 questions of style and single cases from the reviewers' doubts, the English package's own mistakes, the confirmation of phb14-it, and the 71 names without an official source, each with a proposal already chosen; its "Export" writes `decisions.json` into the same folder, which is then applied.
 
 ### The owner's choices applied (2026-10-01)
 
-- **The rule**: the official books win, always (owner): where an Italian book (SRD, Manuale, Guida, errata) words something, the packages follow it, and [../03-glossary.md](../03-glossary.md) and the private `TERMS.yaml` now follow the books. 24 of the review's questions were settled by this rule and taken off the page; the owner answered the other 10 and the 71 names (`content-private/translation-work/decisions.json`).
+- **The rule**: the official books win, always (owner): where an Italian book (SRD, Manuale, Guida, errata) words something, the packages follow it, and [../03-glossary.md](../03-glossary.md) and the private `TERMS.yaml` now follow the books. 24 of the review's questions were settled by this rule and taken off the page; the owner answered the other 10 and the 71 names (`private/translation-work/decisions.json`).
 - **Applied**: "Dadi Vita"; spell names in italics in the texts (a script: a name is italicised where the English text names the spell; names that are also ordinary words need a cue, "incantesimo …", "lanciare …", or a list of spells); the roll tables in the Italian books' order and ranges (13 tables); the books' capitals for subclass features, table columns, PHB traits and spells; "abilità" where the books say it; "Utilizzi dell'Ira"; "Non ancora calcolato:" for every note on what the sheet does not compute; "in fase di gioco"; the owner's 21 names (spell lists "Incantesimi da Bardo"…, "Umano (Variante)"); Remarkable Athlete's 0,3 metri per point; the folk hero's SRD items; "d20" in Divination and Lucky. srd51 0.9.0 fixed its import errors (tables printed as loose lines, fused ability rules, the wand of wonder's and the robe's rows, Contests, Symbol, Reincarnate); the English darkvision rule stays as the English SRD prints it, without the dim-light clause the Italian SRD has.
 - **Releases**: srd51 0.9.0, srd51-it 0.4.0, srd51-creatures-it 0.2.0, phb14-it 0.2.0 (private).
 - **Still open** then: the stat block's name and the confirmation of phb14-it; both settled on 2026-10-06, below.

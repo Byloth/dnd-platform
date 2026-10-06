@@ -12,7 +12,7 @@ The repository root is the current `~/byloth/dnd` folder, which already holds `d
 - **Four workspace packages in Phase 0**, all `private: true`: `@byloth/dnd-platform-engine`, `@byloth/dnd-platform-schema`, `@byloth/dnd-platform-content-srd51`, `@byloth/dnd-platform-cli`. The web application package is added in Phase 1.
 - **Strict dependency direction.** `schema` depends on nothing. `engine` depends on `schema` types only and has zero runtime dependencies. `content-srd51` contains no code. `cli` depends on `engine`, `schema`, a YAML parser and a JSON Schema validator. Nothing depends on `cli`.
 - **Since Phase 1** two more library packages exist: `composer` ([../phase-1/03-sheet-composer.md](../phase-1/03-sheet-composer.md)) and `loader` ([../phase-1/02-content-and-character-stores.md](../phase-1/02-content-and-character-stores.md)), which took `loadPackages`, `validate`, the package-source types and the reading of package files from `engine` and `cli`. The direction is now `schema ← loader ← engine ← composer`, with `cli` and `web` on top; the tree below is the Phase 0 layout.
-- **Private content lives outside `packages/`** in a git-ignored `content-private/` root whose subdirectories are package directories in the exact layout of [02-content-format.md](02-content-format.md). Everything must pass with that directory absent.
+- **Private content lives outside `packages/`** in a git-ignored `private/` root whose subdirectories are package directories in the exact layout of [02-content-format.md](02-content-format.md). Everything must pass with that directory absent.
 - **TypeScript strict, project references, Vitest, ESLint** with the author's `@byloth/eslint-config-*` packages, husky pre-commit and an `.editorconfig`, mirroring the tuemplate and nuxtplate conventions so the Phase 1 application feels native.
 - **Current Node LTS**, pinned in `.nvmrc` and in the root `engines` field.
 
@@ -67,7 +67,7 @@ dnd/                                  # repository root (~/byloth/dnd)
   tools/
     import/                           # SRD import pipeline (05-srd-import-pipeline.md)
       cache/                          # downloaded sources, git-ignored
-  content-private/                    # git-ignored; <package-id>/ directories in the standard layout
+  private/                    # git-ignored; <package-id>/ directories in the standard layout
     phb14/
 ```
 
@@ -95,7 +95,7 @@ Root `package.json` (fragment):
     "test": "vitest run",
     "lint": "eslint .",
     "typecheck": "tsc --build",
-    "validate:content": "pnpm --filter @byloth/dnd-platform-cli exec dnd validate packages/content/srd51 fixtures/packages/* content-private/* --allow-missing",
+    "validate:content": "pnpm --filter @byloth/dnd-platform-cli exec dnd validate packages/content/srd51 fixtures/packages/* private/* --allow-missing",
     "fixtures": "pnpm --filter @byloth/dnd-platform-cli exec dnd fixtures fixtures/characters fixtures/sessions",
     "prepare": "husky"
   }
@@ -138,8 +138,8 @@ The `schema` package's dependency on the engine types is absent by design: the e
 
 - `engine` has an empty `dependencies` object and an ESLint rule forbidding imports of `node:*`, `fs`, `path`, `fetch` and any non-relative module except `@byloth/dnd-platform-schema`.
 - `content-srd51` has no `src/`; a test asserts the directory contains only YAML, `package.json` and `README.md`.
-- `validate:content` runs on every package directory found under `packages/content/`, `fixtures/packages/` and `content-private/`; the `--allow-missing` flag makes an absent `content-private/` a no-op, never a failure.
-- A test fails if any package with `redistributable: false` is found outside `content-private/` ([06-private-packages.md](06-private-packages.md)).
+- `validate:content` runs on every package directory found under `packages/content/`, `fixtures/packages/` and `private/`; the `--allow-missing` flag makes an absent `private/` a no-op, never a failure.
+- A test fails if any package with `redistributable: false` is found outside `private/` ([06-private-packages.md](06-private-packages.md)).
 - The generated types under `packages/schema/src/generated/` are committed; CI regenerates them and fails on a diff, so schema and types cannot drift.
 
 ### `.gitignore`
@@ -148,7 +148,7 @@ The `schema` package's dependency on the engine types is absent by design: the e
 node_modules/
 dist/
 coverage/
-content-private/
+private/
 tools/import/cache/
 /*.pdf
 .env*
@@ -158,7 +158,7 @@ The playbook PDF at the root is not the owner's material and never enters histor
 
 ### Continuous integration
 
-On every pull request and on the default branch, one workflow with these jobs in order: install (frozen lockfile), lint, typecheck, build, test, validate:content, fixtures. Only public content is present in CI; fixtures whose `character.yaml` pins a package that is not loaded are reported as skipped with the package id, never as failed ([04-testing-strategy.md](04-testing-strategy.md)). A second, manual workflow runs the same steps with a `content-private/` restored from a private artifact the owner controls; it is optional and never required for merging.
+On every pull request and on the default branch, one workflow with these jobs in order: install (frozen lockfile), lint, typecheck, build, test, validate:content, fixtures. Only public content is present in CI; fixtures whose `character.yaml` pins a package that is not loaded are reported as skipped with the package id, never as failed ([04-testing-strategy.md](04-testing-strategy.md)). A second, manual workflow runs the same steps with a `private/` restored from a private artifact the owner controls; it is optional and never required for merging.
 
 ### Root files
 
@@ -172,11 +172,11 @@ On every pull request and on the default branch, one workflow with these jobs in
 1. Ask the owner to confirm `git init` in `~/byloth/dnd` and the creation of the public GitHub repository; do nothing in git before that confirmation — M0.1.
 2. Create `.editorconfig`, `.nvmrc`, `.gitignore`, `LICENSE`, `NOTICE`, `README.md`, root `package.json`, `pnpm-workspace.yaml`, `tsconfig.base.json`, `tsconfig.json`, `eslint.config.js`, `vitest.workspace.ts` — M0.1.
 3. Scaffold the four packages with their `package.json`, `tsconfig.json` and an `index.ts` that exports the function skeletons of [03-engine-contract.md](03-engine-contract.md) (engine), an empty schema set (schema), an empty `package.yaml` (content-srd51) and a `--help` command (cli) — M0.1.
-4. Add the ESLint import restriction for `engine`, the "no code in content" test and the "no private package outside `content-private/`" test — M0.1.
+4. Add the ESLint import restriction for `engine`, the "no code in content" test and the "no private package outside `private/`" test — M0.1.
 5. Write the CI workflow with the seven jobs and the skip semantics for private fixtures; make the first push green with an empty test suite — M0.1.
 6. Add the schema generation step (`schema` build → `src/generated/`) and the CI diff check — M0.2.
 7. Add the `validate:content` and `fixtures` root scripts once the CLI commands exist — M0.8.
-8. Write the root `README.md` section "Private content" describing `content-private/` and pointing at [06-private-packages.md](06-private-packages.md) — M0.6.
+8. Write the root `README.md` section "Private content" describing `private/` and pointing at [06-private-packages.md](06-private-packages.md) — M0.6.
 
 ## Open points
 

@@ -36,12 +36,12 @@ describe("repository rules (docs/phase-0/01-monorepo.md)", () =>
         expect(offenders).toEqual([]);
     });
 
-    it("no non-redistributable package lives outside content-private/", () =>
+    it("no non-redistributable package lives outside private/", () =>
     {
         const manifests = walk(ROOT)
             .filter((f) => f.endsWith("/package.yaml"))
             .map((f) => relative(ROOT, f))
-            .filter((f) => !f.startsWith("content-private/"))
+            .filter((f) => !f.startsWith("private/"))
             .filter((f) => !f.startsWith("fixtures/packages/invalid/")); // deliberately broken packages
 
         const isPrivate = (f: string) => /^\s*redistributable:\s*false\s*$/m.test(readFileSync(join(ROOT, f), "utf8"));
@@ -50,12 +50,13 @@ describe("repository rules (docs/phase-0/01-monorepo.md)", () =>
         expect(offenders).toEqual([]);
     });
 
-    it("nothing under content-private/ is tracked by git, except its README", () =>
+    it("nothing under private/ is tracked by git, except the submodule itself", () =>
     {
-        const tracked = execFileSync("git", ["ls-files", "content-private"], { cwd: ROOT, encoding: "utf8" })
+        const tracked = execFileSync("git", ["ls-files", "--stage", "private"], { cwd: ROOT, encoding: "utf8" })
             .split("\n")
-            .filter((line) => line !== "");
+            .filter((line) => line !== "")
+            .map((line) => `${line.split(" ")[0]} ${line.slice(line.indexOf("\t") + 1)}`);
 
-        expect(tracked).toEqual(["content-private/README.md"]);
+        expect(tracked).toEqual(["160000 private"]);
     });
 });

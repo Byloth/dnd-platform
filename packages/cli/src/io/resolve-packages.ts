@@ -3,7 +3,7 @@
  * character (the fixture convention: directories relative to the repository
  * root, `requires`, `selection`) wins; otherwise every package id the
  * character lists is looked up among the packages discovered under
- * `packages/content/` and `content-private/`, plus the directories passed
+ * `packages/content/` and `private/`, plus the directories passed
  * explicitly, which override a discovered package with the same id. With a
  * `language`, the discovered translation packages of that language whose
  * packages are all loaded come too, as the web application adds them

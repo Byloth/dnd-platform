@@ -1,11 +1,11 @@
 /**
  * Scope the transcription of the Player's Handbook (2014) into the private
- * package `content-private/phb14/` (docs/phase-0/06-private-packages.md).
+ * package `private/phb14/` (docs/phase-0/06-private-packages.md).
  *
- * Reads the OCR text of the owned book, `content-private/sources/text/phb14.md`
+ * Reads the OCR text of the owned book, `private/sources/text/phb14.md`
  * (one `<!-- page N -->` marker per PDF page; printed page = PDF page − 1),
  * and writes the work partitions the drafting agents receive into
- * `content-private/work/phb14/` (git-ignored): one record per entity with
+ * `private/work/phb14/` (git-ignored): one record per entity with
  * its fixed id, printed page, line span and raw OCR slice, plus the list of
  * SRD ids that may be referenced, the class spell-list additions and a
  * report of everything that needs a human decision.
@@ -15,7 +15,7 @@
  *
  * Known limit: a span starts at the entity's heading, so text the OCR placed
  * before the heading on the same page (a left column read after the right one)
- * is missed; re-OCR that page with content-private/sources/column-ocr.py.
+ * is missed; re-OCR that page with private/sources/column-ocr.py.
  *
  *   node tools/import/src/phb-scope.ts
  */
@@ -27,8 +27,8 @@ import { stringify } from "yaml";
 
 import { REPO_ROOT } from "./lib.ts";
 
-const SOURCE = resolve(REPO_ROOT, "content-private/sources/text/phb14.md");
-const OUT = resolve(REPO_ROOT, "content-private/work/phb14");
+const SOURCE = resolve(REPO_ROOT, "private/sources/text/phb14.md");
+const OUT = resolve(REPO_ROOT, "private/work/phb14");
 const SRD = resolve(REPO_ROOT, "packages/content/srd51");
 
 if (!existsSync(SOURCE))
@@ -39,7 +39,7 @@ if (!existsSync(SOURCE))
 
 // ---- the text ------------------------------------------------------------------------------
 
-const COLUMNS = resolve(REPO_ROOT, "content-private/sources/text/phb14-columns");
+const COLUMNS = resolve(REPO_ROOT, "private/sources/text/phb14-columns");
 /** Page-level OCR, with the pages re-OCR'd column by column (`column-ocr.py`) swapped in. */
 const lines: string[] = [];
 {

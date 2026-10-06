@@ -6,7 +6,7 @@ This document records a to-do list the owner and the assistant drew up on 2026-0
 
 ## The books
 
-All of them are in `content-private/sources`, with their text extracted (see that folder's README).
+All of them are in `private/sources`, with their text extracted (see that folder's README).
 
 | Book | Id | Italian edition | Notes |
 |---|---|---|---|
@@ -80,7 +80,7 @@ One agent for a whole book does not fit in one context: the Player's Handbook al
 3. **Italian**, after the English, since the translation is keyed by the English package's paths: per packet, one agent translates from the Italian edition (the Italian text first, memory only where something does not add up, as for phb14-it) and one reviews.
 4. **An engine-gap log**: what the format or the engine cannot express yet is written as an add-text reminder and listed in [21](21-engine-gaps.md), for the owner to review.
 
-As pipeline stages of a workflow, not agents spawning agents, so each stage is visible and resumable. Everything stays in `content-private/`: book text is never written outside it.
+As pipeline stages of a workflow, not agents spawning agents, so each stage is visible and resumable. Everything stays in `private/`: book text is never written outside it.
 
 Rough cost: 300–450 Opus agents for all the books with creatures. The pilot gives the real number.
 

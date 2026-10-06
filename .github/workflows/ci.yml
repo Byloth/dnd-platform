@@ -42,5 +42,5 @@ jobs:
       # Median of three runs on the phone preset: accessibility at 100, time to interactive as a regression guard
       # (docs/phase-1/07-testing-accessibility-performance.md). The runner's Chrome is used.
       - run: pnpm web:lighthouse
-      # Public content only: content-private/ never exists here.
+      # Public content only: the private submodule is not checked out, private/ is empty here.
       # Fixtures that require a private package are reported as skipped.

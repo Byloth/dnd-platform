@@ -39,7 +39,7 @@ What neither dataset has (rule sections Open5e left empty, the mounts) is
 written by hand in `tools/import/authored/<directory>/<name>.yaml`, from the
 SRD 5.1 text, and emitted like a generated entity (`authored/creatures/` goes
 to srd51-creatures). The English SRD 5.1 text used to check the package is in
-`content-private/sources/text/srd51.md` (downloaded from Wizards, CC BY 4.0).
+`private/sources/text/srd51.md` (downloaded from Wizards, CC BY 4.0).
 
 `IMPORT_OUT=<dir> node tools/import/src/map.ts` builds a preview instead, in
 `<dir>/srd51` and `<dir>/srd51-creatures`, leaving the packages untouched: then

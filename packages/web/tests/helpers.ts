@@ -20,7 +20,7 @@ import { closeBrowserStorage, DATABASE_NAME } from "@/composables/storage";
 
 export const ROOT = resolve(import.meta.dirname, "..", "..", "..");
 export const FIXTURES = resolve(ROOT, "fixtures", "packages");
-export const PRIVATE = resolve(ROOT, "content-private");
+export const PRIVATE = resolve(ROOT, "private");
 
 function* files(dir: string): Generator<string>
 {

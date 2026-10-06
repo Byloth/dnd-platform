@@ -2,13 +2,13 @@
 
 ## Purpose
 
-DEC-08 requires that copyrighted official content be integrated from the first day, in the same format as everything else, while never being committed to the public repository. This document fixes where private packages live, how the tooling finds and validates them, how the first one (`phb14`, the Player's Handbook 2014) extends the base package, and how the test suite behaves with and without them.
+DEC-08 requires that copyrighted official content be integrated from the first day, in the same format as everything else, while never being committed to the public repository. Since 2026-10-06 the private content is versioned in a private repository of its own, mounted as a submodule (owner). This document fixes where private packages live, how the tooling finds and validates them, how the first one (`phb14`, the Player's Handbook 2014) extends the base package, and how the test suite behaves with and without them.
 
 ## Decisions
 
-- **One directory, git-ignored: `content-private/`.** It sits at the repository root, next to `packages/`, and holds one sub-directory per private package, each with the exact layout of [02-content-format.md](02-content-format.md).
+- **One directory, a private submodule: `private/`.** The private repository `Byloth/dnd-platform-private` is mounted there as a git submodule (until 2026-10-06 it was a git-ignored directory, `content-private/`). It sits at the repository root, next to `packages/`, and holds one sub-directory per private package, each with the exact layout of [02-content-format.md](02-content-format.md).
 - **Technically indistinguishable.** The loader, the validator, the engine and the fixtures treat a private package exactly like a public one. The only differences are the manifest flags and the directory it is read from.
-- **Two mechanical guards, enforced by tests.** A package with `redistributable: false` found outside `content-private/` fails `validate:content`; a file under `content-private/` tracked by git fails the same step.
+- **Two mechanical guards, enforced by tests.** A package with `redistributable: false` found outside `private/` fails `validate:content`; a path under `private/` tracked by the public repository, other than the submodule's own entry, fails the same step.
 - **Transcription by hand, from the owned book, for the group's personal use.** No script in the repository produces private content; no upstream dataset is used for it, because none may contain it.
 - **Attribution is shown, text is never redistributed.** A sheet or PDF built with private content cites the book; the platform never exports the package itself.
 - **Deployment policy is not decided here.** Who may upload or see private packages in a running instance belongs to DEC-04, DEC-12 and DEC-14 in Phase 1 ([../14-accounts-sharing-and-campaigns.md](../14-accounts-sharing-and-campaigns.md)).
@@ -18,7 +18,7 @@ DEC-08 requires that copyrighted official content be integrated from the first d
 ### Layout
 
 ```
-content-private/                # git-ignored
+private/                # submodule: Byloth/dnd-platform-private
   phb14/
     package.yaml
     subclasses/monk/way-of-shadow.yaml
@@ -34,7 +34,7 @@ content-private/                # git-ignored
   tce/                          # later: Tasha's Cauldron of Everything
 ```
 
-`.gitignore` contains `content-private/` and nothing else about it. A `content-private/README.md` is *not* ignored: it is committed and explains the layout, the flags and the guards, so a new contributor knows what goes there without any private file existing.
+The public repository tracks only the submodule's entry (`.gitmodules` and a gitlink); CI does not check it out, so `private/` is empty there and the private fixtures are skipped. The private repository's `README.md` explains the layout, the flags and the guards; its `.gitignore` leaves out the books' PDFs (too large, kept by their owner), the Tesseract model (`sources/fetch-tessdata.sh` downloads it) and what the tooling writes (`build/`, `work/`). Whoever has access clones with `git clone --recurse-submodules`, or runs `git submodule update --init` in an existing clone.
 
 ### Manifest
 
@@ -69,7 +69,7 @@ Lowercase book abbreviation as used by the community, plus the two-digit year on
 The CLI discovers packages from two roots and passes their parsed contents to `loadPackages` in one call:
 
 1. public root: `packages/content/*` (every directory with a `package.yaml`);
-2. private root: `content-private/*` (same rule; absent directory is not an error).
+2. private root: `private/*` (same rule; absent directory is not an error).
 
 Discovery order is irrelevant to the result: `loadPackages` orders the set topologically by dependencies and breaks ties by id, so a run with the private root present differs from a run without it only by the packages that exist. The CLI prints which roots were scanned and which packages were found, with their `visibility`, so a developer sees at a glance whether private content is loaded.
 
@@ -92,14 +92,14 @@ Because everything is additive by reference, a character built on `srd51` alone 
 - Copy from the physical or legally owned digital book; write the text in `text.en`, mechanics in `effects` under the same catalogue as the base package.
 - Record the page in a `page` field of the entity (accepted by the schema for any entity, ignored by the engine) to make review possible.
 - One entity per commit-sized unit of work in the private directory's own history if the group keeps one (a separate private repository is allowed and recommended for backup; it is never a submodule of the public one).
-- No private text in commit messages, issues, fixtures or test names of the public repository. Private fixtures live under `content-private/fixtures/` (sessions under `content-private/fixtures/sessions/`) and are discovered by the same two-root rule.
+- No private text in commit messages, issues, fixtures or test names of the public repository. Private fixtures live under `private/fixtures/` (sessions under `private/fixtures/sessions/`) and are discovered by the same two-root rule.
 
 ### Test behaviour with and without the directory
 
 | Situation | `validate:content` | Golden fixtures | Result |
 |---|---|---|---|
-| CI (no `content-private/`) | Public packages only | Public fixtures run; fixtures declaring `requires: [phb14]` are reported as **skipped** with the missing package id | Green |
-| Developer with `content-private/` | Public and private packages | All fixtures run, including the reference Monk (base + `phb14` + `homebrew.byloth`) | Green, or red on a real problem |
+| CI (no `private/`) | Public packages only | Public fixtures run; fixtures declaring `requires: [phb14]` are reported as **skipped** with the missing package id | Green |
+| Developer with `private/` | Public and private packages | All fixtures run, including the reference Monk (base + `phb14` + `homebrew.byloth`) | Green, or red on a real problem |
 | Private package outside its root | Fails on the redistributable guard | — | Red |
 | Private file tracked by git | Fails on the tracking guard | — | Red |
 
@@ -111,14 +111,14 @@ Every sheet section, feature card and spell card carries its source; the print o
 
 ## Tasks
 
-1. Add `content-private/` to `.gitignore`, commit `content-private/README.md`, and document the two roots in the repository README — M0.1.
+1. Add `private/` to `.gitignore`, commit `private/README.md`, and document the two roots in the repository README — M0.1.
 2. Implement two-root discovery in the CLI with deterministic ordering and a printed summary of scanned roots and found packages — M0.3.
 3. Implement the redistributable guard and the git-tracking guard in `validate:content`, each with a test using a temporary directory — M0.3.
 4. Add `requires: [<package-id>]` to the fixture format and the skipped-with-reason behaviour to the fixture runner — M0.3.
 5. Create the `phb14` manifest and the Way of Shadow subclass as the private-package stub used by M0.2 (the stub is a fixture package under `fixtures/packages/phb14-stub/` with placeholder text and real mechanics; it is committed because it contains no book text) — M0.2.
-6. Obtain the owner's confirmation, then transcribe the real `phb14` starting with Way of Shadow, the Monk-relevant equipment and the reference Monk fixture; verify the fixture passes locally and is skipped in CI — M0.6. **Done (2026-09-21):** confirmation given; the whole book is transcribed (see the progress log of [08-workplan.md](08-workplan.md)); `content-private/fixtures/reference-monk/` is green locally and absent in CI.
+6. Obtain the owner's confirmation, then transcribe the real `phb14` starting with Way of Shadow, the Monk-relevant equipment and the reference Monk fixture; verify the fixture passes locally and is skipped in CI — M0.6. **Done (2026-09-21):** confirmation given; the whole book is transcribed (see the progress log of [08-workplan.md](08-workplan.md)); `private/fixtures/reference-monk/` is green locally and absent in CI.
 7. Continue `phb14` transcription class by class as needed by later fixtures; it is not required to be complete for Phase 0 — M0.6. **Done (2026-09-21):** complete for the Player's Handbook; other books are later milestones.
-8. Write the naming convention and the additive-only rule into `content-private/README.md` — M0.6. **Done (2026-09-21).**
+8. Write the naming convention and the additive-only rule into `private/README.md` — M0.6. **Done (2026-09-21).**
 9. Loader *selection mode* (DEC-20): `loadPackages` accepts an optional selection `{ packages, order, exclude: [{ package, type?, tags?, ids? }] }`, prunes transitively, marks pruned entities inactive, returns a cascade report; unresolved references to excluded entities are diagnostics, not errors. Fixture: a selection excluding the PHB species with a feline-only homebrew, asserting the cascade — M0.6. **Done (2026-09-21):** `packages/engine/src/load/select.ts`, tests in `packages/engine/test/selection.test.ts` (placeholder species and feat added to `fixtures/packages/phb14-stub/`), golden fixture `fixtures/characters/monk-l3-excluded-species/` proving that a character keeps computing on excluded content. A fixture declares its selection in `packages.yaml`:
 
    ```yaml
@@ -127,8 +127,8 @@ Every sheet section, feature card and spell card carries its source; the print o
        - { package: phb14, type: species }
        - { ids: [srd51.spell.darkness] }
    ```
-10. Suite guard for DEC-20: load every Wizards package present (`srd51` plus whatever exists under `content-private/`) with an empty exclusion list and assert an empty cascade report; skipped when no private package is present — M0.6. **Done (2026-09-21):** `packages/cli/test/selection-cascade.test.ts` loads every package `dnd validate` discovers; with no private package it covers the base alone.
-11. Source books for transcription live in `content-private/sources/` (git-ignored with the rest): one PDF per book with a text layer, and `text/<id>.md` with one marker per page for searching; see the README there. Planned private packages beyond `phb14`: `dmg14`, `mm14`, `tce`, `xge`, `mpmm` (Wizards) and `historia` (Mana Project Studio, Italian, a setting: ships a preset selection) — M0.6 onwards, as fixtures need them.
+10. Suite guard for DEC-20: load every Wizards package present (`srd51` plus whatever exists under `private/`) with an empty exclusion list and assert an empty cascade report; skipped when no private package is present — M0.6. **Done (2026-09-21):** `packages/cli/test/selection-cascade.test.ts` loads every package `dnd validate` discovers; with no private package it covers the base alone.
+11. Source books for transcription live in `private/sources/`: one PDF per book with a text layer (never versioned), and `text/<id>.md` (versioned in the private repository, since the original scans are gone and it cannot be rebuilt as it is) with one marker per page for searching; see the README there. Planned private packages beyond `phb14`: `dmg14`, `mm14`, `tce`, `xge`, `mpmm` (Wizards) and `historia` (Mana Project Studio, Italian, a setting: ships a preset selection) — M0.6 onwards, as fixtures need them.
 
 ## Open points
 

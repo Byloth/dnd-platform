@@ -82,7 +82,7 @@ export function runDerive(argv: readonly string[]): number
     const repoRoot = tryRepositoryRoot();
     if (repoRoot === undefined)
     {
-        process.stderr.write("dnd derive: not inside the repository; packages are resolved from packages/content and content-private\n");
+        process.stderr.write("dnd derive: not inside the repository; packages are resolved from packages/content and private\n");
 
         return 2;
     }

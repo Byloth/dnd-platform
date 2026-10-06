@@ -17,7 +17,7 @@ import type { SheetFonts, SheetInput } from "../src/index.js";
 
 const require = createRequire(import.meta.url);
 export const ROOT = resolve(import.meta.dirname, "..", "..", "..");
-export const PRIVATE_MONK = join(ROOT, "content-private", "fixtures", "reference-monk");
+export const PRIVATE_MONK = join(ROOT, "private", "fixtures", "reference-monk");
 
 const font = (file: string): Uint8Array => readFileSync(require.resolve(`@fontsource/${file}`));
 export const FONTS: SheetFonts = {
@@ -30,7 +30,7 @@ export const FONTS: SheetFonts = {
 
 const TRANSLATIONS: Readonly<Record<string, string>> = {
     "packages/content/srd51": "packages/content/srd51-it",
-    "content-private/phb14": "content-private/phb14-it",
+    "private/phb14": "private/phb14-it",
     "fixtures/packages/homebrew-feline": "fixtures/packages/homebrew-feline-it"
 };
 

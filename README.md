@@ -25,7 +25,7 @@ pnpm typecheck
 pnpm build
 pnpm test
 pnpm validate:content        # validate every content package directory against the schemas
-pnpm build:content           # write the canonical JSON bundle of every package (build/content/, content-private/build/)
+pnpm build:content           # write the canonical JSON bundle of every package (build/content/, private/build/)
 pnpm fixtures                # run the golden characters, the play sessions and the readable sheets (--update after review)
 pnpm generate:types          # regenerate packages/schema/src/generated from the JSON Schemas
 pnpm web:prepare-content     # copy the SRD bundle and the sample character into the site (git-ignored)
@@ -41,19 +41,18 @@ Content format: `docs/phase-0/02-content-format.md`; schemas in `packages/schema
 
 `dnd` is the command of `packages/cli` (`node packages/cli/dist/index.js` after `pnpm build`; `pnpm exec dnd` inside the workspace). Every command exits with 0 on success, 1 on a failure it reports, 2 on a usage error.
 
-- **`dnd validate [dirs…] [--all] [--references] [--allow-missing] [--json]`** validates package directories against the schemas and the structural rules. Without directories (or with `--all`) it discovers every package under `packages/content/` and `content-private/`. `--references` also loads the packages into the engine and resolves every reference. Example: `dnd validate --references fixtures/packages/homebrew-feline`.
-- **`dnd build [dirs…] [--out <dir>] [--json]`** writes one canonical JSON bundle per package: the engine's `PackageSource` (manifest, ruleset, entities sorted by type and id, sorted keys), which `loadPackages` accepts as it is. Redistributable packages land in `build/content/<id>.json`, a non-redistributable one in `content-private/build/<id>.json` and never elsewhere.
+- **`dnd validate [dirs…] [--all] [--references] [--allow-missing] [--json]`** validates package directories against the schemas and the structural rules. Without directories (or with `--all`) it discovers every package under `packages/content/` and `private/`. `--references` also loads the packages into the engine and resolves every reference. Example: `dnd validate --references fixtures/packages/homebrew-feline`.
+- **`dnd build [dirs…] [--out <dir>] [--json]`** writes one canonical JSON bundle per package: the engine's `PackageSource` (manifest, ruleset, entities sorted by type and id, sorted keys), which `loadPackages` accepts as it is. Redistributable packages land in `build/content/<id>.json`, a non-redistributable one in `private/build/<id>.json` and never elsewhere.
 - **`dnd derive <character.yaml> [--json | --text] [--package <dir>]… [--explain <path>] [--language <code>] [--no-color] [--width <n>]`** computes a character's sheet. Packages come from a `packages.yaml` next to the character (as in the fixtures) or, without one, from the content roots by id plus any `--package`. `--text` (the default) prints the readable sheet: every section of the dynamic sheet, the core numbers with their provenance, abilities, skills, attacks, actions, resources, spells, features, equipment, credits and warnings; colour only on a terminal. `--json` prints the canonical sheet, byte for byte a fixture's `snapshot.json`. `--explain ac` prints every contribution to one value, inactive ones included. Example: `dnd derive fixtures/characters/monk-l3-base/character.yaml`.
-- **`dnd fixtures [dirs…] [--update] [--filter <name>] [--coverage] [--json]`** runs the golden characters (`fixtures/characters/`: `expected.yaml`, `snapshot.json` and, when present, the readable `sheet.txt`) and the play sessions (`fixtures/sessions/`), plus the private ones under `content-private/fixtures/` when they exist. `--update` rewrites snapshots and sheets after review; `--coverage` reports which base-package entities no fixture touches.
+- **`dnd fixtures [dirs…] [--update] [--filter <name>] [--coverage] [--json]`** runs the golden characters (`fixtures/characters/`: `expected.yaml`, `snapshot.json` and, when present, the readable `sheet.txt`) and the play sessions (`fixtures/sessions/`), plus the private ones under `private/fixtures/` when they exist. `--update` rewrites snapshots and sheets after review; `--coverage` reports which base-package entities no fixture touches.
 
 ### Private content
 
-Official books are copyrighted and never committed. They are transcribed by hand into private packages under
-`content-private/`, a git-ignored directory with the same package format as `packages/content/`. The tooling
-scans both roots (`dnd validate` prints what it found), private fixtures under `content-private/fixtures/` are
-skipped when the directory is absent, and two guards (`E_PRIVATE_OUTSIDE_ROOT`, `E_PRIVATE_TRACKED`) plus the
-pre-commit hook make sure nothing private leaves the machine. See
-[`content-private/README.md`](content-private/README.md) and
+Official books are copyrighted and never committed to this repository. They are transcribed by hand into private packages under
+`private/`, a git submodule pointing to a private repository (`Byloth/dnd-platform-private`), with the same package format as `packages/content/`. The tooling
+scans both roots (`dnd validate` prints what it found), private fixtures under `private/fixtures/` are
+skipped when the submodule is not checked out (as in CI), and two guards (`E_PRIVATE_OUTSIDE_ROOT`, `E_PRIVATE_TRACKED`) plus the
+pre-commit hook make sure nothing private enters the public repository. See
 [`docs/phase-0/06-private-packages.md`](docs/phase-0/06-private-packages.md).
 
 ## Licence

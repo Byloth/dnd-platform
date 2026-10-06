@@ -15,4 +15,4 @@ sources:
     publisher: "Wizards of the Coast"
     edition: "2014"
     license: all-rights-reserved
-    attribution: "Structure only; texts are placeholders. The real package lives in content-private/."
+    attribution: "Structure only; texts are placeholders. The real package lives in private/."

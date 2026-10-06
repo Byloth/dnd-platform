@@ -1,7 +1,7 @@
 /**
  * `dnd build`: a bundle is the package's `PackageSource` in canonical JSON, so
  * loading it back gives every fixture character the same sheet as the YAML
- * directory does; non-redistributable packages never leave content-private/.
+ * directory does; non-redistributable packages never leave private/.
  */
 
 import { cpSync, existsSync, mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
@@ -68,7 +68,7 @@ describe("dnd build", () =>
         expect(keys).toEqual(sorted);
     });
 
-    it("refuses a bundle of a non-redistributable package outside content-private/", () =>
+    it("refuses a bundle of a non-redistributable package outside private/", () =>
     {
         // The public stub is redistributable by necessity; a copy marked private stands in for a real book.
         const dir = join(out, "private-stub");
@@ -83,7 +83,7 @@ describe("dnd build", () =>
         expect(existsSync(join(out, "phb14.json"))).toBe(false);
         const allowed = buildPackages({ dirs: [dir], repoRoot: ROOT, write: false });
         expect(allowed.ok).toBe(true);
-        expect(allowed.bundles[0]?.path).toBe(resolve(ROOT, "content-private", "build", "phb14.json"));
+        expect(allowed.bundles[0]?.path).toBe(resolve(ROOT, "private", "build", "phb14.json"));
     });
 
     it("reports a package read twice instead of overwriting its bundle", () =>

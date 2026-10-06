@@ -8,7 +8,7 @@ It contains the structure of the Way of Shadow subclass only, and every text
 is a placeholder written for this project. Nothing from the book is
 reproduced, which is why the manifest says `redistributable: true` while
 `visibility: private` exercises the visibility handling. The real package,
-transcribed for personal use, lives in `content-private/phb14/` and is never
+transcribed for personal use, lives in `private/phb14/` and is never
 committed (see `docs/phase-0/06-private-packages.md`).
 
 The placeholder species `phb14.species.placeholder-kin` (with a subspecies) and the feat

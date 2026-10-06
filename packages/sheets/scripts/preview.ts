@@ -3,7 +3,7 @@
  *
  *   pnpm --filter @byloth/dnd-platform-sheets build && node packages/sheets/scripts/preview.ts <out dir> [hand…]
  *
- * The private reference Monk is included when content-private is present.
+ * The private reference Monk is included when private is present.
  */
 
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
@@ -42,7 +42,7 @@ function fonts(hand: Hand): SheetFonts
 
 const TRANSLATIONS: Record<string, string> = {
     "packages/content/srd51": "packages/content/srd51-it",
-    "content-private/phb14": "content-private/phb14-it",
+    "private/phb14": "private/phb14-it",
     "fixtures/packages/homebrew-feline": "fixtures/packages/homebrew-feline-it"
 };
 
@@ -88,9 +88,9 @@ const jobs: { name: string, dir?: string, language: string, pageSize: PageSize }
     { name: "blank-en-letter", language: "en", pageSize: "letter" },
     { name: "blank-it", language: "it", pageSize: "a4" }
 ];
-if (existsSync(resolve(ROOT, "content-private/fixtures/reference-monk")))
+if (existsSync(resolve(ROOT, "private/fixtures/reference-monk")))
 {
-    jobs.push({ name: "reference-monk-it", dir: "content-private/fixtures/reference-monk", language: "it", pageSize: "a4" });
+    jobs.push({ name: "reference-monk-it", dir: "private/fixtures/reference-monk", language: "it", pageSize: "a4" });
 }
 
 const pdfs: string[] = [];

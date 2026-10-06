@@ -20,7 +20,7 @@ dist/
 coverage/
 *.tsbuildinfo
 
-# Canonical JSON bundles written by `dnd build` (the private ones land under content-private/build/)
+# Canonical JSON bundles written by `dnd build` (the private ones land under private/build/, ignored by the private repository)
 #
 /build/
 
@@ -39,11 +39,6 @@ coverage/
 # Log files
 #
 *.log
-
-# Copyrighted content: same package format, never committed (only its README is tracked)
-#
-/content-private/*
-!/content-private/README.md
 
 # Downloaded upstream datasets of the SRD import pipeline
 #

@@ -11,10 +11,8 @@ import { parse } from "yaml";
 
 /** Public packages, committed. */
 export const PUBLIC_ROOT = "packages/content";
-/** Private packages, git-ignored; absent in CI. */
-export const PRIVATE_ROOT = "content-private";
-/** The only paths under the private root that git may track. */
-export const PRIVATE_TRACKED_ALLOWED: readonly string[] = [`${PRIVATE_ROOT}/README.md`];
+/** Private packages: the private repository's submodule, empty in CI. */
+export const PRIVATE_ROOT = "private";
 
 /** Walk up from `from` to the directory holding `pnpm-workspace.yaml`. */
 export function findRepositoryRoot(from: string = process.cwd()): string
@@ -95,7 +93,7 @@ export function discoverPackages(repoRoot: string): DiscoveredPackage[]
     return found;
 }
 
-/** Whether `directory` lies under `<repoRoot>/content-private/`. */
+/** Whether `directory` lies under `<repoRoot>/private/`. */
 export function isUnderPrivateRoot(repoRoot: string, directory: string): boolean
 {
     const rel = relative(resolve(repoRoot, PRIVATE_ROOT), resolve(directory));
@@ -104,21 +102,23 @@ export function isUnderPrivateRoot(repoRoot: string, directory: string): boolean
 }
 
 /**
- * Paths under `content-private/` that git tracks and that are not allowed to
- * be tracked. Empty outside a git repository.
+ * Paths under `private/` that git tracks and that are not allowed to be
+ * tracked: everything but the submodule itself (a gitlink, mode 160000).
+ * Empty outside a git repository.
  */
 export function trackedPrivateFiles(repoRoot: string): string[]
 {
     let output: string;
     try
     {
-        output = execFileSync("git", ["ls-files", "--", PRIVATE_ROOT], { cwd: repoRoot, encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] });
+        output = execFileSync("git", ["ls-files", "--stage", "--", PRIVATE_ROOT], { cwd: repoRoot, encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] });
     }
     catch { return []; }
 
     return output
         .split("\n")
-        .map((line) => line.trim())
-        .filter((line) => line !== "")
-        .filter((line) => !PRIVATE_TRACKED_ALLOWED.includes(line));
+        .filter((line) => line.trim() !== "")
+        .map((line) => ({ mode: line.split(" ")[0], path: line.slice(line.indexOf("\t") + 1) }))
+        .filter(({ mode, path }) => !((mode === "160000") && (path === PRIVATE_ROOT)))
+        .map(({ path }) => path);
 }

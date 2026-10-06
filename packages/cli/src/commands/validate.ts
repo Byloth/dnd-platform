@@ -3,9 +3,9 @@
  *
  * Schema conformance of content package directories plus the cheap
  * structural checks of docs/phase-0/02-content-format.md, and the two guards
- * of docs/phase-0/06-private-packages.md around `content-private/`.
+ * of docs/phase-0/06-private-packages.md around `private/`.
  * With no directory, or with `--all`, the two package roots
- * (`packages/content/*`, `content-private/*`) are discovered. With
+ * (`packages/content/*`, `private/*`) are discovered. With
  * `--references` the packages are also loaded into the engine next to the
  * base package and every cross-entity reference must resolve.
  */
@@ -124,7 +124,7 @@ export function validatePackages(dirs: readonly string[], options: ValidateOptio
                 package: PRIVATE_ROOT,
                 file: file,
                 path: "/",
-                message: "tracked by git; nothing under content-private/ may be committed"
+                message: "tracked by git; nothing under private/ may be committed"
             });
         }
     }

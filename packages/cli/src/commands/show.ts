@@ -4,7 +4,7 @@
  * Prints one entity for review, as the composer writes it: a creature's stat block (DEC-24), or a spell, an item or
  * a condition as the compendium shows it (docs/phase-1/13-compendium.md). The Italian with `--language it`,
  * distances and weights in metric units with `--units metric`. The entity's package and its
- * dependencies are found among packages/content and content-private, plus the translations of the language.
+ * dependencies are found among packages/content and private, plus the translations of the language.
  */
 
 import { resolve } from "node:path";

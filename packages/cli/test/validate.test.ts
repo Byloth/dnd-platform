@@ -162,7 +162,7 @@ describe("private-root guards (docs/phase-0/06-private-packages.md)", () =>
 
     it("ignores a private root without packages and a missing one", () =>
     {
-        const withSources = temporaryRepository({ "content-private/sources/notes.txt": "x\n" });
+        const withSources = temporaryRepository({ "private/sources/notes.txt": "x\n" });
         const without = temporaryRepository({});
 
         expect(discoverPackages(withSources)).toEqual([]);
@@ -171,45 +171,46 @@ describe("private-root guards (docs/phase-0/06-private-packages.md)", () =>
 
     it("tells private-root directories apart", () =>
     {
-        expect(isUnderPrivateRoot(ROOT, join(ROOT, "content-private/phb14"))).toBe(true);
-        expect(isUnderPrivateRoot(ROOT, join(ROOT, "content-private"))).toBe(false);
+        expect(isUnderPrivateRoot(ROOT, join(ROOT, "private/phb14"))).toBe(true);
+        expect(isUnderPrivateRoot(ROOT, join(ROOT, "private"))).toBe(false);
         expect(isUnderPrivateRoot(ROOT, join(ROOT, "packages/content/srd51"))).toBe(false);
-        expect(isUnderPrivateRoot(ROOT, join(ROOT, "content-private-not/x"))).toBe(false);
+        expect(isUnderPrivateRoot(ROOT, join(ROOT, "private-not/x"))).toBe(false);
     });
 
-    it("flags a non-redistributable package outside content-private/", () =>
+    it("flags a non-redistributable package outside private/", () =>
     {
         const root = temporaryRepository({
             "packages/content/leak/package.yaml": PRIVATE_MANIFEST,
-            "content-private/leak/package.yaml": PRIVATE_MANIFEST
+            "private/leak/package.yaml": PRIVATE_MANIFEST
         });
 
         const outside = validatePackages([join(root, "packages/content/leak")], { repoRoot: root }).map((d) => d.code);
-        const inside = validatePackages([join(root, "content-private/leak")], { repoRoot: root }).map((d) => d.code);
+        const inside = validatePackages([join(root, "private/leak")], { repoRoot: root }).map((d) => d.code);
 
         expect(outside).toContain("E_PRIVATE_OUTSIDE_ROOT");
         expect(inside).toEqual([]);
     });
 
-    it("flags tracked files under content-private/ except its README", () =>
+    it("flags tracked files under private/, the submodule's own entry aside", () =>
     {
         const root = temporaryRepository(
             {
-                "content-private/README.md": "# private\n",
-                "content-private/leak/package.yaml": PRIVATE_MANIFEST
+                "private/README.md": "# private\n",
+                "private/leak/package.yaml": PRIVATE_MANIFEST
             },
-            ["content-private/README.md", "content-private/leak/package.yaml"]
+            ["private/README.md", "private/leak/package.yaml"]
         );
 
-        expect(trackedPrivateFiles(root)).toEqual(["content-private/leak/package.yaml"]);
+        expect(trackedPrivateFiles(root)).toEqual(["private/README.md", "private/leak/package.yaml"]);
         expect(validatePackages([], { repoRoot: root }).map((d) => `${d.code} ${d.file}`))
-            .toEqual(["E_PRIVATE_TRACKED content-private/leak/package.yaml"]);
+            .toEqual(["E_PRIVATE_TRACKED private/README.md", "E_PRIVATE_TRACKED private/leak/package.yaml"]);
     });
 
-    it("is quiet when only the README is tracked, and outside a git repository", () =>
+    it("is quiet when only the submodule is tracked, and outside a git repository", () =>
     {
-        const readme = "content-private/README.md";
-        const tracked = temporaryRepository({ [readme]: "# private\n" }, [readme]);
+        const tracked = temporaryRepository({ "README.md": "# public\n" }, ["README.md"]);
+        const commit = "0123456789abcdef0123456789abcdef01234567";
+        execFileSync("git", ["update-index", "--add", "--cacheinfo", `160000,${commit},private`], { cwd: tracked });
         const plain = temporaryRepository({});
 
         expect(trackedPrivateFiles(tracked)).toEqual([]);

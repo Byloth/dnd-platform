@@ -24,7 +24,7 @@ Fixed requirement from the project owner: **everything is deterministic and test
 
 ## Deliverables
 
-1. **Monorepo** with workspace packages `engine`, `schema`, `content` (base package SRD 5.1), `cli`, and a git-ignored `content-private/` root — [01-monorepo.md](01-monorepo.md).
+1. **Monorepo** with workspace packages `engine`, `schema`, `content` (base package SRD 5.1), `cli`, and a git-ignored `private/` root — [01-monorepo.md](01-monorepo.md).
 2. **Content format v0**: package manifest, entity files, effect catalogue, condition language, localisation, references, all as JSON Schema with YAML examples — [02-content-format.md](02-content-format.md).
 3. **Engine contract**: `loadPackages`, `validate`, `derive`, `apply`, with the provenance and error models — [03-engine-contract.md](03-engine-contract.md).
 4. **Testing strategy** and the first golden fixtures — [04-testing-strategy.md](04-testing-strategy.md).
@@ -37,12 +37,12 @@ Fixed requirement from the project owner: **everything is deterministic and test
 
 | Id | Milestone | Done when |
 |---|---|---|
-| M0.1 | Repository and monorepo scaffold | Public repository exists, workspaces build, lint, typecheck and run an empty test suite; `content-private/` is git-ignored and documented. |
+| M0.1 | Repository and monorepo scaffold | Public repository exists, workspaces build, lint, typecheck and run an empty test suite; `private/` is git-ignored and documented. |
 | M0.2 | Inventory and content format v0 | **(A) Inventory:** the whole SRD 5.1 is inventoried in `docs/phase-0/inventory/` from the pinned upstream datasets; every class, subclass, species, background and feat feature, every spell and every magic item is classified against the effect catalogue; `inventory/README.md` records the catalogue revisions the evidence requires. **(B) Format:** JSON Schemas published from the `schema` package with the revised catalogue; three hand-written example packages (a base excerpt with one class, one species, ten spells; a homebrew species; a private-package stub) validate. |
 | M0.3 | Engine core | `derive` computes ability modifiers, proficiency, saves, skills, AC, HP, speed, senses with provenance for the example packages; golden fixtures pass. |
 | M0.4 | Effect catalogue complete for the SRD | Every SRD 5.1 class, subclass, species, background and feat feature is expressible; `validate` rejects anything outside the catalogue. |
 | M0.5 | Base package complete | The whole SRD 5.1 is in `content`, validated, with attribution; one golden fixture per class at levels 1, 5, 11 and 20 passes. |
-| M0.6 | Private and homebrew paths proven | A Player's Handbook package in `content-private/` extends the base Monk with Way of Shadow; a homebrew feline species package exists; the reference Monk fixture computes correctly from base + private + homebrew, and the test suite passes with `content-private/` absent. |
+| M0.6 | Private and homebrew paths proven | A Player's Handbook package in `private/` extends the base Monk with Way of Shadow; a homebrew feline species package exists; the reference Monk fixture computes correctly from base + private + homebrew, and the test suite passes with `private/` absent. |
 | M0.7 | Play engine core | `apply` handles damage, healing, temporary HP, resource spend/restore, rests with automatic recovery, conditions, death saves, with log and undo; session fixtures pass. |
 | M0.8 | CLI | `validate`, `build` (YAML → canonical JSON), `derive` (character → sheet as JSON and as a readable text dump), `fixtures` (run golden fixtures) work from the command line. |
 
@@ -53,7 +53,7 @@ Phase 0 is done when M0.1–M0.8 are done and the done criteria of Phase 0 in [.
 | Criterion ([../16-roadmap.md](../16-roadmap.md)) | Evidence | Result |
 |---|---|---|
 | Every SRD class, subclass, species, background, feat, spell, item and condition is in the base package and passes validation | `pnpm validate:content` (1106 entities, no diagnostics); `pnpm fixtures --coverage` writes `fixtures/coverage.md` with 100 % of classes, subclasses, species, backgrounds, feats and conditions reached by a fixture | Holds |
-| The reference Monk's computed sheet matches hand-computed values (AC, HP, Ki, attacks, saves, skills) with correct provenance, including contributions from the private package | `content-private/fixtures/reference-monk/expected.yaml` (hand-computed, provenance asserted per value) passes locally with base + `phb14` + `homebrew.byloth`; skipped in CI where the book is absent | Holds (verified locally on 2026-09-22) |
+| The reference Monk's computed sheet matches hand-computed values (AC, HP, Ki, attacks, saves, skills) with correct provenance, including contributions from the private package | `private/fixtures/reference-monk/expected.yaml` (hand-computed, provenance asserted per value) passes locally with base + `phb14` + `homebrew.byloth`; skipped in CI where the book is absent | Holds (verified locally on 2026-09-22) |
 | A second character of every SRD class computes without warnings | `packages/cli/test/phase-0-criteria.test.ts`: at least two public fixtures per class with an empty `warnings` list. The check found choices opening before their level gate (Expertise 6/10, Favored Enemy 2/3, Natural Explorer 2/3), fixed in the engine at M0.8 | Holds |
 | Adding the homebrew species and the private Player's Handbook package required no engine change | M0.6 history: `homebrew.byloth` (feline species with subspecies, bruised-lung condition) and `phb14` (28 subclasses, subraces, backgrounds, feats, spells, list patches) loaded on the M0.5 engine; the only engine change of M0.6 was the DEC-20 content selection, a feature planned for campaigns, not a fix for either package | Holds |
 
