@@ -5,10 +5,11 @@
     import AppButton from "@/components/ui/AppButton.vue";
     import FilePicker from "@/components/ui/FilePicker.vue";
     import FontAwesome from "@/components/ui/FontAwesome.vue";
+    import WorkingDirectoryPanel from "@/components/packages/WorkingDirectoryPanel.vue";
     import type { PackageEntry } from "@/stores/content";
 
     // The packages page (docs/phase-1/02-content-and-character-stores.md): what the site ships, what the user
-    // loaded, loading more from files, removing, and the state of the browser's storage.
+    // loaded, loading more from files, removing, the state of the browser's storage and the working folder (M1.8).
 
     const { t, locale } = useI18n();
     const store = useContentStore();
@@ -342,6 +343,13 @@
                     {{ t("packages.storage.safari") }}
                 </p>
             </div>
+        </section>
+
+        <section class="packages-page__section" aria-labelledby="packages-folder-heading">
+            <h2 id="packages-folder-heading" class="packages-page__subtitle">
+                {{ t("workingDirectory.heading") }}
+            </h2>
+            <WorkingDirectoryPanel />
         </section>
     </div>
 </template>

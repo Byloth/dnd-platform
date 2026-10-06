@@ -83,10 +83,10 @@
     "storage": {
       "heading": "Spazio su questo dispositivo",
       "persisted": "Questo browser conserva i tuoi pacchetti e personaggi.",
-      "notPersisted": "Questo browser potrebbe cancellare i tuoi pacchetti e personaggi quando resta con poco spazio.",
-      "unknown": "Questo browser non dice se conserva i tuoi pacchetti e personaggi.",
+      "notPersisted": "Questo browser potrebbe cancellare i tuoi pacchetti e personaggi quando resta con poco spazio: esporta i tuoi personaggi, o collega una cartella di lavoro qui sotto.",
+      "unknown": "Questo browser non dice se conserva i tuoi pacchetti e personaggi: per sicurezza esporta i tuoi personaggi, o collega una cartella di lavoro qui sotto.",
       "usage": "In uso {used} dei {quota} disponibili.",
-      "safari": "Safari cancella i dati dei siti che non apri da qualche settimana. Conserva i file dei tuoi pacchetti; l'esportazione dei personaggi su file arriverà con una prossima versione."
+      "safari": "Safari cancella i dati dei siti che non apri da qualche settimana. Conserva i file dei tuoi pacchetti ed esporta ogni tanto i tuoi personaggi."
     },
     "languages": {
       "en": "inglese",
@@ -132,7 +132,9 @@
       "embedHint": "I pacchetti homebrew che usa questo personaggio, così l'altro dispositivo non deve caricarli prima.",
       "confirm": "Scarica",
       "cancel": "Chiudi",
-      "button": "Esporta {name}"
+      "button": "Esporta {name}",
+      "toFolder": "Salvalo nella cartella {name} invece di scaricarlo",
+      "save": "Salva"
     },
     "import": {
       "heading": "Importa un personaggio",
@@ -843,5 +845,38 @@
     "earlier": "Versioni precedenti",
     "missing": "Questo pacchetto non pubblica un elenco di modifiche.",
     "back": "Indietro"
+  },
+  "workingDirectory": {
+    "heading": "Cartella di lavoro",
+    "intro": "Collega una cartella del tuo computer e il sito ci tiene una copia dei tuoi personaggi e dei tuoi pacchetti, come file da aprire, salvare altrove o portare con te. La copia principale resta nel browser.",
+    "unsupported": "Questo browser non può usare una cartella del tuo computer: Chrome o Edge su computer sì.",
+    "connect": "Scegli una cartella",
+    "connected": "Collegato alla cartella {name}.",
+    "lastSync": "Ultimo controllo: {time}.",
+    "reload": "Rileggi la cartella",
+    "reloadHint": "Dopo aver modificato tu dei file nella cartella.",
+    "disconnect": "Scollega",
+    "disconnected": "I file restano nella cartella; il sito smette di scriverci.",
+    "needsPermission": "La cartella {name} non è collegata in questa visita: il browser lo chiede ogni volta.",
+    "reconnect": "Ricollega {name}",
+    "syncing": "Controllo della cartella…",
+    "failure": "Non è stato possibile scrivere nella cartella: {message}. In ogni caso tutto è salvato in questo browser.",
+    "report": {
+      "heading": "Che cosa è cambiato",
+      "nothing": "Niente da cambiare: la cartella e questo browser coincidono.",
+      "imported": "{name}: nuovo nella cartella, ora anche qui.",
+      "updatedHere": "{name}: modificato nella cartella, aggiornato qui.",
+      "updatedFolder": "{name}: modificato qui, aggiornato nella cartella.",
+      "written": "{name}: copiato nella cartella.",
+      "removedFolder": "{name}: eliminato qui, tolto dalla cartella.",
+      "refused": "{name}: non si legge, lasciato com'è."
+    },
+    "readme": {
+      "root": "Questa cartella è collegata a D&D Platform (dnd-platform). Il sito ci tiene una copia di quello che hai nel browser:\n\n- characters/ un file per personaggio;\n- exports/ i file dei personaggi che salvi qui;\n- packages/ i pacchetti che hai caricato tu, una cartella ciascuno.\n\nPer smettere, scegli Scollega nella pagina Pacchetti del sito: i file restano qui. Non condividere i pacchetti dei manuali che possiedi: sono per uso personale.",
+      "characters": "Un file per personaggio (YAML), lo stesso documento che tiene il sito. Puoi modificarlo e scegliere \"Rileggi la cartella\" nella pagina Pacchetti: vince la versione più recente.",
+      "exports": "I file dei personaggi salvati qui invece che scaricati. Aprili su un altro dispositivo dalla pagina Personaggi.",
+      "packages": "Una cartella per ogni pacchetto che hai caricato, nel formato di dnd-platform. Modificane i file e scegli \"Rileggi la cartella\" nella pagina Pacchetti per caricarli; un pacchetto che non supera i controlli resta com'è e viene segnalato."
+    },
+    "notice": "La cartella {name} non è collegata in questa visita."
   }
 }

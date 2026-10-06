@@ -5,6 +5,7 @@ import {
     compareVersions,
     filesOfSource,
     parseBundle,
+    readPackageFilesAsync,
     readPackageZipAsync,
     toBundle,
     toPackageSource
@@ -113,30 +114,51 @@ async function _dependencies(source: PackageSource, stored: readonly StoredPacka
     return [...needed.values()];
 }
 
+/** Where checked files come from: a file the user picked, or a directory of the working directory (M1.8). */
+interface LoadOrigin
+{
+    readonly origin: "file" | "directory";
+    /** The picked file's name, or the directory's path in the working directory. */
+    readonly fileName: string;
+    /** The bundle a `.json` file already was. */
+    readonly bundled?: PackageSource;
+}
+
 async function _load(file: PackageFile): Promise<LoadedPackage>
 {
-    const name = file.name.replace(/\.(zip|json)$/i, "");
     const { files, source: bundled } = await _read(file);
 
-    const diagnostics = await checkPackageAsync(files, name, await _validator(), _PAUSE);
-    if (diagnostics.some((d) => d.severity === "error")) { throw new PackageRefusedException(file.name, diagnostics); }
+    return _check(files, { origin: "file", fileName: file.name, ...(bundled ? { bundled: bundled } : {}) });
+}
 
-    const source = bundled ?? toPackageSource(files, file.name);
+async function _check(files: PackageFiles, from: LoadOrigin): Promise<LoadedPackage>
+{
+    const name = from.fileName.replace(/\.(zip|json)$/i, "").replace(/^.*\//, "");
+
+    const diagnostics = await checkPackageAsync(files, name, await _validator(), _PAUSE);
+    if (diagnostics.some((d) => d.severity === "error"))
+    {
+        throw new PackageRefusedException(from.fileName, diagnostics);
+    }
+
+    const source = from.bundled ?? toPackageSource(files, from.fileName);
     const storage = useBrowserStorage();
 
     // Only what concerns the new package: its own references, and set-wide errors (no base, a missing dependency).
     const references = checkReferences([...(await _dependencies(source, await storage.packages.list())), source])
         .filter((d) => d.package === source.manifest.id || d.package === "");
     const all = [...diagnostics, ...references];
-    if (references.some((d) => d.severity === "error")) { throw new PackageRefusedException(file.name, all); }
+    if (references.some((d) => d.severity === "error")) { throw new PackageRefusedException(from.fileName, all); }
 
     const record: StoredPackage = {
         source: toBundle(source),
         loadedAt: new Date().toISOString(),
-        origin: "file",
-        fileName: file.name
+        origin: from.origin,
+        fileName: from.fileName
     };
-    await storage.packages.put(record);
+    // What comes from the working directory is already there: only the browser's store takes it.
+    const options = { mirror: from.origin !== "directory" };
+    await storage.packages.put(record, options);
 
     // One version per package (DEC-21): characters follow the newest, and are told what it changed.
     const { id, version } = source.manifest;
@@ -144,7 +166,7 @@ async function _load(file: PackageFile): Promise<LoadedPackage>
     {
         if ((other.manifest.id === id) && (other.manifest.version !== version))
         {
-            await storage.packages.remove(id, other.manifest.version);
+            await storage.packages.remove(id, other.manifest.version, options);
         }
     }
 
@@ -156,5 +178,17 @@ export function usePackageLoader()
     /** Loads one file (`.zip` of a package directory, or a `.json` bundle); loads never overlap. */
     const load = (file: PackageFile): Promise<LoadedPackage> => _queue.enqueue(() => _load(file));
 
-    return { load };
+    /**
+     * Loads a package directory of the working directory (M1.8): its files' texts by path relative to the
+     * package's root, `name` its path in the working directory.
+     */
+    const loadDirectory = (name: string, texts: ReadonlyMap<string, string>): Promise<LoadedPackage> =>
+        _queue.enqueue(async () =>
+        {
+            const files = await readPackageFilesAsync(texts.keys(), (path) => texts.get(path)!, _PAUSE);
+
+            return _check(files, { origin: "directory", fileName: name });
+        });
+
+    return { load, loadDirectory };
 }

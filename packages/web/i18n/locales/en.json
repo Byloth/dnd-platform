@@ -83,10 +83,10 @@
     "storage": {
       "heading": "Storage on this device",
       "persisted": "This browser keeps your packages and characters.",
-      "notPersisted": "This browser may delete your packages and characters when it runs short of space.",
-      "unknown": "This browser does not say whether it keeps your packages and characters.",
+      "notPersisted": "This browser may delete your packages and characters when it runs short of space: export your characters, or connect a working folder below.",
+      "unknown": "This browser does not say whether it keeps your packages and characters: export your characters to be safe, or connect a working folder below.",
       "usage": "Using {used} of the {quota} available.",
-      "safari": "Safari deletes the data of sites you have not opened for a few weeks. Keep the files of your packages; exporting characters to a file comes with a next version."
+      "safari": "Safari deletes the data of sites you have not opened for a few weeks. Keep the files of your packages and export your characters now and then."
     },
     "languages": {
       "en": "English",
@@ -132,7 +132,9 @@
       "embedHint": "The homebrew packages this character uses, so the other device does not need them first.",
       "confirm": "Download",
       "cancel": "Close",
-      "button": "Export {name}"
+      "button": "Export {name}",
+      "toFolder": "Save it in the folder {name} instead of downloading it",
+      "save": "Save"
     },
     "import": {
       "heading": "Import a character",
@@ -843,5 +845,38 @@
     "earlier": "Earlier versions",
     "missing": "This package publishes no list of changes.",
     "back": "Back"
+  },
+  "workingDirectory": {
+    "heading": "Working folder",
+    "intro": "Connect a folder of your computer and the site keeps a copy of your characters and of your own packages in it, as files you can open, back up or carry elsewhere. Your browser stays the main copy.",
+    "unsupported": "This browser cannot use a folder of your computer: Chrome or Edge on a computer can.",
+    "connect": "Choose a folder",
+    "connected": "Connected to the folder {name}.",
+    "lastSync": "Last checked {time}.",
+    "reload": "Read the folder again",
+    "reloadHint": "After changing files in the folder yourself.",
+    "disconnect": "Disconnect",
+    "disconnected": "The files stay in the folder; the site stops writing there.",
+    "needsPermission": "The folder {name} is not connected in this visit: the browser asks again each time.",
+    "reconnect": "Connect {name} again",
+    "syncing": "Checking the folder…",
+    "failure": "The folder could not be written: {message}. Everything is saved in this browser anyway.",
+    "report": {
+      "heading": "What changed",
+      "nothing": "Nothing to change: the folder and this browser match.",
+      "imported": "{name}: new in the folder, now here too.",
+      "updatedHere": "{name}: changed in the folder, updated here.",
+      "updatedFolder": "{name}: changed here, updated in the folder.",
+      "written": "{name}: copied into the folder.",
+      "removedFolder": "{name}: deleted here, removed from the folder.",
+      "refused": "{name}: could not be read, left as it is."
+    },
+    "readme": {
+      "root": "This folder is connected to D&D Platform (dnd-platform). The site keeps a copy here of what you have in your browser:\n\n- characters/ one file per character;\n- exports/ the character files you save here;\n- packages/ the packages you loaded yourself, one folder each.\n\nTo stop, choose Disconnect on the site's Packages page: the files stay here. Do not share the packages of books you own: they are for your own use.",
+      "characters": "One file per character (YAML), the same document the site keeps. You can edit it and choose \"Read the folder again\" on the Packages page: the newest version wins.",
+      "exports": "Character files saved here instead of downloaded. Open one on another device from the Characters page.",
+      "packages": "One folder per package you loaded, in the format of dnd-platform. Change its files and choose \"Read the folder again\" on the Packages page to load them; a package that does not pass the checks is left as it is and reported."
+    },
+    "notice": "The folder {name} is not connected in this visit."
   }
 }

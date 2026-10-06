@@ -124,7 +124,12 @@
         if (data.value?.state !== "ready") { return; }
         const { useCharacterFiles } = await import("@/composables/character-files");
         const files = useCharacterFiles();
-        files.download(await files.exportDocument(data.value.character, { embed: true }));
+        const document = await files.exportDocument(data.value.character, { embed: true });
+        // With a working folder (M1.8), the copy goes into its exports/, which the delete does not touch.
+        const { useWorkingDirectory } = await import("@/composables/working-directory");
+        const directory = useWorkingDirectory();
+        const saved = (directory.status.value === "connected") ? await directory.saveExport(document) : undefined;
+        if (saved === undefined) { files.download(document); }
         useAnalytics().track("character-export", { embedded: true });
     };
     // The PDF (M1.6): drawn from the tree on the page, in the page size of the preferences. A failure reaches the

@@ -132,7 +132,9 @@
       "embedHint": "Export dialog of a character (sheet, characters list). Parameters: {name} where present.",
       "confirm": "Export dialog of a character (sheet, characters list). Parameters: {name} where present.",
       "cancel": "Export dialog of a character (sheet, characters list). Parameters: {name} where present.",
-      "button": "Export dialog of a character (sheet, characters list). Parameters: {name} where present."
+      "button": "Export dialog of a character (sheet, characters list). Parameters: {name} where present.",
+      "toFolder": "Export dialog: a checkbox shown when a working folder is connected. Parameters: {name}.",
+      "save": "Export dialog: the confirm button when saving into the working folder instead of downloading."
     },
     "import": {
       "heading": "Import of a character file on the characters page: the picker, refusals, the dialog listing the content it uses. Parameters: {file}, {name}, {here} where present.",
@@ -843,5 +845,38 @@
     "earlier": "The changelog page of a published package (content/<id>.changelog.md), linked from the update alert.",
     "missing": "The changelog page of a published package (content/<id>.changelog.md), linked from the update alert.",
     "back": "The changelog page of a published package (content/<id>.changelog.md), linked from the update alert."
+  },
+  "workingDirectory": {
+    "heading": "The working folder (a folder of the player's computer the site mirrors to, Chrome/Edge only); plain words, no technical terms like \"File System Access\".",
+    "intro": "The working folder (a folder of the player's computer the site mirrors to, Chrome/Edge only); plain words, no technical terms like \"File System Access\".",
+    "unsupported": "The working folder (a folder of the player's computer the site mirrors to, Chrome/Edge only); plain words, no technical terms like \"File System Access\".",
+    "connect": "The working folder (a folder of the player's computer the site mirrors to, Chrome/Edge only); plain words, no technical terms like \"File System Access\".",
+    "connected": "The working folder (a folder of the player's computer the site mirrors to, Chrome/Edge only); plain words, no technical terms like \"File System Access\". Parameters: {name}.",
+    "lastSync": "The working folder (a folder of the player's computer the site mirrors to, Chrome/Edge only); plain words, no technical terms like \"File System Access\". Parameters: {time}.",
+    "reload": "The working folder (a folder of the player's computer the site mirrors to, Chrome/Edge only); plain words, no technical terms like \"File System Access\".",
+    "reloadHint": "The working folder (a folder of the player's computer the site mirrors to, Chrome/Edge only); plain words, no technical terms like \"File System Access\".",
+    "disconnect": "The working folder (a folder of the player's computer the site mirrors to, Chrome/Edge only); plain words, no technical terms like \"File System Access\".",
+    "disconnected": "The working folder (a folder of the player's computer the site mirrors to, Chrome/Edge only); plain words, no technical terms like \"File System Access\".",
+    "needsPermission": "The working folder (a folder of the player's computer the site mirrors to, Chrome/Edge only); plain words, no technical terms like \"File System Access\". Parameters: {name}.",
+    "reconnect": "The working folder (a folder of the player's computer the site mirrors to, Chrome/Edge only); plain words, no technical terms like \"File System Access\". Parameters: {name}.",
+    "syncing": "The working folder (a folder of the player's computer the site mirrors to, Chrome/Edge only); plain words, no technical terms like \"File System Access\".",
+    "failure": "The working folder (a folder of the player's computer the site mirrors to, Chrome/Edge only); plain words, no technical terms like \"File System Access\". Parameters: {message}.",
+    "report": {
+      "heading": "The working folder (a folder of the player's computer the site mirrors to, Chrome/Edge only); plain words, no technical terms like \"File System Access\". The list of what the last check of the folder changed.",
+      "nothing": "The working folder (a folder of the player's computer the site mirrors to, Chrome/Edge only); plain words, no technical terms like \"File System Access\".",
+      "imported": "The working folder (a folder of the player's computer the site mirrors to, Chrome/Edge only); plain words, no technical terms like \"File System Access\". Parameters: {name}.",
+      "updatedHere": "The working folder (a folder of the player's computer the site mirrors to, Chrome/Edge only); plain words, no technical terms like \"File System Access\". Parameters: {name}.",
+      "updatedFolder": "The working folder (a folder of the player's computer the site mirrors to, Chrome/Edge only); plain words, no technical terms like \"File System Access\". Parameters: {name}.",
+      "written": "The working folder (a folder of the player's computer the site mirrors to, Chrome/Edge only); plain words, no technical terms like \"File System Access\". Parameters: {name}.",
+      "removedFolder": "The working folder (a folder of the player's computer the site mirrors to, Chrome/Edge only); plain words, no technical terms like \"File System Access\". Parameters: {name}.",
+      "refused": "The working folder (a folder of the player's computer the site mirrors to, Chrome/Edge only); plain words, no technical terms like \"File System Access\". Parameters: {name}."
+    },
+    "readme": {
+      "root": "The text of a README.txt file the site writes into the folder (root or sub-folder); plain text, kept short; folder names stay in English.",
+      "characters": "The text of a README.txt file the site writes into the folder (root or sub-folder); plain text, kept short; folder names stay in English.",
+      "exports": "The text of a README.txt file the site writes into the folder (root or sub-folder); plain text, kept short; folder names stay in English.",
+      "packages": "The text of a README.txt file the site writes into the folder (root or sub-folder); plain text, kept short; folder names stay in English."
+    },
+    "notice": "The working folder (a folder of the player's computer the site mirrors to, Chrome/Edge only); plain words, no technical terms like \"File System Access\". A one-line notice on the characters page, next to a button to connect again. Parameters: {name}."
   }
 }

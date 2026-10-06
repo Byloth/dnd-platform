@@ -3,17 +3,22 @@
 
     import ConfirmDialog from "@/components/ui/ConfirmDialog.vue";
     import { useCharacterFiles } from "@/composables/character-files";
+    import { useWorkingDirectory } from "@/composables/working-directory";
 
     /**
      * Exporting a character (docs/phase-1/05-print-and-export.md): what the file is for, the player's own content
      * inside it on request (off by default), and the reminder that private books never go in. "Download" saves
-     * `<name>.dnd.json`.
+     * `<name>.dnd.json`; with a working folder connected (M1.8) the file goes into its `exports/` instead, unless the
+     * player asks for the download.
      */
     const props = defineProps<{ open: boolean, character: Character }>();
     const emit = defineEmits<{ close: [] }>();
 
     const { t } = useI18n();
     const files = useCharacterFiles();
+    const directory = useWorkingDirectory();
+    const connected = computed((): boolean => directory.status.value === "connected");
+    const toFolder = ref(true);
 
     const canEmbed = ref(false);
     const embed = ref(false);
@@ -21,13 +26,16 @@
     {
         if (!open) { return; }
         embed.value = false;
+        toFolder.value = true;
         canEmbed.value = (await files.embeddable(props.character)).length > 0;
 
     }, { immediate: true });
 
     const download = async (): Promise<void> =>
     {
-        files.download(await files.exportDocument(props.character, { embed: embed.value }));
+        const document = await files.exportDocument(props.character, { embed: embed.value });
+        const saved = (connected.value && toFolder.value) ? await directory.saveExport(document) : undefined;
+        if (saved === undefined) { files.download(document); }
         useAnalytics().track("character-export", { embedded: embed.value });
         emit("close");
     };
@@ -36,7 +44,7 @@
 <template>
     <ConfirmDialog :open="open"
                    :title="t('characters.export.title', { name: character.name })"
-                   :confirm="t('characters.export.confirm')"
+                   :confirm="(connected && toFolder) ? t('characters.export.save') : t('characters.export.confirm')"
                    :cancel="t('characters.export.cancel')"
                    @confirm="download"
                    @cancel="emit('close')">
@@ -48,6 +56,14 @@
             <span>
                 <strong>{{ t("characters.export.embed") }}</strong>
                 <small class="export-dialog__hint">{{ t("characters.export.embedHint") }}</small>
+            </span>
+        </label>
+        <label v-if="connected" class="export-dialog__embed">
+            <input v-model="toFolder"
+                   type="checkbox"
+                   class="export-dialog__checkbox" />
+            <span>
+                <strong>{{ t("characters.export.toFolder", { name: directory.folder.value }) }}</strong>
             </span>
         </label>
         <p class="export-dialog__private">

@@ -10,16 +10,22 @@ import type { Character } from "@byloth/dnd-platform-engine";
  */
 
 export const DATABASE_NAME = "dnd-platform";
-export const DATABASE_VERSION = 1;
+/** 2 (M1.8): the `handles` store of the working directory. */
+export const DATABASE_VERSION = 2;
 
 /** The `meta` key holding the answer to the persistence request. */
 export const PERSISTED_KEY = "storage-persisted";
+/** The `meta` key holding when each character was last written here: `{ id: milliseconds }` (M1.8). */
+export const CHARACTER_TIMES_KEY = "character-times";
+/** The key of the working directory's handle in the `handles` store (M1.8). */
+export const WORKING_DIRECTORY_KEY = "working-directory";
 
 export interface StoredPackage
 {
     readonly source: PackageSource;
     readonly loadedAt: string;
-    readonly origin: "site" | "file";
+    /** `directory`: read from the working directory's `packages/` (M1.8). */
+    readonly origin: "site" | "file" | "directory";
     readonly fileName?: string;
 }
 
@@ -28,6 +34,28 @@ export interface StoreMap
     packages: StoredPackage;
     characters: Character;
     meta: JSONValue;
+    /** File System Access handles, which IndexedDB can hold and JSON cannot. */
+    handles: unknown;
+}
+
+/**
+ * What is written here, told to the working directory when one is connected (M1.8). A mirror never makes a write
+ * fail: it reports its own errors.
+ */
+export interface StorageMirror
+{
+    characterWritten(character: Character): Promise<void>;
+    characterRemoved(id: string): Promise<void>;
+    packageWritten(record: StoredPackage): Promise<void>;
+    packageRemoved(id: string, version: string): Promise<void>;
+}
+
+/** How a write reaches the working directory: `mirror: false` for what the working directory itself brings. */
+export interface WriteOptions
+{
+    readonly mirror?: boolean;
+    /** When the character was last changed, in milliseconds; now when absent. */
+    readonly at?: number;
 }
 
 export type Persisted = boolean | "unknown";
@@ -42,11 +70,25 @@ export interface PersistenceState
 const STORES: readonly StoreDefinition<keyof StoreMap>[] = [
     { name: "packages" },
     { name: "characters", keyPath: "id" },
-    { name: "meta" }
+    { name: "meta" },
+    { name: "handles" }
 ];
 
 let _connection: Promise<IndexedDatabase<StoreMap>> | undefined;
 let _persistenceRequested = false;
+let _mirror: StorageMirror | undefined;
+
+/** The working directory's mirror while one is connected; `undefined` disconnects it. */
+export function setStorageMirror(mirror: StorageMirror | undefined): void { _mirror = mirror; }
+
+async function _setCharacterTime(database: IndexedDatabase<StoreMap>, id: string, at: number | undefined): Promise<void>
+{
+    const stored = (await database.get("meta", CHARACTER_TIMES_KEY)) as Record<string, number> | undefined;
+    const times = Object.fromEntries(Object.entries(stored ?? {}).filter(([key]) => key !== id));
+    if (at !== undefined) { times[id] = at; }
+
+    await database.put("meta", times, CHARACTER_TIMES_KEY);
+}
 
 function _open(): Promise<IndexedDatabase<StoreMap>>
 {
@@ -130,15 +172,19 @@ export function useBrowserStorage()
 
         list: async (): Promise<StoredPackage[]> => (await _open()).getAll("packages"),
 
-        put: async (record: StoredPackage): Promise<void> =>
+        put: async (record: StoredPackage, options: WriteOptions = {}): Promise<void> =>
         {
             const { id, version } = record.source.manifest;
 
             await (await _writable()).put("packages", record, packageKey(id, version));
+            if (options.mirror !== false) { await _mirror?.packageWritten(record); }
         },
 
-        remove: async (id: string, version: string): Promise<void> =>
-            (await _open()).delete("packages", packageKey(id, version))
+        remove: async (id: string, version: string, options: WriteOptions = {}): Promise<void> =>
+        {
+            await (await _open()).delete("packages", packageKey(id, version));
+            if (options.mirror !== false) { await _mirror?.packageRemoved(id, version); }
+        }
     };
 
     /** The stored characters, as documents: the wizard writes them (M1.4d3), the sheet deletes them (M1.4e2). */
@@ -147,9 +193,26 @@ export function useBrowserStorage()
 
         list: async (): Promise<Character[]> => (await _open()).getAll("characters"),
 
-        put: async (character: Character): Promise<void> => (await _writable()).put("characters", character),
+        put: async (character: Character, options: WriteOptions = {}): Promise<void> =>
+        {
+            // The time first: once the character is there, the write is complete.
+            const database = await _writable();
+            await _setCharacterTime(database, character.id, options.at ?? Date.now());
+            await database.put("characters", character);
+            if (options.mirror !== false) { await _mirror?.characterWritten(character); }
+        },
 
-        remove: async (id: string): Promise<void> => (await _open()).delete("characters", id)
+        remove: async (id: string, options: WriteOptions = {}): Promise<void> =>
+        {
+            const database = await _open();
+            await _setCharacterTime(database, id, undefined);
+            await database.delete("characters", id);
+            if (options.mirror !== false) { await _mirror?.characterRemoved(id); }
+        },
+
+        /** When each character was last written here, in milliseconds. */
+        times: async (): Promise<Readonly<Record<string, number>>> =>
+            ((await (await _open()).get("meta", CHARACTER_TIMES_KEY)) as Record<string, number> | undefined) ?? {}
     };
 
     const meta = {
@@ -174,5 +237,14 @@ export function useBrowserStorage()
         };
     };
 
-    return { packages, characters, meta, persistence };
+    /** The working directory's handle (M1.8). */
+    const handles = {
+        get: async (key: string): Promise<unknown> => (await _open()).get("handles", key),
+
+        set: async (key: string, handle: unknown): Promise<void> => (await _open()).put("handles", handle, key),
+
+        remove: async (key: string): Promise<void> => (await _open()).delete("handles", key)
+    };
+
+    return { packages, characters, meta, handles, persistence };
 }

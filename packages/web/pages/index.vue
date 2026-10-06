@@ -10,6 +10,10 @@
     // guard).
     const ExportDialog = defineAsyncComponent(() => import("@/components/characters/ExportDialog.vue"));
     const ImportDialog = defineAsyncComponent(() => import("@/components/characters/ImportDialog.vue"));
+    // The working folder's notice (M1.8) loads only where the browser can use a folder.
+    const FolderNotice = defineAsyncComponent(() => import("@/components/characters/FolderNotice.vue"));
+    const folders = import.meta.client &&
+        (typeof (window as { showDirectoryPicker?: unknown }).showDirectoryPicker === "function");
     const files = async () => (await import("@/composables/character-files")).useCharacterFiles();
 
     // The characters page: the player's own characters, stored in this browser, then the site's demo characters,
@@ -121,6 +125,7 @@
                 </AppButton>
             </div>
         </header>
+        <FolderNotice v-if="folders" />
         <p v-if="status === 'pending'" role="status">
             {{ t("characters.loading") }}
         </p>
