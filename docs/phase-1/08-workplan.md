@@ -131,6 +131,8 @@ Still to do:
 
 Order decided by the owner on 2026-09-27: the compendium (M1.C) first, then the rest of M1.4r, then M1.5.
 
+**Deferred to Phase 2 (owner, 2026-10-06).** The owner chose to go on with M1.8 and leave the rest of M1.4r, their own review notes, for later: it is not part of Phase 1's close. Since the list above, the units of measure reached the composer and the Italian sheet (M1.7, `units` option, metric goldens) and doc 10's `recordVersions` came with M1.5b; what stays is doc 09's menus, flags, navigation bar, settings page (with the units preference), demo disclosure, sticky wizard bar and transitions, and doc 10's points 10 (a package deactivated under a choice) and the review naming a package that cannot be loaded.
+
 ### M1.C — Compendium (≈ 4 sessions)
 
 Asked by the owner on 2026-09-27 (DEC-25); the plan is [13-compendium.md](13-compendium.md). Parts:
@@ -207,10 +209,12 @@ Risks: OCR quality of the Italian PDF and terminology drift between agents; the 
 ### M1.8 — Working directory, accessibility, newcomer test (≈ 3 sessions)
 
 Tasks (from [02-content-and-character-stores.md](02-content-and-character-stores.md), [07-testing-accessibility-performance.md](07-testing-accessibility-performance.md)):
-1. The working-directory backend where the API exists: connect, README files, mirror, package loading from `packages/`, reconciliation.
+1. The working-directory backend where the API exists: connect, README files, mirror, package loading from `packages/`, reconciliation. **Done (M1.8a, 2026-10-06)**: [02-content-and-character-stores.md](02-content-and-character-stores.md), "As built (M1.8a)".
 2. The accessibility pass on every screen (keyboard, screen reader, the phone in hand), recorded.
-3. **Confirmation point.** The usability protocol presented; recruiting after confirmation; sessions; report.
+3. **Confirmation point.** The usability protocol presented; recruiting after confirmation; sessions; report. The draft is [usability/protocol.md](usability/protocol.md) (2026-10-06), waiting for the owner's confirmation.
 4. Phase 1 verification table in [00-README.md](00-README.md); the risk register reviewed; the open points of the Phase 1 documents closed or promoted.
+
+Split (2026-10-06): **M1.8a** the working folder (task 1, done 2026-10-06); **M1.8b** the accessibility pass (task 2; the screen-reader part needs a person with the device); **M1.8c** the newcomer test (task 3, after the owner confirms the protocol); **M1.8d** the close (task 4) and `v1.0.0`.
 
 Done: the criteria of M1.8 and the done criteria of Phase 1 in [../16-roadmap.md](../16-roadmap.md) verified one by one. Release: `v1.0.0`.
 Risks: the newcomer test fails the fifteen-minute target; that is a finding, not a blocker: the report says where the minutes went and Phase 2 opens with the fixes.

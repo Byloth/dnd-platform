@@ -698,6 +698,10 @@
         "name": "Personaggi come file",
         "text": "Scarica un personaggio e aprilo su un altro dispositivo, con i tuoi contenuti dentro se vuoi."
       },
+      "folder": {
+        "name": "Una cartella sul tuo computer",
+        "text": "Con Chrome o Edge, tieni una copia dei tuoi personaggi e pacchetti in una cartella del tuo computer, come file da aprire e salvare altrove."
+      },
       "pdf": {
         "name": "La scheda in PDF",
         "text": "Con un tocco la scheda diventa un PDF da stampare o da tenere sul telefono: caselle da compilare, numeri che si aggiornano da soli nella maggior parte dei lettori, una carta per ogni privilegio e incantesimo; anche vuota."
