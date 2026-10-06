@@ -1,7 +1,7 @@
 name: "Mezzorco"
 text: |-
   Un mezzorco possiede alcuni tratti che derivano dal suo retaggio orchesco.
-features.0.name: "Incremento dei punteggi di caratteristica"
+features.0.name: "Incremento dei Punteggi di Caratteristica"
 features.0.text: |-
   Il punteggio di Forza di un mezzorco aumenta di 2 e quello di Costituzione di 1.
 features.1.name: "Velocità"
@@ -25,17 +25,17 @@ features.6.text: |-
 features.7.name: "Minaccioso"
 features.7.text: |-
   Un mezzorco ha competenza nell'abilità Intimidire.
-features.8.name: "Resistenza implacabile"
+features.8.name: "Resistenza Implacabile"
 features.8.text: |-
   Quando un mezzorco scende a 0 punti ferita ma non viene ucciso sul colpo, può decidere di rimanere a 1 punto ferita. Non può più utilizzare questa capacità finché non completa un riposo lungo.
-features.8.effects.0.name: "Resistenza implacabile"
-features.8.effects.1.name: "Resistenza implacabile"
+features.8.effects.0.name: "Resistenza Implacabile"
+features.8.effects.1.name: "Resistenza Implacabile"
 features.8.effects.1.trigger: "quando scendi a 0 punti ferita ma non vieni ucciso sul colpo"
 features.8.effects.1.text: |-
   Quando scendi a 0 punti ferita ma non vieni ucciso sul colpo, puoi decidere di rimanere a 1 punto ferita. Non puoi più utilizzare questa capacità finché non completi un riposo lungo.
 features.8.effects.1.onUse.0.text: |-
   Rimani a 1 punto ferita anziché scendere a 0.
-features.9.name: "Attacchi selvaggi"
+features.9.name: "Attacchi Selvaggi"
 features.9.text: |-
   Quando un mezzorco mette a segno un colpo critico con un attacco con arma da mischia, può tirare un dado dell'arma aggiuntivo quando determina i danni extra del colpo critico.
 features.9.effects.0.text: |-

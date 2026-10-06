@@ -1,4 +1,4 @@
-name: Controllare acqua
+name: Controllare Acqua
 components.m: Una goccia d'acqua e un pizzico di polvere.
 text: |-
   Fino al termine dell'incantesimo, l'incantatore controlla una massa libera d'acqua all'interno di un'area a sua scelta, con un volume massimo pari a un cubo di 30 metri per lato. Quando lancia questo incantesimo, l'incantatore può scegliere uno dei seguenti effetti e, con un'azione durante il suo turno, può ripetere il medesimo effetto o sceglierne uno differente.
@@ -18,6 +18,6 @@ text: |-
   Quando una creatura viene trascinata nel vortice per la prima volta in un turno o inizia il suo turno qui, deve superare un tiro salvezza su Forza. Se lo fallisce, la creatura subisce 2d8 danni contundenti e rimane bloccata nel vortice fino al termine dell'incantesimo. In caso di successo, la creatura subisce invece soltanto la metà di quei danni e non viene trascinata nel vortice. Una creatura trascinata nel vortice può usare un'azione per provare a uscirne come descritto in precedenza, ma subisce svantaggio alla prova di Forza (Atletica).
 
   La prima volta che in ogni turno un oggetto viene trascinato nel vortice, subisce 2d8 danni contundenti; questi danni vengono inferti a ogni round in cui l'oggetto rimane nel vortice.
-effects.0.name: Controllare acqua
+effects.0.name: Controllare Acqua
 effects.0.text: "Ripete il medesimo effetto o ne sceglie uno differente: Inondazione (alza il livello dell'acqua di un massimo di 6 metri, oppure genera un'onda alta 6 metri che attraversa l'area, trascina i veicoli di taglia Enorme o inferiore e ha una probabilità del 25% di capovolgerli); Separare le acque (apre un canale attraverso l'area); Deviare la corrente (fa muovere l'acqua corrente in una direzione scelta dall'incantatore); Gorgo (in uno specchio d'acqua quadrato di almeno 15 metri di lato e 7,5 metri di profondità: le creature e gli oggetti entro 7,5 metri vengono trascinati per 3 metri verso il vortice; una creatura che vi entra o vi inizia il suo turno effettua un tiro salvezza su Forza, e se lo fallisce subisce 2d8 danni contundenti e rimane bloccata, mentre in caso di successo subisce la metà dei danni; per allontanarsi a nuoto serve una prova di Forza (Atletica) contro la CD del tiro salvezza sull'incantesimo, con svantaggio se è bloccata)."
 effects.0.note: I tiri appartengono all'effetto Gorgo; gli altri effetti sono gestiti dal GM.

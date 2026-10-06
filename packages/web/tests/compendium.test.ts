@@ -133,14 +133,14 @@ describe("the search", () =>
     {
         expect(normalize("Palla di Fuòco!")).toBe("palla di fuoco");
         expect(normalize("Explorer's Pack")).toBe("explorer s pack");
-        expect(names(search(spellsIt, "PALLA DI FUÒCO"))[0]).toBe("Palla di fuoco");
+        expect(names(search(spellsIt, "PALLA DI FUÒCO"))[0]).toBe("Palla di Fuoco");
     });
 
     it("finds an Italian name by its start, and by its English name", () =>
     {
-        expect(names(search(spellsIt, "palla"))[0]).toBe("Palla di fuoco");
-        expect(names(search(spellsIt, "fireball"))[0]).toBe("Palla di fuoco");
-        expect(names(search(spellsIt, "fuoco palla"))).toContain("Palla di fuoco");
+        expect(names(search(spellsIt, "palla"))[0]).toBe("Palla di Fuoco");
+        expect(names(search(spellsIt, "fireball"))[0]).toBe("Palla di Fuoco");
+        expect(names(search(spellsIt, "fuoco palla"))).toContain("Palla di Fuoco");
     });
 
     it("ranks the whole name, then its start, then a word, then anywhere", () =>

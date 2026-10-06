@@ -1,4 +1,4 @@
-name: Creare o distruggere acqua
+name: Creare o Distruggere Acqua
 components.m: Una goccia d'acqua per creare l'acqua o qualche granello di sabbia per distruggerla.
 text: |-
   L'incantatore crea o distrugge l'acqua.

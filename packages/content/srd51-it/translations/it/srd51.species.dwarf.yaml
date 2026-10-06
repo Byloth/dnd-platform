@@ -1,7 +1,7 @@
 name: "Nano"
 text: |-
   Un personaggio nano dispone di varie capacità innate, intrinsecamente correlate alla sua natura nanica.
-features.0.name: "Incremento dei punteggi di caratteristica"
+features.0.name: "Incremento dei Punteggi di Caratteristica"
 features.0.text: |-
   Il punteggio di Costituzione di un nano aumenta di 2.
 features.1.name: "Velocità"
@@ -26,16 +26,16 @@ features.5.text: |-
 features.6.name: "Linguaggi"
 features.6.text: |-
   Un nano è in grado di parlare, leggere e scrivere in Comune e in Nanico. Il Nanico è una lingua ricca di aspre consonanti e di suoni gutturali, inflessioni che traspaiono anche negli altri linguaggi che il nano potrebbe parlare.
-features.7.name: "Resilienza nanica"
+features.7.name: "Resilienza Nanica"
 features.7.text: |-
   Un nano dispone di vantaggio ai tiri salvezza contro il veleno e di resistenza ai danni da veleno.
-features.8.name: "Addestramento da combattimento nanico"
+features.8.name: "Addestramento da Combattimento Nanico"
 features.8.text: |-
   Un nano ha competenza nelle asce, nelle asce da battaglia, nei martelli da guerra e nei martelli leggeri.
-features.9.name: "Competenza negli strumenti"
+features.9.name: "Competenza negli Strumenti"
 features.9.text: |-
   Un nano ha competenza in un gruppo di strumenti da artigiano a sua scelta: strumenti da fabbro, scorte da birraio o strumenti da muratore.
-features.10.name: "Esperto minatore"
+features.10.name: "Esperto Minatore"
 features.10.text: |-
   Ogni volta che un nano effettua una prova di Intelligenza (Storia) relativa all'origine di una struttura in pietra, è considerato avere competenza nell'abilità Storia e aggiunge il doppio del suo bonus di competenza alla prova anziché il suo normale bonus di competenza.
 features.10.effects.0.text: |-
@@ -45,10 +45,10 @@ features.10.effects.0.note: |-
 subspecies.0.name: "Nano delle colline"
 subspecies.0.text: |-
   Un nano delle colline è dotato di sensi acuti, di una profonda intuizione e di una straordinaria resilienza.
-subspecies.0.features.0.name: "Incremento dei punteggi di caratteristica"
+subspecies.0.features.0.name: "Incremento dei Punteggi di Caratteristica"
 subspecies.0.features.0.text: |-
   Il punteggio di Saggezza di un nano aumenta di 1.
-subspecies.0.features.1.name: "Robustezza nanica"
+subspecies.0.features.1.name: "Robustezza Nanica"
 subspecies.0.features.1.text: |-
   Il massimo dei punti ferita di un nano aumenta di 1 e aumenta di nuovo di 1 ogni volta che acquisisce un livello.
 subspecies.0.features.1.effects.0.note: |-

@@ -1,4 +1,4 @@
-name: Intimorire infernale
+name: Intimorire Infernale
 castingTime.trigger: che l'incantatore può effettuare quando subisce danni da una creatura entro 18 metri che è in grado di vedere
 text: |-
   L'incantatore punta il dito contro la creatura che gli ha inferto danni, la quale viene momentaneamente avvolta da fiamme infernali. La creatura deve effettuare un tiro salvezza su Destrezza e subisce 2d10 danni da fuoco in caso di fallimento, o la metà dei danni in caso di successo.

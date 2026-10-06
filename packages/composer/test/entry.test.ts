@@ -56,7 +56,7 @@ describe("composeEntry: spells", () =>
     {
         const fireball = it_("srd51.spell.fireball");
 
-        expect(fireball.name).toBe("Palla di fuoco");
+        expect(fireball.name).toBe("Palla di Fuoco");
         expect(fireball.subtitle).toBe("Invocazione di 3° livello");
         expect(line(fireball, "Gittata")).toBe("45 metri (sfera del raggio di 6 metri)");
         expect(line(fireball, "Componenti")).toBe("V, S, M (una pallina di guano di pipistrello e zolfo)");

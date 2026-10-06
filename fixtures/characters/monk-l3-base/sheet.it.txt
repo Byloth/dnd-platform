@@ -125,7 +125,7 @@ CREDITI
   Byloth's homebrew (homebrew.byloth 0.1.0)
     Byloth's homebrew, Matteo Bilotta — CC-BY-4.0. Homebrew content by Matteo Bilotta, licensed
     under CC-BY-4.0.
-  System Reference Document 5.1 — italiano (srd51-it 0.4.0)
+  System Reference Document 5.1 — italiano (srd51-it 0.5.0)
     System Reference Document 5.1 (italiano), Wizards of the Coast — CC-BY-4.0. Questo lavoro
     include materiale del System Reference Document 5.1 (“SRD 5.1”) di Wizards of the Coast LLC
     disponibile al sito https://dnd.wizards.com/it/resources/systems-reference-document. L’SRD 5.1 è

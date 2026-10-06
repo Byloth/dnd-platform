@@ -1,4 +1,4 @@
-name: Cerchio di morte
+name: Cerchio di Morte
 components.m: Polvere ricavata da una perla nera, del valore di almeno 500 mo.
 text: |-
   Una sfera d'energia negativa si espande in un raggio di 18 metri da un punto entro gittata. Ogni creatura nell'area deve effettuare un tiro salvezza su Costituzione e subisce 8d6 danni necrotici in caso di fallimento, o la metà dei danni in caso di successo.

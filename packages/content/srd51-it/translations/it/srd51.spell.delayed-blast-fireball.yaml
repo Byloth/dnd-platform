@@ -1,4 +1,4 @@
-name: Palla di fuoco ritardata
+name: Palla di Fuoco Ritardata
 components.m: Una pallina di guano di pipistrello e zolfo.
 text: |-
   Un raggio di luce gialla si sprigiona dal dito indice dell'incantatore per poi condensarsi in un punto a sua scelta entro gittata, formando una sfera scintillante che permane per la durata dell'incantesimo. Quando l'incantesimo termina per decisione dell'incantatore o perché la sua concentrazione viene interrotta, la sfera si disintegra con un cupo boato in un'esplosione di fiamme che si diffondono oltre gli angoli. Ogni creatura situata entro una sfera del raggio di 6 metri centrata su quel punto deve effettuare un tiro salvezza su Destrezza. In caso di fallimento, la creatura subisce una quantità di danni da fuoco pari al totale dei danni accumulati, o la metà dei danni in caso di successo.

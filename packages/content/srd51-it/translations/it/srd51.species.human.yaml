@@ -1,6 +1,6 @@
 name: Umano
 text: Anche se è difficile stabilire delle generalizzazioni sugli umani, un personaggio umano sarà dotato dei tratti seguenti.
-features.0.name: Incremento dei punteggi di caratteristica
+features.0.name: Incremento dei Punteggi di Caratteristica
 features.0.text: Ogni punteggio di caratteristica di un umano aumenta di 1.
 features.1.name: Velocità
 features.1.text: La velocità base sul terreno di un umano è di 9 metri.

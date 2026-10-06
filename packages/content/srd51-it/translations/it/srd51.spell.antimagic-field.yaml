@@ -1,4 +1,4 @@
-name: Campo anti-magia
+name: Campo Anti-Magia
 components.m: Un pizzico di polvere o di limatura di ferro.
 text: |-
   Una sfera invisibile di 3 metri di raggio circonda l'incantatore. Quest'area è isolata dall'energia magica che pervade il multiverso: all'interno della sfera è impossibile lanciare incantesimi, le creature evocate scompaiono e perfino gli oggetti magici diventano comuni. Finché l'incantesimo non termina, la sfera si muove insieme all'incantatore ed è centrata su di lui. All'interno della sfera, gli incantesimi e gli altri effetti magici, eccetto quelli generati da un manufatto o da una divinità, vengono soppressi e non possono protendersi al suo interno. Uno slot speso per lanciare un incantesimo soppresso viene consumato. Mentre un effetto è soppresso, non funziona, ma il tempo che trascorre in questo stato conta ai fini della sua durata.

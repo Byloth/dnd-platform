@@ -1,4 +1,4 @@
-name: Dissolvi magie
+name: Dissolvi Magie
 text: |-
   L'incantatore sceglie una creatura, un oggetto o un effetto magico situato entro gittata. Ogni incantesimo di 3° livello o inferiore presente sul bersaglio termina. Per ogni incantesimo di 4° livello o superiore presente sul bersaglio, l'incantatore effettua una prova di caratteristica usando la propria caratteristica da incantatore. La CD è pari a 10 + il livello dell'incantesimo. Se la prova viene superata, l'incantesimo termina.
 higherLevel: |-

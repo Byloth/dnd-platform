@@ -1,7 +1,7 @@
 name: "Gnomo"
 text: |-
   Un personaggio gnomo possiede alcune caratteristiche in comune con tutti gli altri gnomi.
-features.0.name: "Incremento dei punteggi di caratteristica"
+features.0.name: "Incremento dei Punteggi di Caratteristica"
 features.0.text: |-
   Il punteggio di Intelligenza di uno gnomo aumenta di 2.
 features.1.name: "Velocità"
@@ -22,16 +22,16 @@ features.5.text: |-
 features.6.name: "Linguaggi"
 features.6.text: |-
   Uno gnomo può parlare, leggere e scrivere in Comune e in Gnomesco. Lo Gnomesco, che usa l'alfabeto Nanico, è rinomato per i suoi trattati tecnici e le sue enciclopedie sul mondo naturale.
-features.7.name: "Astuzia gnomesca"
+features.7.name: "Astuzia Gnomesca"
 features.7.text: |-
   Uno gnomo dispone di vantaggio a tutti i tiri salvezza su Intelligenza, Saggezza e Carisma contro la magia.
 subspecies.0.name: "Gnomo delle rocce"
 subspecies.0.text: |-
   Uno gnomo delle rocce è dotato di una creatività innata e di una resistenza superiore a quella degli altri gnomi.
-subspecies.0.features.0.name: "Incremento dei punteggi di caratteristica"
+subspecies.0.features.0.name: "Incremento dei Punteggi di Caratteristica"
 subspecies.0.features.0.text: |-
   Il punteggio di Costituzione di uno gnomo aumenta di 1.
-subspecies.0.features.1.name: "Conoscenze dell'artefice"
+subspecies.0.features.1.name: "Conoscenze dell'Artefice"
 subspecies.0.features.1.text: |-
   Ogni volta che uno gnomo delle rocce effettua una prova di Intelligenza (Storia) relativa a oggetti magici, alchemici o congegni tecnologici, può aggiungere il doppio del suo bonus di competenza anziché l'eventuale bonus di competenza che applicherebbe solitamente.
 subspecies.0.features.1.effects.0.text: |-

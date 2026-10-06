@@ -127,10 +127,10 @@ describe("a section's list", () =>
         await useNuxtApp().$i18n.setLocale("it");
         const wrapper = await open(KindPage, "/compendium/spells?q=palla");
 
-        expect(names(wrapper)[0]).toBe("Palla di fuoco");
+        expect(names(wrapper)[0]).toBe("Palla di Fuoco");
         await useRouter().replace({ query: { q: "fireball" } });
         await flushPromises();
-        expect(names(wrapper)[0]).toBe("Palla di fuoco");
+        expect(names(wrapper)[0]).toBe("Palla di Fuoco");
     });
 
     it("flags the entries of a private package", async () =>
@@ -172,7 +172,7 @@ describe("an entry", () =>
         await useNuxtApp().$i18n.setLocale("it");
         const wrapper = await open(EntryPage, "/compendium/spells/srd51.spell.fireball");
 
-        expect(wrapper.find("h1").text()).toBe("Palla di fuoco");
+        expect(wrapper.find("h1").text()).toBe("Palla di Fuoco");
         expect(wrapper.findAll(".entry-card__line").map((l) => `${l.find("dt").text()} ${l.find("dd").text()}`))
             .toContain("Gittata 45 metri (sfera del raggio di 6 metri)");
     });

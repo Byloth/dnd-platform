@@ -1,7 +1,7 @@
 name: "Mezzelfo"
 text: |-
   Un personaggio mezzelfo possiede alcune qualità in comune con gli elfi e altre uniche dei mezzelfi.
-features.0.name: "Incremento dei punteggi di caratteristica"
+features.0.name: "Incremento dei Punteggi di Caratteristica"
 features.0.text: |-
   Il punteggio di Carisma di un mezzelfo aumenta di 2 e altri due punteggi di caratteristica a scelta aumentano di 1.
 features.1.name: "Velocità"
@@ -22,11 +22,11 @@ features.5.text: |-
 features.6.name: "Linguaggi"
 features.6.text: |-
   Un mezzelfo può parlare, leggere e scrivere in Comune, in Elfico e in un linguaggio extra a sua scelta.
-features.7.name: "Retaggio fatato"
+features.7.name: "Retaggio Fatato"
 features.7.text: |-
   Un mezzelfo dispone di vantaggio ai tiri salvezza per non essere affascinato e non può essere addormentato tramite la magia.
 features.7.effects.1.note: |-
   La magia non può farti addormentare: il sonno non è una condizione dell'elenco, quindi qui si usa l'id descrittivo magical-sleep.
-features.8.name: "Versatilità nelle abilità"
+features.8.name: "Versatilità nelle Abilità"
 features.8.text: |-
   Un mezzelfo ha competenza in due abilità a sua scelta.

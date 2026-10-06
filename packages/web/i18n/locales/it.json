@@ -780,7 +780,7 @@
       },
       "creatures": {
         "name": "Bestiario",
-        "description": "Mostri e animali con il loro blocco statistiche: famigli, cavalcature e nemici."
+        "description": "Mostri e animali con la loro scheda delle statistiche: famigli, cavalcature e nemici."
       },
       "conditions": {
         "name": "Condizioni",

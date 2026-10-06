@@ -1,4 +1,4 @@
-name: Fiotto acido
+name: Fiotto Acido
 text: |-
   L'incantatore scaglia una bolla di acido, scegliendo una creatura entro gittata o scegliendone due entro gittata che si trovano a non più di 1,5 metri l'una dall'altra. Un bersaglio deve superare un tiro salvezza su Destrezza, altrimenti subisce 1d6 danni da acido.
 higherLevel: |-

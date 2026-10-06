@@ -81,20 +81,20 @@ INCANTESIMI: CAPACITÀ
 
 INCANTESIMI
 ────────────────────────────────────────────────────────────────────────────────────────────────────
-  Trucchetti Dardo di fuoco, Fiamma sacra, Guida ©, Luce, Mano magica, Prestidigitazione, Raggio di
-             gelo, Taumaturgia
-  1° livello Armatura magica, Benedizione* ©, Cura ferite*, Dardo incantato, Dardo tracciante,
-             Individuazione del magico ©, Parola guaritrice, Scudo
-  2° livello Aiuto, Arma spirituale*, Blocca persone ©, Passo velato, Preghiera di guarigione,
-             Ristorare inferiore*, Silenzio ©
-  3° livello Controincantesimo, Dissolvi magie, Faro di speranza* ©, Guardiani spirituali ©, Palla
-             di fuoco, Rinascita*, Volare ©
+  Trucchetti Dardo di Fuoco, Fiamma Sacra, Guida ©, Luce, Mano Magica, Prestidigitazione, Raggio di
+             Gelo, Taumaturgia
+  1° livello Armatura Magica, Benedizione* ©, Cura Ferite*, Dardo Incantato, Dardo Tracciante,
+             Individuazione del Magico ©, Parola Guaritrice, Scudo
+  2° livello Aiuto, Arma Spirituale*, Blocca Persone ©, Passo Velato, Preghiera di Guarigione,
+             Ristorare Inferiore*, Silenzio ©
+  3° livello Controincantesimo, Dissolvi Magie, Faro di Speranza* ©, Guardiani Spirituali ©, Palla
+             di Fuoco, Rinascita*, Volare ©
   © concentrazione  * sempre preparato
 
 PRIVILEGI E TRATTI
 ────────────────────────────────────────────────────────────────────────────────────────────────────
   Specie — Umano
-    Incremento dei punteggi di caratteristica    Ogni punteggio di caratteristica di un umano…
+    Incremento dei Punteggi di Caratteristica    Ogni punteggio di caratteristica di un umano…
     Velocità                                     La velocità base sul terreno di un umano è di 9…
     Età                                          Un umano raggiunge la maturità tra i 18 e i 20…
     Allineamento                                 Gli umani non tendono ad alcun allineamento in…
@@ -153,7 +153,7 @@ CREDITI
     from the System Reference Document 5.2 (“SRD 5.2”) by Wizards of the Coast LLC, available at
     https://www.dndbeyond.com/srd. The SRD 5.2 is licensed under the Creative Commons Attribution
     4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.
-  System Reference Document 5.1 — italiano (srd51-it 0.4.0)
+  System Reference Document 5.1 — italiano (srd51-it 0.5.0)
     System Reference Document 5.1 (italiano), Wizards of the Coast — CC-BY-4.0. Questo lavoro
     include materiale del System Reference Document 5.1 (“SRD 5.1”) di Wizards of the Coast LLC
     disponibile al sito https://dnd.wizards.com/it/resources/systems-reference-document. L’SRD 5.1 è

@@ -1,4 +1,4 @@
-name: Evoca creature boschive
+name: Evoca Creature Boschive
 components.m: Una bacca di agrifoglio per ogni creatura evocata.
 text: |-
   L'incantatore evoca creature fatate che appaiono in spazi liberi entro gittata che è in grado di vedere. Per determinare ciò che appare, l'incantatore sceglie una tra le opzioni seguenti:
@@ -13,4 +13,4 @@ higherLevel: |-
 effects.0.text: |-
   Le creature fatate evocate (una con grado di sfida pari o inferiore a 2, due con GS pari o inferiore a 1, quattro con GS pari o inferiore a 1/2 oppure otto con GS pari o inferiore a 1/4) sono amichevoli nei confronti dell'incantatore e dei suoi compagni, tirano l'iniziativa come gruppo e obbediscono ai suoi comandi verbali (nessuna azione richiesta); se non ricevono comandi, si limitano a difendersi. Una creatura scompare quando scende a 0 punti ferita o al termine dell'incantesimo.
 onCast.0.text: |-
-  Il GM possiede le statistiche delle creature (nessun blocco di statistiche nella v0). Il doppio delle creature con uno slot di 6° livello, il triplo con uno slot di 8° livello.
+  Il GM possiede le statistiche delle creature (nessuna scheda delle statistiche nella v0). Il doppio delle creature con uno slot di 6° livello, il triplo con uno slot di 8° livello.

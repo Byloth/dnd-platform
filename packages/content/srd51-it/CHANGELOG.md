@@ -6,6 +6,17 @@ itself when the interface is in Italian; characters never list it. Like every
 public package, each released version is published by the site and never
 changes (DEC-21).
 
+## 0.5.0 — 2026-10-06
+
+- **Spell and racial trait names in Title Case**, as the Italian Player's
+  Handbook prints them: "Palla di Fuoco", "Alterare Se Stesso",
+  "Resilienza Nanica". The owner chose one style for every name, so the
+  SRD's names now match the Player's Handbook's when both appear in a list,
+  and a spell's name reads as a proper name. Inside the texts, spell names
+  stay in lowercase italics, as both books print them.
+- "Scheda delle statistiche" everywhere, as the official books call a
+  creature's stat block (it used to say "blocco di statistiche" in places).
+
 ## 0.4.0 — 2026-10-01
 
 - **Closer to the official Italian books**, as the owner chose after

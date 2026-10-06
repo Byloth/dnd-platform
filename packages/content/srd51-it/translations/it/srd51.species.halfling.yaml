@@ -1,7 +1,7 @@
 name: "Halfling"
 text: |-
   Un personaggio halfling possiede vari tratti in comune con tutti i membri della sua razza.
-features.0.name: "Incremento dei punteggi di caratteristica"
+features.0.name: "Incremento dei Punteggi di Caratteristica"
 features.0.text: |-
   Il punteggio di Destrezza di un halfling aumenta di 2.
 features.1.name: "Velocità"
@@ -31,7 +31,7 @@ features.6.effects.0.note: |-
 features.7.name: "Coraggioso"
 features.7.text: |-
   Un halfling dispone di vantaggio ai tiri salvezza per non essere spaventato.
-features.8.name: "Agilità halfling"
+features.8.name: "Agilità Halfling"
 features.8.text: |-
   Un halfling può muoversi attraverso gli spazi di qualsiasi creatura di taglia più grande.
 features.8.effects.0.text: |-
@@ -41,10 +41,10 @@ features.8.effects.0.note: |-
 subspecies.0.name: "Piedelesto"
 subspecies.0.text: |-
   Un halfling piedelesto è abile nel non farsi notare e può perfino usare le altre persone come copertura. Tende a essere sempre gentile e ad andare d'accordo con gli altri. I piedelesto sono la varietà di halfling che più ama viaggiare e spesso dimorano presso altre razze o conducono una vita da nomadi.
-subspecies.0.features.0.name: "Incremento dei punteggi di caratteristica"
+subspecies.0.features.0.name: "Incremento dei Punteggi di Caratteristica"
 subspecies.0.features.0.text: |-
   Il punteggio di Carisma di un halfling piedelesto aumenta di 1.
-subspecies.0.features.1.name: "Furtività innata"
+subspecies.0.features.1.name: "Furtività Innata"
 subspecies.0.features.1.text: |-
   Un halfling piedelesto può tentare di nascondersi anche se è oscurato solo da una singola creatura, purché questa sia più grande di lui di almeno una taglia.
 subspecies.0.features.1.effects.0.text: |-

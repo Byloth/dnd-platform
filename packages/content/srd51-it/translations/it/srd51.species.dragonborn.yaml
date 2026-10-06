@@ -1,6 +1,6 @@
 name: Dragonide
 text: Il retaggio draconico si manifesta in una varietà di caratteristiche che il personaggio condivide con gli altri dragonidi.
-features.0.name: Incremento dei punteggi di caratteristica
+features.0.name: Incremento dei Punteggi di Caratteristica
 features.0.text: Il punteggio di Forza di un dragonide aumenta di 2 e quello di Carisma aumenta di 1.
 features.1.name: Velocità
 features.1.text: La velocità base sul terreno di un dragonide è di 9 metri.
@@ -26,7 +26,7 @@ features.6.text: |-
   | Rosso   | Fuoco         | Cono di 4,5 m (TS Destrezza)            |
   | Argento | Freddo        | Cono di 4,5 m (TS Costituzione)         |
   | Bianco  | Freddo        | Cono di 4,5 m (TS Costituzione)         |
-features.7.name: Discendenza draconica
+features.7.name: Discendenza Draconica
 features.7.text: Un dragonide vanta una discendenza da un drago. Il giocatore sceglie un tipo di drago dalla tabella "Discendenza draconica". Il soffio del personaggio e la sua resistenza ai danni saranno determinati dalla tipologia di drago, come indicato dalla tabella.
 features.7.effects.0.options.0.name: Nero
 features.7.effects.0.options.0.text: "Danni da acido. Soffio: linea di 1,5 m × 9 m (TS Destrezza)."
@@ -59,5 +59,5 @@ features.8.effects.1.name: Soffio
 features.8.effects.1.text: Il dragonide esala un soffio di energia distruttiva nell'area determinata dalla sua discendenza draconica. Ogni creatura nell'area deve effettuare un tiro salvezza (CD 8 + il modificatore di Costituzione del dragonide + il bonus di competenza del dragonide) e subisce 2d6 danni se lo fallisce, o la metà dei danni in caso di successo. I danni aumentano a 3d6 al 6° livello, 4d6 all'11° livello e 5d6 al 16° livello. Una volta che il dragonide ha utilizzato il suo soffio, non può più utilizzarlo finché non completa un riposo breve o lungo.
 features.8.effects.1.onUse.0.text: "Area, caratteristica del tiro salvezza e tipo di danni dipendono dalla tua discendenza draconica: nero/blu/ottone/bronzo/rame linea di 1,5 m × 9 m (TS Destrezza); oro/rosso cono di 4,5 m (TS Destrezza); verde/argento/bianco cono di 4,5 m (TS Costituzione). Danni: 2d6, 3d6 al 6° livello, 4d6 all'11°, 5d6 al 16°."
 features.8.effects.1.note: "I dadi dei danni aumentano con il livello del personaggio tramite la tabella dragonborn-breath-weapon; la forma, la caratteristica del tiro salvezza e il tipo di danni variano con la risposta sulla discendenza e restano nella nota: dieci varianti della stessa azione, ciascuna vincolata a una risposta, farebbero emettere al motore l'avviso W_DUPLICATE_ACTION sulla scheda."
-features.9.name: Resistenza ai danni
+features.9.name: Resistenza ai Danni
 features.9.text: Un dragonide dispone di resistenza ai danni del tipo associato alla sua discendenza draconica.

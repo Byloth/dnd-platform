@@ -1,7 +1,7 @@
 name: "Elfo"
 text: |-
   Un personaggio elfo è dotato di una vasta gamma di capacità naturali, affinate dal suo popolo nel corso di interi millenni.
-features.0.name: "Incremento dei punteggi di caratteristica"
+features.0.name: "Incremento dei Punteggi di Caratteristica"
 features.0.text: |-
   Il punteggio di Destrezza di un elfo aumenta di 2.
 features.1.name: "Velocità"
@@ -22,10 +22,10 @@ features.5.text: |-
 features.6.name: "Linguaggi"
 features.6.text: |-
   Gli elfi sanno parlare, leggere e scrivere in Comune e in Elfico. L'Elfico è una lingua fluida, dalle tonalità sottili e dalla grammatica complessa. La letteratura elfica è ricca e variegata: i loro canti e i loro poemi sono celebri anche presso le altre razze. Molti bardi imparano la lingua degli elfi per poter aggiungere le ballate elfiche al proprio repertorio.
-features.7.name: "Sensi acuti"
+features.7.name: "Sensi Acuti"
 features.7.text: |-
   Un elfo ha competenza nell'abilità Percezione.
-features.8.name: "Retaggio fatato"
+features.8.name: "Retaggio Fatato"
 features.8.text: |-
   Un elfo dispone di vantaggio ai tiri salvezza per non essere affascinato e non può essere addormentato tramite la magia.
 features.8.effects.1.note: |-
@@ -40,10 +40,10 @@ features.9.effects.0.note: |-
 subspecies.0.name: "Elfo alto"
 subspecies.0.text: |-
   Un elfo alto è dotato di una mente brillante e della padronanza di alcune forme basilari di magia. In molti mondi fantasy esistono due tipologie di elfi alti. Uno, che si considera superiore alle altre razze e anche agli altri elfi, è altezzoso e si tiene a distanza da tutti gli altri. L'altro tipo è più diffuso e più amichevole, e i suoi membri si mescolano più facilmente agli umani e alle altre razze.
-subspecies.0.features.0.name: "Incremento dei punteggi di caratteristica"
+subspecies.0.features.0.name: "Incremento dei Punteggi di Caratteristica"
 subspecies.0.features.0.text: |-
   Il punteggio di Intelligenza di un elfo alto aumenta di 1.
-subspecies.0.features.1.name: "Addestramento nelle armi elfiche"
+subspecies.0.features.1.name: "Addestramento nelle Armi Elfiche"
 subspecies.0.features.1.text: |-
   Un elfo alto ha competenza nelle spade corte, nelle spade lunghe, negli archi corti e negli archi lunghi.
 subspecies.0.features.2.name: "Trucchetto"
@@ -51,6 +51,6 @@ subspecies.0.features.2.text: |-
   Un elfo alto conosce un trucchetto scelto dalla lista degli incantesimi da mago. La caratteristica da incantatore per questo trucchetto è Intelligenza.
 subspecies.0.features.2.effects.0.note: |-
   Intelligenza è la tua caratteristica da incantatore per questo trucchetto: la scelta non può indicare una caratteristica, quindi è specificata qui.
-subspecies.0.features.3.name: "Linguaggio extra"
+subspecies.0.features.3.name: "Linguaggio Extra"
 subspecies.0.features.3.text: |-
   Un elfo alto sa parlare, leggere e scrivere un linguaggio extra a sua scelta.

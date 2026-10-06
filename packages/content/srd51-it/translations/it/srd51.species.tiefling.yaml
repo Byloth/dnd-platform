@@ -1,6 +1,6 @@
 name: Tiefling
 text: I tiefling condividono alcuni tratti razziali frutto della loro discendenza infernale.
-features.0.name: Incremento dei punteggi di caratteristica
+features.0.name: Incremento dei Punteggi di Caratteristica
 features.0.text: Il punteggio di Intelligenza di un tiefling aumenta di 1 e quello di Carisma aumenta di 2.
 features.1.name: Velocità
 features.1.text: La velocità base sul terreno di un tiefling è di 9 metri.
@@ -14,7 +14,7 @@ features.5.name: Taglia
 features.5.text: I tiefling hanno all'incirca le stesse dimensioni e corporatura degli umani. Un tiefling è una creatura di taglia Media.
 features.6.name: Linguaggi
 features.6.text: Un tiefling può parlare, leggere e scrivere in Comune e in Infernale.
-features.7.name: Resistenza infernale
+features.7.name: Resistenza Infernale
 features.7.text: Un tiefling dispone di resistenza ai danni da fuoco.
-features.8.name: Eredità infernale
+features.8.name: Eredità Infernale
 features.8.text: "Un tiefling conosce il trucchetto *taumaturgia*. Quando raggiunge il 3° livello, può lanciare l'incantesimo *intimorire infernale* come incantesimo di 2° livello una volta con questo tratto e recuperare la capacità di farlo quando completa un riposo lungo. Quando raggiunge il 5° livello può lanciare l'incantesimo *oscurità* una volta con questo tratto e recuperare la capacità di farlo quando completa un riposo lungo. La caratteristica da incantatore per questi incantesimi è Carisma."

@@ -12,7 +12,7 @@ VALORI PRINCIPALI
   Punti ferita                             43 / 43
                    10  1° livello (Chierico)        ← srd51
                   +28  4 livelli in più (Chierico)  ← srd51
-                   +5  Robustezza nanica            ← srd51 · hill-dwarf.dwarven-toughness
+                   +5  Robustezza Nanica            ← srd51 · hill-dwarf.dwarven-toughness
   Dadi Vita                                    5d8
   Bonus di competenza                           +3
   Percezione passiva                            14
@@ -83,30 +83,30 @@ INCANTESIMI: CAPACITÀ
 
 INCANTESIMI
 ────────────────────────────────────────────────────────────────────────────────────────────────────
-  Trucchetti Fiamma sacra, Guida ©, Luce, Taumaturgia
-  1° livello Benedizione* ©, Cura ferite*, Dardo tracciante, Parola guaritrice, Santuario, Scudo
-             della fede ©
-  2° livello Aiuto, Arma spirituale*, Blocca persone ©, Ristorare inferiore*, Silenzio ©
-  3° livello Dissolvi magie, Faro di speranza* ©, Guardiani spirituali ©, Rinascita*
+  Trucchetti Fiamma Sacra, Guida ©, Luce, Taumaturgia
+  1° livello Benedizione* ©, Cura Ferite*, Dardo Tracciante, Parola Guaritrice, Santuario, Scudo
+             della Fede ©
+  2° livello Aiuto, Arma Spirituale*, Blocca Persone ©, Ristorare Inferiore*, Silenzio ©
+  3° livello Dissolvi Magie, Faro di Speranza* ©, Guardiani Spirituali ©, Rinascita*
   © concentrazione  * sempre preparato
 
 PRIVILEGI E TRATTI
 ────────────────────────────────────────────────────────────────────────────────────────────────────
   Specie — Nano
-    Incremento dei punteggi di caratteristica    Il punteggio di Costituzione di un nano aumenta…
+    Incremento dei Punteggi di Caratteristica    Il punteggio di Costituzione di un nano aumenta…
     Velocità                                     La velocità base sul terreno di un nano è di 7,5…
     Scurovisione                                 Un nano è abituato a vivere sottoterra e…
     Età                                          I nani maturano allo stesso ritmo degli umani,…
     Allineamento                                 La maggior parte dei nani è legale e crede…
     Taglia                                       Un nano è alto da 1,2 a 1,5 metri e pesa circa…
     Linguaggi                                    Un nano è in grado di parlare, leggere e…
-    Resilienza nanica                            Un nano dispone di vantaggio ai tiri salvezza…
-    Addestramento da combattimento nanico        Un nano ha competenza nelle asce, nelle asce da…
-    Competenza negli strumenti                   Un nano ha competenza in un gruppo di strumenti…
-    Esperto minatore                             Ogni volta che un nano effettua una prova di…
+    Resilienza Nanica                            Un nano dispone di vantaggio ai tiri salvezza…
+    Addestramento da Combattimento Nanico        Un nano ha competenza nelle asce, nelle asce da…
+    Competenza negli Strumenti                   Un nano ha competenza in un gruppo di strumenti…
+    Esperto Minatore                             Ogni volta che un nano effettua una prova di…
   Sottospecie — Nano delle colline
-    Incremento dei punteggi di caratteristica    Il punteggio di Saggezza di un nano aumenta di 1.
-    Robustezza nanica                            Il massimo dei punti ferita di un nano aumenta…
+    Incremento dei Punteggi di Caratteristica    Il punteggio di Saggezza di un nano aumenta di 1.
+    Robustezza Nanica                            Il massimo dei punti ferita di un nano aumenta…
   Classe — Chierico
     Dominio Divino                          L1  Il chierico sceglie un dominio correlato alla sua…
     Incantesimi                             L1  Un chierico è un tramite del potere divino e come…
@@ -121,7 +121,7 @@ PRIVILEGI E TRATTI
   Background — Accolito
     Rifugio dei Fedeli    Un accolito gode del rispetto di coloro che condividono la sua fede ed…
   • Doppio del bonus di competenza alle prove di Intelligenza (Storia) relative all'origine di una
-    struttura in pietra. (Esperto minatore)
+    struttura in pietra. (Esperto Minatore)
   • Quando un non morto fallisce il suo tiro salvezza contro il tuo privilegio Scacciare Non Morti,
     quella creatura è distrutta istantaneamente se il suo grado di sfida è pari o inferiore a una
     soglia: 1/2 al 5° livello, 1 all'8°, 2 all'11°, 3 al 14°, 4 al 17°. (Distruggere Non Morti)
@@ -150,7 +150,7 @@ CREDITI
     from the System Reference Document 5.2 (“SRD 5.2”) by Wizards of the Coast LLC, available at
     https://www.dndbeyond.com/srd. The SRD 5.2 is licensed under the Creative Commons Attribution
     4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.
-  System Reference Document 5.1 — italiano (srd51-it 0.4.0)
+  System Reference Document 5.1 — italiano (srd51-it 0.5.0)
     System Reference Document 5.1 (italiano), Wizards of the Coast — CC-BY-4.0. Questo lavoro
     include materiale del System Reference Document 5.1 (“SRD 5.1”) di Wizards of the Coast LLC
     disponibile al sito https://dnd.wizards.com/it/resources/systems-reference-document. L’SRD 5.1 è

@@ -1,4 +1,4 @@
-name: Metamorfosi pura
+name: Metamorfosi Pura
 components.m: Una goccia di mercurio, una piccola quantità di resina e uno sbuffo di fumo.
 text: |-
   L'incantatore sceglie una creatura o un oggetto non magico entro gittata che è in grado di vedere e trasforma la creatura in una creatura diversa o in un oggetto, oppure l'oggetto in una creatura (esso non deve essere indossato o trasportato da un'altra creatura). La trasformazione permane per la durata dell'incantesimo o finché il bersaglio non scende a 0 punti ferita o muore. Se l'incantatore si concentra su questo incantesimo per tutta la sua durata, la trasformazione permane finché non viene dissolta. Questo incantesimo non ha effetto su un mutaforma, una creatura con 0 punti ferita o una creatura non consenziente che supera un tiro salvezza su Saggezza.
@@ -11,6 +11,6 @@ text: |-
 effects.0.text: |-
   Creatura in creatura: le statistiche di gioco (inclusi i punteggi di caratteristica mentali) sono sostituite da quelle di una creatura con grado di sfida non superiore a quello del bersaglio (o al suo livello), che mantiene allineamento e personalità; ha i punti ferita della nuova forma, non può parlare, lanciare incantesimi o effettuare azioni che richiedano mani o parola a meno che la forma non lo permetta, e il suo equipaggiamento si fonde nella forma e non può essere usato. Oggetto in creatura (GS 9 o inferiore, non più grande dell'oggetto): una creatura amichevole che agisce nei tuoi turni, di cui il GM risolve le statistiche. Creatura in oggetto: le sue statistiche diventano quelle dell'oggetto. Se ti concentri per tutta la durata, la trasformazione diventa permanente.
 effects.0.note: |-
-  In v0 la sostituzione del blocco di statistiche e le creature evocate non sono esprimibili: annota le statistiche a mano.
+  In v0 la sostituzione della scheda delle statistiche e le creature evocate non sono esprimibili: annota le statistiche a mano.
 onCast.0.text: |-
   Una creatura non consenziente che supera un tiro salvezza su Saggezza non è influenzata; nessun effetto su un mutaforma o su una creatura con 0 punti ferita. La trasformazione termina a 0 punti ferita, quando la creatura torna ai punti ferita che aveva prima, e i danni in eccesso si trasmettono alla forma normale.
