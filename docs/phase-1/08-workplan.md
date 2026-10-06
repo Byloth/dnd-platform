@@ -197,7 +197,9 @@ Tasks (from [06-localisation.md](06-localisation.md)):
 4. `sheet.it.txt` goldens; the Italian derive-all probe; metres beside feet.
 5. Wizard copy, archetype `why` sentences and the newcomer wording in Italian.
 
-As it went (2026-09-30): the translation was done in M1.4r (the owner waived the confirmation point on 2026-09-25, "translate everything"); M1.7 added the Italian probe and closed the leaks it found, the Italian goldens, the translation and glossary checks in CI, the owner's homebrew in Italian and the owner's review page ([11-italian-content.md](11-italian-content.md), "As built (M1.7)"). It closes once the owner's choices are applied. Applied on 2026-10-01 (srd51 0.9.0, srd51-it 0.4.0, srd51-creatures-it 0.2.0), with the rule that the official books win; open: the stat block's name and the owner's confirmation of phb14-it.
+As it went (2026-09-30): the translation was done in M1.4r (the owner waived the confirmation point on 2026-09-25, "translate everything"); M1.7 added the Italian probe and closed the leaks it found, the Italian goldens, the translation and glossary checks in CI, the owner's homebrew in Italian and the owner's review page ([11-italian-content.md](11-italian-content.md), "As built (M1.7)"). It closes once the owner's choices are applied. Applied on 2026-10-01 (srd51 0.9.0, srd51-it 0.4.0, srd51-creatures-it 0.2.0), with the rule that the official books win; the last choices on 2026-10-06: "scheda delle statistiche", phb14-it confirmed, the Manuale's Title Case for the names of the SRD too (srd51-it 0.5.0).
+
+**M1.7 done on 2026-10-06.** The `v0.3.7` tag is the owner's.
 
 Done: the criteria of M1.7. Release: `v0.3.7`.
 Risks: OCR quality of the Italian PDF and terminology drift between agents; the glossary is the fixed vocabulary, the review log records every deviation, exactly as for the Player's Handbook.

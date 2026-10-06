@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Two vocabularies are used across these documents: the game's own terms (5e) and the platform's terms. Both are fixed here so every document means the same thing by the same word. Game terms use the official English name first and the official Italian name second, because the first users are Italian and printed material will be localised. The official books win over this table: where an Italian book (SRD 5.1, Manuale del Giocatore, Guida del DM, Manuale dei Mostri, errata) words a term differently, the book is right and this table follows it (owner, 2026-10-01).
+Two vocabularies are used across these documents: the game's own terms (5e) and the platform's terms. Both are fixed here so every document means the same thing by the same word. Game terms use the official English name first and the official Italian name second, because the first users are Italian and printed material will be localised. The official books win over this table: where an Italian book (SRD 5.1, Manuale del Giocatore, Guida del DM, Manuale dei Mostri, errata) words a term differently, the book is right and this table follows it (owner, 2026-10-01). One exception, also the owner's (2026-10-06): the names of spells, features, traits, feats and backgrounds are in the Manuale del Giocatore's Title Case in every package ("Palla di Fuoco", "Resilienza Nanica"), the SRD's included; inside a text a spell's name stays in lowercase italics, as both books print it.
 
 ## Game terms (5e)
 
@@ -41,12 +41,13 @@ Two vocabularies are used across these documents: the game's own terms (5e) and 
 | Background | Background | Origin story; grants proficiencies and a feature. |
 | Feat | Talento | An optional special ability, usually taken instead of an ability score increase. |
 | Ability Score Improvement (ASI) | Aumento dei Punteggi di Caratteristica | The class feature that raises scores or grants a feat. |
-| Ability Score Increase | Incremento dei punteggi di caratteristica | The species trait that raises scores. |
+| Ability Score Increase | Incremento dei Punteggi di Caratteristica | The species trait that raises scores. |
 | Multiclassing | Multiclasse | Taking levels in more than one class. |
 | Inspiration | Ispirazione | A DM-granted token giving advantage on one roll. |
 | Dungeon Master (DM) / Game Master (GM) | Dungeon Master (DM) / Game Master (GM) | The player who runs the game: the Manuale says DM, the Italian SRD GM; each package keeps its book's. |
 | Experience points (XP) / Milestone | Punti esperienza / Pietre miliari | Two ways of gaining levels. |
 | Alignment | Allineamento | A two-word moral descriptor (Lawful Neutral…). |
+| Stat block | Scheda delle statistiche | A creature's block of game statistics (AC, hit points, abilities, actions); the books' wording, never "blocco". |
 | SRD | SRD | System Reference Document: the subset of 5e rules published under a free licence. |
 | PHB / DMG / MM | Manuale del Giocatore / Guida del Dungeon Master / Manuale dei Mostri | The three core rulebooks. |
 
