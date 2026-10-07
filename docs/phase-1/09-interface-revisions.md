@@ -11,7 +11,7 @@ The owner's points are numbered as in the review: 1, 1.1, 2, 2.1, 3, 4, 6, 8.1, 
 Taken by the owner on 2026-09-25:
 
 - **The navigation bar keeps three links: "Characters", "Packages" and "Settings"** (1). "New character" leaves the bar; it stays on the characters page, where creating starts. "Characters" and "Packages" get an icon each (1.1), like "Settings" already has. Re-evaluated by the owner on 2026-10-07: the bar keeps "Characters", "Compendium", "Packages" and "Settings", each with an icon of its own like "Settings"; "New character" leaves it.
-- **After "Settings", two menus: the colour mode, then the language** (3, 2). Each opens a clean dropdown whose items are `<icon> <text>`: system, light, dark for the mode; `<flag> <name>` for the language, listing only the languages the application has (2.1).
+- **After "Settings", two menus: the colour mode, then the language** (3, 2). Re-evaluated by the owner on 2026-10-07, unchanged: two extra icons, perhaps smaller than the links, for a quick switch; both settings stay on the settings page too. Each opens a clean dropdown whose items are `<icon> <text>`: system, light, dark for the mode; `<flag> <name>` for the language, listing only the languages the application has (2.1).
 - **Flags are drawn, never emoji**: Windows shows no flag emoji. The United Kingdom flag stands for English, the Italian tricolour for Italian.
 - **A dropdown closes when the player clicks outside it** (2.1), which the current "Settings" disclosure does not do.
 - **A settings page** (4) shows every setting, the existing ones and a new one: **the units of measure**. Feet and pounds are not clear to everybody. The default follows the language: imperial in English, metric in Italian. The player can pick either explicitly.
