@@ -1,7 +1,9 @@
 /**
  * The reference Monk in the browser (M1.2 done criterion, docs/phase-1/07-testing-accessibility-performance.md):
  * phb14 loaded from a zip like a user would, the SRD from the site, the homebrew from a zip; the sheet and the
- * section tree equal the CLI's snapshot and tree. Private: skipped without the book (CI, public checkouts).
+ * section tree equal the CLI's snapshot and tree; and the round trip of M1.5a, export → file → import → derive equal
+ * to the original byte for byte, with the book left out of the file. Private: skipped without the book (CI, public
+ * checkouts).
  */
 
 import "fake-indexeddb/auto";
@@ -14,9 +16,11 @@ import { flushPromises } from "@vue/test-utils";
 import { afterEach, describe, expect, it } from "vitest";
 import { mountSuspended } from "@nuxt/test-utils/runtime";
 
+import { derive } from "@byloth/dnd-platform-engine";
 import type { Character } from "@byloth/dnd-platform-engine";
 import { stableStringify } from "@byloth/dnd-platform-schema";
 
+import { useCharacterFiles } from "@/composables/character-files";
 import { usePackageLoader } from "@/composables/packages";
 import EditPage from "@/pages/characters/[id]/edit.vue";
 
@@ -83,6 +87,37 @@ describe("the reference Monk in the browser", () =>
         const { sheet } = useEngine().sheet(unpinned, sources, { language: "en" });
         expect(`${stableStringify(sheet)}\n`).toBe(readFileSync(join(FIXTURE, "snapshot.json"), "utf8"));
         wrapper.unmount();
+
+    }, 60_000);
+
+    it.skipIf(!available)("derives identically after export and import, without the book inside", async () =>
+    {
+        const { load } = usePackageLoader();
+        await load(zipOf(BOOK, "phb14"));
+        await load(zipOf(join(FIXTURES, "homebrew-feline"), "homebrew-feline"));
+        const original = parse(readFileSync(join(FIXTURE, "character.yaml"), "utf8")) as Character;
+        const files = useCharacterFiles();
+        const derived = async (c: Character): Promise<string> =>
+        {
+            const sources = await useContentStore().sources(c.packages.map((p) => p.id));
+            const pins = Object.fromEntries(c.packages.map((p) => [p.id, p.version]));
+
+            return stableStringify(derive(c, useEngine().packageSet(sources, pins)));
+        };
+
+        const exported = await files.exportDocument(original, { embed: true });
+        const embedded = (exported.embedded ?? []).map((source) => source.manifest.id);
+        expect(exported.packages.map((p) => p.id)).toContain("phb14");
+        expect(embedded).not.toContain("phb14");
+        const text = stableStringify(exported);
+
+        const bytes = new TextEncoder().encode(text);
+        const file = { name: "monk.dnd.json", arrayBuffer: async () => bytes.slice().buffer };
+        const plan = await files.plan(await files.read(file));
+        const imported = await files.importCharacter(plan, { replace: true });
+        const stored = (await useBrowserStorage().characters.get(imported.id))!;
+
+        expect(await derived(stored)).toBe(await derived(original));
 
     }, 60_000);
 });

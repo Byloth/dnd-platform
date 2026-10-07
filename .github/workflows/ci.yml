@@ -45,5 +45,8 @@ jobs:
       # Median of three runs on the phone preset: accessibility at 100, time to interactive as a regression guard
       # (docs/phase-1/07-testing-accessibility-performance.md). The runner's Chrome is used.
       - run: pnpm web:lighthouse
+      # The repeat visit in one browser profile, the service worker installed: the sheet interactive under two
+      # seconds, median of three (M1.8d). The runner's Chrome is used.
+      - run: pnpm web:repeat-visit
       # Public content only: the private submodule is not checked out, private/ is empty here.
       # Fixtures that require a private package are reported as skipped.
