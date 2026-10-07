@@ -160,7 +160,8 @@
             z-index: 5;
         }
 
-        // On a phone the dots scroll away with the page: the bar says where the player is.
+        // On a phone the dots scroll away with the page: the bar says where the player is. Under 360 px (a small
+        // phone, or 400 % zoom) Back and Next take the whole width, with no sideways scroll (WCAG 1.4.10).
         &__count
         {
             color: var(--color-ink-muted);
@@ -168,6 +169,7 @@
             white-space: nowrap;
 
             @include mixins.from(variables.$tablet-min) { display: none; }
+            @media (max-width: 359px) { display: none; }
         }
 
         &__next

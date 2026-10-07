@@ -189,7 +189,7 @@ Each is a commit. Tests and lint pass through the hooks.
 
 - **The bar** (`components/wizard/WizardStep.vue`):
   - Back and Next sit in a footer with `position: sticky; bottom: 0`, a translucent surface, a top border and a soft shadow, and the safe-area inset under it;
-  - on a phone it shows "Step n of 10" between the buttons, since the dots scroll away;
+  - on a phone it shows "Step n of 10" between the buttons, since the dots scroll away; under 360 px the count gives way, since the full `web:a11y` run found the Italian bar 340 px wide at 320 px;
   - once the end of the step is reached it rests at its place after the content;
   - while it is on screen the document carries `scroll-padding-bottom` (`html.wizard-bar`), so a field reached with Tab is never under it;
   - the expert page has no bar.
@@ -203,7 +203,7 @@ Each is a commit. Tests and lint pass through the hooks.
   - the bar with Back, Next and the count;
   - the focus on the new heading after Next, with the real `<Transition>`;
   - no bar on the expert page.
-  Screenshots at 360 and 1280 px; `pnpm web:a11y` clean on 60 screens.
+  Screenshots at 360 and 1280 px. The full `pnpm web:a11y` run (420 page loads) found the bar too wide in Italian at 320 px on nine screens; with the fix, clean. The 6 "to review" are the sheet's two-column focus order, accepted at M1.8b.
 
 ## Tests
 
