@@ -57,6 +57,6 @@ i18n/locales/en.json
 
 ## Open points
 
-- Whether the Italian translation package should be pinned by characters after all, so that an export carries the language of the names as printed; leaning no, the export carries ids and the receiving side localises.
-- Spell names: the Italian SRD translates most, the community uses English names at many tables; the sheet shows the Italian name with the English one in small print when the help level is *newcomer*. Confirm with the newcomer test.
-- The glossary lists terms, not every feature name; where the PDF and the glossary disagree on a feature name, the PDF wins and the glossary gains the term.
+- ~~Whether the Italian translation package should be pinned by characters~~: no; the export carries ids and the receiving side localises (as built at M1.5a and M1.7).
+- Spell names: the Italian SRD translates most, the community uses English names at many tables; the sheet shows the Italian name with the English one in small print when the help level is *newcomer*. Confirm with the newcomer test. Waits for the newcomer test (M1.8c, [usability/report.md](usability/report.md)).
+- ~~The glossary lists terms, not every feature name~~: settled at M1.7 as the rule that the official books win over the glossary, which gains the term (owner, 2026-10-01).

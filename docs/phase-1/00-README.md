@@ -55,6 +55,27 @@ Requirements the owner fixed for the whole phase: the text sheet of `dnd derive`
 
 Phase 1 is done when M1.1–M1.8 and M1.C are done and the done criteria of Phase 1 in [../16-roadmap.md](../16-roadmap.md) hold. The verification table is written at the close, as [../phase-0/00-README.md](../phase-0/00-README.md) did.
 
+## Phase 1 verification (prepared 2026-10-07, M1.8d; closes with `v1.0.0`)
+
+**Status: prepared, not closed.** Every row but the first was checked on 2026-10-07; the first waits for the newcomer test (M1.8c), and two manual passes wait for a person with the device. The phase closes when they are in.
+
+| Criterion ([../16-roadmap.md](../16-roadmap.md)) | Evidence | Result |
+|---|---|---|
+| A tester who has never played builds a level 1 character in under 15 minutes and can say what each number on the sheet means | The protocol [usability/protocol.md](usability/protocol.md), confirmed by the owner on 2026-10-07; the report [usability/report.md](usability/report.md) | **Pending** (M1.8c: recruiting and sessions, the owner's) |
+| The reference Monk's printed playbook contains every kind of panel of the original except the tactical guide and the rules cheat sheet, with no redundant explanation and no mention of abilities the character does not have | `packages/sheets/test/cards.test.ts` against `private/fixtures/reference-monk/print-checklist.yaml` (every Part 2 value filled, every card and credit once, nothing the character lacks, none of the parts Phase 1 does not print); the page counts of the public characters in A4 and Letter (`fixtures/print/page-counts.json`); see [05-print-and-export.md](05-print-and-export.md), "As built (M1.6c)" | Holds (verified locally on 2026-10-07, with the book; skipped in CI where it is absent) |
+| A character exported and re-imported produces a byte-identical computed sheet | `packages/web/tests/character-files.test.ts`, "the round trip": every public fixture character (over 60) exported with its homebrew, read, imported and derived, equal byte for byte, in CI; the reference Monk the same way, without the book inside the file (`tests/flows/private-monk.test.ts`, added at M1.8d) | Holds (the public round trip in CI; the Monk's verified locally on 2026-10-07) |
+| The sheet is usable on a phone in portrait orientation | `pnpm web:a11y` in CI: every screen at 360 px and reflow at 320 px, with no horizontal scroll ([accessibility/m1.8b-report.md](accessibility/m1.8b-report.md)); Lighthouse on the phone preset (4× CPU, Slow 4G) in CI, cold time to interactive guarded; `pnpm web:repeat-visit` in CI (added at M1.8d): the sheet of the level 20 caster interactive in 1.1–1.4 s on the repeat visit (median of three, limit 2 s) | Holds for what a browser can check; **the phone in hand pending** ([accessibility/screen-reader-pass.md](accessibility/screen-reader-pass.md)) |
+
+The requirements the owner fixed for the whole phase (see the top of this document):
+
+| Requirement | Evidence | Result |
+|---|---|---|
+| The text sheet of `dnd derive` is the reference the web sheet reproduces | `tests/flows/private-monk.test.ts` and the composer goldens: the sheet and the section tree in the browser equal the CLI's snapshot and tree | Holds |
+| Everything visible is usable on a phone in portrait | As the fourth criterion above | Holds, the phone in hand pending |
+| Nothing private ever leaves the browser | Private packages are never embedded in an export (`character-files.test.ts`; the Monk's round trip checks the file); no network request but the site's own assets and, with consent, anonymous events (DEC-22, [12-analytics.md](12-analytics.md)); the working folder writes only to the player's disk (M1.8a) | Holds |
+| Every screen passes the accessibility checklist of [../13-ux-and-accessibility.md](../13-ux-and-accessibility.md) | `pnpm web:a11y` (axe with layout in two languages and three themes, phone and computer, reflow, keyboard, Escape: 364 page loads clean at M1.8b) and the component checks of M1.3d, in CI | Holds for the automated part; **the screen-reader pass pending** (a person with the device) |
+| Budgets: first load under 300 KB, the SRD under 500 KB, compressed | `pnpm web:budgets` in CI; on 2026-10-07: first load 209.7 KB, SRD 454.8 KB, Italian SRD 397.9 KB | Holds |
+
 ## Conventions for this directory
 
 - Each document opens with **Purpose**, then **Decisions** (what this document fixes), **Design**, **Tasks** (numbered, referencing milestones), **Open points**.

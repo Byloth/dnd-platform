@@ -93,4 +93,4 @@ Beside the sheet, the composer writes one entity at a time for reading, with the
 
 - ~~Whether `detail` texts should be rendered as Markdown~~ — yes, decided by the owner on 2026-09-24: a library plus sanitisation (`marked` + `DOMPurify`, with raw HTML never passed through), in `components/sheet/RichText.vue`; print (M1.6) reuses it.
 - The condition-to-words function covers every key of the condition language, `wieldingOnly` included ("you wield only {weapon}"); the generic fallback ("{condition} holds") is left for keys added to the language later, and the coverage test fails until they get a sentence. Known limitations: toggle and resource ids read as words ("hide in plain sight is on"), and content labels keep their own case ("perception bonus adds +4").
-- Whether the play-mode tree should already differ (pinning) so that Phase 2 changes only the renderer; leaning no, the composer grows with the play engine's needs then.
+- ~~Whether the play-mode tree should already differ (pinning)~~: no; the composer grows with the play engine's needs. Carried into Phase 2 (M1.8d, 2026-10-07; [08-workplan.md](08-workplan.md), "Carried into Phase 2").

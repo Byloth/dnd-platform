@@ -173,6 +173,6 @@ Each is a commit. Tests and lint pass through the hooks.
 
 ## Open points
 
-- The label of the "system" colour mode: "System" or "As the device". Settle with the Italian wording ("Come il sistema").
+- The label of the "system" colour mode: "System" or "As the device". Settle with the Italian wording ("Come il sistema"). The owner's (M1.8d, 2026-10-07; listed in [08-workplan.md](08-workplan.md), "Carried into Phase 2").
 - Whether the settings page should also hold the storage section now on the packages page (persistence, usage, eviction warning). Leaning: it stays with the packages, where the data is; the settings page links to it.
-- Measures inside structured content not rendered yet (spell ranges, item weights): they use `measure()` when M1.6 (cards) or a later sheet change shows them.
+- Measures inside structured content not rendered yet (spell ranges, item weights): they use `measure()` when M1.6 (cards) or a later sheet change shows them. Carried into Phase 2 (M1.8d, 2026-10-07; [08-workplan.md](08-workplan.md), "Carried into Phase 2").

@@ -211,10 +211,10 @@ Risks: OCR quality of the Italian PDF and terminology drift between agents; the 
 Tasks (from [02-content-and-character-stores.md](02-content-and-character-stores.md), [07-testing-accessibility-performance.md](07-testing-accessibility-performance.md)):
 1. The working-directory backend where the API exists: connect, README files, mirror, package loading from `packages/`, reconciliation. **Done (M1.8a, 2026-10-06)**: [02-content-and-character-stores.md](02-content-and-character-stores.md), "As built (M1.8a)".
 2. The accessibility pass on every screen (keyboard, screen reader, the phone in hand), recorded. **Automated part done (M1.8b, 2026-10-06)**: `pnpm web:a11y` in CI, 364 page loads clean after four reflow fixes ([accessibility/m1.8b-report.md](accessibility/m1.8b-report.md)); the screen reader and the phone in hand wait for a person ([accessibility/screen-reader-pass.md](accessibility/screen-reader-pass.md)).
-3. **Confirmation point.** The usability protocol presented; recruiting after confirmation; sessions; report. The draft is [usability/protocol.md](usability/protocol.md) (2026-10-06), waiting for the owner's confirmation.
-4. Phase 1 verification table in [00-README.md](00-README.md); the risk register reviewed; the open points of the Phase 1 documents closed or promoted.
+3. **Confirmation point.** The usability protocol presented; recruiting after confirmation; sessions; report. **Confirmed by the owner on 2026-10-07, as drafted** ([usability/protocol.md](usability/protocol.md)); recruiting and the sessions are the owner's, the report goes to [usability/report.md](usability/report.md) (its skeleton is ready).
+4. Phase 1 verification table in [00-README.md](00-README.md); the risk register reviewed; the open points of the Phase 1 documents closed or promoted. **Prepared (M1.8d, 2026-10-07)**: the verification table ([00-README.md](00-README.md), "Phase 1 verification"), with every row checked but the newcomer test and the two manual passes; the risk review ([../18-risks.md](../18-risks.md), "Phase 1 close"), R-04 left for the report; every open point closed, carried into Phase 2, left for the newcomer test or listed as the owner's (below). Two gaps closed on the way: the reference Monk's round trip (private test) and the repeat visit measured in CI (`pnpm web:repeat-visit`, 1.1–1.4 s, limit 2 s).
 
-Split (2026-10-06): **M1.8a** the working folder (task 1, done 2026-10-06); **M1.8b** the accessibility pass (task 2; the screen-reader part needs a person with the device); **M1.8c** the newcomer test (task 3, after the owner confirms the protocol); **M1.8d** the close (task 4) and `v1.0.0`.
+Split (2026-10-06): **M1.8a** the working folder (task 1, done 2026-10-06); **M1.8b** the accessibility pass (task 2; the screen-reader part needs a person with the device); **M1.8c** the newcomer test (task 3, after the owner confirms the protocol); **M1.8d** the close (task 4) and `v1.0.0`. As of 2026-10-07, `v1.0.0` waits for three things only: the newcomer test's report (M1.8c), the screen-reader pass and the phone in hand (or the owner's waiver), and R-04 completed from the report.
 
 Done: the criteria of M1.8 and the done criteria of Phase 1 in [../16-roadmap.md](../16-roadmap.md) verified one by one. Release: `v1.0.0`.
 Risks: the newcomer test fails the fifteen-minute target; that is a finding, not a blocker: the report says where the minutes went and Phase 2 opens with the fixes.
@@ -242,11 +242,21 @@ Risks: the newcomer test fails the fifteen-minute target; that is a finding, not
 
 ## Open points
 
-- Whether M1.6 (print) should come before M1.4 (creation) to give the owner a printable playbook of the fixture characters earlier; possible, since print depends on the sheet and the stored character only when printing a created one. Decide at the close of M1.3.
-- Whether the project name (and the site path) is settled during Phase 1; the base URL is one line, the package scope a search-and-replace.
-- DEC-23 (one package per official book, or one "core" package) is to be decided before the next private package (dmg14 or mm14); the catalogues it serves are in [../19-catalogues.md](../19-catalogues.md).
-- Famous characters from other works (Geralt of Rivia, Uther the Lightbringer…) as demo characters and as wizard concepts: proposed by the owner on 2026-09-25, set aside to evaluate later. A well-delineated fictional character is protected by copyright and its name is often a trademark; the public content is CC-BY, which cannot cover them. The options recorded: a private package (like phb14), a separate fan package with notices that follows each owner's fan-content policy, or original concepts "in the manner of" with names of our own.
-- Session estimates assume agent assistance for repetitive work (archetype authoring, translation, component boilerplate); revise after M1.3.
+- ~~Whether M1.6 (print) should come before M1.4 (creation)~~: no; M1.4 came first and M1.6 followed M1.5 (as built).
+- Whether the project name (and the site path) is settled during Phase 1; the base URL is one line, the package scope a search-and-replace. The owner's (M1.8d, 2026-10-07; listed in [08-workplan.md](08-workplan.md), "Carried into Phase 2").
+- DEC-23 (one package per official book, or one "core" package) is to be decided before the next private package (dmg14 or mm14); the catalogues it serves are in [../19-catalogues.md](../19-catalogues.md). The owner's (M1.8d, 2026-10-07; listed in [08-workplan.md](08-workplan.md), "Carried into Phase 2").
+- Famous characters from other works (Geralt of Rivia, Uther the Lightbringer…) as demo characters and as wizard concepts: proposed by the owner on 2026-09-25, set aside to evaluate later. A well-delineated fictional character is protected by copyright and its name is often a trademark; the public content is CC-BY, which cannot cover them. The options recorded: a private package (like phb14), a separate fan package with notices that follows each owner's fan-content policy, or original concepts "in the manner of" with names of our own. The owner's (M1.8d, 2026-10-07; listed in [08-workplan.md](08-workplan.md), "Carried into Phase 2").
+- ~~Session estimates assume agent assistance~~: closed at M1.8d; the actual sessions are in the progress log, and the Phase 2 plan estimates from them.
+
+## Carried into Phase 2
+
+Collected at M1.8d (2026-10-07) from the open points of the Phase 1 documents, for the Phase 2 plan to take up or drop. The rest of M1.4r ([09-interface-revisions.md](09-interface-revisions.md), [10-wizard-integrity.md](10-wizard-integrity.md)) was deferred to Phase 2 by the owner on 2026-10-06 and is not repeated here.
+
+- From the sheet and the compendium: conditions linked from the sheet (ids in the composer's `ConditionsBlock`, [13](13-compendium.md)); the play-mode section tree grown with the play engine ([03](03-sheet-composer.md)); measures in structured content through `measure()` ([09](09-interface-revisions.md)); searching inside the text, the glossary's second round, environments for creatures, the package-set cache cleared after a load or removal ([13](13-compendium.md)).
+- From creation: manual adjustments of values beyond the ability scores ([04](04-character-creation.md); R-06 applies).
+- From the statistics: the switch moves to the settings page, in a "Privacy" section ([12](12-analytics.md)).
+- Waiting for the newcomer test (the report decides): Italian spell names with the English one in small print; archetype equipment; a picked text staying in the language it was picked in ([06](06-localisation.md), [04](04-character-creation.md), [11](11-italian-content.md)).
+- The owner's: Umami's data-processing terms and storage region, said on the privacy page if outside the EU ([12](12-analytics.md)); the project name and the site path; DEC-23 before the next private package; famous characters as demo characters; the label of the "system" colour mode ([09](09-interface-revisions.md)); the tags `v0.3.5`–`v0.3.7`.
 
 ## Progress log
 

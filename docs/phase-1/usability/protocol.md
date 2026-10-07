@@ -1,6 +1,6 @@
-# Phase 1 — The newcomer usability test: protocol (draft, 2026-10-06)
+# Phase 1 — The newcomer usability test: protocol (2026-10-06, confirmed 2026-10-07)
 
-**Status: draft, waiting for the owner's confirmation** (M1.8's confirmation point, [../08-workplan.md](../08-workplan.md)). Nobody is recruited before it.
+**Status: confirmed by the owner on 2026-10-07, as drafted** (M1.8's confirmation point, [../08-workplan.md](../08-workplan.md)). Recruiting may start; the sessions and the report are M1.8c.
 
 ## Purpose
 
@@ -104,6 +104,8 @@ Per participant, on one sheet:
 The English version, for participants whose interface is in English, says the same in the same order.
 
 ## Open points for the owner
+
+The protocol was confirmed as drafted; these three are settled by the owner while recruiting, and the report says how.
 
 - The number of participants (three is the minimum; five is better) and who recruits them.
 - Whether a screen recording is wanted at all, with explicit consent, or notes only.

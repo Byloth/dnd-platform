@@ -126,4 +126,4 @@ Each is a commit.
 ## Open points
 
 - Removing a package from the packages page while a stored character uses it is refused today (the page lists the characters). If that ever becomes possible, the review's rule (5) already covers the characters it leaves behind.
-- Whether the sheet page, for a stored character pinned at an older version, should say so quietly before M1.5 ("made with srd51 0.2.0; open and save to update"). Leaning: no; the M1.5 alert is the right place.
+- ~~Whether the sheet page, for a stored character pinned at an older version, should say so quietly before M1.5~~: no; the "what changed" alert of M1.5b says it.

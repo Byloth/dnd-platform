@@ -68,7 +68,7 @@ From the manifests' `sources` of every package the character depends on: title, 
   - the characters page imports through `components/ui/FilePicker.vue`, extracted from the packages page, by choosing or dropping a file; `ImportDialog.vue` lists the packages and asks "Keep both" or "Replace it" on a taken id.
   - The file code and the dialogs load on first use; the characters page's first load is unchanged (208 KB of 300).
 - **Found on the way**, in `ConfirmDialog`: its title had a fixed id, which two dialogs on one page would share, and a dialog mounted already open never opened. Both are fixed.
-- **The round trip**: every public fixture character (the SRD, its excerpt, the homebrew) is exported with its homebrew, read, imported and derived. Each result equals the original byte for byte (`tests/character-files.test.ts`). The reference Monk's private round trip is still to add, with the private tests.
+- **The round trip**: every public fixture character (the SRD, its excerpt, the homebrew) is exported with its homebrew, read, imported and derived. Each result equals the original byte for byte (`tests/character-files.test.ts`). The reference Monk's round trip was added at M1.8d with the private tests (`tests/flows/private-monk.test.ts`): the same comparison, and the file lists phb14 without carrying it.
 - **Versions**: the import lists a version difference; saying what it changes in numbers is M1.5b.
 
 ## Tasks
@@ -81,9 +81,9 @@ From the manifests' `sources` of every package the character depends on: title, 
 
 ## Open points
 
-- Browser differences in `@page` support (margins, page size on Firefox and Safari): the layout must not depend on features Chromium alone supports; test on the three engines at M1.6.
-- Whether the print route should also be reachable without the application chrome for people who print from a phone; likely yes, a full-screen variant with a single "print" button.
-- Embedding homebrew bundles in the export doubles as a way to share homebrew between devices; the size of an export with bundles is unbounded, so the option stays off by default.
+- ~~Browser differences in `@page` support~~: overtaken by DEC-13 as amended (2026-09-29): the page draws the PDF itself, with no print dialog and no print stylesheet.
+- ~~Whether the print route should also be reachable without the application chrome~~: overtaken by the PDF of M1.6a, which a phone downloads or shares from the sheet.
+- Embedding homebrew bundles in the export doubles as a way to share homebrew between devices; the size of an export with bundles is unbounded, so the option stays off by default. Settled at M1.5a: off by default, never a private package.
 
 ### As built (M1.6a, 2026-09-29): the classic sheet, page 1
 

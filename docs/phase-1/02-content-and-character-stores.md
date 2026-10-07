@@ -97,5 +97,5 @@ Available in Chromium desktop browsers only; feature-detected, never required. W
 ## Open points
 
 - ~~Whether `packages/` in the working directory should hold the zips as loaded or the unpacked directories~~: unpacked directories (owner, 2026-10-06; M1.8a).
-- Storage quota on phones: Safari grants little and evicts; if the SRD bundle plus a book exceed what a device grants, the packages page must say so before the load fails. The numbers come from `navigator.storage.estimate()`; `SystemInfo` of `@byloth/core` recognises Safari and iOS for the eviction warning, since the estimate alone does not tell it. Measure at M1.2 on the reference devices.
+- ~~Storage quota on phones~~: built at M1.2 (the storage section of the packages page: persistence, usage and quota, the Safari/iOS eviction warning). The measurement on the reference devices is the phone-in-hand pass of M1.8b.
 - ~~Whether to keep several versions of the same package~~: no, one per id (DEC-21); older versions of public packages stay available on the site.

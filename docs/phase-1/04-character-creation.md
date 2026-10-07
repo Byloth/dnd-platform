@@ -109,7 +109,7 @@ Steps can be revisited in any order from a stepper; a change in step 0 re-valida
 ## Open points
 
 - ~~Point buy needs costs and a budget~~. Decided at M1.4a: `ruleset.abilityScores`, with SRD 5.2's numbers in srd51 0.2.0. The SRD 5.1 text had neither the array nor point buy.
-- Whether the archetype should also prefill equipment (the original playbook did); the schema has no field for it; propose it for v1 if the newcomer test asks for it.
+- Whether the archetype should also prefill equipment (the original playbook did); the schema has no field for it; propose it for v1 if the newcomer test asks for it. Waits for the newcomer test (M1.8c, [usability/report.md](usability/report.md)).
 - ~~Starting equipment as "packs" is prose in the SRD classes~~. It was not: the class and background grants are structured, and only the pack contents were prose. Since M1.4a packs list their items (`item.contents`) and the coins have their place (`state.currency`); see the decisions.
 - ~~Where the language choices take their options~~. Decided by the owner on 2026-09-24: the ruleset's `languages` list (additive v0, srd51 0.3.0).
-- Manual adjustment of values other than the ability scores (armour class, hit points, speed, skills), with an override or a bonus as D&D Beyond offers. It is a later candidate, noted by the owner on 2026-09-24.
+- Manual adjustment of values other than the ability scores (armour class, hit points, speed, skills), with an override or a bonus as D&D Beyond offers. It is a later candidate, noted by the owner on 2026-09-24. Carried into Phase 2 (M1.8d, 2026-10-07; [08-workplan.md](08-workplan.md), "Carried into Phase 2").

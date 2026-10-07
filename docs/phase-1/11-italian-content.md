@@ -146,6 +146,6 @@ A and B, in M1.4r. Each is a commit.
 
 ## Open points
 
-- A text picked in the wizard (a personality suggestion) is copied into the character in the language it was picked in. Switching language later does not translate it. Leaning: keep it, since the player's text is theirs; say so in the help.
-- Spell names in Italian with the English name in small print for a newcomer (06's open point) is still open, for part C.
-- Which online references are reliable enough for terms is decided during part B and recorded in `SOURCES.md`. Where two sources disagree, the glossary decides, and the owner decides the glossary.
+- A text picked in the wizard (a personality suggestion) is copied into the character in the language it was picked in. Switching language later does not translate it. Leaning: keep it, since the player's text is theirs; say so in the help. Waits for the newcomer test (M1.8c, [usability/report.md](usability/report.md)).
+- Spell names in Italian with the English name in small print for a newcomer (06's open point) is still open, for part C. Waits for the newcomer test (M1.8c, [usability/report.md](usability/report.md)).
+- ~~Which online references are reliable enough for terms~~: overtaken by the owner's rule of M1.7: the official books (the Italian manuals in `private/sources`) win; online references only where the books are silent.

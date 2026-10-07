@@ -68,6 +68,6 @@ The accessibility tests cover the banner and the privacy page in both languages.
 
 ## Open points
 
-- Umami Cloud as a processor: the owner is to check its data-processing terms and the region where it stores data, and say so on the privacy page if it is outside the EU.
-- When the settings page of [09-interface-revisions.md](09-interface-revisions.md) arrives, the statistics switch moves there, in a "Privacy" section.
-- Units and further preferences join the `preference` event as they are added.
+- Umami Cloud as a processor: the owner is to check its data-processing terms and the region where it stores data, and say so on the privacy page if it is outside the EU. The owner's (M1.8d, 2026-10-07; listed in [08-workplan.md](08-workplan.md), "Carried into Phase 2").
+- When the settings page of [09-interface-revisions.md](09-interface-revisions.md) arrives, the statistics switch moves there, in a "Privacy" section. Carried into Phase 2 (M1.8d, 2026-10-07; [08-workplan.md](08-workplan.md), "Carried into Phase 2").
+- ~~Units and further preferences join the `preference` event as they are added~~: a standing rule, not an open point; kept in the design.

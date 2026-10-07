@@ -139,10 +139,10 @@ The second round (species, classes and subclasses, backgrounds, feats, the rules
 
 ## Open points
 
-- **Linking conditions from the sheet**: the composer's `ConditionsBlock` has names, not ids. Adding ids changes the section-tree goldens; worth it with play mode (Phase 2), when conditions appear during a session.
+- **Linking conditions from the sheet**: the composer's `ConditionsBlock` has names, not ids. Adding ids changes the section-tree goldens; worth it with play mode (Phase 2), when conditions appear during a session. Carried into Phase 2 (M1.8d, 2026-10-07; [08-workplan.md](08-workplan.md), "Carried into Phase 2").
 
-- **A tag of its own.** As planned, M1.C ships with `v0.3.5` at the close of M1.5, like M1.4r. If the owner wants to publish it sooner, it can be tagged `v0.3.5` itself and every later tag moves by one.
-- **The glossary in the second round**: the rule entities of srd51 (276, by category) as its content, the terms of [../03-glossary.md](../03-glossary.md) as its index, or both.
-- **Environment** for creatures: the format has `environments`, srd51-creatures fills it for none; filling it is content work.
-- **Package sets are remembered by id and version** (`useEngine`): a package loaded again with the same version but different contents keeps its old set until the page is reloaded. The tests clear the cache; the application could clear it after a load or a removal.
-- **Searching in the text** (e.g. "which spells deal fire damage"): not in the first version.
+- ~~**A tag of its own.**~~ Overtaken: M1.C shipped with M1.5's milestone; the tags `v0.3.5`–`v0.3.7` are the owner's.
+- **The glossary in the second round**: the rule entities of srd51 (276, by category) as its content, the terms of [../03-glossary.md](../03-glossary.md) as its index, or both. Carried into Phase 2 (M1.8d, 2026-10-07; [08-workplan.md](08-workplan.md), "Carried into Phase 2").
+- **Environment** for creatures: the format has `environments`, srd51-creatures fills it for none; filling it is content work. Carried into Phase 2 (M1.8d, 2026-10-07; [08-workplan.md](08-workplan.md), "Carried into Phase 2").
+- **Package sets are remembered by id and version** (`useEngine`): a package loaded again with the same version but different contents keeps its old set until the page is reloaded. The tests clear the cache; the application could clear it after a load or a removal. Carried into Phase 2 (M1.8d, 2026-10-07; [08-workplan.md](08-workplan.md), "Carried into Phase 2").
+- **Searching in the text** (e.g. "which spells deal fire damage"): not in the first version. Carried into Phase 2 (M1.8d, 2026-10-07; [08-workplan.md](08-workplan.md), "Carried into Phase 2").
