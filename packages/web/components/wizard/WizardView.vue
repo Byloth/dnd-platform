@@ -61,7 +61,7 @@
     {
         if (!import.meta.client) { return; }
         void nextTick(() => document.getElementById(`step-${step}`)
-            ?.scrollIntoView({ behavior: "smooth", block: "start" }));
+            ?.scrollIntoView({ behavior: scrollBehavior(), block: "start" }));
     };
 
     const done = (step: StepId): boolean => stepDone(step);
@@ -74,14 +74,18 @@
     };
 
     const { track } = useAnalytics();
+    const navigate = useStepNavigation();
 
     const go = (step: StepId): void =>
     {
         track("wizard-step", { step: step });
-        wizard.goTo(step);
-        void router.replace({ query: { ...route.query, step: step } });
-        if (expert.value) { scrollToSection(step); }
-        else if (import.meta.client) { window.scrollTo({ top: 0, behavior: "smooth" }); }
+        if (expert.value)
+        {
+            wizard.goTo(step);
+            void router.replace({ query: { ...route.query, step: step } });
+            scrollToSection(step);
+        }
+        else { navigate(step); }
     };
 
     // A step asked from inside a section (the review's "Go to…") is a place on the expert page.

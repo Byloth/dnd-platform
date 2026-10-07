@@ -23,8 +23,6 @@
 
     const { wizard, helpLevel } = useWizardContext();
     const { t, locale } = useI18n();
-    const route = useRoute();
-    const router = useRouter();
     const translate = useSheetTranslate();
 
     const composed = computed(() => (wizard.character && wizard.sources.length ?
@@ -78,12 +76,7 @@
         t("wizard.review.open", { n: issues.value.length }, issues.value.length) :
         t("wizard.review.ready")));
 
-    const go = (step: StepId): void =>
-    {
-        wizard.goTo(step);
-        void router.replace({ query: { ...route.query, step: step } });
-        if (import.meta.client) { window.scrollTo({ top: 0, behavior: "smooth" }); }
-    };
+    const go = useStepNavigation();
 
     type Saving = "idle" | "saving" | "failed";
     const saving = ref<Saving>("idle");

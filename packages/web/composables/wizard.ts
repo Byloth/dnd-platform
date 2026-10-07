@@ -75,3 +75,27 @@ export function stepDone(step: StepId): boolean
         default: return false;
     }
 }
+
+/** Smooth scrolling, unless the player asked the device for reduced motion. */
+export function scrollBehavior(): ScrollBehavior
+{
+    return window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
+}
+
+/**
+ * Moves the wizard to a step from a button of the page: the store, the address, and back to the top of the page.
+ * The step's heading takes the focus when the step has faded in (`WizardStep`).
+ */
+export function useStepNavigation()
+{
+    const wizard = useWizardStore();
+    const router = useRouter();
+    const route = useRoute();
+
+    return (step: StepId): void =>
+    {
+        wizard.goTo(step);
+        void router.replace({ query: { ...route.query, step: step } });
+        if (import.meta.client) { window.scrollTo({ top: 0, behavior: scrollBehavior() }); }
+    };
+}

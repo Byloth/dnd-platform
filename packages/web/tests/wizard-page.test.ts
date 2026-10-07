@@ -1,7 +1,8 @@
 /**
  * The creation wizard's page (docs/phase-1/04-character-creation.md): an archetype and "Next" alone reach the
  * background with its recommendations chosen; the reasons follow the help level; the steps are reachable from
- * the dots in any order; a stored draft is offered back; both languages without a raw key.
+ * the dots in any order; Back and Next in a bar fixed at the bottom, the new step's heading focused after a move;
+ * a stored draft is offered back; both languages without a raw key.
  */
 
 import "fake-indexeddb/auto";
@@ -23,11 +24,13 @@ const MONK = "srd51.archetype.open-hand-wanderer";
 
 let _mounted: VueWrapper | undefined;
 
-async function open(step?: string): Promise<VueWrapper>
+async function open(step?: string, transitions = false): Promise<VueWrapper>
 {
     _mounted = await mountSuspended(WizardPage, {
         route: step ? `/characters/new?step=${step}` : "/characters/new",
-        attachTo: document.body
+        attachTo: document.body,
+        // The test utils stub <Transition> unless asked: the focus after a move waits for the real one.
+        ...(transitions ? { global: { stubs: { transition: false } } } : {})
     });
     await until(() => _mounted!.find(".wizard-step, .wizard-page__resume").exists());
 
@@ -177,6 +180,32 @@ describe("the creation wizard", () =>
         expect(wrapper.find("h1").text()).toBe("Classe");
         expect(wrapper.text()).toContain("Caratteristiche primarie");
         expect(wrapper.text()).not.toMatch(/wizard\.|terms\.|sheet\.[a-z]/);
+    });
+
+    describe("the bar and the moves between steps", () =>
+    {
+        it("keeps Back and Next in one bar fixed at the bottom, with the step count for a phone", async () =>
+        {
+            const wrapper = await open("species");
+            await settle();
+
+            // That it stays on screen (position: sticky) is checked in a browser: the tests have no stylesheet.
+            const bar = wrapper.find(".wizard-step__footer");
+            expect(bar.findAll("button").map((b) => b.text())).toEqual(["Back", "Next"]);
+            expect(bar.find(".wizard-step__count").text()).toBe("Step 3 of 10");
+            expect(document.documentElement.classList.contains("wizard-bar")).toBe(true);
+        });
+
+        it("moves the focus to the new step's heading after Next", async () =>
+        {
+            const wrapper = await open("species", true);
+            await settle();
+
+            await next(wrapper);
+            await until(() => document.activeElement?.id === "wizard-step-title");
+            expect(document.activeElement?.textContent?.trim()).toBe("Class");
+            expect(wrapper.find(".wizard-step__count").text()).toBe("Step 4 of 10");
+        });
     });
 
     describe("step 5, ability scores", () =>
@@ -752,6 +781,7 @@ describe("the creation wizard", () =>
             ]);
             expect(wrapper.find(".wizard-stepper").exists()).toBe(false);
             expect(byName(wrapper, "Next")).toBeUndefined();
+            expect(wrapper.find(".wizard-step__footer").exists()).toBe(false);
             expect(wrapper.find(".wizard-step__purpose").exists()).toBe(false);
             expect(wrapper.find(".choice-card--dense").exists()).toBe(true);
             expect(wrapper.find("#step-abilities").text()).toContain("Typed");

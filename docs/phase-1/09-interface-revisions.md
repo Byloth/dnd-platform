@@ -185,6 +185,26 @@ Each is a commit. Tests and lint pass through the hooks.
 
 `pages/index.vue`: from the player's second character of their own, the demo group is a native `<details>`, closed and never remembered. Its `<summary>` holds the `h2` with the count ("Demo characters (6)") and a chevron. With none or one, the group is open as before (owner's threshold). The list is written once (VueUse `createReusableTemplate`). Tests: `tests/demo-characters.test.ts` with 0, 1 and 2 stored; `pnpm web:a11y` has a "two stored" screen.
 
+### As built (2026-10-07): the wizard's bar, transitions and focus (tasks 6–7)
+
+- **The bar** (`components/wizard/WizardStep.vue`):
+  - Back and Next sit in a footer with `position: sticky; bottom: 0`, a translucent surface, a top border and a soft shadow, and the safe-area inset under it;
+  - on a phone it shows "Step n of 10" between the buttons, since the dots scroll away;
+  - once the end of the step is reached it rests at its place after the content;
+  - while it is on screen the document carries `scroll-padding-bottom` (`html.wizard-bar`), so a field reached with Tab is never under it;
+  - the expert page has no bar.
+- **Transitions**:
+  - the step's heading, copy and content fade out and the next fade in (`<Transition name="step" mode="out-in">` keyed by the step, inside `WizardStep`), over the page transition's `--duration` and `--easing`;
+  - the stepper's connector fills with a transition and its "Step n of 10 · Name" line fades;
+  - the side list's mark (`WizardStepList.vue`) is one element that slides to the new step, measured from the DOM;
+  - every duration comes from the tokens, which are 0 under reduced motion.
+- **Focus**: when the new step has faded in, its `h1` (`tabindex="-1"`) takes the focus, so a screen reader announces it. The scroll back to the top is smooth unless reduced motion is asked for. `useStepNavigation()` in `composables/wizard.ts` serves both the bar and the review's "Go to…".
+- **Checks**: `tests/wizard-page.test.ts`:
+  - the bar with Back, Next and the count;
+  - the focus on the new heading after Next, with the real `<Transition>`;
+  - no bar on the expert page.
+  Screenshots at 360 and 1280 px; `pnpm web:a11y` clean on 60 screens.
+
 ## Tests
 
 - Component tests in both languages: axe, keyboard operation and accessible names for the bar, both dropdowns, the settings page, the characters page in both states, and the wizard with its bar.

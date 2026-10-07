@@ -35,11 +35,15 @@
                 </button>
             </li>
         </ol>
-        <p class="wizard-stepper__current">
-            <span class="wizard-stepper__count">{{ t("wizard.stepOf", { n: index + 1, total: steps.length }) }}</span>
-            <span aria-hidden="true"> · </span>
-            <strong>{{ t(`wizard.steps.${current}`) }}</strong>
-        </p>
+        <Transition name="stepper-fade" mode="out-in">
+            <p :key="current" class="wizard-stepper__current">
+                <span class="wizard-stepper__count">
+                    {{ t("wizard.stepOf", { n: index + 1, total: steps.length }) }}
+                </span>
+                <span aria-hidden="true"> · </span>
+                <strong>{{ t(`wizard.steps.${current}`) }}</strong>
+            </p>
+        </Transition>
     </nav>
 </template>
 
@@ -72,6 +76,7 @@
                 flex: 1;
                 height: 2px;
                 margin: 0 2px;
+                transition: background-color var(--duration) var(--easing);
 
                 @media (max-width: 359px) { margin: 0 1px; }
             }
@@ -176,5 +181,18 @@
                 font-family: var(--font-display);
             }
         }
+    }
+
+    // The line under the dots fades between steps, with the step itself (owner's review, 8.2.1).
+    .stepper-fade-enter-active,
+    .stepper-fade-leave-active
+    {
+        transition: opacity var(--duration-fast) var(--easing);
+    }
+
+    .stepper-fade-enter-from,
+    .stepper-fade-leave-to
+    {
+        opacity: 0;
     }
 </style>
