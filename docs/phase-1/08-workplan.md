@@ -133,6 +133,8 @@ Order decided by the owner on 2026-09-27: the compendium (M1.C) first, then the 
 
 **Deferred to Phase 2 (owner, 2026-10-06).** The owner chose to go on with M1.8 and leave the rest of M1.4r, their own review notes, for later: it is not part of Phase 1's close. Since the list above, the units of measure reached the composer and the Italian sheet (M1.7, `units` option, metric goldens) and doc 10's `recordVersions` came with M1.5b; what stays is doc 09's menus, flags, navigation bar, settings page (with the units preference), demo disclosure, sticky wizard bar and transitions, and doc 10's points 10 (a package deactivated under a choice) and the review naming a package that cannot be loaded.
 
+**Re-evaluated by the owner on 2026-10-07**, point by point, all kept as planned with two changes: the bar keeps the compendium too (Characters, Compendium, Packages, Settings, each with its icon; "New character" leaves it), and the demo characters close only from the second character of the player's own. Mode and language are two smaller quick-switch icons in the bar, and also on the settings page; "Settings" is a plain link to its page, with no dropdown. The decisions are recorded in [09-interface-revisions.md](09-interface-revisions.md) and [10-wizard-integrity.md](10-wizard-integrity.md).
+
 ### M1.C — Compendium (≈ 4 sessions)
 
 Asked by the owner on 2026-09-27 (DEC-25); the plan is [13-compendium.md](13-compendium.md). Parts:

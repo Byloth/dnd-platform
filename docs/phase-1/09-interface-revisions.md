@@ -15,9 +15,9 @@ Taken by the owner on 2026-09-25:
 - **Flags are drawn, never emoji**: Windows shows no flag emoji. The United Kingdom flag stands for English, the Italian tricolour for Italian.
 - **A dropdown closes when the player clicks outside it** (2.1), which the current "Settings" disclosure does not do.
 - **A settings page** (4) shows every setting, the existing ones and a new one: **the units of measure**. Re-evaluated by the owner on 2026-10-07, confirmed: a page of its own, clear and orderly; "Settings" in the bar becomes a plain link to it, with no dropdown. Feet and pounds are not clear to everybody. The default follows the language: imperial in English, metric in Italian. The player can pick either explicitly.
-- **Demo characters stay in view until the player has characters of their own** (6). With no stored character the demo list is open; with one or more, "Demo characters" becomes a disclosure, closed by default.
-- **The wizard's "Back" and "Next" stay reachable without scrolling** (8.1): a bar fixed to the bottom of the screen.
-- **The wizard fades between steps** (8.2), as the pages already fade between routes, and **the step indicator fades with it** (8.2.1).
+- **Demo characters stay in view until the player has characters of their own** (6). With no stored character the demo list is open; with one or more, "Demo characters" becomes a disclosure, closed by default. Re-evaluated by the owner on 2026-10-07, with a new threshold: the demo list stays open while the player has none or one character of their own, and becomes the closed disclosure from two.
+- **The wizard's "Back" and "Next" stay reachable without scrolling** (8.1): a bar fixed to the bottom of the screen. Re-evaluated by the owner on 2026-10-07, confirmed as planned.
+- **The wizard fades between steps** (8.2), as the pages already fade between routes, and **the step indicator fades with it** (8.2.1). Re-evaluated by the owner on 2026-10-07, confirmed as planned.
 
 ## Design
 
@@ -103,8 +103,8 @@ This replaces the earlier decision of 06-localisation, "metres beside feet in It
 
 `pages/index.vue` groups the list by origin: stored first, then demo, with an `h2` each.
 
-- With no stored character, the demo section stays as today, open.
-- With stored characters, the demo group becomes a `<details>` whose `<summary>` holds the heading and the count ("Demo characters (6)"). It is closed by default.
+- With no stored character or only one, the demo section stays as today, open (owner, 2026-10-07).
+- With two stored characters or more, the demo group becomes a `<details>` whose `<summary>` holds the heading and the count ("Demo characters (6)"). It is closed by default.
 
 It is a native disclosure, so the keyboard and screen readers get it for free. Opening it is not remembered: the page always starts closed once the player has characters.
 

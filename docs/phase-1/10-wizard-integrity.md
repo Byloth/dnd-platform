@@ -47,7 +47,7 @@ This agrees with DEC-21 ([../17-open-decisions.md](../17-open-decisions.md), [..
 
 ### As built (M1.5b, 2026-09-29)
 
-Design points 1, 2 and the first part of 3 are done: `recordVersions` in `composables/versions.ts`, called by the wizard in `edit`, `resume`, `choosePackages` and `finish`; the review drops `W_VERSION_MISMATCH`. Naming a package that cannot be loaded (the rest of 3) is still to do, with point 10. The sheet page's alert of point 4 is M1.5b's `UpdateNotice`.
+Design points 1, 2 and the first part of 3 are done: `recordVersions` in `composables/versions.ts`, called by the wizard in `edit`, `resume`, `choosePackages` and `finish`; the review drops `W_VERSION_MISMATCH`. Naming a package that cannot be loaded (the rest of 3) is still to do, with point 10. Re-evaluated by the owner on 2026-10-07, confirmed: the warning only for a package really missing (not loaded here, or a missing dependency), naming it. The sheet page's alert of point 4 is M1.5b's `UpdateNotice`.
 
 ### Tests
 
@@ -71,7 +71,7 @@ In a new character the owner chose "Human (Variant)" from the private phb14 pack
 
 ### Decision (owner, 2026-09-25)
 
-**Deactivating a package asks first, only when something would be lost.**
+**Deactivating a package asks first, only when something would be lost.** Re-evaluated by the owner on 2026-10-07, confirmed as designed below.
 
 - If the character uses nothing from the package, the change happens at once, with no question.
 - Otherwise an alert names what would be lost and asks for confirmation.
