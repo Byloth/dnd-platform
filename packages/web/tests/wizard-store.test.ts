@@ -6,13 +6,15 @@
 
 import "fake-indexeddb/auto";
 
+import { join } from "node:path";
+
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 
 import { createAjv, validatorFor } from "@byloth/dnd-platform-schema/validate";
 
 import { DRAFT_KEY } from "@/stores/wizard";
 
-import { clearBrowserStorage, serveSite } from "./helpers";
+import { clearBrowserStorage, FIXTURES, serveSite, zipOf } from "./helpers";
 
 serveSite();
 
@@ -313,6 +315,66 @@ describe("the creation wizard's store", () =>
 
             expect(wizard.character?.ruleset.version).toBe(current());
             expect(wizard.character?.packages[0]?.version).toBe(current());
+        });
+    });
+
+    describe("a package removed under a choice (docs/phase-1/10-wizard-integrity.md, point 10)", () =>
+    {
+        const FELINE = "homebrew.byloth.species.feline";
+        const PUMA = "homebrew.byloth.species.feline.puma";
+
+        async function withFeline(): Promise<ReturnType<typeof useWizardStore>>
+        {
+            await useContentStore().loadFiles([zipOf(join(FIXTURES, "homebrew-feline"), "homebrew-feline")]);
+            const wizard = useWizardStore();
+            await wizard.choosePackages([{ id: "homebrew.byloth", version: "0.1.0" }]);
+            wizard.chooseSpecies(FELINE);
+            wizard.chooseSubspecies(PUMA);
+            wizard.chooseClass("srd51.class.fighter");
+            wizard.answer(`${FELINE}#languages`, ["elvish"]);
+            wizard.answer("srd51.class.fighter#skills", ["athletics", "perception"]);
+
+            return wizard;
+        }
+
+        it("names what the draft takes from the package, and nothing of the others", async () =>
+        {
+            const wizard = await withFeline();
+
+            expect(wizard.usesOf(["homebrew.byloth"])).toEqual([
+                { kind: "species", id: FELINE },
+                { kind: "subspecies", id: PUMA },
+                { kind: "answer", id: `${FELINE}#languages` }
+            ]);
+            expect(wizard.usesOf(["nothing.here"])).toEqual([]);
+        });
+
+        it("clears those choices and the package in one change, keeping the rest", async () =>
+        {
+            const wizard = await withFeline();
+            await wizard.dropPackages([], wizard.usesOf(["homebrew.byloth"]));
+
+            const choices = wizard.character!.choices;
+            expect(wizard.character!.packages.map((p) => p.id)).toEqual(["srd51"]);
+            expect([choices.species, choices.subspecies]).toEqual([undefined, undefined]);
+            expect(choices.classes?.[0]?.class).toBe("srd51.class.fighter");
+            expect(choices.answers).toEqual({ "srd51.class.fighter#skills": ["athletics", "perception"] });
+            expect(stepDone("species")).toBe(false);
+        });
+
+        it("leaves a step undone when its choice does not resolve in the package set", async () =>
+        {
+            const wizard = useWizardStore();
+            wizard.chooseSpecies("srd51.species.dwarf");
+            wizard.chooseSubspecies("srd51.species.dwarf.hill-dwarf");
+            expect(stepDone("species")).toBe(true);
+
+            wizard.character!.choices = { ...wizard.character!.choices, species: "gone.species.nobody" };
+            expect(stepDone("species")).toBe(false);
+            wizard.chooseBackground("srd51.background.acolyte");
+            expect(stepDone("background")).toBe(true);
+            wizard.character!.choices = { ...wizard.character!.choices, background: "srd51.class.fighter" };
+            expect(stepDone("background")).toBe(false);
         });
     });
 

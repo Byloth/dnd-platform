@@ -399,7 +399,22 @@
       "consequence": "Newcomer copy: what the choice changes.",
       "recommendation": "Newcomer copy: what to choose when unsure.",
       "site": "Beside a package published by the site, which cannot be removed.",
-      "private": "Badge on a private package."
+      "private": "Badge on a private package.",
+      "uses": {
+        "species": "One line of the list of what removing a package resets, named as the step names it; {name} is the entity's name.",
+        "subspecies": "One line of the list of what removing a package resets, named as the step names it; {name} is the entity's name.",
+        "class": "One line of the list of what removing a package resets, named as the step names it; {name} is the entity's name.",
+        "subclass": "One line of the list of what removing a package resets, named as the step names it; {name} is the entity's name.",
+        "background": "One line of the list of what removing a package resets, named as the step names it; {name} is the entity's name.",
+        "item": "One line of the list of what removing a package resets, named as the step names it; {name} is the entity's name."
+      },
+      "remove": {
+        "title": "Title of the notice in step 0 when a removed package is used by the character.",
+        "text": "Sentence before the list of choices a package removal clears.",
+        "together": "Sentence when other chosen packages depend on the removed one; {names} is their names, comma-separated.",
+        "confirm": "Button: remove the package and clear the listed choices.",
+        "cancel": "Button: keep the package, change nothing."
+      }
     },
     "concept": {
       "purpose": "Newcomer copy: what the step is for.",
@@ -634,7 +649,9 @@
         "choice": "An open thing: a choice not fully answered. Plural forms separated by |. Parameters: {owner} (e.g. Cleric), {choice} (e.g. Skills), {n} how many are left.",
         "content": "An open thing: a package or an entity the character uses is not loaded.",
         "other": "An open thing the review cannot name; an expert sees the engine's message below it.",
-        "name": "An open thing: the character has no name; the one that blocks saving."
+        "name": "An open thing: the character has no name; the one that blocks saving.",
+        "unloaded": "Review issue: the chosen species, class or background of a step is not loaded; {step} is the step's name.",
+        "package": "Review issue: a package the character needs is not loaded; {id} is the package id."
       },
       "fix": "Button beside an open thing, to its step. Parameter: {step}, the step's name.",
       "save": "The review's button that stores the character and opens its sheet.",

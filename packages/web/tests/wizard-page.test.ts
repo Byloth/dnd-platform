@@ -7,6 +7,8 @@
 
 import "fake-indexeddb/auto";
 
+import { join } from "node:path";
+
 import { flushPromises } from "@vue/test-utils";
 import type { VueWrapper } from "@vue/test-utils";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
@@ -16,7 +18,7 @@ import WizardPage from "@/pages/characters/new.vue";
 import EditPage from "@/pages/characters/[id]/edit.vue";
 
 import { byName } from "./accessibility";
-import { clearBrowserStorage, serveSite } from "./helpers";
+import { clearBrowserStorage, FIXTURES, serveSite, zipOf } from "./helpers";
 
 serveSite();
 
@@ -205,6 +207,103 @@ describe("the creation wizard", () =>
             await until(() => document.activeElement?.id === "wizard-step-title");
             expect(document.activeElement?.textContent?.trim()).toBe("Class");
             expect(wrapper.find(".wizard-step__count").text()).toBe("Step 4 of 10");
+        });
+    });
+
+    describe("a package removed under a choice (docs/phase-1/10-wizard-integrity.md, point 10)", () =>
+    {
+        const FELINE = "homebrew.byloth.species.feline";
+
+        async function withFeline(species: boolean): Promise<void>
+        {
+            await useContentStore().loadFiles([zipOf(join(FIXTURES, "homebrew-feline"), "homebrew-feline")]);
+            const wizard = useWizardStore();
+            await wizard.start();
+            wizard.chooseArchetype(null);
+            await wizard.choosePackages([{ id: "homebrew.byloth", version: "0.1.0" }]);
+            if (species) { wizard.chooseSpecies(FELINE); }
+        }
+        const feline = (wrapper: VueWrapper) => wrapper.find<HTMLInputElement>("input[value='homebrew.byloth']");
+
+        it("removes a package the draft does not use at once", async () =>
+        {
+            await withFeline(false);
+            const wrapper = await open("content");
+            await settle();
+
+            await feline(wrapper).setValue(false);
+            await settle();
+            expect(wrapper.find(".reset-notice").exists()).toBe(false);
+            expect(useWizardStore().character?.packages.map((p) => p.id)).toEqual(["srd51"]);
+        });
+
+        it("asks first when the draft uses it, and keeps everything when the player says so", async () =>
+        {
+            await withFeline(true);
+            const wrapper = await open("content");
+            await settle();
+
+            await feline(wrapper).setValue(false);
+            await settle();
+            const notice = wrapper.find(".reset-notice");
+            expect(notice.text()).toContain("Removing this package resets some choices");
+            expect(notice.text()).toContain("Species: Feline");
+            expect(useWizardStore().character?.packages.map((p) => p.id)).toContain("homebrew.byloth");
+
+            byName(wrapper, "Keep the package")!.click();
+            await settle();
+            expect(wrapper.find(".reset-notice").exists()).toBe(false);
+            expect(feline(wrapper).element.checked).toBe(true);
+            expect(useWizardStore().character?.choices.species).toBe(FELINE);
+        });
+
+        it("removes it and resets the species when confirmed; the step is to choose again", async () =>
+        {
+            await withFeline(true);
+            const wrapper = await open("content");
+            await settle();
+
+            await feline(wrapper).setValue(false);
+            await settle();
+            byName(wrapper, "Remove it and reset them")!.click();
+            await until(() => useWizardStore().character?.packages.length === 1);
+
+            expect(useWizardStore().character?.choices.species).toBeUndefined();
+            expect(stepDone("species")).toBe(false);
+        });
+
+        it("names on its step a chosen species that is not loaded, in the review", async () =>
+        {
+            await withFeline(true);
+            // As after the package was removed from the packages page, where no confirmation ran.
+            await useWizardStore().choosePackages([]);
+            const wrapper = await open("review");
+            await settle();
+
+            const issues = wrapper.findAll(".step-review__issue-text").map((i) => i.text());
+            expect(issues).toContain("Species: the one chosen is not loaded here; choose again.");
+            expect(issues).not.toContain("Species: this step is not done yet.");
+            expect(issues).not.toContain("Some content this character uses is not loaded here.");
+        });
+
+        it("names the package a stored character needs and this browser lacks", async () =>
+        {
+            const wizard = useWizardStore();
+            await wizard.start();
+            const id = "character-needs-a-book";
+            await useBrowserStorage().characters.put({
+                ...wizard.character!,
+                id: id,
+                name: "Needs a Book",
+                packages: [...wizard.character!.packages, { id: "phb99", version: "1.0.0" }]
+            });
+            await wizard.discard();
+
+            _mounted = await mountSuspended(EditPage, { route: `/characters/${id}/edit`, attachTo: document.body });
+            await until(() => _mounted!.find("[role='alert']").exists());
+
+            expect(_mounted.find("[role='alert']").text())
+                .toContain("This character uses content that is not installed here: the package phb99.");
         });
     });
 

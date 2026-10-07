@@ -27,6 +27,17 @@ export const STEPS = [
 export type StepId = typeof STEPS[number];
 
 export const DRAFT_KEY = "wizard-draft";
+
+/**
+ * Something of the draft that comes from a package (docs/phase-1/10-wizard-integrity.md, point 10): a chosen
+ * species, subspecies, class, subclass or background, an answer, an equipment entry. `id` is the entity, or the
+ * answer's key.
+ */
+export interface PackageUse
+{
+    readonly kind: "species" | "subspecies" | "class" | "subclass" | "background" | "answer" | "item";
+    readonly id: string;
+}
 /** The draft of a stored character being edited: one at a time, apart from the creation draft. */
 export const EDIT_KEY = "wizard-edit";
 /** How long the draft waits after a change before it is written. */
@@ -318,6 +329,92 @@ export const useWizardStore = defineStore("wizard", () =>
     {
         step.value = next;
         _scheduleSave();
+    };
+
+    /**
+     * What the draft takes from these packages (docs/phase-1/10-wizard-integrity.md, point 10), read on the package
+     * set before they leave it: the chosen entities of theirs, the answers those entities own, the answers declared
+     * by their entities or naming one, and the equipment entries of their items.
+     */
+    const usesOf = (packageIds: readonly string[]): PackageUse[] =>
+    {
+        const set = packageSet.value;
+        const choices = character.value?.choices;
+        if (!set || !choices) { return []; }
+
+        const ids = new Set(packageIds);
+        const theirs = (id: string | undefined): id is string =>
+            (id !== undefined) && ids.has(set.entities.get(id)?.package ?? "");
+
+        const uses: PackageUse[] = [];
+        if (theirs(choices.species)) { uses.push({ kind: "species", id: choices.species }); }
+        if (theirs(choices.subspecies)) { uses.push({ kind: "subspecies", id: choices.subspecies }); }
+        for (const entry of choices.classes ?? [])
+        {
+            if (theirs(entry.class)) { uses.push({ kind: "class", id: entry.class }); }
+            else if (theirs(entry.subclass)) { uses.push({ kind: "subclass", id: entry.subclass }); }
+        }
+        if (theirs(choices.background)) { uses.push({ kind: "background", id: choices.background }); }
+
+        const roots = uses.map((u) => u.id);
+        for (const [key, values] of Object.entries(choices.answers ?? {}))
+        {
+            const named = Array.isArray(values) && values.some((v) => (typeof v === "string") && theirs(v));
+            if (_ownedBy(key, roots) || theirs(key.split("#")[0]) || named) { uses.push({ kind: "answer", id: key }); }
+        }
+        for (const entry of choices.equipment ?? [])
+        {
+            if (theirs(entry.item)) { uses.push({ kind: "item", id: entry.item }); }
+        }
+
+        return uses;
+    };
+
+    /**
+     * The packages of the draft without these ones, and the uses of them cleared first (point 10, on the player's
+     * confirmation): the affected choices are removed, so their steps show them as still to be chosen. One write.
+     */
+    const dropPackages = async (
+        packages: readonly { id: string, version: string }[], uses: readonly PackageUse[]
+    ): Promise<void> =>
+    {
+        const current = character.value;
+        if (!current) { return; }
+
+        const used = (kind: PackageUse["kind"], id: string | undefined): boolean =>
+            (id !== undefined) && uses.some((u) => (u.kind === kind) && (u.id === id));
+        const choices = current.choices;
+        const classes = (choices.classes ?? [])
+            .filter((entry) => !used("class", entry.class))
+            .map((entry) => (used("subclass", entry.subclass) ? defined({ ...entry, subclass: undefined }) : entry));
+        const answers = Object.entries(choices.answers ?? {}).filter(([key]) => !used("answer", key));
+        const items = uses.some((u) => u.kind === "item");
+        const regrants = used("class", choices.classes?.[0]?.class) || used("background", choices.background) || items;
+
+        character.value = {
+            ...current,
+            choices: defined({
+                ...choices,
+                species: used("species", choices.species) ? undefined : choices.species,
+                subspecies: used("subspecies", choices.subspecies) || used("species", choices.species) ?
+                    undefined :
+                    choices.subspecies,
+                classes: classes.length ? classes as NonNullable<Choices["classes"]> : undefined,
+                background: used("background", choices.background) ? undefined : choices.background,
+                answers: answers.length ? Object.fromEntries(answers) : undefined,
+                equipment: (keptEquipment.value && items) ?
+                    choices.equipment?.filter((e) => !used("item", e.item)) :
+                    choices.equipment
+            })
+        };
+        if (regrants && !keptEquipment.value)
+        {
+            _resetEquipment("class");
+            _resetEquipment("background");
+        }
+
+        await choosePackages(packages);
+        if (regrants) { _rebuildEquipment(); }
     };
 
     /** The packages of the draft: the base package first, then the chosen ones among the stored packages. */
@@ -853,6 +950,8 @@ export const useWizardStore = defineStore("wizard", () =>
         save,
         goTo,
         choosePackages,
+        usesOf,
+        dropPackages,
         chooseArchetype,
         chooseSpecies,
         chooseSubspecies,

@@ -399,7 +399,22 @@
       "consequence": "Nei passi successivi compare solo quello che contengono questi pacchetti; l'SRD c'è sempre, insieme al sito.",
       "recommendation": "Se è il tuo primo personaggio, basta l'SRD.",
       "site": "Incluso nel sito",
-      "private": "Privato"
+      "private": "Privato",
+      "uses": {
+        "species": "Specie: {name}",
+        "subspecies": "Sottospecie: {name}",
+        "class": "Classe: {name}",
+        "subclass": "Sottoclasse: {name}",
+        "background": "Background: {name}",
+        "item": "Equipaggiamento: {name}"
+      },
+      "remove": {
+        "title": "Togliere questo pacchetto azzera alcune scelte",
+        "text": "Queste scelte vengono da lì e saranno azzerate, da rifare:",
+        "together": "{names} ne ha bisogno, e va tolto insieme. Queste scelte vengono da lì e saranno azzerate:",
+        "confirm": "Toglilo e azzerale",
+        "cancel": "Tieni il pacchetto"
+      }
     },
     "concept": {
       "purpose": "Scegli un'idea da cui partire, oppure salta e scegli tutto da te.",
@@ -634,7 +649,9 @@
         "choice": "{owner}, {choice}: ancora una da scegliere. | {owner}, {choice}: ancora {n} da scegliere.",
         "content": "Alcuni contenuti che il personaggio usa non sono caricati qui.",
         "other": "La scheda segnala qualcosa da controllare.",
-        "name": "Il tuo personaggio non ha ancora un nome."
+        "name": "Il tuo personaggio non ha ancora un nome.",
+        "unloaded": "{step}: quella scelta non è caricata qui; scegline un'altra.",
+        "package": "Il pacchetto {id} non è caricato qui."
       },
       "fix": "Vai a {step}",
       "save": "Salva il personaggio",

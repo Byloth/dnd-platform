@@ -399,7 +399,22 @@
       "consequence": "Only what these packages contain appears in the next steps; the SRD always comes with the site.",
       "recommendation": "If this is your first character, the SRD alone is plenty.",
       "site": "Comes with the site",
-      "private": "Private"
+      "private": "Private",
+      "uses": {
+        "species": "Species: {name}",
+        "subspecies": "Subspecies: {name}",
+        "class": "Class: {name}",
+        "subclass": "Subclass: {name}",
+        "background": "Background: {name}",
+        "item": "Equipment: {name}"
+      },
+      "remove": {
+        "title": "Removing this package resets some choices",
+        "text": "These choices come from it and will be cleared, to choose again:",
+        "together": "{names} needs it, and goes with it. These choices come from them and will be cleared:",
+        "confirm": "Remove it and reset them",
+        "cancel": "Keep the package"
+      }
     },
     "concept": {
       "purpose": "Pick an idea to start from, or skip and choose everything yourself.",
@@ -634,7 +649,9 @@
         "choice": "{owner}, {choice}: one more to choose. | {owner}, {choice}: {n} more to choose.",
         "content": "Some content this character uses is not loaded here.",
         "other": "The sheet reports something to check.",
-        "name": "Your character has no name yet."
+        "name": "Your character has no name yet.",
+        "unloaded": "{step}: the one chosen is not loaded here; choose again.",
+        "package": "The package {id} is not loaded here."
       },
       "fix": "Go to {step}",
       "save": "Save the character",

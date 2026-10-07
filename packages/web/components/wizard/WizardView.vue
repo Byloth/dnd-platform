@@ -14,6 +14,7 @@
     import WizardStepList from "@/components/wizard/WizardStepList.vue";
     import WizardStepper from "@/components/wizard/WizardStepper.vue";
     import { COMPENDIUM_LINK_FROM } from "@/composables/compendium-link";
+    import { MissingPackageException } from "@/stores/content";
     import { STEPS } from "@/stores/wizard";
     import type { StepId } from "@/stores/wizard";
 
@@ -33,7 +34,9 @@
     const wizard = useWizardStore();
     const preferences = usePreferencesStore();
 
-    type Phase = "loading" | "resume" | "ready" | "missing" | "failed";
+    type Phase = "loading" | "resume" | "ready" | "missing" | "unloaded" | "failed";
+    /** The package a draft or a stored character needs and this browser does not have ("unloaded"). */
+    const unloaded = ref<string>();
     const phase = ref<Phase>("loading");
 
     const STEP_VIEWS: Record<StepId, Component> = {
@@ -127,8 +130,17 @@
             track("wizard-start", { mode: props.editing ? "edit" : "new", expert: expert.value });
             if (expert.value && asked()) { scrollToSection(wizard.step); }
         }
-        catch
+        catch (error)
         {
+            // A package the character needs is not on this device: say which, as the sheet does
+            // (docs/phase-1/10-wizard-integrity.md, the rest of point 3).
+            if (error instanceof MissingPackageException)
+            {
+                unloaded.value = error.packageId;
+                phase.value = "unloaded";
+
+                return;
+            }
             phase.value = "failed";
         }
     };
@@ -157,6 +169,13 @@
         <p v-else-if="phase === 'failed'" role="alert">
             {{ t("character.failed") }}
         </p>
+        <div v-else-if="phase === 'unloaded'" role="alert">
+            <h1>{{ t("character.missing.heading") }}</h1>
+            <p>{{ t("character.missing.text", { id: unloaded }) }}</p>
+            <NuxtLink :to="{ name: 'packages' }">
+                {{ t("character.missing.action") }}
+            </NuxtLink>
+        </div>
         <div v-else-if="phase === 'missing'" role="alert">
             <h1>{{ t("character.notFound.heading") }}</h1>
             <p>{{ t("wizard.edit.missing") }}</p>

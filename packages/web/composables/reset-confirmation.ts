@@ -52,5 +52,5 @@ export function useResetConfirmation()
         revision.value += 1;
     };
 
-    return { pending, revision, change, confirm, cancel };
+    return { pending, revision, change, confirm, cancel, nameOf };
 }

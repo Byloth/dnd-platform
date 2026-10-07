@@ -47,7 +47,23 @@
         if (!sheet || !wizard.packageSet) { return []; }
         const naming = useChoiceOptions(wizard.packageSet, sheet, locale.value, t);
 
-        const steps = STEPS_TO_CHECK.filter((step) => !stepDone(step))
+        // A chosen species, class or background that is not loaded here is named on its step
+        // (docs/phase-1/10-wizard-integrity.md, point 10): "Species: the one chosen is not loaded here".
+        const chosen = wizard.character?.choices;
+        const chosenStep = (id: string | undefined): StepId | undefined =>
+        {
+            if (id === undefined) { return undefined; }
+            if ((id === chosen?.species) || (id === chosen?.subspecies)) { return "species"; }
+            if (chosen?.classes?.some((c) => (c.class === id) || (c.subclass === id))) { return "class"; }
+
+            return id === chosen?.background ? "background" : undefined;
+        };
+        const missing = sheet.warnings.filter((w) => w.code === "W_MISSING_ENTITY");
+        const unloadedSteps = new Set(missing.map((w) => chosenStep(w.entity)).filter((s) => s !== undefined));
+        const unloadedIssues = [...unloadedSteps]
+            .map((step): Issue => ({ step: step, text: t("wizard.review.issues.unloaded", { step: stepName(step) }) }));
+
+        const steps = STEPS_TO_CHECK.filter((step) => !stepDone(step) && !unloadedSteps.has(step))
             .map((step): Issue => ({ step: step, text: t("wizard.review.issues.step", { step: stepName(step) }) }));
         const choices = sheet.choices.filter((c) => !c.answered && (c.of !== "asi-or-feat"))
             .map((choice): Issue =>
@@ -62,14 +78,30 @@
             });
         // A draft records the versions it loads (docs/phase-1/10-wizard-integrity.md): a version mismatch cannot be
         // true of it, and saving fixes it anyway.
+        // "Content not loaded" only for what really is not (the rest of point 3): a package missing its
+        // dependency is named; an entity named above is not repeated.
         const others = sheet.warnings
             .filter((w) => (w.code !== "W_UNANSWERED_CHOICE") && (w.code !== "W_VERSION_MISMATCH"))
-            .map((w): Issue => ((w.code === "W_MISSING_ENTITY") || (w.package !== undefined) ?
-                { step: "content", text: t("wizard.review.issues.content"), detail: w.message } :
-                { text: t("wizard.review.issues.other"), detail: w.message }));
+            .filter((w) => (w.code !== "W_MISSING_ENTITY") || (chosenStep(w.entity) === undefined))
+            .map((w): Issue =>
+            {
+                const dependency = w.code === "E_MISSING_DEPENDENCY" ?
+                    /depends on "([^"]+)"/.exec(w.message)?.[1] :
+                    undefined;
+                if (dependency)
+                {
+                    const text = t("wizard.review.issues.package", { id: dependency });
+
+                    return { step: "content", text: text, detail: w.message };
+                }
+
+                return (w.code === "W_MISSING_ENTITY") || (w.package !== undefined) ?
+                    { step: "content", text: t("wizard.review.issues.content"), detail: w.message } :
+                    { text: t("wizard.review.issues.other"), detail: w.message };
+            });
         const name = named.value ? [] : [{ step: "personality" as const, text: t("wizard.review.issues.name") }];
 
-        return [...name, ...steps, ...choices, ...others];
+        return [...name, ...unloadedIssues, ...steps, ...choices, ...others];
     });
 
     const heading = computed(() => (issues.value.length ?

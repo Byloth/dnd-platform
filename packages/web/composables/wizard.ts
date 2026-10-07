@@ -36,6 +36,17 @@ function _sheetChoices(): readonly ChoiceView[]
         .sheet.choices;
 }
 
+/**
+ * Whether a chosen id is an entity of that type in the draft's package set: a choice whose package left the draft,
+ * or is not loaded here, leaves its step undone (docs/phase-1/10-wizard-integrity.md, point 10).
+ */
+function _resolves(id: string | undefined, type: "species" | "class" | "subclass" | "background"): boolean
+{
+    const entity = id === undefined ? undefined : useWizardStore().packageSet?.entities.get(id);
+
+    return entity?.type === type;
+}
+
 /** Whether a step has what it asks for; the review never is: saving it leaves the wizard. */
 export function stepDone(step: StepId): boolean
 {
@@ -49,7 +60,8 @@ export function stepDone(step: StepId): boolean
         case "concept": return wizard.archetype !== undefined;
         case "species":
         {
-            if (!choices.species) { return false; }
+            if (!_resolves(choices.species, "species")) { return false; }
+            if ((choices.subspecies !== undefined) && !_resolves(choices.subspecies, "species")) { return false; }
             const hasSubspecies = wizard.packageSet ?
                 [...wizard.packageSet.entities.values()].some((e) => e.inline?.owner === choices.species &&
                     e.type === "species") :
@@ -59,8 +71,10 @@ export function stepDone(step: StepId): boolean
         }
         case "class":
             return ((choices.classes?.length ?? 0) > 0) &&
-                _sheetChoices().every((c) => c.answered || (c.of !== "subclass"));
-        case "background": return choices.background !== undefined;
+                (choices.classes ?? []).every((c) => _resolves(c.class, "class") &&
+                    ((c.subclass === undefined) || _resolves(c.subclass, "subclass"))) &&
+                    _sheetChoices().every((c) => c.answered || (c.of !== "subclass"));
+        case "background": return _resolves(choices.background, "background");
         case "abilities":
         {
             const base = choices.abilityScores?.base ?? {};

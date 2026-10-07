@@ -123,6 +123,27 @@ Each is a commit.
 4. Step 0's notice (creation and editing), dependency handling; EN/IT strings with notes; page and flow tests, public and private.
 5. Docs: 04-character-creation (step 0, steps' done rules), 02-content-and-character-stores (versions recorded on save, the M1.5 note); the workplan's M1.4r progress.
 
+### As built (2026-10-07): point 10 and the rest of point 3
+
+- **The store** (`stores/wizard.ts`):
+  - `usesOf(packageIds)`: read on the package set before the change, it returns `PackageUse[]`: the chosen species, subspecies, class (or only its subclass) and background whose entity belongs to one of the packages; the answers those own, the answers declared by an entity of the packages, and the answers naming one; the equipment entries of their items.
+  - `dropPackages(kept, uses)`: clears those choices in one write, then `choosePackages`. A whole class goes, or only its subclass. When the equipment is rebuilt, the class and background selections are reset and rebuilt; when it is the character's own list, only the entries of the package's items are removed.
+- **Step 0** (`StepContent.vue`):
+  - a package nothing uses goes at once;
+  - otherwise `ResetNotice` (now with its own title, text and buttons) asks, in creation as in editing: "Removing this package resets some choices", with the list ("Species: Feline", "Human (Variant), Feat"), and the buttons "Remove it and reset them" and "Keep the package";
+  - a chosen package depending on it goes with it, and the notice names it.
+- **`stepDone`** (`composables/wizard.ts`): species, subspecies, every class and subclass, and background must resolve to an entity of their type in the draft's package set.
+- **The review**:
+  - a `W_MISSING_ENTITY` on a chosen species, class or background is an issue on its step ("Species: the one chosen is not loaded here; choose again"), in place of the generic line and of "this step is not done yet";
+  - `E_MISSING_DEPENDENCY` names the missing package;
+  - "content not loaded" stays for anything else.
+- **Opening the wizard**: a stored character or draft needing a package this browser lacks no longer fails with "The sheet could not be computed". It names the package and links the packages page, as the sheet does.
+- **Tests**:
+  - `tests/wizard-store.test.ts`: uses, clearing, unresolved ids;
+  - `tests/wizard-page.test.ts`: removal at once, the notice and its two answers, the review's naming, the missing package on opening;
+  - `tests/flows/private-variant-human.test.ts`: the owner's case, phb14 removed under Human (Variant), private.
+  No fixture package has items or a dependent extension, so those two paths are covered by the code's reading, not by a test.
+
 ## Open points
 
 - Removing a package from the packages page while a stored character uses it is refused today (the page lists the characters). If that ever becomes possible, the review's rule (5) already covers the characters it leaves behind.

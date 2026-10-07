@@ -2,8 +2,17 @@
     import AlertBox from "@/components/ui/AlertBox.vue";
     import AppButton from "@/components/ui/AppButton.vue";
 
-    /** What a change would forget, named, with the two ways out: make it, or keep the choice that stands. */
-    defineProps<{ names: readonly string[] }>();
+    /**
+     * What a change would forget, named, with the two ways out: make it, or keep the choice that stands. The
+     * wording is a replaced choice's unless a step gives its own (step 0, removing a package).
+     */
+    defineProps<{
+        names: readonly string[];
+        title?: string;
+        text?: string;
+        confirmLabel?: string;
+        cancelLabel?: string;
+    }>();
     const emit = defineEmits<{ confirm: [], cancel: [] }>();
 
     const { t } = useI18n();
@@ -13,9 +22,9 @@
     <AlertBox class="reset-notice"
               theme="warning"
               icon="triangle-exclamation"
-              :title="t('wizard.reset.title')">
+              :title="title ?? t('wizard.reset.title')">
         <p class="reset-notice__text">
-            {{ t("wizard.reset.text") }}
+            {{ text ?? t("wizard.reset.text") }}
         </p>
         <ul class="reset-notice__list">
             <li v-for="name in names" :key="name">
@@ -24,13 +33,13 @@
         </ul>
         <div class="reset-notice__actions">
             <AppButton small @click="emit('confirm')">
-                {{ t("wizard.reset.confirm") }}
+                {{ confirmLabel ?? t("wizard.reset.confirm") }}
             </AppButton>
             <AppButton theme="secondary"
                        outline
                        small
                        @click="emit('cancel')">
-                {{ t("wizard.reset.cancel") }}
+                {{ cancelLabel ?? t("wizard.reset.cancel") }}
             </AppButton>
         </div>
     </AlertBox>
