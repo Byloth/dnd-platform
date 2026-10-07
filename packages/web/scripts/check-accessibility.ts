@@ -59,7 +59,8 @@ interface Screen
 {
     readonly name: string;
     readonly path: string;
-    readonly stored?: boolean;
+    /** One stored character, or two (the demo characters then fold). */
+    readonly stored?: boolean | 2;
     /** Clicks the control that opens an overlay, marking it for the Escape check; `false` when not found. */
     readonly open?: (page: Page) => Promise<boolean>;
     /** A dropdown: after the Escape check, opened again and closed by a click outside it. */
@@ -109,6 +110,7 @@ const WIZARD_STEPS = [
 const SCREENS: readonly Screen[] = [
     { name: "characters", path: "/" },
     { name: "characters, a stored one", path: "/", stored: true },
+    { name: "characters, two stored", path: "/", stored: 2 },
     { name: "export dialog", path: "/", stored: true, open: clickButton(/^(Export|Esporta) Iron Sparrow/) },
     { name: "demo sheet", path: "/characters/fixture-cleric-l5" },
     { name: "explanation drawer", path: "/characters/fixture-cleric-l5", open: openExplanation },
@@ -211,8 +213,20 @@ async function settle(page: Page): Promise<void>
     }
 }
 
-/** Puts the stored character into the page's own IndexedDB (the site opened it on its first page). */
-async function storeCharacter(page: Page): Promise<void>
+/**
+ * Puts the stored character into the page's own IndexedDB (the site opened it on its first page); with `count` 2,
+ * a second one beside it.
+ */
+async function storeCharacter(page: Page, count = 1): Promise<void>
+{
+    for (let i = 0; i < count; i += 1)
+    {
+        const copy = i === 0 ? STORED : { ...STORED, id: `${STORED.id}-${i + 1}`, name: `${STORED.name} ${i + 1}` };
+        await putCharacter(page, JSON.stringify(copy));
+    }
+}
+
+async function putCharacter(page: Page, text: string): Promise<void>
 {
     await page.evaluate(async (document: string) =>
     {
@@ -235,7 +249,7 @@ async function storeCharacter(page: Page): Promise<void>
             };
         });
 
-    }, JSON.stringify(STORED));
+    }, text);
 }
 
 /** A fresh page: the language and theme as preferences, the statistics declined, a stored character if asked. */
@@ -267,7 +281,7 @@ async function open(
     if (screen.stored)
     {
         await page.goto(`${BASE}/`, { waitUntil: "networkidle0" });
-        await storeCharacter(page);
+        await storeCharacter(page, screen.stored === 2 ? 2 : 1);
     }
 
     await page.goto(`${BASE}${screen.path}`, { waitUntil: "networkidle0" });

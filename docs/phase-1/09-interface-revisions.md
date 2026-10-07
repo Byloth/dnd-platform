@@ -181,6 +181,10 @@ Each is a commit. Tests and lint pass through the hooks.
 - **Checks**: `tests/settings-page.test.ts` (every setting, the consent, the dropdowns' Escape, arrows and "one open at a time"), the units in the engine's cache, the settings page in the accessibility tests. `pnpm web:a11y` gains the settings page and the two switches open, with Escape and a click outside checked in Chromium (the simulated DOM of the unit tests does not run VueUse's outside click). The quick run is clean on 58 screens; the first load is 211.0 KB of 300.
 - **The roadmap**: "Clear settings" moved to what is available now; the "Coming next" group hides while it is empty.
 
+### As built (2026-10-07): the demo characters (task 5)
+
+`pages/index.vue`: from the player's second character of their own, the demo group is a native `<details>`, closed and never remembered. Its `<summary>` holds the `h2` with the count ("Demo characters (6)") and a chevron. With none or one, the group is open as before (owner's threshold). The list is written once (VueUse `createReusableTemplate`). Tests: `tests/demo-characters.test.ts` with 0, 1 and 2 stored; `pnpm web:a11y` has a "two stored" screen.
+
 ## Tests
 
 - Component tests in both languages: axe, keyboard operation and accessible names for the bar, both dropdowns, the settings page, the characters page in both states, and the wizard with its bar.

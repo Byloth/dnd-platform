@@ -1,7 +1,8 @@
 /**
  * The demo characters in the interface's language (owner, 2026-09-29): the site's index gives each one's name and
  * classes per language; the characters page lists them in Italian when the interface is Italian, and their sheet
- * takes the same name.
+ * takes the same name. From the player's second character of their own, they fold into a closed disclosure with
+ * their count (owner, 2026-10-07).
  */
 
 import "fake-indexeddb/auto";
@@ -64,4 +65,32 @@ describe("the demo characters", () =>
         expect(sheet.find("h1").text()).toBe("Lanterna di Pietra");
         sheet.unmount();
     });
+
+    it.each([[0, false], [1, false], [2, true]] as const)(
+        "with %i characters of the player's own, are folded: %s",
+        async (count, folded) =>
+        {
+            const fighter = parse(readFileSync(
+                resolve(ROOT, "fixtures", "characters", "plain-fighter-l1", "character.yaml"), "utf8"
+            )) as Record<string, unknown>;
+            for (let i = 0; i < count; i += 1)
+            {
+                await useBrowserStorage().characters.put({ ...fighter, id: `mine-${i}`, name: `Mine ${i}` } as never);
+            }
+            clearNuxtData("characters");
+
+            const page = await mountSuspended(CharactersPage);
+            await flushPromises();
+            const demo = page.find("section[aria-labelledby='characters-demo-heading']");
+
+            expect(demo.find("details").exists()).toBe(folded);
+            if (folded)
+            {
+                expect(demo.find("details").attributes("open")).toBeUndefined();
+                expect(demo.find("summary h2").text()).toBe("Demo characters (1)");
+            }
+            else { expect(demo.find("h2").text()).toBe("Demo characters"); }
+            page.unmount();
+        }
+    );
 });

@@ -28,6 +28,13 @@
         .map((origin) => ({ origin: origin, characters: (characters.value ?? []).filter((c) => c.origin === origin) }))
         .filter((g) => g.characters.length > 0));
 
+    // The demo characters stay open while the player has none or one of their own; from the second they fold into
+    // a closed disclosure, never remembered (owner, 2026-10-07; docs/phase-1/09-interface-revisions.md).
+    const stored = computed(() => (characters.value ?? []).filter((c) => c.origin === "stored").length);
+    const folded = (origin: "stored" | "demo"): boolean => (origin === "demo") && (stored.value >= 2);
+
+    const [DefineList, ReuseList] = createReusableTemplate<{ group: (typeof groups.value)[number] }>();
+
     // The blank sheet (M1.6b): the classic PDF with every field empty, in the interface's language and the paper and
     // hand of the preferences. The PDF code loads with the click.
     const preferences = usePreferencesStore();
@@ -133,13 +140,7 @@
             {{ t("characters.failed") }}
         </p>
         <template v-else>
-            <section v-for="group in groups"
-                     :key="group.origin"
-                     class="characters-page__section"
-                     :aria-labelledby="`characters-${group.origin}-heading`">
-                <h2 :id="`characters-${group.origin}-heading`" class="characters-page__subtitle">
-                    {{ t(`characters.${group.origin}`) }}
-                </h2>
+            <DefineList v-slot="{ group }">
                 <ul class="characters-page__list">
                     <li v-for="character in group.characters"
                         :key="character.id"
@@ -167,6 +168,28 @@
                         </button>
                     </li>
                 </ul>
+            </DefineList>
+            <section v-for="group in groups"
+                     :key="group.origin"
+                     class="characters-page__section"
+                     :aria-labelledby="`characters-${group.origin}-heading`">
+                <details v-if="folded(group.origin)" class="characters-page__fold">
+                    <summary class="characters-page__summary">
+                        <h2 :id="`characters-${group.origin}-heading`" class="characters-page__subtitle">
+                            {{ t(`characters.${group.origin}`) }} ({{ group.characters.length }})
+                        </h2>
+                        <FontAwesome class="characters-page__chevron"
+                                     icon="chevron-down"
+                                     aria-hidden="true" />
+                    </summary>
+                    <ReuseList :group="group" />
+                </details>
+                <template v-else>
+                    <h2 :id="`characters-${group.origin}-heading`" class="characters-page__subtitle">
+                        {{ t(`characters.${group.origin}`) }}
+                    </h2>
+                    <ReuseList :group="group" />
+                </template>
             </section>
         </template>
 
@@ -261,6 +284,46 @@
             font-size: var(--text-lg);
             letter-spacing: 0.08em;
             text-transform: uppercase;
+        }
+
+        &__summary
+        {
+            align-items: center;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            display: flex;
+            gap: var(--space-3);
+            list-style: none;
+            min-height: 44px;
+
+            &::-webkit-details-marker { display: none; }
+
+            .characters-page__subtitle
+            {
+                hyphens: manual;
+                margin: 0;
+            }
+
+            &:hover .characters-page__subtitle
+            {
+                color: var(--color-ink);
+            }
+        }
+
+        &__chevron
+        {
+            color: var(--color-ink-muted);
+            transition: transform var(--duration) var(--easing);
+        }
+
+        &__fold[open] &__chevron
+        {
+            transform: rotate(180deg);
+        }
+
+        &__fold[open] &__summary
+        {
+            margin-bottom: var(--space-4);
         }
 
         &__list
