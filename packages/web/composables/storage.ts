@@ -248,3 +248,17 @@ export function useBrowserStorage()
 
     return { packages, characters, meta, handles, persistence };
 }
+
+/**
+ * Whether this browser can use a folder and one was connected in a past visit: a light check, so that the working
+ * folder's code (with the package loader and YAML) loads only for the players who use it, not at every start
+ * (the Lighthouse regression of 2026-10-06).
+ */
+export async function workingDirectoryRemembered(): Promise<boolean>
+{
+    if (typeof (window as { showDirectoryPicker?: unknown }).showDirectoryPicker !== "function") { return false; }
+
+    try { return (await useBrowserStorage().handles.get(WORKING_DIRECTORY_KEY)) !== undefined; }
+    catch { return false; }
+}
+

@@ -5,15 +5,16 @@
     import FilePicker from "@/components/ui/FilePicker.vue";
     import FontAwesome from "@/components/ui/FontAwesome.vue";
     import type { ExportRefusal, ImportPlan } from "@/composables/character-files";
+    import { workingDirectoryRemembered } from "@/composables/storage";
 
     // The file code and the dialogs load with their first use: the page's first load stays light (its Lighthouse
     // guard).
     const ExportDialog = defineAsyncComponent(() => import("@/components/characters/ExportDialog.vue"));
     const ImportDialog = defineAsyncComponent(() => import("@/components/characters/ImportDialog.vue"));
-    // The working folder's notice (M1.8) loads only where the browser can use a folder.
+    // The working folder's notice (M1.8) loads only where a folder was connected before.
     const FolderNotice = defineAsyncComponent(() => import("@/components/characters/FolderNotice.vue"));
-    const folders = import.meta.client &&
-        (typeof (window as { showDirectoryPicker?: unknown }).showDirectoryPicker === "function");
+    const folders = ref(false);
+    onMounted(async () => { folders.value = await workingDirectoryRemembered(); });
     const files = async () => (await import("@/composables/character-files")).useCharacterFiles();
 
     // The characters page: the player's own characters, stored in this browser, then the site's demo characters,

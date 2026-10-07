@@ -47,6 +47,15 @@ export default defineNuxtConfig({
     pageTransition: { name: "page", mode: "out-in" }
   },
   compatibilityDate: "2026-09-22",
+  hooks: {
+    // No <link rel="prefetch"> for the chunks the start can import later: on a slow phone they compete with the
+    // page itself (the Lighthouse regression of 2026-10-06, when the working folder's loader and YAML joined them).
+    // A later page fetches its own code; the service worker caches the whole shell after the first visit anyway.
+    "build:manifest": (manifest) =>
+    {
+      for (const entry of Object.values(manifest)) { entry.prefetch = false; }
+    }
+  },
   runtimeConfig: {
     public: {
       appVersion: appVersion(),

@@ -6,8 +6,10 @@
  *   are; the other subsets are fetched only for the characters they cover);
  * - the SRD bundle, `content/srd51.json`, under 500 KB; its Italian translation, `content/srd51-it.json`, under the
  *   same budget (loaded only by the Italian interface, in addition to the SRD).
- * Every JavaScript and CSS file of the site is reported too, not budgeted. No tolerance: exit code 1 when a
- * budget is exceeded. Run after `nuxt generate`.
+ * Every JavaScript and CSS file of the site is reported too, not budgeted. And `index.html` prefetches nothing
+ * (`nuxt.config.ts`): a prefetched chunk is not in the first-load budget, yet a slow phone downloads it with the
+ * page (the Lighthouse regression of 2026-10-06). No tolerance: exit code 1 when a budget is exceeded or a
+ * prefetch is back. Run after `nuxt generate`.
  *
  *   node scripts/check-budgets.ts
  */
@@ -67,4 +69,9 @@ for (const [name, size, budget] of rows)
     console.log(`${over ? "✗" : "✓"} ${name.padEnd(48)} ${kilobytes(size).padStart(10)} ${limit}`);
 }
 
-if (exceeded) { process.exitCode = 1; }
+const prefetched = [...html.matchAll(/<link rel="prefetch"[^>]*href="([^"]+)"/g)].map((m) => m[1]);
+// eslint-disable-next-line no-console -- the report is the output.
+console.log(`${prefetched.length ? "✗" : "✓"} ${"Prefetched by index.html (none allowed)".padEnd(48)} ` +
+    `${String(prefetched.length).padStart(10)}`);
+
+if (exceeded || prefetched.length) { process.exitCode = 1; }
