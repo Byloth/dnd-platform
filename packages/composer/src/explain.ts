@@ -257,10 +257,27 @@ export function newcomerWording(
     return { newcomer: newcomer, notes: notes };
 }
 
-/** The first sentence of a text (first non-empty paragraph, up to the first `.`, `!` or `?`). */
+/**
+ * Inline Markdown as the plain text it reads as: a heading's marks, link targets, strong and emphasis markers
+ * (`**`, `__`, `*`) and code ticks dropped. Single underscores are left, since they also join words.
+ */
+function withoutMarkdown(text: string): string
+{
+    return text
+        .replace(/^#{1,6}\s*/, "")
+        .replace(/!?\[([^\]]*)\]\([^)]*\)/g, "$1")
+        .replace(/(\*\*|__)(?=\S)(.+?)(?<=\S)\1/g, "$2")
+        .replace(/\*(?=\S)(.+?)(?<=\S)\*/g, "$1")
+        .replace(/`([^`]*)`/g, "$1");
+}
+
+/**
+ * The first sentence of a text (first non-empty paragraph, up to the first `.`, `!` or `?`), as plain text: every
+ * summary is shown without Markdown (the druid's text opens with "**Armor:** …", owner 2026-10-07).
+ */
 export function firstSentence(text: string): string
 {
-    const paragraph = text.split(/\n\s*\n/).map((p) => p.replace(/\s+/g, " ").trim())
+    const paragraph = text.split(/\n\s*\n/).map((p) => withoutMarkdown(p.replace(/\s+/g, " ").trim()))
         .find((p) => p !== "") ?? "";
 
     return /^(.*?[.!?])(\s|$)/.exec(paragraph)?.[1] ?? paragraph;

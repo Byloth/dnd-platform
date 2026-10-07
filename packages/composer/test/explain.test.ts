@@ -5,7 +5,7 @@
 
 import { describe, expect, it } from "vitest";
 
-import { explain, localize } from "../src/index.js";
+import { explain, firstSentence, localize } from "../src/index.js";
 import { fixture } from "./helpers.js";
 
 describe("explain", () =>
@@ -68,3 +68,23 @@ describe("localize", () =>
         expect(localize(undefined, "it")).toBe("");
     });
 });
+
+describe("firstSentence", () =>
+{
+    it("takes the first sentence of the first paragraph", () =>
+    {
+        expect(firstSentence("\n\nYou know Druidic. You can speak it.\n\nMore.")).toBe("You know Druidic.");
+    });
+
+    it("gives plain text, without the Markdown of the content (the druid's text, owner 2026-10-07)", () =>
+    {
+        expect(firstSentence("**Armor:** Light armor, medium armor, shields (no metal)\n\n### Sacred Plants"))
+            .toBe("Armor: Light armor, medium armor, shields (no metal)");
+        expect(firstSentence("###Cantrips\n\nText.")).toBe("Cantrips");
+        expect(firstSentence("You can cast *cure wounds* with `slot` and [the rules](rules.md).")).toBe(
+            "You can cast cure wounds with slot and the rules."
+        );
+        expect(firstSentence("A snake_case word stays as it is.")).toBe("A snake_case word stays as it is.");
+    });
+});
+
