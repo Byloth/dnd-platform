@@ -30,7 +30,7 @@ export default defineNuxtPlugin((nuxtApp) =>
 
     }, { immediate: true });
     // A setting the player changes, for the usage statistics (nothing is sent without consent, DEC-22).
-    for (const name of ["language", "helpLevel", "theme", "contrast"] as const)
+    for (const name of ["language", "helpLevel", "theme", "contrast", "units"] as const)
     {
         watch(() => preferences[name], (value) => useAnalytics().track("preference", { name: name, value: value }));
     }

@@ -5,18 +5,12 @@
   },
   "nav": {
     "packages": "Header navigation and settings; short labels, they share a phone-width bar.",
-    "language": "Header navigation and settings; short labels, they share a phone-width bar.",
     "main": "Header navigation and settings; short labels, they share a phone-width bar.",
     "characters": "Header navigation and settings; short labels, they share a phone-width bar.",
-    "settings": "Header navigation and settings; short labels, they share a phone-width bar.",
-    "helpLevel": "Header navigation and settings; short labels, they share a phone-width bar.",
-    "theme": "Header navigation and settings; short labels, they share a phone-width bar.",
-    "contrast": "Header navigation and settings; short labels, they share a phone-width bar.",
-    "newCharacter": "Header link to the creation wizard.",
-    "statistics": "Settings panel field: usage statistics on or off.",
+    "settings": "Link of the navigation bar to the settings page; short, it shares a phone-width bar.",
     "compendium": "Link of the navigation bar to the compendium. Italian: Compendio (owner).",
-    "pageSize": "Settings menu: the paper size of the PDF sheet.",
-    "hand": "Settings menu: how the PDF sheet writes the character's values, in a handwriting font or in print."
+    "themeSwitch": "Accessible name of the bar's quick theme switch (an icon only); {value} is the current theme.",
+    "languageSwitch": "Accessible name of the bar's quick language switch (a flag only); {value} is the current language's own name."
   },
   "footer": {
     "attribution": "Legal attribution required by the SRD's licence (CC-BY-4.0); translate the sentence, keep the names and the licence name.",
@@ -95,18 +89,18 @@
   },
   "preferences": {
     "helpLevel": {
-      "newcomer": "A help level in the settings menu: how much the sheet explains.",
-      "regular": "A help level in the settings menu: how much the sheet explains.",
-      "expert": "A help level in the settings menu: how much the sheet explains."
+      "newcomer": "A help level in the settings page: how much the sheet explains.",
+      "regular": "A help level in the settings page: how much the sheet explains.",
+      "expert": "A help level in the settings page: how much the sheet explains."
     },
     "theme": {
-      "system": "A colour theme in the settings menu.",
-      "light": "A colour theme in the settings menu.",
-      "dark": "A colour theme in the settings menu."
+      "system": "A colour theme in the settings page.",
+      "light": "A colour theme in the settings page.",
+      "dark": "A colour theme in the settings page."
     },
     "contrast": {
-      "system": "A contrast setting in the settings menu.",
-      "more": "A contrast setting in the settings menu."
+      "system": "A contrast setting in the settings page.",
+      "more": "A contrast setting in the settings page."
     },
     "pageSize": {
       "a4": "Paper size name.",
@@ -115,6 +109,79 @@
     "hand": {
       "handwriting": "Values written in a handwriting font.",
       "print": "Values written in a plain, very legible print font."
+    }
+  },
+  "settings": {
+    "title": "Title of the settings page.",
+    "intro": "One line at the top of the settings page.",
+    "language": {
+      "title": "A setting's heading on the settings page.",
+      "text": "One sentence under a setting's heading: what it changes."
+    },
+    "helpLevel": {
+      "title": "A setting's heading on the settings page.",
+      "text": "One sentence under a setting's heading: what it changes.",
+      "options": {
+        "newcomer": "One sentence under an option of a setting, saying what it does; short.",
+        "regular": "One sentence under an option of a setting, saying what it does; short.",
+        "expert": "One sentence under an option of a setting, saying what it does; short."
+      }
+    },
+    "theme": {
+      "title": "A setting's heading on the settings page.",
+      "text": "One sentence under a setting's heading: what it changes.",
+      "options": {
+        "system": "One sentence under an option of a setting, saying what it does; short.",
+        "light": "One sentence under an option of a setting, saying what it does; short.",
+        "dark": "One sentence under an option of a setting, saying what it does; short."
+      }
+    },
+    "contrast": {
+      "title": "A setting's heading on the settings page.",
+      "text": "One sentence under a setting's heading: what it changes.",
+      "options": {
+        "system": "One sentence under an option of a setting, saying what it does; short.",
+        "more": "One sentence under an option of a setting, saying what it does; short."
+      }
+    },
+    "units": {
+      "title": "A setting's heading on the settings page.",
+      "text": "One sentence under a setting's heading: what it changes.",
+      "titles": {
+        "auto": "An option of the units setting, the card's title.",
+        "imperial": "An option of the units setting, the card's title.",
+        "metric": "An option of the units setting, the card's title."
+      },
+      "options": {
+        "auto": "One sentence under an option of a setting, saying what it does; short.",
+        "imperial": "One sentence under an option of a setting, saying what it does; short.",
+        "metric": "One sentence under an option of a setting, saying what it does; short."
+      }
+    },
+    "pageSize": {
+      "title": "A setting's heading on the settings page.",
+      "text": "One sentence under a setting's heading: what it changes.",
+      "options": {
+        "a4": "One sentence under an option of a setting, saying what it does; short.",
+        "letter": "One sentence under an option of a setting, saying what it does; short."
+      }
+    },
+    "hand": {
+      "title": "A setting's heading on the settings page.",
+      "text": "One sentence under a setting's heading: what it changes.",
+      "options": {
+        "handwriting": "One sentence under an option of a setting, saying what it does; short.",
+        "print": "One sentence under an option of a setting, saying what it does; short."
+      }
+    },
+    "statistics": {
+      "title": "A setting's heading on the settings page.",
+      "text": "One sentence under a setting's heading: what it changes.",
+      "privacy": "Link to the privacy page after the statistics setting's sentence.",
+      "options": {
+        "on": "One sentence under an option of a setting, saying what it does; short.",
+        "off": "One sentence under an option of a setting, saying what it does; short."
+      }
     }
   },
   "characters": {

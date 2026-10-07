@@ -1,37 +1,31 @@
 <script lang="ts" setup>
-    import type { HelpLevel } from "@byloth/dnd-platform-composer";
-
+    import DropdownMenu from "@/components/ui/DropdownMenu.vue";
     import FontAwesome from "@/components/ui/FontAwesome.vue";
-    import type { Contrast, Hand, Language, PageSize, Theme } from "@/stores/preferences";
+    import LanguageFlag from "@/components/ui/LanguageFlag.vue";
+    import type { Language, Theme } from "@/stores/preferences";
 
+    /**
+     * The navigation bar (docs/phase-1/09-interface-revisions.md, owner 2026-10-07): Characters, Compendium,
+     * Packages and Settings, each with its icon; then two quick switches, the colour mode and the language. Every
+     * other setting is on the settings page.
+     */
     const { t, locales } = useI18n();
     const preferences = usePreferencesStore();
 
-    const HELP_LEVELS: HelpLevel[] = ["newcomer", "regular", "expert"];
-    const THEMES: Theme[] = ["system", "light", "dark"];
-    const CONTRASTS: Contrast[] = ["system", "more"];
-    const PAGE_SIZES: PageSize[] = ["a4", "letter"];
-    const HANDS: Hand[] = ["handwriting", "print"];
-
-    const bind = <K extends "language" | "helpLevel" | "theme" | "contrast" | "pageSize" | "hand">(key: K) => computed({
-        get: () => preferences[key],
-        set: (value) => { preferences[key] = value; }
-    });
-    const language = bind("language");
-    const helpLevel = bind("helpLevel");
-    const theme = bind("theme");
-    const contrast = bind("contrast");
-    const pageSize = bind("pageSize");
-    const hand = bind("hand");
-
-    // Usage statistics (DEC-22): on only with consent; switching off withdraws it.
-    const consent = useConsentStore();
-    const statistics = computed({
-        get: () => (consent.analytics === "granted" ? "on" : "off"),
-        set: (value: "on" | "off") => (value === "on" ? consent.grant() : consent.deny())
+    const THEME_ICONS: Readonly<Record<Theme, string>> = { system: "circle-half-stroke", light: "sun", dark: "moon" };
+    const themes = computed(() => (Object.keys(THEME_ICONS) as Theme[])
+        .map((value) => ({ value: value, label: t(`preferences.theme.${value}`) })));
+    const theme = computed({
+        get: (): string => preferences.theme,
+        set: (value: string) => { preferences.theme = value as Theme; }
     });
 
-    const languages = computed(() => locales.value.map((l) => ({ code: l.code as Language, name: l.name ?? l.code })));
+    const languages = computed(() => locales.value.map((l) => ({ value: l.code as string, label: l.name ?? l.code })));
+    const language = computed({
+        get: (): string => preferences.language,
+        set: (value: string) => { preferences.language = value as Language; }
+    });
+    const languageName = computed(() => languages.value.find((l) => l.value === language.value)?.label ?? "");
 </script>
 
 <template>
@@ -50,10 +44,6 @@
                                  aria-hidden="true" />
                     <span class="navigation-bar__text">{{ t("nav.characters") }}</span>
                 </RouterLink>
-                <!-- On a phone the characters page's button is the way in: the bar has no room for a fourth entry. -->
-                <RouterLink :to="{ name: 'characters-new' }" class="navigation-bar__link navigation-bar__link--wide">
-                    {{ t("nav.newCharacter") }}
-                </RouterLink>
                 <RouterLink :to="{ name: 'compendium' }" class="navigation-bar__link">
                     <FontAwesome class="navigation-bar__icon"
                                  icon="book-open"
@@ -66,96 +56,50 @@
                                  aria-hidden="true" />
                     <span class="navigation-bar__text">{{ t("nav.packages") }}</span>
                 </RouterLink>
+                <RouterLink :to="{ name: 'settings' }" class="navigation-bar__link">
+                    <FontAwesome class="navigation-bar__icon"
+                                 icon="sliders"
+                                 aria-hidden="true" />
+                    <span class="navigation-bar__text">{{ t("nav.settings") }}</span>
+                </RouterLink>
             </div>
-            <details class="navigation-bar__settings">
-                <summary class="navigation-bar__link navigation-bar__toggle">
-                    <FontAwesome icon="sliders" aria-hidden="true" />
-                    <span class="navigation-bar__toggle-label">{{ t("nav.settings") }}</span>
-                </summary>
-                <div class="navigation-bar__panel">
-                    <label class="navigation-bar__field">
-                        <span class="navigation-bar__label">{{ t("nav.language") }}</span>
-                        <select v-model="language">
-                            <option v-for="l in languages"
-                                    :key="l.code"
-                                    :value="l.code">
-                                {{ l.name }}
-                            </option>
-                        </select>
-                    </label>
-                    <label class="navigation-bar__field">
-                        <span class="navigation-bar__label">{{ t("nav.helpLevel") }}</span>
-                        <select v-model="helpLevel">
-                            <option v-for="level in HELP_LEVELS"
-                                    :key="level"
-                                    :value="level">
-                                {{ t(`preferences.helpLevel.${level}`) }}
-                            </option>
-                        </select>
-                    </label>
-                    <label class="navigation-bar__field">
-                        <span class="navigation-bar__label">{{ t("nav.theme") }}</span>
-                        <select v-model="theme">
-                            <option v-for="value in THEMES"
-                                    :key="value"
-                                    :value="value">
-                                {{ t(`preferences.theme.${value}`) }}
-                            </option>
-                        </select>
-                    </label>
-                    <label class="navigation-bar__field">
-                        <span class="navigation-bar__label">{{ t("nav.contrast") }}</span>
-                        <select v-model="contrast">
-                            <option v-for="value in CONTRASTS"
-                                    :key="value"
-                                    :value="value">
-                                {{ t(`preferences.contrast.${value}`) }}
-                            </option>
-                        </select>
-                    </label>
-                    <label class="navigation-bar__field">
-                        <span class="navigation-bar__label">{{ t("nav.pageSize") }}</span>
-                        <select v-model="pageSize">
-                            <option v-for="value in PAGE_SIZES"
-                                    :key="value"
-                                    :value="value">
-                                {{ t(`preferences.pageSize.${value}`) }}
-                            </option>
-                        </select>
-                    </label>
-                    <label class="navigation-bar__field">
-                        <span class="navigation-bar__label">{{ t("nav.hand") }}</span>
-                        <select v-model="hand">
-                            <option v-for="value in HANDS"
-                                    :key="value"
-                                    :value="value">
-                                {{ t(`preferences.hand.${value}`) }}
-                            </option>
-                        </select>
-                    </label>
-                    <label class="navigation-bar__field">
-                        <span class="navigation-bar__label">{{ t("nav.statistics") }}</span>
-                        <select v-model="statistics">
-                            <option value="on">
-                                {{ t("consent.on") }}
-                            </option>
-                            <option value="off">
-                                {{ t("consent.off") }}
-                            </option>
-                        </select>
-                    </label>
-                    <NuxtLink :to="{ name: 'privacy' }" class="navigation-bar__privacy">
-                        {{ t("consent.privacy") }}
-                    </NuxtLink>
-                </div>
-            </details>
+            <div class="navigation-bar__switches">
+                <DropdownMenu v-model="theme"
+                              :label="t('nav.themeSwitch', { value: t(`preferences.theme.${theme}`) })"
+                              :items="themes">
+                    <template #button>
+                        <FontAwesome :icon="THEME_ICONS[preferences.theme]" />
+                    </template>
+                    <template #item="{ item }">
+                        <FontAwesome :icon="THEME_ICONS[item.value as Theme]" />
+                    </template>
+                </DropdownMenu>
+                <DropdownMenu v-model="language"
+                              :label="t('nav.languageSwitch', { value: languageName })"
+                              :items="languages">
+                    <template #button>
+                        <LanguageFlag :language="language" />
+                    </template>
+                    <template #item="{ item }">
+                        <LanguageFlag :language="item.value" />
+                    </template>
+                </DropdownMenu>
+            </div>
         </div>
     </nav>
 </template>
 
 <style lang="scss" scoped>
     @use "@/assets/scss/mixins";
-    @use "@/assets/scss/variables";
+
+    // Four links and two switches, narrowing step by step: under $named-max the brand keeps only its mark; under
+    // $compact-max each link is its icon over a short label; under $icons-only-max the labels go to the screen
+    // reader and the icons stay; under $tiny-max the brand gives way too (Characters is the home page). The bar
+    // never scrolls sideways (WCAG 1.4.10; M1.8b). Measured with the Italian labels, the longest.
+    $named-max: 991px;
+    $compact-max: 719px;
+    $icons-only-max: 559px;
+    $tiny-max: 359px;
 
     .navigation-bar
     {
@@ -187,6 +131,8 @@
             gap: var(--space-2);
             margin-right: auto;
             text-decoration: none;
+
+            @media (max-width: $tiny-max) { display: none; }
         }
 
         &__mark
@@ -202,13 +148,15 @@
             font-weight: 700;
             letter-spacing: 0.04em;
 
-            @media (max-width: variables.$phone-max) { @include mixins.sr-only; }
+            @media (max-width: $named-max) { @include mixins.sr-only; }
         }
 
         &__links
         {
             display: flex;
             gap: var(--space-1);
+
+            @media (max-width: $tiny-max) { margin-right: auto; }
         }
 
         &__link
@@ -222,6 +170,7 @@
             display: inline-flex;
             font-weight: 700;
             gap: var(--space-2);
+            justify-content: center;
             padding: 0 var(--space-3);
             text-decoration: none;
             transition: background-color var(--duration-fast) var(--easing), color var(--duration-fast) var(--easing);
@@ -238,88 +187,33 @@
                 color: var(--color-accent);
             }
 
-            &--wide
-            {
-                @media (max-width: variables.$phone-max) { display: none; }
-            }
-
-            // On a phone a link is its icon over a short label: three of them and the settings fit in 360 px.
-            @media (max-width: variables.$phone-max)
+            @media (max-width: $compact-max)
             {
                 flex-direction: column;
                 font-size: var(--text-xs);
                 gap: 2px;
-                justify-content: center;
                 padding: var(--space-1) var(--space-2);
             }
         }
 
-        // Under 360 px (a small phone, or 400 % zoom) the labels go to the screen reader and the icons stay: the bar
-        // fits in 320 px with no horizontal scroll (WCAG 1.4.10; M1.8b).
         &__text
         {
-            @media (max-width: 359px) { @include mixins.sr-only; }
+            @media (max-width: $icons-only-max) { @include mixins.sr-only; }
         }
 
         &__icon
         {
             font-size: 1.1rem;
-
-            @include mixins.from(variables.$tablet-min) { display: none; }
         }
 
-        &__toggle
+        // The colour mode and the language: smaller than the links, a quick switch (owner, 2026-10-07).
+        &__switches
         {
-            list-style: none;
-
-            &::-webkit-details-marker { display: none; }
-        }
-
-        &__toggle-label
-        {
-            @media (max-width: variables.$phone-max) { @include mixins.sr-only; }
-        }
-
-        &__settings
-        {
-            position: relative;
-
-            &[open] > .navigation-bar__toggle
-            {
-                background-color: var(--color-surface-sunken);
-                color: var(--color-ink);
-            }
-        }
-
-        &__privacy
-        {
-            font-size: var(--text-sm);
-        }
-
-        &__panel
-        {
-            @include mixins.card(3);
-
-            display: grid;
-            gap: var(--space-3);
-            padding: var(--space-4);
-            position: absolute;
-            right: 0;
-            top: calc(100% + var(--space-2));
-            width: min(20rem, calc(100vw - 2 * var(--space-3)));
-        }
-
-        &__field
-        {
-            display: grid;
-            gap: var(--space-1);
-        }
-
-        &__label
-        {
-            color: var(--color-ink-muted);
-            font-size: var(--text-sm);
-            font-weight: 700;
+            border-left: 1px solid var(--color-border);
+            display: flex;
+            gap: 2px;
+            margin-left: var(--space-1);
+            padding-left: var(--space-1);
         }
     }
 </style>

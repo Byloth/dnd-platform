@@ -7,7 +7,8 @@
  * - reflow at 320 CSS pixels (WCAG 1.4.10, the 400 % zoom of a 1280 px screen): no horizontal scroll;
  * - the keyboard: Tab through the whole screen; every control reached, visible when focused, with a focus
  *   indicator, nothing else taking focus; the order is reported where it jumps back up the page, for review;
- * - Escape closes the explanation drawer and the dialogs, focus back on what opened them.
+ * - Escape closes the explanation drawer, the dialogs and the bar's dropdowns, focus back on what opened them; a
+ *   click outside a dropdown closes it too.
  * The findings go to `.output/accessibility.json` and a summary to the console; exit code 1 on any failure.
  * Run after `nuxt generate` (and `prepare-content`). The browser: `CHROME_PATH`, else an installed Chrome or
  * Chromium (chrome-launcher), as Lighthouse finds it.
@@ -61,6 +62,8 @@ interface Screen
     readonly stored?: boolean;
     /** Clicks the control that opens an overlay, marking it for the Escape check; `false` when not found. */
     readonly open?: (page: Page) => Promise<boolean>;
+    /** A dropdown: after the Escape check, opened again and closed by a click outside it. */
+    readonly outside?: boolean;
 }
 
 /** Clicks the first button or link whose name matches. */
@@ -125,7 +128,10 @@ const SCREENS: readonly Screen[] = [
     { name: "changelog", path: "/changelog/srd51" },
     { name: "credits", path: "/credits" },
     { name: "privacy", path: "/privacy" },
-    { name: "roadmap", path: "/roadmap" }
+    { name: "roadmap", path: "/roadmap" },
+    { name: "settings", path: "/settings" },
+    { name: "theme switch", path: "/", open: clickButton(/^(Theme|Tema):/), outside: true },
+    { name: "language switch", path: "/", open: clickButton(/^(Language|Lingua):/), outside: true }
 ];
 
 // ---- findings -------------------------------------------------------------------------------------------------
@@ -498,12 +504,26 @@ async function checkEscape(page: Page, screen: Screen, setting: string): Promise
     await page.keyboard.press("Escape");
     await pause(300);
     const state = await page.evaluate(() => ({
-        open: document.querySelector("dialog[open]") !== null,
+        open: document.querySelector("dialog[open], .dropdown-menu__button[aria-expanded='true']") !== null,
         back: (document.activeElement as HTMLElement | null)?.dataset["a11yOpener"] === "opener"
     }));
 
     if (state.open) { fail(screen, setting, "escape", "Escape leaves the overlay open"); }
     else if (!state.back) { fail(screen, setting, "escape", "after Escape, focus is not on what opened it"); }
+}
+
+/** A dropdown opened again closes when the player clicks elsewhere on the page. */
+async function checkOutside(page: Page, screen: Screen, setting: string, viewport: Viewport): Promise<void>
+{
+    await screen.open!(page);
+    await pause(150);
+    await page.mouse.click(Math.round(viewport.width / 2), viewport.height - 20);
+    await pause(300);
+
+    if (await page.evaluate(() => document.querySelector(".dropdown-menu__button[aria-expanded='true']") !== null))
+    {
+        fail(screen, setting, "escape", "a click outside leaves the dropdown open");
+    }
 }
 
 // ---- the run ------------------------------------------------------------------------------------------------
@@ -524,6 +544,7 @@ async function checkScreen(
     {
         await checkKeyboard(page, screen, setting);
         if (opened) { await checkEscape(page, screen, setting); }
+        if (opened && screen.outside) { await checkOutside(page, screen, setting, viewport); }
     }
     await page.browserContext().close();
 

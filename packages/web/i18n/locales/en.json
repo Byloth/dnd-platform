@@ -5,18 +5,12 @@
   },
   "nav": {
     "packages": "Packages",
-    "language": "Language",
     "main": "Main",
     "characters": "Characters",
     "settings": "Settings",
-    "helpLevel": "Help level",
-    "theme": "Theme",
-    "contrast": "Contrast",
-    "newCharacter": "New character",
-    "pageSize": "PDF paper",
-    "hand": "PDF writing",
-    "statistics": "Usage statistics",
-    "compendium": "Compendium"
+    "compendium": "Compendium",
+    "themeSwitch": "Theme: {value}",
+    "languageSwitch": "Language: {value}"
   },
   "footer": {
     "attribution": "This work includes material taken from the System Reference Documents 5.1 and 5.2 by Wizards of the Coast LLC, licensed under the Creative Commons Attribution 4.0 International License.",
@@ -115,6 +109,79 @@
     "hand": {
       "handwriting": "By hand",
       "print": "In print"
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "intro": "Your settings stay in this browser and are never part of a character.",
+    "language": {
+      "title": "Language",
+      "text": "The language of the site, and of the content where a translation is loaded."
+    },
+    "helpLevel": {
+      "title": "Help level",
+      "text": "How much the sheet and the creation explain.",
+      "options": {
+        "newcomer": "Every number with its explanation, every choice with a suggestion and its reason.",
+        "regular": "Shorter explanations; the reason for a suggestion behind “Why?”.",
+        "expert": "The values only, in a denser layout."
+      }
+    },
+    "theme": {
+      "title": "Theme",
+      "text": "The colours of the site.",
+      "options": {
+        "system": "Light or dark, as your device is set.",
+        "light": "Parchment and ink.",
+        "dark": "Slate and brass, for a dim table."
+      }
+    },
+    "contrast": {
+      "title": "Contrast",
+      "text": "Stronger colours and borders, for easier reading.",
+      "options": {
+        "system": "As your device asks.",
+        "more": "Always the high-contrast colours."
+      }
+    },
+    "units": {
+      "title": "Units of measure",
+      "text": "Distances and weights on the sheet and in the compendium.",
+      "titles": {
+        "auto": "From the language",
+        "imperial": "Feet and pounds",
+        "metric": "Metres and kilograms"
+      },
+      "options": {
+        "auto": "Metres and kilograms in Italian, feet and pounds in English.",
+        "imperial": "As the English rulebooks write them: 30 feet, 2 pounds.",
+        "metric": "As the Italian manuals count them: 30 feet become 9 metres."
+      }
+    },
+    "pageSize": {
+      "title": "PDF paper",
+      "text": "The paper size of the sheet you download as a PDF.",
+      "options": {
+        "a4": "Europe and most of the world.",
+        "letter": "The United States and Canada."
+      }
+    },
+    "hand": {
+      "title": "PDF writing",
+      "text": "How the character's values are written on the PDF sheet.",
+      "options": {
+        "handwriting": "Like a pencil on paper.",
+        "print": "In clear print letters."
+      }
+    },
+    "statistics": {
+      "title": "Usage statistics",
+      "text": "Anonymous counts of the pages and features used, to improve the site. No cookies, nothing about your characters.",
+      "privacy": "What is counted, on the privacy page.",
+      "options": {
+        "on": "You help us see what to improve.",
+        "off": "Nothing is counted."
+      }
     }
   },
   "characters": {
@@ -691,8 +758,8 @@
         "text": "Load content from the books you own; it never leaves your device."
       },
       "settings": {
-        "name": "Clearer settings",
-        "text": "A settings page, and metres and kilograms for whoever prefers them."
+        "name": "Clear settings",
+        "text": "Every setting on one page, with metres and kilograms or feet and pounds as you prefer."
       },
       "files": {
         "name": "Characters as files",

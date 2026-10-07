@@ -14,10 +14,11 @@
             icon: "circle-check",
             items: [
                 "creation", "ideas", "sheet", "editing", "files", "folder", "pdf", "updates",
-                "expert", "compendium", "languages", "app", "books"
+                "expert", "compendium", "settings", "languages", "app", "books"
             ]
         },
-        { status: "next", icon: "feather", items: ["settings"] },
+        // Nothing is promised as "next" until the next phase is planned; the group shows again when it has items.
+        { status: "next", icon: "feather", items: [] },
         {
             status: "later",
             icon: "star",
@@ -32,7 +33,7 @@
         <p class="roadmap-page__intro">
             {{ t("roadmapPage.intro") }}
         </p>
-        <section v-for="group in GROUPS"
+        <section v-for="group in GROUPS.filter((g) => g.items.length)"
                  :key="group.status"
                  class="roadmap-page__group"
                  :class="`roadmap-page__group--${group.status}`"

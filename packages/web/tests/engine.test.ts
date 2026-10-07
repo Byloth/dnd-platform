@@ -67,6 +67,21 @@ describe("useEngine", () =>
         expect(engine.stats()).toEqual({ packageSets: 1, sheets: 2 });
     });
 
+    it("recomputes the sheet when the units change, from the option or from the setting", () =>
+    {
+        const engine = useEngine();
+        const imperial = engine.sheet(CLERIC, [SRD], { language: "en" });
+        const metric = engine.sheet(CLERIC, [SRD], { language: "en", units: "metric" });
+        usePreferencesStore().units = "metric";
+        const chosen = engine.sheet(CLERIC, [SRD], { language: "en" });
+        usePreferencesStore().units = "auto";
+
+        expect(metric).not.toBe(imperial);
+        expect(chosen).toBe(metric);
+        expect(JSON.stringify(metric.tree)).not.toBe(JSON.stringify(imperial.tree));
+        expect(engine.stats()).toEqual({ packageSets: 1, sheets: 2 });
+    });
+
     it("recomputes both when a package version changes", () =>
     {
         const engine = useEngine();

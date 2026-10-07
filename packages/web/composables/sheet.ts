@@ -17,14 +17,22 @@ export interface ComposeSheetOptions
     readonly language?: string;
     readonly helpLevel?: HelpLevel;
     readonly translate?: Translate;
-    /** Default: metric in Italian, imperial otherwise, until the units setting (docs/phase-1/09). */
+    /** Default: the language's (`defaultUnits`). */
     readonly units?: "imperial" | "metric";
 }
 
-/** The units of a language until the units setting (docs/phase-1/09): metric in Italian, imperial otherwise. */
+/** The units of a language: metric in Italian, imperial otherwise (the "auto" setting, docs/phase-1/09). */
 export function defaultUnits(language: string | undefined): "imperial" | "metric"
 {
     return language === "it" ? "metric" : "imperial";
+}
+
+/** The units the player chose in the settings, or the language's while the setting is "auto". */
+export function preferredUnits(language: string | undefined): "imperial" | "metric"
+{
+    const units = usePreferencesStore().units;
+
+    return units === "auto" ? defaultUnits(language) : units;
 }
 
 /** Derive a character and compose its section tree; pure, memoised by `useEngine`. */

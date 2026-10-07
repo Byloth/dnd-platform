@@ -7,7 +7,7 @@
     import FontAwesome from "@/components/ui/FontAwesome.vue";
     import { COMPENDIUM_KINDS } from "@/composables/compendium";
     import type { CompendiumKind } from "@/composables/compendium";
-    import { defaultUnits } from "@/composables/sheet";
+    import { preferredUnits } from "@/composables/sheet";
 
     /**
      * One entry of the compendium (docs/phase-1/13-compendium.md): a creature's stat block or a spell, an item or a
@@ -32,7 +32,7 @@
         packages: data.value!.packages,
         language: locale.value,
         translate: translate,
-        units: defaultUnits(locale.value)
+        units: preferredUnits(locale.value)
     }));
     const block = computed(() => ((data.value && (kind.value === "creatures")) ?
         composeCreature(id.value, options.value) :

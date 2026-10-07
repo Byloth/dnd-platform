@@ -163,6 +163,24 @@ Each is a commit. Tests and lint pass through the hooks.
 8. **Dropping packages** on the packages page, as above.
 9. **Docs**: 01-web-application (navigation and settings), 03-sheet-composer (units option), 04-character-creation (bar, transitions), 06-localisation (units replace "metres beside feet"); the workplan's M1.4r progress.
 
+### As built (2026-10-07): the bar, the quick switches, the settings page, the units (tasks 1–4)
+
+- **The bar** (`components/globals/NavigationBar.vue`):
+  - links: Characters, Compendium, Packages and Settings, each with its icon at every width; "New character" left it;
+  - then the two quick switches, smaller than the links: the theme (the current choice's icon: half circle, sun, moon) and the language (the current flag);
+  - narrowing step by step: under 992 px the brand keeps its mark only, under 720 px each link is its icon over its label, under 560 px the labels go to the screen reader, and under 360 px the brand gives way (Characters is the home page). Checked with screenshots from 320 to 1280 px in both languages: nothing leaves the screen.
+- **`components/ui/DropdownMenu.vue`**: a disclosure with `aria-pressed` choices and a tick on the current one. It closes on a click outside (VueUse `onClickOutside`), on Escape wherever the focus is (`onKeyStroke`, focus back on its button), on a choice, on a route change, and when the other opens. Up, Down, Home and End move between the choices.
+- **Flags**: `components/ui/flags/FlagGb.vue` and `FlagIt.vue` (inline SVG, 3:2), and `components/ui/LanguageFlag.vue` with the locale-to-flag map and the globe for a language without one.
+- **The settings page** (`pages/settings.vue`): eight settings, each a `fieldset` whose legend is its `h2`, with one sentence under it and a card per option (`ChoiceCard`, always with its summary). The settings are language, help level, theme, contrast, units of measure, PDF paper, PDF writing and usage statistics; the last gives or withdraws the consent, with a link to the privacy page.
+- **Units** (task 4's web part; the composer's part came with M1.7):
+  - `units: "auto" | "imperial" | "metric"` in the preferences, `auto` by default;
+  - `preferredUnits(language)` in `composables/sheet.ts` resolves `auto` through the language;
+  - `useEngine().sheet` uses it when no `units` option is given, and keeps it in its cache key;
+  - the compendium's entries use it too;
+  - the `preference` statistics event includes it.
+- **Checks**: `tests/settings-page.test.ts` (every setting, the consent, the dropdowns' Escape, arrows and "one open at a time"), the units in the engine's cache, the settings page in the accessibility tests. `pnpm web:a11y` gains the settings page and the two switches open, with Escape and a click outside checked in Chromium (the simulated DOM of the unit tests does not run VueUse's outside click). The quick run is clean on 58 screens; the first load is 211.0 KB of 300.
+- **The roadmap**: "Clear settings" moved to what is available now; the "Coming next" group hides while it is empty.
+
 ## Tests
 
 - Component tests in both languages: axe, keyboard operation and accessible names for the bar, both dropdowns, the settings page, the characters page in both states, and the wizard with its bar.

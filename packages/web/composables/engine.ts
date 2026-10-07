@@ -4,7 +4,7 @@ import type { PackageSet, PackageSource } from "@byloth/dnd-platform-loader";
 import type { Character } from "@byloth/dnd-platform-engine";
 import { stableStringify } from "@byloth/dnd-platform-schema";
 
-import { composeSheet } from "./sheet";
+import { composeSheet, preferredUnits } from "./sheet";
 import type { ComposedSheet } from "./sheet";
 
 /**
@@ -76,6 +76,8 @@ export interface SheetOptions
     readonly helpLevel?: HelpLevel;
     /** The interface's translation of the composer's `sheet.*` strings; the composer's own when absent. */
     readonly translate?: Translate;
+    /** Default: the player's setting (`preferredUnits`). */
+    readonly units?: "imperial" | "metric";
 }
 
 export function useEngine()
@@ -95,22 +97,23 @@ export function useEngine()
     };
 
     /**
-     * The computed sheet and its section tree; computed once per character document, versions, language and help
-     * level (the translation follows the language).
+     * The computed sheet and its section tree; computed once per character document, versions, language, help
+     * level and units (the translation follows the language).
      */
     const sheet = (
         character: Character, sources: readonly PackageSource[], options: SheetOptions = {}
     ): ComposedSheet =>
     {
         const { language, helpLevel } = options;
-        const key = `${stableStringify(character)}|${_versions(sources)}|${language ?? ""}|${helpLevel ?? ""}`;
+        const units = options.units ?? preferredUnits(language);
+        const key = `${stableStringify(character)}|${_versions(sources)}|${language ?? ""}|${helpLevel ?? ""}|${units}`;
         const cached = _sheets.get(key);
         if (cached) { return cached; }
 
         const set = packageSet(sources, _pins(character));
 
         performance.mark(_DERIVE_START);
-        const composed = composeSheet(character, set, options);
+        const composed = composeSheet(character, set, { ...options, units: units });
         performance.clearMeasures(DERIVE_MEASURE);
         performance.measure(DERIVE_MEASURE, _DERIVE_START);
         performance.clearMarks(_DERIVE_START);

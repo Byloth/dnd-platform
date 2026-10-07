@@ -28,6 +28,7 @@ import PackagesPage from "@/pages/packages/index.vue";
 import WizardPage from "@/pages/characters/new.vue";
 import PrivacyPage from "@/pages/privacy.vue";
 import RoadmapPage from "@/pages/roadmap.vue";
+import SettingsPage from "@/pages/settings.vue";
 import CreditsPage from "@/pages/credits.vue";
 import ConsentBanner from "@/components/globals/ConsentBanner.vue";
 import EditPage from "@/pages/characters/[id]/edit.vue";
@@ -388,7 +389,8 @@ describe.each(LANGUAGES)("accessibility, in %s", (language) =>
         await expectAccessible(await render(PrivacyPage));
     });
 
-    it.each([["roadmap", RoadmapPage], ["credits", CreditsPage]] as const)("the %s page", async (_name, page) =>
+    const INFO_PAGES = [["roadmap", RoadmapPage], ["credits", CreditsPage], ["settings", SettingsPage]] as const;
+    it.each(INFO_PAGES)("the %s page", async (_name, page) =>
     {
         await speak(language);
         const wrapper = await render(page);

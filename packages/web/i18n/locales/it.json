@@ -5,18 +5,12 @@
   },
   "nav": {
     "packages": "Pacchetti",
-    "language": "Lingua",
     "main": "Principale",
     "characters": "Personaggi",
     "settings": "Impostazioni",
-    "helpLevel": "Livello di aiuto",
-    "theme": "Tema",
-    "contrast": "Contrasto",
-    "newCharacter": "Nuovo personaggio",
-    "pageSize": "Carta del PDF",
-    "hand": "Scrittura del PDF",
-    "statistics": "Statistiche d'uso",
-    "compendium": "Compendio"
+    "compendium": "Compendio",
+    "themeSwitch": "Tema: {value}",
+    "languageSwitch": "Lingua: {value}"
   },
   "footer": {
     "attribution": "Quest'opera include materiale tratto dai System Reference Document 5.1 e 5.2 di Wizards of the Coast LLC, con licenza Creative Commons Attribution 4.0 International.",
@@ -115,6 +109,79 @@
     "hand": {
       "handwriting": "A mano",
       "print": "Stampatello"
+    }
+  },
+  "settings": {
+    "title": "Impostazioni",
+    "intro": "Le impostazioni restano in questo browser e non fanno mai parte di un personaggio.",
+    "language": {
+      "title": "Lingua",
+      "text": "La lingua del sito e dei contenuti, dove è caricata una traduzione."
+    },
+    "helpLevel": {
+      "title": "Livello di aiuto",
+      "text": "Quanto spiegano la scheda e la creazione del personaggio.",
+      "options": {
+        "newcomer": "Ogni numero con la sua spiegazione, ogni scelta con un consiglio e il suo motivo.",
+        "regular": "Spiegazioni più brevi; il motivo di un consiglio dietro “Perché?”.",
+        "expert": "Solo i valori, in un'impaginazione più compatta."
+      }
+    },
+    "theme": {
+      "title": "Tema",
+      "text": "I colori del sito.",
+      "options": {
+        "system": "Chiaro o scuro, come è impostato il dispositivo.",
+        "light": "Pergamena e inchiostro.",
+        "dark": "Ardesia e ottone, per un tavolo in penombra."
+      }
+    },
+    "contrast": {
+      "title": "Contrasto",
+      "text": "Colori e bordi più marcati, per leggere meglio.",
+      "options": {
+        "system": "Come chiede il dispositivo.",
+        "more": "Sempre i colori a contrasto elevato."
+      }
+    },
+    "units": {
+      "title": "Unità di misura",
+      "text": "Distanze e pesi nella scheda e nel compendio.",
+      "titles": {
+        "auto": "Secondo la lingua",
+        "imperial": "Piedi e libbre",
+        "metric": "Metri e chilogrammi"
+      },
+      "options": {
+        "auto": "Metri e chilogrammi in italiano, piedi e libbre in inglese.",
+        "imperial": "Come li scrivono i manuali in inglese: 30 piedi, 2 libbre.",
+        "metric": "Come contano i manuali italiani: 30 piedi diventano 9 metri."
+      }
+    },
+    "pageSize": {
+      "title": "Carta del PDF",
+      "text": "Il formato del foglio della scheda che scarichi in PDF.",
+      "options": {
+        "a4": "Europa e gran parte del mondo.",
+        "letter": "Stati Uniti e Canada."
+      }
+    },
+    "hand": {
+      "title": "Scrittura del PDF",
+      "text": "Come sono scritti i valori del personaggio sulla scheda in PDF.",
+      "options": {
+        "handwriting": "Come a matita sul foglio.",
+        "print": "In stampatello, chiaro."
+      }
+    },
+    "statistics": {
+      "title": "Statistiche d'uso",
+      "text": "Conteggi anonimi delle pagine e delle funzioni usate, per migliorare il sito. Nessun cookie, niente sui tuoi personaggi.",
+      "privacy": "Cosa viene contato, nella pagina sulla privacy.",
+      "options": {
+        "on": "Ci aiuti a capire cosa migliorare.",
+        "off": "Non viene contato nulla."
+      }
     }
   },
   "characters": {
@@ -691,8 +758,8 @@
         "text": "Carica i contenuti dei manuali che possiedi; non lasciano mai il tuo dispositivo."
       },
       "settings": {
-        "name": "Impostazioni più chiare",
-        "text": "Una pagina di impostazioni, e metri e chili per chi li preferisce."
+        "name": "Impostazioni chiare",
+        "text": "Tutte le impostazioni in una pagina, con metri e chili o piedi e libbre, come preferisci."
       },
       "files": {
         "name": "Personaggi come file",

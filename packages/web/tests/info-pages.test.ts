@@ -43,15 +43,16 @@ afterEach(async () =>
 
 describe("the roadmap page", () =>
 {
-    it("lists what exists, what comes next and what comes later, in both languages", async () =>
+    it("lists what exists and what comes later, in both languages, with no empty group", async () =>
     {
         const wrapper = await open(RoadmapPage);
-        expect(wrapper.findAll("h2").map((h) => h.text())).toEqual(["Available now", "Coming next", "Later"]);
+        expect(wrapper.findAll("h2").map((h) => h.text())).toEqual(["Available now", "Later"]);
         expect(wrapper.text()).toContain("A sheet that explains itself");
+        expect(wrapper.text()).toContain("Clear settings");
 
         await useNuxtApp().$i18n.setLocale("it");
         await flushPromises();
-        expect(wrapper.findAll("h2").map((h) => h.text())).toEqual(["Disponibile ora", "In arrivo", "Più avanti"]);
+        expect(wrapper.findAll("h2").map((h) => h.text())).toEqual(["Disponibile ora", "Più avanti"]);
         expect(wrapper.text()).not.toMatch(/roadmapPage\./);
     });
 });
