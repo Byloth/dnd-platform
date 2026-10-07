@@ -89,7 +89,7 @@ describe("the packages page's working folder", () =>
         expect(section(wrapper).text()).toContain("Connected to the folder my-characters.");
         const names = section(wrapper).findAll("button")
             .map((b) => b.text());
-        expect(names).toEqual(["Read the folder again", "Disconnect"]);
+        expect(names).toEqual(["Synchronise now", "Disconnect"]);
         await expectNoAxeViolations(wrapper);
         expectKeyboardOperable(wrapper);
     });

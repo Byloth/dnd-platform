@@ -115,6 +115,8 @@ const status = ref<WorkingDirectoryStatus>("none");
 const folder = ref<string>();
 const report = ref<SyncReport>();
 const syncing = ref(false);
+/** How far the running sync has gone: items done of the items counted when it started. */
+const progress = ref<{ done: number, total: number }>({ done: 0, total: 0 });
 /** The last error of a write to the folder, for the page: the browser's store was written anyway. */
 const failure = ref<string>();
 let _handle: DirectoryLike | undefined;
@@ -126,6 +128,7 @@ export function resetWorkingDirectory(): void
     folder.value = undefined;
     report.value = undefined;
     syncing.value = false;
+    progress.value = { done: 0, total: 0 };
     failure.value = undefined;
     _handle = undefined;
     setStorageMirror(undefined);
@@ -269,6 +272,26 @@ function _characterValidator(): Promise<(value: unknown) => readonly string[]>
 
 // ---- reconciliation ----------------------------------------------------------------------------------
 
+/** One item of the sync done; the count never passes the total counted at the start. */
+function _step(): void
+{
+    const { done, total } = progress.value;
+    progress.value = { done: Math.min(done + 1, total), total: total };
+}
+
+/** The items a sync goes through, counted before it starts: every package and character, in the folder and here. */
+async function _countItems(root: DirectoryLike): Promise<number>
+{
+    const storage = useBrowserStorage();
+    const packages = await root.getDirectoryHandle(PACKAGES, { create: true });
+    const characters = await root.getDirectoryHandle(CHARACTERS, { create: true });
+
+    const folders = (await _entries(packages)).filter((e) => e.kind === "directory").length;
+    const files = (await _entries(characters)).filter((e) => (e.kind === "file") && e.name.endsWith(".yaml")).length;
+
+    return folders + files + (await storage.packages.list()).length + (await storage.characters.list()).length;
+}
+
 async function _syncCharacters(root: DirectoryLike, record: SyncRecord, changes: SyncChange[]): Promise<void>
 {
     const storage = useBrowserStorage();
@@ -285,6 +308,7 @@ async function _syncCharacters(root: DirectoryLike, record: SyncRecord, changes:
     {
         if ((entry.kind !== "file") || !entry.name.endsWith(".yaml")) { continue; }
 
+        _step();
         const file = await entry.getFile();
         let value: unknown;
         let problems: readonly string[];
@@ -312,6 +336,7 @@ async function _syncCharacters(root: DirectoryLike, record: SyncRecord, changes:
     const now = Date.now();
     for (const id of new Set([...here.keys(), ...there.keys()]))
     {
+        _step();
         const mine = here.get(id);
         const theirs = there.get(id);
         const seen = record.characters[id];
@@ -388,6 +413,7 @@ async function _syncPackages(root: DirectoryLike, record: SyncRecord, changes: S
     for (const entry of await _entries(packages))
     {
         if (entry.kind !== "directory") { continue; }
+        _step();
         folders.add(entry.name);
 
         const texts = await _readTree(entry);
@@ -426,6 +452,7 @@ async function _syncPackages(root: DirectoryLike, record: SyncRecord, changes: S
 
     for (const [id, r] of stored)
     {
+        _step();
         // A folder of that name that does not read is the player's work in progress: nothing overwrites it.
         if (seen.has(id) || folders.has(id)) { continue; }
 
@@ -448,8 +475,10 @@ async function _reconcile(): Promise<SyncReport | undefined>
     if (!root || syncing.value) { return undefined; }
 
     syncing.value = true;
+    progress.value = { done: 0, total: 0 };
     try
     {
+        progress.value = { done: 0, total: await _countItems(root) };
         const storage = useBrowserStorage();
         const record: SyncRecord = {
             characters: {},
@@ -462,6 +491,7 @@ async function _reconcile(): Promise<SyncReport | undefined>
         await _syncPackages(root, record, changes);
         await _syncCharacters(root, record, changes);
         await storage.meta.set(SYNC_KEY, record as never);
+        progress.value = { done: progress.value.total, total: progress.value.total };
 
         const done: SyncReport = { at: new Date().toISOString(), changes: changes };
         report.value = done;
@@ -656,6 +686,7 @@ export function useWorkingDirectory()
         folder: readonly(folder),
         report: readonly(report),
         syncing: readonly(syncing),
+        progress: readonly(progress),
         failure: readonly(failure),
         restore: restore,
         connect: connect,

@@ -3,7 +3,8 @@
  * writes the READMEs and mirrors what the browser has; every write here reaches the folder; reconciliation takes
  * what changed on either side (newest wins when both did), imports new files, refuses unreadable ones without
  * touching them, and deletes from the folder only what was deleted here; package folders load through the usual
- * checks, a broken one is reported and skipped; the permission of a later visit needs a click.
+ * checks, a broken one is reported and skipped; a sync counts its items for the progress bar; the permission of a
+ * later visit needs a click.
  */
 
 import "fake-indexeddb/auto";
@@ -13,6 +14,7 @@ import { join } from "node:path";
 
 import { parse, stringify } from "yaml";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
+import { watch } from "vue";
 
 import type { Character } from "@byloth/dnd-platform-engine";
 
@@ -167,6 +169,25 @@ describe("reading the folder again", () =>
         const stored = await useBrowserStorage().characters.list();
         expect(stored.map((c) => c.name).sort()).toEqual(["Edited By Hand", "From Disk"]);
         expect(actions().sort()).toEqual(["imported From Disk", "updated-here Edited By Hand"]);
+    });
+
+    it("counts the items before it starts and only goes forward, to the end", async () =>
+    {
+        const directory = useWorkingDirectory();
+        await useBrowserStorage().characters.put(character("hero-1", "Iron Sparrow"));
+        await directory.connect();
+        folder.put("characters/hero-2.yaml", stringify(character("hero-2", "From Disk")));
+
+        const seen: { done: number, total: number }[] = [];
+        const stop = watch(directory.progress, (value) => { seen.push({ ...value }); }, { flush: "sync" });
+        await directory.reload();
+        stop();
+
+        // Two files in the folder, one character here; no package anywhere.
+        const counted = seen.filter((p) => p.total > 0);
+        expect(counted.every((p) => p.total === 3)).toBe(true);
+        expect(counted.map((p) => p.done)).toEqual([...counted.map((p) => p.done)].sort((a, b) => a - b));
+        expect(directory.progress.value).toEqual({ done: 3, total: 3 });
     });
 
     it("writes to the folder a character changed here while disconnected", async () =>

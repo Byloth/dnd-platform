@@ -863,7 +863,8 @@
     "disconnected": "The working folder (a folder of the player's computer the site mirrors to, Chrome/Edge only); plain words, no technical terms like \"File System Access\".",
     "needsPermission": "The working folder (a folder of the player's computer the site mirrors to, Chrome/Edge only); plain words, no technical terms like \"File System Access\". Parameters: {name}.",
     "reconnect": "The working folder (a folder of the player's computer the site mirrors to, Chrome/Edge only); plain words, no technical terms like \"File System Access\". Parameters: {name}.",
-    "syncing": "The working folder (a folder of the player's computer the site mirrors to, Chrome/Edge only); plain words, no technical terms like \"File System Access\".",
+    "syncing": "The working folder (a folder of the player's computer the site mirrors to, Chrome/Edge only); plain words, no technical terms like \"File System Access\". It is a synchronisation, not a check (owner).",
+    "progress": "Beside the sync's progress bar: items done of items to do. Parameters: {done}, {total}.",
     "failure": "The working folder (a folder of the player's computer the site mirrors to, Chrome/Edge only); plain words, no technical terms like \"File System Access\". Parameters: {message}.",
     "report": {
       "heading": "The working folder (a folder of the player's computer the site mirrors to, Chrome/Edge only); plain words, no technical terms like \"File System Access\". The list of what the last check of the folder changed.",

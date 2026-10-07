@@ -700,7 +700,7 @@
       },
       "folder": {
         "name": "A folder on your computer",
-        "text": "With Chrome or Edge, keep a copy of your characters and packages in a folder of your computer, as files you can open and back up."
+        "text": "With Chrome or Edge, keep your characters and packages in sync with a folder of your computer, as files you can open and back up."
       },
       "pdf": {
         "name": "Your sheet as a PDF",
@@ -856,14 +856,15 @@
     "unsupported": "This browser cannot use a folder of your computer: Chrome or Edge on a computer can.",
     "connect": "Choose a folder",
     "connected": "Connected to the folder {name}.",
-    "lastSync": "Last checked {time}.",
-    "reload": "Read the folder again",
+    "lastSync": "Last synchronised {time}.",
+    "reload": "Synchronise now",
     "reloadHint": "After changing files in the folder yourself.",
     "disconnect": "Disconnect",
     "disconnected": "The files stay in the folder; the site stops writing there.",
     "needsPermission": "The folder {name} is not connected in this visit: the browser asks again each time.",
     "reconnect": "Connect {name} again",
-    "syncing": "Checking the folder…",
+    "syncing": "Synchronising with the folder…",
+    "progress": "{done} of {total}",
     "failure": "The folder could not be written: {message}. Everything is saved in this browser anyway.",
     "report": {
       "heading": "What changed",
@@ -877,9 +878,9 @@
     },
     "readme": {
       "root": "This folder is connected to D&D Platform (dnd-platform). The site keeps a copy here of what you have in your browser:\n\n- characters/ one file per character;\n- exports/ the character files you save here;\n- packages/ the packages you loaded yourself, one folder each.\n\nTo stop, choose Disconnect on the site's Packages page: the files stay here. Do not share the packages of books you own: they are for your own use.",
-      "characters": "One file per character (YAML), the same document the site keeps. You can edit it and choose \"Read the folder again\" on the Packages page: the newest version wins.",
+      "characters": "One file per character (YAML), the same document the site keeps. You can edit it and choose \"Synchronise now\" on the Packages page: the newest version wins.",
       "exports": "Character files saved here instead of downloaded. Open one on another device from the Characters page.",
-      "packages": "One folder per package you loaded, in the format of dnd-platform. Change its files and choose \"Read the folder again\" on the Packages page to load them; a package that does not pass the checks is left as it is and reported."
+      "packages": "One folder per package you loaded, in the format of dnd-platform. Change its files and choose \"Synchronise now\" on the Packages page to load them; a package that does not pass the checks is left as it is and reported."
     },
     "notice": "The folder {name} is not connected in this visit."
   }

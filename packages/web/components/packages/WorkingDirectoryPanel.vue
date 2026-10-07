@@ -5,8 +5,8 @@
 
     /**
      * The working folder on the packages page (docs/phase-1/02-content-and-character-stores.md, M1.8): choose a
-     * folder, see which one is connected and when it was last checked, read it again, disconnect; the last check's
-     * changes. Where the browser cannot use a folder, one sentence says which can.
+     * folder, see which one is connected and when it was last synchronised, synchronise it now, disconnect; a bar
+     * while a sync runs, then its changes. Where the browser cannot use a folder, one sentence says which can.
      */
     const { t, locale } = useI18n();
     const directory = useWorkingDirectory();
@@ -24,6 +24,7 @@
     const reload = () => run(directory.reload);
     const disconnect = () => run(directory.disconnect);
 
+    const progress = computed(() => directory.progress.value);
     const failure = computed((): string | undefined => error.value ?? directory.failure.value);
     const lastSync = computed((): string | undefined =>
     {
@@ -88,7 +89,7 @@
             </p>
             <div class="working-directory__actions">
                 <AppButton :disabled="directory.syncing.value" @click="reload">
-                    <FontAwesome icon="rotate-left" aria-hidden="true" />
+                    <FontAwesome icon="rotate" aria-hidden="true" />
                     {{ t("workingDirectory.reload") }}
                 </AppButton>
                 <AppButton outline
@@ -103,14 +104,27 @@
             </p>
         </template>
 
-        <p v-if="directory.syncing.value"
-           class="working-directory__syncing"
-           role="status">
-            <FontAwesome icon="spinner"
-                         class="working-directory__spinner"
-                         aria-hidden="true" />
-            {{ t("workingDirectory.syncing") }}
-        </p>
+        <div v-if="directory.syncing.value" class="working-directory__syncing">
+            <p id="working-directory-syncing"
+               class="working-directory__syncing-label"
+               role="status">
+                <FontAwesome icon="rotate"
+                             class="working-directory__spinner"
+                             aria-hidden="true" />
+                {{ t("workingDirectory.syncing") }}
+            </p>
+            <div class="working-directory__progress">
+                <progress class="working-directory__bar"
+                          aria-labelledby="working-directory-syncing"
+                          :max="progress.total || undefined"
+                          :value="progress.total ? progress.done : undefined"></progress>
+                <span v-if="progress.total"
+                      class="working-directory__count"
+                      aria-hidden="true">
+                    {{ t("workingDirectory.progress", { done: progress.done, total: progress.total }) }}
+                </span>
+            </div>
+        </div>
 
         <p v-if="failure"
            class="working-directory__failure"
@@ -184,6 +198,60 @@
             flex-wrap: wrap;
             gap: var(--space-3);
             margin: var(--space-4) 0;
+        }
+
+        &__syncing
+        {
+            margin: var(--space-4) 0;
+        }
+
+        &__syncing-label
+        {
+            margin-bottom: var(--space-2);
+        }
+
+        &__progress
+        {
+            align-items: center;
+            display: flex;
+            gap: var(--space-3);
+        }
+
+        &__bar
+        {
+            appearance: none;
+            background: var(--color-surface-sunken);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-round);
+            flex: 1;
+            height: 0.75rem;
+            overflow: hidden;
+
+            &::-webkit-progress-bar
+            {
+                background: transparent;
+            }
+
+            &::-webkit-progress-value
+            {
+                background: var(--color-accent);
+                border-radius: var(--radius-round);
+                transition: width var(--duration) ease-out;
+            }
+
+            &::-moz-progress-bar
+            {
+                background: var(--color-accent);
+                border-radius: var(--radius-round);
+            }
+        }
+
+        &__count
+        {
+            color: var(--color-ink-muted);
+            font-size: var(--text-sm);
+            font-variant-numeric: tabular-nums;
+            white-space: nowrap;
         }
 
         &__spinner
