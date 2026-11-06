@@ -86,7 +86,7 @@ The list, chosen with the owner on 2026-11-06, by these rules:
 | Rogue (Thief) | Ezio Auditore (Assassin's Creed) | Human | sneak attack, the hidden blade, climbing (Second-Story Work, level 3) |
 | Sorcerer (Draconic, white) | Elsa (Frozen) | Human | a sorcerer is born with magic and struggles to master it, which is her story; the cold from a white dragon ancestor |
 | Warlock (Fiend) | Ghost Rider (Marvel's second, see below) | Tiefling | a pact with a devil; hellfire: the tiefling resists fire and casts *hellish rebuke* |
-| Wizard (Evocation) | Gyro Gearloose (Disney comics) | Rock gnome | the rock gnome builds clockwork devices, an inventor by nature; Little Bulb is his familiar (*find familiar*, a level 1 wizard spell) |
+| Wizard (Evocation) | Gyro Gearloose (Disney comics) | Rock gnome | the rock gnome builds clockwork devices, an inventor by nature; Little Helper is his familiar (*find familiar*, a level 1 wizard spell) |
 
 Seven humans and five other species. Notes:
 
