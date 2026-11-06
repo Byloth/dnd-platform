@@ -47,6 +47,7 @@ Scope:
 - Italian and English interface; Italian translation package for the base package ([13](13-ux-and-accessibility.md), [05](05-content-model-and-sources.md)).
 - Private packages loaded by the user from the interface (never uploaded anywhere), selectable in creation and visible on the sheet, with attribution.
 - The compendium (DEC-25, owner 2026-09-27): spells, items, creatures and conditions of every loaded package, listed, filtered, searched and read, in both languages ([phase-1/13-compendium.md](phase-1/13-compendium.md)); adding to the inventory stays in Phase 2 ([19](19-catalogues.md)).
+- The wizard steps revision (owner 2026-11-06, before the newcomer test): every choice in the step that makes it, game details on the options, a custom background, and famous characters as ideas in a fan-made extension (DEC-27) ([phase-1/14-wizard-steps-revision.md](phase-1/14-wizard-steps-revision.md)).
 
 Done when:
 - A tester who has never played builds a level 1 character in under 15 minutes and can say what each number on the sheet means.

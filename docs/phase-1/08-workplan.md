@@ -210,6 +210,17 @@ As it went (2026-09-30): the translation was done in M1.4r (the owner waived the
 Done: the criteria of M1.7. Release: `v0.3.7`.
 Risks: OCR quality of the Italian PDF and terminology drift between agents; the glossary is the fixed vocabulary, the review log records every deviation, exactly as for the Player's Handbook.
 
+### M1.W — Wizard steps revision (≈ 5 sessions, plus the famous characters' content)
+
+The owner reviewed the wizard's steps on 2026-11-06 and asked for it before the newcomer sessions (M1.8c), so that they test the new wizard. The plan is [14-wizard-steps-revision.md](14-wizard-steps-revision.md). Parts:
+- **M1.Wa**: step 0 only when there is something to choose, the conditional steps' mechanism; "Deal as recommended" for point buy and rolls; the personality suggestions folded.
+- **M1.Wb**: step 1's question; the famous characters' package and the "Extensions" section (DEC-27).
+- **M1.Wc**: game details on the species, class and background cards (the composer's new kinds); a chosen option folding, with the focus moving on.
+- **M1.Wd**: every choice in the step that makes it; the new Spells step; Other choices only when needed.
+- **M1.We**: the custom background (SRD 5.1's rule), an additive field of the character document.
+
+Done: the tasks and tests of [14-wizard-steps-revision.md](14-wizard-steps-revision.md); the twelve classes still reach the review with nothing open.
+
 ### M1.8 — Working directory, accessibility, newcomer test (≈ 3 sessions)
 
 Tasks (from [02-content-and-character-stores.md](02-content-and-character-stores.md), [07-testing-accessibility-performance.md](07-testing-accessibility-performance.md)):
@@ -236,7 +247,8 @@ Risks: the newcomer test fails the fifteen-minute target; that is a finding, not
 | M1.5 | 2 | M1.C | v0.3.5 |
 | M1.6 | 4 | M1.3, M1.5 | v0.3.6 |
 | M1.7 | 3 + drafting | M1.1 (content), M1.6 (goldens) | v0.3.7 |
-| M1.8 | 3 | M1.7 | v1.0.0 |
+| M1.W | 5 + content | M1.4r | — (ships with v1.0.0) |
+| M1.8 | 3 | M1.7, M1.W (for M1.8c) | v1.0.0 |
 
 ## Tasks
 
@@ -249,7 +261,7 @@ Risks: the newcomer test fails the fifteen-minute target; that is a finding, not
 - ~~Whether M1.6 (print) should come before M1.4 (creation)~~: no; M1.4 came first and M1.6 followed M1.5 (as built).
 - Whether the project name (and the site path) is settled during Phase 1; the base URL is one line, the package scope a search-and-replace. The owner's (M1.8d, 2026-10-07; listed in [08-workplan.md](08-workplan.md), "Carried into Phase 2").
 - DEC-23 (one package per official book, or one "core" package) is to be decided before the next private package (dmg14 or mm14); the catalogues it serves are in [../19-catalogues.md](../19-catalogues.md). The owner's (M1.8d, 2026-10-07; listed in [08-workplan.md](08-workplan.md), "Carried into Phase 2").
-- Famous characters from other works (Geralt of Rivia, Uther the Lightbringer…) as demo characters and as wizard concepts: proposed by the owner on 2026-09-25, set aside to evaluate later. A well-delineated fictional character is protected by copyright and its name is often a trademark; the public content is CC-BY, which cannot cover them. The options recorded: a private package (like phb14), a separate fan package with notices that follows each owner's fan-content policy, or original concepts "in the manner of" with names of our own. The owner's (M1.8d, 2026-10-07; listed in [08-workplan.md](08-workplan.md), "Carried into Phase 2").
+- ~~Famous characters from other works (Geralt of Rivia, Uther the Lightbringer…) as demo characters and as wizard concepts~~: decided by the owner on 2026-11-06 for the wizard's ideas (DEC-27): a fan-made package in the repository, on by default, replacing the SRD's ideas, turned off from an "Extensions" section of the packages page ([14-wizard-steps-revision.md](14-wizard-steps-revision.md)). As demo characters it stays the owner's.
 - ~~Session estimates assume agent assistance~~: closed at M1.8d; the actual sessions are in the progress log, and the Phase 2 plan estimates from them.
 
 ## Carried into Phase 2
@@ -259,7 +271,7 @@ Collected at M1.8d (2026-10-07) from the open points of the Phase 1 documents, f
 - From the sheet and the compendium: conditions linked from the sheet (ids in the composer's `ConditionsBlock`, [13](13-compendium.md)); the play-mode section tree grown with the play engine ([03](03-sheet-composer.md)); measures in structured content through `measure()` ([09](09-interface-revisions.md)); searching inside the text, the glossary's second round, environments for creatures, the package-set cache cleared after a load or removal ([13](13-compendium.md)).
 - From creation: manual adjustments of values beyond the ability scores ([04](04-character-creation.md); R-06 applies).
 - Waiting for the newcomer test (the report decides): Italian spell names with the English one in small print; archetype equipment; a picked text staying in the language it was picked in ([06](06-localisation.md), [04](04-character-creation.md), [11](11-italian-content.md)).
-- The owner's: Umami's data-processing terms and storage region, said on the privacy page if outside the EU ([12](12-analytics.md)); the project name and the site path; DEC-23 before the next private package; famous characters as demo characters; the label of the "system" colour mode ([09](09-interface-revisions.md)); the tags `v0.3.5`–`v0.3.7`.
+- The owner's: Umami's data-processing terms and storage region, said on the privacy page if outside the EU ([12](12-analytics.md)); the project name and the site path; DEC-23 before the next private package; famous characters as demo characters (as wizard ideas they are M1.W); the label of the "system" colour mode ([09](09-interface-revisions.md)); the tags `v0.3.5`–`v0.3.7`.
 
 ## Progress log
 

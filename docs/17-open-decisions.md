@@ -36,6 +36,7 @@ When a decision is taken, its status becomes **Decided**, the chosen option and 
 | DEC-24 | Creatures as content (a creature entity type) | 1 | Decided 2026-09-26 |
 | DEC-25 | A compendium of the loaded packages in Phase 1 | 1 | Decided (2026-09-27) |
 | DEC-26 | Sheet templates: which sheet the PDF is | 1 | Decided (2026-09-29) |
+| DEC-27 | Extensions, and famous characters as the wizard's ideas | 1 | Decided (2026-11-06) |
 
 ## Entries
 
@@ -264,6 +265,14 @@ When a decision is taken, its status becomes **Decided**, the chosen option and 
   - Later templates on the same engine: the platform's own designed sheet, the official PDF loaded by its owner (a field map to it), a game master's sheet for a campaign (Phase 6).
 - **Options known:** filling the official PDF (not redistributable); a template drawn from scratch (chosen); HTML rendered to PDF (raster or heavy).
 - **Referenced by:** [phase-1/05-print-and-export.md](phase-1/05-print-and-export.md), [phase-1/08-workplan.md](phase-1/08-workplan.md), [12](12-print-and-export.md).
+
+### DEC-27 — Extensions, and famous characters as the wizard's ideas
+- **What:** whether characters from popular culture (Geralt of Rivia, Goku, Link…) can be the wizard's ideas to start from, and how they ship.
+- **Decided (2026-11-06, owner):** **yes, in a fan-made package that is an "extension": in the repository, on by default, replacing the SRD's ideas when on.**
+  - An extension changes how the interface behaves, more deeply than a rule. It is turned on or off from a small "Extensions" section of the packages page, is never listed among the installed packages nor in the wizard's step 0, and never enters a character's packages. This is the only one; there is no general infrastructure for extensions yet.
+  - Only the names are borrowed: builds, pitches and reasons are the platform's own, with no images and no copied text, and a notice that it is an unofficial fan work. The owner accepts the trademark exposure (R-01).
+- **Options known:** a private package like phb14; a separate fan package in its own repository; original concepts "in the manner of" with names of our own (recorded on 2026-09-25 and set aside then).
+- **Referenced by:** [phase-1/14-wizard-steps-revision.md](phase-1/14-wizard-steps-revision.md), [phase-1/08-workplan.md](phase-1/08-workplan.md), [18](18-risks.md).
 
 ## How to add a decision
 

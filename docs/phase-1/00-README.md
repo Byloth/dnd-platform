@@ -16,6 +16,7 @@ This directory is the execution plan: concrete enough to start work, still free 
 | DEC-12 | Taken 2026-09-22: **no accounts in Phase 1–3.** Every user is a guest; characters live in the browser's storage and in export files, optionally mirrored to a working directory on disk. |
 | DEC-13 | Taken 2026-09-22, amended 2026-09-29: **the page draws the PDF itself, in the browser, from a sheet template (DEC-26); its fields stay editable.** No print dialog, no print stylesheet. |
 | DEC-26 | Taken 2026-09-29: **the first template is the platform's "classic" sheet, drawn from scratch with the layout of the official one**; other templates later on the same engine. |
+| DEC-27 | Taken 2026-11-06: **famous characters as the wizard's ideas, in a fan-made "extension"** on by default, replacing the SRD's ideas, turned off from the packages page; no general extension infrastructure yet. |
 | DEC-15 | Taken 2026-09-22: **standard array** by default; point buy and rolling available. |
 | DEC-20 | Content selection (from Phase 0): a character or campaign carries the packages it uses, their order and exclusions; the engine prunes and reports. |
 | DEC-21 | Taken 2026-09-23: **an edition is a package, an implementation is a version, and versions propagate by themselves.** Fixes reach every character; the user is told only when their sheet changed, with the changelog. Every release of a public package is published by the site as a static file; the SRD is never stored in the browser. |
@@ -37,6 +38,7 @@ Requirements the owner fixed for the whole phase: the text sheet of `dnd derive`
 9. Revisions from the owner's review of 2026-09-25 (milestone M1.4r): the interface — [09-interface-revisions.md](09-interface-revisions.md); the wizard's integrity — [10-wizard-integrity.md](10-wizard-integrity.md); the Italian content started early — [11-italian-content.md](11-italian-content.md).
 10. Usage statistics with opt-in consent (DEC-22) — [12-analytics.md](12-analytics.md).
 11. The compendium: list, read and search the content of the loaded packages (DEC-25) — [13-compendium.md](13-compendium.md).
+12. The wizard steps revision from the owner's review of 2026-11-06 (milestone M1.W), with the famous characters' extension (DEC-27) — [14-wizard-steps-revision.md](14-wizard-steps-revision.md).
 
 ## Milestones
 
@@ -51,6 +53,7 @@ Requirements the owner fixed for the whole phase: the text sheet of `dnd derive`
 | M1.5 | Character store, export and import | Characters persist in the browser; export file; import with version-mismatch handling; the byte-identical round trip runs in CI. |
 | M1.6 | Print | The classic sheet as a PDF made in the browser: page 1, then background and spells, a blank sheet, the feature and spell cards and the credits; A4 and Letter, black-and-white acceptance; the reference Monk's PDF passes the checklist. |
 | M1.7 | Italian | Interface in Italian and English; `srd51-it` translation package drafted, reviewed and loaded; the glossary check passes. |
+| M1.W | Wizard steps revision | Step 0 only when there is a choice; step 1's question and the famous characters' extension; game details on the cards, folding the chosen one; every choice in its step and a Spells step; the custom background; the twelve classes still reach the review with nothing open. |
 | M1.8 | Working directory, accessibility, newcomer test | The working-directory mirror where the browser supports it; the accessibility pass on every screen; the usability test with newcomers; the Phase 1 verification table; the MVP tag. |
 
 Phase 1 is done when M1.1–M1.8 and M1.C are done and the done criteria of Phase 1 in [../16-roadmap.md](../16-roadmap.md) hold. The verification table is written at the close, as [../phase-0/00-README.md](../phase-0/00-README.md) did.
