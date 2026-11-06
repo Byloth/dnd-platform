@@ -66,24 +66,35 @@ Taken by the owner on 2026-11-06:
 - The manifest and the credits page carry the notice: an unofficial fan work, not affiliated with or endorsed by the owners of the characters, the names belonging to their owners; no image and no text taken from the works.
 - The extension is a preference (`stores/preferences.ts`, on by default). When on, step 1 lists the package's ideas only; when off, the SRD's. If the package cannot be fetched, the SRD's ideas are shown.
 
-Proposed first list (twelve, one per SRD class; the owner approves or swaps):
+The list, chosen with the owner on 2026-11-06, by these rules:
 
-| Character | Class | Species | Why this build |
+- **One character per saga.**
+- **What makes the character unique must live in the rules, not only in their manner.** A character whose essence is outside D&D (Goku's teleport and energy waves, Thanos's cosmic power, Super Mario's power-ups) is left out.
+- **The species adds fidelity**: where the character's story already has another species, the build uses it.
+- **It works with the SRD alone**: one subspecies per species (hill dwarf, high elf, lightfoot halfling, rock gnome) and one subclass per class.
+
+| Class | Character (saga) | Species | Why it is them, in the rules |
 |---|---|---|---|
-| Geralt of Rivia | Ranger | Human | a monster hunter who tracks his prey, with two swords |
-| Dandelion (Jaskier) | Bard | Half-elf | the travelling minstrel who follows Geralt |
-| Goku | Monk | Human | fights with bare hands and endless training |
-| Wolverine | Barbarian | Half-orc | rage, claws, and getting back up (Relentless Endurance) |
-| Captain America | Paladin | Human | an oath, a shield, leading by example |
-| Link | Fighter | High elf | sword and shield, bow, a hero of few words |
-| Princess Zelda | Cleric (Life) | High elf | wisdom, healing, a sacred power |
-| Super Mario | Sorcerer (Draconic, red) | Lightfoot halfling | small, brave, and fire from his hands |
-| Thanos | Warlock (Fiend) | Tiefling | a titan who made a pact with Death |
-| Gandalf | Wizard | Human | the wise wanderer with a staff and fireworks |
-| Lupin III | Rogue | Human | the gentleman thief who opens every lock |
-| San (Princess Mononoke) | Druid | Human | raised by wolves, the forest's guardian |
+| Barbarian (Berserker) | Shrek | Half-orc | big, green, scares the villagers (the half-orc's Intimidation); gets back up at 1 hit point; rage, and no armour in his swamp |
+| Bard (Lore) | Lupin III | Human | the disguise (*disguise self*) and the charm (*charm person*) are bard spells; Deception and thieves' tools |
+| Cleric (Life) | Shadowheart (Baldur's Gate 3) | Half-elf | a cleric with armour and faith, from a game that is D&D itself |
+| Druid (Land) | Merlin (The Sword in the Stone) | Human | the duel with Madam Mim is all shapes of animals: the druid's Wild Shape (level 2) |
+| Fighter (Champion) | Link (The Legend of Zelda) | High elf | pointed ears, every weapon, shield and bow; the high elf's cantrip for his bit of magic |
+| Monk (Open Hand) | Kenshiro (Fist of the North Star) | Human | pressure points are Stunning Strike (level 5); "you are already dead" is the Open Hand's Quivering Palm (level 17) |
+| Paladin (Devotion) | Captain America (Marvel) | Human | the oath is his code; the Protection fighting style (level 2) is the shield raised for a friend |
+| Ranger (Hunter) | Geralt of Rivia (The Witcher) | Human | favoured enemy (monsters), tracking, fighting with two weapons; the signs as ranger spells |
+| Rogue (Thief) | Ezio Auditore (Assassin's Creed) | Human | sneak attack, the hidden blade, climbing (Second-Story Work, level 3) |
+| Sorcerer (Draconic, white) | Elsa (Frozen) | Human | a sorcerer is born with magic and struggles to master it, which is her story; the cold from a white dragon ancestor |
+| Warlock (Fiend) | Ghost Rider (Marvel's second, see below) | Tiefling | a pact with a devil; hellfire: the tiefling resists fire and casts *hellish rebuke* |
+| Wizard (Evocation) | Gyro Gearloose (Disney comics) | Rock gnome | the rock gnome builds clockwork devices, an inventor by nature; Little Bulb is his familiar (*find familiar*, a level 1 wizard spell) |
 
-The SRD has one subspecies per species (hill dwarf, high elf, lightfoot halfling, rock gnome) and one subclass per class, so the builds use those; dwarves, gnomes and dragonborn are free for swaps.
+Seven humans and five other species. Notes:
+
+- **Shadowheart** is a Trickery cleric in Baldur's Gate 3; Trickery is not in the SRD, so the build takes Life. With the owner's Player's Handbook loaded the player can switch.
+- **Captain America and Ghost Rider are both Marvel**, against the first rule; to settle (the owner's). The alternatives for the warlock: Faust, Constantine; for the paladin: Uther the Lightbringer (Warcraft).
+- Left for swaps: Gimli (dwarf fighter, the dwarf's training with axes), Bilbo Baggins (lightfoot halfling rogue), the Dragonborn of Skyrim (dragonborn sorcerer, the breath weapon as the Shout), Hermione Granger (wizard), Spock (half-elf).
+- **The path:** at level 1 almost nobody is "them" yet (Wild Shape at 2, most subclasses at 3, the signature features much later). Proposed: an optional, additive field of the archetype listing the levels that make the character (for example "level 17, Quivering Palm: 'you are already dead'"), shown on the idea's card.
+- **The background:** with the Acolyte alone, Geralt, Ezio and Lupin would all be acolytes. They become faithful with the custom background (task 5: "Witcher" with Survival and an herbalism kit, "Gentleman thief" with Deception and thieves' tools); proposed: the archetype may recommend a custom background, and task 5 comes before task 2.
 
 ### The packages page: "Extensions"
 
@@ -174,6 +185,6 @@ Each part updates the roadmap page and its "As built" note here.
 
 ## Open points
 
-- The package's name and its list of characters (the owner's).
+- The package's name; Captain America or Ghost Rider (both Marvel); the archetype's path field; task 5 before task 2 (the owner's).
 - The "Your character so far" panel (the owner's).
 - Whether the extension is offered to an existing player as a one-time notice, or only found on the packages page.
