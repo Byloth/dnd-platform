@@ -78,7 +78,7 @@ The list, chosen with the owner on 2026-11-06, by these rules:
 | Barbarian (Berserker) | Shrek | Half-orc | big, green, scares the villagers (the half-orc's Intimidation); gets back up at 1 hit point; rage, and no armour in his swamp |
 | Bard (Lore) | Lupin III | Human | the disguise (*disguise self*) and the charm (*charm person*) are bard spells; Deception and thieves' tools |
 | Cleric (Life) | Shadowheart (Baldur's Gate 3) | Half-elf | a cleric with armour and faith, from a game that is D&D itself |
-| Druid (Land) | Merlin (The Sword in the Stone) | Human | the duel with Madam Mim is all shapes of animals: the druid's Wild Shape (level 2) |
+| Druid (Land) | Getafix (Asterix; Panoramix in Italian) | Human | *the* druid; the golden sickle is a druid's weapon; the magic potion is *enhance ability* (Bull's Strength, from level 3), the berries *goodberry*; the herbalism kit from a custom background |
 | Fighter (Champion) | Link (The Legend of Zelda) | High elf | pointed ears, every weapon, shield and bow; the high elf's cantrip for his bit of magic |
 | Monk (Open Hand) | Kenshiro (Fist of the North Star) | Human | pressure points are Stunning Strike (level 5); "you are already dead" is the Open Hand's Quivering Palm (level 17) |
 | Paladin (Devotion) | Captain America (Marvel) | Human | the oath is his code; the Protection fighting style (level 2) is the shield raised for a friend |
@@ -86,13 +86,13 @@ The list, chosen with the owner on 2026-11-06, by these rules:
 | Rogue (Thief) | Ezio Auditore (Assassin's Creed) | Human | sneak attack, the hidden blade, climbing (Second-Story Work, level 3) |
 | Sorcerer (Draconic, white) | Elsa (Frozen) | Human | a sorcerer is born with magic and struggles to master it, which is her story; the cold from a white dragon ancestor |
 | Warlock (Fiend) | Ghost Rider (Marvel's second, see below) | Tiefling | a pact with a devil; hellfire: the tiefling resists fire and casts *hellish rebuke* |
-| Wizard (Evocation) | Gyro Gearloose (Disney comics) | Rock gnome | the rock gnome builds clockwork devices, an inventor by nature; Little Helper is his familiar (*find familiar*, a level 1 wizard spell) |
+| Wizard (Evocation) | Frieren (Frieren: Beyond Journey's End) | High elf | she spends centuries collecting spells, as a wizard copies every spell found into the spellbook; an elf lives for centuries; her Zoltraak, the killing magic, is an evocation |
 
-Seven humans and five other species. Notes:
+Seven humans, two high elves (Link, Frieren), a half-elf, a half-orc and a tiefling. Notes:
 
 - **Shadowheart** is a Trickery cleric in Baldur's Gate 3; Trickery is not in the SRD, so the build takes Life. With the owner's Player's Handbook loaded the player can switch.
 - **Captain America and Ghost Rider are both Marvel**, against the first rule; to settle (the owner's). The alternatives for the warlock: Faust, Constantine; for the paladin: Uther the Lightbringer (Warcraft).
-- Left for swaps: Gimli (dwarf fighter, the dwarf's training with axes), Bilbo Baggins (lightfoot halfling rogue), the Dragonborn of Skyrim (dragonborn sorcerer, the breath weapon as the Shout), Hermione Granger (wizard), Spock (half-elf).
+- Left for swaps: Gimli (dwarf fighter, the dwarf's training with axes), Bilbo Baggins (lightfoot halfling rogue), the Dragonborn of Skyrim (dragonborn sorcerer, the breath weapon as the Shout), Hermione Granger and Gandalf (wizard), Beast Boy and Malfurion Stormrage (druid), Spock (half-elf). No well-known gnome was found.
 - **The path:** at level 1 almost nobody is "them" yet (Wild Shape at 2, most subclasses at 3, the signature features much later). Proposed: an optional, additive field of the archetype listing the levels that make the character (for example "level 17, Quivering Palm: 'you are already dead'"), shown on the idea's card.
 - **The background:** with the Acolyte alone, Geralt, Ezio and Lupin would all be acolytes. They become faithful with the custom background (task 5: "Witcher" with Survival and an herbalism kit, "Gentleman thief" with Deception and thieves' tools); proposed: the archetype may recommend a custom background, and task 5 comes before task 2.
 
