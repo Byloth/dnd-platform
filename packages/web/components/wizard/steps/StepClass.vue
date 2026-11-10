@@ -5,12 +5,15 @@
     import ChoiceCard from "@/components/wizard/ChoiceCard.vue";
     import ResetNotice from "@/components/wizard/ResetNotice.vue";
     import ChoiceGroup from "@/components/wizard/ChoiceGroup.vue";
+    import StepChoiceGroups from "@/components/wizard/StepChoiceGroups.vue";
     import { useChoiceOptions } from "@/composables/choice-options";
     import { useFold } from "@/composables/fold";
+    import { choicesOfStep } from "@/composables/wizard";
 
     /**
-     * Step 3: the class, recommended one first, with its hit die, primary abilities and saving throws; below it,
-     * the subclass once the class's level unlocks one (the sheet asks it), as step 6 would show it.
+     * Step 3: the class, recommended one first, with its stats, primary abilities and saving throws; below it,
+     * the subclass once the class's level unlocks one, then what the class asks (skills, a fighting style,
+     * expertise); the spells are the Spells step's (doc 14).
      */
     const { wizard, entities, helpLevel, recommended, entry } = useWizardContext();
     const { t, locale } = useI18n();
@@ -42,7 +45,11 @@
         .sort((a, b) => Number(!recommended("class", a.id)) - Number(!recommended("class", b.id))));
 
     // Once chosen, the list folds to the class and what the class asks next takes the focus (doc 14).
-    const fold = useFold(() => current.value, () => subclass.value !== undefined, () => helpLevel.value === "expert");
+    const fold = useFold(
+        () => current.value,
+        () => choicesOfStep("class").length > 0,
+        () => helpLevel.value === "expert"
+    );
     const { next: afterClass, toggle: foldToggle } = fold;
     const foldLabel = computed(() => t(fold.folded.value ? "wizard.fold.change" : "wizard.fold.keep"));
     const foldWhat = computed(() => `: ${t("wizard.steps.class")}`);
@@ -114,6 +121,7 @@
                      :options="subclass.options"
                      :help-level="helpLevel"
                      @answer="(values) => wizard.answer(subclass!.choice.key, values, 'subclass')" />
+        <StepChoiceGroups step="class" skip="subclass" />
     </div>
 </template>
 

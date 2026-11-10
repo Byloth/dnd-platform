@@ -187,6 +187,15 @@ Order (owner, 2026-11-10): 1, 3, 4, 5, then 2, since the famous characters fall 
 - Content: `summary`, a new optional field of classes and species (format v0), one line of the platform's own in English (tools/import overlays) and Italian (srd51-it); `useEntities().summary` prefers it. srd51 0.10.0, srd51-it 0.6.0; every fixture pins srd51 0.10.0.
 - The "Your character so far" panel is not built: it waits for the owner (open points).
 
+### As built (2026-11-10): choices where they are made, and Spells (task 4, M1.Wd)
+
+- `composables/choice-steps.ts` (pure): `choiceStep(choice, set)` gives every spell and cantrip to `spells`, the subclass and what a class or subclass gives to `class`, a species' to `species`, a background's to `background`, the rest to `choices`, and a later level's ability increase or feat to none; `rootOwner` walks the inline owners. `choicesOfStep(step)` in `composables/wizard.ts` reads the draft's sheet through it.
+- `STEPS` gains `spells` between `abilities` and `choices`; `wizard.steps` offers `spells` and `choices` only when the sheet asks something there. With the SRD alone no archetype leaves anything for Other choices; it stays for a feat's own choices (the private variant human).
+- `components/wizard/StepChoiceGroups.vue` renders a step's groups (cantrips first, then by origin), used by Species (after the subspecies), Class (after the subclass, which keeps its own block), Background, Spells (`steps/StepSpells.vue`, new) and Other choices. The folding now counts the step's choices as "something after", so a class always folds; the background folds only when there is more than one.
+- `stepDone` asks each step's own choices; the review's issues and the sheet's "Change" links go to the choice's step (`skills` and `features` to Class, `spellcasting` and `spells` to Spells).
+- Copy: the Spells step's purpose, consequence and recommendation, and Other choices' in English and Italian.
+- Tests: the twelve-class flow answers every step's groups; `wizard-page.test.ts` (the Acolyte's languages in Background, the cantrips in Spells, the fighting style in Class, which steps are offered); `accessibility.test.ts` (the choices in Spells, Class and Background, both languages).
+
 ## Tests
 
 - Step 0 offered and not offered; a resumed draft on a step no longer offered.

@@ -11,6 +11,7 @@ import { deal, isPermutation, pointBuyCost, recommendedPointBuy, swap } from "@/
 import { EMPTY_SELECTION, coins, useEquipment } from "@/composables/equipment";
 import type { EquipmentSelection, Source } from "@/composables/equipment";
 import type { Scores } from "@/composables/ability-scores";
+import { choiceStep } from "@/composables/choice-steps";
 import { recordVersions } from "@/composables/versions";
 
 /**
@@ -21,7 +22,8 @@ import { recordVersions } from "@/composables/versions";
  */
 
 export const STEPS = [
-    "content", "concept", "species", "class", "background", "abilities", "choices", "equipment", "personality", "review"
+    "content", "concept", "species", "class", "background", "abilities", "spells", "choices", "equipment",
+    "personality", "review"
 
 ] as const;
 export type StepId = typeof STEPS[number];
@@ -121,8 +123,13 @@ export const useWizardStore = defineStore("wizard", () =>
     {
         const content = useContentStore();
         const offersContent = content.offersChoice || ((character.value?.packages.length ?? 0) > 1);
+        // Spells and Other choices only when the sheet asks something there (doc 14, point 6).
+        const asked = new Set(_askedChoices().map((c) => choiceStep(c, packageSet.value)));
 
-        return STEPS.filter((s) => ((s !== "concept") || !editing.value) && ((s !== "content") || offersContent));
+        return STEPS.filter((s) => ((s !== "concept") || !editing.value) &&
+            ((s !== "content") || offersContent) &&
+            ((s !== "spells") || asked.has("spells")) &&
+            ((s !== "choices") || asked.has("choices")));
     });
 
     /** The step itself when offered, else the nearest offered one before it, else the first. */
@@ -155,6 +162,15 @@ export const useWizardStore = defineStore("wizard", () =>
 
         return useEngine().packageSet(sources.value, pins);
     });
+
+    /** The choices the draft's sheet asks, answered or not. */
+    const _askedChoices = () =>
+    {
+        if (!character.value || !sources.value.length) { return []; }
+
+        return useEngine().sheet(character.value, sources.value, { language: useNuxtApp().$i18n.locale.value })
+            .sheet.choices;
+    };
 
     /**
      * Every correct save records the versions in use (docs/phase-1/10-wizard-integrity.md, owner 2026-09-25): the

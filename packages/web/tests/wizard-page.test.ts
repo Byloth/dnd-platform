@@ -129,21 +129,21 @@ describe("the creation wizard", () =>
 
         await wrapper.find("input[value='srd51.species.dwarf']").setValue(true);
         await until(() => document.activeElement?.textContent?.trim() === "Subspecies");
-        expect(wrapper.findAll("fieldset.wizard-options:not(.wizard-options--nested) .choice-card").length).toBe(1);
+        expect(wrapper.find("fieldset.wizard-options").findAll(".choice-card").length).toBe(1);
         expect(document.activeElement?.textContent?.trim()).toBe("Subspecies");
 
         byName(wrapper, "Change: Species")!.click();
         await settle();
-        expect(wrapper.findAll("fieldset.wizard-options:not(.wizard-options--nested) .choice-card").length)
+        expect(wrapper.find("fieldset.wizard-options").findAll(".choice-card").length)
             .toBeGreaterThan(1);
         byName(wrapper, "Keep this choice: Species")!.click();
         await settle();
-        expect(wrapper.findAll("fieldset.wizard-options:not(.wizard-options--nested) .choice-card").length).toBe(1);
+        expect(wrapper.find("fieldset.wizard-options").findAll(".choice-card").length).toBe(1);
 
         // The expert's dense list never folds.
         usePreferencesStore().helpLevel = "expert";
         await settle();
-        expect(wrapper.findAll("fieldset.wizard-options:not(.wizard-options--nested) .choice-card").length)
+        expect(wrapper.find("fieldset.wizard-options").findAll(".choice-card").length)
             .toBeGreaterThan(1);
     });
 
@@ -179,10 +179,10 @@ describe("the creation wizard", () =>
         expect(byName(wrapper, "1. Concept")).toBeDefined();
         expect(wrapper.find("[aria-current='step']").text()).toContain("4");
 
-        byName(wrapper, "8. Personality")!.click();
+        byName(wrapper, "7. Personality")!.click();
         await until(() => wrapper.find(".step-personality").exists());
         expect(wrapper.find(".step-personality").exists()).toBe(true);
-        expect(byName(wrapper, "8. Personality, done")).toBeUndefined();
+        expect(byName(wrapper, "7. Personality, done")).toBeUndefined();
     });
 
     it("offers a stored draft back, and starts again when asked", async () =>
@@ -230,7 +230,7 @@ describe("the creation wizard", () =>
             // That it stays on screen (position: sticky) is checked in a browser: the tests have no stylesheet.
             const bar = wrapper.find(".wizard-step__footer");
             expect(bar.findAll("button").map((b) => b.text())).toEqual(["Back", "Next"]);
-            expect(bar.find(".wizard-step__count").text()).toBe("Step 2 of 9");
+            expect(bar.find(".wizard-step__count").text()).toBe("Step 2 of 8");
             expect(document.documentElement.classList.contains("wizard-bar")).toBe(true);
         });
 
@@ -242,7 +242,7 @@ describe("the creation wizard", () =>
             await next(wrapper);
             await until(() => document.activeElement?.id === "wizard-step-title");
             expect(document.activeElement?.textContent?.trim()).toBe("Class");
-            expect(wrapper.find(".wizard-step__count").text()).toBe("Step 3 of 9");
+            expect(wrapper.find(".wizard-step__count").text()).toBe("Step 3 of 8");
         });
     });
 
@@ -510,23 +510,23 @@ describe("the creation wizard", () =>
         });
     });
 
-    describe("step 6, the remaining choices", () =>
+    describe("choices where they are made, and the Spells step (doc 14, point 6)", () =>
     {
-        async function choices(archetype: string): Promise<VueWrapper>
+        async function choices(archetype: string, step: string): Promise<VueWrapper>
         {
             await useWizardStore().start();
             useWizardStore().chooseArchetype(`srd51.archetype.${archetype}`);
 
-            return open("choices");
+            return open(step);
         }
 
         const group = (wrapper: VueWrapper, eyebrow: string, title: string) =>
             wrapper.findAll(".choice-group").find((g) => g.find(".choice-group__eyebrow").text() === eyebrow &&
                 g.find(".choice-group__title").text() === title)!;
 
-        it("counts the Acolyte's two languages and holds the others once both are chosen", async () =>
+        it("asks the Acolyte's two languages in Background, and holds the others once both are chosen", async () =>
         {
-            const wrapper = await choices("raging-defender");
+            const wrapper = await choices("raging-defender", "background");
             const languages = group(wrapper, "Acolyte", "Languages");
             expect(languages.find(".choice-group__progress").text()).toBe("Choose 2 · 0 of 2 chosen");
 
@@ -542,9 +542,10 @@ describe("the creation wizard", () =>
                 .toEqual(["dwarvish", "giant"]);
         });
 
-        it("searches an evoker's cantrips and names the fighter's fighting styles", async () =>
+        it("searches an evoker's cantrips in Spells, and names the fighter's fighting styles in Class", async () =>
         {
-            const wrapper = await choices("evoker");
+            const wrapper = await choices("evoker", "spells");
+            expect(wrapper.find("h1").text()).toBe("Spells");
             const cantrips = group(wrapper, "Wizard", "Cantrips");
             await cantrips.find("input[type='search']").setValue("fire");
             await settle();
@@ -554,15 +555,27 @@ describe("the creation wizard", () =>
 
             wrapper.unmount();
             _mounted = undefined;
-            const fighter = await choices("sword-and-shield");
+            const fighter = await choices("sword-and-shield", "class");
             const styles = group(fighter, "Fighter", "Fighting Style");
             expect(styles.text()).toContain("Defense");
             expect(styles.text()).toContain("While you are wearing armor");
+            expect(group(fighter, "Fighter", "Skills")).toBeDefined();
+        });
+
+        it("offers Spells to a caster only, and Other choices only when something is left for it", async () =>
+        {
+            await useWizardStore().start();
+            useWizardStore().chooseArchetype("srd51.archetype.sword-and-shield");
+            expect(useWizardStore().steps).not.toContain("spells");
+            expect(useWizardStore().steps).not.toContain("choices");
+
+            useWizardStore().chooseArchetype("srd51.archetype.evoker");
+            expect(useWizardStore().steps).toContain("spells");
         });
 
         it("links each spell to the compendium in a new tab, beside its card, not for an expert", async () =>
         {
-            const wrapper = await choices("evoker");
+            const wrapper = await choices("evoker", "spells");
             const card = group(wrapper, "Wizard", "Cantrips").findAll(".choice-card")
                 .find((c) => c.find(".choice-card__title").text() === "Fire Bolt")!;
             const link = card.find(".choice-card__compendium");
@@ -578,27 +591,27 @@ describe("the creation wizard", () =>
             expect(wrapper.find(".choice-card__compendium").exists()).toBe(false);
         });
 
-        it("marks the step done once every choice is answered", async () =>
+        it("marks the step done once every choice in it is answered", async () =>
         {
-            const wrapper = await choices("oathbound-champion");
-            expect(stepDone("choices")).toBe(false);
+            const wrapper = await choices("oathbound-champion", "background");
+            expect(stepDone("background")).toBe(false);
 
             const languages = group(wrapper, "Acolyte", "Languages");
             await languages.find("input[value='dwarvish']").setValue(true);
             await languages.find("input[value='giant']").setValue(true);
             await settle();
 
-            expect(stepDone("choices")).toBe(true);
-            expect(byName(wrapper, "6. Other choices, done")).toBeDefined();
+            expect(stepDone("background")).toBe(true);
+            expect(byName(wrapper, "4. Background, done")).toBeDefined();
         });
 
         it("speaks Italian", async () =>
         {
             usePreferencesStore().language = "it";
             await useNuxtApp().$i18n.setLocale("it");
-            const wrapper = await choices("evoker");
+            const wrapper = await choices("evoker", "spells");
 
-            expect(wrapper.find("h1").text()).toBe("Altre scelte");
+            expect(wrapper.find("h1").text()).toBe("Incantesimi");
             expect(wrapper.text()).toContain("Scegline 3");
             expect(wrapper.text()).toContain("Invocazione");
             expect(wrapper.text()).not.toMatch(/wizard\.|sheet\.[a-z]/);
@@ -849,6 +862,10 @@ describe("the creation wizard", () =>
             await settle();
             expect(useWizardStore().character?.choices.classes?.[0]?.subclass)
                 .toBe("srd51.subclass.cleric.life-domain");
+            // The cleric's skills are asked below the domain (doc 14): the step is done once they are too.
+            expect(stepDone("class")).toBe(false);
+            const skills = choicesOfStep("class").find((c) => c.choice === "skills")!;
+            useWizardStore().answer(skills.key, skills.options.slice(0, skills.count), skills.of);
             expect(stepDone("class")).toBe(true);
         });
 
@@ -948,8 +965,8 @@ describe("the creation wizard", () =>
 
             expect(wrapper.find("h1").text()).toBe("New character");
             expect(wrapper.findAll(".wizard-page__section").map((s) => s.attributes("id"))).toEqual([
-                "step-species", "step-class", "step-background", "step-abilities", "step-choices",
-                "step-equipment", "step-personality", "step-review"
+                "step-species", "step-class", "step-background", "step-abilities", "step-equipment",
+                "step-personality", "step-review"
             ]);
             expect(wrapper.find(".wizard-stepper").exists()).toBe(false);
             expect(byName(wrapper, "Next")).toBeUndefined();

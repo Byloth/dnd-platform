@@ -272,14 +272,16 @@ describe.each(LANGUAGES)("accessibility, in %s", (language) =>
         await useWizardStore().discard();
     });
 
-    it.each(["evoker", "far-strider", "silver-tongue"])("the creation wizard's step 6 for the %s", async (archetype) =>
+    it.each([
+        ["evoker", "spells"], ["far-strider", "class"], ["silver-tongue", "class"], ["raging-defender", "background"]
+    ])("the creation wizard's choices for the %s, in its %s step", async (archetype, step) =>
     {
         await speak(language);
         await useWizardStore().discard();
         await useWizardStore().start();
         useWizardStore().chooseArchetype(`srd51.archetype.${archetype}`);
-        const wrapper = await render(WizardPage, { route: "/characters/new?step=choices" });
-        for (let i = 0; (i < 50) && !wrapper.find(".step-choices").exists(); i += 1)
+        const wrapper = await render(WizardPage, { route: `/characters/new?step=${step}` });
+        for (let i = 0; (i < 50) && !wrapper.find(".step-choice-groups").exists(); i += 1)
         {
             await new Promise((done) => setTimeout(done, 10));
             await flushPromises();

@@ -140,7 +140,8 @@ describe("the twelve SRD classes through the wizard", () =>
             await settle();
             while (useWizardStore().step !== "personality")
             {
-                if (useWizardStore().step === "choices") { await answerEverything(wrapper); }
+                // Every choice is asked in the step that makes it (doc 14): answer what each step shows.
+                if (wrapper.find(".choice-group").exists()) { await answerEverything(wrapper); }
                 await next(wrapper);
             }
             await wrapper.find(".step-personality__input").setValue(name);

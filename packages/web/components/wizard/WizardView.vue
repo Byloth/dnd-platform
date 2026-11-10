@@ -3,6 +3,7 @@
     import StepAbilities from "@/components/wizard/steps/StepAbilities.vue";
     import StepEquipment from "@/components/wizard/steps/StepEquipment.vue";
     import StepChoices from "@/components/wizard/steps/StepChoices.vue";
+    import StepSpells from "@/components/wizard/steps/StepSpells.vue";
     import StepBackground from "@/components/wizard/steps/StepBackground.vue";
     import StepClass from "@/components/wizard/steps/StepClass.vue";
     import StepConcept from "@/components/wizard/steps/StepConcept.vue";
@@ -46,6 +47,7 @@
         class: StepClass,
         background: StepBackground,
         abilities: StepAbilities,
+        spells: StepSpells,
         choices: StepChoices,
         equipment: StepEquipment,
         personality: StepPersonality,

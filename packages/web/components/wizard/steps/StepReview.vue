@@ -3,6 +3,7 @@
     import FontAwesome from "@/components/ui/FontAwesome.vue";
     import SheetView from "@/components/sheet/SheetView.vue";
     import { choiceKind, useChoiceOptions } from "@/composables/choice-options";
+    import { choiceStep } from "@/composables/choice-steps";
     import type { StepId } from "@/stores/wizard";
 
     /**
@@ -74,7 +75,7 @@
 
                 const text = t("wizard.review.issues.choice", { owner: root, choice: title, n: left }, left);
 
-                return { step: choice.of === "subclass" ? "class" : "choices", text: text };
+                return { step: choiceStep(choice, wizard.packageSet) ?? "choices", text: text };
             });
         // A draft records the versions it loads (docs/phase-1/10-wizard-integrity.md): a version mismatch cannot be
         // true of it, and saving fixes it anyway.

@@ -394,6 +394,7 @@
       "class": "Classe",
       "background": "Background",
       "abilities": "Caratteristiche",
+      "spells": "Incantesimi",
       "choices": "Altre scelte",
       "equipment": "Equipaggiamento",
       "personality": "Personalità",
@@ -491,9 +492,14 @@
         "note": "Un numero tuo, sommato al totale del punteggio e mostrato nella sua spiegazione: per un oggetto magico, una regola della casa o una decisione del tavolo."
       }
     },
+    "spells": {
+      "purpose": "La tua magia: i trucchetti che puoi lanciare quando vuoi e i tuoi primi incantesimi.",
+      "consequence": "Un trucchetto non costa nulla; un incantesimo usa uno dei tuoi slot incantesimo, che tornano dopo un riposo lungo.",
+      "recommendation": "Quelli consigliati sono un buon inizio; apri un incantesimo per leggere esattamente cosa fa."
+    },
     "choices": {
-      "purpose": "Alcuni privilegi ti lasciano scegliere: una lingua, uno strumento, un'abilità, i tuoi primi incantesimi.",
-      "consequence": "Quello che scegli qui va sulla scheda: le abilità e gli strumenti in cui sei bravo, le lingue che parli, gli incantesimi che sai lanciare.",
+      "purpose": "Le ultime scelte, che non vengono dalla tua specie, dalla tua classe o dal tuo background.",
+      "consequence": "Quello che scegli qui va sulla scheda insieme al resto.",
       "recommendation": "Nel dubbio, scegli quello che si adatta al personaggio che immagini: qui non ci sono risposte sbagliate.",
       "progress": "Scegline {count} · {chosen} su {count} scelti",
       "search": "Cerca per nome",

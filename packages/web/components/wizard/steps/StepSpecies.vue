@@ -2,11 +2,14 @@
     import AppButton from "@/components/ui/AppButton.vue";
     import ChoiceCard from "@/components/wizard/ChoiceCard.vue";
     import ResetNotice from "@/components/wizard/ResetNotice.vue";
+    import StepChoiceGroups from "@/components/wizard/StepChoiceGroups.vue";
     import { useFold } from "@/composables/fold";
+    import { choicesOfStep } from "@/composables/wizard";
 
     /**
-     * Step 2: the species, recommended one first, then its subspecies when it has any. Once a species with
-     * subspecies is chosen, the list folds to it and the subspecies take the focus (doc 14).
+     * Step 2: the species, recommended one first, then its subspecies when it has any, then what it asks (a
+     * half-elf's skills and language). Once a species with something after it is chosen, the list folds to it and
+     * what follows takes the focus (doc 14).
      */
     const { wizard, entities, helpLevel, recommended, entry } = useWizardContext();
     const { t } = useI18n();
@@ -27,10 +30,10 @@
 
     const fold = useFold(
         () => choices.value?.species,
-        () => subspecies.value.length > 0,
+        () => (subspecies.value.length > 0) || (choicesOfStep("species").length > 0),
         () => helpLevel.value === "expert"
     );
-    const { next: subspeciesTitle, toggle: foldToggle } = fold;
+    const { next: afterSpecies, toggle: foldToggle } = fold;
     const foldLabel = computed(() => t(fold.folded.value ? "wizard.fold.change" : "wizard.fold.keep"));
     const foldWhat = computed(() => `: ${t("wizard.steps.species")}`);
     const shown = computed(() => (fold.folded.value ?
@@ -74,24 +77,25 @@
         <!-- One line, or the name would read "Change : Species". -->
         {{ foldLabel }}<span class="wizard-options__sr">{{ foldWhat }}</span>
     </AppButton>
-    <fieldset v-if="subspecies.length"
-              :key="`subspecies-${revision}`"
-              class="wizard-options wizard-options--nested">
-        <legend ref="subspeciesTitle"
-                class="wizard-options__title"
-                tabindex="-1">
-            {{ t("wizard.species.subspecies") }}
-        </legend>
-        <ChoiceCard v-for="entity in subspecies"
-                    :key="entity.id"
-                    name="subspecies"
-                    :value="entity.id"
-                    :title="entities?.name(entity.id) ?? ''"
-                    :summary="entities?.summary(entity.id)"
-                    :checked="choices?.subspecies === entity.id"
-                    :recommended="recommended('subspecies', entity.id)"
-                    :help-level="helpLevel"
-                    :entry="entry(entity.id)"
-                    @select="pickSubspecies" />
-    </fieldset>
+    <div ref="afterSpecies">
+        <fieldset v-if="subspecies.length"
+                  :key="`subspecies-${revision}`"
+                  class="wizard-options wizard-options--nested">
+            <legend class="wizard-options__title" tabindex="-1">
+                {{ t("wizard.species.subspecies") }}
+            </legend>
+            <ChoiceCard v-for="entity in subspecies"
+                        :key="entity.id"
+                        name="subspecies"
+                        :value="entity.id"
+                        :title="entities?.name(entity.id) ?? ''"
+                        :summary="entities?.summary(entity.id)"
+                        :checked="choices?.subspecies === entity.id"
+                        :recommended="recommended('subspecies', entity.id)"
+                        :help-level="helpLevel"
+                        :entry="entry(entity.id)"
+                        @select="pickSubspecies" />
+        </fieldset>
+        <StepChoiceGroups step="species" />
+    </div>
 </template>

@@ -19,6 +19,15 @@ import { clearBrowserStorage, FIXTURES, serveSite, zipOf } from "./helpers";
 serveSite();
 
 const SRD = "srd51";
+
+/** Answers every open choice of a step that lists its options, with the first ones. */
+function answerAll(step: Parameters<typeof choicesOfStep>[0]): void
+{
+    for (const c of choicesOfStep(step).filter((c) => !c.answered))
+    {
+        useWizardStore().answer(c.key, c.options.slice(0, c.count), c.of);
+    }
+}
 const MONK = "srd51.archetype.open-hand-wanderer";
 
 beforeEach(async () =>
@@ -383,11 +392,16 @@ describe("the creation wizard's store", () =>
             const wizard = useWizardStore();
             wizard.chooseSpecies("srd51.species.dwarf");
             wizard.chooseSubspecies("srd51.species.dwarf.hill-dwarf");
+            // The dwarf's tool is asked in the species step (doc 14): undone until answered.
+            expect(stepDone("species")).toBe(false);
+            answerAll("species");
             expect(stepDone("species")).toBe(true);
 
             wizard.character!.choices = { ...wizard.character!.choices, species: "gone.species.nobody" };
             expect(stepDone("species")).toBe(false);
             wizard.chooseBackground("srd51.background.acolyte");
+            // The Acolyte's languages come from the ruleset's list, not from the choice's options.
+            wizard.answer("srd51.background.acolyte#languages", ["dwarvish", "giant"], "language");
             expect(stepDone("background")).toBe(true);
             wizard.character!.choices = { ...wizard.character!.choices, background: "srd51.class.fighter" };
             expect(stepDone("background")).toBe(false);

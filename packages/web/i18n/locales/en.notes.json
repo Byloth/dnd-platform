@@ -394,6 +394,7 @@
       "class": "The step's name, in the stepper and as its heading; short.",
       "background": "The step's name, in the stepper and as its heading; short.",
       "abilities": "The step's name, in the stepper and as its heading; short.",
+      "spells": "Name of the step with the cantrips and spells to choose (shown only to a spellcaster).",
       "choices": "The step's name, in the stepper and as its heading; short.",
       "equipment": "The step's name, in the stepper and as its heading; short.",
       "personality": "The step's name, in the stepper and as its heading; short.",
@@ -490,6 +491,11 @@
         "title": "The collapsible section of manual adjustments.",
         "note": "Explains what an adjustment is for."
       }
+    },
+    "spells": {
+      "purpose": "Newcomer copy of the Spells step: what the step is for.",
+      "consequence": "Newcomer copy of the Spells step: what the choice changes.",
+      "recommendation": "Newcomer copy of the Spells step: what to do when unsure."
     },
     "choices": {
       "purpose": "Newcomer copy: what the step is for.",

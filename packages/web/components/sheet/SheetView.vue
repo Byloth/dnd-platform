@@ -46,10 +46,10 @@
     /** The creation step that sets what a section shows. */
     const STEP_OF: Readonly<Record<string, StepId>> = {
         abilities: "abilities",
-        skills: "choices",
-        features: "choices",
-        spellcasting: "choices",
-        spells: "choices",
+        skills: "class",
+        features: "class",
+        spellcasting: "spells",
+        spells: "spells",
         equipment: "equipment",
         personality: "personality",
         notes: "personality"

@@ -2,6 +2,7 @@ import { composeEntry } from "@byloth/dnd-platform-composer";
 import type { EntryView } from "@byloth/dnd-platform-composer";
 import type { ChoiceView } from "@byloth/dnd-platform-engine";
 
+import { choiceStep } from "@/composables/choice-steps";
 import { preferredUnits } from "@/composables/sheet";
 
 import type { StepId } from "@/stores/wizard";
@@ -52,6 +53,16 @@ function _sheetChoices(): readonly ChoiceView[]
         .sheet.choices;
 }
 
+/** The choices the draft's sheet asks in a step (docs/phase-1/14-wizard-steps-revision.md, point 6). */
+export function choicesOfStep(step: StepId): readonly ChoiceView[]
+{
+    const set = useWizardStore().packageSet;
+
+    return _sheetChoices().filter((c) => choiceStep(c, set) === step);
+}
+
+const _answered = (step: StepId): boolean => choicesOfStep(step).every((c) => c.answered);
+
 /**
  * Whether a chosen id is an entity of that type in the draft's package set: a choice whose package left the draft,
  * or is not loaded here, leaves its step undone (docs/phase-1/10-wizard-integrity.md, point 10).
@@ -83,23 +94,23 @@ export function stepDone(step: StepId): boolean
                     e.type === "species") :
                 false;
 
-            return !hasSubspecies || (choices.subspecies !== undefined);
+            return (!hasSubspecies || (choices.subspecies !== undefined)) && _answered("species");
         }
         case "class":
             return ((choices.classes?.length ?? 0) > 0) &&
                 (choices.classes ?? []).every((c) => _resolves(c.class, "class") &&
                     ((c.subclass === undefined) || _resolves(c.subclass, "subclass"))) &&
-                    _sheetChoices().every((c) => c.answered || (c.of !== "subclass"));
-        case "background": return _resolves(choices.background, "background");
+                    _answered("class");
+        case "background": return _resolves(choices.background, "background") && _answered("background");
         case "abilities":
         {
             const base = choices.abilityScores?.base ?? {};
 
             return (wizard.packageSet?.ruleset.abilities ?? []).every((a) => base[a] !== undefined);
         }
+        case "spells":
         case "choices":
-            return Boolean(wizard.sources.length) &&
-                _sheetChoices().every((c) => c.answered || (c.of === "asi-or-feat") || (c.of === "subclass"));
+            return Boolean(wizard.sources.length) && _answered(step);
         case "equipment": return wizard.character?.state.currency !== undefined;
         case "personality": return Boolean(wizard.character?.name.trim());
         default: return false;
