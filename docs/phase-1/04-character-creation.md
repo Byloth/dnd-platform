@@ -29,6 +29,8 @@ This document fixes the creation wizard of [../07-character-creation.md](../07-c
 
 ### Steps and the document
 
+**Revised on 2026-11-10 (M1.W, [14-wizard-steps-revision.md](14-wizard-steps-revision.md)):** the content step is offered only when there is a package to choose; step 1 asks "from scratch or from a sketched character?" first; every open choice is asked in the step that makes it, with a Spells step (after the ability scores) for a character with spells; Other choices only for what is left; step 4 offers a background of the player's own. The table below is the original plan.
+
 | # | Step | Reads | Writes | Screen |
 |---|---|---|---|---|
 | 0 | Content | the content store (loaded packages, base first) | `packages` (ids and pinned versions), `ruleset` | package cards with private flag and attribution; the SRD is always on |
