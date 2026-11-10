@@ -119,12 +119,13 @@
                               :value="text(key)"
                               @input="wizard.setPersonal(key, value($event))"></textarea>
                 </label>
-                <details v-if="suggestions(key).length"
-                         class="step-personality__suggestions"
-                         :open="helpLevel !== 'expert'">
+                <details v-if="suggestions(key).length" class="step-personality__suggestions">
                     <summary class="step-personality__summary">
                         <FontAwesome icon="lightbulb" aria-hidden="true" />
                         {{ t("wizard.personality.suggestions") }}
+                        <FontAwesome class="step-personality__chevron"
+                                     icon="chevron-down"
+                                     aria-hidden="true" />
                     </summary>
                     <ul class="step-personality__list">
                         <li v-for="suggestion in suggestions(key)" :key="suggestion">
@@ -247,6 +248,28 @@
             resize: vertical;
         }
 
+        &__suggestions
+        {
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            margin-top: var(--space-2);
+
+            &[open]
+            {
+                padding-bottom: var(--space-3);
+            }
+
+            &[open] .step-personality__chevron
+            {
+                transform: rotate(180deg);
+            }
+
+            > :not(summary)
+            {
+                padding: 0 var(--space-3);
+            }
+        }
+
         &__summary
         {
             @include mixins.tap-target;
@@ -258,11 +281,24 @@
             font-size: var(--text-sm);
             font-weight: 700;
             gap: var(--space-2);
+            list-style: none;
+            padding: 0 var(--space-3);
+
+            &::-webkit-details-marker
+            {
+                display: none;
+            }
 
             :deep(svg)
             {
                 color: var(--color-brass);
             }
+        }
+
+        &__chevron
+        {
+            margin-left: auto;
+            transition: transform var(--duration-fast) ease;
         }
 
         &__list

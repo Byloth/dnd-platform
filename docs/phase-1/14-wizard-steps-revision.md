@@ -171,6 +171,14 @@ Seven humans, two high elves (Legolas, Frieren), two half-elves (Shadowheart, Ge
 
 Order (owner, 2026-11-10): 1, 3, 4, 5, then 2, since the famous characters fall back to custom backgrounds and prefer subclasses and backgrounds of other packages. Each part updates the roadmap page and its "As built" note here.
 
+### As built (2026-11-10): step 0, the recommended deal, the personality accordions (task 1, M1.Wa)
+
+- `useContentStore().choosable` (the stored packages that are not translations, now shared with `StepContent.vue`) and `offersChoice` (one of them, or a site package beside the base). `wizard.steps` offers `content` only with `offersChoice` or a character that already uses more than the base; with the SRD alone the wizard opens on the concept.
+- `_offered(step)` in `stores/wizard.ts`: the step itself, else the nearest offered one before it, else the first. `start()`, `edit()`, `resume()` and `goTo()` go through it, and a watch moves the wizard when its step stops being offered. The address already followed `wizard.steps`.
+- `recommendedPointBuy(order, pointBuy, standardArray)` in `composables/ability-scores.ts`; `dealRecommended()` uses it for point buy, and `chooseMethod("point-buy")` uses it when the current scores do not fit. With rolls the button is disabled until the six are valid, `aria-describedby` pointing at the reason.
+- The personality suggestions are closed for every help level, in a bordered accordion with a chevron.
+- Tests: `ability-scores.test.ts` (the spread, exact and greedy), `wizard-store.test.ts` (step 0 offered or not, the fallback), `wizard-page.test.ts` (the point-buy deal, the disabled button; the step numbers without step 0), `accessibility.test.ts` (eight sections on the expert's page).
+
 ## Tests
 
 - Step 0 offered and not offered; a resumed draft on a step no longer offered.

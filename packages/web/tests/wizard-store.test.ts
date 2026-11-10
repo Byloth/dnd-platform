@@ -38,10 +38,26 @@ describe("the creation wizard's store", () =>
     {
         const { character, step } = useWizardStore();
 
-        expect(step).toBe("content");
+        // With the SRD alone there is nothing to choose in step 0: the wizard opens on the concept.
+        expect(step).toBe("concept");
         expect(character?.ruleset.id).toBe(SRD);
         expect(character?.packages.map((p) => p.id)).toEqual([SRD]);
         expect(character?.choices).toEqual({});
+    });
+
+    it("offers the content step only when there is a package to choose (doc 14, point 0)", async () =>
+    {
+        const wizard = useWizardStore();
+        expect(wizard.steps).not.toContain("content");
+
+        // An address or a resumed draft naming it falls back to the first step offered.
+        wizard.goTo("content");
+        expect(wizard.step).toBe("concept");
+
+        await useContentStore().loadFiles([zipOf(join(FIXTURES, "homebrew-feline"), "homebrew-feline")]);
+        expect(wizard.steps[0]).toBe("content");
+        await wizard.start();
+        expect(wizard.step).toBe("content");
     });
 
     it("prefills an archetype's recommendations, standard array included", () =>

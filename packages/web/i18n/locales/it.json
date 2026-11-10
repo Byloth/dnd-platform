@@ -477,6 +477,7 @@
       "primary": "caratteristica primaria",
       "primaryLegend": "Caratteristica primaria della tua classe",
       "dealRecommended": "Assegna come consigliato",
+      "dealNeedsRolls": "Prima scrivi o tira tutti e sei i punteggi.",
       "scoreOf": "Punteggio di {ability}",
       "lower": "Abbassa {ability}",
       "raise": "Alza {ability}",
@@ -740,7 +741,7 @@
     "items": {
       "creation": {
         "name": "Creazione guidata del personaggio",
-        "text": "Passo per passo, ogni scelta spiegata con parole semplici, senza nulla che ti blocchi; il sito può anche tirare i punteggi per te."
+        "text": "Passo per passo, solo i passi che ti servono, ogni scelta spiegata con parole semplici e nulla che ti blocchi; il sito può anche tirare i punteggi per te."
       },
       "ideas": {
         "name": "Idee da cui partire",

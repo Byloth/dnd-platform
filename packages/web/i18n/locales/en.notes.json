@@ -477,6 +477,7 @@
       "primary": "Read by screen readers after a primary ability's name.",
       "primaryLegend": "Legend of the ★ mark.",
       "dealRecommended": "Button that places the values in the recommended order again.",
+      "dealNeedsRolls": "Shown beside the disabled \"Assign as recommended\" button while the six rolls are not all valid.",
       "scoreOf": "Accessible label of a score menu. Parameter: {ability}.",
       "lower": "Accessible name of the point-buy minus button. Parameter: {ability}.",
       "raise": "Accessible name of the point-buy plus button. Parameter: {ability}.",

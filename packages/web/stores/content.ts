@@ -110,6 +110,15 @@ export const useContentStore = defineStore("content", () =>
         persistence.value = state;
     };
 
+    /** The stored packages a character can choose: a translation is not one, the interface's language brings it. */
+    const choosable = computed(() => stored.value.filter((p) => p.manifest.kind !== "translation"));
+    /**
+     * Whether the wizard's content step has anything to choose (docs/phase-1/14-wizard-steps-revision.md, point 0):
+     * a package of the player's own, or a site package beside the base. A newcomer with the SRD alone never sees it.
+     */
+    const offersChoice = computed(() => (choosable.value.length > 0) ||
+        site.value.some((p) => p.manifest.kind !== "base"));
+
     /** Loads files one after the other (the loader's queue), each tracked in `loads`. */
     const loadFiles = async (files: readonly PackageFile[]): Promise<void> =>
     {
@@ -258,6 +267,8 @@ export const useContentStore = defineStore("content", () =>
         index,
         site,
         stored,
+        choosable,
+        offersChoice,
         persistence,
         loads,
         refresh,

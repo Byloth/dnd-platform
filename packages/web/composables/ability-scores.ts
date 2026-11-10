@@ -40,6 +40,42 @@ export function deal(values: readonly number[], order: readonly string[]): Recor
     return Object.fromEntries(order.map((ability, i) => [ability, sorted[i]!]));
 }
 
+/**
+ * The recommended point-buy spread (docs/phase-1/14-wizard-steps-revision.md): the standard array in the order
+ * given when it costs exactly the budget (in the SRD, 15, 14, 13, 12, 10 and 8 cost 27); otherwise every ability
+ * at the cheapest score, then each one, in the order given, raised as high as the points left allow.
+ */
+export function recommendedPointBuy(
+    order: readonly string[],
+    pointBuy: { readonly budget: number, readonly costs: Readonly<Record<string, number | undefined>> },
+    standardArray: readonly number[] = []
+): Record<string, number>
+{
+    const { budget, costs } = pointBuy;
+    if (standardArray.length === order.length)
+    {
+        const dealt = deal(standardArray, order);
+        if (pointBuyCost(dealt, costs) === budget) { return dealt; }
+    }
+
+    const allowed = Object.keys(costs).map(Number)
+        .filter((score) => costs[String(score)] !== undefined)
+        .sort((a, b) => a - b);
+    const cost = (score: number): number => costs[String(score)]!;
+    const out: Record<string, number> = Object.fromEntries(order.map((ability) => [ability, allowed[0]!]));
+    let left = budget - (pointBuyCost(out, costs) ?? 0);
+
+    for (const ability of order)
+    {
+        const best = [...allowed].reverse().find((score) => cost(score) - cost(out[ability]!) <= left);
+        if (best === undefined) { continue; }
+        left -= cost(best) - cost(out[ability]!);
+        out[ability] = best;
+    }
+
+    return out;
+}
+
 /** An ability takes a value; the ability that held it takes the old value, so no value is ever repeated. */
 export function swap(base: Scores, ability: string, value: number): Record<string, number>
 {

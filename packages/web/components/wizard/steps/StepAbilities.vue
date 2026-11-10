@@ -195,9 +195,16 @@
                        outline
                        small
                        class="step-abilities__deal"
+                       :disabled="(method === 'roll') && !validRolls"
+                       :aria-describedby="(method === 'roll') && !validRolls ? 'deal-needs-rolls' : undefined"
                        @click="wizard.dealRecommended()">
                 {{ t("wizard.abilities.dealRecommended") }}
             </AppButton>
+            <p v-if="(method === 'roll') && !validRolls"
+               id="deal-needs-rolls"
+               class="step-abilities__deal-reason">
+                {{ t("wizard.abilities.dealNeedsRolls") }}
+            </p>
         </div>
 
         <table class="step-abilities__table">
@@ -496,6 +503,15 @@
         &__deal
         {
             margin-left: auto;
+        }
+
+        &__deal-reason
+        {
+            color: var(--color-ink-muted);
+            flex-basis: 100%;
+            font-size: var(--text-sm);
+            margin: 0;
+            text-align: right;
         }
 
         &__table

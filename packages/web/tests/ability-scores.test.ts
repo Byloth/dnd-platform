@@ -2,7 +2,9 @@
 
 import { describe, expect, it } from "vitest";
 
-import { cryptoDie, deal, isPermutation, pointBuyCost, rollAbilityScore, swap } from "@/composables/ability-scores";
+import {
+    cryptoDie, deal, isPermutation, pointBuyCost, recommendedPointBuy, rollAbilityScore, swap
+} from "@/composables/ability-scores";
 
 const COSTS = { 8: 0, 9: 1, 10: 2, 11: 3, 12: 4, 13: 5, 14: 7, 15: 9 };
 const ABILITIES = ["str", "dex", "con", "int", "wis", "cha"];
@@ -13,6 +15,20 @@ describe("ability-score arithmetic", () =>
     {
         expect(pointBuyCost({ str: 15, dex: 14, con: 13, int: 12, wis: 10, cha: 8 }, COSTS)).toBe(27);
         expect(pointBuyCost({ str: 16, dex: 8 }, COSTS)).toBeUndefined();
+    });
+
+    it("recommends a point-buy spread within the budget: the array when it costs exactly that, else greedily", () =>
+    {
+        const order = ["dex", "wis", "con", "str", "int", "cha"];
+        const array = [15, 14, 13, 12, 10, 8];
+
+        expect(recommendedPointBuy(order, { budget: 27, costs: COSTS }, array))
+            .toEqual({ dex: 15, wis: 14, con: 13, str: 12, int: 10, cha: 8 });
+
+        const greedy = recommendedPointBuy(order, { budget: 20, costs: COSTS }, array);
+        expect(greedy).toEqual({ dex: 15, wis: 15, con: 10, str: 8, int: 8, cha: 8 });
+        expect(pointBuyCost(greedy, COSTS)).toBe(20);
+        expect(pointBuyCost(recommendedPointBuy(order, { budget: 27, costs: COSTS }), COSTS)).toBeLessThanOrEqual(27);
     });
 
     it("tells a dealing of the values from anything else", () =>

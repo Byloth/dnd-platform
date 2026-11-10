@@ -355,7 +355,7 @@ describe.each(LANGUAGES)("accessibility, in %s", (language) =>
             await new Promise((done) => setTimeout(done, 10));
             await flushPromises();
         }
-        expect(wrapper.findAll(".wizard-page__section").length).toBe(9);
+        expect(wrapper.findAll(".wizard-page__section").length).toBe(8);
         await expectAccessible(wrapper);
         await useWizardStore().discard();
     });

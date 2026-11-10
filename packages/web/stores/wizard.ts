@@ -7,7 +7,7 @@ import type { JSONValue } from "@byloth/core";
 import { localize } from "@byloth/dnd-platform-composer";
 import { stableStringify } from "@byloth/dnd-platform-schema";
 
-import { deal, isPermutation, pointBuyCost, swap } from "@/composables/ability-scores";
+import { deal, isPermutation, pointBuyCost, recommendedPointBuy, swap } from "@/composables/ability-scores";
 import { EMPTY_SELECTION, coins, useEquipment } from "@/composables/equipment";
 import type { EquipmentSelection, Source } from "@/composables/equipment";
 import type { Scores } from "@/composables/ability-scores";
@@ -112,8 +112,28 @@ export const useWizardStore = defineStore("wizard", () =>
     const editing = ref<string>();
     const sources = shallowRef<PackageSource[]>([]);
 
-    /** The steps on offer: editing a character has no concept step, an archetype only makes sense at the start. */
-    const steps = computed((): readonly StepId[] => (editing.value ? STEPS.filter((s) => s !== "concept") : STEPS));
+    /**
+     * The steps on offer (docs/phase-1/14-wizard-steps-revision.md): editing a character has no concept step, an
+     * archetype only makes sense at the start; the content step only when there is something to choose, or when
+     * the character already uses more than the base.
+     */
+    const steps = computed((): readonly StepId[] =>
+    {
+        const content = useContentStore();
+        const offersContent = content.offersChoice || ((character.value?.packages.length ?? 0) > 1);
+
+        return STEPS.filter((s) => ((s !== "concept") || !editing.value) && ((s !== "content") || offersContent));
+    });
+
+    /** The step itself when offered, else the nearest offered one before it, else the first. */
+    const _offered = (wanted: StepId): StepId =>
+    {
+        if (steps.value.includes(wanted)) { return wanted; }
+        const before = STEPS.slice(0, STEPS.indexOf(wanted)).reverse()
+            .find((s) => steps.value.includes(s));
+
+        return before ?? steps.value[0] ?? wanted;
+    };
     const _key = (): string => (editing.value ? EDIT_KEY : DRAFT_KEY);
 
     let _saveTimer: ReturnType<typeof setTimeout> | undefined;
@@ -242,7 +262,7 @@ export const useWizardStore = defineStore("wizard", () =>
         _cancelSave();
         editing.value = undefined;
         character.value = emptyCharacter({ id: base.manifest.id, version: base.manifest.version });
-        step.value = "content";
+        step.value = steps.value[0] ?? "content";
         archetype.value = undefined;
         rolls.value = [];
         equipment.value = structuredClone(EMPTY_SELECTION);
@@ -264,7 +284,7 @@ export const useWizardStore = defineStore("wizard", () =>
         _cancelSave();
         editing.value = id;
         character.value = found;
-        step.value = at === "concept" ? "review" : at;
+        step.value = _offered(at === "concept" ? "review" : at);
         archetype.value = null;
         rolls.value = [];
         equipment.value = structuredClone(EMPTY_SELECTION);
@@ -295,12 +315,12 @@ export const useWizardStore = defineStore("wizard", () =>
         _cancelSave();
         editing.value = draft.editing;
         character.value = draft.character;
-        step.value = draft.step;
         archetype.value = draft.archetype;
         rolls.value = [...draft.rolls ?? []];
         equipment.value = structuredClone(draft.equipment ?? EMPTY_SELECTION);
         keptEquipment.value = draft.keptEquipment ?? false;
         coinsTyped.value = draft.coinsTyped ?? false;
+        step.value = _offered(draft.step);
         await _loadSources();
         _recordVersions();
 
@@ -327,9 +347,15 @@ export const useWizardStore = defineStore("wizard", () =>
 
     const goTo = (next: StepId): void =>
     {
-        step.value = next;
+        step.value = _offered(next);
         _scheduleSave();
     };
+
+    // A step that stops being offered (its condition changed under it) gives way to the nearest one before it.
+    watch(steps, () =>
+    {
+        if (character.value && !steps.value.includes(step.value)) { step.value = _offered(step.value); }
+    });
 
     /**
      * What the draft takes from these packages (docs/phase-1/10-wizard-integrity.md, point 10), read on the package
@@ -601,11 +627,9 @@ export const useWizardStore = defineStore("wizard", () =>
             const costs = methods?.pointBuy?.costs ?? {};
             const budget = methods?.pointBuy?.budget ?? 0;
             const fits = (scores: Scores): boolean => (pointBuyCost(scores, costs) ?? Infinity) <= budget;
-            if (!complete || !fits(base))
+            if ((!complete || !fits(base)) && methods?.pointBuy)
             {
-                const dealt = deal(array, recommendedOrder.value);
-                const cheapest = Math.min(...Object.keys(costs).map(Number));
-                next = fits(dealt) ? dealt : Object.fromEntries(abilities.map((a) => [a, cheapest]));
+                next = recommendedPointBuy(recommendedOrder.value, methods.pointBuy, array);
             }
         }
         else if (method === "roll")
@@ -678,13 +702,24 @@ export const useWizardStore = defineStore("wizard", () =>
         });
     };
 
-    /** Deals the current method's values again in the recommended order. */
+    /**
+     * Deals the current method's values again in the recommended order; for point buy, the recommended spread within
+     * the budget. Nothing happens for rolls until all six are valid (the step disables the button and says why).
+     */
     const dealRecommended = (): void =>
     {
         const method = character.value?.choices.abilityScores?.method ?? "standard-array";
-        const values = method === "roll" ?
-            _validRolls() :
-            (method === "point-buy" ? Object.values(_base()) : packageSet.value?.ruleset.abilityScores?.standardArray);
+        const methods = packageSet.value?.ruleset.abilityScores;
+        if (method === "point-buy")
+        {
+            if (!methods?.pointBuy) { return; }
+            const spread = recommendedPointBuy(recommendedOrder.value, methods.pointBuy, methods.standardArray);
+            _scores((scores) => ({ ...scores, base: spread }));
+
+            return;
+        }
+
+        const values = method === "roll" ? _validRolls() : methods?.standardArray;
         if (!values?.length) { return; }
 
         _scores((scores) => ({ ...scores, base: deal(values, recommendedOrder.value) }));

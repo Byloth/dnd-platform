@@ -82,9 +82,6 @@ describe("the creation wizard", () =>
     it("reaches the background with an archetype and Next alone", async () =>
     {
         const wrapper = await open();
-        expect(wrapper.find("h1").text()).toBe("Content");
-
-        await next(wrapper);
         expect(wrapper.find("h1").text()).toBe("Concept");
         const monk = wrapper.find<HTMLInputElement>(`input[value="${MONK}"]`);
         await monk.setValue(true);
@@ -136,17 +133,17 @@ describe("the creation wizard", () =>
     it("moves to any step from its dot, and says which steps are done", async () =>
     {
         const wrapper = await open();
-        byName(wrapper, "5. Background")!.click();
+        byName(wrapper, "4. Background")!.click();
         await until(() => wrapper.find("h1").text() === "Background");
 
         expect(wrapper.find("h1").text()).toBe("Background");
-        expect(byName(wrapper, "1. Content, done")).toBeDefined();
-        expect(wrapper.find("[aria-current='step']").text()).toContain("5");
+        expect(byName(wrapper, "1. Concept")).toBeDefined();
+        expect(wrapper.find("[aria-current='step']").text()).toContain("4");
 
-        byName(wrapper, "9. Personality")!.click();
+        byName(wrapper, "8. Personality")!.click();
         await until(() => wrapper.find(".step-personality").exists());
         expect(wrapper.find(".step-personality").exists()).toBe(true);
-        expect(byName(wrapper, "9. Personality, done")).toBeUndefined();
+        expect(byName(wrapper, "8. Personality, done")).toBeUndefined();
     });
 
     it("offers a stored draft back, and starts again when asked", async () =>
@@ -169,7 +166,7 @@ describe("the creation wizard", () =>
         const again = await open();
         byName(again, "Start again")!.click();
         await until(() => again.find(".wizard-step").exists());
-        expect(again.find("h1").text()).toBe("Content");
+        expect(again.find("h1").text()).toBe("Concept");
         expect(useWizardStore().character?.choices).toEqual({});
     });
 
@@ -194,7 +191,7 @@ describe("the creation wizard", () =>
             // That it stays on screen (position: sticky) is checked in a browser: the tests have no stylesheet.
             const bar = wrapper.find(".wizard-step__footer");
             expect(bar.findAll("button").map((b) => b.text())).toEqual(["Back", "Next"]);
-            expect(bar.find(".wizard-step__count").text()).toBe("Step 3 of 10");
+            expect(bar.find(".wizard-step__count").text()).toBe("Step 2 of 9");
             expect(document.documentElement.classList.contains("wizard-bar")).toBe(true);
         });
 
@@ -206,7 +203,7 @@ describe("the creation wizard", () =>
             await next(wrapper);
             await until(() => document.activeElement?.id === "wizard-step-title");
             expect(document.activeElement?.textContent?.trim()).toBe("Class");
-            expect(wrapper.find(".wizard-step__count").text()).toBe("Step 4 of 10");
+            expect(wrapper.find(".wizard-step__count").text()).toBe("Step 3 of 9");
         });
     });
 
@@ -359,6 +356,39 @@ describe("the creation wizard", () =>
             await settle();
             expect(wrapper.find(".step-abilities__points").text()).toBe("Points left: 2 of 27");
             expect(total(wrapper, "Dexterity")).toBe("14 (+2)");
+        });
+
+        it("assigns a point-buy spread as recommended, within the budget (doc 14, point 5)", async () =>
+        {
+            const wrapper = await abilities();
+            await wrapper.find("input[value='point-buy']").setValue(true);
+            await settle();
+            byName(wrapper, "Lower Dexterity")!.click();
+            byName(wrapper, "Lower Wisdom")!.click();
+            await settle();
+            expect(wrapper.find(".step-abilities__points").text()).not.toBe("Points left: 0 of 27");
+
+            byName(wrapper, "Assign as recommended")!.click();
+            await settle();
+            expect(wrapper.find(".step-abilities__points").text()).toBe("Points left: 0 of 27");
+            expect(total(wrapper, "Dexterity")).toBe("15 (+2)");
+        });
+
+        it("keeps \"Assign as recommended\" off until the six rolls are valid, and says why", async () =>
+        {
+            const wrapper = await abilities();
+            await wrapper.find("input[value='roll']").setValue(true);
+            await settle();
+
+            const deal = wrapper.find<HTMLButtonElement>(".step-abilities__deal");
+            expect(deal.element.disabled).toBe(true);
+            expect(deal.attributes("aria-describedby")).toBe("deal-needs-rolls");
+            expect(wrapper.find("#deal-needs-rolls").text()).toBe("Type or roll all six scores first.");
+
+            byName(wrapper, "Roll for me")!.click();
+            await settle();
+            expect(wrapper.find<HTMLButtonElement>(".step-abilities__deal").element.disabled).toBe(false);
+            expect(wrapper.find("#deal-needs-rolls").exists()).toBe(false);
         });
 
         it("places six typed rolls, highest in the recommended order", async () =>
@@ -520,7 +550,7 @@ describe("the creation wizard", () =>
             await settle();
 
             expect(stepDone("choices")).toBe(true);
-            expect(byName(wrapper, "7. Other choices, done")).toBeDefined();
+            expect(byName(wrapper, "6. Other choices, done")).toBeDefined();
         });
 
         it("speaks Italian", async () =>
@@ -875,7 +905,7 @@ describe("the creation wizard", () =>
 
             expect(wrapper.find("h1").text()).toBe("New character");
             expect(wrapper.findAll(".wizard-page__section").map((s) => s.attributes("id"))).toEqual([
-                "step-content", "step-species", "step-class", "step-background", "step-abilities", "step-choices",
+                "step-species", "step-class", "step-background", "step-abilities", "step-choices",
                 "step-equipment", "step-personality", "step-review"
             ]);
             expect(wrapper.find(".wizard-stepper").exists()).toBe(false);
