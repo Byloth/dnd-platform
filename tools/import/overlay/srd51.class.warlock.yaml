@@ -69,3 +69,6 @@ levels:
             known:
               table: srd51.table.warlock.spells-known
             ritual: false
+# One line of the platform's own for the wizard's card (docs/phase-1/14-wizard-steps-revision.md).
+summary:
+  en: 'A spellcaster who made a pact with a powerful being, trading service for its power.'

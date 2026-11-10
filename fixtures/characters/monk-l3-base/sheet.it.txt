@@ -1,6 +1,6 @@
 QUIET PAW
 Felino (Puma) · Monaco 3  —  livello 3
-Regolamento srd51 · pacchetti srd51 0.9.0, homebrew.byloth 0.1.0
+Regolamento srd51 · pacchetti srd51 0.10.0, homebrew.byloth 0.1.0
 
 VALORI PRINCIPALI
 ────────────────────────────────────────────────────────────────────────────────────────────────────
@@ -112,7 +112,7 @@ NOTE
 
 CREDITI
 ────────────────────────────────────────────────────────────────────────────────────────────────────
-  System Reference Document 5.1 (srd51 0.9.0)
+  System Reference Document 5.1 (srd51 0.10.0)
     System Reference Document 5.1, Wizards of the Coast — CC-BY-4.0. This work includes material
     taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and
     available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is
@@ -125,7 +125,7 @@ CREDITI
   Byloth's homebrew (homebrew.byloth 0.1.0)
     Byloth's homebrew, Matteo Bilotta — CC-BY-4.0. Homebrew content by Matteo Bilotta, licensed
     under CC-BY-4.0.
-  System Reference Document 5.1 — italiano (srd51-it 0.5.0)
+  System Reference Document 5.1 — italiano (srd51-it 0.6.0)
     System Reference Document 5.1 (italiano), Wizards of the Coast — CC-BY-4.0. Questo lavoro
     include materiale del System Reference Document 5.1 (“SRD 5.1”) di Wizards of the Coast LLC
     disponibile al sito https://dnd.wizards.com/it/resources/systems-reference-document. L’SRD 5.1 è

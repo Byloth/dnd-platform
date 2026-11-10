@@ -7,6 +7,13 @@ improvement of the content is a new version: bump `version` in
 release file. Characters follow new versions automatically; the application
 tells the player what changed on their sheet.
 
+## 0.10.0 — 2026-11-10
+
+- **Every class and species has a one-line presentation** of the
+  platform's own (`summary`, a new optional field), shown on the cards of
+  the creation wizard: "A martial artist who fights with hands and feet,
+  moves fast and needs no armour." No rule changes.
+
 ## 0.9.0 — 2026-10-01
 
 - **Tables that showed as loose lines are tables again**: the wand of

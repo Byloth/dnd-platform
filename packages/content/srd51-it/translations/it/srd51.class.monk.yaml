@@ -1,4 +1,5 @@
 name: Monaco
+summary: 'Un artista marziale che combatte a mani nude, si muove veloce e non ha bisogno di armature.'
 levels.1.features.0.name: Arti Marziali
 levels.1.features.0.text: |-
   Al 1° livello, grazie alla sua perizia nelle arti marziali, un monaco padroneggia uno stile di combattimento che fa uso di colpi senz'armi e armi da monaco, vale a dire spade corte e qualsiasi arma da mischia semplice che non possieda la proprietà a due mani o la proprietà pesante.

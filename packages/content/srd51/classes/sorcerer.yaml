@@ -643,3 +643,5 @@ tables:
         - 1
 primaryAbilities:
   - cha
+summary:
+  en: "Born with magic in the blood: fewer spells than a wizard, but bent and shaped at will."

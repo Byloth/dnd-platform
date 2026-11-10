@@ -1,4 +1,5 @@
 name: "Barbaro"
+summary: 'Un guerriero feroce che combatte in preda all''ira e incassa colpi che abbatterebbero chiunque altro.'
 levels.1.features.0.name: "Ira"
 levels.1.features.0.text: |-
   In battaglia, un barbaro combatte animato da una ferocia primordiale. Nel suo turno può scatenare la propria ira come azione bonus.

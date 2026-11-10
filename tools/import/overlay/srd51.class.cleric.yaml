@@ -11,3 +11,6 @@ startingEquipment:
       - (a) a light crossbow and 20 bolts or (b) any simple weapon
       - (a) a priest's pack or (b) an explorer's pack
       - A shield and a holy symbol
+# One line of the platform's own for the wizard's card (docs/phase-1/14-wizard-steps-revision.md).
+summary:
+  en: 'The champion of a god, in armour, who heals, protects and smites with divine magic.'

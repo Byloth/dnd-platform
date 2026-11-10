@@ -6,3 +6,6 @@ tables:
     rows:
       "16": null
       "17": 4
+# One line of the platform's own for the wizard's card (docs/phase-1/14-wizard-steps-revision.md).
+summary:
+  en: 'Born with magic in the blood: fewer spells than a wizard, but bent and shaped at will.'

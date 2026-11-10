@@ -443,3 +443,5 @@ tables:
         - 1
 primaryAbilities:
   - int
+summary:
+  en: "A scholar who learns magic from a spellbook: the widest choice of spells there is."

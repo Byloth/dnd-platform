@@ -1,4 +1,5 @@
 name: Ranger
+summary: 'Un cacciatore e segugio delle terre selvagge, letale con l''arco o con due lame, con un tocco della magia della natura.'
 levels.1.features.0.name: Nemico Prescelto
 levels.1.features.0.text: |-
   A partire dal 1° livello, un ranger dimostra una notevole esperienza nello studiare, seguire le tracce, dare la caccia e perfino parlare con un certo tipo di nemico.

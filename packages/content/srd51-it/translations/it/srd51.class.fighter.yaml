@@ -1,4 +1,5 @@
 name: Guerriero
+summary: 'Un maestro di armi e armature: il più solido in combattimento e il più semplice con cui iniziare.'
 levels.1.features.0.name: Stile di Combattimento
 levels.1.features.0.text: |-
   Un guerriero adotta uno stile di combattimento in cui specializzarsi scegliendo una tra le opzioni seguenti. Non è consentito scegliere uno stile di combattimento più di una volta, anche se in seguito il guerriero ha diritto a scegliere di nuovo.

@@ -1,4 +1,5 @@
 name: Paladino
+summary: 'Un cavaliere sacro legato a un giuramento, ben armato, che guarisce con il tocco e colpisce con il potere divino.'
 levels.1.features.0.name: Percezione del Divino
 levels.1.features.0.text: |-
   Un paladino percepisce una presenza del male particolarmente forte, come se un fetore assalisse le sue narici, mentre una forte presenza del bene equivale per lui a una musica celestiale che risuona nelle sue orecchie. Con un'azione, un paladino può proiettare le sue percezioni attorno a sé per avvertire la presenza di queste forze. Fino alla fine del suo turno successivo, il paladino conosce l'ubicazione di ogni celestiale, immondo o non morto entro 18 metri da lui e che non si trova sotto copertura totale. Il paladino riconosce il tipo (celestiale, immondo o non morto) di qualsiasi creatura di cui riesca a percepire la presenza, ma non la sua identità (il conte vampiro Strahd von Zarovich, per esempio). Entro lo stesso raggio, il paladino individua anche la presenza di qualsiasi luogo o oggetto sacro o sacrilego, con gli stessi effetti dell'incantesimo *santificare*.

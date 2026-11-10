@@ -41,11 +41,11 @@ export type PlayEffect = Heal | TempHp | ExtraDamage | RestoreResource | ApplyCo
 export type ArmorClass = [
     {
         value: number | string;
-        note?: LocalizedString2;
+        note?: LocalizedString3;
     },
     ...{
         value: number | string;
-        note?: LocalizedString2;
+        note?: LocalizedString3;
     }[]
 ];
 /**
@@ -1402,6 +1402,7 @@ export interface Class {
     id: string;
     name: LocalizedString;
     text?: LocalizedString;
+    summary?: LocalizedString2;
     source?: string;
     tags?: Tags;
     page?: number;
@@ -1433,6 +1434,12 @@ export interface Class {
     tables?: {
         [k: string]: TableDef | undefined;
     };
+}
+/**
+ * One line of the platform's own that presents the class on the wizard's card (docs/phase-1/14-wizard-steps-revision.md); the first sentence of the text when absent.
+ */
+export interface LocalizedString2 {
+    [k: string]: string | undefined;
 }
 export interface TableDef {
     by: "level" | "classLevel" | "casterLevel" | "slotLevel";
@@ -1564,7 +1571,7 @@ export interface Creature {
         truesight?: number | string;
         passivePerception: number | string;
     };
-    languages?: LocalizedString3;
+    languages?: LocalizedString4;
     challenge:
         | 0
         | 0.125
@@ -1642,7 +1649,7 @@ export interface Creature {
 /**
  * Where the value comes from, as the stat block prints it: "natural armor", "plate, shield", "15 with mage armor".
  */
-export interface LocalizedString2 {
+export interface LocalizedString3 {
     [k: string]: string | undefined;
 }
 export interface Speed {
@@ -1672,7 +1679,7 @@ export interface Speed {
 /**
  * As the stat block prints them; absent when it prints "—".
  */
-export interface LocalizedString3 {
+export interface LocalizedString4 {
     [k: string]: string | undefined;
 }
 export interface Action {
@@ -2318,6 +2325,7 @@ export interface Species {
     id: string;
     name: LocalizedString;
     text?: LocalizedString;
+    summary?: LocalizedString5;
     source?: string;
     tags?: Tags;
     page?: number;
@@ -2348,6 +2356,12 @@ export interface Species {
         };
         size?: "tiny" | "small" | "medium" | "large" | "huge" | "gargantuan";
     }[];
+}
+/**
+ * One line of the platform's own that presents the species on the wizard's card (docs/phase-1/14-wizard-steps-revision.md); the first sentence of the text when absent.
+ */
+export interface LocalizedString5 {
+    [k: string]: string | undefined;
 }
 export interface Spell {
     id: string;

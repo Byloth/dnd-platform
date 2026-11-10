@@ -22,3 +22,6 @@ tables:
     rows:
       "7": null
       "8": 1
+# One line of the platform's own for the wizard's card (docs/phase-1/14-wizard-steps-revision.md).
+summary:
+  en: 'A keeper of nature who calls on its magic and, from 2nd level, takes the shape of animals.'

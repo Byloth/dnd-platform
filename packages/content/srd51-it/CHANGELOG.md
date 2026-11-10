@@ -6,6 +6,12 @@ itself when the interface is in Italian; characters never list it. Like every
 public package, each released version is published by the site and never
 changes (DEC-21).
 
+## 0.6.0 — 2026-11-10
+
+- The one-line presentations of the twelve classes and the nine species
+  (srd51 0.10.0), in Italian: "Un artista marziale che combatte a mani
+  nude, si muove veloce e non ha bisogno di armature."
+
 ## 0.5.0 — 2026-10-06
 
 - **Spell and racial trait names in Title Case**, as the Italian Player's

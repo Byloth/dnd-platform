@@ -16,3 +16,6 @@ startingEquipment:
         - - item: srd51.item.burglars-pack
         - - item: srd51.item.dungeoneers-pack
         - - item: srd51.item.explorers-pack
+# One line of the platform's own for the wizard's card (docs/phase-1/14-wizard-steps-revision.md).
+summary:
+  en: 'A sneaky expert who strikes where it hurts, opens locks and gets out of trouble.'

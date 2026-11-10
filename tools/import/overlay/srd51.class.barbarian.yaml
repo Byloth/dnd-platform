@@ -1,2 +1,5 @@
 # The class's primary abilities, as the SRD 5.1 multiclassing prerequisites name them.
 primaryAbilities: [str]
+# One line of the platform's own for the wizard's card (docs/phase-1/14-wizard-steps-revision.md).
+summary:
+  en: 'A fierce warrior who fights in a rage and shrugs off blows that would fell anyone else.'

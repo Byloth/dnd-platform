@@ -1,4 +1,5 @@
 name: Ladro
+summary: 'Un esperto furtivo che colpisce dove fa più male, apre le serrature e se la cava nei guai.'
 levels.1.features.0.name: Maestria
 levels.1.features.0.text: |-
   Al 1° livello, un ladro sceglie due tra le sue competenze nelle abilità, oppure una sua competenza in una abilità e la competenza negli arnesi da scasso. Il suo bonus di competenza raddoppia in ogni prova di caratteristica effettuata usando una delle competenze scelte.

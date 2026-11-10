@@ -422,3 +422,5 @@ tables:
 primaryAbilities:
   - str
   - dex
+summary:
+  en: "A master of weapons and armour: the steadiest in a fight, and the simplest to start with."

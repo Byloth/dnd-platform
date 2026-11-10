@@ -1,4 +1,5 @@
 name: "Gnomo"
+summary: 'Piccoli, svegli e curiosi, con una mente che resiste alla magia e un talento per le invenzioni.'
 text: |-
   Un personaggio gnomo possiede alcune caratteristiche in comune con tutti gli altri gnomi.
 features.0.name: "Incremento dei Punteggi di Caratteristica"

@@ -30,3 +30,6 @@ proficiencies:
       - pan-flute
       - shawm
       - viol
+# One line of the platform's own for the wizard's card (docs/phase-1/14-wizard-steps-revision.md).
+summary:
+  en: 'A martial artist who fights with hands and feet, moves fast and needs no armour.'

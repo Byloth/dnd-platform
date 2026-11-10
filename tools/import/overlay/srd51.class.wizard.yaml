@@ -3,3 +3,6 @@ primaryAbilities: [int]
 tables:
   # Not an SRD table, and nothing reads it: Arcane Recovery's budget is ceil(classLevel(wizard) / 2).
   arcane-recovery-levels: null
+# One line of the platform's own for the wizard's card (docs/phase-1/14-wizard-steps-revision.md).
+summary:
+  en: 'A scholar who learns magic from a spellbook: the widest choice of spells there is.'

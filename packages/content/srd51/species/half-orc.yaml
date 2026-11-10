@@ -126,3 +126,5 @@ features:
           en: When you score a critical hit with a melee weapon attack, roll one of the weapon's damage dice one additional time and add it to the extra damage of the critical hit.
         note:
           en: Play-mode critical hit rule (same shape as Brutal Critical); no derived value models it in v0.
+summary:
+  en: "Strong and fearsome: they hit hard, and get back up when they should have fallen."

@@ -6,3 +6,6 @@ startingEquipment:
     - item: srd51.item.arrow
       quantity: 20
     - item: srd51.item.quiver
+# One line of the platform's own for the wizard's card (docs/phase-1/14-wizard-steps-revision.md).
+summary:
+  en: 'A hunter and tracker of the wilds, deadly with a bow or two blades, with a touch of nature''s magic.'

@@ -1,2 +1,5 @@
 # The class's primary abilities, as the SRD 5.1 multiclassing prerequisites name them.
 primaryAbilities: [str, cha]
+# One line of the platform's own for the wizard's card (docs/phase-1/14-wizard-steps-revision.md).
+summary:
+  en: 'A holy knight bound by an oath, well armed, who heals with a touch and strikes with divine power.'

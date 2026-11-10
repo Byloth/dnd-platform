@@ -951,6 +951,10 @@ export const SCHEMAS = {
             "text": {
                 "$ref": "common.schema.json#/$defs/localizedString"
             },
+            "summary": {
+                "$ref": "common.schema.json#/$defs/localizedString",
+                "description": "One line of the platform's own that presents the class on the wizard's card (docs/phase-1/14-wizard-steps-revision.md); the first sentence of the text when absent."
+            },
             "source": {
                 "$ref": "common.schema.json#/$defs/sourceRef"
             },
@@ -5220,6 +5224,10 @@ export const SCHEMAS = {
             },
             "text": {
                 "$ref": "common.schema.json#/$defs/localizedString"
+            },
+            "summary": {
+                "$ref": "common.schema.json#/$defs/localizedString",
+                "description": "One line of the platform's own that presents the species on the wizard's card (docs/phase-1/14-wizard-steps-revision.md); the first sentence of the text when absent."
             },
             "source": {
                 "$ref": "common.schema.json#/$defs/sourceRef"

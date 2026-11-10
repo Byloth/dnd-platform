@@ -1,4 +1,5 @@
 name: Umano
+summary: 'Adattabili e ambiziosi: un po'' più bravi in tutto, pronti per qualsiasi classe.'
 text: Anche se è difficile stabilire delle generalizzazioni sugli umani, un personaggio umano sarà dotato dei tratti seguenti.
 features.0.name: Incremento dei Punteggi di Caratteristica
 features.0.text: Ogni punteggio di caratteristica di un umano aumenta di 1.

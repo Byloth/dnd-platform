@@ -168,3 +168,5 @@ subspecies:
             choice: extra-language
             of: language
             count: 1
+summary:
+  en: Graceful and long-lived, with keen senses, a trance instead of sleep and a mind that charms cannot bind.

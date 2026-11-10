@@ -1,4 +1,5 @@
 name: Stregone
+summary: 'Nato con la magia nel sangue: meno incantesimi di un mago, ma piegati e plasmati a piacere.'
 levels.1.features.0.name: Origine Stregonesca
 levels.1.features.0.text: |-
   Il giocatore sceglie un'origine stregonesca che definisca la fonte dei poteri magici innati dello stregone, per esempio Discendenza Draconica.

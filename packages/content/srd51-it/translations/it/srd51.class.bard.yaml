@@ -1,4 +1,5 @@
 name: Bardo
+summary: 'Un artista la cui musica e le cui parole sono magia: ispira gli amici, confonde i nemici, sa un po'' di tutto.'
 levels.1.features.0.name: Ispirazione Bardica
 levels.1.features.0.text: |-
   Un bardo può ispirare gli altri tramite il lirismo delle sue parole o della sua musica. Per farlo usa un'azione bonus nel suo turno per scegliere una creatura diversa da se stesso, situata entro 18 metri da lui e in grado di sentirlo. Quella creatura ottiene un dado di Ispirazione Bardica, un d6.

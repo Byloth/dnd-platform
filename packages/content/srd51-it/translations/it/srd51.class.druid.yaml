@@ -1,4 +1,5 @@
 name: Druido
+summary: 'Un custode della natura che ne invoca la magia e, dal 2° livello, assume la forma di animali.'
 levels.1.features.0.name: Druidico
 levels.1.features.0.text: Un druido conosce il Druidico, la lingua segreta del suo ordine. Può parlarla e usarla per lasciare messaggi segreti. Il druido e coloro che conoscono questa lingua sono in grado di individuare tali messaggi automaticamente. Altri possono notare la presenza di un messaggio in Druidico superando una prova di Saggezza (Percezione) con CD 15, ma non possono decifrarlo senza l'aiuto della magia.
 levels.1.features.0.effects.0.note: I messaggi segreti in Druidico sono individuati automaticamente da chi conosce questa lingua; gli altri possono notarli superando una prova di Saggezza (Percezione) con CD 15, ma non possono decifrarli senza l'aiuto della magia.

@@ -1,4 +1,5 @@
 name: Tiefling
+summary: 'Segnati da una stirpe infernale: corna, coda, resistenza al fuoco e un po'' di magia degli inferi.'
 text: I tiefling condividono alcuni tratti razziali frutto della loro discendenza infernale.
 features.0.name: Incremento dei Punteggi di Caratteristica
 features.0.text: Il punteggio di Intelligenza di un tiefling aumenta di 1 e quello di Carisma aumenta di 2.

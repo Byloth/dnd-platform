@@ -8,7 +8,12 @@ import type { PackageSet, ResolvedEntity } from "@byloth/dnd-platform-loader";
  * localized by the composer's rule so the wizard and the sheet name things alike.
  */
 
-interface Named { readonly name?: LocalizedString, readonly text?: LocalizedString }
+interface Named
+{
+    readonly name?: LocalizedString;
+    readonly text?: LocalizedString;
+    readonly summary?: LocalizedString;
+}
 
 export function useEntities(set: PackageSet, language: string)
 {
@@ -17,8 +22,9 @@ export function useEntities(set: PackageSet, language: string)
     /** The name of an entity; the last segment of its id when it is unknown or unnamed. */
     const name = (id: string): string => localize(data(id)?.name, language) || (id.split(".").pop() ?? id);
 
-    /** The first sentence of an entity's text, "" when it has none. */
-    const summary = (id: string): string => firstSentence(localize(data(id)?.text, language));
+    /** An entity's own one-line summary, else the first sentence of its text; "" when it has neither. */
+    const summary = (id: string): string =>
+        localize(data(id)?.summary, language) || firstSentence(localize(data(id)?.text, language));
 
     const byName = (a: ResolvedEntity, b: ResolvedEntity): number => name(a.id).localeCompare(name(b.id), language);
 

@@ -1,4 +1,5 @@
 name: Warlock
+summary: 'Un incantatore che ha stretto un patto con un essere potente, scambiando i suoi servigi con il suo potere.'
 levels.1.features.0.name: Patrono Ultraterreno
 levels.1.features.0.text: "Al 1° livello, un warlock stipula un patto con un essere ultraterreno a sua scelta: il Signore Fatato, l'Immondo o il Grande Antico, ognuno dei quali è descritto in dettaglio alla fine della sezione di questa classe. La scelta del patrono gli conferisce alcuni privilegi al 1° livello e poi ancora al 6°, 10° e 14° livello."
 levels.1.features.1.name: Magia del Patto

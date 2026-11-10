@@ -701,3 +701,5 @@ tables:
 primaryAbilities:
   - str
   - cha
+summary:
+  en: A holy knight bound by an oath, well armed, who heals with a touch and strikes with divine power.

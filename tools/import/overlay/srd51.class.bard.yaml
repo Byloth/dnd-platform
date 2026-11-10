@@ -8,3 +8,6 @@ tables:
       "9": 1d8
       "13": 1d10
       "17": 1d12
+# One line of the platform's own for the wizard's card (docs/phase-1/14-wizard-steps-revision.md).
+summary:
+  en: 'A performer whose music and words are magic: inspiring friends, confusing foes, knowing a bit of everything.'

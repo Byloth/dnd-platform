@@ -1,4 +1,5 @@
 name: "Halfling"
+summary: 'Piccoli, allegri e incredibilmente fortunati, sgusciano oltre pericoli che fermano i più grandi.'
 text: |-
   Un personaggio halfling possiede vari tratti in comune con tutti i membri della sua razza.
 features.0.name: "Incremento dei Punteggi di Caratteristica"

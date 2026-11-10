@@ -116,3 +116,5 @@ features:
         when:
           level:
             min: 5
+summary:
+  en: "Marked by an infernal bloodline: horns, a tail, resistance to fire and a little hellish magic."

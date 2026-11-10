@@ -1,4 +1,5 @@
 name: Mago
+summary: 'Uno studioso che impara la magia da un libro: la scelta di incantesimi più vasta che ci sia.'
 levels.1.features.0.name: Recupero Arcano
 levels.1.features.0.text: |-
   Un mago impara a recuperare parte della sua energia magica studiando il suo libro degli incantesimi. Una volta al giorno, quando completa un riposo breve, il mago sceglie quali slot incantesimo spesi desidera recuperare. Questi slot incantesimo possono avere un livello totale pari o inferiore alla metà del livello da mago (arrotondato per eccesso) e nessuno slot può essere di livello pari o superiore al 6°.
