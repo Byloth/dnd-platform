@@ -746,7 +746,7 @@
     "items": {
       "creation": {
         "name": "Guided character creation",
-        "text": "Step by step, only the steps you need, each choice explained in plain words and nothing that blocks you; the site can even roll your scores."
+        "text": "Step by step, only the steps you need: every option shows what it gives, like a game's stats, and nothing blocks you; the site can even roll your scores."
       },
       "ideas": {
         "name": "Ideas to start from",

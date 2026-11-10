@@ -179,6 +179,14 @@ Order (owner, 2026-11-10): 1, 3, 4, 5, then 2, since the famous characters fall 
 - The personality suggestions are closed for every help level, in a bordered accordion with a chevron.
 - Tests: `ability-scores.test.ts` (the spread, exact and greedy), `wizard-store.test.ts` (step 0 offered or not, the fallback), `wizard-page.test.ts` (the point-buy deal, the disabled button; the step numbers without step 0), `accessibility.test.ts` (eight sections on the expert's page).
 
+### As built (2026-11-10): option cards and folding (task 3, M1.Wc)
+
+- `composeEntry` (`packages/composer/src/entry.ts`) also takes species (and subspecies), classes and backgrounds: labelled `lines` (size, speed, senses, languages; hit die, primary abilities, saving throws, armour, weapons, tools, skills; the background's skills, tools, languages and equipment), the traits as `sections` (a class's level 1 features), and `facts` for the chips: ability increases and darkvision read from the features' effects, the walking speed; "Hit Die d10" and "Casts spells" (a `grant-spellcasting` at any level); the background's skills, its languages to choose and its feature's name. The labels are in `sheet.entry.labels` and `sheet.entry.option` (English and Italian). `dnd show` prints them; goldens `fixtures/entries/{dwarf,dwarf-hill-dwarf,wizard,acolyte}.{en,it}.txt`. A composed entry was preferred to a second function: one place for the words, and the compendium can list these kinds later.
+- `ChoiceCard.vue` takes an `entry`: the facts as stats (accent chips) inside the label, and "Details" outside it (a `<details>` with the lines and the traits, `RichText`). `useWizardContext().entry(id)` composes it in the interface's language and units. The class card keeps its primary abilities and saves; the hit die is among the stats.
+- `composables/fold.ts`, `useFold(chosen, hasNext, expert)`: the list shows only the chosen card while a choice exists and something follows (subspecies; the class's subclass, and the class's choices with task 4); "Change" opens it, "Keep this choice" folds it back; after a new choice the next heading (`tabindex="-1"`: the subspecies' legend, a `ChoiceGroup`'s title) takes the focus. The expert's dense page never folds.
+- Content: `summary`, a new optional field of classes and species (format v0), one line of the platform's own in English (tools/import overlays) and Italian (srd51-it); `useEntities().summary` prefers it. srd51 0.10.0, srd51-it 0.6.0; every fixture pins srd51 0.10.0.
+- The "Your character so far" panel is not built: it waits for the owner (open points).
+
 ## Tests
 
 - Step 0 offered and not offered; a resumed draft on a step no longer offered.

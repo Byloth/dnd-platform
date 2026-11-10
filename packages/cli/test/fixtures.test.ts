@@ -19,6 +19,12 @@ const fixtures = DEFAULT_FIXTURE_DIRS.flatMap((dir) =>
         .map((name) => ({ dir: dir, name: name }));
 });
 
+/**
+ * A fixture with its sheets in two languages and three help levels composes in seconds on a busy machine (the
+ * pre-commit hook runs both test projects at once): more than the default 5 s.
+ */
+const FIXTURE_TIMEOUT = 20_000;
+
 describe("golden character fixtures", () =>
 {
     it("finds fixtures", () =>
@@ -42,6 +48,7 @@ describe("golden character fixtures", () =>
 
             expect(report!.details).toEqual([]);
             expect(report!.status).toBe("pass");
-        });
+
+        }, FIXTURE_TIMEOUT);
     }
 });
