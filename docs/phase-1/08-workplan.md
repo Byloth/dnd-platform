@@ -219,6 +219,8 @@ The owner reviewed the wizard's steps on 2026-11-06 and asked for it before the 
 - **M1.Wd**: every choice in the step that makes it; the new Spells step; Other choices only when needed.
 - **M1.We**: the custom background (SRD 5.1's rule), an additive field of the character document.
 
+Order (owner, 2026-11-10): Wa, Wc, Wd, We, then Wb, whose famous characters fall back to custom backgrounds.
+
 Done: the tasks and tests of [14-wizard-steps-revision.md](14-wizard-steps-revision.md); the twelve classes still reach the review with nothing open.
 
 ### M1.8 — Working directory, accessibility, newcomer test (≈ 3 sessions)

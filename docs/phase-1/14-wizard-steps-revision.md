@@ -66,35 +66,34 @@ Taken by the owner on 2026-11-06:
 - The manifest and the credits page carry the notice: an unofficial fan work, not affiliated with or endorsed by the owners of the characters, the names belonging to their owners; no image and no text taken from the works.
 - The extension is a preference (`stores/preferences.ts`, on by default). When on, step 1 lists the package's ideas only; when off, the SRD's. If the package cannot be fetched, the SRD's ideas are shown.
 
-The list, chosen with the owner on 2026-11-06, by these rules:
+The list, chosen with the owner on 2026-11-06 and 2026-11-10, by these rules:
 
-- **One character per saga.**
+- **One character per saga** (Captain America and Ghost Rider, both Marvel, are the one exception the owner accepted).
 - **What makes the character unique must live in the rules, not only in their manner.** A character whose essence is outside D&D (Goku's teleport and energy waves, Thanos's cosmic power, Super Mario's power-ups) is left out.
 - **The species adds fidelity**: where the character's story already has another species, the build uses it.
-- **It works with the SRD alone**: one subspecies per species (hill dwarf, high elf, lightfoot halfling, rock gnome) and one subclass per class.
+- **It works with the SRD alone, and is truer with the right package**: the subclass and the background are a preference with a fallback (below). The SRD has one subspecies per species and one subclass per class.
 
-| Class | Character (saga) | Species | Why it is them, in the rules |
-|---|---|---|---|
-| Barbarian (Berserker) | Shrek | Half-orc | big, green, scares the villagers (the half-orc's Intimidation); gets back up at 1 hit point; rage, and no armour in his swamp |
-| Bard (Lore) | Lupin III | Human | the disguise (*disguise self*) and the charm (*charm person*) are bard spells; Deception and thieves' tools |
-| Cleric (Life) | Shadowheart (Baldur's Gate 3) | Half-elf | a cleric with armour and faith, from a game that is D&D itself |
-| Druid (Land) | Getafix (Asterix; Panoramix in Italian) | Human | *the* druid; the golden sickle is a druid's weapon; the magic potion is *enhance ability* (Bull's Strength, from level 3), the berries *goodberry*; the herbalism kit from a custom background |
-| Fighter (Champion) | Link (The Legend of Zelda) | High elf | pointed ears, every weapon, shield and bow; the high elf's cantrip for his bit of magic |
-| Monk (Open Hand) | Kenshiro (Fist of the North Star) | Human | pressure points are Stunning Strike (level 5); "you are already dead" is the Open Hand's Quivering Palm (level 17) |
-| Paladin (Devotion) | Captain America (Marvel) | Human | the oath is his code; the Protection fighting style (level 2) is the shield raised for a friend |
-| Ranger (Hunter) | Geralt of Rivia (The Witcher) | Human | favoured enemy (monsters), tracking, fighting with two weapons; the signs as ranger spells |
-| Rogue (Thief) | Ezio Auditore (Assassin's Creed) | Human | sneak attack, the hidden blade, climbing (Second-Story Work, level 3) |
-| Sorcerer (Draconic, white) | Elsa (Frozen) | Human | a sorcerer is born with magic and struggles to master it, which is her story; the cold from a white dragon ancestor |
-| Warlock (Fiend) | Ghost Rider (Marvel's second, see below) | Tiefling | a pact with a devil; hellfire: the tiefling resists fire and casts *hellish rebuke* |
-| Wizard (Evocation) | Frieren (Frieren: Beyond Journey's End) | High elf | she spends centuries collecting spells, as a wizard copies every spell found into the spellbook; an elf lives for centuries; her Zoltraak, the killing magic, is an evocation |
+| Class | Character (saga) | Species | Subclass: preferred → fallback | Background: preferred → fallback | Why it is them, in the rules |
+|---|---|---|---|---|---|
+| Barbarian | Shrek | Half-orc | Berserker | Hermit → custom "Swamp hermit" | big, green, scares the villagers (the half-orc's Intimidation); gets back up at 1 hit point; rage, and no armour in his swamp |
+| Bard | Lupin III | Human | Lore | Charlatan (a false identity) → custom "Gentleman thief" | the disguise (*disguise self*) and the charm (*charm person*) are bard spells; Deception, thieves' tools; his pistol is not in the rules (no firearms in the SRD) |
+| Cleric | Shadowheart (Baldur's Gate 3; Cuorescuro in Italian) | Half-elf | Trickery → Life | Acolyte (as in the game) | a cleric of a dark goddess: the Trickery domain's disguises and duplicate; with the SRD alone, Life |
+| Druid | Getafix (Asterix; Panoramix in Italian) | Human | Land (forest) | Sage → Acolyte | *the* druid; the golden sickle and the herbalism kit are a druid's own; the magic potion is *enhance ability* (Bull's Strength, from level 3), the berries *goodberry* |
+| Fighter | Geralt of Rivia (The Witcher) | Half-elf | Eldritch Knight → Champion | Outlander → custom "Witcher" | the half-elf's darkvision is his cat's eyes, its resistance to charm a witcher's; the signs are the Eldritch Knight's spells (Aard *thunderwave*, Igni *burning hands*, Quen *shield*, from level 3); as a Champion, no signs |
+| Monk | Kenshiro (Fist of the North Star) | Human | Open Hand | Folk Hero → custom "Successor of Hokuto" | pressure points are Stunning Strike (level 5); "you are already dead" is the Open Hand's Quivering Palm (level 17) |
+| Paladin | Captain America (Marvel) | Human | Devotion | Soldier → custom "Super-soldier" | the oath is his code; the Protection fighting style (level 2) is the shield raised for a friend; the thrown shield is an improvised weapon (low damage) |
+| Ranger | Legolas (The Lord of the Rings) | High elf | Hunter | Noble (a prince of the woodland elves) → custom "Elven prince" | the archer: the Archery fighting style (level 2); the elf's keen senses (Perception) |
+| Rogue | Ezio Auditore (Assassin's Creed) | Human | Assassin → Thief | Criminal (the Brotherhood as contacts) → custom "Florentine assassin" | sneak attack, the hidden blade; Assassinate (level 3), or climbing as a Thief (Second-Story Work, level 3) |
+| Sorcerer | Elsa (Frozen) | Human | Draconic (white dragon, cold) | Noble (a queen) → custom "Queen of Arendelle" | a sorcerer is born with magic and struggles to master it, which is her story; at level 1 only *ray of frost*, the rest of the ice later (*wall of ice* is the wizard's only); the dragon's scales told as ice |
+| Warlock | Ghost Rider (Marvel) | Tiefling | Fiend | Entertainer (the stunt rider) → custom "Stuntman" | a pact with a devil; hellfire: the tiefling resists fire and casts *hellish rebuke* (level 3); the chain as the Pact of the Blade's weapon (level 3); no motorbike in the rules |
+| Wizard | Frieren (Frieren: Beyond Journey's End) | High elf | Evocation | Sage → custom "Collector of spells" | she spends centuries collecting spells, as a wizard copies every spell found into the spellbook; an elf lives for centuries; her Zoltraak, the killing magic, is an evocation |
 
-Seven humans, two high elves (Link, Frieren), a half-elf, a half-orc and a tiefling. Notes:
+Six humans, two high elves (Legolas, Frieren), two half-elves (Shadowheart, Geralt), a half-orc and a tiefling. Notes:
 
-- **Shadowheart** is a Trickery cleric in Baldur's Gate 3; Trickery is not in the SRD, so the build takes Life. With the owner's Player's Handbook loaded the player can switch.
-- **Captain America and Ghost Rider are both Marvel**, against the first rule; to settle (the owner's). The alternatives for the warlock: Faust, Constantine; for the paladin: Uther the Lightbringer (Warcraft).
-- Left for swaps: Gimli (dwarf fighter, the dwarf's training with axes), Bilbo Baggins (lightfoot halfling rogue), the Dragonborn of Skyrim (dragonborn sorcerer, the breath weapon as the Shout), Hermione Granger and Gandalf (wizard), Beast Boy and Malfurion Stormrage (druid), Spock (half-elf). No well-known gnome was found.
-- **The path:** at level 1 almost nobody is "them" yet (Wild Shape at 2, most subclasses at 3, the signature features much later). Proposed: an optional, additive field of the archetype listing the levels that make the character (for example "level 17, Quivering Palm: 'you are already dead'"), shown on the idea's card.
-- **The background:** with the Acolyte alone, Geralt, Ezio and Lupin would all be acolytes. They become faithful with the custom background (task 5: "Witcher" with Survival and an herbalism kit, "Gentleman thief" with Deception and thieves' tools); proposed: the archetype may recommend a custom background, and task 5 comes before task 2.
+- **Preference with a fallback** (owner, 2026-11-10): an archetype may name, in order, the subclasses and backgrounds it prefers; the first one loaded wins, so Shadowheart is a Trickery cleric with the owner's Player's Handbook and a Life cleric without it. The archetype schema widens `recommends.subclass` and `recommends.background` to accept an ordered list (additive, format v0); a custom background is a valid last entry (task 5). The idea's card says what changes when the package is loaded.
+- Left for swaps: Aragorn (human ranger, the owner's second choice), Link (high elf ranger or fighter), Mercy and Zelda (cleric), Gimli (dwarf fighter), Bilbo Baggins (lightfoot halfling rogue), the Dragonborn of Skyrim (dragonborn sorcerer), Hermione Granger and Gandalf (wizard), Beast Boy and Malfurion Stormrage (druid), Spock (half-elf). No well-known gnome was found.
+- **The path:** at level 1 almost nobody is "them" yet (Wild Shape at 2, most subclasses at 3, the signature features much later). Proposed: an optional, additive field of the archetype listing the levels that make the character (for example "level 17, Quivering Palm: 'you are already dead'"), shown on the idea's card. The limits above (Captain America's thrown shield, Elsa's ice, Lupin's pistol) are told there too.
+- **Order:** the fallback to a custom background needs task 5, so task 5 comes before task 2.
 
 ### The packages page: "Extensions"
 
@@ -165,12 +164,12 @@ Seven humans, two high elves (Link, Frieren), a half-elf, a half-orc and a tiefl
 ## Tasks
 
 1. **Step 0, the recommended deal, the personality accordions** (M1.Wa): the conditional steps' mechanism, its fallback, and the three fixes; tests.
-2. **Step 1 and the extension** (M1.Wb): the question, the gallery, the `fan-heroes` packages in both languages, the preference, the "Extensions" section, the credits; tests.
+2. **Step 1 and the extension** (M1.Wb): the question, the gallery, the archetype's ordered preferences (subclass and background, additive), the `fan-heroes` packages in both languages, the preference, the "Extensions" section, the credits; tests.
 3. **Option cards** (M1.Wc): the composer's new kinds with goldens and `dnd show`, the descriptions in srd51 and srd51-it, the chips and "Details", the folding and its focus; tests.
 4. **Choices where they are made and Spells** (M1.Wd): `choicesOfStep`, the steps' groups, `StepSpells.vue`, Other choices only when needed, `stepDone`, the review and the sheet's links; the twelve-class flow answering in every step; tests.
 5. **Custom background** (M1.We): the schema field, the engine, validation, export and import, the wizard, the sheet and the PDF; fixtures equal between the CLI and the browser.
 
-Each part updates the roadmap page and its "As built" note here.
+Order (owner, 2026-11-10): 1, 3, 4, 5, then 2, since the famous characters fall back to custom backgrounds and prefer subclasses and backgrounds of other packages. Each part updates the roadmap page and its "As built" note here.
 
 ## Tests
 
@@ -185,6 +184,6 @@ Each part updates the roadmap page and its "As built" note here.
 
 ## Open points
 
-- The package's name; Captain America or Ghost Rider (both Marvel); the archetype's path field; task 5 before task 2 (the owner's).
+- The package's name; the archetype's path field (the owner's).
 - The "Your character so far" panel (the owner's).
 - Whether the extension is offered to an existing player as a one-time notice, or only found on the packages page.
