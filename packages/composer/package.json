@@ -17,9 +17,11 @@
   "scripts": {
     "build": "tsc --build"
   },
+  "dependencies": {
+    "@byloth/dnd-platform-schema": "workspace:*"
+  },
   "devDependencies": {
     "@byloth/dnd-platform-engine": "workspace:*",
-    "@byloth/dnd-platform-loader": "workspace:*",
-    "@byloth/dnd-platform-schema": "workspace:*"
+    "@byloth/dnd-platform-loader": "workspace:*"
   }
 }

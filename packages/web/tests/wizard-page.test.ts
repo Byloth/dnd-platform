@@ -562,6 +562,51 @@ describe("the creation wizard", () =>
             expect(group(fighter, "Fighter", "Skills")).toBeDefined();
         });
 
+        it("builds a background of the player's own by the SRD's rule, and the sheet names it (doc 14)", async () =>
+        {
+            const wrapper = await choices("sword-and-shield", "background");
+            // The idea chose the Acolyte: its list is folded until "Change".
+            byName(wrapper, "Change: Background")!.click();
+            await settle();
+            await wrapper.find("input[value='custom']").setValue(true);
+            await settle();
+            expect(useWizardStore().character?.choices.background).toBeUndefined();
+            expect(stepDone("background")).toBe(false);
+
+            await wrapper.find(".custom-background__input").setValue("Monster hunter");
+            const part = (title: string) => group(wrapper, "Custom background", title);
+            await part("Skills").find("input[value='survival']")
+                .setValue(true);
+            await part("Skills").find("input[value='investigation']")
+                .setValue(true);
+            await part("Tools or languages").find("input[value='language:giant']")
+                .setValue(true);
+            await part("Tools or languages").find("input[value='language:elvish']")
+                .setValue(true);
+            await part("Feature").find("input[value='srd51.feature.acolyte.shelter-of-the-faithful']")
+                .setValue(true);
+            await part("Equipment").find("input[value='srd51.background.acolyte']")
+                .setValue(true);
+            await settle();
+
+            expect(useWizardStore().character?.choices.customBackground).toEqual({
+                name: "Monster hunter",
+                skills: ["survival", "investigation"],
+                tools: [],
+                languages: ["giant", "elvish"],
+                feature: "srd51.feature.acolyte.shelter-of-the-faithful",
+                equipment: "srd51.background.acolyte"
+            });
+            expect(stepDone("background")).toBe(true);
+
+            const sheet = useEngine().sheet(useWizardStore().character!, useWizardStore().sources, { language: "en" })
+                .sheet;
+            expect(sheet.proficiencies.filter((p) => p.type === "skill").map((p) => p.item))
+                .toEqual(expect.arrayContaining(["survival", "investigation"]));
+            expect(sheet.warnings.filter((w) => w.code === "W_UNANSWERED_CHOICE" && w.path?.includes("custom")))
+                .toEqual([]);
+        });
+
         it("offers Spells to a caster only, and Other choices only when something is left for it", async () =>
         {
             await useWizardStore().start();

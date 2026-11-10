@@ -13,7 +13,7 @@
             status: "now",
             icon: "circle-check",
             items: [
-                "creation", "ideas", "sheet", "editing", "files", "folder", "pdf", "updates",
+                "creation", "ideas", "background", "sheet", "editing", "files", "folder", "pdf", "updates",
                 "expert", "compendium", "settings", "languages", "app", "books"
             ]
         },

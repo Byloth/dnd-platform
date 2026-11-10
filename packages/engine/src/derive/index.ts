@@ -26,6 +26,7 @@ import { collectFeatures, noteExcluded } from "./features.js";
 import type { ActiveFeature, PendingChoice } from "./features.js";
 import { ValueGraph } from "./values.js";
 import type { PendingContribution, TableEntry } from "./values.js";
+import { CUSTOM_BACKGROUND } from "@byloth/dnd-platform-schema";
 
 const ALWAYS_SECTIONS = [
     "identity", "core", "abilities", "saves", "skills", "combat", "features", "equipment", "personality", "conditions",
@@ -273,6 +274,15 @@ export function derive(character: Character, set: PackageSet, options: DeriveOpt
         const source = { package: pkg, entity: background.id };
         grantsOf(background.id, background.proficiencies, source, col, answers);
         languagesOf(background.id, background.languages, source, col, answers);
+    }
+    // A background of the player's own, by the SRD's rule: its lists as they were chosen, no choice left open.
+    const ownBackground = character.choices.customBackground;
+    if (ownBackground && !background)
+    {
+        const source = { package: "", entity: CUSTOM_BACKGROUND };
+        const grants = { skills: ownBackground.skills ?? [], tools: ownBackground.tools ?? [] };
+        grantsOf(CUSTOM_BACKGROUND, grants, source, col, answers);
+        languagesOf(CUSTOM_BACKGROUND, { fixed: ownBackground.languages ?? [] }, source, col, answers);
     }
     // Level and class gates on proficiency grants are known before any proficiency is: evaluate them now,
     // with no proficiencies in the facts; anything that needs them is re-evaluated in pass 2.

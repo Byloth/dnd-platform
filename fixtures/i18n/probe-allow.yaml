@@ -4,6 +4,7 @@
 # Words the two languages share: a text made only of these (and numbers) is not English.
 words:
   - Base
+  - Background
   - Ranger
   - Warlock
   - Halfling

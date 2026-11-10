@@ -11,6 +11,7 @@
  * content has no blocks.
  */
 
+import { CUSTOM_BACKGROUND } from "@byloth/dnd-platform-schema";
 import type { LocalizedString } from "@byloth/dnd-platform-schema";
 import type { PackageSet } from "@byloth/dnd-platform-loader";
 import type {
@@ -762,6 +763,8 @@ class Composer
     private entityName(id: string | undefined): string
     {
         if (id === undefined) { return ""; }
+        // A background of the player's own is no package's entity: it goes by the name the player gave it.
+        if (id === CUSTOM_BACKGROUND) { return this._options.character.choices.customBackground?.name ?? ""; }
         const data = this._options.packages.entities.get(id)?.data as { name?: Text } | undefined;
 
         return data?.name ? this.text(data.name) : id.split(".").pop() ?? id;
@@ -885,7 +888,9 @@ class Composer
             ...(c.subclass ? { subclass: this.entityName(c.subclass) } : {})
         }));
         const classParts = classes.map((c) => `${c.name} ${c.levels}${c.subclass ? `, ${c.subclass}` : ""}`);
-        const background = this.entityName(choices.background);
+        const background = choices.background ?
+            this.entityName(choices.background) :
+            (choices.customBackground?.name ?? "");
         const alignment = this.alignmentName(choices.alignment);
         const parts = [species, ...classParts, background, alignment].filter((p) => p !== "");
 
@@ -897,7 +902,7 @@ class Composer
             ...(choices.species ? { species: this.entityName(choices.species) } : {}),
             ...(choices.subspecies ? { subspecies: this.entityName(choices.subspecies) } : {}),
             classes: classes,
-            ...(choices.background ? { background: background } : {}),
+            ...(background ? { background: background } : {}),
             ...(alignment ? { alignment: alignment } : {}),
             ruleset: sheet.meta.ruleset,
             packages: sheet.meta.packages.map((p) => ({ id: p.id, version: p.version }))

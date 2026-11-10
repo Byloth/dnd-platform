@@ -447,7 +447,19 @@
     "background": {
       "purpose": "Newcomer copy: what the step is for.",
       "consequence": "Newcomer copy: what the choice changes.",
-      "recommendation": "Newcomer copy: what to choose when unsure."
+      "recommendation": "Newcomer copy: what to choose when unsure.",
+      "custom": {
+        "card": "Title of the card that starts a background of the player's own (SRD \"Customizing a Background\").",
+        "cardText": "Summary of that card.",
+        "title": "Heading of the custom background's form.",
+        "about": "Newcomer line under that heading.",
+        "name": "Label of the field for the background's name.",
+        "nameHint": "Examples under that field.",
+        "toolsOrLanguages": "Title of the choice of two among tools and languages.",
+        "feature": "Title of the choice of a background's feature.",
+        "equipment": "Title of the choice of a background's equipment package.",
+        "from": "Fact on a feature card: the background it comes from; keep {name}."
+      }
     },
     "abilities": {
       "purpose": "Newcomer copy: what the step is for.",
@@ -757,6 +769,10 @@
       "ideas": {
         "name": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature.",
         "text": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature."
+      },
+      "background": {
+        "name": "Roadmap item: the custom background.",
+        "text": "Roadmap item text: the custom background."
       },
       "sheet": {
         "name": "The Roadmap page: plain words for non-technical players, no jargon; one short sentence per feature.",

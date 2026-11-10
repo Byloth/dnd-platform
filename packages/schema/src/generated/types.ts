@@ -1168,6 +1168,23 @@ export interface Character {
             }[]
         ];
         background?: string;
+        /**
+         * A background of the player's own, by the SRD's rule "Customizing a Background" (docs/phase-1/14-wizard-steps-revision.md), in place of `background`: two skills, a total of two tools and languages, a feature taken from a background, and a background's equipment package.
+         */
+        customBackground?: {
+            name: string;
+            skills?: string[];
+            tools?: string[];
+            languages?: string[];
+            /**
+             * A background feature, by its id.
+             */
+            feature?: string;
+            /**
+             * The background whose equipment package the character takes.
+             */
+            equipment?: string;
+        };
         abilityScores?: {
             method: "standard-array" | "point-buy" | "roll" | "manual";
             base: {

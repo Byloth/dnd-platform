@@ -1,0 +1,8 @@
+# Human Fighter 1 with a background of the player's own (SRD 5.1, "Customizing a Background"): Survival and
+# Investigation from it, the herbalism kit and Giant, and the Acolyte's feature.
+values:
+  ability.int: 10            # 9 + 1 (human)
+  ability.wis: 12            # 11 + 1
+  skill.survival: 3          # WIS 1 + proficiency 2 (the custom background)
+  skill.investigation: 2     # INT 0 + proficiency 2 (the custom background)
+  skill.athletics: 5         # STR 3 + proficiency 2 (the fighter)

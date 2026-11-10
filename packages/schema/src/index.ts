@@ -23,6 +23,12 @@ export type {
 
 export const FORMAT_VERSION = 0 as const;
 
+/**
+ * The owner id of a background of the player's own (`choices.customBackground`; see
+ * docs/phase-1/14-wizard-steps-revision.md): no package's entity, so a sheet names it by the character's own words.
+ */
+export const CUSTOM_BACKGROUND = "custom-background";
+
 export const PACKAGE_KINDS = ["base", "extension", "translation"] as const;
 export type PackageKind = (typeof PACKAGE_KINDS)[number];
 

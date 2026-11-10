@@ -26,6 +26,7 @@ import type { Diagnostic, Diagnostics, PackageSet, ResolvedEntity } from "@bylot
 
 export { assertNever, effectKind, playEffectKind } from "./effects.js";
 export { derive, explain } from "./derive/index.js";
+export { CUSTOM_BACKGROUND } from "@byloth/dnd-platform-schema";
 export { evaluateFormula, formulaReferences } from "./formula/evaluate.js";
 export type { DiceExpression, FormulaEnvironment, FormulaValue } from "./formula/evaluate.js";
 export { evaluateWhen } from "./conditions/evaluate.js";

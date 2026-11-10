@@ -23,7 +23,7 @@ const SRD = "srd51";
 /** Answers every open choice of a step that lists its options, with the first ones. */
 function answerAll(step: Parameters<typeof choicesOfStep>[0]): void
 {
-    for (const c of choicesOfStep(step).filter((c) => !c.answered))
+    for (const c of choicesOfStep(step).filter((open) => !open.answered))
     {
         useWizardStore().answer(c.key, c.options.slice(0, c.count), c.of);
     }

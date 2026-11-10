@@ -138,7 +138,13 @@ export function probeLanguage(options: ProbeOptions): ProbeFinding[]
         for (const { text, path } of translated)
         {
             if (!same.has(text) || !isWords(text) || allowed.has(text) || sharedOnly(text)) { continue; }
-            if (text === character.name) { continue; }
+            // The player's own words (the character's name, the name of a background of their own) are not the
+            // interface's: a text is left alone when what remains without them is not a text of its own.
+            const own = [character.name, character.choices.customBackground?.name].filter((o) => o !== undefined);
+            const rest = own.reduce((left, words) => (words ? left.replace(words, "") : left), text)
+                .replace(/[\s—–:-]+/g, " ")
+                .trim();
+            if ((rest !== text) && (!rest || !isWords(rest) || allowed.has(rest) || sharedOnly(rest))) { continue; }
             findings.push({ text: text, character: directory.split("/").pop()!, path: path });
         }
     }

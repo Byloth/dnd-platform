@@ -77,6 +77,10 @@ importers:
         version: 24.19.2
 
   packages/composer:
+    dependencies:
+      '@byloth/dnd-platform-schema':
+        specifier: workspace:*
+        version: link:../schema
     devDependencies:
       '@byloth/dnd-platform-engine':
         specifier: workspace:*
@@ -84,9 +88,6 @@ importers:
       '@byloth/dnd-platform-loader':
         specifier: workspace:*
         version: link:../loader
-      '@byloth/dnd-platform-schema':
-        specifier: workspace:*
-        version: link:../schema
 
   packages/content/srd51: {}
 

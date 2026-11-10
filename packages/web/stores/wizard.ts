@@ -65,6 +65,7 @@ export interface WizardDraft
 }
 
 type Choices = Character["choices"];
+type CustomBackground = NonNullable<Choices["customBackground"]>;
 type Method = NonNullable<Choices["abilityScores"]>["method"];
 
 /** A rolled total: three to eighteen (4d6, the lowest dropped). */
@@ -397,6 +398,11 @@ export const useWizardStore = defineStore("wizard", () =>
             else if (theirs(entry.subclass)) { uses.push({ kind: "subclass", id: entry.subclass }); }
         }
         if (theirs(choices.background)) { uses.push({ kind: "background", id: choices.background }); }
+        // A background of the player's own uses a package's feature and equipment package.
+        for (const id of [choices.customBackground?.feature, choices.customBackground?.equipment])
+        {
+            if (theirs(id)) { uses.push({ kind: "background", id: id }); }
+        }
 
         const roots = uses.map((u) => u.id);
         for (const [key, values] of Object.entries(choices.answers ?? {}))
@@ -431,7 +437,9 @@ export const useWizardStore = defineStore("wizard", () =>
             .map((entry) => (used("subclass", entry.subclass) ? defined({ ...entry, subclass: undefined }) : entry));
         const answers = Object.entries(choices.answers ?? {}).filter(([key]) => !used("answer", key));
         const items = uses.some((u) => u.kind === "item");
-        const regrants = used("class", choices.classes?.[0]?.class) || used("background", choices.background) || items;
+        const custom = choices.customBackground;
+        const regrants = used("class", choices.classes?.[0]?.class) || used("background", choices.background) ||
+            used("background", custom?.equipment) || items;
 
         character.value = {
             ...current,
@@ -443,6 +451,13 @@ export const useWizardStore = defineStore("wizard", () =>
                     choices.subspecies,
                 classes: classes.length ? classes as NonNullable<Choices["classes"]> : undefined,
                 background: used("background", choices.background) ? undefined : choices.background,
+                customBackground: custom ?
+                    defined({
+                        ...custom,
+                        feature: used("background", custom.feature) ? undefined : custom.feature,
+                        equipment: used("background", custom.equipment) ? undefined : custom.equipment
+                    }) :
+                    undefined,
                 answers: answers.length ? Object.fromEntries(answers) : undefined,
                 equipment: (keptEquipment.value && items) ?
                     choices.equipment?.filter((e) => !used("item", e.item)) :
@@ -603,13 +618,35 @@ export const useWizardStore = defineStore("wizard", () =>
     {
         _choices((choices) => (choices.background === id ?
             choices :
-            {
+            defined({
                 ...choices,
                 background: id,
+                customBackground: undefined,
                 answers: _withoutAnswersOf(choices.answers, [choices.background])
-            }));
+            })));
         _resetEquipment("background");
         _rebuildEquipment();
+    };
+
+    /**
+     * A background of the player's own (doc 14, the SRD's "Customizing a Background"), in place of a package's:
+     * the change is merged into it; choosing it drops the background and its answers. A new equipment package
+     * rebuilds the background's equipment.
+     */
+    const chooseCustomBackground = (change: Partial<CustomBackground> = {}): void =>
+    {
+        const before = character.value?.choices.customBackground;
+        _choices((choices) => defined({
+            ...choices,
+            background: undefined,
+            customBackground: defined({ name: "", ...choices.customBackground, ...change }) as CustomBackground,
+            answers: _withoutAnswersOf(choices.answers, [choices.background])
+        }));
+        if (!before || (change.equipment !== undefined && change.equipment !== before.equipment))
+        {
+            _resetEquipment("background");
+            _rebuildEquipment();
+        }
     };
 
     const _scores = (change: (scores: NonNullable<Choices["abilityScores"]>) => Choices["abilityScores"]): void =>
@@ -1008,6 +1045,7 @@ export const useWizardStore = defineStore("wizard", () =>
         chooseSubspecies,
         chooseClass,
         chooseBackground,
+        chooseCustomBackground,
         recommendedOrder,
         chooseMethod,
         assign,

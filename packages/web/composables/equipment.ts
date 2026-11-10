@@ -86,7 +86,10 @@ export function useEquipment(set: PackageSet, language: string)
     /** The class's `startingEquipment` or the background's `equipment`. */
     const grantOf = (character: Character, source: Source): EquipmentGrant | undefined =>
     {
-        const id = source === "class" ? character.choices.classes?.[0]?.class : character.choices.background;
+        // A background of the player's own takes the equipment package of the background it names.
+        const id = source === "class" ?
+            character.choices.classes?.[0]?.class :
+            (character.choices.background ?? character.choices.customBackground?.equipment);
         type Holder = Record<string, EquipmentGrant | undefined>;
         const data = id ? set.entities.get(id)?.data as Holder | undefined : undefined;
 

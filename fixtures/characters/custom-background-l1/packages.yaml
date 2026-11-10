@@ -1,0 +1,3 @@
+packages:
+  - packages/content/srd51
+requires: [srd51]

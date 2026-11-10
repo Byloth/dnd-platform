@@ -5,6 +5,7 @@ import type {
 } from "@byloth/dnd-platform-schema";
 
 import type { ContributionSource, Diagnostic, FeatureOrigin, PackageSet, ResolvedEntity } from "../index.js";
+import { CUSTOM_BACKGROUND } from "@byloth/dnd-platform-schema";
 
 /**
  * DEC-20: an entity excluded by the selection stays loaded and keeps
@@ -186,6 +187,13 @@ export function collectFeatures(character: Character, set: PackageSet): Collecte
     if (background)
     {
         addFeatures(background.data.features, "background", background.data.id, background.pkg, set, out);
+    }
+    // A background of the player's own takes one feature of a background, by its id.
+    else if (choices.customBackground?.feature)
+    {
+        const feature = set.entities.get(choices.customBackground.feature);
+        addFeatures([choices.customBackground.feature], "background", CUSTOM_BACKGROUND, feature?.package ?? "", set,
+            out);
     }
 
     // Feats: every answer that names a feat entity.

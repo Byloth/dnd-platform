@@ -447,7 +447,19 @@
     "background": {
       "purpose": "Il background è ciò che il tuo personaggio faceva prima di diventare un avventuriero.",
       "consequence": "Aggiunge abilità, lingue o strumenti, un po' di equipaggiamento e un privilegio.",
-      "recommendation": "Scegli la storia che ti piace: conta meno della specie e della classe."
+      "recommendation": "Scegli la storia che ti piace: conta meno della specie e della classe.",
+      "custom": {
+        "card": "Personalizzato",
+        "cardText": "Costruiscilo tu secondo le regole: due abilità, due strumenti o linguaggi, un privilegio e un equipaggiamento.",
+        "title": "Background personalizzato",
+        "about": "L'SRD ti permette di creare un background tuo: scegli quello che si adatta alla storia che immagini.",
+        "name": "Il nome del tuo background",
+        "nameHint": "Per esempio: Cacciatore di mostri, Ladro gentiluomo.",
+        "toolsOrLanguages": "Strumenti o linguaggi",
+        "feature": "Privilegio",
+        "equipment": "Equipaggiamento",
+        "from": "Da: {name}"
+      }
     },
     "abilities": {
       "purpose": "I punteggi di caratteristica dicono quanto il tuo personaggio è forte, agile, resistente, intelligente, saggio e affascinante.",
@@ -757,6 +769,10 @@
       "ideas": {
         "name": "Idee da cui partire",
         "text": "Scegli un'idea di personaggio e ogni passo si compila da solo, sempre modificabile."
+      },
+      "background": {
+        "name": "Un background tutto tuo",
+        "text": "Crea un background tuo secondo le regole ufficiali: le abilità, i linguaggi, il privilegio e l'equipaggiamento che servono alla tua storia."
       },
       "sheet": {
         "name": "Una scheda che si spiega da sola",

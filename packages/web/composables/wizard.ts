@@ -1,6 +1,6 @@
 import { composeEntry } from "@byloth/dnd-platform-composer";
 import type { EntryView } from "@byloth/dnd-platform-composer";
-import type { ChoiceView } from "@byloth/dnd-platform-engine";
+import type { Character, ChoiceView } from "@byloth/dnd-platform-engine";
 
 import { choiceStep } from "@/composables/choice-steps";
 import { preferredUnits } from "@/composables/sheet";
@@ -53,6 +53,10 @@ function _sheetChoices(): readonly ChoiceView[]
         .sheet.choices;
 }
 
+/** How many skills a background of the player's own gives, and how many tools and languages together (SRD 5.1). */
+export const CUSTOM_SKILLS = 2;
+export const CUSTOM_TOOLS_OR_LANGUAGES = 2;
+
 /** The choices the draft's sheet asks in a step (docs/phase-1/14-wizard-steps-revision.md, point 6). */
 export function choicesOfStep(step: StepId): readonly ChoiceView[]
 {
@@ -72,6 +76,17 @@ function _resolves(id: string | undefined, type: "species" | "class" | "subclass
     const entity = id === undefined ? undefined : useWizardStore().packageSet?.entities.get(id);
 
     return entity?.type === type;
+}
+
+/** The SRD's rule: a name, two skills, a total of two tools and languages, a feature and an equipment package. */
+function _customBackgroundDone(custom: NonNullable<Character["choices"]["customBackground"]>): boolean
+{
+    const set = useWizardStore().packageSet;
+
+    return Boolean(custom.name.trim()) && ((custom.skills?.length ?? 0) === CUSTOM_SKILLS) &&
+        (((custom.tools?.length ?? 0) + (custom.languages?.length ?? 0)) === CUSTOM_TOOLS_OR_LANGUAGES) &&
+        (set?.entities.get(custom.feature ?? "")?.type === "feature") &&
+        _resolves(custom.equipment, "background");
 }
 
 /** Whether a step has what it asks for; the review never is: saving it leaves the wizard. */
@@ -101,7 +116,10 @@ export function stepDone(step: StepId): boolean
                 (choices.classes ?? []).every((c) => _resolves(c.class, "class") &&
                     ((c.subclass === undefined) || _resolves(c.subclass, "subclass"))) &&
                     _answered("class");
-        case "background": return _resolves(choices.background, "background") && _answered("background");
+        case "background":
+            return choices.customBackground ?
+                _customBackgroundDone(choices.customBackground) :
+                _resolves(choices.background, "background") && _answered("background");
         case "abilities":
         {
             const base = choices.abilityScores?.base ?? {};

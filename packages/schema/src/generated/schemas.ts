@@ -260,6 +260,49 @@ export const SCHEMAS = {
                     "background": {
                         "$ref": "common.schema.json#/$defs/entityId"
                     },
+                    "customBackground": {
+                        "type": "object",
+                        "description": "A background of the player's own, by the SRD's rule \"Customizing a Background\" (docs/phase-1/14-wizard-steps-revision.md), in place of `background`: two skills, a total of two tools and languages, a feature taken from a background, and a background's equipment package.",
+                        "properties": {
+                            "name": {
+                                "type": "string",
+                                "minLength": 1
+                            },
+                            "skills": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "common.schema.json#/$defs/slug"
+                                },
+                                "uniqueItems": true
+                            },
+                            "tools": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "common.schema.json#/$defs/slug"
+                                },
+                                "uniqueItems": true
+                            },
+                            "languages": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "common.schema.json#/$defs/slug"
+                                },
+                                "uniqueItems": true
+                            },
+                            "feature": {
+                                "$ref": "common.schema.json#/$defs/entityId",
+                                "description": "A background feature, by its id."
+                            },
+                            "equipment": {
+                                "$ref": "common.schema.json#/$defs/entityId",
+                                "description": "The background whose equipment package the character takes."
+                            }
+                        },
+                        "required": [
+                            "name"
+                        ],
+                        "additionalProperties": false
+                    },
                     "abilityScores": {
                         "type": "object",
                         "properties": {

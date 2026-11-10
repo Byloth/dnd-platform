@@ -291,6 +291,24 @@ describe.each(LANGUAGES)("accessibility, in %s", (language) =>
         await useWizardStore().discard();
     });
 
+    it("the creation wizard's custom background (doc 14)", async () =>
+    {
+        await speak(language);
+        await useWizardStore().discard();
+        await useWizardStore().start();
+        useWizardStore().chooseArchetype(null);
+        useWizardStore().chooseCustomBackground({ name: "Monster hunter" });
+        const wrapper = await render(WizardPage, { route: "/characters/new?step=background" });
+        for (let i = 0; (i < 50) && !wrapper.find(".custom-background").exists(); i += 1)
+        {
+            await new Promise((done) => setTimeout(done, 10));
+            await flushPromises();
+        }
+        expect(wrapper.findAll(".custom-background .choice-group").length).toBe(4);
+        await expectAccessible(wrapper);
+        await useWizardStore().discard();
+    });
+
     it.each(["sword-and-shield", "evoker", "steadfast-healer"])("the wizard's step 7 for the %s", async (archetype) =>
     {
         await speak(language);

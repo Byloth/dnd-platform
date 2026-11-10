@@ -38,7 +38,7 @@
 
     const background = computed(() =>
     {
-        const id = character.value?.choices.background;
+        const id = character.value?.choices.background ?? character.value?.choices.customBackground?.equipment;
         const entity = id ? wizard.packageSet?.entities.get(id) : undefined;
         const data = entity?.data as { equipment?: EquipmentGrant } | undefined;
 

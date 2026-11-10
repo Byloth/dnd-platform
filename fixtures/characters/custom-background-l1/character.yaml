@@ -1,0 +1,33 @@
+formatVersion: 0
+id: fixture-custom-background-l1
+name: Wandering Blade
+ruleset: { id: srd51, version: 0.10.0 }
+packages:
+  - { id: srd51, version: 0.10.0 }
+choices:
+  species: srd51.species.human
+  classes:
+    - { class: srd51.class.fighter, levels: 1 }
+  # A background of the player's own, by the SRD's "Customizing a Background" (docs/phase-1/14-wizard-steps-revision.md):
+  # two skills, two among tools and languages, the Acolyte's feature and its equipment package.
+  customBackground:
+    name: Monster hunter
+    skills: [survival, investigation]
+    tools: [herbalism-kit]
+    languages: [giant]
+    feature: srd51.feature.acolyte.shelter-of-the-faithful
+    equipment: srd51.background.acolyte
+  abilityScores:
+    method: manual
+    base: { str: 15, dex: 13, con: 14, int: 9, wis: 11, cha: 9 }
+  answers:
+    "srd51.class.fighter#skills": [athletics, perception]
+    "srd51.feature.fighter.fighting-style#fighting-style": [dueling]
+    "srd51.species.human#languages": [elvish]
+state:
+  hp: { current: 12, temporary: 0 }
+  hitDice: { spent: 0 }
+  resources: { second-wind: 1 }
+  conditions: []
+  deathSaves: { successes: 0, failures: 0 }
+  inspiration: false

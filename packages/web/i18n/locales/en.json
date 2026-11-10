@@ -447,7 +447,19 @@
     "background": {
       "purpose": "Your background is what your character did before becoming an adventurer.",
       "consequence": "It adds skills, languages or tools, some equipment and a feature.",
-      "recommendation": "Pick the story you like: it matters less than species and class."
+      "recommendation": "Pick the story you like: it matters less than species and class.",
+      "custom": {
+        "card": "Custom",
+        "cardText": "Build your own by the rules: two skills, two tools or languages, a feature and an equipment package.",
+        "title": "Custom background",
+        "about": "The SRD lets you make your own background: pick what fits the story you imagine.",
+        "name": "Your background's name",
+        "nameHint": "For example: Monster hunter, Gentleman thief.",
+        "toolsOrLanguages": "Tools or languages",
+        "feature": "Feature",
+        "equipment": "Equipment",
+        "from": "From: {name}"
+      }
     },
     "abilities": {
       "purpose": "Your ability scores say how strong, quick, tough, clever, wise and charming your character is.",
@@ -757,6 +769,10 @@
       "ideas": {
         "name": "Ideas to start from",
         "text": "Pick a character concept and every step is filled in for you, all still changeable."
+      },
+      "background": {
+        "name": "Your own background",
+        "text": "Make a background of your own by the official rules: the skills, languages, feature and equipment your story needs."
       },
       "sheet": {
         "name": "A sheet that explains itself",

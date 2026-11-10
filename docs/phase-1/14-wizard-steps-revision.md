@@ -196,6 +196,14 @@ Order (owner, 2026-11-10): 1, 3, 4, 5, then 2, since the famous characters fall 
 - Copy: the Spells step's purpose, consequence and recommendation, and Other choices' in English and Italian.
 - Tests: the twelve-class flow answers every step's groups; `wizard-page.test.ts` (the Acolyte's languages in Background, the cantrips in Spells, the fighting style in Class, which steps are offered); `accessibility.test.ts` (the choices in Spells, Class and Background, both languages).
 
+### As built (2026-11-10): the custom background (task 5, M1.We)
+
+- The character document's `choices.customBackground` (additive, format v0): `name` (required), `skills`, `tools`, `languages`, `feature` (a background feature's id) and `equipment` (the background whose equipment package the character takes), in place of `choices.background`. `CUSTOM_BACKGROUND` (`custom-background`, in the schema package) is its owner id.
+- The engine derives it as a background with nothing left open: the lists as proficiencies and languages, the feature with origin `background`. The composer names it by the character's words, on the identity line and wherever a contribution's source is shown.
+- The wizard: a "Custom" card at the end of step 4 (`chooseCustomBackground`, which drops the background and its answers), and `components/wizard/CustomBackground.vue`: the name, then four choice groups like the sheet's (two skills of the ruleset's; two among the ruleset's languages and the tools the loaded backgrounds give; a feature of a loaded background; a background's equipment package). The step is done when all four are complete. The equipment step reads the named background's package; removing a package clears the feature or the equipment it gave.
+- Not built: the SRD's other way to equip, spending coin instead of the package (open points).
+- Fixture `fixtures/characters/custom-background-l1` (CLI); tests in `wizard-page.test.ts` (through the interface, then the sheet) and `accessibility.test.ts` (both languages).
+
 ## Tests
 
 - Step 0 offered and not offered; a resumed draft on a step no longer offered.
@@ -212,3 +220,4 @@ Order (owner, 2026-11-10): 1, 3, 4, 5, then 2, since the famous characters fall 
 - The package's name; the archetype's path field (the owner's).
 - The "Your character so far" panel (the owner's).
 - Whether the extension is offered to an existing player as a one-time notice, or only found on the packages page.
+- The custom background's coins instead of an equipment package (the SRD allows either).
