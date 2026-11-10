@@ -557,7 +557,19 @@ export const it: SheetMessages = {
             stealth: "Furtività",
             charges: "Cariche",
             higherLevels: "Ai livelli superiori",
-            contents: "Contenuto"
+            contents: "Contenuto",
+            size: "Taglia",
+            speed: "Velocità",
+            senses: "Sensi",
+            languages: "Linguaggi",
+            hitDie: "Dado Vita",
+            primary: "Caratteristiche primarie",
+            saves: "Tiri Salvezza",
+            armor: "Armature",
+            weapons: "Armi",
+            tools: "Strumenti",
+            skills: "Abilità",
+            equipment: "Equipaggiamento"
         },
         schools: {
             abjuration: "abiurazione",
@@ -659,6 +671,27 @@ export const it: SheetMessages = {
             stealth: "Svantaggio",
             quantity: "{count} × {name}"
         },
-        condition: "Condizione"
+        condition: "Condizione",
+        option: {
+            species: "Specie",
+            subspecies: "Sottospecie",
+            class: "Classe",
+            background: "Background",
+            ability: "{value} {ability}",
+            darkvision: "Scurovisione {range}",
+            speed: "Velocità {speed}",
+            hitDie: "Dado Vita {die}",
+            casts: "Lancia incantesimi",
+            anyLanguages: "un linguaggio a scelta | {count} linguaggi a scelta",
+            chooseFrom: "{count} a scelta tra {list}",
+            sizes: {
+                tiny: "Minuscola",
+                small: "Piccola",
+                medium: "Media",
+                large: "Grande",
+                huge: "Enorme",
+                gargantuan: "Mastodontica"
+            }
+        }
     }
 };

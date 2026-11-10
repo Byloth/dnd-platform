@@ -375,6 +375,11 @@
     "next": "Next",
     "recommended": "Recommended",
     "why": "Why?",
+    "details": "Details",
+    "fold": {
+      "change": "Change",
+      "keep": "Keep this choice"
+    },
     "empty": "The selected packages have nothing to choose from here.",
     "resume": {
       "heading": "You have a character in progress",

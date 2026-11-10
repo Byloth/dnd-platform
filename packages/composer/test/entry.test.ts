@@ -126,9 +126,23 @@ describe("composeEntry: items and conditions", () =>
         expect(it_("srd51.condition.exhaustion").subtitle).toBe("Condizione");
     });
 
+    it("writes a species', a class' and a background's facts for the wizard's cards (doc 14)", () =>
+    {
+        const dwarf = composeEntry("srd51.species.dwarf", { packages: english })!;
+        expect(dwarf.facts).toEqual(["+2 Constitution", "Darkvision 60 ft", "Speed 25 ft"]);
+        expect(composeEntry("srd51.species.dwarf.hill-dwarf", { packages: english })!.subtitle).toBe("Subspecies");
+
+        const wizard = composeEntry("srd51.class.wizard", { packages: italian, language: "it" })!;
+        expect(wizard.facts).toEqual(["Dado Vita d6", "Lancia incantesimi"]);
+        expect(composeEntry("srd51.class.fighter", { packages: english })!.facts).toEqual(["Hit Die d10"]);
+
+        const acolyte = composeEntry("srd51.background.acolyte", { packages: english })!;
+        expect(acolyte.facts).toEqual(["Insight", "Religion", "2 languages of your choice", "Shelter of the Faithful"]);
+    });
+
     it("returns nothing for another kind or an unknown id", () =>
     {
-        expect(composeEntry("srd51.class.wizard", { packages: english })).toBeUndefined();
+        expect(composeEntry("srd51.spell-list.wizard", { packages: english })).toBeUndefined();
         expect(composeEntry("srd51.spell.nothing", { packages: english })).toBeUndefined();
     });
 });

@@ -1,8 +1,9 @@
 /**
  * `dnd show <entity-id> [--package <dir>]… [--language <code>] [--units imperial|metric]`
  *
- * Prints one entity for review, as the composer writes it: a creature's stat block (DEC-24), or a spell, an item or
- * a condition as the compendium shows it (docs/phase-1/13-compendium.md). The Italian with `--language it`,
+ * Prints one entity for review, as the composer writes it: a creature's stat block (DEC-24), a spell, an item or a
+ * condition as the compendium shows it (docs/phase-1/13-compendium.md), or a species, a class or a background as the
+ * wizard's cards do (docs/phase-1/14-wizard-steps-revision.md). The Italian with `--language it`,
  * distances and weights in metric units with `--units metric`. The entity's package and its
  * dependencies are found among packages/content and private, plus the translations of the language.
  */
@@ -140,7 +141,8 @@ export function runShow(argv: readonly string[]): number
     const entry = composeEntry(id, options);
     if (entry === undefined)
     {
-        process.stderr.write(`dnd show: ${id} is not a loaded creature, spell, item or condition\n`);
+        process.stderr.write(`dnd show: ${id} is not a loaded creature or entry ` +
+            "(spell, item, condition, species, class, background)\n");
 
         return 1;
     }

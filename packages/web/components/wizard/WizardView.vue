@@ -379,5 +379,15 @@
         {
             color: var(--color-ink-muted);
         }
+
+        &__fold
+        {
+            margin-top: var(--space-3);
+        }
+
+        &__sr
+        {
+            @include mixins.sr-only;
+        }
     }
 </style>

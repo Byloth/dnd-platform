@@ -375,6 +375,11 @@
     "next": "Avanti",
     "recommended": "Consigliato",
     "why": "Perché?",
+    "details": "Dettagli",
+    "fold": {
+      "change": "Cambia",
+      "keep": "Tieni questa scelta"
+    },
     "empty": "I pacchetti scelti non hanno niente da scegliere qui.",
     "resume": {
       "heading": "Hai un personaggio in corso",

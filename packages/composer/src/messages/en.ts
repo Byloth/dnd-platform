@@ -556,7 +556,19 @@ export const en = {
             stealth: "Stealth",
             charges: "Charges",
             higherLevels: "At Higher Levels",
-            contents: "Contents"
+            contents: "Contents",
+            size: "Size",
+            speed: "Speed",
+            senses: "Senses",
+            languages: "Languages",
+            hitDie: "Hit Die",
+            primary: "Primary abilities",
+            saves: "Saving Throws",
+            armor: "Armor",
+            weapons: "Weapons",
+            tools: "Tools",
+            skills: "Skills",
+            equipment: "Equipment"
         },
         schools: {
             abjuration: "abjuration",
@@ -658,7 +670,28 @@ export const en = {
             stealth: "Disadvantage",
             quantity: "{count} × {name}"
         },
-        condition: "Condition"
+        condition: "Condition",
+        option: {
+            species: "Species",
+            subspecies: "Subspecies",
+            class: "Class",
+            background: "Background",
+            ability: "{value} {ability}",
+            darkvision: "Darkvision {range}",
+            speed: "Speed {speed}",
+            hitDie: "Hit Die {die}",
+            casts: "Casts spells",
+            anyLanguages: "one language of your choice | {count} languages of your choice",
+            chooseFrom: "choose {count} from {list}",
+            sizes: {
+                tiny: "Tiny",
+                small: "Small",
+                medium: "Medium",
+                large: "Large",
+                huge: "Huge",
+                gargantuan: "Gargantuan"
+            }
+        }
     }
 };
 

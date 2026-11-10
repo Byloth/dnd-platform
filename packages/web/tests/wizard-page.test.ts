@@ -108,6 +108,45 @@ describe("the creation wizard", () =>
         expect(useRoute().query["step"]).toBe("background");
     });
 
+    it("shows a species' stats and its traits behind Details, and folds the list once chosen (doc 14)", async () =>
+    {
+        await useWizardStore().start();
+        useWizardStore().chooseArchetype(null);
+        const wrapper = await open("species", true);
+        await settle();
+
+        const dwarf = () => wrapper.findAll(".choice-card")
+            .find((c) => c.find(".choice-card__title").text() === "Dwarf")!;
+        expect(dwarf().findAll(".choice-card__stat")
+            .map((s) => s.text()))
+            .toEqual(["+2 Constitution", "Darkvision 60 ft", "Speed 25 ft"]);
+        expect(dwarf().find(".choice-card__details summary")
+            .text()).toContain("Details");
+        expect(dwarf().find(".choice-card__details")
+            .text()).toContain("Dwarven Resilience");
+        expect(dwarf().find("label .choice-card__details")
+            .exists()).toBe(false);
+
+        await wrapper.find("input[value='srd51.species.dwarf']").setValue(true);
+        await until(() => document.activeElement?.textContent?.trim() === "Subspecies");
+        expect(wrapper.findAll("fieldset.wizard-options:not(.wizard-options--nested) .choice-card").length).toBe(1);
+        expect(document.activeElement?.textContent?.trim()).toBe("Subspecies");
+
+        byName(wrapper, "Change: Species")!.click();
+        await settle();
+        expect(wrapper.findAll("fieldset.wizard-options:not(.wizard-options--nested) .choice-card").length)
+            .toBeGreaterThan(1);
+        byName(wrapper, "Keep this choice: Species")!.click();
+        await settle();
+        expect(wrapper.findAll("fieldset.wizard-options:not(.wizard-options--nested) .choice-card").length).toBe(1);
+
+        // The expert's dense list never folds.
+        usePreferencesStore().helpLevel = "expert";
+        await settle();
+        expect(wrapper.findAll("fieldset.wizard-options:not(.wizard-options--nested) .choice-card").length)
+            .toBeGreaterThan(1);
+    });
+
     it("shows the reasons inline for a newcomer, behind Why? for a regular player, not for an expert", async () =>
     {
         await useWizardStore().start();
@@ -837,6 +876,10 @@ describe("the creation wizard", () =>
             const id = await healer();
             const wrapper = await edit(id, "class");
 
+            // The cleric chooses a domain at level 1: the list is folded to the class until "Change".
+            expect(wrapper.find("input[value='srd51.class.fighter']").exists()).toBe(false);
+            byName(wrapper, "Change: Class")!.click();
+            await settle();
             await wrapper.find("input[value='srd51.class.fighter']").setValue(true);
             await settle();
             expect(wrapper.find(".reset-notice").text()).toContain("Cleric, Skills");

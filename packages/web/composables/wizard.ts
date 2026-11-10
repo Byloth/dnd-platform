@@ -1,10 +1,15 @@
+import { composeEntry } from "@byloth/dnd-platform-composer";
+import type { EntryView } from "@byloth/dnd-platform-composer";
 import type { ChoiceView } from "@byloth/dnd-platform-engine";
+
+import { preferredUnits } from "@/composables/sheet";
 
 import type { StepId } from "@/stores/wizard";
 
 /**
  * What every step of the creation wizard reads: the store, the entities of the draft's package set in the
- * interface language, and the help level that decides how much copy and how many reasons are shown.
+ * interface language, their entries (facts and traits), and the help level that decides how much copy and how
+ * many reasons are shown.
  */
 export function useWizardContext()
 {
@@ -23,7 +28,18 @@ export function useWizardContext()
         return recommendation?.value === id ? { why: recommendation.why } : undefined;
     };
 
-    return { wizard, entities, helpLevel, recommended };
+    // The composer's words for a species, a class or a background (docs/phase-1/14-wizard-steps-revision.md).
+    const translate = useSheetTranslate();
+    const entry = (id: string): EntryView | undefined => (wizard.packageSet ?
+        composeEntry(id, {
+            packages: wizard.packageSet,
+            language: locale.value,
+            translate: translate,
+            units: preferredUnits(locale.value)
+        }) :
+        undefined);
+
+    return { wizard, entities, helpLevel, recommended, entry };
 }
 
 /** The choices the draft's sheet asks. */

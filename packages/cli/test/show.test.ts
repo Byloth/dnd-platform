@@ -1,6 +1,7 @@
 /**
- * `dnd show`: the compendium's entries (docs/phase-1/13-compendium.md) printed as the goldens of
- * fixtures/entries, in English and in Italian with metric units; an id of another kind is refused.
+ * `dnd show`: the compendium's entries (docs/phase-1/13-compendium.md) and the wizard's species, classes and
+ * backgrounds (docs/phase-1/14-wizard-steps-revision.md) printed as the goldens of fixtures/entries, in English and
+ * in Italian with metric units; an id of another kind is refused.
  */
 
 import { readFileSync } from "node:fs";
@@ -28,14 +29,19 @@ const ENTRIES = [
     "item.chain-mail",
     "item.flame-tongue",
     "item.explorers-pack",
-    "condition.exhaustion"
+    "condition.exhaustion",
+    "species.dwarf",
+    "species.dwarf.hill-dwarf",
+    "class.wizard",
+    "background.acolyte"
 ];
 
 describe("dnd show, the compendium's entries", () =>
 {
     for (const entry of ENTRIES)
     {
-        const name = entry.split(".")[1]!;
+        const name = entry.split(".").slice(1)
+            .join("-");
 
         it(`prints ${name} as its goldens, in English and in Italian`, () =>
         {
@@ -51,8 +57,8 @@ describe("dnd show, the compendium's entries", () =>
     {
         const stderr = vi.spyOn(process.stderr, "write").mockImplementation(() => true);
 
-        expect(runShow(["srd51.class.wizard"])).toBe(1);
-        expect(String(stderr.mock.calls[0]![0])).toContain("is not a loaded creature, spell, item or condition");
+        expect(runShow(["srd51.spell-list.wizard"])).toBe(1);
+        expect(String(stderr.mock.calls[0]![0])).toContain("is not a loaded creature or entry");
         stderr.mockRestore();
     });
 });

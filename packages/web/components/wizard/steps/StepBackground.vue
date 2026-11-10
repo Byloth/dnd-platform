@@ -3,7 +3,7 @@
     import ResetNotice from "@/components/wizard/ResetNotice.vue";
 
     /** Step 4: the background, recommended one first. */
-    const { wizard, entities, helpLevel, recommended } = useWizardContext();
+    const { wizard, entities, helpLevel, recommended, entry } = useWizardContext();
     const { t } = useI18n();
     const { pending, revision, change, confirm, cancel } = useResetConfirmation();
     const pickBackground = (id: string): void =>
@@ -31,6 +31,7 @@
                     :checked="wizard.character?.choices.background === entity.id"
                     :recommended="recommended('background', entity.id)"
                     :help-level="helpLevel"
+                    :entry="entry(entity.id)"
                     @select="pickBackground" />
         <p v-if="!backgrounds.length" class="wizard-options__empty">
             {{ t("wizard.empty") }}

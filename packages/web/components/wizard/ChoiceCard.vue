@@ -1,6 +1,7 @@
 <script lang="ts" setup>
-    import type { HelpLevel } from "@byloth/dnd-platform-composer";
+    import type { EntryView, HelpLevel } from "@byloth/dnd-platform-composer";
 
+    import RichText from "@/components/sheet/RichText.vue";
     import CompendiumLink from "@/components/compendium/CompendiumLink.vue";
     import FontAwesome from "@/components/ui/FontAwesome.vue";
     import type { CompendiumKind } from "@/composables/compendium";
@@ -9,7 +10,9 @@
      * One option of a wizard step: a native radio (or checkbox) inside a card, so the keyboard and the arrow keys
      * work as the browser makes them. A recommended option carries a badge and, by help level, its reason: inline
      * for a newcomer, behind "Why?" for a regular player, not at all for an expert, who gets a dense card: the
-     * name and the facts, no summary.
+     * name and the facts, no summary. A species, a class or a background brings its entry (`composeEntry`,
+     * docs/phase-1/14-wizard-steps-revision.md): its key facts as stats on the card, and every trait behind
+     * "Details", outside the label so its text and links are not part of the choice.
      */
     const props = withDefaults(defineProps<{
         name: string;
@@ -23,13 +26,25 @@
         helpLevel: HelpLevel;
         /** The option's entry in the compendium, linked beside the card (never inside its label). */
         compendium?: CompendiumKind;
-    }>(), { summary: "", type: "radio", disabled: false, recommended: undefined, compendium: undefined });
+        /** The option's facts and traits as the composer writes them. */
+        entry?: EntryView;
+    }>(), {
+        summary: "",
+        type: "radio",
+        disabled: false,
+        recommended: undefined,
+        compendium: undefined,
+        entry: undefined
+    });
 
     const emit = defineEmits<{ select: [value: string, checked: boolean] }>();
 
     const { t } = useI18n();
 
     const why = computed(() => (props.helpLevel === "expert" ? undefined : props.recommended?.why));
+    const details = computed(() => (props.entry && (props.entry.lines.length || props.entry.sections.length) ?
+        props.entry :
+        undefined));
     const onChange = (event: Event): void => emit("select", props.value, (event.target as HTMLInputElement).checked);
 </script>
 
@@ -61,6 +76,11 @@
                     </span>
                 </span>
                 <span v-if="summary && helpLevel !== 'expert'" class="choice-card__summary">{{ summary }}</span>
+                <span v-if="entry?.facts?.length" class="choice-card__stats">
+                    <span v-for="fact in entry.facts"
+                          :key="fact"
+                          class="choice-card__stat">{{ fact }}</span>
+                </span>
                 <slot></slot>
             </span>
         </label>
@@ -71,6 +91,35 @@
             {{ t("compendium.readMore") }}
             <span class="choice-card__sr">: {{ title }}</span>
         </CompendiumLink>
+        <details v-if="details" class="choice-card__details">
+            <summary class="choice-card__details-toggle">
+                {{ t("wizard.details") }}
+                <span class="choice-card__sr">: {{ title }}</span>
+                <FontAwesome class="choice-card__chevron"
+                             icon="chevron-down"
+                             aria-hidden="true" />
+            </summary>
+            <dl v-if="details.lines.length" class="choice-card__lines">
+                <div v-for="line in details.lines"
+                     :key="line.label"
+                     class="choice-card__line">
+                    <dt class="choice-card__label">
+                        {{ line.label }}
+                    </dt>
+                    <dd class="choice-card__value">
+                        {{ line.value }}
+                    </dd>
+                </div>
+            </dl>
+            <div v-for="section in details.sections"
+                 :key="section.title"
+                 class="choice-card__trait">
+                <p class="choice-card__trait-title">
+                    {{ section.title }}
+                </p>
+                <RichText class="choice-card__trait-text" :text="section.text" />
+            </div>
+        </details>
         <p v-if="why && helpLevel === 'newcomer'" class="choice-card__why">
             <FontAwesome icon="lightbulb" aria-hidden="true" />
             {{ why }}
@@ -259,6 +308,110 @@
             display: flex;
             align-items: center;
             padding: 0 var(--space-4);
+        }
+
+        // The option's stats: a game's numbers, not a form's hints.
+        &__stats
+        {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-1) var(--space-2);
+            margin-top: var(--space-1);
+        }
+
+        &__stat
+        {
+            background-color: var(--color-accent-soft);
+            border-radius: var(--radius-sm);
+            color: var(--color-accent);
+            font-size: var(--text-sm);
+            font-weight: 700;
+            padding: 0.1em var(--space-2);
+        }
+
+        &__details
+        {
+            border-top: 1px dashed var(--color-border);
+
+            &[open]
+            {
+                padding-bottom: var(--space-4);
+            }
+
+            &[open] .choice-card__chevron
+            {
+                transform: rotate(180deg);
+            }
+        }
+
+        &__details-toggle
+        {
+            @include mixins.tap-target;
+
+            align-items: center;
+            color: var(--color-accent);
+            cursor: pointer;
+            display: flex;
+            font-weight: 700;
+            gap: var(--space-2);
+            list-style: none;
+            padding: 0 var(--space-4);
+
+            &::-webkit-details-marker
+            {
+                display: none;
+            }
+        }
+
+        &__chevron
+        {
+            transition: transform var(--duration-fast) var(--easing);
+        }
+
+        &__lines
+        {
+            display: grid;
+            gap: var(--space-1);
+            margin: 0 var(--space-4) var(--space-3);
+        }
+
+        &__line
+        {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0 var(--space-2);
+        }
+
+        &__label
+        {
+            font-weight: 700;
+
+            &::after
+            {
+                content: ":";
+            }
+        }
+
+        &__value
+        {
+            margin: 0;
+        }
+
+        &__trait
+        {
+            margin: 0 var(--space-4) var(--space-3);
+        }
+
+        &__trait-title
+        {
+            font-family: var(--font-display);
+            font-weight: 700;
+            margin: 0;
+        }
+
+        &__trait-text
+        {
+            color: var(--color-ink-muted);
         }
 
         &__compendium

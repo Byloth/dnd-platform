@@ -88,7 +88,9 @@
             <p class="choice-group__eyebrow">
                 {{ eyebrow }}
             </p>
-            <h2 :id="`${name}-title`" class="choice-group__title">
+            <h2 :id="`${name}-title`"
+                class="choice-group__title"
+                tabindex="-1">
                 {{ title }}
             </h2>
             <p class="choice-group__progress"

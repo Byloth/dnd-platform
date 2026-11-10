@@ -1,6 +1,7 @@
 # Compendium entries
 
-The goldens of `dnd show` for the compendium's entries (docs/phase-1/13-compendium.md), checked by
+The goldens of `dnd show` for the compendium's entries (docs/phase-1/13-compendium.md) and the wizard's species,
+classes and backgrounds (docs/phase-1/14-wizard-steps-revision.md), checked by
 `packages/cli/test/show.test.ts`. Each is written by the CLI after a deliberate change of wording:
 
 ```sh

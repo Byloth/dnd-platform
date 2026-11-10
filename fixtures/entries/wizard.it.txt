@@ -1,0 +1,54 @@
+Mago
+Classe
+
+Dado Vita: d6
+Caratteristiche primarie: Intelligenza
+Tiri Salvezza: Intelligenza e Saggezza
+Armi: Pugnale, Dardo, Fionda, Bastone ferrato e Balestra leggera
+Abilità: 2 a scelta tra Arcano, Storia, Intuizione, Indagare, Medicina o Religione
+
+Recupero Arcano
+Un mago impara a recuperare parte della sua energia magica studiando il suo libro degli incantesimi. Una volta al giorno, quando completa un riposo breve, il mago sceglie quali slot incantesimo spesi desidera recuperare. Questi slot incantesimo possono avere un livello totale pari o inferiore alla metà del livello da mago (arrotondato per eccesso) e nessuno slot può essere di livello pari o superiore al 6°.
+
+Per esempio, un mago di 4° livello può recuperare slot incantesimo per un valore totale di due livelli. Potrà quindi recuperare uno slot di 2° livello o due slot di 1° livello.
+
+Incantesimi
+Un mago è uno studioso di magia arcana: possiede un libro degli incantesimi in cui sono contenuti gli incantesimi che costituiscono le prime scintille del suo futuro potere.
+
+### Trucchetti
+
+Al 1° livello, un mago conosce tre trucchetti a sua scelta tratti dalla lista degli incantesimi da mago. Apprende ulteriori trucchetti da mago a sua scelta ai livelli successivi, come indicato dalla colonna "Trucchetti Conosciuti" nella tabella "Mago".
+
+### Libro degli incantesimi
+
+Al 1° livello, un mago possiede un libro degli incantesimi che contiene sei incantesimi da mago di 1° livello a sua scelta. Questo libro degli incantesimi contiene tutti gli incantesimi da mago conosciuti dal personaggio, ad eccezione dei suoi trucchetti, che sono impressi direttamente nella sua mente.
+
+### Preparare e lanciare incantesimi
+
+La tabella "Mago" indica quanti slot incantesimo possiede un mago per lanciare i suoi incantesimi da mago di 1° livello e di livello superiore. Per lanciare uno di questi incantesimi, deve spendere uno slot incantesimo di livello pari o superiore a quello dell'incantesimo. Recupera tutti gli slot incantesimo spesi quando completa un riposo lungo.
+
+Il mago prepara la lista degli incantesimi da mago disponibili da lanciare scegliendoli dalla lista degli incantesimi da mago. Quando lo fa, deve scegliere un numero di incantesimi da mago dal suo libro degli incantesimi pari al suo modificatore di Intelligenza + il suo livello da mago (minimo di un incantesimo). Gli incantesimi devono essere di un livello di cui possiede degli slot incantesimo.
+
+Per esempio, un mago di 3° livello possiede quattro slot incantesimo di 1° livello e due slot incantesimo di 2° livello. Con Intelligenza pari a 16, la lista dei suoi incantesimi preparati può includere sei incantesimi di 1° o 2° livello, in qualsiasi combinazione, scelti dal suo libro degli incantesimi. Se prepara l'incantesimo di 1° livello *dardo incantato*, potrà lanciarlo usando uno slot incantesimo di 1° livello o di 2° livello. Il lancio di quell'incantesimo non rimuove quell'incantesimo dalla lista di incantesimi preparati.
+
+Può cambiare la lista dei suoi incantesimi preparati quando completa un riposo lungo. Per preparare una nuova lista di incantesimi da mago è necessario un certo ammontare di tempo da trascorrere studiando il libro degli incantesimi e memorizzando le formule e i gesti necessari per lanciare l'incantesimo: almeno 1 minuto per livello di incantesimo per ogni incantesimo nella sua lista.
+
+### Caratteristica da Incantatore
+
+Intelligenza è la caratteristica da incantatore usata per gli incantesimi da mago, dal momento che egli impara i suoi incantesimi tramite lo studio costante e la memorizzazione. Usa Intelligenza ogni volta che un incantesimo fa riferimento alla sua caratteristica da incantatore. Usa inoltre il suo modificatore di Intelligenza per definire la CD del tiro salvezza di un incantesimo da mago da lui lanciato e quando effettua un tiro per colpire con un incantesimo.
+
+**CD del tiro salvezza sull'incantesimo** = 8 + il bonus di competenza + il modificatore di Intelligenza
+
+**Modificatore di attacco dell'incantesimo** = il bonus di competenza + il modificatore di Intelligenza
+
+### Celebrare Rituali
+
+Un mago può lanciare un incantesimo da mago come rituale se quell'incantesimo possiede il descrittore rituale ed è presente nel suo libro degli incantesimi. Non è necessario che abbia preparato quell'incantesimo.
+
+### Focus da incantatore
+
+Un mago può usare un focus arcano come focus da incantatore per i suoi incantesimi da mago.
+
+### Imparare incantesimi di 1° livello e di livello superiore
+
+Ogni volta che il personaggio acquisisce un livello da mago, può aggiungere gratuitamente due incantesimi da mago a sua scelta al suo libro degli incantesimi. Ognuno di questi incantesimi deve essere di un livello di cui il mago possiede degli slot incantesimo, come indicato nella tabella "Mago". Nel corso delle sue avventure potrebbe trovare altri incantesimi da aggiungere al suo libro (vedi il riquadro "Il libro degli incantesimi del mago").

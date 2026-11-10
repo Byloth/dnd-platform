@@ -375,6 +375,11 @@
     "next": "Button to the next step; never disabled.",
     "recommended": "Badge on a recommended option; short.",
     "why": "Disclosure that shows why an option is recommended (regular help level).",
+    "details": "Disclosure on a species, class or background card that opens its facts and traits.",
+    "fold": {
+      "change": "Button under a folded list that shows every option again.",
+      "keep": "Button that folds the list again without changing the choice."
+    },
     "empty": "When the selected packages offer no option for a step.",
     "resume": {
       "heading": "When a draft is found in the browser.",

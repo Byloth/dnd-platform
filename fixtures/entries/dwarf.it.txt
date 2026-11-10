@@ -1,0 +1,42 @@
+Nano
+Specie
+
+Taglia: Media
+Velocità: 7,5 m
+Sensi: Scurovisione 18 m
+Linguaggi: Comune e Nanico
+
+Un personaggio nano dispone di varie capacità innate, intrinsecamente correlate alla sua natura nanica.
+
+Incremento dei Punteggi di Caratteristica
+Il punteggio di Costituzione di un nano aumenta di 2.
+
+Velocità
+La velocità base sul terreno di un nano è di 7,5 metri. Tale velocità non viene ridotta se il nano indossa un'armatura pesante.
+
+Scurovisione
+Un nano è abituato a vivere sottoterra e beneficia di una vista superiore nell'oscurità e nelle condizioni di luce fioca. In condizioni di luce fioca, può vedere fino a una distanza di 18 metri come se si trovasse in condizioni di luce intensa e nell'oscurità come se si trovasse in presenza di luce fioca. Nell'oscurità non è in grado di discernere i colori, ma solo le tonalità di grigio.
+
+Età
+I nani maturano allo stesso ritmo degli umani, ma sono considerati giovani fino al raggiungimento dei 50 anni. Vivono in media 350 anni.
+
+Allineamento
+La maggior parte dei nani è legale e crede fermamente nei benefici di una società ben ordinata. Molti nani tendono anche al bene, danno grande valore alla correttezza e credono che tutti debbano condividere i benefici concessi da un ordine equo.
+
+Taglia
+Un nano è alto da 1,2 a 1,5 metri e pesa circa 75 kg. È di taglia Media.
+
+Linguaggi
+Un nano è in grado di parlare, leggere e scrivere in Comune e in Nanico. Il Nanico è una lingua ricca di aspre consonanti e di suoni gutturali, inflessioni che traspaiono anche negli altri linguaggi che il nano potrebbe parlare.
+
+Resilienza Nanica
+Un nano dispone di vantaggio ai tiri salvezza contro il veleno e di resistenza ai danni da veleno.
+
+Addestramento da Combattimento Nanico
+Un nano ha competenza nelle asce, nelle asce da battaglia, nei martelli da guerra e nei martelli leggeri.
+
+Competenza negli Strumenti
+Un nano ha competenza in un gruppo di strumenti da artigiano a sua scelta: strumenti da fabbro, scorte da birraio o strumenti da muratore.
+
+Esperto Minatore
+Ogni volta che un nano effettua una prova di Intelligenza (Storia) relativa all'origine di una struttura in pietra, è considerato avere competenza nell'abilità Storia e aggiunge il doppio del suo bonus di competenza alla prova anziché il suo normale bonus di competenza.

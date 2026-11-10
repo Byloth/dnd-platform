@@ -14,7 +14,7 @@ import type { StatBlockLine } from "./creature.js";
 export interface EntrySection { readonly title: string, readonly text: string }
 export interface EntryView
 {
-    readonly kind: "spell" | "item" | "condition";
+    readonly kind: "spell" | "item" | "condition" | "species" | "class" | "background";
     readonly name: string;
     /** "3rd-level evocation", "Martial weapon", "Weapon (any sword), rare (requires attunement)". */
     readonly subtitle: string;
@@ -26,6 +26,11 @@ export interface EntryView
     readonly sections: readonly EntrySection[];
     /** A spell's classes, by name. */
     readonly classes?: readonly string[];
+    /**
+     * A species', class' or background's few key facts, short enough for a chip on the wizard's cards ("+2
+     * Constitution", "Darkvision 60 ft", "Hit die d10"); docs/phase-1/14-wizard-steps-revision.md.
+     */
+    readonly facts?: readonly string[];
 }
 export type EntryOptions = DisplayOptions;
 
@@ -88,6 +93,55 @@ interface ItemData
     readonly charges?: { readonly max: Value };
 }
 interface ConditionData { readonly name: Text, readonly text?: Text }
+
+type ProficiencyList = readonly string[] | { readonly choose: number, readonly from: readonly string[] };
+interface ProficiencyGrants
+{
+    readonly armor?: ProficiencyList;
+    readonly weapons?: ProficiencyList;
+    readonly tools?: ProficiencyList;
+    readonly skills?: ProficiencyList;
+    readonly savingThrows?: ProficiencyList;
+}
+interface LanguageGrant { readonly fixed?: readonly string[], readonly choose?: number }
+interface EffectData
+{
+    readonly kind: string;
+    readonly target?: string;
+    readonly op?: string;
+    readonly value?: unknown;
+}
+interface FeatureData { readonly name?: Text, readonly text?: Text, readonly effects?: readonly EffectData[] }
+interface SpeciesData
+{
+    readonly name: Text;
+    readonly text?: Text;
+    readonly size?: string;
+    readonly speed?: Readonly<Record<string, number | undefined>>;
+    readonly languages?: LanguageGrant;
+    readonly features?: readonly (FeatureData | string)[];
+}
+interface ClassData
+{
+    readonly name: Text;
+    readonly text?: Text;
+    readonly hitDie: number;
+    readonly primaryAbilities?: readonly string[];
+    readonly savingThrows?: readonly string[];
+    readonly proficiencies?: ProficiencyGrants;
+    readonly levels?: Readonly<Record<string, { readonly features?: readonly (FeatureData | string)[] } | undefined>>;
+}
+interface BackgroundData
+{
+    readonly name: Text;
+    readonly text?: Text;
+    readonly proficiencies?: ProficiencyGrants;
+    readonly languages?: LanguageGrant;
+    readonly equipment?: { readonly text?: Text };
+    readonly features?: readonly (FeatureData | string)[];
+}
+
+const ABILITIES = new Set(["str", "dex", "con", "int", "wis", "cha"]);
 
 /** The SRD's type line of a magic item is its text's first paragraph: short, one line. */
 const TYPE_LINE_MAX = 120;
@@ -385,6 +439,196 @@ class EntryComposer extends DisplayComposer
         };
     }
 
+    // ---- species, classes and backgrounds: the wizard's cards (docs/phase-1/14-wizard-steps-revision.md) ----
+
+    /** A feature given inline or by id, as data. */
+    private feature(f: FeatureData | string): FeatureData | undefined
+    {
+        return typeof f === "string" ?
+            this._options.packages.entities.get(f as never)?.data as FeatureData | undefined :
+            f;
+    }
+
+    private features(list: readonly (FeatureData | string)[] | undefined): FeatureData[]
+    {
+        return (list ?? []).map((f) => this.feature(f)).filter((f): f is FeatureData => f !== undefined);
+    }
+
+    /** The features as the entry's sections, title and text, those without either left out. */
+    private traitSections(features: readonly FeatureData[]): EntrySection[]
+    {
+        return features.map((f) => ({ title: this.text(f.name), text: this.text(f.text) }))
+            .filter((s) => s.title && s.text);
+    }
+
+    /** "+2 Constitution": every flat ability increase among the features' effects. */
+    private abilityIncreases(features: readonly FeatureData[]): string[]
+    {
+        return features.flatMap((f) => f.effects ?? [])
+            .filter((e) => (e.kind === "modify") && (e.op === "add") && (typeof e.value === "number") &&
+                e.target?.startsWith("ability.") && ABILITIES.has(e.target.slice("ability.".length)))
+            .map((e) => this.t("entry.option.ability", {
+                value: `${(e.value as number) >= 0 ? "+" : "−"}${Math.abs(e.value as number)}`,
+                ability: this.t(`abilities.${e.target!.slice("ability.".length)}`)
+            }));
+    }
+
+    private darkvision(features: readonly FeatureData[]): number | undefined
+    {
+        const ranges = features.flatMap((f) => f.effects ?? [])
+            .filter((e) => (e.kind === "modify") && (e.target === "sense.darkvision") && (typeof e.value === "number"))
+            .map((e) => e.value as number);
+
+        return ranges.length ? Math.max(...ranges) : undefined;
+    }
+
+    private languageName(id: string): string
+    {
+        const language = this._options.packages.ruleset.languages?.find((l) => l.id === id);
+        if (language) { return this.text(language.name as Text); }
+
+        return this.t(`proficiencyNames.language.${id}`, undefined, id.replace(/-/g, " "));
+    }
+
+    private languages(grant: LanguageGrant | undefined): string
+    {
+        const named = (grant?.fixed ?? []).map((l) => this.languageName(l));
+        if (grant?.choose) { named.push(this.t("entry.option.anyLanguages", { count: grant.choose })); }
+
+        return this.list(named);
+    }
+
+    /** A proficiency by its kind: a skill, an ability, a category of armour or weapons, a tool. */
+    private proficiencyName(kind: keyof ProficiencyGrants, id: string): string
+    {
+        if (kind === "skills") { return this.t(`skills.${id}`, undefined, id); }
+        if (kind === "savingThrows") { return this.t(`abilities.${id}`, undefined, id); }
+        const type = kind === "armor" ? "armor" : (kind === "weapons" ? "weapon" : "tool");
+        const named = this.t(`proficiencyNames.${type}.${id}`, undefined, "");
+        if (named) { return named; }
+        // An item named the other way round in the packages: "light-crossbow" is `crossbow-light`.
+        const reversed = id.split("-").reverse()
+            .join("-");
+        for (const suffix of [`.item.${id}`, `.item.${reversed}`])
+        {
+            for (const entity of this._options.packages.entities.values())
+            {
+                if (entity.id.endsWith(suffix)) { return this.entityName(entity.id); }
+            }
+        }
+
+        return id.replace(/-/g, " ");
+    }
+
+    private proficiencies(kind: keyof ProficiencyGrants, list: ProficiencyList | undefined): string
+    {
+        if (list === undefined) { return ""; }
+        if (Array.isArray(list)) { return this.list(list.map((id) => this.proficiencyName(kind, id))); }
+        const choice = list as { readonly choose: number, readonly from: readonly string[] };
+
+        return this.t("entry.option.chooseFrom", {
+            count: choice.choose,
+            list: this.list(choice.from.map((id) => this.proficiencyName(kind, id)), "disjunction")
+        });
+    }
+
+    private line(lines: StatBlockLine[], key: string, value: string | undefined): void
+    {
+        if (value) { lines.push({ label: this.t(`entry.labels.${key}`), value: value }); }
+    }
+
+    public species(d: SpeciesData, subspecies: boolean): EntryView
+    {
+        const features = this.features(d.features);
+        const darkvision = this.darkvision(features);
+        const walk = d.speed?.["walk"];
+        const lines: StatBlockLine[] = [];
+        this.line(lines, "size", d.size ? this.t(`entry.option.sizes.${d.size}`, undefined, d.size) : undefined);
+        this.line(lines, "speed", walk !== undefined ? this.feet(walk) : undefined);
+        this.line(lines, "senses", darkvision !== undefined ?
+            this.t("entry.option.darkvision", { range: this.feet(darkvision) }) :
+            undefined);
+        this.line(lines, "languages", this.languages(d.languages));
+        const facts = [
+            ...this.abilityIncreases(features),
+            ...(darkvision !== undefined ? [this.t("entry.option.darkvision", { range: this.feet(darkvision) })] : []),
+            ...(walk !== undefined ? [this.t("entry.option.speed", { speed: this.feet(walk) })] : [])
+        ];
+
+        return {
+            kind: "species",
+            name: this.text(d.name),
+            subtitle: this.t(subspecies ? "entry.option.subspecies" : "entry.option.species"),
+            lines: lines,
+            text: this.text(d.text),
+            sections: this.traitSections(features),
+            facts: facts
+        };
+    }
+
+    /** Whether a class casts spells at some level: a `grant-spellcasting` among its features' effects. */
+    private casts(d: ClassData): boolean
+    {
+        return Object.values(d.levels ?? {}).some((level) => this.features(level?.features)
+            .some((f) => (f.effects ?? []).some((e) => e.kind === "grant-spellcasting")));
+    }
+
+    public class(d: ClassData): EntryView
+    {
+        const p = d.proficiencies ?? {};
+        const lines: StatBlockLine[] = [];
+        this.line(lines, "hitDie", `d${d.hitDie}`);
+        this.line(lines, "primary", d.primaryAbilities?.length ?
+            this.list(d.primaryAbilities.map((a) => this.t(`abilities.${a}`))) :
+            undefined);
+        this.line(lines, "saves", this.proficiencies("savingThrows", d.savingThrows ?? p.savingThrows));
+        this.line(lines, "armor", this.proficiencies("armor", p.armor));
+        this.line(lines, "weapons", this.proficiencies("weapons", p.weapons));
+        this.line(lines, "tools", this.proficiencies("tools", p.tools));
+        this.line(lines, "skills", this.proficiencies("skills", p.skills));
+        const facts = [
+            this.t("entry.option.hitDie", { die: `d${d.hitDie}` }),
+            ...(this.casts(d) ? [this.t("entry.option.casts")] : [])
+        ];
+
+        return {
+            kind: "class",
+            name: this.text(d.name),
+            subtitle: this.t("entry.option.class"),
+            lines: lines,
+            text: this.text(d.text),
+            sections: this.traitSections(this.features(d.levels?.["1"]?.features)),
+            facts: facts
+        };
+    }
+
+    public background(d: BackgroundData): EntryView
+    {
+        const p = d.proficiencies ?? {};
+        const features = this.features(d.features);
+        const lines: StatBlockLine[] = [];
+        this.line(lines, "skills", this.proficiencies("skills", p.skills));
+        this.line(lines, "tools", this.proficiencies("tools", p.tools));
+        this.line(lines, "languages", this.languages(d.languages));
+        this.line(lines, "equipment", this.text(d.equipment?.text));
+        const skills = Array.isArray(p.skills) ? (p.skills as readonly string[]) : [];
+        const facts = [
+            ...skills.map((id) => this.proficiencyName("skills", id)),
+            ...(d.languages?.choose ? [this.t("entry.option.anyLanguages", { count: d.languages.choose })] : []),
+            ...features.map((f) => this.text(f.name)).filter(Boolean)
+        ];
+
+        return {
+            kind: "background",
+            name: this.text(d.name),
+            subtitle: this.t("entry.option.background"),
+            lines: lines,
+            text: this.text(d.text),
+            sections: this.traitSections(features),
+            facts: facts
+        };
+    }
+
     // ---- conditions ----
 
     public condition(d: ConditionData): EntryView
@@ -400,7 +644,10 @@ class EntryComposer extends DisplayComposer
     }
 }
 
-/** The compendium's entry of a spell, an item or a condition; `undefined` for any other id or an unloaded one. */
+/**
+ * The compendium's entry of a spell, an item or a condition, or the wizard's card of a species, a subspecies, a
+ * class or a background; `undefined` for any other id or an unloaded one.
+ */
 export function composeEntry(id: string, options: EntryOptions): EntryView | undefined
 {
     const entity = options.packages.entities.get(id as never);
@@ -411,6 +658,9 @@ export function composeEntry(id: string, options: EntryOptions): EntryView | und
         case "spell": return composer.spell(id, entity.data as unknown as SpellData);
         case "item": return composer.item(entity.data as unknown as ItemData);
         case "condition": return composer.condition(entity.data as unknown as ConditionData);
+        case "species": return composer.species(entity.data as unknown as SpeciesData, entity.inline !== undefined);
+        case "class": return composer.class(entity.data as unknown as ClassData);
+        case "background": return composer.background(entity.data as unknown as BackgroundData);
         default: return undefined;
     }
 }
