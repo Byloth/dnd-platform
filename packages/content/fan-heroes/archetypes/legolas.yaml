@@ -1,0 +1,69 @@
+# Fan-made (DEC-27): an unofficial idea to start from, written by the platform; the name belongs to its owners.
+id: fan-heroes.archetype.legolas
+name:
+  en: Legolas
+source: fan-heroes
+pitch:
+  en: The Lord of the Rings — the elf prince who never misses a shot with his bow.
+recommends:
+  species: srd51.species.elf
+  subspecies: srd51.species.elf.high-elf
+  class: srd51.class.ranger
+  subclass: srd51.subclass.ranger.hunter
+  prefer:
+    background:
+    - phb14.background.noble
+  customBackground:
+    name:
+      en: Elven prince
+    skills:
+    - history
+    - persuasion
+    languages:
+    - sylvan
+    - dwarvish
+    feature: srd51.feature.acolyte.shelter-of-the-faithful
+    equipment: srd51.background.acolyte
+  abilityPriority:
+  - dex
+  - wis
+  - con
+  - str
+  - int
+  - cha
+  answers:
+    srd51.class.ranger#skills:
+    - perception
+    - stealth
+    - survival
+    srd51.feature.ranger.favored-enemy#favored-enemy-1:
+    - beasts
+    srd51.feature.ranger.natural-explorer#favored-terrain-1:
+    - forest
+    srd51.feature.high-elf.cantrip#cantrip:
+    - srd51.spell.light
+    srd51.feature.high-elf.extra-language#extra-language:
+    - sylvan
+    srd51.feature.ranger.favored-enemy#favored-enemy-language-1:
+    - orc
+why:
+  class:
+    en: 'A ranger: the bow, the woods, the tracks no one else sees.'
+  species:
+    en: 'A high elf: keen senses, darkvision, a trance instead of sleep.'
+  subclass:
+    en: 'The Hunter (level 3): more damage to a wounded foe.'
+  background:
+    en: A noble, a prince of the woodland elves, or an elven prince of his own.
+  abilityPriority:
+    en: Dexterity for the bow, Wisdom for the senses and the ranger's spells.
+path:
+- level: 1
+  text:
+    en: 'Natural Explorer: the forest is his home.'
+- level: 2
+  text:
+    en: 'Archery: +2 to every shot with the bow.'
+- level: 5
+  text:
+    en: 'Extra Attack: two arrows each turn.'

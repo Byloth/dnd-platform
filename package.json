@@ -29,7 +29,7 @@
     "fixtures": "node packages/cli/dist/index.js fixtures",
     "test:perf": "vitest run packages/cli/test/performance.test.ts",
     "fixtures:coverage": "node packages/cli/dist/index.js fixtures --coverage",
-    "check:translations": "node tools/import/src/translation-check.ts && node tools/import/src/translation-check.ts --package packages/content/srd51-creatures --translation packages/content/srd51-creatures-it && node tools/import/src/translation-check.ts --package fixtures/packages/homebrew-feline --translation fixtures/packages/homebrew-feline-it",
+    "check:translations": "node tools/import/src/translation-check.ts && node tools/import/src/translation-check.ts --package packages/content/srd51-creatures --translation packages/content/srd51-creatures-it && node tools/import/src/translation-check.ts --package fixtures/packages/homebrew-feline --translation fixtures/packages/homebrew-feline-it && node tools/import/src/translation-check.ts --package packages/content/fan-heroes --translation packages/content/fan-heroes-it",
     "probe:it": "node packages/cli/dist/index.js probe-language it",
     "web:dev": "pnpm --filter @byloth/dnd-platform-web run dev",
     "web:lint": "pnpm --filter @byloth/dnd-platform-web run lint",

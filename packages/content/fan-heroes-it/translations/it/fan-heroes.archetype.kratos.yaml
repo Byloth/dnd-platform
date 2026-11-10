@@ -1,0 +1,11 @@
+name: Kratos
+pitch: God of War — un guerriero spartano che combatte in preda a un'ira che niente ferma, ascia in pugno.
+why.class: 'La sua Ira spartana è l''Ira del barbaro: più danni, e colpi che lo feriscono di meno.'
+why.species: 'Un umano: un po'' più bravo in tutto, senza altri doni che la propria forza.'
+why.subclass: 'Il Cammino del Berserker (3° livello): con la Frenesia combatte senza fermarsi.'
+why.background: 'Un generale spartano: un soldato, o un background suo quando il Manuale del Giocatore non è caricato.'
+why.abilityPriority: La Forza per l'ascia, la Costituzione per incassare i colpi.
+path.0.text: 'Ira: la collera del Fantasma di Sparta.'
+path.1.text: 'Frenesia: non si ferma finché lo scontro non è finito.'
+path.2.text: 'Attacco Extra: due colpi d''ascia per turno. L''ascia Leviatano si lancia come un''ascia.'
+recommends.customBackground.name: Fantasma di Sparta

@@ -14,6 +14,11 @@ export const ENTITY_ID = new RegExp(`^${SEGMENT}\\.(?:${ENTITY_TYPES.join("|")})
 const TABLE_REF = /table\(([a-z0-9]+(?:[-.][a-z0-9]+)*)\)/g;
 /** Keys whose string values are never entity references. */
 const SKIP_KEYS = new Set(["id", "en", "it", "action", "resource", "state", "choice", "section", "toggle"]);
+/**
+ * Keys whose whole value holds optional references: an archetype's `prefer` names entities of packages that may
+ * not be loaded (docs/phase-1/14-wizard-steps-revision.md), skipped when they are not.
+ */
+const OPTIONAL_KEYS = new Set(["prefer"]);
 
 export interface Reference
 {
@@ -50,6 +55,7 @@ export function walkReferences(node: unknown, path: string, out: Reference[]): v
         for (const [key, value] of Object.entries(record))
         {
             if (SKIP_KEYS.has(key) && (typeof value === "string")) { continue; }
+            if (OPTIONAL_KEYS.has(key)) { continue; }
             if (valuePathTarget && (key === "target")) { continue; }
             walkReferences(value, `${path}/${key}`, out);
         }

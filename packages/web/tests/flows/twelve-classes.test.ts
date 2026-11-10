@@ -136,6 +136,8 @@ describe("the twelve SRD classes through the wizard", () =>
             const wrapper = _mounted;
             await until(() => wrapper.find(".wizard-step").exists());
 
+            await wrapper.find("input[value='sketched']").setValue(true);
+            await settle();
             await wrapper.find(`input[value='${archetype.id}']`).setValue(true);
             await settle();
             while (useWizardStore().step !== "personality")

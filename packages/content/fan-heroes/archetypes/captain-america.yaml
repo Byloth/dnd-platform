@@ -1,0 +1,59 @@
+# Fan-made (DEC-27): an unofficial idea to start from, written by the platform; the name belongs to its owners.
+id: fan-heroes.archetype.captain-america
+name:
+  en: Captain America
+source: fan-heroes
+pitch:
+  en: Marvel — a soldier with an unbreakable code and a shield he protects everyone with.
+recommends:
+  species: srd51.species.human
+  class: srd51.class.paladin
+  subclass: srd51.subclass.paladin.oath-of-devotion
+  prefer:
+    background:
+    - phb14.background.soldier
+  customBackground:
+    name:
+      en: Super-soldier
+    skills:
+    - insight
+    - perception
+    tools:
+    - vehicles-land
+    - dice-set
+    feature: srd51.feature.acolyte.shelter-of-the-faithful
+    equipment: srd51.background.acolyte
+  abilityPriority:
+  - str
+  - cha
+  - con
+  - wis
+  - dex
+  - int
+  answers:
+    srd51.class.paladin#skills:
+    - athletics
+    - persuasion
+    srd51.species.human#languages:
+    - dwarvish
+why:
+  class:
+    en: 'A paladin: an oath that is his code, armour, and the courage to lead.'
+  species:
+    en: A human, made the best a human can be.
+  subclass:
+    en: 'The Oath of Devotion (level 3): honesty, courage, protecting the weak.'
+  background:
+    en: A soldier, or a super-soldier of his own.
+  abilityPriority:
+    en: Strength to fight, Charisma for the oath's powers and to lead.
+path:
+- level: 1
+  text:
+    en: 'The thrown shield is an improvised weapon in the rules: it hits, with low damage.'
+- level: 2
+  text:
+    en: 'Protection: the shield raised to protect a friend next to him.'
+- level: 6
+  text:
+    en: 'Aura of Protection: everyone near him resists better.'

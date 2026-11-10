@@ -74,6 +74,14 @@
       "no": "Cancel",
       "inUse": "{name} is used by {characters}: remove or change those characters first."
     },
+    "extensions": {
+      "heading": "Extensions",
+      "intro": "They change how the application behaves; you can turn them off.",
+      "fanHeroes": {
+        "title": "Famous heroes",
+        "text": "Characters from films, comics and games as ideas to start from, in place of the SRD's. A fan work: only the names are borrowed."
+      }
+    },
     "storage": {
       "heading": "Storage on this device",
       "persisted": "This browser keeps your packages and characters.",
@@ -423,12 +431,19 @@
       }
     },
     "concept": {
-      "purpose": "Pick an idea to start from, or skip and choose everything yourself.",
-      "consequence": "An idea fills in species, class, background and ability scores for you; you can change any of it later.",
+      "purpose": "Start from scratch, choosing every aspect yourself, or from a character already sketched, to make your own.",
+      "consequence": "A sketched character fills in species, class, background and ability scores for you; you can change everything after.",
       "recommendation": "Pick the one that sounds most fun to play: there is no wrong answer.",
       "skip": "I'll choose myself",
       "skipText": "No idea to start from: every step starts empty.",
-      "builds": "{class} · {species}"
+      "builds": "{class} · {species}",
+      "question": "How do you want to start?",
+      "scratch": "From scratch",
+      "scratchText": "You choose species, class and everything else, step by step.",
+      "sketched": "A sketched character",
+      "sketchedText": "Pick a character to start from: everything stays changeable.",
+      "ideas": "Characters to start from",
+      "level": "Level {level}"
     },
     "species": {
       "purpose": "Your species is where your character comes from: their body, their senses, a few gifts.",
@@ -768,7 +783,7 @@
       },
       "ideas": {
         "name": "Ideas to start from",
-        "text": "Pick a character concept and every step is filled in for you, all still changeable."
+        "text": "Start from scratch, or from a famous character (Geralt, Elsa, Frieren…) already built by the rules; everything stays changeable."
       },
       "background": {
         "name": "Your own background",

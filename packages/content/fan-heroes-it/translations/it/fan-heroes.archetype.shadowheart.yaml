@@ -1,0 +1,10 @@
+name: Cuorescuro
+pitch: Baldur's Gate 3 — una chierica di una dea dell'oscurità, con un passato che non ricorda.
+why.class: 'Una chierica in armatura, con la magia di una dea: cura, protegge e colpisce.'
+why.species: 'Una mezzelfa, come nel gioco: scurovisione e una mente che il fascino non piega.'
+why.subclass: Il Dominio dell'Inganno, come nel gioco, con il Manuale del Giocatore; il Dominio della Vita con il solo SRD.
+why.background: 'Un''accolita, come nel gioco: cresciuta al servizio della sua dea.'
+why.abilityPriority: La Saggezza alimenta i suoi incantesimi; Costituzione e Destrezza la tengono in piedi.
+path.0.text: 'Il suo dominio: l''Inganno (travestimenti, un duplicato di sé) con il Manuale del Giocatore, la Vita senza.'
+path.1.text: 'Incanalare Divinità: il potere della sua dea, una volta tra un riposo e l''altro.'
+path.2.text: 'Incantesimi di 3° livello: Rinascita, per riportare indietro un amico.'

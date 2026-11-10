@@ -1,0 +1,66 @@
+# Fan-made (DEC-27): an unofficial idea to start from, written by the platform; the name belongs to its owners.
+id: fan-heroes.archetype.shadowheart
+name:
+  en: Shadowheart
+source: fan-heroes
+pitch:
+  en: Baldur's Gate 3 — a cleric of a goddess of darkness, with a past she cannot remember.
+recommends:
+  species: srd51.species.half-elf
+  class: srd51.class.cleric
+  subclass: srd51.subclass.cleric.life-domain
+  prefer:
+    subclass:
+    - phb14.subclass.cleric.trickery-domain
+  background: srd51.background.acolyte
+  abilityPriority:
+  - wis
+  - con
+  - dex
+  - cha
+  - str
+  - int
+  answers:
+    srd51.class.cleric#skills:
+    - insight
+    - religion
+    srd51.class.cleric#divine-domain:
+    - srd51.subclass.cleric.life-domain
+    srd51.feature.half-elf.skill-versatility#skill:
+    - stealth
+    - deception
+    srd51.feature.half-elf.ability-score-increase#ability-scores:
+    - wis
+    - dex
+    srd51.species.half-elf#languages:
+    - infernal
+    srd51.class.cleric#cantrips:
+    - srd51.spell.sacred-flame
+    - srd51.spell.guidance
+    - srd51.spell.thaumaturgy
+    srd51.class.cleric#spells:
+    - srd51.spell.cure-wounds
+    srd51.background.acolyte#languages:
+    - abyssal
+    - celestial
+why:
+  class:
+    en: 'A cleric in armour, with a goddess''s magic: she heals, protects and strikes.'
+  species:
+    en: 'A half-elf, as in the game: darkvision and a mind that charms cannot bend.'
+  subclass:
+    en: The Trickery Domain, as in the game, with the Player's Handbook; the Life Domain with the SRD alone.
+  background:
+    en: 'An acolyte, as in the game: raised in the service of her goddess.'
+  abilityPriority:
+    en: Wisdom powers her spells; Constitution and Dexterity keep her standing.
+path:
+- level: 1
+  text:
+    en: 'Her domain: Trickery (disguises, a duplicate of herself) with the Player''s Handbook, Life without it.'
+- level: 2
+  text:
+    en: 'Channel Divinity: her goddess''s power, once between rests.'
+- level: 5
+  text:
+    en: 'Spells of 3rd level: Revivify, to bring back a friend.'

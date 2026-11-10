@@ -1,0 +1,17 @@
+formatVersion: 0
+id: fan-heroes
+name: { en: "Famous heroes" }
+version: 0.1.0
+kind: extension
+defaultLanguage: en
+languages: [en]
+visibility: public
+redistributable: true
+dependencies:
+  - { id: srd51, version: ">=0.10.0" }
+sources:
+  - id: fan-heroes
+    title: "Famous heroes (fan-made)"
+    publisher: "D&D Platform"
+    license: CC-BY-4.0
+    attribution: "An unofficial fan work, not affiliated with or endorsed by the owners of the characters it names. The names of the characters and of their works belong to their owners; no image and no text is taken from the works. The builds, the descriptions and the reasons are the platform's own, under the Creative Commons Attribution 4.0 International License."

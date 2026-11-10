@@ -4,9 +4,9 @@ import { defineStore } from "pinia";
 import type { HelpLevel } from "@byloth/dnd-platform-composer";
 
 /**
- * The user's preferences (docs/phase-1/01-web-application.md): language, help level, theme, units of measure, and
- * the page size and hand of the PDF sheet, kept in the browser's storage and applied at render time only. Never
- * part of a character, never exported.
+ * The user's preferences (docs/phase-1/01-web-application.md): language, help level, theme, units of measure, the
+ * page size and hand of the PDF sheet, and the famous characters' extension (DEC-27), kept in the browser's storage
+ * and applied at render time only. Never part of a character, never exported.
  */
 
 export type Language = "en" | "it";
@@ -35,6 +35,8 @@ export interface Preferences
     units: Units;
     pageSize: PageSize;
     hand: Hand;
+    /** The famous characters' extension (DEC-27): their ideas replace the SRD's in the wizard's first step. */
+    fanHeroes: boolean;
 }
 
 export const PREFERENCES_KEY = "preferences";
@@ -48,7 +50,8 @@ export const DEFAULT_PREFERENCES: Readonly<Preferences> = {
     contrast: "system",
     units: "auto",
     pageSize: "a4",
-    hand: "handwriting"
+    hand: "handwriting",
+    fanHeroes: true
 };
 
 const ALLOWED: { readonly [K in keyof Preferences]: readonly Preferences[K][] } = {
@@ -58,7 +61,8 @@ const ALLOWED: { readonly [K in keyof Preferences]: readonly Preferences[K][] } 
     contrast: ["system", "more"],
     units: ["auto", "imperial", "metric"],
     pageSize: ["a4", "letter"],
-    hand: ["handwriting", "print"]
+    hand: ["handwriting", "print"],
+    fanHeroes: [true, false]
 };
 
 /**
@@ -93,7 +97,8 @@ function _read(storage: JSONStorage): Preferences
         contrast: pick("contrast"),
         units: pick("units"),
         pageSize: pick("pageSize"),
-        hand: pick("hand")
+        hand: pick("hand"),
+        fanHeroes: pick("fanHeroes")
     };
 }
 
@@ -124,9 +129,10 @@ export const usePreferencesStore = defineStore("preferences", () =>
     const units = ref<Units>(initial.units);
     const pageSize = ref<PageSize>(initial.pageSize);
     const hand = ref<Hand>(initial.hand);
+    const fanHeroes = ref<boolean>(initial.fanHeroes);
     const sheets = ref<Record<string, SheetLayout>>(_readSheets(storage));
 
-    watch([language, helpLevel, theme, contrast, units, pageSize, hand], () =>
+    watch([language, helpLevel, theme, contrast, units, pageSize, hand, fanHeroes], () =>
     {
         storage.set(PREFERENCES_KEY, {
             language: language.value,
@@ -135,7 +141,8 @@ export const usePreferencesStore = defineStore("preferences", () =>
             contrast: contrast.value,
             units: units.value,
             pageSize: pageSize.value,
-            hand: hand.value
+            hand: hand.value,
+            fanHeroes: fanHeroes.value
         });
     });
     watch(sheets, () => storage.set(SHEETS_KEY, sheets.value), { deep: true });
@@ -173,6 +180,7 @@ export const usePreferencesStore = defineStore("preferences", () =>
         units,
         pageSize,
         hand,
+        fanHeroes,
         sheets,
         sheetLayout,
         togglePinned,

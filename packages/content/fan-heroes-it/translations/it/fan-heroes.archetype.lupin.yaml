@@ -1,0 +1,11 @@
+name: Lupin III
+pitch: Il ladro gentiluomo che non uccide mai, ha cento volti e incanta tutti lungo la strada.
+why.class: 'I suoi travestimenti e il suo fascino sono incantesimi da bardo: Camuffare Se Stesso, Charme su Persone. Non uccidere è la regola dell''SRD per stordire invece di uccidere.'
+why.species: Un umano, svelto di mente e di mano.
+why.subclass: 'Il Collegio della Sapienza (3° livello): più abilità, e le Parole Taglienti per rovinare un tiro al nemico.'
+why.background: Un ciarlatano con una falsa identità, o il suo ladro gentiluomo con arnesi da scasso e trucchi per il camuffamento.
+why.abilityPriority: Il Carisma per il fascino e gli incantesimi, la Destrezza per le sue mani.
+path.0.text: 'Camuffare Se Stesso e Charme su Persone: cento volti, e una parola per tutti.'
+path.1.text: 'Maestria: il doppio della sua bravura nell''ingannare e nei giochi di mano.'
+path.2.text: 'Parole Taglienti: una battuta che rovina il tiro della guardia.'
+recommends.customBackground.name: Ladro gentiluomo

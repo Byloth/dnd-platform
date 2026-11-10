@@ -1,0 +1,1265 @@
+{
+  "entities": [
+    {
+      "data": {
+        "id": "fan-heroes.archetype.captain-america",
+        "name": {
+          "en": "Captain America"
+        },
+        "path": [
+          {
+            "level": 1,
+            "text": {
+              "en": "The thrown shield is an improvised weapon in the rules: it hits, with low damage."
+            }
+          },
+          {
+            "level": 2,
+            "text": {
+              "en": "Protection: the shield raised to protect a friend next to him."
+            }
+          },
+          {
+            "level": 6,
+            "text": {
+              "en": "Aura of Protection: everyone near him resists better."
+            }
+          }
+        ],
+        "pitch": {
+          "en": "Marvel — a soldier with an unbreakable code and a shield he protects everyone with."
+        },
+        "recommends": {
+          "abilityPriority": [
+            "str",
+            "cha",
+            "con",
+            "wis",
+            "dex",
+            "int"
+          ],
+          "answers": {
+            "srd51.class.paladin#skills": [
+              "athletics",
+              "persuasion"
+            ],
+            "srd51.species.human#languages": [
+              "dwarvish"
+            ]
+          },
+          "class": "srd51.class.paladin",
+          "customBackground": {
+            "equipment": "srd51.background.acolyte",
+            "feature": "srd51.feature.acolyte.shelter-of-the-faithful",
+            "name": {
+              "en": "Super-soldier"
+            },
+            "skills": [
+              "insight",
+              "perception"
+            ],
+            "tools": [
+              "vehicles-land",
+              "dice-set"
+            ]
+          },
+          "prefer": {
+            "background": [
+              "phb14.background.soldier"
+            ]
+          },
+          "species": "srd51.species.human",
+          "subclass": "srd51.subclass.paladin.oath-of-devotion"
+        },
+        "source": "fan-heroes",
+        "why": {
+          "abilityPriority": {
+            "en": "Strength to fight, Charisma for the oath's powers and to lead."
+          },
+          "background": {
+            "en": "A soldier, or a super-soldier of his own."
+          },
+          "class": {
+            "en": "A paladin: an oath that is his code, armour, and the courage to lead."
+          },
+          "species": {
+            "en": "A human, made the best a human can be."
+          },
+          "subclass": {
+            "en": "The Oath of Devotion (level 3): honesty, courage, protecting the weak."
+          }
+        }
+      },
+      "file": "archetypes/captain-america.yaml",
+      "id": "fan-heroes.archetype.captain-america",
+      "type": "archetype"
+    },
+    {
+      "data": {
+        "id": "fan-heroes.archetype.elsa",
+        "name": {
+          "en": "Elsa"
+        },
+        "path": [
+          {
+            "level": 1,
+            "text": {
+              "en": "Ray of Frost: the first ice from her hands."
+            }
+          },
+          {
+            "level": 6,
+            "text": {
+              "en": "Elemental Affinity: her cold hurts more."
+            }
+          },
+          {
+            "level": 7,
+            "text": {
+              "en": "Ice Storm, then Cone of Cold (level 9): the storm she unleashes. The scales of the bloodline are her ice."
+            }
+          }
+        ],
+        "pitch": {
+          "en": "Frozen — a queen born with the power of ice, which she is learning to master."
+        },
+        "recommends": {
+          "abilityPriority": [
+            "cha",
+            "con",
+            "dex",
+            "wis",
+            "int",
+            "str"
+          ],
+          "answers": {
+            "srd51.class.sorcerer#cantrips": [
+              "srd51.spell.ray-of-frost",
+              "srd51.spell.prestidigitation",
+              "srd51.spell.light",
+              "srd51.spell.mage-hand"
+            ],
+            "srd51.class.sorcerer#skills": [
+              "arcana",
+              "persuasion"
+            ],
+            "srd51.class.sorcerer#sorcerous-origin": [
+              "srd51.subclass.sorcerer.draconic-bloodline"
+            ],
+            "srd51.class.sorcerer#spells": [
+              "srd51.spell.fog-cloud",
+              "srd51.spell.shield"
+            ],
+            "srd51.feature.draconic-bloodline.dragon-ancestor#dragon-ancestor": [
+              "white"
+            ],
+            "srd51.species.human#languages": [
+              "giant"
+            ]
+          },
+          "class": "srd51.class.sorcerer",
+          "customBackground": {
+            "equipment": "srd51.background.acolyte",
+            "feature": "srd51.feature.acolyte.shelter-of-the-faithful",
+            "languages": [
+              "primordial",
+              "sylvan"
+            ],
+            "name": {
+              "en": "Queen of Arendelle"
+            },
+            "skills": [
+              "history",
+              "insight"
+            ]
+          },
+          "prefer": {
+            "background": [
+              "phb14.background.noble"
+            ]
+          },
+          "species": "srd51.species.human",
+          "subclass": "srd51.subclass.sorcerer.draconic-bloodline"
+        },
+        "source": "fan-heroes",
+        "why": {
+          "abilityPriority": {
+            "en": "Charisma powers her magic; Constitution holds it."
+          },
+          "background": {
+            "en": "A noble, the queen of Arendelle, or a queen of her own."
+          },
+          "class": {
+            "en": "A sorcerer is born with magic and struggles to master it: that is her story."
+          },
+          "species": {
+            "en": "A human, a queen."
+          },
+          "subclass": {
+            "en": "The Draconic Bloodline of a white dragon: her power is cold."
+          }
+        }
+      },
+      "file": "archetypes/elsa.yaml",
+      "id": "fan-heroes.archetype.elsa",
+      "type": "archetype"
+    },
+    {
+      "data": {
+        "id": "fan-heroes.archetype.ezio",
+        "name": {
+          "en": "Ezio Auditore"
+        },
+        "path": [
+          {
+            "level": 1,
+            "text": {
+              "en": "Sneak Attack: the hidden blade."
+            }
+          },
+          {
+            "level": 2,
+            "text": {
+              "en": "Cunning Action: hide or run in the blink of an eye."
+            }
+          },
+          {
+            "level": 3,
+            "text": {
+              "en": "Assassinate (Player's Handbook), or Second-Story Work as a Thief: walls are no obstacle."
+            }
+          }
+        ],
+        "pitch": {
+          "en": "Assassin's Creed — a Florentine noble turned assassin, who climbs any wall and strikes unseen."
+        },
+        "recommends": {
+          "abilityPriority": [
+            "dex",
+            "con",
+            "wis",
+            "int",
+            "cha",
+            "str"
+          ],
+          "answers": {
+            "srd51.class.rogue#skills": [
+              "acrobatics",
+              "stealth",
+              "sleight-of-hand",
+              "athletics"
+            ],
+            "srd51.feature.rogue.expertise#expertise-1": [
+              "stealth",
+              "acrobatics"
+            ],
+            "srd51.species.human#languages": [
+              "elvish"
+            ]
+          },
+          "class": "srd51.class.rogue",
+          "customBackground": {
+            "equipment": "srd51.background.acolyte",
+            "feature": "srd51.feature.acolyte.shelter-of-the-faithful",
+            "name": {
+              "en": "Florentine assassin"
+            },
+            "skills": [
+              "deception",
+              "persuasion"
+            ],
+            "tools": [
+              "thieves-tools",
+              "poisoners-kit"
+            ]
+          },
+          "prefer": {
+            "background": [
+              "phb14.background.criminal"
+            ],
+            "subclass": [
+              "phb14.subclass.rogue.assassin"
+            ]
+          },
+          "species": "srd51.species.human",
+          "subclass": "srd51.subclass.rogue.thief"
+        },
+        "source": "fan-heroes",
+        "why": {
+          "abilityPriority": {
+            "en": "Dexterity for the blade and the climbing."
+          },
+          "background": {
+            "en": "A criminal, the Brotherhood as his contacts, or a Florentine assassin of his own."
+          },
+          "class": {
+            "en": "A rogue: Sneak Attack, the hidden blade where it hurts."
+          },
+          "species": {
+            "en": "A human, a son of Florence."
+          },
+          "subclass": {
+            "en": "The Assassin (level 3), with the Player's Handbook; the Thief with the SRD alone, who climbs like Ezio."
+          }
+        }
+      },
+      "file": "archetypes/ezio.yaml",
+      "id": "fan-heroes.archetype.ezio",
+      "type": "archetype"
+    },
+    {
+      "data": {
+        "id": "fan-heroes.archetype.frieren",
+        "name": {
+          "en": "Frieren"
+        },
+        "path": [
+          {
+            "level": 1,
+            "text": {
+              "en": "Magic Missile: Zoltraak, a magic that never misses."
+            }
+          },
+          {
+            "level": 1,
+            "text": {
+              "en": "Detect Magic: she feels the mana of everyone around."
+            }
+          },
+          {
+            "level": 2,
+            "text": {
+              "en": "Arcane Recovery, and a spellbook that only grows."
+            }
+          }
+        ],
+        "pitch": {
+          "en": "Frieren: Beyond Journey's End — an elf mage who has spent a thousand years collecting spells."
+        },
+        "recommends": {
+          "abilityPriority": [
+            "int",
+            "con",
+            "dex",
+            "wis",
+            "cha",
+            "str"
+          ],
+          "answers": {
+            "srd51.class.wizard#cantrips": [
+              "srd51.spell.fire-bolt",
+              "srd51.spell.light",
+              "srd51.spell.mage-hand"
+            ],
+            "srd51.class.wizard#skills": [
+              "arcana",
+              "history"
+            ],
+            "srd51.class.wizard#spells": [
+              "srd51.spell.magic-missile",
+              "srd51.spell.detect-magic"
+            ],
+            "srd51.feature.high-elf.cantrip#cantrip": [
+              "srd51.spell.prestidigitation"
+            ],
+            "srd51.feature.high-elf.extra-language#extra-language": [
+              "celestial"
+            ]
+          },
+          "class": "srd51.class.wizard",
+          "customBackground": {
+            "equipment": "srd51.background.acolyte",
+            "feature": "srd51.feature.acolyte.shelter-of-the-faithful",
+            "languages": [
+              "draconic"
+            ],
+            "name": {
+              "en": "Collector of spells"
+            },
+            "skills": [
+              "nature",
+              "investigation"
+            ],
+            "tools": [
+              "calligraphers-supplies"
+            ]
+          },
+          "prefer": {
+            "background": [
+              "phb14.background.sage"
+            ]
+          },
+          "species": "srd51.species.elf",
+          "subclass": "srd51.subclass.wizard.school-of-evocation",
+          "subspecies": "srd51.species.elf.high-elf"
+        },
+        "source": "fan-heroes",
+        "why": {
+          "abilityPriority": {
+            "en": "Intelligence for the wizard's magic."
+          },
+          "background": {
+            "en": "A sage, or a collector of spells of her own."
+          },
+          "class": {
+            "en": "A wizard copies every spell found into the spellbook: a thousand years of collecting."
+          },
+          "species": {
+            "en": "A high elf: she lives for centuries, and knows one more cantrip."
+          },
+          "subclass": {
+            "en": "The School of Evocation (level 2): Zoltraak, the killing magic, is an evocation."
+          }
+        }
+      },
+      "file": "archetypes/frieren.yaml",
+      "id": "fan-heroes.archetype.frieren",
+      "type": "archetype"
+    },
+    {
+      "data": {
+        "id": "fan-heroes.archetype.geralt",
+        "name": {
+          "en": "Geralt of Rivia"
+        },
+        "path": [
+          {
+            "level": 1,
+            "text": {
+              "en": "Dueling: one sword in hand, the other free for the signs."
+            }
+          },
+          {
+            "level": 3,
+            "text": {
+              "en": "Eldritch Knight (Player's Handbook): Aard is Thunderwave, Igni is Burning Hands, Quen is Shield."
+            }
+          },
+          {
+            "level": 5,
+            "text": {
+              "en": "Extra Attack: two blows of the sword each turn."
+            }
+          }
+        ],
+        "pitch": {
+          "en": "The Witcher — a monster hunter for hire, with a sword, potions and a few magic signs."
+        },
+        "recommends": {
+          "abilityPriority": [
+            "str",
+            "dex",
+            "con",
+            "wis",
+            "int",
+            "cha"
+          ],
+          "answers": {
+            "srd51.class.fighter#skills": [
+              "survival",
+              "intimidation"
+            ],
+            "srd51.feature.fighter.fighting-style#fighting-style": [
+              "dueling"
+            ],
+            "srd51.feature.half-elf.ability-score-increase#ability-scores": [
+              "str",
+              "dex"
+            ],
+            "srd51.feature.half-elf.skill-versatility#skill": [
+              "investigation",
+              "perception"
+            ],
+            "srd51.species.half-elf#languages": [
+              "elvish"
+            ]
+          },
+          "class": "srd51.class.fighter",
+          "customBackground": {
+            "equipment": "srd51.background.acolyte",
+            "feature": "srd51.feature.acolyte.shelter-of-the-faithful",
+            "name": {
+              "en": "Witcher"
+            },
+            "skills": [
+              "medicine",
+              "nature"
+            ],
+            "tools": [
+              "herbalism-kit",
+              "alchemists-supplies"
+            ]
+          },
+          "prefer": {
+            "background": [
+              "phb14.background.outlander"
+            ],
+            "subclass": [
+              "phb14.subclass.fighter.eldritch-knight"
+            ]
+          },
+          "species": "srd51.species.half-elf",
+          "subclass": "srd51.subclass.fighter.champion"
+        },
+        "source": "fan-heroes",
+        "why": {
+          "abilityPriority": {
+            "en": "Strength for the sword, Dexterity to dodge, Constitution to endure."
+          },
+          "background": {
+            "en": "An outlander who lives on the road, or a witcher of his own with an herbalism kit and alchemist's supplies for his potions."
+          },
+          "class": {
+            "en": "A fighter: every weapon and armour, and one sword in his hand while the other casts."
+          },
+          "species": {
+            "en": "A half-elf: darkvision for a witcher's cat eyes, and a mind that charms cannot bend."
+          },
+          "subclass": {
+            "en": "The Eldritch Knight (level 3), with the Player's Handbook: the signs are its spells. The Champion with the SRD alone: no signs."
+          }
+        }
+      },
+      "file": "archetypes/geralt.yaml",
+      "id": "fan-heroes.archetype.geralt",
+      "type": "archetype"
+    },
+    {
+      "data": {
+        "id": "fan-heroes.archetype.getafix",
+        "name": {
+          "en": "Getafix"
+        },
+        "path": [
+          {
+            "level": 1,
+            "text": {
+              "en": "Goodberry: berries that heal and feed."
+            }
+          },
+          {
+            "level": 2,
+            "text": {
+              "en": "Wild Shape: should he ever want to be a boar."
+            }
+          },
+          {
+            "level": 3,
+            "text": {
+              "en": "Enhance Ability (Bull's Strength): the magic potion, for a friend."
+            }
+          }
+        ],
+        "pitch": {
+          "en": "Asterix — the village druid who brews the magic potion that makes the Gauls unbeatable."
+        },
+        "recommends": {
+          "abilityPriority": [
+            "wis",
+            "con",
+            "int",
+            "dex",
+            "cha",
+            "str"
+          ],
+          "answers": {
+            "srd51.background.acolyte#languages": [
+              "elvish",
+              "giant"
+            ],
+            "srd51.class.druid#cantrips": [
+              "srd51.spell.druidcraft",
+              "srd51.spell.guidance"
+            ],
+            "srd51.class.druid#skills": [
+              "nature",
+              "medicine"
+            ],
+            "srd51.class.druid#spells": [
+              "srd51.spell.goodberry"
+            ],
+            "srd51.species.human#languages": [
+              "sylvan"
+            ]
+          },
+          "background": "srd51.background.acolyte",
+          "class": "srd51.class.druid",
+          "prefer": {
+            "background": [
+              "phb14.background.sage"
+            ]
+          },
+          "species": "srd51.species.human",
+          "subclass": "srd51.subclass.druid.circle-of-the-land"
+        },
+        "source": "fan-heroes",
+        "why": {
+          "abilityPriority": {
+            "en": "Wisdom for the druid's magic; he leaves the fighting to the others."
+          },
+          "background": {
+            "en": "A sage, the village's learned man; an acolyte, a priest of the old faith, with the SRD alone."
+          },
+          "class": {
+            "en": "The druid himself: the golden sickle and the herbalism kit are a druid's own."
+          },
+          "species": {
+            "en": "A human, a wise old man of the village."
+          },
+          "subclass": {
+            "en": "The Circle of the Land (level 2), the forest: the spells of the woods he knows."
+          }
+        }
+      },
+      "file": "archetypes/getafix.yaml",
+      "id": "fan-heroes.archetype.getafix",
+      "type": "archetype"
+    },
+    {
+      "data": {
+        "id": "fan-heroes.archetype.ghost-rider",
+        "name": {
+          "en": "Ghost Rider"
+        },
+        "path": [
+          {
+            "level": 1,
+            "text": {
+              "en": "Hellish Rebuke: whoever hurts him burns."
+            }
+          },
+          {
+            "level": 1,
+            "text": {
+              "en": "Dark One's Blessing: every foe he brings down makes him stronger. There is no motorbike in the rules."
+            }
+          },
+          {
+            "level": 3,
+            "text": {
+              "en": "Pact of the Blade: his chain as the pact's weapon."
+            }
+          }
+        ],
+        "pitch": {
+          "en": "Marvel — a stunt rider who made a pact with a devil and burns with hellfire."
+        },
+        "recommends": {
+          "abilityPriority": [
+            "cha",
+            "con",
+            "dex",
+            "str",
+            "wis",
+            "int"
+          ],
+          "answers": {
+            "srd51.class.warlock#cantrips": [
+              "srd51.spell.eldritch-blast",
+              "srd51.spell.chill-touch"
+            ],
+            "srd51.class.warlock#otherworldly-patron": [
+              "srd51.subclass.warlock.the-fiend"
+            ],
+            "srd51.class.warlock#skills": [
+              "intimidation",
+              "investigation"
+            ],
+            "srd51.class.warlock#spells": [
+              "srd51.spell.hellish-rebuke",
+              "srd51.spell.expeditious-retreat"
+            ]
+          },
+          "class": "srd51.class.warlock",
+          "customBackground": {
+            "equipment": "srd51.background.acolyte",
+            "feature": "srd51.feature.acolyte.shelter-of-the-faithful",
+            "languages": [
+              "infernal"
+            ],
+            "name": {
+              "en": "Stuntman"
+            },
+            "skills": [
+              "acrobatics",
+              "performance"
+            ],
+            "tools": [
+              "vehicles-land"
+            ]
+          },
+          "prefer": {
+            "background": [
+              "phb14.background.entertainer"
+            ]
+          },
+          "species": "srd51.species.tiefling",
+          "subclass": "srd51.subclass.warlock.the-fiend"
+        },
+        "source": "fan-heroes",
+        "why": {
+          "abilityPriority": {
+            "en": "Charisma powers the pact's magic."
+          },
+          "background": {
+            "en": "An entertainer, the stunt rider, or a stuntman of his own."
+          },
+          "class": {
+            "en": "A warlock: power bought with a pact."
+          },
+          "species": {
+            "en": "A tiefling, for the hellfire in his blood: resistance to fire and a little infernal magic."
+          },
+          "subclass": {
+            "en": "The Fiend: his patron is a devil."
+          }
+        }
+      },
+      "file": "archetypes/ghost-rider.yaml",
+      "id": "fan-heroes.archetype.ghost-rider",
+      "type": "archetype"
+    },
+    {
+      "data": {
+        "id": "fan-heroes.archetype.kenshiro",
+        "name": {
+          "en": "Kenshiro"
+        },
+        "path": [
+          {
+            "level": 3,
+            "text": {
+              "en": "Open Hand Technique: the blow that throws a foe to the ground."
+            }
+          },
+          {
+            "level": 5,
+            "text": {
+              "en": "Stunning Strike: the pressure points, a foe that cannot move."
+            }
+          },
+          {
+            "level": 17,
+            "text": {
+              "en": "Quivering Palm: \"you are already dead\"."
+            }
+          }
+        ],
+        "pitch": {
+          "en": "Fist of the North Star — the master of a martial art that strikes the body's secret points."
+        },
+        "recommends": {
+          "abilityPriority": [
+            "dex",
+            "wis",
+            "con",
+            "str",
+            "int",
+            "cha"
+          ],
+          "answers": {
+            "srd51.class.monk#skills": [
+              "athletics",
+              "insight"
+            ],
+            "srd51.class.monk#tools": [
+              "cooks-utensils"
+            ],
+            "srd51.species.human#languages": [
+              "giant"
+            ]
+          },
+          "class": "srd51.class.monk",
+          "customBackground": {
+            "equipment": "srd51.background.acolyte",
+            "feature": "srd51.feature.acolyte.shelter-of-the-faithful",
+            "name": {
+              "en": "Successor of Hokuto"
+            },
+            "skills": [
+              "medicine",
+              "survival"
+            ],
+            "tools": [
+              "herbalism-kit",
+              "vehicles-land"
+            ]
+          },
+          "prefer": {
+            "background": [
+              "phb14.background.folk-hero"
+            ]
+          },
+          "species": "srd51.species.human",
+          "subclass": "srd51.subclass.monk.way-of-the-open-hand"
+        },
+        "source": "fan-heroes",
+        "why": {
+          "abilityPriority": {
+            "en": "Dexterity and Wisdom: a monk's blows and defence."
+          },
+          "background": {
+            "en": "A folk hero who defends the weak, or a successor of his school of his own."
+          },
+          "class": {
+            "en": "A monk: bare hands, fast feet, no armour."
+          },
+          "species": {
+            "en": "A human, wandering a ruined world."
+          },
+          "subclass": {
+            "en": "The Way of the Open Hand (level 3): every blow can throw, push or stop a foe."
+          }
+        }
+      },
+      "file": "archetypes/kenshiro.yaml",
+      "id": "fan-heroes.archetype.kenshiro",
+      "type": "archetype"
+    },
+    {
+      "data": {
+        "id": "fan-heroes.archetype.kratos",
+        "name": {
+          "en": "Kratos"
+        },
+        "path": [
+          {
+            "level": 1,
+            "text": {
+              "en": "Rage: the anger of the Ghost of Sparta."
+            }
+          },
+          {
+            "level": 3,
+            "text": {
+              "en": "Frenzy: he does not stop until the fight is over."
+            }
+          },
+          {
+            "level": 5,
+            "text": {
+              "en": "Extra Attack: two blows of the axe each turn. The Leviathan Axe is thrown as a handaxe."
+            }
+          }
+        ],
+        "pitch": {
+          "en": "God of War — a Spartan warrior who fights in a rage that nothing stops, axe in hand."
+        },
+        "recommends": {
+          "abilityPriority": [
+            "str",
+            "con",
+            "dex",
+            "wis",
+            "cha",
+            "int"
+          ],
+          "answers": {
+            "srd51.class.barbarian#skills": [
+              "athletics",
+              "intimidation"
+            ],
+            "srd51.species.human#languages": [
+              "giant"
+            ]
+          },
+          "class": "srd51.class.barbarian",
+          "customBackground": {
+            "equipment": "srd51.background.acolyte",
+            "feature": "srd51.feature.acolyte.shelter-of-the-faithful",
+            "languages": [
+              "celestial",
+              "primordial"
+            ],
+            "name": {
+              "en": "Ghost of Sparta"
+            },
+            "skills": [
+              "history",
+              "survival"
+            ]
+          },
+          "prefer": {
+            "background": [
+              "phb14.background.soldier"
+            ]
+          },
+          "species": "srd51.species.human",
+          "subclass": "srd51.subclass.barbarian.path-of-the-berserker"
+        },
+        "source": "fan-heroes",
+        "why": {
+          "abilityPriority": {
+            "en": "Strength for the axe, Constitution to take the blows."
+          },
+          "background": {
+            "en": "A Spartan general: a soldier, or a background of his own when the Player's Handbook is not loaded."
+          },
+          "class": {
+            "en": "His Spartan Rage is the barbarian's Rage: more damage, and blows that hurt him less."
+          },
+          "species": {
+            "en": "A human: a little better at everything, with no gift but his own strength."
+          },
+          "subclass": {
+            "en": "The Path of the Berserker (level 3): Frenzy, he fights on without stopping."
+          }
+        }
+      },
+      "file": "archetypes/kratos.yaml",
+      "id": "fan-heroes.archetype.kratos",
+      "type": "archetype"
+    },
+    {
+      "data": {
+        "id": "fan-heroes.archetype.legolas",
+        "name": {
+          "en": "Legolas"
+        },
+        "path": [
+          {
+            "level": 1,
+            "text": {
+              "en": "Natural Explorer: the forest is his home."
+            }
+          },
+          {
+            "level": 2,
+            "text": {
+              "en": "Archery: +2 to every shot with the bow."
+            }
+          },
+          {
+            "level": 5,
+            "text": {
+              "en": "Extra Attack: two arrows each turn."
+            }
+          }
+        ],
+        "pitch": {
+          "en": "The Lord of the Rings — the elf prince who never misses a shot with his bow."
+        },
+        "recommends": {
+          "abilityPriority": [
+            "dex",
+            "wis",
+            "con",
+            "str",
+            "int",
+            "cha"
+          ],
+          "answers": {
+            "srd51.class.ranger#skills": [
+              "perception",
+              "stealth",
+              "survival"
+            ],
+            "srd51.feature.high-elf.cantrip#cantrip": [
+              "srd51.spell.light"
+            ],
+            "srd51.feature.high-elf.extra-language#extra-language": [
+              "sylvan"
+            ],
+            "srd51.feature.ranger.favored-enemy#favored-enemy-1": [
+              "beasts"
+            ],
+            "srd51.feature.ranger.favored-enemy#favored-enemy-language-1": [
+              "orc"
+            ],
+            "srd51.feature.ranger.natural-explorer#favored-terrain-1": [
+              "forest"
+            ]
+          },
+          "class": "srd51.class.ranger",
+          "customBackground": {
+            "equipment": "srd51.background.acolyte",
+            "feature": "srd51.feature.acolyte.shelter-of-the-faithful",
+            "languages": [
+              "sylvan",
+              "dwarvish"
+            ],
+            "name": {
+              "en": "Elven prince"
+            },
+            "skills": [
+              "history",
+              "persuasion"
+            ]
+          },
+          "prefer": {
+            "background": [
+              "phb14.background.noble"
+            ]
+          },
+          "species": "srd51.species.elf",
+          "subclass": "srd51.subclass.ranger.hunter",
+          "subspecies": "srd51.species.elf.high-elf"
+        },
+        "source": "fan-heroes",
+        "why": {
+          "abilityPriority": {
+            "en": "Dexterity for the bow, Wisdom for the senses and the ranger's spells."
+          },
+          "background": {
+            "en": "A noble, a prince of the woodland elves, or an elven prince of his own."
+          },
+          "class": {
+            "en": "A ranger: the bow, the woods, the tracks no one else sees."
+          },
+          "species": {
+            "en": "A high elf: keen senses, darkvision, a trance instead of sleep."
+          },
+          "subclass": {
+            "en": "The Hunter (level 3): more damage to a wounded foe."
+          }
+        }
+      },
+      "file": "archetypes/legolas.yaml",
+      "id": "fan-heroes.archetype.legolas",
+      "type": "archetype"
+    },
+    {
+      "data": {
+        "id": "fan-heroes.archetype.lupin",
+        "name": {
+          "en": "Lupin III"
+        },
+        "path": [
+          {
+            "level": 1,
+            "text": {
+              "en": "Disguise Self and Charm Person: a hundred faces, and a word for everyone."
+            }
+          },
+          {
+            "level": 3,
+            "text": {
+              "en": "Expertise: twice his skill at deceiving and at sleight of hand."
+            }
+          },
+          {
+            "level": 3,
+            "text": {
+              "en": "Cutting Words: a quip that ruins the guard's roll."
+            }
+          }
+        ],
+        "pitch": {
+          "en": "The gentleman thief who never kills, wears a hundred faces and charms everyone on the way."
+        },
+        "recommends": {
+          "abilityPriority": [
+            "cha",
+            "dex",
+            "con",
+            "int",
+            "wis",
+            "str"
+          ],
+          "answers": {
+            "srd51.class.bard#cantrips": [
+              "srd51.spell.vicious-mockery",
+              "srd51.spell.minor-illusion"
+            ],
+            "srd51.class.bard#skills": [
+              "deception",
+              "sleight-of-hand",
+              "persuasion"
+            ],
+            "srd51.class.bard#spells": [
+              "srd51.spell.disguise-self",
+              "srd51.spell.charm-person",
+              "srd51.spell.sleep",
+              "srd51.spell.silent-image"
+            ],
+            "srd51.class.bard#tools": [
+              "lute",
+              "flute",
+              "horn"
+            ],
+            "srd51.species.human#languages": [
+              "elvish"
+            ]
+          },
+          "class": "srd51.class.bard",
+          "customBackground": {
+            "equipment": "srd51.background.acolyte",
+            "feature": "srd51.feature.acolyte.shelter-of-the-faithful",
+            "name": {
+              "en": "Gentleman thief"
+            },
+            "skills": [
+              "stealth",
+              "investigation"
+            ],
+            "tools": [
+              "thieves-tools",
+              "disguise-kit"
+            ]
+          },
+          "prefer": {
+            "background": [
+              "phb14.background.charlatan"
+            ]
+          },
+          "species": "srd51.species.human",
+          "subclass": "srd51.subclass.bard.college-of-lore"
+        },
+        "source": "fan-heroes",
+        "why": {
+          "abilityPriority": {
+            "en": "Charisma for charm and spells, Dexterity for his hands."
+          },
+          "background": {
+            "en": "A charlatan with a false identity, or the gentleman thief of his own with thieves' tools and a disguise kit."
+          },
+          "class": {
+            "en": "His disguises and his charm are a bard's spells: Disguise Self, Charm Person. Never killing is the SRD's rule of knocking out instead."
+          },
+          "species": {
+            "en": "A human, quick-witted and quick-handed."
+          },
+          "subclass": {
+            "en": "The College of Lore (level 3): more skills, and Cutting Words to spoil a foe's roll."
+          }
+        }
+      },
+      "file": "archetypes/lupin.yaml",
+      "id": "fan-heroes.archetype.lupin",
+      "type": "archetype"
+    },
+    {
+      "data": {
+        "id": "fan-heroes.archetype.shadowheart",
+        "name": {
+          "en": "Shadowheart"
+        },
+        "path": [
+          {
+            "level": 1,
+            "text": {
+              "en": "Her domain: Trickery (disguises, a duplicate of herself) with the Player's Handbook, Life without it."
+            }
+          },
+          {
+            "level": 2,
+            "text": {
+              "en": "Channel Divinity: her goddess's power, once between rests."
+            }
+          },
+          {
+            "level": 5,
+            "text": {
+              "en": "Spells of 3rd level: Revivify, to bring back a friend."
+            }
+          }
+        ],
+        "pitch": {
+          "en": "Baldur's Gate 3 — a cleric of a goddess of darkness, with a past she cannot remember."
+        },
+        "recommends": {
+          "abilityPriority": [
+            "wis",
+            "con",
+            "dex",
+            "cha",
+            "str",
+            "int"
+          ],
+          "answers": {
+            "srd51.background.acolyte#languages": [
+              "abyssal",
+              "celestial"
+            ],
+            "srd51.class.cleric#cantrips": [
+              "srd51.spell.sacred-flame",
+              "srd51.spell.guidance",
+              "srd51.spell.thaumaturgy"
+            ],
+            "srd51.class.cleric#divine-domain": [
+              "srd51.subclass.cleric.life-domain"
+            ],
+            "srd51.class.cleric#skills": [
+              "insight",
+              "religion"
+            ],
+            "srd51.class.cleric#spells": [
+              "srd51.spell.cure-wounds"
+            ],
+            "srd51.feature.half-elf.ability-score-increase#ability-scores": [
+              "wis",
+              "dex"
+            ],
+            "srd51.feature.half-elf.skill-versatility#skill": [
+              "stealth",
+              "deception"
+            ],
+            "srd51.species.half-elf#languages": [
+              "infernal"
+            ]
+          },
+          "background": "srd51.background.acolyte",
+          "class": "srd51.class.cleric",
+          "prefer": {
+            "subclass": [
+              "phb14.subclass.cleric.trickery-domain"
+            ]
+          },
+          "species": "srd51.species.half-elf",
+          "subclass": "srd51.subclass.cleric.life-domain"
+        },
+        "source": "fan-heroes",
+        "why": {
+          "abilityPriority": {
+            "en": "Wisdom powers her spells; Constitution and Dexterity keep her standing."
+          },
+          "background": {
+            "en": "An acolyte, as in the game: raised in the service of her goddess."
+          },
+          "class": {
+            "en": "A cleric in armour, with a goddess's magic: she heals, protects and strikes."
+          },
+          "species": {
+            "en": "A half-elf, as in the game: darkvision and a mind that charms cannot bend."
+          },
+          "subclass": {
+            "en": "The Trickery Domain, as in the game, with the Player's Handbook; the Life Domain with the SRD alone."
+          }
+        }
+      },
+      "file": "archetypes/shadowheart.yaml",
+      "id": "fan-heroes.archetype.shadowheart",
+      "type": "archetype"
+    }
+  ],
+  "manifest": {
+    "defaultLanguage": "en",
+    "dependencies": [
+      {
+        "id": "srd51",
+        "version": ">=0.10.0"
+      }
+    ],
+    "formatVersion": 0,
+    "id": "fan-heroes",
+    "kind": "extension",
+    "languages": [
+      "en"
+    ],
+    "name": {
+      "en": "Famous heroes"
+    },
+    "redistributable": true,
+    "sources": [
+      {
+        "attribution": "An unofficial fan work, not affiliated with or endorsed by the owners of the characters it names. The names of the characters and of their works belong to their owners; no image and no text is taken from the works. The builds, the descriptions and the reasons are the platform's own, under the Creative Commons Attribution 4.0 International License.",
+        "id": "fan-heroes",
+        "license": "CC-BY-4.0",
+        "publisher": "D&D Platform",
+        "title": "Famous heroes (fan-made)"
+      }
+    ],
+    "version": "0.1.0",
+    "visibility": "public"
+  }
+}

@@ -83,6 +83,10 @@ describe("the creation wizard", () =>
     {
         const wrapper = await open();
         expect(wrapper.find("h1").text()).toBe("Concept");
+        // One question first (doc 14, point 1): the ideas come with "A sketched character".
+        expect(wrapper.find(`input[value="${MONK}"]`).exists()).toBe(false);
+        await wrapper.find("input[value='sketched']").setValue(true);
+        await settle();
         const monk = wrapper.find<HTMLInputElement>(`input[value="${MONK}"]`);
         await monk.setValue(true);
         await settle();

@@ -1,0 +1,71 @@
+# Fan-made (DEC-27): an unofficial idea to start from, written by the platform; the name belongs to its owners.
+id: fan-heroes.archetype.elsa
+name:
+  en: Elsa
+source: fan-heroes
+pitch:
+  en: Frozen — a queen born with the power of ice, which she is learning to master.
+recommends:
+  species: srd51.species.human
+  class: srd51.class.sorcerer
+  subclass: srd51.subclass.sorcerer.draconic-bloodline
+  prefer:
+    background:
+    - phb14.background.noble
+  customBackground:
+    name:
+      en: Queen of Arendelle
+    skills:
+    - history
+    - insight
+    languages:
+    - primordial
+    - sylvan
+    feature: srd51.feature.acolyte.shelter-of-the-faithful
+    equipment: srd51.background.acolyte
+  abilityPriority:
+  - cha
+  - con
+  - dex
+  - wis
+  - int
+  - str
+  answers:
+    srd51.class.sorcerer#skills:
+    - arcana
+    - persuasion
+    srd51.class.sorcerer#sorcerous-origin:
+    - srd51.subclass.sorcerer.draconic-bloodline
+    srd51.feature.draconic-bloodline.dragon-ancestor#dragon-ancestor:
+    - white
+    srd51.species.human#languages:
+    - giant
+    srd51.class.sorcerer#cantrips:
+    - srd51.spell.ray-of-frost
+    - srd51.spell.prestidigitation
+    - srd51.spell.light
+    - srd51.spell.mage-hand
+    srd51.class.sorcerer#spells:
+    - srd51.spell.fog-cloud
+    - srd51.spell.shield
+why:
+  class:
+    en: 'A sorcerer is born with magic and struggles to master it: that is her story.'
+  species:
+    en: A human, a queen.
+  subclass:
+    en: 'The Draconic Bloodline of a white dragon: her power is cold.'
+  background:
+    en: A noble, the queen of Arendelle, or a queen of her own.
+  abilityPriority:
+    en: Charisma powers her magic; Constitution holds it.
+path:
+- level: 1
+  text:
+    en: 'Ray of Frost: the first ice from her hands.'
+- level: 6
+  text:
+    en: 'Elemental Affinity: her cold hurts more.'
+- level: 7
+  text:
+    en: 'Ice Storm, then Cone of Cold (level 9): the storm she unleashes. The scales of the bloodline are her ice.'

@@ -78,7 +78,7 @@ The list, chosen with the owner on 2026-11-06 and 2026-11-10, by these rules:
 | Barbarian | Kratos (God of War) | Human | Berserker | Soldier (a Spartan general) → custom "Ghost of Sparta" · "Fantasma di Sparta" | his Spartan Rage is the barbarian's Rage; the Berserker's Frenzy (level 3) is him not stopping; the Leviathan Axe is a thrown axe (a handaxe) |
 | Bard | Lupin III (Lupin the Third) | Human | Lore | Charlatan (a false identity) → custom "Gentleman thief" · "Ladro gentiluomo" | the disguise (*disguise self*) and the charm (*charm person*) are bard spells; Deception, thieves' tools; his pistol is not in the rules (no firearms in the SRD) |
 | Cleric | Shadowheart · Cuorescuro (Baldur's Gate 3) | Half-elf | Trickery → Life | Acolyte (as in the game) | a cleric of a dark goddess: the Trickery domain's disguises and duplicate; with the SRD alone, Life |
-| Druid | Getafix · Panoramix (Asterix) | Human | Land (forest) | Sage → Acolyte | *the* druid; the golden sickle and the herbalism kit are a druid's own; the magic potion is *enhance ability* (Bull's Strength, from level 3), the berries *goodberry* |
+| Druid | Getafix · Panoramix (Asterix) | Human | Land (forest) | Sage (Sapiente) → Acolyte | *the* druid; the golden sickle and the herbalism kit are a druid's own; the magic potion is *enhance ability* (Bull's Strength, from level 3), the berries *goodberry* |
 | Fighter | Geralt of Rivia · Geralt di Rivia (The Witcher) | Half-elf | Eldritch Knight → Champion | Outlander → custom "Witcher" · "Witcher" | the half-elf's darkvision is his cat's eyes, its resistance to charm a witcher's; the signs are the Eldritch Knight's spells (Aard *thunderwave*, Igni *burning hands*, Quen *shield*, from level 3); as a Champion, no signs |
 | Monk | Kenshiro (Fist of the North Star · Ken il guerriero) | Human | Open Hand | Folk Hero → custom "Successor of Hokuto" · "Successore di Hokuto" | pressure points are Stunning Strike (level 5); "you are already dead" is the Open Hand's Quivering Palm (level 17) |
 | Paladin | Captain America · Capitan America (Marvel) | Human | Devotion | Soldier → custom "Super-soldier" · "Super-soldato" | the oath is his code; the Protection fighting style (level 2) is the shield raised for a friend; the thrown shield is an improvised weapon (low damage) |
@@ -86,7 +86,7 @@ The list, chosen with the owner on 2026-11-06 and 2026-11-10, by these rules:
 | Rogue | Ezio Auditore (Assassin's Creed) | Human | Assassin → Thief | Criminal (the Brotherhood as contacts) → custom "Florentine assassin" · "Assassino fiorentino" | sneak attack, the hidden blade; Assassinate (level 3), or climbing as a Thief (Second-Story Work, level 3) |
 | Sorcerer | Elsa (Frozen · Frozen - Il regno di ghiaccio) | Human | Draconic (white dragon, cold) | Noble (a queen) → custom "Queen of Arendelle" · "Regina di Arendelle" | a sorcerer is born with magic and struggles to master it, which is her story; at level 1 only *ray of frost*, the rest of the ice later (*wall of ice* is the wizard's only); the dragon's scales told as ice |
 | Warlock | Ghost Rider (Marvel) | Tiefling | Fiend | Entertainer (the stunt rider) → custom "Stuntman" · "Stuntman" | a pact with a devil; hellfire: the tiefling resists fire and casts *hellish rebuke* (level 3); the chain as the Pact of the Blade's weapon (level 3); no motorbike in the rules |
-| Wizard | Frieren (Frieren: Beyond Journey's End · Frieren - Oltre la fine del viaggio) | High elf | Evocation | Sage → custom "Collector of spells" · "Collezionista di incantesimi" | she spends centuries collecting spells, as a wizard copies every spell found into the spellbook; an elf lives for centuries; her Zoltraak, the killing magic, is an evocation |
+| Wizard | Frieren (Frieren: Beyond Journey's End · Frieren - Oltre la fine del viaggio) | High elf | Evocation | Sage (Sapiente) → custom "Collector of spells" · "Collezionista di incantesimi" | she spends centuries collecting spells, as a wizard copies every spell found into the spellbook; an elf lives for centuries; her Zoltraak, the killing magic, is an evocation |
 
 Seven humans, two high elves (Legolas, Frieren), two half-elves (Shadowheart, Geralt) and a tiefling. Every name, saga and custom background is localized: English in `fan-heroes`, Italian in `fan-heroes-it` (the names above, and the official Italian names of subclasses and backgrounds from the Italian Player's Handbook). Notes:
 
@@ -204,6 +204,15 @@ Order (owner, 2026-11-10): 1, 3, 4, 5, then 2, since the famous characters fall 
 - Not built: the SRD's other way to equip, spending coin instead of the package (open points).
 - Fixture `fixtures/characters/custom-background-l1` (CLI); tests in `wizard-page.test.ts` (through the interface, then the sheet) and `accessibility.test.ts` (both languages).
 
+### As built (2026-11-10): step 1 and the famous characters (task 2, M1.Wb)
+
+- Step 1 (`StepConcept.vue`) asks "How do you want to start?" with two cards, "From scratch" (no idea) and "A sketched character", which opens the gallery. An idea's card shows its class and species as stats and its path behind "Details", one section per level.
+- The archetype schema gains `recommends.prefer` (`subclass`, `background`: ordered ids, optional references the loader's walk skips, `OPTIONAL_KEYS` in `loader/src/references/walk.ts`), `recommends.customBackground` (localized name) and `path` (`level`, localized `text`); all additive, format v0. `_resolved` in `stores/wizard.ts` takes the first preferred id loaded in the draft, else the plain one, else the background of its own (named in the interface's language); the subclass is written only when the class chooses it at level 1, and an answer naming the plain subclass names the one chosen. The recommended marks follow the resolved values.
+- `packages/content/fan-heroes` and `fan-heroes-it` 0.1.0: the twelve heroes, the fan-work notice in the manifests' sources (so the credits page shows it). The site's index marks a package of archetypes only as `ideas`: never among the content to choose, never in the compendium; `useContentStore().extensions` lists them.
+- The extension is the preference `fanHeroes` (on by default). The wizard loads its sources apart (`ideaSources`) into `ideaSet`, which only step 1 and the recommendations read; `ideas` is the extension's archetypes while it is on and loaded, the draft's otherwise. The packages page has an "Extensions" section between the installed packages and the storage, one checkbox card.
+- Names checked against the Italian books: the Sage is "Sapiente", Quivering Palm is "Palmo Tremante", Hellish Rebuke is "Intimorire Infernale".
+- Tests: `tests/flows/famous-heroes.test.ts` (the twelve through the wizard with nothing open, Italian, off, the packages page; with phb14, private: Shadowheart's Trickery Domain, Geralt's Outlander).
+
 ## Tests
 
 - Step 0 offered and not offered; a resumed draft on a step no longer offered.
@@ -217,7 +226,7 @@ Order (owner, 2026-11-10): 1, 3, 4, 5, then 2, since the famous characters fall 
 
 ## Open points
 
-- The package's name; the archetype's path field (the owner's).
+- The package's name, `fan-heroes` / "Famous heroes", and the path on the cards were chosen by Claude when the owner said "start with everything"; both can change.
 - The "Your character so far" panel (the owner's).
 - Whether the extension is offered to an existing player as a one-time notice, or only found on the packages page.
 - The custom background's coins instead of an equipment package (the SRD allows either).

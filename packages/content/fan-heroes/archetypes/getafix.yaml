@@ -1,0 +1,57 @@
+# Fan-made (DEC-27): an unofficial idea to start from, written by the platform; the name belongs to its owners.
+id: fan-heroes.archetype.getafix
+name:
+  en: Getafix
+source: fan-heroes
+pitch:
+  en: Asterix — the village druid who brews the magic potion that makes the Gauls unbeatable.
+recommends:
+  species: srd51.species.human
+  class: srd51.class.druid
+  subclass: srd51.subclass.druid.circle-of-the-land
+  prefer:
+    background:
+    - phb14.background.sage
+  background: srd51.background.acolyte
+  abilityPriority:
+  - wis
+  - con
+  - int
+  - dex
+  - cha
+  - str
+  answers:
+    srd51.class.druid#skills:
+    - nature
+    - medicine
+    srd51.species.human#languages:
+    - sylvan
+    srd51.class.druid#cantrips:
+    - srd51.spell.druidcraft
+    - srd51.spell.guidance
+    srd51.class.druid#spells:
+    - srd51.spell.goodberry
+    srd51.background.acolyte#languages:
+    - elvish
+    - giant
+why:
+  class:
+    en: 'The druid himself: the golden sickle and the herbalism kit are a druid''s own.'
+  species:
+    en: A human, a wise old man of the village.
+  subclass:
+    en: 'The Circle of the Land (level 2), the forest: the spells of the woods he knows.'
+  background:
+    en: A sage, the village's learned man; an acolyte, a priest of the old faith, with the SRD alone.
+  abilityPriority:
+    en: Wisdom for the druid's magic; he leaves the fighting to the others.
+path:
+- level: 1
+  text:
+    en: 'Goodberry: berries that heal and feed.'
+- level: 2
+  text:
+    en: 'Wild Shape: should he ever want to be a boar.'
+- level: 3
+  text:
+    en: 'Enhance Ability (Bull''s Strength): the magic potion, for a friend.'

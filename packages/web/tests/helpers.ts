@@ -70,14 +70,25 @@ export const CREATURES_IT = existsSync(CREATURES_IT_PATH) ?
     JSON.parse(readFileSync(CREATURES_IT_PATH, "utf8")) as PackageSource :
     undefined;
 
+const FAN_HEROES_PATH = resolve(ROOT, "build", "content", "fan-heroes.json");
+const FAN_HEROES_IT_PATH = resolve(ROOT, "build", "content", "fan-heroes-it.json");
+/** The famous characters' extension (DEC-27) and its translation, when built; served only when asked. */
+export const FAN_HEROES = existsSync(FAN_HEROES_PATH) ?
+    JSON.parse(readFileSync(FAN_HEROES_PATH, "utf8")) as PackageSource :
+    undefined;
+const FAN_HEROES_IT = existsSync(FAN_HEROES_IT_PATH) ?
+    JSON.parse(readFileSync(FAN_HEROES_IT_PATH, "utf8")) as PackageSource :
+    undefined;
+
 const _site = { published: true, creatureFetches: 0 };
 
 /**
  * Serves the site's `content/index.json`, `content/srd51.json` and, when built, the Italian translation and the
  * creatures (a catalogue, with its translation); the returned switch unpublishes the SRD, and `creatureFetches`
- * counts the requests for the creatures' bundle. Call once per test file, at the top level.
+ * counts the requests for the creatures' bundle. `fanHeroes` publishes the famous characters' extension too (DEC-27).
+ * Call once per test file, at the top level.
  */
-export function serveSite(options: { olderSrd?: readonly PackageSource[] } = {}): {
+export function serveSite(options: { olderSrd?: readonly PackageSource[], fanHeroes?: boolean } = {}): {
     publish: (published: boolean) => void;
     creatureFetches: () => number;
 }
@@ -127,9 +138,32 @@ export function serveSite(options: { olderSrd?: readonly PackageSource[] } = {})
             } :
             {};
 
+        const ideas = (options.fanHeroes && FAN_HEROES) ?
+            {
+                "fan-heroes": {
+                    latest: FAN_HEROES.manifest.version,
+                    versions: [FAN_HEROES.manifest.version],
+                    ideas: true
+                },
+                ...(FAN_HEROES_IT ?
+                    {
+                        "fan-heroes-it": {
+                            latest: FAN_HEROES_IT.manifest.version,
+                            versions: [FAN_HEROES_IT.manifest.version],
+                            translation: { language: "it", of: ["fan-heroes"] }
+                        }
+
+                    } :
+                    {})
+
+            } :
+            {};
+
         const versions = [...older.map((r) => r.manifest.version), version];
 
-        return { packages: { srd51: { latest: version, versions: versions }, ...italian, ...creatures } };
+        return {
+            packages: { srd51: { latest: version, versions: versions }, ...italian, ...creatures, ...ideas }
+        };
     });
     // Each bundle under its alias and its versioned name, which the application fetches (M1.5c).
     const serve = (source: PackageSource, answer: () => PackageSource = () => source): void =>
@@ -150,6 +184,8 @@ export function serveSite(options: { olderSrd?: readonly PackageSource[] } = {})
         });
     }
     if (CREATURES_IT) { serve(CREATURES_IT); }
+    if (options.fanHeroes && FAN_HEROES) { serve(FAN_HEROES); }
+    if (options.fanHeroes && FAN_HEROES_IT) { serve(FAN_HEROES_IT); }
 
     return {
         publish: (published: boolean): void => { _site.published = published; },

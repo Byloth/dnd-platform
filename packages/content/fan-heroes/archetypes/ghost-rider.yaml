@@ -1,0 +1,66 @@
+# Fan-made (DEC-27): an unofficial idea to start from, written by the platform; the name belongs to its owners.
+id: fan-heroes.archetype.ghost-rider
+name:
+  en: Ghost Rider
+source: fan-heroes
+pitch:
+  en: Marvel — a stunt rider who made a pact with a devil and burns with hellfire.
+recommends:
+  species: srd51.species.tiefling
+  class: srd51.class.warlock
+  subclass: srd51.subclass.warlock.the-fiend
+  prefer:
+    background:
+    - phb14.background.entertainer
+  customBackground:
+    name:
+      en: Stuntman
+    skills:
+    - acrobatics
+    - performance
+    tools:
+    - vehicles-land
+    languages:
+    - infernal
+    feature: srd51.feature.acolyte.shelter-of-the-faithful
+    equipment: srd51.background.acolyte
+  abilityPriority:
+  - cha
+  - con
+  - dex
+  - str
+  - wis
+  - int
+  answers:
+    srd51.class.warlock#skills:
+    - intimidation
+    - investigation
+    srd51.class.warlock#otherworldly-patron:
+    - srd51.subclass.warlock.the-fiend
+    srd51.class.warlock#cantrips:
+    - srd51.spell.eldritch-blast
+    - srd51.spell.chill-touch
+    srd51.class.warlock#spells:
+    - srd51.spell.hellish-rebuke
+    - srd51.spell.expeditious-retreat
+why:
+  class:
+    en: 'A warlock: power bought with a pact.'
+  species:
+    en: 'A tiefling, for the hellfire in his blood: resistance to fire and a little infernal magic.'
+  subclass:
+    en: 'The Fiend: his patron is a devil.'
+  background:
+    en: An entertainer, the stunt rider, or a stuntman of his own.
+  abilityPriority:
+    en: Charisma powers the pact's magic.
+path:
+- level: 1
+  text:
+    en: 'Hellish Rebuke: whoever hurts him burns.'
+- level: 1
+  text:
+    en: 'Dark One''s Blessing: every foe he brings down makes him stronger. There is no motorbike in the rules.'
+- level: 3
+  text:
+    en: 'Pact of the Blade: his chain as the pact''s weapon.'

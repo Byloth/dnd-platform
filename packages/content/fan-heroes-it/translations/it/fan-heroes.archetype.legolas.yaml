@@ -1,0 +1,11 @@
+name: Legolas
+pitch: Il Signore degli Anelli — il principe elfo che non sbaglia mai un colpo con l'arco.
+why.class: 'Un ranger: l''arco, i boschi, le tracce che nessun altro vede.'
+why.species: 'Un alto elfo: sensi acuti, scurovisione, una trance al posto del sonno.'
+why.subclass: 'Il Cacciatore (3° livello): più danni a un nemico ferito.'
+why.background: Un nobile, principe degli elfi dei boschi, o un principe elfico tutto suo.
+why.abilityPriority: La Destrezza per l'arco, la Saggezza per i sensi e gli incantesimi del ranger.
+path.0.text: 'Esploratore Nato: la foresta è la sua casa.'
+path.1.text: 'Tiro: +2 a ogni colpo con l''arco.'
+path.2.text: 'Attacco Extra: due frecce per turno.'
+recommends.customBackground.name: Principe elfico

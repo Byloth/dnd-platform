@@ -21,7 +21,8 @@
     const load = async (): Promise<void> =>
     {
         if (!content.site.length) { await content.refresh(); }
-        const sources = await content.sources(content.site.map((p) => p.manifest.id));
+        // The extensions' packages too (DEC-27): the famous characters carry their fan-work notice.
+        const sources = await content.sources([...content.site.map((p) => p.manifest.id), ...content.extensions]);
         published.value = sources.map((s) => s.manifest);
     };
     onMounted(load);

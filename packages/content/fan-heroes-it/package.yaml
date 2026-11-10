@@ -1,0 +1,17 @@
+formatVersion: 0
+id: fan-heroes-it
+name: { en: "Famous heroes — Italian", it: "Eroi famosi — italiano" }
+version: 0.1.0
+kind: translation
+defaultLanguage: it
+languages: [it]
+visibility: public
+redistributable: true
+dependencies:
+  - { id: fan-heroes, version: ">=0.1.0" }
+sources:
+  - id: fan-heroes
+    title: "Eroi famosi (opera fan)"
+    publisher: "D&D Platform"
+    license: CC-BY-4.0
+    attribution: "Un'opera fan non ufficiale, non affiliata né approvata dai titolari dei personaggi che nomina. I nomi dei personaggi e delle loro opere appartengono ai rispettivi titolari; nessuna immagine e nessun testo è preso dalle opere. Le build, le descrizioni e le motivazioni sono della piattaforma, sotto la licenza Creative Commons Attribuzione 4.0 Internazionale."

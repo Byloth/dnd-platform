@@ -60,6 +60,67 @@
               "minLength": 1
             }
           }
+        },
+        "prefer": {
+          "type": "object",
+          "description": "Subclasses and backgrounds of other packages the idea is truer with, in order of preference (docs/phase-1/14-wizard-steps-revision.md): the first one loaded wins over `subclass` and `background`, which stay the fallback. Optional references: an id that is not loaded is skipped, never an error.",
+          "properties": {
+            "subclass": {
+              "type": "array",
+              "items": {
+                "$ref": "common.schema.json#/$defs/entityId"
+              },
+              "minItems": 1
+            },
+            "background": {
+              "type": "array",
+              "items": {
+                "$ref": "common.schema.json#/$defs/entityId"
+              },
+              "minItems": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "customBackground": {
+          "type": "object",
+          "description": "A background of the character's own (the SRD's \"Customizing a Background\"), used when neither a preferred background nor `background` is loaded.",
+          "properties": {
+            "name": {
+              "$ref": "common.schema.json#/$defs/localizedString"
+            },
+            "skills": {
+              "type": "array",
+              "items": {
+                "$ref": "common.schema.json#/$defs/slug"
+              },
+              "uniqueItems": true
+            },
+            "tools": {
+              "type": "array",
+              "items": {
+                "$ref": "common.schema.json#/$defs/slug"
+              },
+              "uniqueItems": true
+            },
+            "languages": {
+              "type": "array",
+              "items": {
+                "$ref": "common.schema.json#/$defs/slug"
+              },
+              "uniqueItems": true
+            },
+            "feature": {
+              "$ref": "common.schema.json#/$defs/entityId"
+            },
+            "equipment": {
+              "$ref": "common.schema.json#/$defs/entityId"
+            }
+          },
+          "required": [
+            "name"
+          ],
+          "additionalProperties": false
         }
       },
       "additionalProperties": false
@@ -68,6 +129,28 @@
       "type": "object",
       "additionalProperties": {
         "$ref": "common.schema.json#/$defs/localizedString"
+      }
+    },
+    "path": {
+      "type": "array",
+      "description": "The levels that make the character who they are, shown on the idea's card (docs/phase-1/14-wizard-steps-revision.md).",
+      "items": {
+        "type": "object",
+        "properties": {
+          "level": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 20
+          },
+          "text": {
+            "$ref": "common.schema.json#/$defs/localizedString"
+          }
+        },
+        "required": [
+          "level",
+          "text"
+        ],
+        "additionalProperties": false
       }
     }
   },

@@ -1,0 +1,66 @@
+# Fan-made (DEC-27): an unofficial idea to start from, written by the platform; the name belongs to its owners.
+id: fan-heroes.archetype.ezio
+name:
+  en: Ezio Auditore
+source: fan-heroes
+pitch:
+  en: Assassin's Creed — a Florentine noble turned assassin, who climbs any wall and strikes unseen.
+recommends:
+  species: srd51.species.human
+  class: srd51.class.rogue
+  subclass: srd51.subclass.rogue.thief
+  prefer:
+    subclass:
+    - phb14.subclass.rogue.assassin
+    background:
+    - phb14.background.criminal
+  customBackground:
+    name:
+      en: Florentine assassin
+    skills:
+    - deception
+    - persuasion
+    tools:
+    - thieves-tools
+    - poisoners-kit
+    feature: srd51.feature.acolyte.shelter-of-the-faithful
+    equipment: srd51.background.acolyte
+  abilityPriority:
+  - dex
+  - con
+  - wis
+  - int
+  - cha
+  - str
+  answers:
+    srd51.class.rogue#skills:
+    - acrobatics
+    - stealth
+    - sleight-of-hand
+    - athletics
+    srd51.feature.rogue.expertise#expertise-1:
+    - stealth
+    - acrobatics
+    srd51.species.human#languages:
+    - elvish
+why:
+  class:
+    en: 'A rogue: Sneak Attack, the hidden blade where it hurts.'
+  species:
+    en: A human, a son of Florence.
+  subclass:
+    en: The Assassin (level 3), with the Player's Handbook; the Thief with the SRD alone, who climbs like Ezio.
+  background:
+    en: A criminal, the Brotherhood as his contacts, or a Florentine assassin of his own.
+  abilityPriority:
+    en: Dexterity for the blade and the climbing.
+path:
+- level: 1
+  text:
+    en: 'Sneak Attack: the hidden blade.'
+- level: 2
+  text:
+    en: 'Cunning Action: hide or run in the blink of an eye.'
+- level: 3
+  text:
+    en: 'Assassinate (Player''s Handbook), or Second-Story Work as a Thief: walls are no obstacle.'

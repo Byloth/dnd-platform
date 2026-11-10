@@ -1,0 +1,11 @@
+name: Ezio Auditore
+pitch: Assassin's Creed — un nobile fiorentino diventato assassino, che scala ogni muro e colpisce senza essere visto.
+why.class: 'Un ladro: l''Attacco Furtivo, la lama celata dove fa più male.'
+why.species: Un umano, figlio di Firenze.
+why.subclass: L'Assassino (3° livello), con il Manuale del Giocatore; il Furfante con il solo SRD, che si arrampica come Ezio.
+why.background: Un criminale, con la Confraternita come contatti, o un assassino fiorentino tutto suo.
+why.abilityPriority: La Destrezza per la lama e le scalate.
+path.0.text: 'Attacco Furtivo: la lama celata.'
+path.1.text: 'Azione Scaltra: nascondersi o fuggire in un batter d''occhio.'
+path.2.text: 'Assassinare (Manuale del Giocatore), o Lavoro al Secondo Piano da Furfante: i muri non sono un ostacolo.'
+recommends.customBackground.name: Assassino fiorentino

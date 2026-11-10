@@ -74,6 +74,14 @@
       "no": "Removing a package: the button and its confirmation, destructive, so say what happens.",
       "inUse": "Removing a package: the button and its confirmation, destructive, so say what happens. Parameters: {characters}, {name}."
     },
+    "extensions": {
+      "heading": "Heading of the packages page's section of extensions (DEC-27), between the installed packages and the storage.",
+      "intro": "Line under that heading.",
+      "fanHeroes": {
+        "title": "Name of the famous characters' extension.",
+        "text": "Its description; says it is a fan work."
+      }
+    },
     "storage": {
       "heading": "The state of the browser's storage; plain words, no technical terms.",
       "persisted": "The state of the browser's storage; plain words, no technical terms.",
@@ -428,7 +436,14 @@
       "recommendation": "Newcomer copy: what to choose when unsure.",
       "skip": "The card that skips the archetypes.",
       "skipText": "Under the skip card's title.",
-      "builds": "Under an archetype's pitch: its class and species. Parameters: {class}, {species}."
+      "builds": "Under an archetype's pitch: its class and species. Parameters: {class}, {species}.",
+      "question": "Legend of step 1's first question (screen-reader only).",
+      "scratch": "Card: start with nothing prefilled.",
+      "scratchText": "Summary of that card.",
+      "sketched": "Card: start from one of the ideas (archetypes).",
+      "sketchedText": "Summary of that card.",
+      "ideas": "Heading of the list of ideas to start from.",
+      "level": "Heading of a step of an idea's path; keep {level}."
     },
     "species": {
       "purpose": "Newcomer copy: what the step is for.",

@@ -102,13 +102,22 @@ export const useContentStore = defineStore("content", () =>
         // Translation packages are not choices: `sources` adds the one of the interface's language by itself.
         // Catalogue packages (creatures) are not either, and the sheet never downloads them.
         const bundles = await Promise.all(Object.keys(published.packages).sort()
-            .filter((id) => !published.packages[id]!.translation && !published.packages[id]!.catalogue)
+            .filter((id) => !published.packages[id]!.translation && !published.packages[id]!.catalogue &&
+                !published.packages[id]!.ideas)
             .map((id) => _siteBundle(id, published)));
         index.value = published;
         site.value = bundles.map((b) => ({ manifest: b.manifest, entities: b.entities.length, origin: "site" }));
         stored.value = records.map(_entry).sort((a, b) => (a.manifest.id < b.manifest.id ? -1 : 1));
         persistence.value = state;
     };
+
+    /**
+     * The site's extensions of ideas (DEC-27, the famous characters): their ids, never content to choose; the
+     * packages page turns them on or off.
+     */
+    const extensions = computed(() => Object.entries(index.value?.packages ?? {})
+        .filter(([, entry]) => entry.ideas && !entry.translation)
+        .map(([id]) => id));
 
     /** The stored packages a character can choose: a translation is not one, the interface's language brings it. */
     const choosable = computed(() => stored.value.filter((p) => p.manifest.kind !== "translation"));
@@ -242,7 +251,7 @@ export const useContentStore = defineStore("content", () =>
         const records = await useBrowserStorage().packages.list();
 
         const ids = Object.entries(published.packages)
-            .filter(([, entry]) => !entry.translation && (options.creatures || !entry.catalogue))
+            .filter(([, entry]) => !entry.translation && !entry.ideas && (options.creatures || !entry.catalogue))
             .map(([id]) => id);
         for (const record of records)
         {
@@ -269,6 +278,7 @@ export const useContentStore = defineStore("content", () =>
         stored,
         choosable,
         offersChoice,
+        extensions,
         persistence,
         loads,
         refresh,

@@ -1,0 +1,11 @@
+name: Kenshiro
+pitch: Ken il guerriero — il maestro di un'arte marziale che colpisce i punti segreti del corpo.
+why.class: 'Un monaco: mani nude, piedi veloci, nessuna armatura.'
+why.species: Un umano, che vaga in un mondo in rovina.
+why.subclass: 'La Via della Mano Aperta (3° livello): ogni colpo può atterrare, spingere o fermare un nemico.'
+why.background: Un eroe popolare che difende i deboli, o un successore della sua scuola, tutto suo.
+why.abilityPriority: 'Destrezza e Saggezza: i colpi e la difesa di un monaco.'
+path.0.text: 'Tecnica della Mano Aperta: il colpo che getta a terra il nemico.'
+path.1.text: 'Colpo Stordente: i punti di pressione, un nemico che non può muoversi.'
+path.2.text: 'Palmo Tremante: "tu sei già morto".'
+recommends.customBackground.name: Successore di Hokuto

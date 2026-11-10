@@ -51,7 +51,11 @@ const srd51It = resolve(ROOT, "packages", "content", "srd51-it");
 // The SRD's creatures: published for the catalogue (docs/19-catalogues.md), never loaded by the sheet.
 const creatures = resolve(ROOT, "packages", "content", "srd51-creatures");
 const creaturesIt = resolve(ROOT, "packages", "content", "srd51-creatures-it");
-const built = [srd51, srd51It, creatures, creaturesIt].filter((dir) => existsSync(resolve(dir, "package.yaml")));
+// The famous characters' extension (DEC-27): ideas to start from, on by default, never offered as content.
+const fanHeroes = resolve(ROOT, "packages", "content", "fan-heroes");
+const fanHeroesIt = resolve(ROOT, "packages", "content", "fan-heroes-it");
+const built = [srd51, srd51It, creatures, creaturesIt, fanHeroes, fanHeroesIt]
+    .filter((dir) => existsSync(resolve(dir, "package.yaml")));
 execFileSync("node", [cli, "build", "--out", OUT, ...built], { cwd: ROOT, stdio: "inherit" });
 
 // Every release, and an index of the versions per package.
@@ -72,6 +76,7 @@ interface IndexEntry
     versions: string[];
     translation?: { language: string, of: string[] };
     catalogue?: boolean;
+    ideas?: boolean;
 }
 const index: Record<string, IndexEntry> = {};
 for (const [id, list] of [...versions].sort(([a], [b]) => (a < b ? -1 : 1)))
@@ -85,6 +90,8 @@ for (const [id, list] of [...versions].sort(([a], [b]) => (a < b ? -1 : 1)))
     };
     // A package of creatures only is catalogue content: the application does not offer it as a choice.
     if (entities.length && entities.every((e) => e.type === "creature")) { index[id].catalogue = true; }
+    // A package of ideas only is an extension of the wizard's first step (DEC-27), not content to choose.
+    if (entities.length && entities.every((e) => e.type === "archetype")) { index[id].ideas = true; }
     if (manifest.kind === "translation")
     {
         index[id].translation = { language: manifest.defaultLanguage, of: manifest.dependencies.map((d) => d.id) };

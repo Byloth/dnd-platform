@@ -1,0 +1,11 @@
+name: Geralt di Rivia
+pitch: The Witcher — un cacciatore di mostri a pagamento, con una spada, le pozioni e qualche segno magico.
+why.class: 'Un guerriero: ogni arma e armatura, e una spada in mano mentre l''altra lancia i segni.'
+why.species: 'Un mezzelfo: la scurovisione per gli occhi da gatto di un witcher, e una mente che il fascino non piega.'
+why.subclass: 'Il Cavaliere Mistico (3° livello), con il Manuale del Giocatore: i segni sono i suoi incantesimi. Il Campione con il solo SRD: niente segni.'
+why.background: Un forestiero che vive sulla strada, o un witcher suo con borsa da erborista e scorte da alchimista per le pozioni.
+why.abilityPriority: La Forza per la spada, la Destrezza per schivare, la Costituzione per resistere.
+path.0.text: 'Duellare: una spada in mano, l''altra libera per i segni.'
+path.1.text: 'Cavaliere Mistico (Manuale del Giocatore): Aard è Onda Tonante, Igni è Mani Brucianti, Quen è Scudo.'
+path.2.text: 'Attacco Extra: due colpi di spada per turno.'
+recommends.customBackground.name: Witcher

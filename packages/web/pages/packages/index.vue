@@ -3,16 +3,19 @@
     import type { PackageManifest } from "@byloth/dnd-platform-schema";
 
     import AppButton from "@/components/ui/AppButton.vue";
+    import ChoiceCard from "@/components/wizard/ChoiceCard.vue";
     import FilePicker from "@/components/ui/FilePicker.vue";
     import FontAwesome from "@/components/ui/FontAwesome.vue";
     import WorkingDirectoryPanel from "@/components/packages/WorkingDirectoryPanel.vue";
     import type { PackageEntry } from "@/stores/content";
 
     // The packages page (docs/phase-1/02-content-and-character-stores.md): what the site ships, what the user
-    // loaded, loading more from files, removing, the state of the browser's storage and the working folder (M1.8).
+    // loaded, loading more from files, removing, the extensions (DEC-27), the state of the browser's storage and
+    // the working folder (M1.8).
 
     const { t, locale } = useI18n();
     const store = useContentStore();
+    const preferences = usePreferencesStore();
 
     useHead({ title: () => t("nav.packages") });
 
@@ -319,6 +322,27 @@
             </ul>
         </section>
 
+        <section v-if="store.extensions.length"
+                 class="packages-page__section"
+                 aria-labelledby="packages-extensions-heading">
+            <h2 id="packages-extensions-heading" class="packages-page__subtitle">
+                {{ t("packages.extensions.heading") }}
+            </h2>
+            <p class="packages-page__extensions-intro">
+                {{ t("packages.extensions.intro") }}
+            </p>
+            <div class="packages-page__extensions">
+                <ChoiceCard name="extension-fan-heroes"
+                            type="checkbox"
+                            value="fan-heroes"
+                            :title="t('packages.extensions.fanHeroes.title')"
+                            :summary="t('packages.extensions.fanHeroes.text')"
+                            :checked="preferences.fanHeroes"
+                            help-level="newcomer"
+                            @select="(_, checked) => { preferences.fanHeroes = checked; }" />
+            </div>
+        </section>
+
         <section class="packages-page__section" aria-labelledby="packages-storage-heading">
             <h2 id="packages-storage-heading" class="packages-page__subtitle">
                 {{ t("packages.storage.heading") }}
@@ -388,6 +412,19 @@
             font-size: var(--text-lg);
             letter-spacing: 0.08em;
             text-transform: uppercase;
+        }
+
+        &__extensions-intro
+        {
+            color: var(--color-ink-muted);
+        }
+
+        // Small, quiet cards, a quarter of the page each: an extension is a switch, not a package (DEC-27).
+        &__extensions
+        {
+            display: grid;
+            gap: var(--space-4);
+            grid-template-columns: repeat(auto-fill, minmax(min(100%, 14rem), 1fr));
         }
 
         &__loads,

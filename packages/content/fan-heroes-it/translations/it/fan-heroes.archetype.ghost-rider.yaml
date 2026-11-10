@@ -1,0 +1,11 @@
+name: Ghost Rider
+pitch: Marvel — uno stuntman che ha stretto un patto con un diavolo e brucia di fuoco infernale.
+why.class: 'Un warlock: un potere comprato con un patto.'
+why.species: 'Un tiefling, per il fuoco infernale nel sangue: resistenza al fuoco e un po'' di magia degli inferi.'
+why.subclass: 'L''Immondo: il suo patrono è un diavolo.'
+why.background: Un intrattenitore, lo stuntman, o uno stuntman tutto suo.
+why.abilityPriority: Il Carisma alimenta la magia del patto.
+path.0.text: 'Intimorire Infernale: chi lo ferisce brucia.'
+path.1.text: 'Benedizione dell''Oscuro: ogni nemico abbattuto lo rende più forte. Nelle regole non c''è la moto.'
+path.2.text: 'Patto della Lama: la sua catena come arma del patto.'
+recommends.customBackground.name: Stuntman

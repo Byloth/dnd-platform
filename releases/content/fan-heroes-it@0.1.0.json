@@ -1,0 +1,285 @@
+{
+  "entities": [
+    {
+      "data": {
+        "language": "it",
+        "strings": {
+          "name": "Capitan America",
+          "path.0.text": "Lo scudo lanciato nelle regole è un'arma improvvisata: colpisce, con danni bassi.",
+          "path.1.text": "Protezione: lo scudo alzato per proteggere un amico accanto a lui.",
+          "path.2.text": "Aura di Protezione: chi gli sta vicino resiste meglio.",
+          "pitch": "Marvel — un soldato con un codice incrollabile e uno scudo con cui protegge tutti.",
+          "recommends.customBackground.name": "Super-soldato",
+          "why.abilityPriority": "La Forza per combattere, il Carisma per i poteri del giuramento e per guidare.",
+          "why.background": "Un soldato, o un super-soldato tutto suo.",
+          "why.class": "Un paladino: un giuramento che è il suo codice, l'armatura e il coraggio di guidare.",
+          "why.species": "Un umano, reso il meglio che un umano possa essere.",
+          "why.subclass": "Il Giuramento di Devozione (3° livello): onestà, coraggio, proteggere i deboli."
+        }
+      },
+      "file": "translations/it/fan-heroes.archetype.captain-america.yaml",
+      "id": "fan-heroes.archetype.captain-america",
+      "type": "translation"
+    },
+    {
+      "data": {
+        "language": "it",
+        "strings": {
+          "name": "Elsa",
+          "path.0.text": "Raggio di Gelo: il primo ghiaccio dalle sue mani.",
+          "path.1.text": "Affinità Elementale: il suo gelo ferisce di più.",
+          "path.2.text": "Tempesta di Ghiaccio, poi Cono di Freddo (9° livello): la tormenta che scatena. Le scaglie della discendenza sono il suo ghiaccio.",
+          "pitch": "Frozen - Il regno di ghiaccio — una regina nata con il potere del ghiaccio, che sta imparando a dominare.",
+          "recommends.customBackground.name": "Regina di Arendelle",
+          "why.abilityPriority": "Il Carisma alimenta la sua magia; la Costituzione la regge.",
+          "why.background": "Una nobile, la regina di Arendelle, o una regina tutta sua.",
+          "why.class": "Uno stregone nasce con la magia e fatica a dominarla: è la sua storia.",
+          "why.species": "Un'umana, una regina.",
+          "why.subclass": "La Discendenza Draconica di un drago bianco: il suo potere è il gelo."
+        }
+      },
+      "file": "translations/it/fan-heroes.archetype.elsa.yaml",
+      "id": "fan-heroes.archetype.elsa",
+      "type": "translation"
+    },
+    {
+      "data": {
+        "language": "it",
+        "strings": {
+          "name": "Ezio Auditore",
+          "path.0.text": "Attacco Furtivo: la lama celata.",
+          "path.1.text": "Azione Scaltra: nascondersi o fuggire in un batter d'occhio.",
+          "path.2.text": "Assassinare (Manuale del Giocatore), o Lavoro al Secondo Piano da Furfante: i muri non sono un ostacolo.",
+          "pitch": "Assassin's Creed — un nobile fiorentino diventato assassino, che scala ogni muro e colpisce senza essere visto.",
+          "recommends.customBackground.name": "Assassino fiorentino",
+          "why.abilityPriority": "La Destrezza per la lama e le scalate.",
+          "why.background": "Un criminale, con la Confraternita come contatti, o un assassino fiorentino tutto suo.",
+          "why.class": "Un ladro: l'Attacco Furtivo, la lama celata dove fa più male.",
+          "why.species": "Un umano, figlio di Firenze.",
+          "why.subclass": "L'Assassino (3° livello), con il Manuale del Giocatore; il Furfante con il solo SRD, che si arrampica come Ezio."
+        }
+      },
+      "file": "translations/it/fan-heroes.archetype.ezio.yaml",
+      "id": "fan-heroes.archetype.ezio",
+      "type": "translation"
+    },
+    {
+      "data": {
+        "language": "it",
+        "strings": {
+          "name": "Frieren",
+          "path.0.text": "Dardo Incantato: lo Zoltraak, una magia che non manca mai il bersaglio.",
+          "path.1.text": "Individuazione del Magico: sente il mana di chi le sta intorno.",
+          "path.2.text": "Recupero Arcano, e un libro degli incantesimi che non smette di crescere.",
+          "pitch": "Frieren - Oltre la fine del viaggio — una maga elfa che da mille anni colleziona incantesimi.",
+          "recommends.customBackground.name": "Collezionista di incantesimi",
+          "why.abilityPriority": "L'Intelligenza per la magia del mago.",
+          "why.background": "Una sapiente, o una collezionista di incantesimi tutta sua.",
+          "why.class": "Un mago copia nel suo libro ogni incantesimo che trova: mille anni di collezione.",
+          "why.species": "Un'alta elfa: vive per secoli, e conosce un trucchetto in più.",
+          "why.subclass": "La Scuola di Invocazione (2° livello): lo Zoltraak, la magia che uccide, è un'invocazione."
+        }
+      },
+      "file": "translations/it/fan-heroes.archetype.frieren.yaml",
+      "id": "fan-heroes.archetype.frieren",
+      "type": "translation"
+    },
+    {
+      "data": {
+        "language": "it",
+        "strings": {
+          "name": "Geralt di Rivia",
+          "path.0.text": "Duellare: una spada in mano, l'altra libera per i segni.",
+          "path.1.text": "Cavaliere Mistico (Manuale del Giocatore): Aard è Onda Tonante, Igni è Mani Brucianti, Quen è Scudo.",
+          "path.2.text": "Attacco Extra: due colpi di spada per turno.",
+          "pitch": "The Witcher — un cacciatore di mostri a pagamento, con una spada, le pozioni e qualche segno magico.",
+          "recommends.customBackground.name": "Witcher",
+          "why.abilityPriority": "La Forza per la spada, la Destrezza per schivare, la Costituzione per resistere.",
+          "why.background": "Un forestiero che vive sulla strada, o un witcher suo con borsa da erborista e scorte da alchimista per le pozioni.",
+          "why.class": "Un guerriero: ogni arma e armatura, e una spada in mano mentre l'altra lancia i segni.",
+          "why.species": "Un mezzelfo: la scurovisione per gli occhi da gatto di un witcher, e una mente che il fascino non piega.",
+          "why.subclass": "Il Cavaliere Mistico (3° livello), con il Manuale del Giocatore: i segni sono i suoi incantesimi. Il Campione con il solo SRD: niente segni."
+        }
+      },
+      "file": "translations/it/fan-heroes.archetype.geralt.yaml",
+      "id": "fan-heroes.archetype.geralt",
+      "type": "translation"
+    },
+    {
+      "data": {
+        "language": "it",
+        "strings": {
+          "name": "Panoramix",
+          "path.0.text": "Bacche Benefiche: bacche che curano e nutrono.",
+          "path.1.text": "Forma Selvatica: se mai volesse diventare un cinghiale.",
+          "path.2.text": "Caratteristica Potenziata (Forza del Toro): la pozione magica, per un amico.",
+          "pitch": "Asterix — il druido del villaggio che prepara la pozione magica che rende invincibili i Galli.",
+          "why.abilityPriority": "La Saggezza per la magia del druido; i combattimenti li lascia agli altri.",
+          "why.background": "Un sapiente, l'uomo dotto del villaggio; un accolito, un sacerdote dell'antica fede, con il solo SRD.",
+          "why.class": "Il druido per eccellenza: il falcetto d'oro e la borsa da erborista sono di ogni druido.",
+          "why.species": "Un umano, il vecchio saggio del villaggio.",
+          "why.subclass": "Il Circolo della Terra (2° livello), la foresta: gli incantesimi dei boschi che conosce."
+        }
+      },
+      "file": "translations/it/fan-heroes.archetype.getafix.yaml",
+      "id": "fan-heroes.archetype.getafix",
+      "type": "translation"
+    },
+    {
+      "data": {
+        "language": "it",
+        "strings": {
+          "name": "Ghost Rider",
+          "path.0.text": "Intimorire Infernale: chi lo ferisce brucia.",
+          "path.1.text": "Benedizione dell'Oscuro: ogni nemico abbattuto lo rende più forte. Nelle regole non c'è la moto.",
+          "path.2.text": "Patto della Lama: la sua catena come arma del patto.",
+          "pitch": "Marvel — uno stuntman che ha stretto un patto con un diavolo e brucia di fuoco infernale.",
+          "recommends.customBackground.name": "Stuntman",
+          "why.abilityPriority": "Il Carisma alimenta la magia del patto.",
+          "why.background": "Un intrattenitore, lo stuntman, o uno stuntman tutto suo.",
+          "why.class": "Un warlock: un potere comprato con un patto.",
+          "why.species": "Un tiefling, per il fuoco infernale nel sangue: resistenza al fuoco e un po' di magia degli inferi.",
+          "why.subclass": "L'Immondo: il suo patrono è un diavolo."
+        }
+      },
+      "file": "translations/it/fan-heroes.archetype.ghost-rider.yaml",
+      "id": "fan-heroes.archetype.ghost-rider",
+      "type": "translation"
+    },
+    {
+      "data": {
+        "language": "it",
+        "strings": {
+          "name": "Kenshiro",
+          "path.0.text": "Tecnica della Mano Aperta: il colpo che getta a terra il nemico.",
+          "path.1.text": "Colpo Stordente: i punti di pressione, un nemico che non può muoversi.",
+          "path.2.text": "Palmo Tremante: \"tu sei già morto\".",
+          "pitch": "Ken il guerriero — il maestro di un'arte marziale che colpisce i punti segreti del corpo.",
+          "recommends.customBackground.name": "Successore di Hokuto",
+          "why.abilityPriority": "Destrezza e Saggezza: i colpi e la difesa di un monaco.",
+          "why.background": "Un eroe popolare che difende i deboli, o un successore della sua scuola, tutto suo.",
+          "why.class": "Un monaco: mani nude, piedi veloci, nessuna armatura.",
+          "why.species": "Un umano, che vaga in un mondo in rovina.",
+          "why.subclass": "La Via della Mano Aperta (3° livello): ogni colpo può atterrare, spingere o fermare un nemico."
+        }
+      },
+      "file": "translations/it/fan-heroes.archetype.kenshiro.yaml",
+      "id": "fan-heroes.archetype.kenshiro",
+      "type": "translation"
+    },
+    {
+      "data": {
+        "language": "it",
+        "strings": {
+          "name": "Kratos",
+          "path.0.text": "Ira: la collera del Fantasma di Sparta.",
+          "path.1.text": "Frenesia: non si ferma finché lo scontro non è finito.",
+          "path.2.text": "Attacco Extra: due colpi d'ascia per turno. L'ascia Leviatano si lancia come un'ascia.",
+          "pitch": "God of War — un guerriero spartano che combatte in preda a un'ira che niente ferma, ascia in pugno.",
+          "recommends.customBackground.name": "Fantasma di Sparta",
+          "why.abilityPriority": "La Forza per l'ascia, la Costituzione per incassare i colpi.",
+          "why.background": "Un generale spartano: un soldato, o un background suo quando il Manuale del Giocatore non è caricato.",
+          "why.class": "La sua Ira spartana è l'Ira del barbaro: più danni, e colpi che lo feriscono di meno.",
+          "why.species": "Un umano: un po' più bravo in tutto, senza altri doni che la propria forza.",
+          "why.subclass": "Il Cammino del Berserker (3° livello): con la Frenesia combatte senza fermarsi."
+        }
+      },
+      "file": "translations/it/fan-heroes.archetype.kratos.yaml",
+      "id": "fan-heroes.archetype.kratos",
+      "type": "translation"
+    },
+    {
+      "data": {
+        "language": "it",
+        "strings": {
+          "name": "Legolas",
+          "path.0.text": "Esploratore Nato: la foresta è la sua casa.",
+          "path.1.text": "Tiro: +2 a ogni colpo con l'arco.",
+          "path.2.text": "Attacco Extra: due frecce per turno.",
+          "pitch": "Il Signore degli Anelli — il principe elfo che non sbaglia mai un colpo con l'arco.",
+          "recommends.customBackground.name": "Principe elfico",
+          "why.abilityPriority": "La Destrezza per l'arco, la Saggezza per i sensi e gli incantesimi del ranger.",
+          "why.background": "Un nobile, principe degli elfi dei boschi, o un principe elfico tutto suo.",
+          "why.class": "Un ranger: l'arco, i boschi, le tracce che nessun altro vede.",
+          "why.species": "Un alto elfo: sensi acuti, scurovisione, una trance al posto del sonno.",
+          "why.subclass": "Il Cacciatore (3° livello): più danni a un nemico ferito."
+        }
+      },
+      "file": "translations/it/fan-heroes.archetype.legolas.yaml",
+      "id": "fan-heroes.archetype.legolas",
+      "type": "translation"
+    },
+    {
+      "data": {
+        "language": "it",
+        "strings": {
+          "name": "Lupin III",
+          "path.0.text": "Camuffare Se Stesso e Charme su Persone: cento volti, e una parola per tutti.",
+          "path.1.text": "Maestria: il doppio della sua bravura nell'ingannare e nei giochi di mano.",
+          "path.2.text": "Parole Taglienti: una battuta che rovina il tiro della guardia.",
+          "pitch": "Il ladro gentiluomo che non uccide mai, ha cento volti e incanta tutti lungo la strada.",
+          "recommends.customBackground.name": "Ladro gentiluomo",
+          "why.abilityPriority": "Il Carisma per il fascino e gli incantesimi, la Destrezza per le sue mani.",
+          "why.background": "Un ciarlatano con una falsa identità, o il suo ladro gentiluomo con arnesi da scasso e trucchi per il camuffamento.",
+          "why.class": "I suoi travestimenti e il suo fascino sono incantesimi da bardo: Camuffare Se Stesso, Charme su Persone. Non uccidere è la regola dell'SRD per stordire invece di uccidere.",
+          "why.species": "Un umano, svelto di mente e di mano.",
+          "why.subclass": "Il Collegio della Sapienza (3° livello): più abilità, e le Parole Taglienti per rovinare un tiro al nemico."
+        }
+      },
+      "file": "translations/it/fan-heroes.archetype.lupin.yaml",
+      "id": "fan-heroes.archetype.lupin",
+      "type": "translation"
+    },
+    {
+      "data": {
+        "language": "it",
+        "strings": {
+          "name": "Cuorescuro",
+          "path.0.text": "Il suo dominio: l'Inganno (travestimenti, un duplicato di sé) con il Manuale del Giocatore, la Vita senza.",
+          "path.1.text": "Incanalare Divinità: il potere della sua dea, una volta tra un riposo e l'altro.",
+          "path.2.text": "Incantesimi di 3° livello: Rinascita, per riportare indietro un amico.",
+          "pitch": "Baldur's Gate 3 — una chierica di una dea dell'oscurità, con un passato che non ricorda.",
+          "why.abilityPriority": "La Saggezza alimenta i suoi incantesimi; Costituzione e Destrezza la tengono in piedi.",
+          "why.background": "Un'accolita, come nel gioco: cresciuta al servizio della sua dea.",
+          "why.class": "Una chierica in armatura, con la magia di una dea: cura, protegge e colpisce.",
+          "why.species": "Una mezzelfa, come nel gioco: scurovisione e una mente che il fascino non piega.",
+          "why.subclass": "Il Dominio dell'Inganno, come nel gioco, con il Manuale del Giocatore; il Dominio della Vita con il solo SRD."
+        }
+      },
+      "file": "translations/it/fan-heroes.archetype.shadowheart.yaml",
+      "id": "fan-heroes.archetype.shadowheart",
+      "type": "translation"
+    }
+  ],
+  "manifest": {
+    "defaultLanguage": "it",
+    "dependencies": [
+      {
+        "id": "fan-heroes",
+        "version": ">=0.1.0"
+      }
+    ],
+    "formatVersion": 0,
+    "id": "fan-heroes-it",
+    "kind": "translation",
+    "languages": [
+      "it"
+    ],
+    "name": {
+      "en": "Famous heroes — Italian",
+      "it": "Eroi famosi — italiano"
+    },
+    "redistributable": true,
+    "sources": [
+      {
+        "attribution": "Un'opera fan non ufficiale, non affiliata né approvata dai titolari dei personaggi che nomina. I nomi dei personaggi e delle loro opere appartengono ai rispettivi titolari; nessuna immagine e nessun testo è preso dalle opere. Le build, le descrizioni e le motivazioni sono della piattaforma, sotto la licenza Creative Commons Attribuzione 4.0 Internazionale.",
+        "id": "fan-heroes",
+        "license": "CC-BY-4.0",
+        "publisher": "D&D Platform",
+        "title": "Eroi famosi (opera fan)"
+      }
+    ],
+    "version": "0.1.0",
+    "visibility": "public"
+  }
+}

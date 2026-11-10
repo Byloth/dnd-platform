@@ -1,0 +1,11 @@
+name: Capitan America
+pitch: Marvel — un soldato con un codice incrollabile e uno scudo con cui protegge tutti.
+why.class: 'Un paladino: un giuramento che è il suo codice, l''armatura e il coraggio di guidare.'
+why.species: Un umano, reso il meglio che un umano possa essere.
+why.subclass: 'Il Giuramento di Devozione (3° livello): onestà, coraggio, proteggere i deboli.'
+why.background: Un soldato, o un super-soldato tutto suo.
+why.abilityPriority: La Forza per combattere, il Carisma per i poteri del giuramento e per guidare.
+path.0.text: 'Lo scudo lanciato nelle regole è un''arma improvvisata: colpisce, con danni bassi.'
+path.1.text: 'Protezione: lo scudo alzato per proteggere un amico accanto a lui.'
+path.2.text: 'Aura di Protezione: chi gli sta vicino resiste meglio.'
+recommends.customBackground.name: Super-soldato

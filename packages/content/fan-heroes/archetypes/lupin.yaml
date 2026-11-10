@@ -1,0 +1,72 @@
+# Fan-made (DEC-27): an unofficial idea to start from, written by the platform; the name belongs to its owners.
+id: fan-heroes.archetype.lupin
+name:
+  en: Lupin III
+source: fan-heroes
+pitch:
+  en: The gentleman thief who never kills, wears a hundred faces and charms everyone on the way.
+recommends:
+  species: srd51.species.human
+  class: srd51.class.bard
+  subclass: srd51.subclass.bard.college-of-lore
+  prefer:
+    background:
+    - phb14.background.charlatan
+  customBackground:
+    name:
+      en: Gentleman thief
+    skills:
+    - stealth
+    - investigation
+    tools:
+    - thieves-tools
+    - disguise-kit
+    feature: srd51.feature.acolyte.shelter-of-the-faithful
+    equipment: srd51.background.acolyte
+  abilityPriority:
+  - cha
+  - dex
+  - con
+  - int
+  - wis
+  - str
+  answers:
+    srd51.class.bard#skills:
+    - deception
+    - sleight-of-hand
+    - persuasion
+    srd51.class.bard#tools:
+    - lute
+    - flute
+    - horn
+    srd51.species.human#languages:
+    - elvish
+    srd51.class.bard#cantrips:
+    - srd51.spell.vicious-mockery
+    - srd51.spell.minor-illusion
+    srd51.class.bard#spells:
+    - srd51.spell.disguise-self
+    - srd51.spell.charm-person
+    - srd51.spell.sleep
+    - srd51.spell.silent-image
+why:
+  class:
+    en: 'His disguises and his charm are a bard''s spells: Disguise Self, Charm Person. Never killing is the SRD''s rule of knocking out instead.'
+  species:
+    en: A human, quick-witted and quick-handed.
+  subclass:
+    en: 'The College of Lore (level 3): more skills, and Cutting Words to spoil a foe''s roll.'
+  background:
+    en: A charlatan with a false identity, or the gentleman thief of his own with thieves' tools and a disguise kit.
+  abilityPriority:
+    en: Charisma for charm and spells, Dexterity for his hands.
+path:
+- level: 1
+  text:
+    en: 'Disguise Self and Charm Person: a hundred faces, and a word for everyone.'
+- level: 3
+  text:
+    en: 'Expertise: twice his skill at deceiving and at sleight of hand.'
+- level: 3
+  text:
+    en: 'Cutting Words: a quip that ruins the guard''s roll.'

@@ -1,0 +1,70 @@
+# Fan-made (DEC-27): an unofficial idea to start from, written by the platform; the name belongs to its owners.
+id: fan-heroes.archetype.frieren
+name:
+  en: Frieren
+source: fan-heroes
+pitch:
+  en: 'Frieren: Beyond Journey''s End — an elf mage who has spent a thousand years collecting spells.'
+recommends:
+  species: srd51.species.elf
+  subspecies: srd51.species.elf.high-elf
+  class: srd51.class.wizard
+  subclass: srd51.subclass.wizard.school-of-evocation
+  prefer:
+    background:
+    - phb14.background.sage
+  customBackground:
+    name:
+      en: Collector of spells
+    skills:
+    - nature
+    - investigation
+    tools:
+    - calligraphers-supplies
+    languages:
+    - draconic
+    feature: srd51.feature.acolyte.shelter-of-the-faithful
+    equipment: srd51.background.acolyte
+  abilityPriority:
+  - int
+  - con
+  - dex
+  - wis
+  - cha
+  - str
+  answers:
+    srd51.class.wizard#skills:
+    - arcana
+    - history
+    srd51.feature.high-elf.cantrip#cantrip:
+    - srd51.spell.prestidigitation
+    srd51.feature.high-elf.extra-language#extra-language:
+    - celestial
+    srd51.class.wizard#cantrips:
+    - srd51.spell.fire-bolt
+    - srd51.spell.light
+    - srd51.spell.mage-hand
+    srd51.class.wizard#spells:
+    - srd51.spell.magic-missile
+    - srd51.spell.detect-magic
+why:
+  class:
+    en: 'A wizard copies every spell found into the spellbook: a thousand years of collecting.'
+  species:
+    en: 'A high elf: she lives for centuries, and knows one more cantrip.'
+  subclass:
+    en: 'The School of Evocation (level 2): Zoltraak, the killing magic, is an evocation.'
+  background:
+    en: A sage, or a collector of spells of her own.
+  abilityPriority:
+    en: Intelligence for the wizard's magic.
+path:
+- level: 1
+  text:
+    en: 'Magic Missile: Zoltraak, a magic that never misses.'
+- level: 1
+  text:
+    en: 'Detect Magic: she feels the mana of everyone around.'
+- level: 2
+  text:
+    en: Arcane Recovery, and a spellbook that only grows.

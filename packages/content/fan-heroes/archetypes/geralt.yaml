@@ -1,0 +1,69 @@
+# Fan-made (DEC-27): an unofficial idea to start from, written by the platform; the name belongs to its owners.
+id: fan-heroes.archetype.geralt
+name:
+  en: Geralt of Rivia
+source: fan-heroes
+pitch:
+  en: The Witcher — a monster hunter for hire, with a sword, potions and a few magic signs.
+recommends:
+  species: srd51.species.half-elf
+  class: srd51.class.fighter
+  subclass: srd51.subclass.fighter.champion
+  prefer:
+    subclass:
+    - phb14.subclass.fighter.eldritch-knight
+    background:
+    - phb14.background.outlander
+  customBackground:
+    name:
+      en: Witcher
+    skills:
+    - medicine
+    - nature
+    tools:
+    - herbalism-kit
+    - alchemists-supplies
+    feature: srd51.feature.acolyte.shelter-of-the-faithful
+    equipment: srd51.background.acolyte
+  abilityPriority:
+  - str
+  - dex
+  - con
+  - wis
+  - int
+  - cha
+  answers:
+    srd51.class.fighter#skills:
+    - survival
+    - intimidation
+    srd51.feature.half-elf.skill-versatility#skill:
+    - investigation
+    - perception
+    srd51.feature.half-elf.ability-score-increase#ability-scores:
+    - str
+    - dex
+    srd51.feature.fighter.fighting-style#fighting-style:
+    - dueling
+    srd51.species.half-elf#languages:
+    - elvish
+why:
+  class:
+    en: 'A fighter: every weapon and armour, and one sword in his hand while the other casts.'
+  species:
+    en: 'A half-elf: darkvision for a witcher''s cat eyes, and a mind that charms cannot bend.'
+  subclass:
+    en: 'The Eldritch Knight (level 3), with the Player''s Handbook: the signs are its spells. The Champion with the SRD alone: no signs.'
+  background:
+    en: An outlander who lives on the road, or a witcher of his own with an herbalism kit and alchemist's supplies for his potions.
+  abilityPriority:
+    en: Strength for the sword, Dexterity to dodge, Constitution to endure.
+path:
+- level: 1
+  text:
+    en: 'Dueling: one sword in hand, the other free for the signs.'
+- level: 3
+  text:
+    en: 'Eldritch Knight (Player''s Handbook): Aard is Thunderwave, Igni is Burning Hands, Quen is Shield.'
+- level: 5
+  text:
+    en: 'Extra Attack: two blows of the sword each turn.'

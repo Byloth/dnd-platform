@@ -14,7 +14,7 @@ import type { StatBlockLine } from "./creature.js";
 export interface EntrySection { readonly title: string, readonly text: string }
 export interface EntryView
 {
-    readonly kind: "spell" | "item" | "condition" | "species" | "class" | "background";
+    readonly kind: "spell" | "item" | "condition" | "species" | "class" | "background" | "archetype";
     readonly name: string;
     /** "3rd-level evocation", "Martial weapon", "Weapon (any sword), rare (requires attunement)". */
     readonly subtitle: string;

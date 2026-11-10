@@ -1,0 +1,59 @@
+# Fan-made (DEC-27): an unofficial idea to start from, written by the platform; the name belongs to its owners.
+id: fan-heroes.archetype.kratos
+name:
+  en: Kratos
+source: fan-heroes
+pitch:
+  en: God of War — a Spartan warrior who fights in a rage that nothing stops, axe in hand.
+recommends:
+  species: srd51.species.human
+  class: srd51.class.barbarian
+  subclass: srd51.subclass.barbarian.path-of-the-berserker
+  prefer:
+    background:
+    - phb14.background.soldier
+  customBackground:
+    name:
+      en: Ghost of Sparta
+    skills:
+    - history
+    - survival
+    languages:
+    - celestial
+    - primordial
+    feature: srd51.feature.acolyte.shelter-of-the-faithful
+    equipment: srd51.background.acolyte
+  abilityPriority:
+  - str
+  - con
+  - dex
+  - wis
+  - cha
+  - int
+  answers:
+    srd51.class.barbarian#skills:
+    - athletics
+    - intimidation
+    srd51.species.human#languages:
+    - giant
+why:
+  class:
+    en: 'His Spartan Rage is the barbarian''s Rage: more damage, and blows that hurt him less.'
+  species:
+    en: 'A human: a little better at everything, with no gift but his own strength.'
+  subclass:
+    en: 'The Path of the Berserker (level 3): Frenzy, he fights on without stopping.'
+  background:
+    en: 'A Spartan general: a soldier, or a background of his own when the Player''s Handbook is not loaded.'
+  abilityPriority:
+    en: Strength for the axe, Constitution to take the blows.
+path:
+- level: 1
+  text:
+    en: 'Rage: the anger of the Ghost of Sparta.'
+- level: 3
+  text:
+    en: 'Frenzy: he does not stop until the fight is over.'
+- level: 5
+  text:
+    en: 'Extra Attack: two blows of the axe each turn. The Leviathan Axe is thrown as a handaxe.'

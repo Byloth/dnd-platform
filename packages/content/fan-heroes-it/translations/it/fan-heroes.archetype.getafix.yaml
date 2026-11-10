@@ -1,0 +1,10 @@
+name: Panoramix
+pitch: Asterix — il druido del villaggio che prepara la pozione magica che rende invincibili i Galli.
+why.class: 'Il druido per eccellenza: il falcetto d''oro e la borsa da erborista sono di ogni druido.'
+why.species: Un umano, il vecchio saggio del villaggio.
+why.subclass: 'Il Circolo della Terra (2° livello), la foresta: gli incantesimi dei boschi che conosce.'
+why.background: Un sapiente, l'uomo dotto del villaggio; un accolito, un sacerdote dell'antica fede, con il solo SRD.
+why.abilityPriority: La Saggezza per la magia del druido; i combattimenti li lascia agli altri.
+path.0.text: 'Bacche Benefiche: bacche che curano e nutrono.'
+path.1.text: 'Forma Selvatica: se mai volesse diventare un cinghiale.'
+path.2.text: 'Caratteristica Potenziata (Forza del Toro): la pozione magica, per un amico.'

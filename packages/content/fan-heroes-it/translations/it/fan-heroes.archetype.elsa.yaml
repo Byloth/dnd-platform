@@ -1,0 +1,11 @@
+name: Elsa
+pitch: Frozen - Il regno di ghiaccio — una regina nata con il potere del ghiaccio, che sta imparando a dominare.
+why.class: 'Uno stregone nasce con la magia e fatica a dominarla: è la sua storia.'
+why.species: Un'umana, una regina.
+why.subclass: 'La Discendenza Draconica di un drago bianco: il suo potere è il gelo.'
+why.background: Una nobile, la regina di Arendelle, o una regina tutta sua.
+why.abilityPriority: Il Carisma alimenta la sua magia; la Costituzione la regge.
+path.0.text: 'Raggio di Gelo: il primo ghiaccio dalle sue mani.'
+path.1.text: 'Affinità Elementale: il suo gelo ferisce di più.'
+path.2.text: 'Tempesta di Ghiaccio, poi Cono di Freddo (9° livello): la tormenta che scatena. Le scaglie della discendenza sono il suo ghiaccio.'
+recommends.customBackground.name: Regina di Arendelle

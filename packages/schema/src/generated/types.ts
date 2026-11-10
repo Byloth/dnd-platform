@@ -238,10 +238,41 @@ export interface Archetype {
         answers?: {
             [k: string]: string[] | undefined;
         };
+        /**
+         * Subclasses and backgrounds of other packages the idea is truer with, in order of preference (docs/phase-1/14-wizard-steps-revision.md): the first one loaded wins over `subclass` and `background`, which stay the fallback. Optional references: an id that is not loaded is skipped, never an error.
+         */
+        prefer?: {
+            /**
+             * @minItems 1
+             */
+            subclass?: [string, ...string[]];
+            /**
+             * @minItems 1
+             */
+            background?: [string, ...string[]];
+        };
+        /**
+         * A background of the character's own (the SRD's "Customizing a Background"), used when neither a preferred background nor `background` is loaded.
+         */
+        customBackground?: {
+            name: LocalizedString;
+            skills?: string[];
+            tools?: string[];
+            languages?: string[];
+            feature?: string;
+            equipment?: string;
+        };
     };
     why?: {
         [k: string]: LocalizedString | undefined;
     };
+    /**
+     * The levels that make the character who they are, shown on the idea's card (docs/phase-1/14-wizard-steps-revision.md).
+     */
+    path?: {
+        level: number;
+        text: LocalizedString;
+    }[];
 }
 export interface LocalizedString {
     [k: string]: string | undefined;

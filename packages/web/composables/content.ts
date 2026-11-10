@@ -10,6 +10,11 @@ export interface ContentIndex
         readonly translation?: { readonly language: string, readonly of: readonly string[] };
         /** Creatures only, for the catalogue (docs/19-catalogues.md): never offered, never loaded by the sheet. */
         readonly catalogue?: boolean;
+        /**
+         * Ideas to start from only (DEC-27, the famous characters' extension): never offered as content, loaded by
+         * the wizard's first step while the extension is on.
+         */
+        readonly ideas?: boolean;
     }>>;
 }
 

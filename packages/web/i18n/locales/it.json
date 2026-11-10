@@ -74,6 +74,14 @@
       "no": "Annulla",
       "inUse": "{name} è usato da {characters}: rimuovi o modifica prima quei personaggi."
     },
+    "extensions": {
+      "heading": "Estensioni",
+      "intro": "Cambiano il comportamento dell'applicazione; puoi disattivarle.",
+      "fanHeroes": {
+        "title": "Eroi famosi",
+        "text": "Personaggi di film, fumetti e videogiochi come idee da cui partire, al posto di quelle dell'SRD. Un'opera fan: sono presi in prestito solo i nomi."
+      }
+    },
     "storage": {
       "heading": "Spazio su questo dispositivo",
       "persisted": "Questo browser conserva i tuoi pacchetti e personaggi.",
@@ -423,12 +431,19 @@
       }
     },
     "concept": {
-      "purpose": "Scegli un'idea da cui partire, oppure salta e scegli tutto da te.",
-      "consequence": "Un'idea compila per te specie, classe, background e punteggi di caratteristica; puoi cambiare tutto dopo.",
+      "purpose": "Parti da zero, scegliendo tu ogni aspetto, o da un personaggio già abbozzato, da fare tuo.",
+      "consequence": "Un personaggio abbozzato compila per te specie, classe, background e punteggi di caratteristica; potrai cambiare tutto dopo.",
       "recommendation": "Scegli quella che ti sembra più divertente da giocare: non esiste una risposta sbagliata.",
       "skip": "Scelgo da me",
       "skipText": "Nessuna idea di partenza: ogni passo parte vuoto.",
-      "builds": "{class} · {species}"
+      "builds": "{class} · {species}",
+      "question": "Come vuoi iniziare?",
+      "scratch": "Da zero",
+      "scratchText": "Scegli tu specie, classe e tutto il resto, passo dopo passo.",
+      "sketched": "Un personaggio abbozzato",
+      "sketchedText": "Scegli un personaggio da cui partire: potrai cambiare tutto.",
+      "ideas": "Personaggi da cui partire",
+      "level": "{level}° livello"
     },
     "species": {
       "purpose": "La specie è l'origine del tuo personaggio: il corpo, i sensi, qualche dono.",
@@ -768,7 +783,7 @@
       },
       "ideas": {
         "name": "Idee da cui partire",
-        "text": "Scegli un'idea di personaggio e ogni passo si compila da solo, sempre modificabile."
+        "text": "Parti da zero, o da un personaggio famoso (Geralt, Elsa, Frieren…) già costruito secondo le regole; potrai cambiare tutto."
       },
       "background": {
         "name": "Un background tutto tuo",

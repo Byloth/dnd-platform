@@ -114,6 +114,8 @@ export const useWizardStore = defineStore("wizard", () =>
     /** The id of the stored character being edited; undefined while creating one. */
     const editing = ref<string>();
     const sources = shallowRef<PackageSource[]>([]);
+    /** The famous characters' extension (DEC-27), while on: its ideas, never part of the character. */
+    const ideaSources = shallowRef<PackageSource[]>([]);
 
     /**
      * The steps on offer (docs/phase-1/14-wizard-steps-revision.md): editing a character has no concept step, an
@@ -188,14 +190,54 @@ export const useWizardStore = defineStore("wizard", () =>
 
     const _loadSources = async (): Promise<void> =>
     {
+        const content = useContentStore();
         const ids = character.value?.packages.map((p) => p.id) ?? [];
-        sources.value = await useContentStore().sources(ids);
+        sources.value = await content.sources(ids);
+        await _loadIdeas();
+    };
+
+    /** The extension's ideas, when it is on and the site publishes it; the SRD's ideas when it cannot be fetched. */
+    const _loadIdeas = async (): Promise<void> =>
+    {
+        const content = useContentStore();
+        const wanted = usePreferencesStore().fanHeroes ? content.extensions : [];
+        ideaSources.value = wanted.length ? await content.sources(wanted).catch(() => []) : [];
     };
 
     // The interface's language brings its translation packages: a change of language reloads the sources.
     watch(() => useNuxtApp().$i18n.locale.value, () =>
     {
         if (character.value) { void _loadSources(); }
+    });
+    watch(() => usePreferencesStore().fanHeroes, () =>
+    {
+        if (character.value) { void _loadIdeas(); }
+    });
+
+    /**
+     * The package set the ideas to start from are read in: the draft's, with the extension's packages while it is
+     * on (DEC-27). Only the first step and the archetype's recommendations read it; the sheet never does.
+     */
+    const ideaSet = computed((): PackageSet | undefined =>
+    {
+        const current = character.value;
+        if (!current || !sources.value.length || !ideaSources.value.length) { return packageSet.value; }
+        const pins = Object.fromEntries(current.packages.map((p) => [p.id, p.version]));
+
+        return useEngine().packageSet([...sources.value, ...ideaSources.value], pins);
+    });
+
+    /** The ideas the first step offers: the extension's while it is on and loaded, the draft's packages' otherwise. */
+    const ideas = computed(() =>
+    {
+        const set = ideaSet.value;
+        if (!set) { return []; }
+        const own = new Set(ideaSources.value.map((s) => s.manifest.id));
+        const all = [...set.entities.values()]
+            .filter((e) => (e.type === "archetype") && e.active && (e.inline === undefined));
+        const extension = all.filter((e) => own.has(e.package));
+
+        return extension.length ? extension : all.filter((e) => !own.has(e.package));
     });
 
     /** Writes the draft now; pending changes are written first. */
@@ -515,7 +557,48 @@ export const useWizardStore = defineStore("wizard", () =>
     };
 
     const _archetype = (id: string | null | undefined): Archetype | undefined =>
-        (id ? packageSet.value?.entities.get(id)?.data as Archetype | undefined : undefined);
+        (id ? ideaSet.value?.entities.get(id)?.data as Archetype | undefined : undefined);
+
+    /**
+     * An archetype's recommendations as they apply to the draft (docs/phase-1/14-wizard-steps-revision.md): the
+     * first preferred subclass and background its packages have, else the plain ones, else the background of its
+     * own; the subclass only when the class chooses it at level 1.
+     */
+    const _resolved = (recommends: Archetype["recommends"]) =>
+    {
+        const set = packageSet.value;
+        const loaded = (id: string, type: string): boolean =>
+            (set?.entities.get(id)?.type === type) && (set.entities.get(id)?.active ?? false);
+        const subclass = [...recommends.prefer?.subclass ?? [], ...(recommends.subclass ? [recommends.subclass] : [])]
+            .find((id) => loaded(id, "subclass") &&
+                ((set?.entities.get(id)?.data as { class?: string } | undefined)?.class === recommends.class));
+        const background = [
+            ...recommends.prefer?.background ?? [],
+            ...(recommends.background ? [recommends.background] : [])
+
+        ].find((id) => loaded(id, "background"));
+        const level = recommends.class ?
+            (set?.entities.get(recommends.class)?.data as Class | undefined)?.subclassLevel ?? 1 :
+            1;
+        const own = recommends.customBackground;
+        const customBackground = !background && own ?
+            defined({
+                name: localize(own.name, useNuxtApp().$i18n.locale.value),
+                skills: own.skills,
+                tools: own.tools,
+                languages: own.languages,
+                feature: own.feature,
+                equipment: own.equipment
+            }) as CustomBackground :
+            undefined;
+
+        return {
+            subclass: subclass,
+            chosenSubclass: level <= 1 ? subclass : undefined,
+            background: background,
+            customBackground: customBackground
+        };
+    };
 
     /** The given abilities first, then the ruleset's others in its order. */
     const _order = (first: readonly string[]): string[] =>
@@ -550,16 +633,23 @@ export const useWizardStore = defineStore("wizard", () =>
         const array = packageSet.value?.ruleset.abilityScores?.standardArray;
         const order = _order(recommends.abilityPriority ?? []);
 
-        _choices((choices) => ({
+        const resolved = _resolved(recommends);
+        // An answer naming the plain subclass names the one chosen instead (the Trickery Domain for the Life Domain).
+        const named = (v: string): string => ((v === recommends.subclass) && resolved.subclass ? resolved.subclass : v);
+        const answers = Object.fromEntries(Object.entries(recommends.answers ?? {})
+            .map(([key, values]) => [key, (values ?? []).map(named)]));
+
+        _choices((choices) => defined({
             ...choices,
             species: recommends.species,
             subspecies: recommends.subspecies,
             classes: recommends.class ?
-                [defined({ class: recommends.class, subclass: recommends.subclass, levels: 1 })] :
+                [defined({ class: recommends.class, subclass: resolved.chosenSubclass, levels: 1 })] :
                 choices.classes,
-            background: recommends.background,
+            background: resolved.background,
+            customBackground: resolved.customBackground,
             abilityScores: array ? { method: "standard-array", base: deal(array, order) } : choices.abilityScores,
-            answers: { ...choices.answers, ...recommends.answers }
+            answers: { ...choices.answers, ...answers }
         }));
         _resetEquipment("class");
         _resetEquipment("background");
@@ -1011,7 +1101,13 @@ export const useWizardStore = defineStore("wizard", () =>
     const recommendation = (key: keyof Archetype["recommends"]): { value: unknown, why?: string } | undefined =>
     {
         const chosen = _archetype(archetype.value);
-        const value = chosen?.recommends[key];
+        const resolved = chosen ? _resolved(chosen.recommends) : undefined;
+        // The subclass and the background as they apply: the preferred one when loaded, a background of its own.
+        const value = key === "subclass" ?
+            resolved?.subclass :
+            (key === "background" ?
+                resolved?.background ?? (resolved?.customBackground ? "custom" : undefined) :
+                chosen?.recommends[key]);
         if (value === undefined) { return undefined; }
         const why = chosen?.why?.[key === "subspecies" ? "species" : key];
 
@@ -1030,6 +1126,8 @@ export const useWizardStore = defineStore("wizard", () =>
         steps,
         sources,
         packageSet,
+        ideaSet,
+        ideas,
         start,
         edit,
         stored,

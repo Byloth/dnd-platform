@@ -1,0 +1,11 @@
+name: Frieren
+pitch: Frieren - Oltre la fine del viaggio — una maga elfa che da mille anni colleziona incantesimi.
+why.class: 'Un mago copia nel suo libro ogni incantesimo che trova: mille anni di collezione.'
+why.species: 'Un''alta elfa: vive per secoli, e conosce un trucchetto in più.'
+why.subclass: 'La Scuola di Invocazione (2° livello): lo Zoltraak, la magia che uccide, è un''invocazione.'
+why.background: Una sapiente, o una collezionista di incantesimi tutta sua.
+why.abilityPriority: L'Intelligenza per la magia del mago.
+path.0.text: 'Dardo Incantato: lo Zoltraak, una magia che non manca mai il bersaglio.'
+path.1.text: 'Individuazione del Magico: sente il mana di chi le sta intorno.'
+path.2.text: Recupero Arcano, e un libro degli incantesimi che non smette di crescere.
+recommends.customBackground.name: Collezionista di incantesimi

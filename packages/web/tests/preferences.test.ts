@@ -24,8 +24,9 @@ describe("preferences", () =>
     {
         const preferences = usePreferencesStore();
 
-        const { language, helpLevel, theme, contrast, units, pageSize, hand } = preferences;
-        expect({ language, helpLevel, theme, contrast, units, pageSize, hand }).toEqual({ ...DEFAULT_PREFERENCES });
+        const { language, helpLevel, theme, contrast, units, pageSize, hand, fanHeroes } = preferences;
+        expect({ language, helpLevel, theme, contrast, units, pageSize, hand, fanHeroes })
+            .toEqual({ ...DEFAULT_PREFERENCES });
         expect(preferences.helpLevel).toBe("newcomer");
     });
 
@@ -37,6 +38,7 @@ describe("preferences", () =>
         preferences.theme = "dark";
         preferences.hand = "print";
         preferences.units = "metric";
+        preferences.fanHeroes = false;
         await nextTick();
 
         expect(JSON.parse(localStorage.getItem(PREFERENCES_KEY)!)).toEqual({
@@ -46,13 +48,14 @@ describe("preferences", () =>
             contrast: "system",
             units: "metric",
             pageSize: "a4",
-            hand: "print"
+            hand: "print",
+            fanHeroes: false
         });
 
         setActivePinia(createPinia());
         const again = usePreferencesStore();
-        expect([again.language, again.helpLevel, again.theme, again.hand, again.units])
-            .toEqual(["it", "expert", "dark", "print", "metric"]);
+        expect([again.language, again.helpLevel, again.theme, again.hand, again.units, again.fanHeroes])
+            .toEqual(["it", "expert", "dark", "print", "metric", false]);
     });
 
     it("start in the browser's language, until one is chosen", () =>

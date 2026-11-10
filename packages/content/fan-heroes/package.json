@@ -1,0 +1,7 @@
+{
+  "name": "@byloth/dnd-platform-content-fan-heroes",
+  "version": "0.0.0",
+  "description": "Extension (DEC-27): famous characters from popular culture as the creation wizard's ideas to start from, fan-made, on the SRD 5.1.",
+  "private": true,
+  "license": "CC-BY-4.0"
+}

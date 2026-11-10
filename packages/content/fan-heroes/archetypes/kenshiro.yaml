@@ -1,0 +1,61 @@
+# Fan-made (DEC-27): an unofficial idea to start from, written by the platform; the name belongs to its owners.
+id: fan-heroes.archetype.kenshiro
+name:
+  en: Kenshiro
+source: fan-heroes
+pitch:
+  en: Fist of the North Star — the master of a martial art that strikes the body's secret points.
+recommends:
+  species: srd51.species.human
+  class: srd51.class.monk
+  subclass: srd51.subclass.monk.way-of-the-open-hand
+  prefer:
+    background:
+    - phb14.background.folk-hero
+  customBackground:
+    name:
+      en: Successor of Hokuto
+    skills:
+    - medicine
+    - survival
+    tools:
+    - herbalism-kit
+    - vehicles-land
+    feature: srd51.feature.acolyte.shelter-of-the-faithful
+    equipment: srd51.background.acolyte
+  abilityPriority:
+  - dex
+  - wis
+  - con
+  - str
+  - int
+  - cha
+  answers:
+    srd51.class.monk#skills:
+    - athletics
+    - insight
+    srd51.class.monk#tools:
+    - cooks-utensils
+    srd51.species.human#languages:
+    - giant
+why:
+  class:
+    en: 'A monk: bare hands, fast feet, no armour.'
+  species:
+    en: A human, wandering a ruined world.
+  subclass:
+    en: 'The Way of the Open Hand (level 3): every blow can throw, push or stop a foe.'
+  background:
+    en: A folk hero who defends the weak, or a successor of his school of his own.
+  abilityPriority:
+    en: 'Dexterity and Wisdom: a monk''s blows and defence.'
+path:
+- level: 3
+  text:
+    en: 'Open Hand Technique: the blow that throws a foe to the ground.'
+- level: 5
+  text:
+    en: 'Stunning Strike: the pressure points, a foe that cannot move.'
+- level: 17
+  text:
+    en: 'Quivering Palm: "you are already dead".'
